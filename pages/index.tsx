@@ -11,7 +11,7 @@ import CompaniesScroll from '../components/slider/slider';
 import SubSection from '../components/subsection/subsection';
 import Title from '../components/Text/title';
 import { BUTTON_ACTIVE } from '../const/const';
-import { Styles } from './styles';
+import { Styles } from '../styles/styles';
 
 function Home() {
   const [isOpen, SetIsOpen] = useState<boolean>(false);
