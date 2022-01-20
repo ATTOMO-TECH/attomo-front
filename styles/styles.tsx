@@ -7,9 +7,11 @@ type Props = {
 
 export const Styles = {
   Body: tw.body<Props>`
-bg-secundary scroll-smooth
+bg-secundary scroll-smooth m-auto
   ${(props) =>
-    props.ismode === BUTTON_ACTIVE.ON ? 'overflow-hidden h-screen' : ''}
+    props.ismode === BUTTON_ACTIVE.ON
+      ? 'overflow-hidden h-screen max-w-full'
+      : ''}
   
   `,
   Center: tw.section`w-10/12 m-auto`,

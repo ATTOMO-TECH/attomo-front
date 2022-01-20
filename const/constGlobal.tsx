@@ -87,3 +87,48 @@ export const CUSTOMERS: {
     Url: '',
   },
 ];
+
+export const SERVICES: {
+  Title: string;
+  Services: [string, string, string, string, string, string];
+  Description: string;
+}[] = [
+  {
+    Title: 'Estrategia',
+    Services: [
+      'Digital Marketing',
+      'Digital Sales',
+      'Cultural transformation',
+      'Cultural Hacking',
+      'Business Hacking',
+      'Sostenibilidad',
+    ],
+    Description: 'Transformación digital con impacto directo en el negocio',
+  },
+  {
+    Title: 'Diseño',
+    Services: [
+      'UX Design',
+      'UI Engineering',
+      'User Experience',
+      'Web Design',
+      'Agile Methodology',
+      'Process Optimization',
+    ],
+    Description:
+      'Propuestas estéticas atractivas que hacen que el usuario se identifique con la marca',
+  },
+  {
+    Title: 'Tecnología',
+    Services: [
+      'Ecommerce',
+      'Webs 4.0',
+      'CRM',
+      'ERP',
+      'Integración entre sistemas',
+      'Cloud Ops',
+    ],
+    Description:
+      'Infraestructura funcional y escalable que ofrece experiencias de primer nivel',
+  },
+];
