@@ -7,22 +7,33 @@ import { VALUESNAV } from '../../const/constGlobal';
 interface Props {
   isOpen: boolean;
   toggle: () => void;
+  logo: boolean;
 }
 
-export default function Menu({ isOpen, toggle }: Props) {
+export default function Menu({ isOpen, toggle, logo }: Props) {
   return (
     <>
       <Navegation.SectionMenu
         ismode={isOpen ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
         <Navegation.Menu>
-          <Navegation.AlinItems>
+          <Navegation.AlinItems
+            ismode={logo ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
             <Navegation.ItemsMenu>
-              <Image
-                src="/icon/attomo.svg"
-                width={100}
-                height={100}
-                alt="Attomo"
-              />
+              {logo === true ? (
+                <Image
+                  src="/icon/isoAttomo.svg"
+                  width={30}
+                  height={30}
+                  alt="Attomo"
+                />
+              ) : (
+                <Image
+                  src="/icon/attomo.svg"
+                  width={100}
+                  height={100}
+                  alt="Attomo"
+                />
+              )}
             </Navegation.ItemsMenu>
             <Navegation.ItemsMenu onClick={toggle}>
               <Navegation.TextMenu ismode="">Menú</Navegation.TextMenu>

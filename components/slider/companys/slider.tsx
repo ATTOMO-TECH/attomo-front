@@ -2,7 +2,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Scrollbar } from 'swiper';
 import Image from 'next/image';
-import { CUSTOMERS } from '../../const/constGlobal';
+import { CUSTOMERS } from '../../../const/constGlobal';
 
 export default function CompaniesScroll() {
   SwiperCore.use([Scrollbar]);

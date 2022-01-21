@@ -13,7 +13,7 @@ import Title from '../components/Text/title';
 import { BUTTON_ACTIVE } from '../const/const';
 import { Styles } from '../styles/styles';
 
-function Home() {
+function News() {
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const toggle = () => {
     SetIsOpen(!isOpen);
@@ -26,11 +26,7 @@ function Home() {
           <Nav toggle={toggle} logo={false} />
         </Styles.Center>
         <Styles.Center>
-          <Hero
-            text="Somos una consultora tecnológica con una única misión: ayudar a las empresas y administraciones a liderar a través de la digitalización"
-            button="Conoce más"
-            link="conocenos"
-          />
+          <Hero text="" button="" link="" />
         </Styles.Center>
         <Styles.CenterFlex id="conocenos">
           <SubSection />
@@ -79,4 +75,4 @@ function Home() {
     </>
   );
 }
-export default Home;
+export default News;

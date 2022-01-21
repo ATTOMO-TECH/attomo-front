@@ -9,11 +9,13 @@ export const Navegation = {
   SectionMenu: tw.section<Props>`
     ${(props) =>
       props.ismode === BUTTON_ACTIVE.ON
-        ? 'h-screen w-full fixed overflow-hidden bg-black z-100 font-Primary'
+        ? 'h-screen w-full fixed overflow-hidden bg-black h-auto z-100 font-Primary'
         : 'hidden'}
     `,
-  Menu: tw.nav`w-10/12 m-auto`,
-  AlinItems: tw.ul`flex items-center justify-between pb-20`,
+  Menu: tw.nav``,
+  AlinItems: tw.ul<Props>`flex items-center justify-between pb-20 m-auto w-10/12
+  ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'pt-10' : '')}
+  `,
   ItemsMenu: tw.li`text-primary flex items-center`,
   TextMenu: tw.h6<Props>`
   mr-5
@@ -24,7 +26,7 @@ export const Navegation = {
 
   // NAV
   SectionNav: tw.nav<Props>`
-h-2/12 font-Primary
-${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'fixed w-10/12 z-90' : '')}
+font-Primary bg-secundary z-100 h-24
+${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'fixed w-full' : '')}
 `,
 };

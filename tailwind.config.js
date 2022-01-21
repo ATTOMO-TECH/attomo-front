@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         Primary: ['Merriweather', 'serif'],
+        PrimarySerif: ['Merriweather Sans', 'sans-serif'],
         Secundary: ['Lato', 'sans-serif'],
 
       },

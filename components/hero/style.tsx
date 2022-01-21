@@ -13,7 +13,7 @@ export const TextHero = styled.h2`
 `;
 
 export const HeadSection = {
-  TextHead: tw(TextHero)`lg:py-48 lg:pr-72 pb-24  text-4xl font-thin`,
+  TextHead: tw(TextHero)`lg:py-48 lg:pr-10 pb-24 text-5xl font-thin`,
   SectionHero: tw.section`h-screen font-Primary`,
   Blockbutton: tw.div`relative cursor-pointer`,
   TextButton: tw.h6`text-primary`,

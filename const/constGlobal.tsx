@@ -87,3 +87,73 @@ export const CUSTOMERS: {
     Url: '',
   },
 ];
+
+export const ARTICLES: {
+  Text: string;
+  Pic: string;
+  Url: string;
+  Tag: string;
+}[] = [
+  {
+    Text: 'Vulputate facilisis ipsum morbi arcu, risus semper netus',
+    Pic: '/customers/customerServices1.png',
+    Url: '',
+    Tag: '1',
+  },
+  {
+    Text: 'Nisi, sem eget mauris pretium egestas tellus tempus',
+    Pic: '/customers/customerServices2.png',
+    Url: '',
+    Tag: '2',
+  },
+  {
+    Text: 'Magna pharetra fusce eget lectus curabitur odio cras felis risus',
+    Pic: '/customers/customerServices3.png',
+    Url: '',
+    Tag: '3',
+  },
+];
+export const SERVICES: {
+  Title: string;
+  Services: [string, string, string, string, string, string];
+  Description: string;
+}[] = [
+  {
+    Title: 'Estrategia',
+    Services: [
+      'Digital Marketing',
+      'Digital Sales',
+      'Cultural transformation',
+      'Cultural Hacking',
+      'Business Hacking',
+      'Sostenibilidad',
+    ],
+    Description: 'Transformación digital con impacto directo en el negocio',
+  },
+  {
+    Title: 'Diseño',
+    Services: [
+      'UX Design',
+      'UI Engineering',
+      'User Experience',
+      'Web Design',
+      'Agile Methodology',
+      'Process Optimization',
+    ],
+    Description:
+      'Propuestas estéticas atractivas que hacen que el usuario se identifique con la marca',
+  },
+  {
+    Title: 'Tecnología',
+    Services: [
+      'Ecommerce',
+      'Webs 4.0',
+      'CRM',
+      'ERP',
+      'Integración entre sistemas',
+      'Cloud Ops',
+    ],
+    Description:
+      'Infraestructura funcional y escalable que ofrece experiencias de primer nivel',
+  },
+];
