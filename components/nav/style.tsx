@@ -13,7 +13,9 @@ export const Navegation = {
         : 'hidden'}
     `,
   Menu: tw.nav``,
-  AlinItems: tw.ul`flex items-center justify-between pb-20 m-auto w-10/12`,
+  AlinItems: tw.ul<Props>`flex items-center justify-between pb-20 m-auto w-10/12
+  ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'pt-10' : '')}
+  `,
   ItemsMenu: tw.li`text-primary flex items-center`,
   TextMenu: tw.h6<Props>`
   mr-5

@@ -88,6 +88,31 @@ export const CUSTOMERS: {
   },
 ];
 
+export const ARTICLES: {
+  Text: string;
+  Pic: string;
+  Url: string;
+  Tag: string;
+}[] = [
+  {
+    Text: 'Vulputate facilisis ipsum morbi arcu, risus semper netus',
+    Pic: '/customers/customerServices1.png',
+    Url: '',
+    Tag: '1',
+  },
+  {
+    Text: 'Nisi, sem eget mauris pretium egestas tellus tempus',
+    Pic: '/customers/customerServices2.png',
+    Url: '',
+    Tag: '2',
+  },
+  {
+    Text: 'Magna pharetra fusce eget lectus curabitur odio cras felis risus',
+    Pic: '/customers/customerServices3.png',
+    Url: '',
+    Tag: '3',
+  },
+];
 export const SERVICES: {
   Title: string;
   Services: [string, string, string, string, string, string];

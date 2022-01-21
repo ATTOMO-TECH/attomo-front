@@ -6,6 +6,16 @@ type Props = {
   ismode: any;
 };
 export const SectionTitle = styled.h5`
+  &:nth-child(1) {
+    padding-top: 0%;
+  }
+  &:nth-child(2) {
+    padding-top: 10%;
+    order: 1;
+  }
+  &:nth-child(3) {
+    padding-top: 10%;
+  }
   @media screen and (min-width: 1024px) {
      {
       &:nth-child(1) {
@@ -51,7 +61,7 @@ export const Item = styled.div<Props>`
 @media screen and (min-width: 1024px) 
 {
   {transform: rotate(35deg)}
-}; transform: rotate(-50deg)`
+}; transform: rotate(-16deg)`
       : ''}
   ${(props) =>
     props.ismode === 1
@@ -59,15 +69,15 @@ export const Item = styled.div<Props>`
   @media screen and (min-width: 1024px) 
   {
     {transform: rotate(55deg)}
-  }; transform: rotate(-16deg)`
+  }; transform: rotate(-50deg)`
       : ''}
     ${(props) =>
     props.ismode === 2
       ? `
     @media screen and (min-width: 1024px) 
     {
-      {transform: rotate(75deg)}
-    }; transform: rotate(30deg)`
+      {transform: rotate(65deg)}
+    }; transform: rotate(15deg)`
       : ''}
 `;
 
@@ -75,13 +85,10 @@ export const ItemSection = styled.div`
   width: 40px;
   height: 8px;
   border-radius: 80% 80% 40% 40%;
-
   position: absolute;
   top: -8px;
-  @media screen and (min-width: 1024px) {
-    left: 50%;
-  }
-  left: 52%;
+  left: 50%;
+  transition: all 3s;
 
   &:after {
     content: url('/icon/elementElipse.svg');
@@ -99,7 +106,7 @@ export const Imgen = styled.img<Props>`
 @media screen and (min-width: 1024px) 
 {
   {transform: rotate(-45deg)}
-}; transform: rotate(-15deg);`
+}; transform: rotate(-50deg);`
       : ''}
   ${(props) =>
     props.ismode === 1
@@ -107,31 +114,45 @@ export const Imgen = styled.img<Props>`
   @media screen and (min-width: 1024px) 
   {
     {transform: rotate(-65deg)}
-  }; transform: rotate(-50deg);`
+  }; transform: rotate(-15deg);`
       : ''}
   ${(props) =>
     props.ismode === 2
       ? `
   @media screen and (min-width: 1024px) 
   {
-    {transform: rotate(-85deg)}
-  }; transform: rotate(-95deg);`
+    {transform: rotate(-75deg)}
+  }; transform: rotate(-80deg);`
       : ''}
 `;
-
+export const TextTitle = styled.h2`
+  background: linear-gradient(
+    to right,
+    #cccfe8 26.04%,
+    #ffffff 69.27%,
+    #cccfe8 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`;
 export const Styles = {
-  SectionAtom: tw(Item)``,
+  SectionCollapse: tw.section` fornt-PrimarySerif overflow-hidden max-w-100 flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative mb-24 font-light leading-loose`,
+  BlockDescription: tw.div`lg:text-right text-xl lg:absolute bottom-12 lg:-right-4 w-full text-center `,
+  SubSection: tw(SubSection)`font-regular  py-0.5 text-base`,
+  BlockImg: tw.div`relative p-1`,
+  SectionAtom: tw(Item)`animate-pulse transition ease-in-out delay-150 `,
+  BlockAtom: tw.div`absolute`,
   Atom: tw(ItemSection)``,
   Image: tw(Imgen)``,
   BlockTextSelect: tw(
     SectionTitle,
   )`text-2xl cursor-pointer lg:absolute left-0 bottom-2 lg:bottom-2 lg:left-auto lg:top-7 flex lg:block`,
-  TextSelect: tw(SectionTitle)<Props>`py-7 opacity-70 hover:opacity-100 px-5
+  BlockSectionTitle: tw.div`w-auto`,
+  TextSelect: tw(
+    SectionTitle,
+  )<Props>`py-7 opacity-70 hover:opacity-100 px-5 order-last
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : '')}`,
-  SubSection: tw(SubSection)``,
-
-  // HeroFooter
-
-  SectionHeroFooter: tw.section`h-auto lg:h-96 text-primary lg:rounded-3xl font-Primary lg:border border-primary my-24 bg-gradient-to-b lg:from-gray-900 from-gray-700 border-opacity-10 flex justify-center items-center`,
-  TextHeroFooter: tw.h5`text-4xl lg:p-44 p-14 font-light leading-relaxed lg:leading-normal`,
+  TextCentral: tw(
+    TextTitle,
+  )`absolute lg:top-52 top-36 right-24 lg:right-32 16 w-3/6 text-center text-lg leading-relaxed`,
 };

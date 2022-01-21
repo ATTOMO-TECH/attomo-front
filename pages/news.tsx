@@ -7,7 +7,7 @@ import HeroFooter from '../components/hero/heroFooter';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
 import SectionProjects from '../components/section/projects';
-import CompaniesScroll from '../components/slider/slider';
+import CompaniesScroll from '../components/slider/companys/slider';
 import SubSection from '../components/subsection/subsection';
 import Title from '../components/Text/title';
 import { BUTTON_ACTIVE } from '../const/const';
@@ -21,9 +21,9 @@ function News() {
   return (
     <>
       <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
-        <Menu isOpen={isOpen} toggle={toggle} />
+        <Menu isOpen={isOpen} toggle={toggle} logo={false} />
         <Styles.Center>
-          <Nav toggle={toggle} />
+          <Nav toggle={toggle} logo={false} />
         </Styles.Center>
         <Styles.Center>
           <Hero text="" button="" link="" />

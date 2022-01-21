@@ -5,9 +5,10 @@ import { BUTTON_ACTIVE } from '../../const/const';
 
 interface Props {
   toggle: () => void;
+  logo: boolean;
 }
 
-export default function Nav({ toggle }: Props) {
+export default function Nav({ toggle, logo }: Props) {
   const [scroll, setScroll] = useState(true);
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -22,14 +23,24 @@ export default function Nav({ toggle }: Props) {
     <>
       <Navegation.SectionNav
         ismode={!scroll ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-        <Navegation.AlinItems>
+        <Navegation.AlinItems
+          ismode={logo ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
           <Navegation.ItemsMenu>
-            <Image
-              src="/icon/attomo.svg"
-              width={100}
-              height={100}
-              alt="Attomo"
-            />
+            {logo === true ? (
+              <Image
+                src="/icon/isoAttomo.svg"
+                width={30}
+                height={30}
+                alt="Attomo"
+              />
+            ) : (
+              <Image
+                src="/icon/attomo.svg"
+                width={100}
+                height={100}
+                alt="Attomo"
+              />
+            )}
           </Navegation.ItemsMenu>
           <Navegation.ItemsMenu onClick={toggle}>
             <Navegation.TextMenu

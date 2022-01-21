@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Primary: ['Merriweather Sans', 'sans-serif'],
+        Primary: ['Merriweather', 'serif'],
+        PrimarySerif: ['Merriweather Sans', 'sans-serif'],
         Secundary: ['Lato', 'sans-serif'],
 
       },
