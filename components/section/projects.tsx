@@ -1,4 +1,7 @@
 import Image from 'next/image';
+import Link from 'next/link';
+import { BUTTON_ACTIVE } from '../../const/const';
+import { HOMECUSTOMERS } from '../../const/constGlobal';
 import Btn from '../button/button';
 import Title from '../Text/title';
 import { Styles } from './style';
@@ -7,40 +10,30 @@ export default function SectionProjects() {
   return (
     <>
       <Styles.SectionProjects>
-        <Styles.BlockSections>
-          <Styles.BlockSection>
-            <Image
-              src="/customers/customer1.png"
-              width={600}
-              height={400}
-              alt="customer"
-            />
-          </Styles.BlockSection>
-          <Styles.BlockText>
-            <Title size="text-xl "> Grandes Viviendas Real Estate</Title>
-            <Title size="text-5xl py-5 leading-relaxed lg:leading-normal">
-              Reinventando la industria de la intermediación de viviendas
-            </Title>
-            <Btn>Ver proyecto</Btn>
-          </Styles.BlockText>
-        </Styles.BlockSections>
-        <Styles.BlockSectionsReverse>
-          <Styles.BlockSectionReverses>
-            <Image
-              src="/customers/customer2.png"
-              width={650}
-              height={400}
-              alt="customer"
-            />
-          </Styles.BlockSectionReverses>
-          <Styles.BlockSectionReverse>
-            <Title size="text-xl"> Chi & Su</Title>
-            <Title size="text-5xl py-5 leading-relaxed lg:leading-normal">
-              Transformando la industria de la moda femenina
-            </Title>
-            <Btn>Ver proyecto</Btn>
-          </Styles.BlockSectionReverse>
-        </Styles.BlockSectionsReverse>
+        {HOMECUSTOMERS.map((values, i) => (
+          <Styles.BlockSections
+            ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+            <Styles.BlockSection
+              ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+              <Image
+                src={values.Pic}
+                width={800}
+                height={600}
+                alt={values.Client}
+              />
+            </Styles.BlockSection>
+            <Styles.BlockText
+              ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+              <Title size="text-xl ">{values.Client}</Title>
+              <Title size="text-5xl py-5 leading-relaxed lg:leading-normal">
+                {values.Text}
+              </Title>
+              <Link href={values.Url}>
+                <Btn>Ver proyecto</Btn>
+              </Link>
+            </Styles.BlockText>
+          </Styles.BlockSections>
+        ))}
       </Styles.SectionProjects>
     </>
   );

@@ -1,4 +1,12 @@
+import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
+
+export const TextTitle = styled.input`
+  &:before {
+    content: 'hi';
+    color: red;
+  }
+`;
 
 export const Navegation = {
   SectionFooter: tw.footer`text-gray-600 body-font border-t border-primary bg-secundary`,
@@ -10,10 +18,12 @@ export const Navegation = {
   NavFooter: tw.nav`list-none mb-10 font-secundary text-primary text-sm cursor-pointer`,
   NavFooterFlex: tw.nav`list-none mb-10 flex cursor-pointer justify-start`,
   ItemsMenu: tw.p`py-2 leading-relaxed lg:leading-none text-lg font-extralight`,
-  BlockInput: tw.div`flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-wrap justify-center items-end md:justify-start`,
-  Input: tw.input`w-full bg-secundary text-primary border-b-2 border-primary focus:outline-none focus:opacity-100 opacity-30 outline-none  py-1 px-1 lg:text-xs text-xl font-light transition-colors duration-200 ease-in-out`,
+  BlockInput: tw.div`relative flex flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-wrap justify-center items-end md:justify-start`,
+  Input: tw(
+    TextTitle,
+  )` flex bg-secundary text-primary  outline-none  py-1 px-1 lg:text-xs text-xl font-light  `,
   BlockSubText: tw.div`flex flex-col lg:flex-row justify-end text-primary text-sm font-Secundary`,
-  SubText: tw.p`lg:px-10 px-5 py-3 opacity-30 hover:opacity-100 cursor-pointer`,
+  SubText: tw.p`lg:px-10 px-5 py-3 hover:opacity-50 cursor-pointer ease-out duration-300`,
 };
 export const SubNavegation = {
   SectionSub: tw.div`bg-primary font-Secundary hidden lg:block`,

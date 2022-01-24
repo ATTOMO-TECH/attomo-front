@@ -26,4 +26,6 @@ bg-secundary scroll-smooth m-auto
   FlexEnd: tw.div`flex lg:justify-end`,
   TitleSubSection: tw.h5`text-primary py-20 font-Primary text-lg font-light`,
   AlingBlock: tw.div`w-11/12 lg:w-8/12 overflow-x-hidden`,
+  BlockInput: tw.div`flex `,
+  Input: tw.input`w-full bg-secundary text-primary border-b-2 border-primary focus:outline-none focus:opacity-100 opacity-30 outline-none  py-1 px-1 lg:text-lg text-xl font-light transition-colors duration-400 ease-in-out`,
 };

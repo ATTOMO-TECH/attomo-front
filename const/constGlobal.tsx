@@ -157,3 +157,72 @@ export const SERVICES: {
       'Infraestructura funcional y escalable que ofrece experiencias de primer nivel',
   },
 ];
+
+export const HOMECUSTOMERS: {
+  Text: string;
+  Client: string;
+  Pic: string;
+  Url: string;
+  Tag: string;
+}[] = [
+  {
+    Text: 'Reinventando la industria de la intermediación de viviendas',
+    Client: 'Grandes Viviendas Real Estate',
+    Pic: '/customers/customer1.png',
+    Url: '',
+    Tag: '1',
+  },
+  {
+    Text: 'Transformando la industria de la moda femenina',
+    Client: 'Chi & Su',
+    Pic: '/customers/customer2.png',
+    Url: '',
+    Tag: '2',
+  },
+];
+
+export const BLOG: {
+  Topic: string;
+  Text: string;
+  SubText: string;
+  Url: string;
+  Pic: string;
+  Tag: string;
+}[] = [
+  {
+    Topic: 'Temática',
+    Text: 'Dictum libero pellentesque faucibus tristique ut',
+    SubText:
+      'Porttitor tristique neque tellus felis semper libero, nullam pharetra augue. Dui euismod fringilla habitasse lectus natoque laoreet semper.',
+    Url: '',
+    Pic: '/customers/blog/blog1.png',
+    Tag: '1',
+  },
+  {
+    Topic: 'Temática',
+    Text: 'Dictum libero pellentesque faucibus tristique ut',
+    SubText:
+      'Porttitor tristique neque tellus felis semper libero, nullam pharetra augue. Dui euismod fringilla habitasse lectus natoque laoreet semper.',
+    Url: '',
+    Pic: '/customers/blog/blog2.png',
+    Tag: '2',
+  },
+  {
+    Topic: 'Temática',
+    Text: 'Dictum libero pellentesque faucibus tristique ut',
+    SubText:
+      'Porttitor tristique neque tellus felis semper libero, nullam pharetra augue. Dui euismod fringilla habitasse lectus natoque laoreet semper.',
+    Url: '',
+    Pic: '/customers/blog/blog3.png',
+    Tag: '3',
+  },
+  {
+    Topic: 'Temática',
+    Text: 'Dictum libero pellentesque faucibus tristique ut',
+    SubText:
+      'Porttitor tristique neque tellus felis semper libero, nullam pharetra augue. Dui euismod fringilla habitasse lectus natoque laoreet semper.',
+    Url: '',
+    Pic: '/customers/blog/blog4.png',
+    Tag: '4',
+  },
+];

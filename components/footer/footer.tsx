@@ -1,9 +1,15 @@
 import Image from 'next/image';
+
 import { Navegation } from './style';
 import SubFooter from './subfooter';
 import { ICONNAV, VALUESNAV } from '../../const/constGlobal';
 
 export default function Footer() {
+  //   const newsLetter = async () => {
+  //     const { data } = await axios.post("");
+  //     return data;
+  // };
+
   return (
     <>
       <Navegation.SectionFooter>
@@ -36,7 +42,7 @@ export default function Footer() {
                     width={25}
                     height={25}
                     alt={values.Name}
-                    className="fill-primary"
+                    className="fill-primary animate-pulse"
                   />
                 </li>
               ))}
@@ -47,13 +53,26 @@ export default function Footer() {
             <Navegation.TitleNavResponsive>
               Newsletter
             </Navegation.TitleNavResponsive>
-            <Navegation.BlockInput>
-              <Navegation.Input
-                type="text"
-                placeholder="Escribe tu correo electronico "
-                name="newsletter"
-              />
-            </Navegation.BlockInput>
+            <div className="flex items-baseline">
+              <Navegation.BlockInput>
+                <div className="flex w-full items-center overflow-hidden relative border-b-2 border-primary focus:outline-none lg:text-xs text-xl font-light transition-colors duration-200 ease-in-out">
+                  <Navegation.Input
+                    type="text"
+                    placeholder="Escribe tu correo electronico "
+                    name="newsletter"
+                  />
+
+                  <button type="submit">
+                    <Image
+                      src="/icon/send_.svg"
+                      width={20}
+                      height={10}
+                      alt="Attomo"
+                    />
+                  </button>
+                </div>
+              </Navegation.BlockInput>
+            </div>
           </Navegation.BlockNav>
         </Navegation.BlockFooter>
         <SubFooter />

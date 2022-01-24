@@ -136,7 +136,7 @@ export const TextTitle = styled.h2`
   -webkit-text-fill-color: transparent;
 `;
 export const Styles = {
-  SectionCollapse: tw.section` fornt-PrimarySerif overflow-hidden max-w-100 flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative mb-24 font-light leading-loose`,
+  SectionCollapse: tw.section`font-PrimarySerif overflow-hidden max-w-100 flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative mb-24 font-light leading-loose`,
   BlockDescription: tw.div`lg:text-right text-xl lg:absolute bottom-12 lg:-right-4 w-full text-center `,
   SubSection: tw(SubSection)`font-regular  py-0.5 text-base`,
   BlockImg: tw.div`relative p-1`,

@@ -22,9 +22,9 @@ function Home() {
     <>
       <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo={false} />
-        <Styles.Center>
-          <Nav toggle={toggle} logo={false} />
-        </Styles.Center>
+
+        <Nav toggle={toggle} logo={false} />
+
         <Styles.Center>
           <Hero
             text="Somos una consultora tecnológica con una única misión: ayudar a las empresas y administraciones a liderar a través de la digitalización"
