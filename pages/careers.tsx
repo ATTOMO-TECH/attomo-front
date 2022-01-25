@@ -5,7 +5,7 @@ import Nav from '../components/nav/nav';
 import { BUTTON_ACTIVE } from '../const/const';
 import { Styles } from '../styles/styles';
 
-function Contact() {
+function Carrers() {
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const toggle = () => {
     SetIsOpen(!isOpen);
@@ -22,4 +22,4 @@ function Contact() {
     </>
   );
 }
-export default Contact;
+export default Carrers;

@@ -6,7 +6,6 @@ import Hero from '../components/hero/hero';
 import HeroFooter from '../components/hero/heroFooter';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
-import SectionProjects from '../components/section/projects';
 import CompaniesScroll from '../components/slider/companys/slider';
 import SubSection from '../components/subsection/subsection';
 import Title from '../components/Text/title';
@@ -50,7 +49,7 @@ function News() {
             <CompaniesScroll />
           </Styles.BlockSlider>
         </Styles.Center>
-        <SectionProjects />
+
         <Styles.CenterFlex>
           <BlockSection
             text=""

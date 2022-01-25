@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { Navegation } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
 
@@ -27,19 +28,23 @@ export default function Nav({ toggle, logo }: Props) {
           ismode={logo ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
           <Navegation.ItemsMenu>
             {logo === true ? (
-              <Image
-                src="/icon/isoAttomo.svg"
-                width={30}
-                height={30}
-                alt="Attomo"
-              />
+              <Link href="/">
+                <Image
+                  src="/icon/isoAttomo.svg"
+                  width={30}
+                  height={30}
+                  alt="Attomo"
+                />
+              </Link>
             ) : (
-              <Image
-                src="/icon/attomo.svg"
-                width={100}
-                height={100}
-                alt="Attomo"
-              />
+              <Link href="/">
+                <Image
+                  src="/icon/attomo.svg"
+                  width={100}
+                  height={100}
+                  alt="Attomo"
+                />
+              </Link>
             )}
           </Navegation.ItemsMenu>
           <Navegation.ItemsMenu onClick={toggle}>

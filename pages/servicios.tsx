@@ -45,7 +45,6 @@ function Services() {
           </Styles.TitleSubSection>
         </Styles.Center>
         <Styles.FlexEnd>
-          <div />
           <Styles.AlingBlock>
             <ArticlesScroll />
           </Styles.AlingBlock>

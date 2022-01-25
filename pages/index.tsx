@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import BlockSection from '../components/block/block';
-import Btn from '../components/button/button';
+import IconAnimate from '../components/button/icon';
 import Footer from '../components/footer/footer';
 import Hero from '../components/hero/hero';
 import HeroFooter from '../components/hero/heroFooter';
@@ -11,6 +11,7 @@ import CompaniesScroll from '../components/slider/companys/slider';
 import SubSection from '../components/subsection/subsection';
 import Title from '../components/Text/title';
 import { BUTTON_ACTIVE } from '../const/const';
+import { HOMECUSTOMERS } from '../const/constGlobal';
 import { Styles } from '../styles/styles';
 
 function Home() {
@@ -22,9 +23,9 @@ function Home() {
     <>
       <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo={false} />
-        <Styles.Center>
-          <Nav toggle={toggle} logo={false} />
-        </Styles.Center>
+
+        <Nav toggle={toggle} logo={false} />
+
         <Styles.Center>
           <Hero
             text="Somos una consultora tecnológica con una única misión: ayudar a las empresas y administraciones a liderar a través de la digitalización"
@@ -45,16 +46,16 @@ function Home() {
                 Trabajamos de la mano con nuestros clientes para impulsar y
                 transformar sus áreas de operación.
               </Title>
-              <Styles.BlockButton>
-                <Btn>Casos de éxito</Btn>
-              </Styles.BlockButton>
+              <div className="w-full lg:pl-24">
+                <IconAnimate text="Casos de éxito" />
+              </div>
             </Styles.DivideSection>
           </Styles.BlockMargin>
           <Styles.BlockSlider>
             <CompaniesScroll />
           </Styles.BlockSlider>
         </Styles.Center>
-        <SectionProjects />
+        <SectionProjects Array={HOMECUSTOMERS} />
         <Styles.CenterFlex>
           <BlockSection
             text=""

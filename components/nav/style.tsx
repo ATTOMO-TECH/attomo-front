@@ -9,14 +9,14 @@ export const Navegation = {
   SectionMenu: tw.section<Props>`
     ${(props) =>
       props.ismode === BUTTON_ACTIVE.ON
-        ? 'h-screen w-full fixed overflow-hidden bg-black h-auto z-100 font-Primary'
+        ? 'cursor-pointer h-screen w-full fixed overflow-hidden bg-black h-auto z-100 font-Primary'
         : 'hidden'}
     `,
   Menu: tw.nav``,
   AlinItems: tw.ul<Props>`flex items-center justify-between pb-20 m-auto w-10/12
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'pt-10' : '')}
   `,
-  ItemsMenu: tw.li`text-primary flex items-center`,
+  ItemsMenu: tw.li`text-primary flex items-center `,
   TextMenu: tw.h6<Props>`
   mr-5
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-0' : '')}
@@ -26,7 +26,7 @@ export const Navegation = {
 
   // NAV
   SectionNav: tw.nav<Props>`
-font-Primary bg-secundary z-100 h-24
+font-Primary bg-secundary z-100 h-24 cursor-pointer
 ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'fixed w-full' : '')}
 `,
 };
