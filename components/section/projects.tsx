@@ -1,16 +1,19 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { BUTTON_ACTIVE } from '../../const/const';
-import { HOMECUSTOMERS } from '../../const/constGlobal';
 import Btn from '../button/button';
 import Title from '../Text/title';
 import { Styles } from './style';
 
-export default function SectionProjects() {
+interface Props {
+  Array: any[];
+}
+
+export default function SectionProjects({ Array }: Props) {
   return (
     <>
       <Styles.SectionProjects>
-        {HOMECUSTOMERS.map((values, i) => (
+        {Array.map((values, i) => (
           <Styles.BlockSections
             ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
             <Styles.BlockSection

@@ -32,4 +32,5 @@ ${(props) =>
   props.ismode === BUTTON_ACTIVE.OFF
     ? 'md:px-24 sm:px-5 lg:w-3/6 px-12 py-16 lg:absolute lg:-bottom-32 lg:left-0 '
     : ''}`,
+  OnlyProjectBlock: tw.div`md:px-24 sm:px-5 lg:w-3/6 px-12 py-16  lg:py-0 lg:absolute lg:-bottom-10 lg:right-0 `,
 };

@@ -9,7 +9,7 @@ export const Navegation = {
   SectionMenu: tw.section<Props>`
     ${(props) =>
       props.ismode === BUTTON_ACTIVE.ON
-        ? 'h-screen w-full fixed overflow-hidden bg-black h-auto z-100 font-Primary'
+        ? 'cursor-pointer h-screen w-full fixed overflow-hidden bg-black h-auto z-100 font-Primary'
         : 'hidden'}
     `,
   Menu: tw.nav``,
@@ -26,7 +26,7 @@ export const Navegation = {
 
   // NAV
   SectionNav: tw.nav<Props>`
-font-Primary bg-secundary z-100 h-24
+font-Primary bg-secundary z-100 h-24 cursor-pointer
 ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'fixed w-full' : '')}
 `,
 };

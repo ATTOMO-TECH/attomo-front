@@ -1,10 +1,15 @@
 import Image from 'next/image';
-import { Icon } from './style';
+import { Button, Icon } from './style';
 
-export default function IconAnimate() {
+interface Props {
+  text: string;
+}
+
+export default function IconAnimate({ text }: Props) {
   return (
     <>
       <Icon.BlockHidden>
+        <Button.ButtonRegular>{text}</Button.ButtonRegular>
         <Icon.SectionIcon>
           <Icon.Icon />
           <Image src="/icon/iconBtn.svg" width={8} height={8} />

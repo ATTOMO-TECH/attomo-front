@@ -30,11 +30,11 @@ function Blog() {
               su estrategia de negocio
             </Title>
 
-            <div className="text-primary flex flex-col lg:flex-row items-baseline justify-center lg:w-9/12 ">
+            <div className="text-primary flex flex-col lg:flex-row items-baseline justify-center lg:w-9/12">
               <Title size="text-xl lg:pt-48 lg:py-24 py-10  lg:w-3/6 w-full">
                 Entérate de las novedades del sector:
               </Title>
-              <div className="lg:w-3/6 w-full">
+              <div className="lg:w-3/6 w-full ">
                 <Styles.Input
                   type="text"
                   placeholder="Escribe tu correo electronico "

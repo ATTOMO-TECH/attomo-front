@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
+import { BUTTON_ACTIVE } from '../../const/const';
 
-export const TextTitle = styled.input`
-  &:before {
-    content: 'hi';
-    color: red;
-  }
+type Props = {
+  ismode: string;
+};
+
+export const Image = styled.img`
+  filter: drop-shadow(-1px 0px 3px #ffffffc2);
+  box-shadow: 1px 1px 1px 1px #ffffff09;
 `;
 
 export const Navegation = {
@@ -16,14 +19,29 @@ export const Navegation = {
   TitleNav: tw.h2`font-Primary text-primary tracking-widest text-lg mb-3 hidden lg:block`,
   TitleNavResponsive: tw.h2`font-Primary text-primary tracking-widest text-lg mb-3`,
   NavFooter: tw.nav`list-none mb-10 font-secundary text-primary text-sm cursor-pointer`,
-  NavFooterFlex: tw.nav`list-none mb-10 flex cursor-pointer justify-start`,
-  ItemsMenu: tw.p`py-2 leading-relaxed lg:leading-none text-lg font-extralight`,
-  BlockInput: tw.div`relative flex flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-wrap justify-center items-end md:justify-start`,
-  Input: tw(
-    TextTitle,
-  )` flex bg-secundary text-primary  outline-none  py-1 px-1 lg:text-xs text-xl font-light  `,
+  NavFooterFlex: tw.nav`list-none mb-10 flex cursor-pointer justify-start items-center`,
+  ItemsMenu: tw.p`py-1 leading-relaxed lg:leading-none text-lg font-extralight`,
+  BlockInput: tw.div`relative flex flex xl:flex-nowrap md:flex-nowrap w-11/12 lg:flex-wrap flex-wrap justify-center items-end md:justify-start`,
+  Input: tw.input`w-full flex bg-secundary text-primary bg-none focus:bg-none outline-none  py-1 px-1 lg:text-xs text-xl font-light  `,
   BlockSubText: tw.div`flex flex-col lg:flex-row justify-end text-primary text-sm font-Secundary`,
   SubText: tw.p`lg:px-10 px-5 py-3 hover:opacity-50 cursor-pointer ease-out duration-300`,
+  ListIcon: tw.li`w-auto px-1 cursor-pointer `,
+  Form: tw.form`flex flex-col items-baseline`,
+  Image: tw(Image)``,
+  Button: tw.button<Props>`
+    ${(props) =>
+      props.ismode === BUTTON_ACTIVE.ON
+        ? 'transition ease-in-out delay-150 duration-300 opacity-100'
+        : 'opacity-0 duration-300'}
+    `,
+  SectionInput: tw.div<Props>`
+    flex w-full items-center overflow-hidden relative border-b-2 border-primary focus:outline-none lg:text-xs text-xl font-light transition-colors duration-200 ease-in-out 
+    transition ease-in-out delay-150 duration-300
+    ${(props) =>
+      props.ismode === BUTTON_ACTIVE.ON
+        ? 'opacity-50 duration-300'
+        : 'opacity-100 duration-300'}
+    `,
 };
 export const SubNavegation = {
   SectionSub: tw.div`bg-primary font-Secundary hidden lg:block`,

@@ -1,16 +1,12 @@
 import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 
-export const IconMoveS = styled.div`
+export const IconMoveS = styled.span`
   position: relative;
   width: 10px;
   overflow: hidden;
   cursor: pointer;
   transition: width 1s;
-  &:hover {
-    width: 400px;
-    overflow: hidden;
-  }
 `;
 
 export const IconMove = styled.div`
@@ -25,7 +21,7 @@ export const Button = {
 };
 
 export const Icon = {
-  BlockHidden: tw.div`overflow-hidden`,
+  BlockHidden: tw.div`overflow-hidden flex flex-wrap relative w-full cursor-pointer`,
   SectionIcon: tw(IconMoveS)`flex items-center `,
   Icon: tw(IconMove)``,
 };

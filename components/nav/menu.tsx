@@ -20,19 +20,23 @@ export default function Menu({ isOpen, toggle, logo }: Props) {
             ismode={logo ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
             <Navegation.ItemsMenu>
               {logo === true ? (
-                <Image
-                  src="/icon/isoAttomo.svg"
-                  width={30}
-                  height={30}
-                  alt="Attomo"
-                />
+                <Link href="/">
+                  <Image
+                    src="/icon/isoAttomo.svg"
+                    width={30}
+                    height={30}
+                    alt="Attomo"
+                  />
+                </Link>
               ) : (
-                <Image
-                  src="/icon/attomo.svg"
-                  width={100}
-                  height={100}
-                  alt="Attomo"
-                />
+                <Link href="/">
+                  <Image
+                    src="/icon/attomo.svg"
+                    width={100}
+                    height={100}
+                    alt="Attomo"
+                  />
+                </Link>
               )}
             </Navegation.ItemsMenu>
             <Navegation.ItemsMenu onClick={toggle}>
@@ -41,9 +45,9 @@ export default function Menu({ isOpen, toggle, logo }: Props) {
             </Navegation.ItemsMenu>
           </Navegation.AlinItems>
           {VALUESNAV.map((values) => (
-            <Navegation.ItemList>
+            <Navegation.ItemList key={values.Value}>
               <Navegation.SelectMenu key={values.Value}>
-                <Link href="/#">{values.Value}</Link>
+                <Link href={values.Url}>{values.Value}</Link>
               </Navegation.SelectMenu>
             </Navegation.ItemList>
           ))}

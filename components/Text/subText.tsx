@@ -8,7 +8,7 @@ interface Props {
 export default function Subtext({ children, size }: Props) {
   return (
     <>
-      <Text.TextTitle className={size}>{children}</Text.TextTitle>
+      <Text.SubTextTitle className={size}>{children}</Text.SubTextTitle>
     </>
   );
 }

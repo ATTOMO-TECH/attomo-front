@@ -1,16 +1,12 @@
 import { useState } from 'react';
 import BlockSection from '../components/block/block';
-import Btn from '../components/button/button';
 import Footer from '../components/footer/footer';
-import Hero from '../components/hero/hero';
-import HeroFooter from '../components/hero/heroFooter';
+import HeroCase from '../components/hero/heroCase';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
 import SectionProjects from '../components/section/projects';
-import CompaniesScroll from '../components/slider/companys/slider';
-import SubSection from '../components/subsection/subsection';
-import Title from '../components/Text/title';
 import { BUTTON_ACTIVE } from '../const/const';
+import { CASE } from '../const/constGlobal';
 import { Styles } from '../styles/styles';
 
 function Cases() {
@@ -21,47 +17,15 @@ function Cases() {
   return (
     <>
       <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
-        <Menu isOpen={isOpen} toggle={toggle} logo={false} />
-        <Styles.Center>
-          <Nav toggle={toggle} logo={false} />
-        </Styles.Center>
-        <Styles.Center>
-          <Hero text="" button="" link="" />
-        </Styles.Center>
-        <Styles.CenterFlex id="conocenos">
-          <SubSection />
-        </Styles.CenterFlex>
-        <Styles.Center>
-          <Styles.BlockMargin>
-            <Styles.DivideSection>
-              <Title size="text-5xl lg:px-24">Selected clients</Title>
-            </Styles.DivideSection>
-            <Styles.DivideSection>
-              <Title size="text-xl lg:px-24 pt-10">
-                Trabajamos de la mano con nuestros clientes para impulsar y
-                transformar sus áreas de operación.
-              </Title>
-              <Styles.BlockButton>
-                <Btn>Casos de éxito</Btn>
-              </Styles.BlockButton>
-            </Styles.DivideSection>
-          </Styles.BlockMargin>
-          <Styles.BlockSlider>
-            <CompaniesScroll />
-          </Styles.BlockSlider>
-        </Styles.Center>
-        <SectionProjects />
-        <Styles.CenterFlex>
-          <BlockSection
-            text=""
-            button=""
-            text2="¿Quieres ver más casos de éxito?"
-            button2="Nuestro portfolio"
-          />
-        </Styles.CenterFlex>
-        <Styles.CenterFull>
-          <HeroFooter />
-        </Styles.CenterFull>
+        <Menu isOpen={isOpen} toggle={toggle} logo />
+        <Styles.Margin>
+          <Nav toggle={toggle} logo />
+        </Styles.Margin>
+        <HeroCase />
+        <div className="py-10">
+          <SectionProjects Array={CASE} />
+        </div>
+
         <Styles.CenterFlex>
           <BlockSection
             text="¿Tienes un proyecto?"

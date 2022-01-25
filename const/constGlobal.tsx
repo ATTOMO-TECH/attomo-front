@@ -21,13 +21,32 @@ export const PARTNERS: {
 ];
 export const VALUESNAV: {
   Value: string;
+  Url: string;
 }[] = [
-  { Value: 'Servicios' },
-  { Value: 'Casos de éxito' },
-  { Value: 'Nosotros' },
-  { Value: 'News' },
-  { Value: 'Careers' },
-  { Value: 'Contacto' },
+  {
+    Value: 'Servicios',
+    Url: '/servicios',
+  },
+  {
+    Value: 'Casos de éxito',
+    Url: '/casosdeexito',
+  },
+  {
+    Value: 'Nosotros',
+    Url: '/nosotros',
+  },
+  {
+    Value: 'News',
+    Url: '/blog',
+  },
+  {
+    Value: 'Careers',
+    Url: '/careers',
+  },
+  {
+    Value: 'Contacto',
+    Url: '/contacto',
+  },
 ];
 export const ICONNAV: {
   Name: string;
@@ -37,22 +56,22 @@ export const ICONNAV: {
   {
     Name: 'Whatsapp',
     Pic: '/icon/whatsapp.svg',
-    Url: '',
+    Url: 'tel:+34610516285',
   },
   {
     Name: 'Mail',
     Pic: '/icon/mail.svg',
-    Url: '',
+    Url: 'mailto:equipo@attomo.digital',
   },
   {
     Name: 'Instagram',
     Pic: '/icon/instagram.svg',
-    Url: '',
+    Url: 'https://www.instagram.com/attomo.digital/',
   },
   {
     Name: 'Linkedin',
-    Pic: '/icon/linkedin.svg',
-    Url: '',
+    Pic: '/icon/vector.svg',
+    Url: 'https://www.linkedin.com/company/attomo-digital/',
   },
 ];
 
@@ -178,6 +197,64 @@ export const HOMECUSTOMERS: {
     Pic: '/customers/customer2.png',
     Url: '',
     Tag: '2',
+  },
+];
+export const CASE: {
+  Text: string;
+  Client: string;
+  Pic: string;
+  Url: string;
+  Tag: string;
+}[] = [
+  {
+    Text: 'Reinventando la industria de la intermediación de viviendas',
+    Client: 'Grandes Viviendas Real Estate',
+    Pic: '/customers/customer1.png',
+    Url: '',
+    Tag: '1',
+  },
+  {
+    Text: 'Transformando la industria de la moda femenina',
+    Client: 'Chi & Su',
+    Pic: '/customers/customer2.png',
+    Url: '',
+    Tag: '2',
+  },
+  {
+    Text: 'Reinventando la industria de la intermediación de viviendas',
+    Client: 'Grandes Viviendas Real Estate',
+    Pic: '/customers/customer1.png',
+    Url: '',
+    Tag: '3',
+  },
+  {
+    Text: 'Transformando la industria de la moda femenina',
+    Client: 'Chi & Su',
+    Pic: '/customers/customer2.png',
+    Url: '',
+    Tag: '4',
+  },
+];
+
+export const AboutUs: {
+  Title: string;
+  Text: string;
+}[] = [
+  {
+    Title: 'Scale',
+    Text: 'Hoy en día, la competencia está en cualquier mercado, la escala para llegar a millones de personas es fundamental para subsistir.',
+  },
+  {
+    Title: 'Data',
+    Text: 'La información está por todos lados. Lo importante es saber diferenciar entre la buena y la mejorable.',
+  },
+  {
+    Title: 'Velocity',
+    Text: 'Las buenas ideas son importantes, pero en este mundo de inmediatez, sólo sobreviven los que crecen y se mueven con rapidez.',
+  },
+  {
+    Title: 'Design',
+    Text: 'En un mundo visual, donde el arte está en todos sitios, generar experiencias inolvidables es más importante que nunca.',
   },
 ];
 
