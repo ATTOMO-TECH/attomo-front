@@ -36,7 +36,7 @@ export const VALUESNAV: {
     Url: '/nosotros',
   },
   {
-    Value: 'News',
+    Value: '#ATTOMOTrends',
     Url: '/blog',
   },
   {
@@ -47,30 +47,39 @@ export const VALUESNAV: {
     Value: 'Contacto',
     Url: '/contacto',
   },
+  {
+    Value: 'Espacio Attomo',
+    Url: '/contacto',
+  },
 ];
 export const ICONNAV: {
   Name: string;
   Pic: string;
+  Pic2: string;
   Url: string;
 }[] = [
   {
     Name: 'Whatsapp',
     Pic: '/icon/whatsapp.svg',
+    Pic2: '/icon/w2.svg',
     Url: 'tel:+34610516285',
   },
   {
     Name: 'Mail',
     Pic: '/icon/mail.svg',
+    Pic2: '/icon/m2.svg',
     Url: 'mailto:equipo@attomo.digital',
   },
   {
     Name: 'Instagram',
     Pic: '/icon/instagram.svg',
+    Pic2: '/icon/i2.svg',
     Url: 'https://www.instagram.com/attomo.digital/',
   },
   {
     Name: 'Linkedin',
     Pic: '/icon/vector.svg',
+    Pic2: '/icon/l2.svg',
     Url: 'https://www.linkedin.com/company/attomo-digital/',
   },
 ];

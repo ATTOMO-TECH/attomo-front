@@ -14,6 +14,7 @@ const registerSchema = Yup.object().shape({
     .email('Email no valido')
     .required('Email es requerido'),
 });
+
 export default function Footer() {
   const initialValues = {
     newsletter: '',
@@ -66,7 +67,7 @@ export default function Footer() {
                   <Link href={values.Url}>
                     <a target="_blank" href={values.Url} rel="noreferrer">
                       <Navegation.Image
-                        src={values.Pic}
+                        src={values.Pic2}
                         width={25}
                         height={25}
                         alt={values.Name}

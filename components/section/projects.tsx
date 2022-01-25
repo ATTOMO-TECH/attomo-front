@@ -15,6 +15,7 @@ export default function SectionProjects({ Array }: Props) {
       <Styles.SectionProjects>
         {Array.map((values, i) => (
           <Styles.BlockSections
+            key={values.Name}
             ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
             <Styles.BlockSection
               ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>

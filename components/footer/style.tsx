@@ -7,8 +7,9 @@ type Props = {
 };
 
 export const Image = styled.img`
-  filter: drop-shadow(-1px 0px 3px #ffffffc2);
-  box-shadow: 1px 1px 1px 1px #ffffff09;
+  -webkit-box-shadow: 0px -2px 117px -22px rgba(255, 255, 255, 1);
+  -moz-box-shadow: 0px -2px 117px -22px rgba(255, 255, 255, 1);
+  box-shadow: 0px 0px 3px 0px #2d44d9;
 `;
 
 export const Navegation = {
