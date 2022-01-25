@@ -128,8 +128,12 @@ export default function Footer() {
         </Navegation.BlockFooter>
         <SubFooter />
         <Navegation.BlockSubText>
-          <Navegation.SubText>{'Política de privacidad '} </Navegation.SubText>
-          <Navegation.SubText>Todos los derechos reservados</Navegation.SubText>
+          <Navegation.SubText>
+            <Link href="/privacidad">Política de privacidad </Link>
+          </Navegation.SubText>
+          <Navegation.SubText>
+            <Link href="/terminos">Todos los derechos reservados</Link>
+          </Navegation.SubText>
         </Navegation.BlockSubText>
       </Navegation.SectionFooter>
     </>
