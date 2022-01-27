@@ -60,7 +60,7 @@ export const ICONNAV: {
 }[] = [
   {
     Name: 'Whatsapp',
-    Pic: '/icon/whatsapp.svg',
+    Pic: '/icon/w12.png',
     Pic2: '/icon/w2.svg',
     Url: 'tel:+34610516285',
   },

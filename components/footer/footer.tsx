@@ -112,7 +112,7 @@ export default function Footer() {
                         type="submit">
                         <Image
                           src="/icon/send_.svg"
-                          width={20}
+                          width={30}
                           height={10}
                           alt="Attomo"
                         />

@@ -34,3 +34,9 @@ ${(props) =>
     : ''}`,
   OnlyProjectBlock: tw.div`md:px-24 sm:px-5 lg:w-3/6 px-12 py-16  lg:py-0 lg:absolute lg:-bottom-10 lg:right-0 `,
 };
+
+export const StylesCases = {
+  CategoryText: tw.h6`font-PrimarySans text-addictional font-light`,
+  TitularText: tw.h3`font-Primary text-5xl font-light py-5 leading-relaxed`,
+  Paragraph: tw.p`font-PrimarySans font-extralight pb-5 leading-relaxed text-lg`,
+};

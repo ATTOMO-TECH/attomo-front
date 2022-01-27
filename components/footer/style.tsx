@@ -7,9 +7,12 @@ type Props = {
 };
 
 export const Image = styled.img`
-  -webkit-box-shadow: 0px -2px 117px -22px rgba(255, 255, 255, 1);
-  -moz-box-shadow: 0px -2px 117px -22px rgba(255, 255, 255, 1);
-  box-shadow: 0px 0px 3px 0px #2d44d9;
+  filter: drop-shadow(0rem 0rem 0.1rem rgba(45, 140, 217, 1));
+  &:hover {
+    filter: grayscale(100%) brightness(200%);
+    -webkit-filter: grayscale(100%) brightness(200%);
+    -moz-filter: grayscale(100%) brightness(200%);
+  }
 `;
 
 export const Navegation = {
@@ -29,19 +32,20 @@ export const Navegation = {
   ListIcon: tw.li`w-auto px-1 cursor-pointer `,
   Form: tw.form`flex flex-col items-baseline`,
   Image: tw(Image)``,
-  Button: tw.button<Props>`
-    ${(props) =>
-      props.ismode === BUTTON_ACTIVE.ON
-        ? 'transition ease-in-out delay-150 duration-300 opacity-100'
-        : 'opacity-0 duration-300'}
-    `,
   SectionInput: tw.div<Props>`
     flex w-full items-center overflow-hidden relative border-b-2 border-primary focus:outline-none lg:text-xs text-xl font-light transition-colors duration-200 ease-in-out 
-    transition ease-in-out delay-150 duration-300
+    transition delay-700 duration-300 ease-in-out
     ${(props) =>
       props.ismode === BUTTON_ACTIVE.ON
         ? 'opacity-50 duration-300'
         : 'opacity-100 duration-300'}
+    `,
+  Button: tw.button<Props>`
+  transition delay-300 duration-500 ease-in-out
+    ${(props) =>
+      props.ismode === BUTTON_ACTIVE.ON
+        ? ' opacity-100 '
+        : 'opacity-0 duration-600'}
     `,
 };
 export const SubNavegation = {

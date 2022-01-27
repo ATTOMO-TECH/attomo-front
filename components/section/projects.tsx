@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { BUTTON_ACTIVE } from '../../const/const';
-import Btn from '../button/button';
+import IconAnimate from '../button/icon';
 import Title from '../Text/title';
 import { Styles } from './style';
 
@@ -15,7 +15,6 @@ export default function SectionProjects({ Array }: Props) {
       <Styles.SectionProjects>
         {Array.map((values, i) => (
           <Styles.BlockSections
-            key={values.Name}
             ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
             <Styles.BlockSection
               ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
@@ -33,7 +32,7 @@ export default function SectionProjects({ Array }: Props) {
                 {values.Text}
               </Title>
               <Link href={values.Url}>
-                <Btn>Ver proyecto</Btn>
+                <IconAnimate text="Ver proyecto" />
               </Link>
             </Styles.BlockText>
           </Styles.BlockSections>

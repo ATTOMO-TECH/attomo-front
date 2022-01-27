@@ -18,12 +18,12 @@ function Services() {
   return (
     <>
       <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
-        <Menu isOpen={isOpen} toggle={toggle} logo />
+        <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
-          <Nav toggle={toggle} logo />
+          <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
         </Styles.Margin>
         <Styles.Center>
-          <Styles.Screen>
+          <Styles.ScreenMid>
             <Title size="text-5xl lg:pt-48 lg:pr-10 pb-24 w-full pt-20">
               Combinamos ingeniería, diseño, escalabilidad e innovación para
               transformar industrias, empresas y administraciones
@@ -34,10 +34,12 @@ function Services() {
                 la transformación digital
               </Subtext>
             </Styles.FlexEnd>
-          </Styles.Screen>
+          </Styles.ScreenMid>
         </Styles.Center>
         <Styles.Center>
-          <Collapse />
+          <div className="py-48">
+            <Collapse />
+          </div>
         </Styles.Center>
         <Styles.Center>
           <Styles.TitleSubSection>

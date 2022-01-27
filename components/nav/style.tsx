@@ -1,32 +1,48 @@
+import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 import { BUTTON_ACTIVE } from '../../const/const';
 
 type Props = {
   ismode: string;
 };
+export const lightTheme = {
+  bodyBg: 'black',
+  headings: 'white',
+};
+export const darkTheme = {
+  bodyBg: 'white',
+  headings: 'black',
+};
+
+export const SectionColor = styled.div`
+  color: ${(props) => props.theme.headings};
+  background-color: ${(props) => props.theme.bodyBg};
+`;
 
 export const Navegation = {
-  SectionMenu: tw.section<Props>`
+  SectionMenu: tw(SectionColor)<Props>`
+  lg:transition ease-in-out delay-150 z-100 transition ease-in-out delay-150  overflow-y-scroll 
     ${(props) =>
       props.ismode === BUTTON_ACTIVE.ON
-        ? 'cursor-pointer h-screen w-full fixed overflow-hidden bg-black h-auto z-100 font-Primary'
-        : 'hidden'}
-    `,
+        ? `cursor-pointer h-screen w-full overflow-hidden z-100 opacity-100 relative `
+        : 'opacity-0 overflow-hidden h-0'}
+  `,
   Menu: tw.nav``,
-  AlinItems: tw.ul<Props>`flex items-center justify-between pb-20 m-auto w-10/12
+  AlinItems: tw.ul<Props>`
+  flex items-center justify-between pb-20 w-10/12 absolute lg:left-24 left-12 lg:top-10
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'pt-10' : '')}
   `,
-  ItemsMenu: tw.li`text-primary flex items-center `,
-  TextMenu: tw.h6<Props>`
-  mr-5
+  ItemsMenu: tw.li`flex items-center list-none`,
+  TextMenu: tw(SectionColor)<Props>`
+  mr-5 font-Primary 
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-0' : '')}
   `,
-  ItemList: tw.li``,
-  SelectMenu: tw.p`text-primary text-center text-4xl opacity-60 hover:opacity-100 cursor-pointer transition ease-in-out delay-50`,
+  ItemList: tw.li`list-none m-10 absu`,
+  SelectMenu: tw.p`text-primary text-center text-4xl opacity-60 hover:opacity-100 cursor-pointer lg:transition ease-in-out delay-50 `,
 
   // NAV
-  SectionNav: tw.nav<Props>`
-font-Primary bg-secundary z-100 h-24 cursor-pointer
+  SectionNav: tw(SectionColor)<Props>`
+font-Primary z-100 lg:py-16 h-24 pb-10 cursor-pointer list-none transition ease-in-out -top-4 
 ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'fixed w-full' : '')}
 `,
 };

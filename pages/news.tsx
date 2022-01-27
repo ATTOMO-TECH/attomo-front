@@ -20,10 +20,10 @@ function News() {
   return (
     <>
       <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
-        <Menu isOpen={isOpen} toggle={toggle} logo={false} />
-        <Styles.Center>
-          <Nav toggle={toggle} logo={false} />
-        </Styles.Center>
+        <Menu isOpen={isOpen} toggle={toggle} logo mode />
+        <Styles.Margin>
+          <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
+        </Styles.Margin>
         <Styles.Center>
           <Hero text="" button="" link="" />
         </Styles.Center>

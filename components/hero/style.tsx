@@ -31,7 +31,7 @@ export const HeadSection = {
 
   // SectionHeroCase
 
-  SectionCase: tw.section`flex justify-center items-center `,
+  SectionCase: tw.section`flex justify-center items-center pt-12`,
   BlockFilter: tw.div`w-1/12 h-6 text-center transform -rotate-90 z-80 sm:flex hidden relative`,
   TextFilter: tw.h6`text-primary text-xs font-PrimarySerif font-thin opacity-40 w-full absolute left-0`,
   Select: tw(

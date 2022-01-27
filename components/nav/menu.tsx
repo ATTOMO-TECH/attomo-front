@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Navegation } from './style';
+import { darkTheme, lightTheme, Navegation } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { VALUESNAV } from '../../const/constGlobal';
 
@@ -8,13 +8,15 @@ interface Props {
   isOpen: boolean;
   toggle: () => void;
   logo: boolean;
+  mode: boolean;
 }
 
-export default function Menu({ isOpen, toggle, logo }: Props) {
+export default function Menu({ isOpen, toggle, logo, mode }: Props) {
   return (
     <>
       <Navegation.SectionMenu
-        ismode={isOpen ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+        ismode={isOpen ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+        theme={mode === true ? lightTheme : darkTheme}>
         <Navegation.Menu>
           <Navegation.AlinItems
             ismode={logo ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
@@ -40,17 +42,23 @@ export default function Menu({ isOpen, toggle, logo }: Props) {
               )}
             </Navegation.ItemsMenu>
             <Navegation.ItemsMenu onClick={toggle}>
-              <Navegation.TextMenu ismode="">Menú</Navegation.TextMenu>
+              <Navegation.TextMenu
+                ismode=""
+                theme={mode === true ? lightTheme : darkTheme}>
+                Menú
+              </Navegation.TextMenu>
               <Image src="/icon/close.svg" width={30} height={30} alt="close" />
             </Navegation.ItemsMenu>
           </Navegation.AlinItems>
-          {VALUESNAV.map((values) => (
-            <Navegation.ItemList key={values.Value}>
-              <Navegation.SelectMenu key={values.Value}>
-                <Link href={values.Url}>{values.Value}</Link>
-              </Navegation.SelectMenu>
-            </Navegation.ItemList>
-          ))}
+          <div className="pt-32">
+            {VALUESNAV.map((values) => (
+              <Navegation.ItemList key={values.Value}>
+                <Navegation.SelectMenu key={values.Value}>
+                  <Link href={values.Url}>{values.Value}</Link>
+                </Navegation.SelectMenu>
+              </Navegation.ItemList>
+            ))}
+          </div>
         </Navegation.Menu>
       </Navegation.SectionMenu>
     </>

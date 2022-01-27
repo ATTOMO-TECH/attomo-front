@@ -1,12 +1,26 @@
+import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 import { BUTTON_ACTIVE } from '../const/const';
 
 type Props = {
   ismode: string;
 };
+export const lightTheme = {
+  bodyBg: 'black',
+  headings: 'white',
+};
+export const darkTheme = {
+  bodyBg: 'white',
+  headings: 'black',
+};
+
+export const SectionColor = styled.div`
+  color: ${(props) => props.theme.headings};
+  background-color: ${(props) => props.theme.bodyBg};
+`;
 
 export const Styles = {
-  Body: tw.body<Props>`
+  Body: tw(SectionColor)<Props>`
 bg-secundary scroll-smooth m-auto
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
@@ -16,6 +30,7 @@ bg-secundary scroll-smooth m-auto
   `,
   Margin: tw.div`m-auto`,
   Center: tw.section`w-10/12 m-auto`,
+  AlingCases: tw.section`w-11/12 ml-auto py-24`,
   CenterFull: tw.section`w-full lg:w-10/12 m-auto`,
   CenterFlex: tw.section`w-10/12 m-auto flex`,
   BlockMargin: tw.div`lg:py-48 flex flex-col lg:flex-row `,

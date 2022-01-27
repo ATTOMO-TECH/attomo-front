@@ -16,10 +16,10 @@ function Carrers() {
   return (
     <>
       <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
-        <Menu isOpen={isOpen} toggle={toggle} logo={false} />
-        <Styles.Center>
-          <Nav toggle={toggle} logo={false} />
-        </Styles.Center>
+        <Menu isOpen={isOpen} toggle={toggle} logo mode />
+        <Styles.Margin>
+          <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
+        </Styles.Margin>
         <Styles.Center>
           <Styles.ScreenMid>
             <Title size="text-5xl lg:pt-48 lg:pr-10 pb-24 w-full pt-20">
