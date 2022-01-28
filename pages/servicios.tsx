@@ -4,10 +4,11 @@ import Collapse from '../components/collapse/collapse';
 import Footer from '../components/footer/footer';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
-import ArticlesScroll from '../components/slider/articles/slider';
+import ArticlesScroll from '../components/slider/article/slider';
 import Subtext from '../components/Text/subText';
 import Title from '../components/Text/title';
 import { BUTTON_ACTIVE } from '../const/const';
+import { ARTICLES } from '../const/constGlobal';
 import { Styles } from '../styles/styles';
 
 function Services() {
@@ -48,7 +49,7 @@ function Services() {
         </Styles.Center>
         <Styles.FlexEnd>
           <Styles.AlingBlock>
-            <ArticlesScroll />
+            <ArticlesScroll mode array={ARTICLES} />
           </Styles.AlingBlock>
         </Styles.FlexEnd>
         <Styles.CenterFlex>
@@ -57,6 +58,7 @@ function Services() {
             button="Contacta con nosotros"
             text2=""
             button2=""
+            mode
           />
         </Styles.CenterFlex>
         <Footer />

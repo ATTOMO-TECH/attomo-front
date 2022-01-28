@@ -118,6 +118,7 @@ export const CUSTOMERS: {
 
 export const ARTICLES: {
   Text: string;
+  Topic: string;
   Pic: string;
   Url: string;
   Tag: string;
@@ -125,18 +126,50 @@ export const ARTICLES: {
   {
     Text: 'Vulputate facilisis ipsum morbi arcu, risus semper netus',
     Pic: '/customers/customerServices1.png',
+    Topic: '',
     Url: '',
     Tag: '1',
   },
   {
     Text: 'Nisi, sem eget mauris pretium egestas tellus tempus',
     Pic: '/customers/customerServices2.png',
+    Topic: '',
     Url: '',
     Tag: '2',
   },
   {
     Text: 'Magna pharetra fusce eget lectus curabitur odio cras felis risus',
     Pic: '/customers/customerServices3.png',
+    Topic: '',
+    Url: '',
+    Tag: '3',
+  },
+];
+export const NEWS: {
+  Text: string;
+  Topic: string;
+  Pic: string;
+  Url: string;
+  Tag: string;
+}[] = [
+  {
+    Text: 'Vulputate facilisis ipsum morbi arcu, risus semper netus',
+    Pic: '/customers/customerServices1.png',
+    Topic: 'Temática',
+    Url: '',
+    Tag: '1',
+  },
+  {
+    Text: 'Nisi, sem eget mauris pretium egestas tellus tempus',
+    Pic: '/customers/customerServices2.png',
+    Topic: 'Temática',
+    Url: '',
+    Tag: '2',
+  },
+  {
+    Text: 'Magna pharetra fusce eget lectus curabitur odio cras felis risus',
+    Pic: '/customers/customerServices3.png',
+    Topic: 'Temática',
     Url: '',
     Tag: '3',
   },

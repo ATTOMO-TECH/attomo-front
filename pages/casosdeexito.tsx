@@ -32,6 +32,7 @@ function Cases() {
             button="Contacta con nosotros"
             text2=""
             button2=""
+            mode
           />
         </Styles.CenterFlex>
         <Footer />

@@ -8,6 +8,9 @@ import BreadCrumbs from '../../components/breadcrumbs/breadcrumbs';
 import HeaderCases from '../../components/section/cases/header';
 import Back from '../../components/button/back';
 import BodyCases from '../../components/section/cases/bodyCase';
+import ArticlesScroll from '../../components/slider/article/slider';
+import BlockSection from '../../components/block/block';
+import { NEWS } from '../../const/constGlobal';
 
 interface Props {
   mode: boolean;
@@ -28,9 +31,9 @@ function Cases({ mode }: Props) {
         <Styles.Margin>
           <Nav toggle={toggle} logo mode={false} isOpen={isOpen} />
         </Styles.Margin>
-        <Back>Volver a noticias</Back>
+        <Back link="/casosdeexito">Volver a casos</Back>
         <Styles.Center>
-          <Styles.AlingCases>
+          <Styles.AlingCasesNoP>
             <HeaderCases
               category="Estrategia"
               title="Dictum libero pellentesque faucibus tristique ut"
@@ -38,9 +41,26 @@ function Cases({ mode }: Props) {
             />
             <BreadCrumbs Author="Autor" Date="Fecha" />
             <BodyCases />
-          </Styles.AlingCases>
+          </Styles.AlingCasesNoP>
+          <Styles.TextSubSection>Podría interesarte</Styles.TextSubSection>
         </Styles.Center>
-
+        <Styles.FlexEnd>
+          <Styles.AlingBlock>
+            <ArticlesScroll mode={false} array={NEWS} />
+          </Styles.AlingBlock>
+        </Styles.FlexEnd>
+        <Styles.Center>
+          <Styles.BreakLine />
+          <Styles.CenterFlex>
+            <BlockSection
+              text="¿Tienes un proyecto?"
+              button="Contacta con nosotros"
+              text2=""
+              button2=""
+              mode={false}
+            />
+          </Styles.CenterFlex>
+        </Styles.Center>
         <Footer />
       </Styles.Body>
     </>

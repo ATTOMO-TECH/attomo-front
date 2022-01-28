@@ -16,8 +16,8 @@ export const IconMove = styled.div`
 `;
 
 export const Button = {
-  ButtonRegular: tw.h5`font-Primary py-5 text-left text-xl text-Primary pr-2 `,
-  SectionBack: tw.div`w-11/12 m-auto px-10`,
+  ButtonRegular: tw.h5`text-Primary font-Primary py-5 text-left text-xl text-primary pr-2 `,
+  SectionBack: tw.div`w-3/12 ml-12 px-10 p-14 block  cursor-pointer hover:opacity-50`,
   BlockBack: tw.div`flex font-PrimarySerif font-extralight`,
   TextBack: tw.h5``,
 };

@@ -62,6 +62,7 @@ function Home() {
             button=""
             text2="¿Quieres ver más casos de éxito?"
             button2="Nuestro portfolio"
+            mode
           />
         </Styles.CenterFlex>
         <Styles.CenterFull>
@@ -73,6 +74,7 @@ function Home() {
             button="Contacta con nosotros"
             text2=""
             button2=""
+            mode
           />
         </Styles.CenterFlex>
         <Footer />

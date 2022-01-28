@@ -4,19 +4,20 @@ import { Button } from './style';
 
 interface Props {
   children: string;
+  link: string;
 }
 
-export default function Back({ children }: Props) {
+export default function Back({ children, link }: Props) {
   return (
     <>
-      <Button.SectionBack>
-        <Link href="../">
+      <Link href={link}>
+        <Button.SectionBack>
           <Button.BlockBack>
             <Image src="/icon/arrowBack.svg" width={30} height={20} />
             <Button.TextBack>{children}</Button.TextBack>
           </Button.BlockBack>
-        </Link>
-      </Button.SectionBack>
+        </Button.SectionBack>
+      </Link>
     </>
   );
 }

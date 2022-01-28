@@ -31,6 +31,7 @@ bg-secundary scroll-smooth m-auto
   Margin: tw.div`m-auto`,
   Center: tw.section`w-10/12 m-auto`,
   AlingCases: tw.section`w-11/12 ml-auto py-24`,
+  AlingCasesNoP: tw.section`w-11/12 ml-auto pb-24`,
   CenterFull: tw.section`w-full lg:w-10/12 m-auto`,
   CenterFlex: tw.section`w-10/12 m-auto flex`,
   BlockMargin: tw.div`lg:py-48 flex flex-col lg:flex-row `,
@@ -43,5 +44,7 @@ bg-secundary scroll-smooth m-auto
   TitleSubSection: tw.h5`text-primary py-20 font-Primary text-lg font-light`,
   AlingBlock: tw.div`w-11/12 lg:w-8/12 overflow-x-hidden`,
   BlockInput: tw.div`flex `,
+  TextSubSection: tw.h5`font-Primary text-xl font-extralight pb-5`,
+  BreakLine: tw.div`h-0.5 opacity-40 bg-addictional w-full m-4`,
   Input: tw.input`w-full bg-secundary text-primary border-b-2 border-primary focus:outline-none focus:opacity-100 opacity-30 outline-none  py-1 px-1 lg:text-lg text-xl font-light transition-colors duration-400 ease-in-out`,
 };

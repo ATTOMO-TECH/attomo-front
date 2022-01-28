@@ -40,6 +40,7 @@ function Carrers() {
             button="Enviar mi candidatura"
             text2=""
             button2=""
+            mode
           />
         </Styles.Center>
         <Footer />
