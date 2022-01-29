@@ -10,11 +10,10 @@ export const lightTheme = {
 
 export const SectionColor = styled.div`
   color: ${(props) => props.theme.headings};
-  background-color: ${(props) => props.theme.bodyBg};
 `;
 
 export const Block = {
-  SectionBlock: tw.h5`lg:py-24 flex flex-col justify-between w-full`,
   Block: tw(SectionColor)`text-primary lg:w-3/6 w-full`,
+  SectionBlock: tw.h5`lg:py-24 flex flex-col justify-between w-full`,
   Title: tw.h6`opacity-50`,
 };
