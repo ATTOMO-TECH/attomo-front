@@ -38,6 +38,7 @@ function Cases({ mode }: Props) {
               category="Estrategia"
               title="Dictum libero pellentesque faucibus tristique ut"
               paragraph="Eu tincidunt etiam mollis cum sed eu. Tempor, ornare integer enim vulputate. In quis nibh semper semper magna vel faucibus integer augue. Magna pellentesque amet risus pretium lorem. Id lorem dolor ornare sit vestibulum nibh congue nisi pellentesque."
+              image="/"
             />
             <BreadCrumbs Author="Autor" Date="Fecha" />
             <BodyCases />

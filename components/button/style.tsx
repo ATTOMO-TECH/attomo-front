@@ -17,13 +17,13 @@ export const IconMove = styled.div`
 
 export const Button = {
   ButtonRegular: tw.h5`text-Primary font-Primary py-5 text-left text-xl pr-2 `,
-  SectionBack: tw.div`w-3/12 ml-12 px-10 p-14 block  cursor-pointer hover:opacity-50`,
+  SectionBack: tw.div`z-100 lg:w-3/12 w-10/12 ml-12 lg:px-10 lg:p-14 py-10 block cursor-pointer hover:opacity-50`,
   BlockBack: tw.div`flex font-PrimarySerif font-extralight`,
   TextBack: tw.h5``,
 };
 
 export const Icon = {
-  BlockHidden: tw.div`overflow-hidden flex flex-wrap  cursor-pointer btn`,
+  BlockHidden: tw.div`overflow-hidden flex flex-wrap  cursor-pointer btn z-100`,
   SectionIcon: tw(IconMoveS)`flex items-center `,
   Icon: tw(IconMove)` `,
 };

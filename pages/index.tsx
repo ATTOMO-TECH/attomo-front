@@ -46,7 +46,7 @@ function Home() {
                 Trabajamos de la mano con nuestros clientes para impulsar y
                 transformar sus áreas de operación.
               </Title>
-              <div className="w-full lg:pl-24">
+              <div className="w-full lg:pl-24 text-primary">
                 <IconAnimate text="Casos de éxito" />
               </div>
             </Styles.DivideSection>

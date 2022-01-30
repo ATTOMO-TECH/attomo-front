@@ -7,4 +7,7 @@ export const Blogstyles = {
   Text: tw.h2`text-xs font-semibold tracking-widest text-primary uppercase title-font`,
   SubText: tw.h4`text-sm font-thin leading-relaxed text-left text-primary `,
   Btn: tw.button`font-Primary pt-5 text-left text-regular text-Primary text-primary`,
+
+  SectionMore: tw.div`flex  text-primary font-Primary underline text-center justify-center py-24 font-extralight text-xl`,
+  BlockMore: tw.span`hover:opacity-75 cursor-pointer ease-out duration-300`,
 };

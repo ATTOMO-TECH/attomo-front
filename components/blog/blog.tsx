@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import Link from 'next/link';
 import { Blogstyles } from './style';
 import { BLOG } from '../../const/constGlobal';
 import Title from '../Text/title';
@@ -21,10 +22,17 @@ export default function BlockBlog() {
             <Blogstyles.Text>{values.Topic}</Blogstyles.Text>
             <Title size="text-4xl leading-relaxed">{values.Text}</Title>
             <Blogstyles.SubText>{values.SubText}</Blogstyles.SubText>
-            <Blogstyles.Btn>Leer</Blogstyles.Btn>
+            <Link href={`/new/${values.Tag}`}>
+              <div>
+                <Blogstyles.Btn>Leer</Blogstyles.Btn>
+              </div>
+            </Link>
           </Blogstyles.BlockText>
         </Blogstyles.Article>
       ))}
+      <Blogstyles.SectionMore>
+        <Blogstyles.BlockMore>Ver más noticias</Blogstyles.BlockMore>
+      </Blogstyles.SectionMore>
     </>
   );
 }

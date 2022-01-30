@@ -30,7 +30,7 @@ function Blog() {
               su estrategia de negocio
             </Title>
 
-            <div className="text-primary flex flex-col lg:flex-row items-baseline justify-center lg:w-9/12">
+            <div className="text-primary flex  items-baseline justify-en lg:w-9/12">
               <Title size="text-xl lg:pt-48 lg:py-24 py-10  lg:w-3/6 w-full">
                 Entérate de las novedades del sector:
               </Title>
@@ -46,11 +46,7 @@ function Blog() {
         </Styles.Center>
 
         <BlockBlog />
-        <div className="flex  text-primary font-Primary underline text-center justify-center py-24 font-extralight text-xl ">
-          <span className="hover:opacity-75 cursor-pointer ease-out duration-300">
-            Ver más noticias
-          </span>
-        </div>
+
         <Styles.CenterFlex>
           <BlockSection
             text="¿Tienes un proyecto?"

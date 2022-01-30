@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/dist/client/router';
 import Footer from '../../components/footer/footer';
 import Menu from '../../components/nav/menu';
 import Nav from '../../components/nav/nav';
@@ -10,7 +11,7 @@ import Back from '../../components/button/back';
 import BodyCases from '../../components/section/cases/bodyCase';
 import ArticlesScroll from '../../components/slider/article/slider';
 import BlockSection from '../../components/block/block';
-import { NEWS } from '../../const/constGlobal';
+import { BLOG, NEWS } from '../../const/constGlobal';
 
 interface Props {
   mode: boolean;
@@ -21,6 +22,9 @@ function New({ mode }: Props) {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
+  const router = useRouter();
+
+  const currentBlog = BLOG.filter((blog) => blog.Tag === router.query.slug)[0];
 
   return (
     <>
@@ -35,9 +39,10 @@ function New({ mode }: Props) {
         <Styles.Center>
           <Styles.AlingCasesNoP>
             <HeaderCases
-              category="Estrategia"
-              title="Dictum libero pellentesque faucibus tristique ut"
-              paragraph="Eu tincidunt etiam mollis cum sed eu. Tempor, ornare integer enim vulputate. In quis nibh semper semper magna vel faucibus integer augue. Magna pellentesque amet risus pretium lorem. Id lorem dolor ornare sit vestibulum nibh congue nisi pellentesque."
+              category={currentBlog.Topic}
+              title={currentBlog.Text}
+              paragraph={currentBlog.SubText}
+              image={currentBlog.Pic}
             />
             <BreadCrumbs Author="Autor" Date="Fecha" />
             <BodyCases />
