@@ -17,6 +17,7 @@ export const darkTheme = {
 export const SectionColor = styled.div`
   color: ${(props) => props.theme.headings};
   background-color: ${(props) => props.theme.bodyBg};
+  z-index: 100 !important;
 `;
 
 export const Navegation = {
@@ -29,7 +30,7 @@ export const Navegation = {
   `,
   Menu: tw.nav``,
   AlinItems: tw.ul<Props>`
-  flex items-center justify-between pb-20 w-10/12 absolute lg:left-24 left-12 lg:top-10
+  flex items-center justify-between mb-20 w-10/12 absolute lg:left-24 left-12 lg:top-10
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'pt-10' : '')}
   `,
   ItemsMenu: tw.li`flex items-center list-none`,
@@ -42,7 +43,7 @@ export const Navegation = {
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`
-font-Primary z-100 lg:py-16 h-24 pb-10 cursor-pointer list-none transition ease-in-out -top-4 
+font-Primary z-100 lg:py-16 h-24 mb-10 cursor-pointer list-none transition ease-in-out -top-4 
 ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'fixed w-full' : '')}
 `,
 };

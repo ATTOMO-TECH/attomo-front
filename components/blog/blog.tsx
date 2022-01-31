@@ -22,7 +22,7 @@ export default function BlockBlog() {
             <Blogstyles.Text>{values.Topic}</Blogstyles.Text>
             <Title size="text-4xl leading-relaxed">{values.Text}</Title>
             <Blogstyles.SubText>{values.SubText}</Blogstyles.SubText>
-            <Link href={`/new/${values.Tag}`}>
+            <Link href={`/ATTOMOTrends/${values.Tag}`}>
               <div>
                 <Blogstyles.Btn>Leer</Blogstyles.Btn>
               </div>

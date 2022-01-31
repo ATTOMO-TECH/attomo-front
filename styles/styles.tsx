@@ -3,7 +3,8 @@ import tw from 'tailwind-styled-components';
 import { BUTTON_ACTIVE } from '../const/const';
 
 type Props = {
-  ismode: string;
+  ismode?: string;
+  active?: boolean;
 };
 export const lightTheme = {
   bodyBg: 'black',
@@ -22,6 +23,13 @@ export const SectionColor = styled.div`
 export const Select = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
+`;
+
+export const BtnSelect = styled.button<Props>`
+  ${({ active }) =>
+    active
+      ? '-webkit-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.7); -moz-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.7);box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.7);'
+      : ''}
 `;
 export const Styles = {
   Body: tw(SectionColor)<Props>`
@@ -57,4 +65,8 @@ bg-secundary scroll-smooth m-auto
   Select: tw(
     Select,
   )`bg-black text-primary outline-none text-sm lg:py-4 font-PrimarySerif font-light ml-5`,
+
+  BtnSelect: tw(
+    BtnSelect,
+  )`text-primary border-2 border-primary px-14 py-3 rounded-full opacity-80 font-PrimarySerif font-thin shadow-none`,
 };

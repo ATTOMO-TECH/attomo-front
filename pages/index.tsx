@@ -23,7 +23,6 @@ function Home() {
     <>
       <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo={false} mode />
-
         <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
 
         <Styles.Center>

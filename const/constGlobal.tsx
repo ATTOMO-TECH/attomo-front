@@ -1,3 +1,6 @@
+import FormColaborator from '../components/form/formColaborator';
+import FormCustomer from '../components/form/formCustomer';
+
 export const PARTNERS: {
   Name: string;
   Pic: string;
@@ -37,7 +40,7 @@ export const VALUESNAV: {
   },
   {
     Value: '#ATTOMOTrends',
-    Url: '/blog',
+    Url: '/ATTOMOTrends',
   },
   {
     Value: 'Careers',
@@ -90,23 +93,23 @@ export const CUSTOMERS: {
   Url: string;
 }[] = [
   {
-    Name: 'Fronda',
-    Pic: '/customers/fronda.png',
+    Name: 'AddTimme',
+    Pic: '/customers/Addtimme.png',
     Url: '',
   },
   {
-    Name: 'Mi Pequeño Rincón',
-    Pic: '/customers/Mipequeñorincon.png',
+    Name: 'Benneti',
+    Pic: '/customers/bennetti wha.webp',
     Url: '',
   },
   {
-    Name: 'Merkal',
-    Pic: '/customers/merkal.png',
+    Name: 'ChiandSu',
+    Pic: '/customers/chiandsu.png',
     Url: '',
   },
   {
-    Name: 'Maras',
-    Pic: '/customers/maras.png',
+    Name: 'ChicParty',
+    Pic: '/customers/chic_party.png',
     Url: '',
   },
   {
@@ -343,5 +346,19 @@ export const BLOG: {
     Url: '',
     Pic: '/customers/blog/blog4.png',
     Tag: '4',
+  },
+];
+
+export const TABCONTACT: {
+  Name: string;
+  Component: any;
+}[] = [
+  {
+    Name: 'Cliente',
+    Component: <FormCustomer />,
+  },
+  {
+    Name: 'Colaborador',
+    Component: <FormColaborator />,
   },
 ];
