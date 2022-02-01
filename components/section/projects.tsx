@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { BUTTON_ACTIVE } from '../../const/const';
-import Btn from '../button/button';
+import IconAnimate from '../button/icon';
 import Title from '../Text/title';
 import { Styles } from './style';
 
@@ -28,11 +28,13 @@ export default function SectionProjects({ Array }: Props) {
             <Styles.BlockText
               ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
               <Title size="text-xl ">{values.Client}</Title>
-              <Title size="text-5xl py-5 leading-relaxed lg:leading-normal">
+              <Title size="text-5xl py-3 leading-relaxed lg:leading-normal">
                 {values.Text}
               </Title>
               <Link href={values.Url}>
-                <Btn>Ver proyecto</Btn>
+                <div className=" text-primary z-100">
+                  <IconAnimate text="Ver proyecto" />
+                </div>
               </Link>
             </Styles.BlockText>
           </Styles.BlockSections>

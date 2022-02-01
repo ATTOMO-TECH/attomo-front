@@ -22,9 +22,8 @@ function Home() {
   return (
     <>
       <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
-        <Menu isOpen={isOpen} toggle={toggle} logo={false} />
-
-        <Nav toggle={toggle} logo={false} />
+        <Menu isOpen={isOpen} toggle={toggle} logo={false} mode />
+        <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
 
         <Styles.Center>
           <Hero
@@ -46,7 +45,7 @@ function Home() {
                 Trabajamos de la mano con nuestros clientes para impulsar y
                 transformar sus áreas de operación.
               </Title>
-              <div className="w-full lg:pl-24">
+              <div className="w-full lg:pl-24 text-primary">
                 <IconAnimate text="Casos de éxito" />
               </div>
             </Styles.DivideSection>
@@ -62,6 +61,7 @@ function Home() {
             button=""
             text2="¿Quieres ver más casos de éxito?"
             button2="Nuestro portfolio"
+            mode
           />
         </Styles.CenterFlex>
         <Styles.CenterFull>
@@ -73,6 +73,7 @@ function Home() {
             button="Contacta con nosotros"
             text2=""
             button2=""
+            mode
           />
         </Styles.CenterFlex>
         <Footer />

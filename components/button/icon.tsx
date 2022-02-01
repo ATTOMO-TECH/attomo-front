@@ -12,8 +12,8 @@ export default function IconAnimate({ text }: Props) {
         <Button.ButtonRegular>{text}</Button.ButtonRegular>
         <Icon.SectionIcon>
           <Icon.Icon />
-          <Image src="/icon/iconBtn.svg" width={8} height={8} />
         </Icon.SectionIcon>
+        <Image src="/icon/iconBtn.svg" width={8} height={8} />
       </Icon.BlockHidden>
     </>
   );

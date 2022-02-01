@@ -7,6 +7,8 @@
 @import 'swiper/css';
 @import 'swiper/css/navigation';
 @import 'swiper/css/pagination';
+@import 'swiper/css/autoplay';
+@import 'swiper/css/lazy';
 
 * {
   scroll-behavior: smooth;
@@ -28,8 +30,10 @@
     width: 768px;
   }
 }
-
-.overflow-hidden:hover span {
-  width: 200px;
+.btn {
   overflow: hidden;
+}
+
+.btn:hover span {
+  width: 4%;
 }

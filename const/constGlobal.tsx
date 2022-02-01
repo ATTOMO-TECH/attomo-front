@@ -1,3 +1,6 @@
+import FormColaborator from '../components/form/formColaborator';
+import FormCustomer from '../components/form/formCustomer';
+
 export const PARTNERS: {
   Name: string;
   Pic: string;
@@ -36,8 +39,8 @@ export const VALUESNAV: {
     Url: '/nosotros',
   },
   {
-    Value: 'News',
-    Url: '/blog',
+    Value: '#ATTOMOTrends',
+    Url: '/ATTOMOTrends',
   },
   {
     Value: 'Careers',
@@ -47,30 +50,39 @@ export const VALUESNAV: {
     Value: 'Contacto',
     Url: '/contacto',
   },
+  {
+    Value: 'Espacio Attomo',
+    Url: '/contacto',
+  },
 ];
 export const ICONNAV: {
   Name: string;
   Pic: string;
+  Pic2: string;
   Url: string;
 }[] = [
   {
     Name: 'Whatsapp',
-    Pic: '/icon/whatsapp.svg',
+    Pic: '/icon/w12.png',
+    Pic2: '/icon/w2.svg',
     Url: 'tel:+34610516285',
   },
   {
     Name: 'Mail',
     Pic: '/icon/mail.svg',
+    Pic2: '/icon/m2.svg',
     Url: 'mailto:equipo@attomo.digital',
   },
   {
     Name: 'Instagram',
     Pic: '/icon/instagram.svg',
+    Pic2: '/icon/i2.svg',
     Url: 'https://www.instagram.com/attomo.digital/',
   },
   {
     Name: 'Linkedin',
     Pic: '/icon/vector.svg',
+    Pic2: '/icon/l2.svg',
     Url: 'https://www.linkedin.com/company/attomo-digital/',
   },
 ];
@@ -81,23 +93,23 @@ export const CUSTOMERS: {
   Url: string;
 }[] = [
   {
-    Name: 'Fronda',
-    Pic: '/customers/fronda.png',
+    Name: 'AddTimme',
+    Pic: '/customers/Addtimme.png',
     Url: '',
   },
   {
-    Name: 'Mi Pequeño Rincón',
-    Pic: '/customers/Mipequeñorincon.png',
+    Name: 'Benneti',
+    Pic: '/customers/bennetti wha.webp',
     Url: '',
   },
   {
-    Name: 'Merkal',
-    Pic: '/customers/merkal.png',
+    Name: 'ChiandSu',
+    Pic: '/customers/chiandsu.png',
     Url: '',
   },
   {
-    Name: 'Maras',
-    Pic: '/customers/maras.png',
+    Name: 'ChicParty',
+    Pic: '/customers/chic_party.png',
     Url: '',
   },
   {
@@ -109,6 +121,7 @@ export const CUSTOMERS: {
 
 export const ARTICLES: {
   Text: string;
+  Topic: string;
   Pic: string;
   Url: string;
   Tag: string;
@@ -116,18 +129,50 @@ export const ARTICLES: {
   {
     Text: 'Vulputate facilisis ipsum morbi arcu, risus semper netus',
     Pic: '/customers/customerServices1.png',
+    Topic: '',
     Url: '',
     Tag: '1',
   },
   {
     Text: 'Nisi, sem eget mauris pretium egestas tellus tempus',
     Pic: '/customers/customerServices2.png',
+    Topic: '',
     Url: '',
     Tag: '2',
   },
   {
     Text: 'Magna pharetra fusce eget lectus curabitur odio cras felis risus',
     Pic: '/customers/customerServices3.png',
+    Topic: '',
+    Url: '',
+    Tag: '3',
+  },
+];
+export const NEWS: {
+  Text: string;
+  Topic: string;
+  Pic: string;
+  Url: string;
+  Tag: string;
+}[] = [
+  {
+    Text: 'Vulputate facilisis ipsum morbi arcu, risus semper netus',
+    Pic: '/customers/customerServices1.png',
+    Topic: 'Temática',
+    Url: '',
+    Tag: '1',
+  },
+  {
+    Text: 'Nisi, sem eget mauris pretium egestas tellus tempus',
+    Pic: '/customers/customerServices2.png',
+    Topic: 'Temática',
+    Url: '',
+    Tag: '2',
+  },
+  {
+    Text: 'Magna pharetra fusce eget lectus curabitur odio cras felis risus',
+    Pic: '/customers/customerServices3.png',
+    Topic: 'Temática',
     Url: '',
     Tag: '3',
   },
@@ -301,5 +346,19 @@ export const BLOG: {
     Url: '',
     Pic: '/customers/blog/blog4.png',
     Tag: '4',
+  },
+];
+
+export const TABCONTACT: {
+  Name: string;
+  Component: any;
+}[] = [
+  {
+    Name: 'Cliente',
+    Component: <FormCustomer />,
+  },
+  {
+    Name: 'Colaborador',
+    Component: <FormColaborator />,
   },
 ];

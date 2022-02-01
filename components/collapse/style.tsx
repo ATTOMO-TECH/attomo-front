@@ -5,16 +5,16 @@ import { BUTTON_ACTIVE } from '../../const/const';
 type Props = {
   ismode: any;
 };
-export const SectionTitle = styled.h5`
+export const SectionTitle = styled.div`
   &:nth-child(1) {
     padding-top: 0%;
   }
   &:nth-child(2) {
-    padding-top: 10%;
+    padding-top: 0%;
     order: 1;
   }
   &:nth-child(3) {
-    padding-top: 10%;
+    padding-top: 0%;
   }
   @media screen and (min-width: 1024px) {
      {
@@ -68,7 +68,7 @@ export const Item = styled.div<Props>`
       ? `
   @media screen and (min-width: 1024px) 
   {
-    {transform: rotate(55deg)}
+    {transform: rotate(50deg)}
   }; transform: rotate(-50deg)`
       : ''}
     ${(props) =>
@@ -86,7 +86,7 @@ export const ItemSection = styled.div`
   height: 8px;
   border-radius: 80% 80% 40% 40%;
   position: absolute;
-  top: -8px;
+  top: -10px;
   left: 50%;
   transition: all 3s;
 
@@ -113,7 +113,7 @@ export const Imgen = styled.img<Props>`
       ? `
   @media screen and (min-width: 1024px) 
   {
-    {transform: rotate(-65deg)}
+    {transform: rotate(-60deg)}
   }; transform: rotate(-15deg);`
       : ''}
   ${(props) =>
@@ -136,7 +136,7 @@ export const TextTitle = styled.h2`
   -webkit-text-fill-color: transparent;
 `;
 export const Styles = {
-  SectionCollapse: tw.section`font-PrimarySerif overflow-hidden max-w-100 flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative mb-24 font-light leading-loose`,
+  SectionCollapse: tw.section`h-screen lg:h-auto font-PrimarySerif overflow-hidden max-w-100 flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative my-24 font-light leading-loose`,
   BlockDescription: tw.div`lg:text-right text-xl lg:absolute bottom-12 lg:-right-4 w-full text-center `,
   SubSection: tw(SubSection)`font-regular  py-0.5 text-base`,
   BlockImg: tw.div`relative p-1`,
@@ -146,13 +146,13 @@ export const Styles = {
   Image: tw(Imgen)``,
   BlockTextSelect: tw(
     SectionTitle,
-  )`text-2xl cursor-pointer lg:absolute left-0 bottom-2 lg:bottom-2 lg:left-auto lg:top-7 flex lg:block`,
+  )`text-2xl  lg:absolute left-0 bottom-2 lg:bottom-2 lg:left-auto lg:top-7 flex lg:block w-1/3 h-1/3`,
   BlockSectionTitle: tw.div`w-auto`,
   TextSelect: tw(
     SectionTitle,
-  )<Props>`py-7 opacity-70 hover:opacity-100 px-5 order-last
+  )<Props>`py-7 opacity-40 hover:opacity-100 px-5 order-last block transition ease-in duration-300 cursor-pointer
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : '')}`,
   TextCentral: tw(
     TextTitle,
-  )`absolute lg:top-52 top-36 right-24 lg:right-32 16 w-3/6 text-center text-lg leading-relaxed`,
+  )`absolute lg:top-52 top-40 left-16 lg:left-32 w-4/6 lg:w-3/6 text-center text-xl `,
 };

@@ -4,10 +4,11 @@ import Collapse from '../components/collapse/collapse';
 import Footer from '../components/footer/footer';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
-import ArticlesScroll from '../components/slider/articles/slider';
+import ArticlesScroll from '../components/slider/article/slider';
 import Subtext from '../components/Text/subText';
 import Title from '../components/Text/title';
 import { BUTTON_ACTIVE } from '../const/const';
+import { ARTICLES } from '../const/constGlobal';
 import { Styles } from '../styles/styles';
 
 function Services() {
@@ -18,12 +19,12 @@ function Services() {
   return (
     <>
       <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
-        <Menu isOpen={isOpen} toggle={toggle} logo />
+        <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
-          <Nav toggle={toggle} logo />
+          <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
         </Styles.Margin>
         <Styles.Center>
-          <Styles.Screen>
+          <Styles.ScreenMid>
             <Title size="text-5xl lg:pt-48 lg:pr-10 pb-24 w-full pt-20">
               Combinamos ingeniería, diseño, escalabilidad e innovación para
               transformar industrias, empresas y administraciones
@@ -34,10 +35,12 @@ function Services() {
                 la transformación digital
               </Subtext>
             </Styles.FlexEnd>
-          </Styles.Screen>
+          </Styles.ScreenMid>
         </Styles.Center>
         <Styles.Center>
-          <Collapse />
+          <div className="py-48">
+            <Collapse />
+          </div>
         </Styles.Center>
         <Styles.Center>
           <Styles.TitleSubSection>
@@ -46,7 +49,7 @@ function Services() {
         </Styles.Center>
         <Styles.FlexEnd>
           <Styles.AlingBlock>
-            <ArticlesScroll />
+            <ArticlesScroll mode array={ARTICLES} />
           </Styles.AlingBlock>
         </Styles.FlexEnd>
         <Styles.CenterFlex>
@@ -55,6 +58,7 @@ function Services() {
             button="Contacta con nosotros"
             text2=""
             button2=""
+            mode
           />
         </Styles.CenterFlex>
         <Footer />

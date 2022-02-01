@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
+import { BUTTON_ACTIVE } from '../../const/const';
+
+type Props = {
+  ismode: string;
+};
 
 export const TextTitle = styled.h2`
   @media screen and (max-width: 1024px) {
@@ -14,6 +19,16 @@ export const TextTitle = styled.h2`
   }
 `;
 
+export const lightTheme = {
+  headings: TextTitle,
+};
+export const darkTheme = {
+  headings: 'white',
+};
+
+export const SectionColor = styled.div`
+  color: ${(props) => props.theme.headings};
+`;
 export const Styles = {
   Body: tw.body`bg-secundary`,
   Center: tw.section`w-10/12 m-auto`,
@@ -21,11 +36,15 @@ export const Styles = {
 };
 
 export const StylesArticle = {
-  BlockImg: tw.div`w-11/12 h-auto fill`,
-  TextBlog: tw(
-    TextTitle,
-  )`text-primary font-Primary lg:w-4/6 text-xl lg:text-sm w-5/6 pt-5 lg:pt-2`,
-  BlockArrow: tw.div`flex text-red-500 w-full text-xl justify-end lg:pr-44 pr-10 `,
-  ArrowPrev: tw.div`cursor-pointer py-20 pr-5 hidden lg:block`,
+  BlockImg: tw.div`w-11/12 h-auto `,
+  BlockText: tw(SectionColor)``,
+  TextBlog: tw.h4`lg:w-4/6 text-xl lg:text-lg w-5/6 pt-5 lg:pt-2 font-Primary font-thin`,
+  TopicText: tw.h6<Props>`
+  opacity-50 font-PrimarySerif font-thin text-xs py-2
+  ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'block' : 'hidden')}
+  
+  `,
+  BlockArrow: tw.div`flex w-full text-xl justify-end lg:pr-44 pr-10`,
+  ArrowPrev: tw.div`cursor-pointer py-20 pr-5 hidden lg:block `,
   ArrowNext: tw.div`cursor-pointer lg:py-20 py-10`,
 };
