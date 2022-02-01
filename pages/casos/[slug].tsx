@@ -1,16 +1,17 @@
 import { useState } from 'react';
+import { useRouter } from 'next/dist/client/router';
+import Image from 'next/image';
 import Footer from '../../components/footer/footer';
 import Menu from '../../components/nav/menu';
 import Nav from '../../components/nav/nav';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { darkTheme, lightTheme, Styles } from '../../styles/styles';
 import BreadCrumbs from '../../components/breadcrumbs/breadcrumbs';
-import HeaderCases from '../../components/section/cases/header';
-import Back from '../../components/button/back';
-import BodyCases from '../../components/section/cases/bodyCase';
 import ArticlesScroll from '../../components/slider/article/slider';
 import BlockSection from '../../components/block/block';
-import { NEWS } from '../../const/constGlobal';
+import { CASE, NEWS } from '../../const/constGlobal';
+
+import DetailsCases from '../../components/section/cases/details';
 
 interface Props {
   mode: boolean;
@@ -21,6 +22,11 @@ function Cases({ mode }: Props) {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
+  const router = useRouter();
+
+  const currentCase = CASE.filter(
+    (value) => value.Tag === router.query.slug,
+  )[0];
 
   return (
     <>
@@ -31,20 +37,17 @@ function Cases({ mode }: Props) {
         <Styles.Margin>
           <Nav toggle={toggle} logo mode={false} isOpen={isOpen} />
         </Styles.Margin>
-        <Back link="/casosdeexito">Volver a casos</Back>
         <Styles.Center>
-          <Styles.AlingCasesNoP>
-            <HeaderCases
-              category="Estrategia"
-              title="Dictum libero pellentesque faucibus tristique ut"
-              paragraph="Eu tincidunt etiam mollis cum sed eu. Tempor, ornare integer enim vulputate. In quis nibh semper semper magna vel faucibus integer augue. Magna pellentesque amet risus pretium lorem. Id lorem dolor ornare sit vestibulum nibh congue nisi pellentesque."
-              image="/"
-            />
-            <BreadCrumbs Author="Autor" Date="Fecha" />
-            <BodyCases />
-          </Styles.AlingCasesNoP>
-          <Styles.TextSubSection>Podría interesarte</Styles.TextSubSection>
+          <Styles.Center>
+            <BreadCrumbs Author={currentCase.Client} Date={currentCase.Topic} />
+            <Styles.TitularText>{currentCase.Text}</Styles.TitularText>
+          </Styles.Center>
         </Styles.Center>
+        <Image src={currentCase.Pic || '/'} width={950} height={500} />
+        <Styles.Center>
+          <DetailsCases />
+        </Styles.Center>
+
         <Styles.FlexEnd>
           <Styles.AlingBlock>
             <ArticlesScroll mode={false} array={NEWS} />

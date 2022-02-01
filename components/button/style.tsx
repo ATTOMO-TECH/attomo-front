@@ -23,7 +23,7 @@ export const Button = {
 };
 
 export const Icon = {
-  BlockHidden: tw.div`overflow-hidden flex flex-wrap cursor-pointer btn z-90 w-full`,
+  BlockHidden: tw.div`overflow-hidden flex flex-wrap cursor-pointer btn z-90 w-full `,
   SectionIcon: tw(IconMoveS)`flex items-center `,
   Icon: tw(IconMove)``,
 };

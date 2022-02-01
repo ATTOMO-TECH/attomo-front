@@ -15,7 +15,8 @@ export default function SectionProjects({ Array }: Props) {
       <Styles.SectionProjects>
         {Array.map((values, i) => (
           <Styles.BlockSections
-            ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+            ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+            key={values.Client}>
             <Styles.BlockSection
               ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
               <Image
@@ -31,7 +32,7 @@ export default function SectionProjects({ Array }: Props) {
               <Title size="text-5xl py-3 leading-relaxed lg:leading-normal">
                 {values.Text}
               </Title>
-              <Link href={values.Url}>
+              <Link href={`/casos/${values.Tag}`}>
                 <div className=" text-primary z-100">
                   <IconAnimate text="Ver proyecto" />
                 </div>

@@ -50,38 +50,38 @@ export const VALUESNAV: {
     Value: 'Contacto',
     Url: '/contacto',
   },
-  {
-    Value: 'Espacio Attomo',
-    Url: '/contacto',
-  },
+  // {
+  //   Value: 'Espacio Attomo',
+  //   Url: '/contacto',
+  // },
 ];
 export const ICONNAV: {
   Name: string;
-  Pic: string;
+  UrlShare: string;
   Pic2: string;
   Url: string;
 }[] = [
   {
     Name: 'Whatsapp',
-    Pic: '/icon/w12.png',
+    UrlShare: 'https://api.whatsapp.com/send?text',
     Pic2: '/icon/w2.svg',
     Url: 'tel:+34610516285',
   },
   {
     Name: 'Mail',
-    Pic: '/icon/mail.svg',
+    UrlShare: 'mailto:equipo@attomo.digital?subject=',
     Pic2: '/icon/m2.svg',
     Url: 'mailto:equipo@attomo.digital',
   },
   {
     Name: 'Instagram',
-    Pic: '/icon/instagram.svg',
+    UrlShare: '/icon/instagram.svg',
     Pic2: '/icon/i2.svg',
     Url: 'https://www.instagram.com/attomo.digital/',
   },
   {
     Name: 'Linkedin',
-    Pic: '/icon/vector.svg',
+    UrlShare: '/icon/vector.svg',
     Pic2: '/icon/l2.svg',
     Url: 'https://www.linkedin.com/company/attomo-digital/',
   },
@@ -248,6 +248,7 @@ export const CASE: {
   Text: string;
   Client: string;
   Pic: string;
+  Topic: string;
   Url: string;
   Tag: string;
 }[] = [
@@ -255,6 +256,7 @@ export const CASE: {
     Text: 'Reinventando la industria de la intermediación de viviendas',
     Client: 'Grandes Viviendas Real Estate',
     Pic: '/customers/customer1.png',
+    Topic: 'Estrategia',
     Url: '',
     Tag: '1',
   },
@@ -262,6 +264,7 @@ export const CASE: {
     Text: 'Transformando la industria de la moda femenina',
     Client: 'Chi & Su',
     Pic: '/customers/customer2.png',
+    Topic: 'Estrategia',
     Url: '',
     Tag: '2',
   },
@@ -269,6 +272,7 @@ export const CASE: {
     Text: 'Reinventando la industria de la intermediación de viviendas',
     Client: 'Grandes Viviendas Real Estate',
     Pic: '/customers/customer1.png',
+    Topic: 'Estrategia',
     Url: '',
     Tag: '3',
   },
@@ -276,6 +280,7 @@ export const CASE: {
     Text: 'Transformando la industria de la moda femenina',
     Client: 'Chi & Su',
     Pic: '/customers/customer2.png',
+    Topic: 'Estrategia',
     Url: '',
     Tag: '4',
   },

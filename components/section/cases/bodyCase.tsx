@@ -1,59 +1,53 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import { ICONNAV } from '../../../const/constGlobal';
 
 export default function BodyCases() {
   const [isOpen, SetIsOpen] = useState<boolean>(false);
 
+  const Share = () => {
+    navigator.share({
+      title: 'Web Share API Draft',
+      text: 'Take a look at this spec!',
+      url: 'https://wicg.github.io/web-share/#share-method',
+    });
+  };
+
   const toggle = () => {
     SetIsOpen(!isOpen);
+    if (isOpen === true) {
+      Share();
+    }
   };
-  // const router = useRouter()
-  // let showModal
-
-  // function share()  {
-  //   const share = {
-  //     title: 'Te comparto este blog',
-  //     url: `http://localhost:3000/new/${router.query.slug}`
-  //   }
-  //   try {
-  //     if (navigator.platform.indexOf('Win') > -1) {
-  //       showModal = true
-  //     }
-  //     else {
-  //        navigator.share(share)
-  //     }
-  //   }
-  //   catch (err: any) {
-  //     if (!err.toString().includes('AbortError')) {
-  //       showModal = true
-  //     }
-  //   }
-  // }
-
   return (
     <>
-      <div
-        className={isOpen ? 'w-4/6 relative lg:block' : 'hidden'}
+      <button
+        type="button"
+        className={
+          isOpen
+            ? 'w-4/6 hidden lg:block h-auto delay-300 duration-300 ease-in-out opacity-100 fixed bottom-96 left-0 z-90'
+            : 'w-0 overflow-hidden opacity-0 fixed -left-10'
+        }
         onChange={() => toggle()}>
-        <ul className="absolute w-3/6 z-90 top-6 bg-primary p-5 shadow-lg shadow-indigo-500/50 ">
-          <Link href="https://api.whatsapp.com/send?text=texto_codificado">
-            <li className="w-full flex justify-start cursor-pointer hover:opacity-50 py-2">
-              <Image
-                src="/icon/w2.svg"
-                width={20}
-                height={20}
-                className="shadow-lg shadow-cyan-500/50 "
-              />
-              Enviar por correo electronico
-            </li>
-          </Link>
-          <li className="w-full flex justify-start cursor-pointer hover:opacity-50 py-2">
-            <Image src="/icon/m2.svg" width={20} height={20} />
-            Enviar por Whatsapp
-          </li>
+        <ul className="absolute w-auto z-90 top-6 bg-primary p-5 shadow-lg shadow-indigo-500/50 ">
+          {ICONNAV.map((values) => (
+            <Link href={`${values.UrlShare}`}>
+              <li className="w-auto px-1 cursor-pointer hover:opacity-50 py-2">
+                <a target="_blank" href={values.Url} rel="noreferrer">
+                  <Image
+                    src={values.Pic2}
+                    width={25}
+                    height={25}
+                    alt={values.Name}
+                    className="shadow-lg shadow-cyan-500/50"
+                  />
+                </a>
+              </li>
+            </Link>
+          ))}
         </ul>
-      </div>
+      </button>
       <div className="flex flex-wrap justify-between">
         <div className="w-1/12 cursor-pointer" onClickCapture={() => toggle()}>
           <Image src="/icon/share.svg" width={20} height={20} alt="share" />
