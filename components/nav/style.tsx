@@ -6,12 +6,12 @@ type Props = {
   ismode: string;
 };
 export const lightTheme = {
-  bodyBg: 'black',
+  bodyBg: '#0F0C11',
   headings: 'white',
 };
 export const darkTheme = {
   bodyBg: 'white',
-  headings: 'black',
+  headings: '#0F0C11',
 };
 
 export const SectionColor = styled.div`
