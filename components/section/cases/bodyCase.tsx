@@ -1,78 +1,27 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { useState } from 'react';
-import { ICONNAV } from '../../../const/constGlobal';
+import BtnShare from '../../button/share';
 
-export default function BodyCases() {
+interface Props {
+  data: any;
+}
+export default function BodyCases({ data }: Props) {
   const [isOpen, SetIsOpen] = useState<boolean>(false);
-
-  const Share = () => {
-    navigator.share({
-      title: 'Web Share API Draft',
-      text: 'Take a look at this spec!',
-      url: 'https://wicg.github.io/web-share/#share-method',
-    });
-  };
-
   const toggle = () => {
     SetIsOpen(!isOpen);
-    if (isOpen === true) {
-      Share();
-    }
   };
   return (
     <>
-      <button
-        type="button"
-        className={
-          isOpen
-            ? 'w-4/6 hidden lg:block h-auto delay-300 duration-300 ease-in-out opacity-100 fixed bottom-96 left-0 z-90'
-            : 'w-0 overflow-hidden opacity-0 fixed -left-10'
-        }
-        onChange={() => toggle()}>
-        <ul className="absolute w-auto z-90 top-6 bg-primary p-5 shadow-lg shadow-indigo-500/50 ">
-          {ICONNAV.map((values) => (
-            <Link href={`${values.UrlShare}`}>
-              <li className="w-auto px-1 cursor-pointer hover:opacity-50 py-2">
-                <a target="_blank" href={values.Url} rel="noreferrer">
-                  <Image
-                    src={values.Pic2}
-                    width={25}
-                    height={25}
-                    alt={values.Name}
-                    className="shadow-lg shadow-cyan-500/50"
-                  />
-                </a>
-              </li>
-            </Link>
-          ))}
-        </ul>
-      </button>
+      <BtnShare valueUrl="undefined" isOpen={isOpen} toggle={toggle} />
       <div className="flex flex-wrap justify-between">
         <div className="w-1/12 cursor-pointer" onClickCapture={() => toggle()}>
           <Image src="/icon/share.svg" width={20} height={20} alt="share" />
         </div>
         <div className="w-11/12 " onChange={() => toggle()}>
           <p className="font-PrimarySerif leading-relaxed font-light text-sm pb-5">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            eu enim ut mauris ultricies egestas nec ultricies metus. Maecenas ut
-            ultrices erat, ultricies varius ante. Quisque ornare porttitor
-            justo, eu pellentesque dolor. Pellentesque vitae erat vel neque
-            ornare dignissim. Praesent molestie cursus odio et porttitor.
-            Phasellus odio nisi, varius eget elit eget, condimentum sodales
-            eros. Nullam semper vulputate est, facilisis fermentum ligula porta
-            ac. In suscipit metus quis euismod posuere. Nam sed metus a diam
-            ultricies pharetra. Etiam porttitor id purus eu pretium. Mauris
-            aliquet, neque vitae lacinia imperdiet, risus ipsum eleifend purus,
-            vitae molestie nulla mauris at nulla. Proin a leo ante. Suspendisse
-            condimentum velit turpis, non porttitor enim cursus sit amet.
-            Suspendisse iaculis, nunc ac venenatis scelerisque, diam nisl
-            hendrerit turpis, vitae fringilla risus leo sed leo. Maecenas mollis
-            nisl eget purus finibus, ac pharetra urna imperdiet. Phasellus
-            egestas tortor et ante ullamcorper sodales. Integer metus leo,
-            tincidunt a elementum a, tincidunt semper mauris. condimentum purus.
+            {data}
           </p>
-          <Image
+          {/* <Image
             src="/cases/exampleDemo.png"
             width={800}
             height={300}
@@ -132,7 +81,7 @@ export default function BodyCases() {
             posuere hendrerit. Mauris eleifend convallis risus, ac consectetur
             nunc ullamcorper non. Maecenas venenatis sollicitudin dolor, id
             semper eros iaculis a.
-          </p>
+          </p> */}
         </div>
       </div>
     </>

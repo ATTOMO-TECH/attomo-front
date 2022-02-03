@@ -6,7 +6,7 @@ import {
   useEffect,
 } from 'react';
 import { TOKEN_STORAGE_KEY } from '../lib/auth';
-import { get, post } from '../lib/http-client';
+import { get, post } from '../lib/restClient';
 
 type AuthContextType = {
   user: any | null;

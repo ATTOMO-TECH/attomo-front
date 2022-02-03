@@ -48,7 +48,7 @@ function Home() {
                 transformar sus áreas de operación.
               </Title>
               <div className="w-full lg:pl-24 text-primary">
-                <IconAnimate text="Casos de éxito" />
+                <IconAnimate text="Casos de éxito" mode />
               </div>
             </Styles.DivideSection>
           </Styles.BlockMargin>

@@ -1,6 +1,9 @@
 import IconAnimate from '../../button/icon';
 
-export default function DetailsCases() {
+interface Props {
+  data: [];
+}
+export default function DetailsCases({ data }: Props) {
   return (
     <>
       <section className="h-auto flex flex-wrap justify-between py-24">
@@ -20,13 +23,8 @@ export default function DetailsCases() {
           </div>
         </div>
         <div className="w-5/12 leading-relaxed font-PrimarySerif font-thin text-sm">
-          <p>
-            Presentación del caso - Nisi, donec et metus, suscipit. Mauris
-            potenti nibh netus tellus. Amet, purus ultricies porttitor
-            suspendisse leo sit sit. Consectetur cras donec at nisl. Vulputate
-            volutpat non neque et amet vitae aliquet lacus, elementum.
-          </p>
-          <IconAnimate text="Ver online" />
+          <p>{data}</p>
+          <IconAnimate text="Ver online" mode={false} />
         </div>
       </section>
     </>

@@ -87,7 +87,7 @@ export default function FormCustomer() {
                 />
               </Styles.SingleInput>
               <Styles.BlockBtn type="submit">
-                <IconAnimate text="Enviar" />
+                <IconAnimate text="Enviar" mode />
               </Styles.BlockBtn>
             </Styles.Form>
           </>
