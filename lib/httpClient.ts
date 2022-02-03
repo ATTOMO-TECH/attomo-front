@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { TOKEN_STORAGE_KEY } from './globalValues';
 
-export const API_URL = process.env.NEXT_PUBLIC_REACT_APP_API_URL;
+export const API_URL = 'https://attomo-admin.herokuapp.com/api';
 
 const config: AxiosRequestConfig = {
   baseURL: API_URL,
