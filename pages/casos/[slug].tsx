@@ -1,26 +1,31 @@
 import { useState } from 'react';
+import { useRouter } from 'next/dist/client/router';
 import Footer from '../../components/footer/footer';
 import Menu from '../../components/nav/menu';
 import Nav from '../../components/nav/nav';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { darkTheme, lightTheme, Styles } from '../../styles/styles';
-import BreadCrumbs from '../../components/breadcrumbs/breadcrumbs';
-import HeaderCases from '../../components/section/cases/header';
-import Back from '../../components/button/back';
-import BodyCases from '../../components/section/cases/bodyCase';
 import ArticlesScroll from '../../components/slider/article/slider';
 import BlockSection from '../../components/block/block';
 import { NEWS } from '../../const/constGlobal';
+import DetailsCases from '../../components/section/cases/details';
+import { useAPost } from '../../domain/useBlogDetails';
 
 interface Props {
   mode: boolean;
 }
 
 function Cases({ mode }: Props) {
+  const router = useRouter();
+  const { slug } = router.query;
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
+  const { data, isLoading } = useAPost(Number(slug));
+  if (isLoading) {
+    return <>...Cargando</>;
+  }
 
   return (
     <>
@@ -31,20 +36,22 @@ function Cases({ mode }: Props) {
         <Styles.Margin>
           <Nav toggle={toggle} logo mode={false} isOpen={isOpen} />
         </Styles.Margin>
-        <Back link="/casosdeexito">Volver a casos</Back>
-        <Styles.Center>
-          <Styles.AlingCasesNoP>
-            <HeaderCases
-              category="Estrategia"
-              title="Dictum libero pellentesque faucibus tristique ut"
-              paragraph="Eu tincidunt etiam mollis cum sed eu. Tempor, ornare integer enim vulputate. In quis nibh semper semper magna vel faucibus integer augue. Magna pellentesque amet risus pretium lorem. Id lorem dolor ornare sit vestibulum nibh congue nisi pellentesque."
-              image="/"
+        {/* <Styles.Center>
+          <Styles.Center>
+            <BreadCrumbs
+              Author={data.attributes.title}
+              Date={data.attributes.publishedAt}
             />
-            <BreadCrumbs Author="Autor" Date="Fecha" />
-            <BodyCases />
-          </Styles.AlingCasesNoP>
-          <Styles.TextSubSection>Podría interesarte</Styles.TextSubSection>
+            <Styles.TitularText>
+              {data.data.attributes.title}
+            </Styles.TitularText>
+          </Styles.Center>
+        </Styles.Center> */}
+        {/*  <Image src={ '/'} width={950} height={500} /> */}
+        <Styles.Center>
+          <DetailsCases data={data.data.attributes.title} />
         </Styles.Center>
+
         <Styles.FlexEnd>
           <Styles.AlingBlock>
             <ArticlesScroll mode={false} array={NEWS} />

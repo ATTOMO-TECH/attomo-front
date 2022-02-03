@@ -23,7 +23,9 @@ function Home() {
     <>
       <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo={false} mode />
-        <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
+        <Styles.Margin>
+          <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
+        </Styles.Margin>
 
         <Styles.Center>
           <Hero
@@ -46,7 +48,7 @@ function Home() {
                 transformar sus áreas de operación.
               </Title>
               <div className="w-full lg:pl-24 text-primary">
-                <IconAnimate text="Casos de éxito" />
+                <IconAnimate text="Casos de éxito" mode />
               </div>
             </Styles.DivideSection>
           </Styles.BlockMargin>

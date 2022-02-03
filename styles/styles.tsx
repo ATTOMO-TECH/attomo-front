@@ -69,4 +69,5 @@ bg-secundary scroll-smooth m-auto
   BtnSelect: tw(
     BtnSelect,
   )`text-primary border-2 border-primary px-14 py-3 rounded-full opacity-80 font-PrimarySerif font-thin shadow-none`,
+  TitularText: tw.h3`font-Primary lg:text-5xl text-3xl font-light py-5 leading-relaxed`,
 };

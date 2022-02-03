@@ -24,7 +24,7 @@ function Conditions() {
         <Styles.Center>
           <Link href="../">
             <div className="w-full py-10">
-              <IconAnimate text="Volver" />
+              <IconAnimate text="Volver" mode />
             </div>
           </Link>
           <Styles.Screen>

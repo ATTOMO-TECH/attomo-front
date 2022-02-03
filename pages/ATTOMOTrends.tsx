@@ -5,15 +5,15 @@ import BlockBlog from '../components/blog/blog';
 import Footer from '../components/footer/footer';
 
 import InputNew from '../components/input/inputNews';
-
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
-
 import Title from '../components/Text/title';
 import { BUTTON_ACTIVE } from '../const/const';
+import { useUseAllPost } from '../domain/useBlogDetails';
 import { Styles } from '../styles/styles';
 
 function News() {
+  const { data, isLoading } = useUseAllPost();
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const toggle = () => {
     SetIsOpen(!isOpen);
@@ -31,6 +31,10 @@ function News() {
       Option: 'Estrategia3',
     },
   ];
+  if (isLoading) {
+    return <>...Cargando</>;
+  }
+
   return (
     <>
       <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
@@ -68,7 +72,7 @@ function News() {
             ))}
           </Styles.Select>
         </div>
-        <BlockBlog />
+        <BlockBlog dataBlog={data.data} />
         <Styles.CenterFlex>
           <BlockSection
             text="¿Tienes un proyecto?"

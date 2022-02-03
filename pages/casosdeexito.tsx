@@ -6,7 +6,7 @@ import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
 import SectionProjects from '../components/section/projects';
 import { BUTTON_ACTIVE } from '../const/const';
-import { CASE } from '../const/constGlobal';
+import { useUseAllPost } from '../domain/useBlogDetails';
 import { Styles } from '../styles/styles';
 
 function Cases() {
@@ -14,6 +14,11 @@ function Cases() {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
+  const { data, isLoading } = useUseAllPost();
+  if (isLoading) {
+    return <>...Cargando</>;
+  }
+
   return (
     <>
       <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
@@ -23,7 +28,7 @@ function Cases() {
         </Styles.Margin>
         <HeroCase />
         <div className="py-10">
-          <SectionProjects Array={CASE} />
+          <SectionProjects Array={data.data} />
         </div>
 
         <Styles.CenterFlex>

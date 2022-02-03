@@ -21,7 +21,7 @@ function Services() {
       <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
-          <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
+          <Nav toggle={toggle} logo mode isOpen={isOpen} />
         </Styles.Margin>
         <Styles.Center>
           <Styles.ScreenMid>

@@ -7,7 +7,7 @@ interface Props {
 export default function Btn({ children }: Props) {
   return (
     <>
-      <Button.ButtonRegular>{children}</Button.ButtonRegular>
+      <Button.ButtonRegular ismode="">{children}</Button.ButtonRegular>
     </>
   );
 }

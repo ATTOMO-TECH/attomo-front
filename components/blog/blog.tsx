@@ -1,28 +1,30 @@
 import Image from 'next/image';
-
 import Link from 'next/link';
+import { useState } from 'react';
 import { Blogstyles } from './style';
-import { BLOG } from '../../const/constGlobal';
 import Title from '../Text/title';
 
-export default function BlockBlog() {
+interface Props {
+  dataBlog: any;
+}
+
+export default function BlockBlog({ dataBlog }: Props) {
+  const [isData] = useState(dataBlog);
+
   return (
     <>
-      {BLOG.map((values) => (
+      {isData.map((data: any) => (
         <Blogstyles.Article>
           <Blogstyles.BlockImg>
-            <Image
-              src={values.Pic}
-              width={900}
-              height={700}
-              alt={values.SubText}
-            />
+            <Image src="/" width={900} height={700} alt="values.SubText" />
           </Blogstyles.BlockImg>
           <Blogstyles.BlockText>
-            <Blogstyles.Text>{values.Topic}</Blogstyles.Text>
-            <Title size="text-4xl leading-relaxed">{values.Text}</Title>
-            <Blogstyles.SubText>{values.SubText}</Blogstyles.SubText>
-            <Link href={`/ATTOMOTrends/${values.Tag}`}>
+            <Blogstyles.Text>{data.attributes.title}</Blogstyles.Text>
+            <Title size="text-4xl leading-relaxed">
+              {data.attributes.title}
+            </Title>
+            <Blogstyles.SubText />
+            <Link href={`/ATTOMOTrends/${data.id}`}>
               <div>
                 <Blogstyles.Btn>Leer</Blogstyles.Btn>
               </div>

@@ -44,9 +44,8 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
             <Navegation.ItemsMenu onClick={toggle}>
               <Navegation.TextMenu
                 ismode=""
-                theme={mode === true ? lightTheme : darkTheme}>
-                Menú
-              </Navegation.TextMenu>
+                theme={mode === true ? lightTheme : darkTheme}
+              />
               <Image src="/icon/close.svg" width={30} height={30} alt="close" />
             </Navegation.ItemsMenu>
           </Navegation.AlinItems>

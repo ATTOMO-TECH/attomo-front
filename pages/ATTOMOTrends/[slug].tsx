@@ -11,7 +11,8 @@ import Back from '../../components/button/back';
 import BodyCases from '../../components/section/cases/bodyCase';
 import ArticlesScroll from '../../components/slider/article/slider';
 import BlockSection from '../../components/block/block';
-import { BLOG, NEWS } from '../../const/constGlobal';
+import { NEWS } from '../../const/constGlobal';
+import { useAPost } from '../../domain/useBlogDetails';
 
 interface Props {
   mode: boolean;
@@ -19,12 +20,15 @@ interface Props {
 
 function New({ mode }: Props) {
   const [isOpen, SetIsOpen] = useState<boolean>(false);
+  const router = useRouter();
+  const { slug } = router.query;
+  const { data, isLoading } = useAPost(Number(slug));
+  if (isLoading) {
+    return <>...Cargando</>;
+  }
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
-  const router = useRouter();
-
-  const currentBlog = BLOG.filter((blog) => blog.Tag === router.query.slug)[0];
 
   return (
     <>
@@ -39,13 +43,13 @@ function New({ mode }: Props) {
         <Styles.Center>
           <Styles.AlingCasesNoP>
             <HeaderCases
-              category={currentBlog.Topic}
-              title={currentBlog.Text}
-              paragraph={currentBlog.SubText}
-              image={currentBlog.Pic}
+              category={data.data.attributes.title}
+              title={data.data.attributes.title}
+              paragraph={data.data.attributes.title}
+              image=""
             />
             <BreadCrumbs Author="Autor" Date="Fecha" />
-            <BodyCases />
+            <BodyCases data={data.data.attributes.content} />
           </Styles.AlingCasesNoP>
           <Styles.TextSubSection>Podría interesarte</Styles.TextSubSection>
         </Styles.Center>

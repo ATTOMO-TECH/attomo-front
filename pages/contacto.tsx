@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Footer from '../components/footer/footer';
 import RenderForm from '../components/form/renderForm';
 import Menu from '../components/nav/menu';
@@ -39,7 +40,14 @@ function Contact() {
             <Subtext size="lg:text-xl text-sm w-full pb-10 font-PrimarySerif">
               Calle del Monte Esquinza, 8, 28010 Madrid
             </Subtext>
-            <Image src="/Map_.jpg" width={650} height={350} alt="Maps" />
+            <Link href="/https://www.google.es/maps/?hl=es">
+              <a
+                target="_blank"
+                href="https://www.google.es/maps/?hl=es"
+                rel="noreferrer">
+                <Image src="/Map_.jpg" width={650} height={350} alt="Maps" />
+              </a>
+            </Link>
           </div>
         </Styles.Center>
         <Footer />
