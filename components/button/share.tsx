@@ -8,16 +8,16 @@ interface Props {
   toggle: () => void;
 }
 export default function BtnShare({ valueUrl, isOpen, toggle }: Props) {
-  // const [canShare, setCanShare] = useState<any | undefined>(undefined);
-
-  // setCanShare(
-  //   navigator.share({
-  //     title: 'Attomo ',
-  //     text: 'Attomo Estudio',
-  //     url: 'https://www.google.com/',
-  //   }),
-  // );
-
+  const handleClick = () => {
+    toggle();
+    if (navigator.share) {
+      navigator.share({
+        title: 'Attomo ',
+        text: 'Attomo Estudio',
+        url: 'https://www.google.com/',
+      });
+    }
+  };
   return (
     <>
       <button
@@ -27,7 +27,7 @@ export default function BtnShare({ valueUrl, isOpen, toggle }: Props) {
             ? 'w-4/6 hidden lg:block h-auto delay-300 duration-300 ease-in-out opacity-100 fixed bottom-96 left-0 z-90'
             : 'w-0 overflow-hidden opacity-0 fixed -left-10  delay-300 duration-300 ease-in-out '
         }
-        onChange={() => toggle()}>
+        onClick={handleClick}>
         <ul className="absolute w-auto z-90 top-6 bg-primary p-5 shadow-lg shadow-indigo-500/50 ">
           {ICONNAV.map((values) => (
             <Link href={`${valueUrl}`}>

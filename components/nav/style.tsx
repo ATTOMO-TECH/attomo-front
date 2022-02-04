@@ -43,7 +43,8 @@ export const Navegation = {
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`
-font-Primary z-100 lg:py-16 h-24 mb-10 cursor-pointer list-none transition ease-in-out -top-4 
-${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'fixed w-full' : '')}
+font-Primary z-100 lg:py-16 h-24 mb-10 cursor-pointer list-none fixed w-full duration-300 ease-in-out  delay-700
+${(props) =>
+  props.ismode === BUTTON_ACTIVE.ON ? 'duration-300 ease-in-out' : ''}
 `,
 };

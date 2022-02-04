@@ -6,7 +6,7 @@ import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
 import SectionProjects from '../components/section/projects';
 import { BUTTON_ACTIVE } from '../const/const';
-import { useUseAllPost } from '../domain/useBlogDetails';
+import { useUseAllCases } from '../domain/useCasesDetails';
 import { Styles } from '../styles/styles';
 
 function Cases() {
@@ -14,7 +14,7 @@ function Cases() {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
-  const { data, isLoading } = useUseAllPost();
+  const { data, isLoading } = useUseAllCases();
   if (isLoading) {
     return <>...Cargando</>;
   }
@@ -27,10 +27,9 @@ function Cases() {
           <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
         </Styles.Margin>
         <HeroCase />
-        <div className="py-10">
+        <Styles.BlockSections>
           <SectionProjects Array={data.data} />
-        </div>
-
+        </Styles.BlockSections>
         <Styles.CenterFlex>
           <BlockSection
             text="¿Tienes un proyecto?"
@@ -38,6 +37,7 @@ function Cases() {
             text2=""
             button2=""
             mode
+            link="/contacto"
           />
         </Styles.CenterFlex>
         <Footer />

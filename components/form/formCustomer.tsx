@@ -1,9 +1,11 @@
 import * as Yup from 'yup';
 import { Formik } from 'formik';
+import Link from 'next/link';
 import { Styles } from './style';
 import IconAnimate from '../button/icon';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { FORMVALUES } from '../../hook/types';
+import InputCheck from './inputCheck';
 
 const registerSchema = Yup.object().shape({
   newsletter: Yup.string()
@@ -86,6 +88,20 @@ export default function FormCustomer() {
                   name={valueMessage}
                 />
               </Styles.SingleInput>
+              <InputCheck
+                color="text-primary text-xs"
+                text={
+                  <>
+                    <p>Acepto las</p>
+                    <Link href="/terminos">
+                      <p className="ml-1 underline cursor-pointer">
+                        condiciones generales{' '}
+                      </p>
+                    </Link>
+                  </>
+                }
+                value="condiciones"
+              />
               <Styles.BlockBtn type="submit">
                 <IconAnimate text="Enviar" mode />
               </Styles.BlockBtn>

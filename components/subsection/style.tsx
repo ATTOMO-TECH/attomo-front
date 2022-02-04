@@ -16,6 +16,8 @@ export const SubSections = {
   TextHead: tw(TextHero)`lg:py-48 lg:pr-72 text-4xl font-thin`,
   Subsection: tw.section`h-full flex justify-around flex-col-reverse lg:flex-row`,
   TextSubsection: tw.div`text-primary lg:w-5/12 w-full`,
-  Paragraph: tw.p`lg:text-sm text-lg lg:font-thin font-regular lg:font-Primary font-Secundary pt-5 tracking-wide leading-loose`,
+  Paragraph: tw(
+    TextHero,
+  )`lg:text-sm text-lg lg:font-thin font-regular lg:font-PrimarySerif font-Secundary pt-5 tracking-wide leadi ng-loose`,
   SectionCounter: tw.div`lg:w-64 p-12 lg:p-0`,
 };

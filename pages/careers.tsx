@@ -22,17 +22,20 @@ function Carrers() {
         </Styles.Margin>
         <Styles.Center>
           <Styles.ScreenMid>
-            <Title size="text-5xl lg:pt-48 lg:pr-10 pb-24 w-full pt-20">
-              Trabaja con nosotros
-            </Title>
-            <Styles.FlexEnd>
-              <Subtext size=" text-lg lg:text-base lg:w-3/6 lg:text-right">
-                Siempre estamos buscando perfiles digitales, tecnológicos y
-                creativos para incorporar a nuestro equipo
-              </Subtext>
-            </Styles.FlexEnd>
+            <div className="w-full">
+              <Title size="text-5xl lg:pt-48 lg:pr-10 pb-24 w-full lg:w-3/6 pt-20 leading-relaxed ">
+                Trabaja con nosotros
+              </Title>
+              <Styles.FlexEnd>
+                <Subtext size=" text-lg lg:text-base lg:w-2/6 lg:text-left">
+                  Siempre estamos buscando perfiles digitales, tecnológicos y
+                  creativos para incorporar a nuestro equipo
+                </Subtext>
+              </Styles.FlexEnd>
+            </div>
           </Styles.ScreenMid>
         </Styles.Center>
+
         <Styles.Center>
           <Subtext size=" text-2xl -mb-20">Queremos conocerte </Subtext>
           <BlockSection
@@ -41,6 +44,7 @@ function Carrers() {
             text2=""
             button2=""
             mode
+            link=""
           />
         </Styles.Center>
         <Footer />
