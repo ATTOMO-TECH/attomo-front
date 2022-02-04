@@ -20,8 +20,8 @@ export const Select = styled.select`
 export const HeadSection = {
   TextHead: tw(
     TextHero,
-  )`lg:py-48 lg:pr-10 pb-24 lg:text-5xl font-thin text-3xl `,
-  SectionHero: tw.section`h-screen font-Primary`,
+  )`lg:py-48 lg:pr-10 pb-12 pt-12 lg:text-4xl font-thin text-5xl `,
+  SectionHero: tw.section`font-Primary`,
   Blockbutton: tw.div`relative cursor-pointer`,
   TextButton: tw.h6`text-primary`,
   BlockArrow: tw.span`absolute -left-12`,

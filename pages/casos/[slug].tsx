@@ -9,7 +9,7 @@ import ArticlesScroll from '../../components/slider/article/slider';
 import BlockSection from '../../components/block/block';
 import { NEWS } from '../../const/constGlobal';
 import DetailsCases from '../../components/section/cases/details';
-import { useAPost } from '../../domain/useBlogDetails';
+import { useaCase } from '../../domain/useCasesDetails';
 
 interface Props {
   mode: boolean;
@@ -22,7 +22,7 @@ function Cases({ mode }: Props) {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
-  const { data, isLoading } = useAPost(Number(slug));
+  const { data, isLoading } = useaCase(Number(slug));
   if (isLoading) {
     return <>...Cargando</>;
   }
@@ -66,6 +66,7 @@ function Cases({ mode }: Props) {
               text2=""
               button2=""
               mode={false}
+              link="/contacto"
             />
           </Styles.CenterFlex>
         </Styles.Center>

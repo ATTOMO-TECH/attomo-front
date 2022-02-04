@@ -1,5 +1,6 @@
+import Link from 'next/link';
 import { darkTheme, lightTheme } from '../../styles/styles';
-import Btn from '../button/button';
+import IconAnimate from '../button/icon';
 import { Block } from './style';
 
 interface Props {
@@ -8,6 +9,7 @@ interface Props {
   text2: string;
   button2: string;
   mode: boolean;
+  link: string;
 }
 
 export default function BlockSection({
@@ -16,17 +18,38 @@ export default function BlockSection({
   text2,
   button2,
   mode,
+  link,
 }: Props) {
   return (
     <>
       <Block.SectionBlock>
         <Block.Block theme={mode === true ? lightTheme : darkTheme}>
-          <Block.Title>{text}</Block.Title>
-          <Btn>{button}</Btn>
+          {text ? (
+            <>
+              <Block.Title>{text}</Block.Title>
+              <Link href={`${link}`}>
+                <div>
+                  <IconAnimate text={button} mode={mode} />
+                </div>
+              </Link>
+            </>
+          ) : (
+            ''
+          )}
         </Block.Block>
         <Block.Block theme={mode === true ? lightTheme : darkTheme}>
-          <Block.Title>{text2}</Block.Title>
-          <Btn>{button2}</Btn>
+          {text2 ? (
+            <>
+              <Block.Title>{text2}</Block.Title>
+              <Link href={`${link}`}>
+                <div>
+                  <IconAnimate text={button2} mode={mode} />
+                </div>
+              </Link>
+            </>
+          ) : (
+            ''
+          )}
         </Block.Block>
       </Block.SectionBlock>
     </>

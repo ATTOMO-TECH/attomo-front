@@ -367,3 +367,71 @@ export const TABCONTACT: {
     Component: <FormColaborator />,
   },
 ];
+
+// FORM
+export const FORMPARTOF: {
+  text: string;
+  value: string;
+}[] = [
+  {
+    text: 'Formar parte del equipo',
+    value: 'team',
+  },
+  {
+    text: 'Colaborar como partner',
+    value: 'partner',
+  },
+];
+export const DEPARTMENT: {
+  text: string;
+  value: string;
+}[] = [
+  {
+    text: 'Product Design',
+    value: 'PM',
+  },
+  {
+    text: 'UX / UI',
+    value: 'UXUI',
+  },
+  {
+    text: 'Diseño gráfico',
+    value: 'GraphicDesing',
+  },
+  {
+    text: 'Ilustración',
+    value: 'Illustration',
+  },
+  {
+    text: 'Marketing digital',
+    value: 'MK',
+  },
+  {
+    text: 'Estrategia',
+    value: 'Strategy',
+  },
+  {
+    text: 'Fotografía',
+    value: 'Photo',
+  },
+  {
+    text: 'CRM',
+    value: 'CRM',
+  },
+  {
+    text: 'ERP',
+    value: 'ERP',
+  },
+  {
+    text: 'Front-end',
+    value: 'Front-end',
+  },
+  {
+    text: 'Back-end',
+    value: 'Back-end',
+  },
+  {
+    text: 'Cloud Ops',
+    value: 'Cloud',
+  },
+];

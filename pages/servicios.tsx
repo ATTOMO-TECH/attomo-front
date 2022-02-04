@@ -25,16 +25,18 @@ function Services() {
         </Styles.Margin>
         <Styles.Center>
           <Styles.ScreenMid>
-            <Title size="text-5xl lg:pt-48 lg:pr-10 pb-24 w-full pt-20">
-              Combinamos ingeniería, diseño, escalabilidad e innovación para
-              transformar industrias, empresas y administraciones
-            </Title>
-            <Styles.FlexEnd>
-              <Subtext size=" text-lg lg:text-base lg:w-3/6 lg:text-right">
-                Ofrecemos cualquier servicio relacionado con la digitalización y
-                la transformación digital
-              </Subtext>
-            </Styles.FlexEnd>
+            <div>
+              <Title size="text-5xl lg:pt-24 lg:pr-10 pb-24 w-full pt-20 ">
+                Combinamos ingeniería, diseño, escalabilidad e innovación para
+                transformar industrias, empresas y administraciones
+              </Title>
+              <Styles.FlexEnd>
+                <Subtext size=" text-lg lg:text-base lg:w-3/6 lg:text-right">
+                  Ofrecemos cualquier servicio relacionado con la digitalización
+                  y la transformación digital
+                </Subtext>
+              </Styles.FlexEnd>
+            </div>
           </Styles.ScreenMid>
         </Styles.Center>
         <Styles.Center>
@@ -59,8 +61,10 @@ function Services() {
             text2=""
             button2=""
             mode
+            link="/contacto"
           />
         </Styles.CenterFlex>
+
         <Footer />
       </Styles.Body>
     </>

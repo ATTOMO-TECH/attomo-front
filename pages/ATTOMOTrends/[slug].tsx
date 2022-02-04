@@ -67,6 +67,7 @@ function New({ mode }: Props) {
               text2=""
               button2=""
               mode={false}
+              link="/contacto"
             />
           </Styles.CenterFlex>
         </Styles.Center>

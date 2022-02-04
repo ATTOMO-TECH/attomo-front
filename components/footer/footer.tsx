@@ -22,7 +22,7 @@ export default function Footer() {
             <Navegation.TitleNav>Attomo</Navegation.TitleNav>
             <Navegation.NavFooter>
               {VALUESNAV.map((values) => (
-                <Navegation.ItemsMenu key={values.Value}>
+                <Navegation.ItemsMenu key={`footer${values.Value}`}>
                   <Link href={values.Url} passHref>
                     {values.Value}
                   </Link>
@@ -34,7 +34,7 @@ export default function Footer() {
             <Navegation.TitleNav>Síguenos</Navegation.TitleNav>
             <Navegation.NavFooterFlex>
               {ICONNAV.map((values) => (
-                <Navegation.ListIcon>
+                <Navegation.ListIcon key={`footer${values.Name}`}>
                   <Link href={values.Url}>
                     <a target="_blank" href={values.Url} rel="noreferrer">
                       <Navegation.Image

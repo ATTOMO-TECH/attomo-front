@@ -1,9 +1,14 @@
 import * as Yup from 'yup';
 import { Formik } from 'formik';
+import Link from 'next/link';
 import { Styles } from './style';
 import IconAnimate from '../button/icon';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { FORMVALUES } from '../../hook/types';
+import Subtext from '../Text/subText';
+import InputRadio from './inputRadio';
+import { DEPARTMENT, FORMPARTOF } from '../../const/constGlobal';
+import InputCheck from './inputCheck';
 
 const registerSchema = Yup.object().shape({
   newsletter: Yup.string()
@@ -37,6 +42,27 @@ export default function FormColaborator() {
         {({ touched, errors }) => (
           <>
             <Styles.Form>
+              <Subtext size="lg:text-sm w-full pb-10 font-PrimarySerif">
+                ¿Quieres formar parte de nuestro equipo o colaborar como
+                partner? *
+              </Subtext>
+              <div className="w-full flex flex-wrap pt-5 text-white font-PrimarySerif font-thin text-sm">
+                {FORMPARTOF.map((values) => (
+                  <div className="w-3/6" key={`Radio${values.value}`}>
+                    <InputRadio text={values.text} value={values.value} />
+                  </div>
+                ))}
+              </div>
+              <Subtext size="lg:text-sm w-full pb-10 font-PrimarySerif pt-10">
+                ¿Cuál es tu especialidad? *
+              </Subtext>
+              <div className="w-full flex flex-wrap pt-5 text-white font-PrimarySerif font-thin text-sm pb-10">
+                {DEPARTMENT.map((values) => (
+                  <div className="w-2/6" key={`check${values.value}`}>
+                    <InputCheck text={values.text} value={values.value} />
+                  </div>
+                ))}
+              </div>
               <Styles.SectionInput>
                 <Styles.Input
                   ismode={BUTTON_ACTIVE.ON}
@@ -86,6 +112,22 @@ export default function FormColaborator() {
                   name={valueMessage}
                 />
               </Styles.SingleInput>
+
+              <InputCheck
+                color="text-primary text-xs"
+                text={
+                  <>
+                    <p>Acepto las</p>
+                    <Link href="/terminos">
+                      <p className="ml-1 underline cursor-pointer">
+                        condiciones generales{' '}
+                      </p>
+                    </Link>
+                  </>
+                }
+                value="condiciones"
+              />
+
               <Styles.BlockBtn type="submit">
                 <IconAnimate text="Enviar" mode />
               </Styles.BlockBtn>

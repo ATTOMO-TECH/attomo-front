@@ -11,6 +11,47 @@ export const Select = styled.select`
   -moz-appearance: none;
 `;
 
+export const CheckRadio = styled.input`
+  &[type='radio'] {
+    appearance: none;
+    margin: 0;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.15em solid white;
+    border-radius: 100%;
+    margin-right: 10px;
+  }
+
+  &:checked {
+    content: url(/icon/isoAttomo.svg);
+    width: 1.5em;
+    height: 1.5em;
+    transition: 120ms transform ease-in-out;
+    border: 0.15em solid white;
+    padding: 2.8px;
+  }
+`;
+export const CheckCheck = styled.input`
+  &[type='checkbox'] {
+    appearance: none;
+    margin: 0;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.15em solid white;
+    border-radius: 100%;
+    margin-right: 10px;
+  }
+
+  &:checked {
+    content: url(/icon/isoAttomo.svg);
+    width: 1.5em;
+    height: 1.5em;
+    transition: 120ms transform ease-in-out;
+    border: 0.15em solid white;
+    padding: 2.8px;
+  }
+`;
+
 export const BtnSelect = styled.button<Props>`
   ${({ active }) =>
     active
@@ -24,9 +65,9 @@ export const Styles = {
 
   BtnSelect: tw(
     BtnSelect,
-  )`block ease-out duration-200 text-primary border-2 border-primary px-16 lg:text-sm  py-4 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none mr-5 `,
+  )`block ease-out duration-200 text-primary border-2 border-primary px-16 lg:text-sm py-4 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none mr-5 `,
 
-  Form: tw.form`lg:w-4/6 w- m-auto`,
+  Form: tw.form`lg:w-4/6 m-auto`,
   SectionInput: tw.div`flex flex-col lg:flex-row`,
   SingleInput: tw.div`py-5`,
   BlockBtn: tw.button`text-primary font-thin w-7/12 flex ml-auto z-0`,
@@ -34,4 +75,12 @@ export const Styles = {
   Input: tw.input<Props>`outline-none w-full bg-transparent pr-5 border-b border-primary py-2 mr-5 text-primary opacity-40 focus:opacity-100 ease-out duration-200
 ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
 `,
+  InputRadio: tw(CheckRadio)`cursor-pointer`,
+  InputCheck: tw(CheckCheck)`cursor-pointer `,
+  LabelCheck: tw.label<Props>`flex ease-out 
+  ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : '')}
+  ${(props) => (props.ismode === BUTTON_ACTIVE.OFF ? 'opacity-50' : '')}`,
+  LabelCheckBox: tw.label<Props>`flex ease-out duration-200 py-2
+  ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : '')}
+  ${(props) => (props.ismode === BUTTON_ACTIVE.OFF ? 'opacity-50' : '')}`,
 };

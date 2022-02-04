@@ -1,7 +1,8 @@
+import Link from 'next/link';
 import { SubSections } from './style';
 import Counter from './counter';
-import Btn from '../button/button';
 import Title from '../Text/title';
+import IconAnimate from '../button/icon';
 
 export default function SubSection() {
   return (
@@ -17,7 +18,11 @@ export default function SubSection() {
             Desarrollamos e implantamos tecnologías, productos y servicios a
             medida de nuestros clientes.
           </SubSections.Paragraph>
-          <Btn>Nuestros servicios</Btn>
+          <Link href="/servicios">
+            <div>
+              <IconAnimate text="Nuestros servicios" mode />
+            </div>
+          </Link>
         </SubSections.TextSubsection>
       </SubSections.Subsection>
     </>

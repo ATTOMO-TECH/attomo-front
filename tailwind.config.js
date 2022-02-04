@@ -19,6 +19,7 @@ module.exports = {
       zIndex: {
         '100': '99999',
       },
+      
     },
   },
   variants: {

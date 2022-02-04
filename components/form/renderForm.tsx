@@ -10,7 +10,7 @@ export default function RenderForm() {
   const innerRender = (idx: number) => TABCONTACT[idx].Component;
   return (
     <>
-      <div className="flex justify-center">
+      <div className="flex lg:justify-center justify-between">
         {TABCONTACT.map((tab, i) => (
           <Styles.BtnSelect
             key={tab.Name}
@@ -20,7 +20,7 @@ export default function RenderForm() {
           </Styles.BtnSelect>
         ))}
       </div>
-      <section className="my-24">{innerRender(iDx)}</section>
+      <section className="my-12">{innerRender(iDx)}</section>
     </>
   );
 }

@@ -52,7 +52,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
           <div className="pt-32">
             {VALUESNAV.map((values) => (
               <Navegation.ItemList key={values.Value}>
-                <Navegation.SelectMenu key={values.Value}>
+                <Navegation.SelectMenu key={values.Value} onClick={toggle}>
                   <Link href={values.Url}>{values.Value}</Link>
                 </Navegation.SelectMenu>
               </Navegation.ItemList>
