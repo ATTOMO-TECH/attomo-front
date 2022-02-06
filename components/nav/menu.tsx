@@ -49,7 +49,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
               <Image src="/icon/close.svg" width={30} height={30} alt="close" />
             </Navegation.ItemsMenu>
           </Navegation.AlinItems>
-          <div className="pt-32">
+          <div className="pt-40">
             {VALUESNAV.map((values) => (
               <Navegation.ItemList key={values.Value}>
                 <Navegation.SelectMenu key={values.Value} onClick={toggle}>

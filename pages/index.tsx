@@ -47,13 +47,14 @@ function Home() {
             <SubSection />
           </Styles.CenterFlex>
           <Styles.Center>
-            <div className="lg:w-8/12 m-auto flex flex-wrap py-0">
+            <Styles.BlockSelected>
               <SelectedClients
                 text="Trabajamos de la mano con nuestros clientes para impulsar y transformar sus áreas de operación."
                 btn="Casos de éxito"
                 link="/casosdeexito"
+                textPrimary="Selected clients"
               />
-            </div>
+            </Styles.BlockSelected>
           </Styles.Center>
         </Styles.SectionScreen>
 

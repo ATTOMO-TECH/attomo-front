@@ -21,33 +21,30 @@ export default function BodyCases({ data }: Props) {
           onClickCapture={() => toggle()}>
           <Image src="/icon/share.svg" width={20} height={20} alt="share" />
         </div>
-
+        {data}
         <div className="w-11/12 ">
-          {data}
           {/* <ReactMarkdown
             children={data}
-            className="font-PrimarySerif leading-relaxed font-light text-sm"
+            className={'font-PrimarySerif leading-relaxed font-light text-sm'}
             components={{
               p: ({ node, children }) => {
-                if (node.children[0]) {
+                if (node.children[0].type === '\n\n!') {
                   const image: any = node.children[0];
                   return (
-                    <div className="image">
-                      <Image
-                        src={`/api${image.properties.src}`}
-                        alt={image.properties.alt}
-                        width={800}
-                        height={300}
-                      />
-                    </div>
+                    <Image
+                      src={`/api${image.properties.src}`}
+                      alt={image.properties.alt}
+                      width={700}
+                      height={400}
+                      layout="responsive"
+                    />
                   );
                 }
 
-                return <>{children}</>
+                return <>{children}</>;
               },
             }}
           /> */}
-          ,
         </div>
       </div>
     </>

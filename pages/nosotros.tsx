@@ -50,6 +50,7 @@ function Us() {
               text="Buscamos ser un partner de primer nivel, centrado en desarrollar productos y proyectos a medida, donde la calidad prima siempre por encima de la cantidad."
               btn="Quiero ser cliente"
               link="/contacto"
+              textPrimary="Selected clients"
             />
           </div>
         </Styles.Center>

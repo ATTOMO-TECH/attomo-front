@@ -3,6 +3,15 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      backgroundImage: {
+        'hero-Space': "url('/cases/spaceHero.jpg')",
+        'space-Attomo': "url('/cases/Espacio_Attomo.jpg')",
+        'space-Attomo2': "url('/cases/Espacio_Attomo_2.jpg')",
+        'space-Attomo3': "url('/cases/Espacio_Attomo_3.jpg')",
+        'space-Attomo4': "url('/cases/Espacio_Attomo_4.jpg')",
+
+
+      },
       fontFamily: {
         Primary: ['Merriweather', 'serif'],
         PrimarySerif: ['Merriweather Sans', 'sans-serif'],

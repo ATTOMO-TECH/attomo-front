@@ -7,15 +7,21 @@ interface Props {
   text: string;
   btn: string;
   link: string;
+  textPrimary: string;
 }
 
-export default function SelectedClients({ text, btn, link }: Props) {
+export default function SelectedClients({
+  text,
+  btn,
+  link,
+  textPrimary,
+}: Props) {
   return (
     <>
       <Styles.BlockMargin>
         <div className="pt-10" />
         <Styles.DivideSection>
-          <Title size="text-5xl ">Selected clients</Title>
+          <Title size="text-5xl ">{textPrimary}</Title>
         </Styles.DivideSection>
         <Styles.DivideSection>
           <Title size="text-xl font-PrimarySerif">{text}</Title>

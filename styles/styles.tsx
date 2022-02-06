@@ -28,9 +28,10 @@ export const Select = styled.select`
 export const BtnSelect = styled.button<Props>`
   ${({ active }) =>
     active
-      ? '-webkit-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.7); -moz-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.7);box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.7);'
+      ? '-webkit-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.5); -moz-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.5);box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.5);'
       : ''}
 `;
+
 export const Styles = {
   Body: tw(SectionColor)<Props>`
 bg-secundary scroll-smooth m-auto
@@ -58,8 +59,9 @@ bg-secundary scroll-smooth m-auto
   TitleSubSection: tw.h5`text-primary py-20 font-Primary text-lg font-light`,
   AlingBlock: tw.div`w-11/12 lg:w-8/12 overflow-x-hidden`,
   BlockInput: tw.div`flex `,
+  BlockSelected: tw.div`lg:w-8/12 m-auto flex flex-wrap py-0`,
   TextSubSection: tw.h5`font-Primary text-xl font-extralight pb-5`,
-  BreakLine: tw.div`h-0.5 opacity-40 bg-addictional lg:w-11/12 w-full  m-auto lg:m-4`,
+  BreakLine: tw.div`h-0.5 opacity-40 bg-addictional w-full  m-auto lg:my-4`,
   Input: tw.input`w-full bg-secundary text-primary border-b-2 border-primary focus:outline-none focus:opacity-100 opacity-30 outline-none  py-1 px-1 lg:text-lg text-xl font-light transition-colors duration-400 ease-in-out`,
   BlockInputSend: tw.div`text-primary flex items-center justify-start flex-col lg:flex-row flex-wrap `,
   SectionInput: tw.div`lg:w-3/6 justify-start`,
@@ -73,4 +75,9 @@ bg-secundary scroll-smooth m-auto
     BtnSelect,
   )`text-primary border-2 border-primary px-14 py-3 rounded-full opacity-80 font-PrimarySerif font-thin shadow-none`,
   TitularText: tw.h3`font-Primary lg:text-5xl text-3xl font-light py-5 leading-relaxed`,
+  // SPACE
+  HeroEspace: tw.section`h-auto bg-hero-Space bg-cover bg-center py-72 bg-no-repeat`,
+  SectionImg: tw.section`grid grid-cols-1 sm:grid-cols-2 gap-6`,
+  SectionPrices: tw.section`grid grid-cols-1 sm:grid-cols-3 gap-6`,
+  BlockImg: tw.div`w-full bg-cover bg-center py-44 bg-no-repeat `,
 };

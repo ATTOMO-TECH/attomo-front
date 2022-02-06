@@ -1,9 +1,15 @@
+import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 import { BUTTON_ACTIVE } from '../../const/const';
 
 type Props = {
   ismode: any;
 };
+export const BlockSelected = styled.div`
+  -webkit-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.2);
+  -moz-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.2);
+`;
 
 export const Styles = {
   SectionProjects: tw.div`py-14  overflow-hidden`,
@@ -36,6 +42,13 @@ ${(props) =>
   BlockMargin: tw.div`lg:py-48 flex flex-col lg:flex-row items-start`,
   DivideSection: tw.div`lg:w-3/6 w-full pb-2`,
   BlockBtn: tw.div`text-primary z-100`,
+
+  SectionImg: tw.section`grid grid-cols-1 sm:grid-cols-2 gap-6`,
+  SectionPrices: tw.section`grid grid-cols-1 sm:grid-cols-3 gap-6`,
+  BlockImg: tw.div`w-full bg-cover bg-center py-44 bg-no-repeat `,
+  BlockSelect: tw(
+    BlockSelected,
+  )`w-full border border-primary rounded-xl overflow-hidden flex flex-col justify-center items-center p-8  duration-300 ease-in-out cursor-pointer shadow-none border-opacity-40 hover:border-opacity-100 py-12`,
 };
 
 export const StylesCases = {

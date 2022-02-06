@@ -39,11 +39,11 @@ export const Navegation = {
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-0' : '')}
   `,
   ItemList: tw.li`list-none m-10 absu`,
-  SelectMenu: tw.p`text-primary text-center text-4xl opacity-60 hover:opacity-100 cursor-pointer lg:transition ease-in-out delay-50 `,
+  SelectMenu: tw.p`text-primary font-Primary text-center text-4xl opacity-60 hover:opacity-100 cursor-pointer lg:transition ease-in-out delay-50 `,
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`
-font-Primary z-100 lg:py-16 h-24 mb-10 cursor-pointer list-none fixed w-full duration-300 ease-in-out  delay-700
+font-Primary z-100 lg:py-16 h-24 mb-10 cursor-pointer list-none fixed w-full duration-300 ease-in-out delay-700
 ${(props) =>
   props.ismode === BUTTON_ACTIVE.ON ? 'duration-300 ease-in-out' : ''}
 `,

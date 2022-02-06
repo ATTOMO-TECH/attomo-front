@@ -50,10 +50,10 @@ export const VALUESNAV: {
     Value: 'Contacto',
     Url: '/contacto',
   },
-  // {
-  //   Value: 'Espacio Attomo',
-  //   Url: '/contacto',
-  // },
+  {
+    Value: 'Espacio Attomo',
+    Url: '/espacio',
+  },
 ];
 export const ICONNAV: {
   Name: string;
@@ -433,5 +433,31 @@ export const DEPARTMENT: {
   {
     text: 'Cloud Ops',
     value: 'Cloud',
+  },
+];
+
+export const PRICES: {
+  Name: string;
+  Time: string;
+  Price: number;
+  Url: string;
+}[] = [
+  {
+    Name: 'Sesión',
+    Time: '(2 horas)',
+    Price: 60,
+    Url: '/',
+  },
+  {
+    Name: 'Media jornada',
+    Time: '(4 horas)',
+    Price: 100,
+    Url: '/',
+  },
+  {
+    Name: 'Jornada completa',
+    Time: '(8 horas)',
+    Price: 180,
+    Url: '/',
   },
 ];
