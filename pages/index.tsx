@@ -12,6 +12,7 @@ import { BUTTON_ACTIVE } from '../const/const';
 import { Styles } from '../styles/styles';
 import SelectedClients from '../components/section/selectedclientes';
 import { useUseAllCases } from '../domain/useCasesDetails';
+import ButtonShare from '../components/button/BtnShare';
 
 function Home() {
   const [isOpen, SetIsOpen] = useState<boolean>(false);
@@ -30,6 +31,7 @@ function Home() {
         <Styles.Margin>
           <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
         </Styles.Margin>
+        <ButtonShare />
         <Styles.Center>
           <Styles.ScreenMid>
             <div>

@@ -53,7 +53,7 @@ function Carrers() {
             </div>
           </Link>
         </Styles.Center>
-        <section className="bg-blue-700 h-auto flex w-full flex-wrap justify-center items-center lg:p-48 py-24 ">
+        <section className="mt-24 bg-blue-700 h-auto flex w-full flex-wrap justify-center items-center lg:p-48 py-24 ">
           <Styles.Center>
             <h6 className="font-Primary text-primary text-5xl leading-relaxed lg:m-auto font-thin">
               Construyamos juntos el futuro digital de las organizaciones

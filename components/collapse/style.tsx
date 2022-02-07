@@ -11,7 +11,6 @@ export const SectionTitle = styled.div`
   }
   &:nth-child(2) {
     padding-top: 0%;
-    order: 1;
   }
   &:nth-child(3) {
     padding-top: 0%;
@@ -61,7 +60,7 @@ export const Item = styled.div<Props>`
 @media screen and (min-width: 1024px) 
 {
   {transform: rotate(35deg)}
-}; transform: rotate(-16deg)`
+}; transform: rotate(-50deg)`
       : ''}
   ${(props) =>
     props.ismode === 1
@@ -69,7 +68,7 @@ export const Item = styled.div<Props>`
   @media screen and (min-width: 1024px) 
   {
     {transform: rotate(50deg)}
-  }; transform: rotate(-50deg)`
+  }; transform: rotate(-16deg)`
       : ''}
     ${(props) =>
     props.ismode === 2
@@ -105,8 +104,8 @@ export const Imgen = styled.img<Props>`
       ? `
 @media screen and (min-width: 1024px) 
 {
-  {transform: rotate(-45deg)}
-}; transform: rotate(-50deg);`
+  {transform: rotate(-30deg)}
+}; transform: rotate(-15deg);`
       : ''}
   ${(props) =>
     props.ismode === 1
@@ -114,7 +113,7 @@ export const Imgen = styled.img<Props>`
   @media screen and (min-width: 1024px) 
   {
     {transform: rotate(-60deg)}
-  }; transform: rotate(-15deg);`
+  }; transform: rotate(-50deg);`
       : ''}
   ${(props) =>
     props.ismode === 2

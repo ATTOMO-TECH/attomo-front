@@ -27,7 +27,7 @@ function Space() {
         </Styles.Margin>
         <Styles.Center>
           <Styles.ScreenMid>
-            <div className="w-full">
+            <Styles.ContainerFull>
               <Title size="text-5xl lg:pt-36 pb-24 w-full lg:w-4/6 pt-20 leading-relaxed ">
                 Espacio Attomo Digital
               </Title>
@@ -38,7 +38,7 @@ function Space() {
                   realizar sesiones fotográficas.
                 </Subtext>
               </Styles.FlexEnd>
-            </div>
+            </Styles.ContainerFull>
           </Styles.ScreenMid>
         </Styles.Center>
         <Styles.HeroEspace />
@@ -59,15 +59,15 @@ function Space() {
           </Styles.SectionImg>
         </Styles.Center>
         <Styles.Center>
-          <div className="w-full">
+          <Styles.ContainerFull>
             <Title size="text-5xl lg:pt-36 pb-24 w-full text-center pt-20 leading-relaxed ">
               Tarifas
             </Title>
             <Prices />
-          </div>
+          </Styles.ContainerFull>
         </Styles.Center>
         <Styles.Center>
-          <div className="w-full">
+          <Styles.ContainerFull>
             <Title size="text-5xl lg:pt-36 w-full text-center pt-20 leading-relaxed ">
               Reserva el Espacio Attomo Digital
             </Title>
@@ -75,10 +75,10 @@ function Space() {
               Selecciona la fecha y consulta su disponibilidad
             </Title>
             <FormReserver />
-          </div>
+          </Styles.ContainerFull>
         </Styles.Center>
         <Styles.Center>
-          <div className=" lg:my-12 my-12  lg:w-5/6  m-auto">
+          <Styles.BlockAddres>
             <Styles.BreakLine />
             <Title size="text-2xl  lg:pr-10 ">Espacio Attomo Digital</Title>
             <Subtext size="lg:text-sm text-sm w-full py-5 font-PrimarySerif ">
@@ -98,7 +98,7 @@ function Space() {
                 />
               </a>
             </Link>
-          </div>
+          </Styles.BlockAddres>
         </Styles.Center>
         <Styles.CenterFlex>
           <BlockSection

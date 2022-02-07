@@ -17,8 +17,14 @@ export default function CompaniesScroll() {
         autoplay
         speed={1000}>
         {CUSTOMERS.map((values) => (
-          <SwiperSlide key={values.Name}>
-            <Image src={values.Pic} width={160} height={70} alt={values.Name} />
+          <SwiperSlide key={values.Name} className="w-10 h-auto">
+            <Image
+              src={values.Pic}
+              width="100%"
+              height="100%"
+              alt={values.Name}
+              objectFit="contain"
+            />
           </SwiperSlide>
         ))}
       </Swiper>

@@ -47,6 +47,8 @@ bg-secundary scroll-smooth m-auto
   AlingCasesNoP: tw.section`w-11/12 ml-auto pb-24`,
   CenterFull: tw.section`w-full lg:w-10/12 m-auto`,
   CenterFlex: tw.section`w-10/12 m-auto flex py-10 lg:py-0`,
+  ContainerFull: tw.div`w-full`,
+  BlockAddres: tw.div`lg:my-12 my-12  lg:w-5/6  m-auto`,
   SectionScreen: tw.section`pt-48 h-auto`,
   BlockSections: tw.div`py-10`,
   DivideSection: tw.div`lg:w-3/6 w-full pb-2`,

@@ -37,3 +37,7 @@
 .btn:hover span {
   width: 4%;
 }
+
+.react-select__placeholder {
+  color: pink;
+}

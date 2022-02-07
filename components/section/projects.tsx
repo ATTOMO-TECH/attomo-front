@@ -12,6 +12,7 @@ interface Props {
 
 export default function SectionProjects({ Array }: Props) {
   const [isData] = useState(Array);
+
   return (
     <>
       <Styles.SectionProjects>
@@ -27,7 +28,7 @@ export default function SectionProjects({ Array }: Props) {
               ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
               <Title size="text-xl ">{values.attributes.title}</Title>
               <Title size="text-5xl py-3 leading-relaxed lg:leading-normal">
-                {values.title}
+                {values.attributes.title}
               </Title>
               <Link href={`/casos/${values.id}`}>
                 <Styles.BlockBtn>

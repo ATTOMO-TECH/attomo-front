@@ -6,6 +6,7 @@ import IconAnimate from '../button/icon';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { FORMVALUES } from '../../hook/types';
 import InputCheck from './inputCheck';
+import InputSelect from './select';
 
 const registerSchema = Yup.object().shape({
   newsletter: Yup.string()
@@ -39,29 +40,27 @@ export default function FormReserver() {
         {({ touched, errors }) => (
           <>
             <Styles.Form>
-              <Styles.SectionInput>
-                <Styles.Input
-                  ismode={BUTTON_ACTIVE.ON}
-                  placeholder="Fecha"
-                  type="text"
-                  name={valueName}
-                />
-                {touched.valueName && errors.valueName && (
-                  <div>{errors.valueName}</div>
-                )}
-                <Styles.Input
-                  ismode={BUTTON_ACTIVE.ON}
-                  placeholder="Hora de inicio"
-                  type="text"
-                  name={valueLastName}
-                />
-                <Styles.Input
-                  ismode={BUTTON_ACTIVE.ON}
-                  placeholder="Tramo"
-                  type="text"
-                  name={valueLastName}
-                />
-              </Styles.SectionInput>
+              <Styles.SingleInput>
+                <Styles.SectionInput>
+                  <div className="lg:w-2/6">
+                    <Styles.Input
+                      ismode={BUTTON_ACTIVE.ON}
+                      placeholder="Fecha"
+                      type="text"
+                      name={valueName}
+                    />
+                    {touched.valueName && errors.valueName && (
+                      <div>{errors.valueName}</div>
+                    )}
+                  </div>
+                  <div className="lg:w-2/6 ">
+                    <InputSelect />
+                  </div>
+                  <div className="lg:w-2/6 ">
+                    <InputSelect />
+                  </div>
+                </Styles.SectionInput>
+              </Styles.SingleInput>
               <Styles.SectionInput>
                 <Styles.Input
                   ismode={BUTTON_ACTIVE.ON}
@@ -123,6 +122,15 @@ export default function FormReserver() {
                 }
                 value="condiciones"
               />
+              <Styles.BlockBtn>
+                <Styles.LineBlock>
+                  <Styles.TextCount>Total:</Styles.TextCount>
+                  <Styles.TextCount>00,00 €</Styles.TextCount>
+                </Styles.LineBlock>
+                <Styles.SubText>
+                  *Suplemento de 25 € cada hora extra
+                </Styles.SubText>
+              </Styles.BlockBtn>
               <Styles.BlockBtn type="submit">
                 <IconAnimate text="Enviar" mode />
               </Styles.BlockBtn>

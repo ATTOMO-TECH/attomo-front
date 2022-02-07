@@ -99,22 +99,52 @@ export const CUSTOMERS: {
   },
   {
     Name: 'Benneti',
-    Pic: '/customers/bennetti wha.webp',
+    Pic: '/customers/Bennetti-watches.png',
     Url: '',
   },
   {
     Name: 'ChiandSu',
-    Pic: '/customers/chiandsu.png',
+    Pic: '/customers/Chiandsu.png',
     Url: '',
   },
   {
-    Name: 'ChicParty',
-    Pic: '/customers/chic_party.png',
+    Name: 'Davo',
+    Pic: '/customers/DAVO-sin-slogan.png',
     Url: '',
   },
   {
-    Name: 'RD Estudio',
-    Pic: '/customers/RD.png',
+    Name: 'Eco Tuk Tuk',
+    Pic: '/customers/Eco-Tuk-Tuk.png',
+    Url: '',
+  },
+  {
+    Name: 'Farandula',
+    Pic: '/customers/Farandula.png',
+    Url: '',
+  },
+  {
+    Name: 'El Rincón',
+    Pic: '/customers/Grupo-El-Rincon.png',
+    Url: '',
+  },
+  {
+    Name: 'GV',
+    Pic: '/customers/GV.png',
+    Url: '',
+  },
+  {
+    Name: 'Mi pequeño rincón Azul',
+    Pic: '/customers/Mi-pequeno-rincon-azul.png',
+    Url: '',
+  },
+  {
+    Name: 'Revuelta',
+    Pic: '/customers/REVUELTA-DOMECQ.png',
+    Url: '',
+  },
+  {
+    Name: 'ROA',
+    Pic: '/customers/ROA.png',
     Url: '',
   },
 ];

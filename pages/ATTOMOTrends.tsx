@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import BlockSection from '../components/block/block';
 import BlockBlog from '../components/blog/blog';
-
 import Footer from '../components/footer/footer';
-
 import InputNew from '../components/input/inputNews';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
@@ -19,6 +17,7 @@ function News() {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
+
   const OptionsSelect: {
     Option: string;
   }[] = [
