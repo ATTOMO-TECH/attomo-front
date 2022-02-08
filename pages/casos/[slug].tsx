@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/dist/client/router';
+import Image from 'next/image';
 import Footer from '../../components/footer/footer';
 import Menu from '../../components/nav/menu';
 import Nav from '../../components/nav/nav';
@@ -10,12 +11,13 @@ import BlockSection from '../../components/block/block';
 import { NEWS } from '../../const/constGlobal';
 import DetailsCases from '../../components/section/cases/details';
 import { useaCase } from '../../domain/useCasesDetails';
+import BreadCrumbs from '../../components/breadcrumbs/breadcrumbs';
 
 interface Props {
   mode: boolean;
 }
 
-function Cases({ mode }: Props) {
+export default function Cases({ mode }: Props) {
   const router = useRouter();
   const { slug } = router.query;
   const [isOpen, SetIsOpen] = useState<boolean>(false);
@@ -36,20 +38,32 @@ function Cases({ mode }: Props) {
         <Styles.Margin>
           <Nav toggle={toggle} logo mode={false} isOpen={isOpen} />
         </Styles.Margin>
-        {/* <Styles.Center>
+        <Styles.Center className="mt-44">
           <Styles.Center>
             <BreadCrumbs
-              Author={data.attributes.title}
-              Date={data.attributes.publishedAt}
+              Author={data.data.attributes.name}
+              Date={data.data.attributes.updatedAt}
             />
             <Styles.TitularText>
-              {data.data.attributes.title}
+              {data.data.attributes.shortDescription}
             </Styles.TitularText>
           </Styles.Center>
-        </Styles.Center> */}
-        {/*  <Image src={ '/'} width={950} height={500} /> */}
+        </Styles.Center>
+
+        {data.data?.attributes?.mainPhoto?.data[0].attributes?.url ? (
+          <Image
+            src={data.data?.attributes?.mainPhoto?.data[0].attributes?.url}
+            width={1100}
+            height={600}
+            alt={data.data.attributes.name}
+            objectFit="cover"
+          />
+        ) : (
+          ''
+        )}
+
         <Styles.Center>
-          <DetailsCases data={data.data.attributes.title} />
+          <DetailsCases data={data.data.attributes.workDescription} />
         </Styles.Center>
 
         <Styles.FlexEnd>
@@ -70,9 +84,8 @@ function Cases({ mode }: Props) {
             />
           </Styles.CenterFlex>
         </Styles.Center>
-        <Footer />
+        <Footer subFooter={false} />
       </Styles.Body>
     </>
   );
 }
-export default Cases;

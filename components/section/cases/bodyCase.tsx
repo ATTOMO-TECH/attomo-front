@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
-// import ReactMarkdown from 'react-markdown';
 import BtnShare from '../../button/share';
+import { Container } from './style';
 
 interface Props {
   data: any;
@@ -23,31 +23,7 @@ export default function BodyCases({ data }: Props) {
         </div>
 
         <div className="w-11/12 ">
-          {data}
-          {/* <ReactMarkdown
-            children={data}
-            className="font-PrimarySerif leading-relaxed font-light text-sm"
-            components={{
-              p: ({ node, children }) => {
-                if (node.children[0]) {
-                  const image: any = node.children[0];
-                  return (
-                    <div className="image">
-                      <Image
-                        src={`/api${image.properties.src}`}
-                        alt={image.properties.alt}
-                        width={800}
-                        height={300}
-                      />
-                    </div>
-                  );
-                }
-
-                return <>{children}</>
-              },
-            }}
-          /> */}
-          ,
+          <Container>{data}</Container>
         </div>
       </div>
     </>

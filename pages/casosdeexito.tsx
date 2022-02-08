@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import BlockSection from '../components/block/block';
+import ButtonShare from '../components/button/BtnShare';
 import Footer from '../components/footer/footer';
 import HeroCase from '../components/hero/heroCase';
 import Menu from '../components/nav/menu';
@@ -26,6 +27,7 @@ function Cases() {
         <Styles.Margin>
           <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
         </Styles.Margin>
+        <ButtonShare />
         <HeroCase />
         <Styles.BlockSections>
           <SectionProjects Array={data.data} />
@@ -40,7 +42,7 @@ function Cases() {
             link="/contacto"
           />
         </Styles.CenterFlex>
-        <Footer />
+        <Footer subFooter={false} />
       </Styles.Body>
     </>
   );

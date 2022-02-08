@@ -35,7 +35,7 @@ export const get = async (url: string, data?: any) => {
   return getInitializedApi().get(url, { headers, params: data });
 };
 
-export const post = async (url: string, data: any, options?: any) => {
+export const post = async (url: string, data?: any, options?: any) => {
   const headers = await getHeaders();
   return getInitializedApi().post(url, data, { headers, ...options });
 };

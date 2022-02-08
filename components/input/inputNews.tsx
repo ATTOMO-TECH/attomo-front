@@ -46,7 +46,7 @@ export default function InputNew() {
                 <p className="text-primary">{isActive}</p>
                 <Navegation.Input
                   type="text"
-                  placeholder="Escribe tu correo electronico"
+                  placeholder="Escribe tu correo electrónico"
                   name="newsletter"
                   onChange={(e: React.FormEvent<HTMLInputElement>) =>
                     handleInput(e.currentTarget.value)

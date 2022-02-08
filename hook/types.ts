@@ -4,5 +4,6 @@ export const FORMVALUES = {
   PHONE: 'phone',
   EMAIL: 'email',
   COMPANY: 'name',
-  MESSAGE: 'MESSAGE',
+  MESSAGE: 'message',
+  CONDITIONS: 'conditions',
 };

@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import BlockSection from '../components/block/block';
 import BlockBlog from '../components/blog/blog';
-
 import Footer from '../components/footer/footer';
-
 import InputNew from '../components/input/inputNews';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
@@ -19,6 +17,7 @@ function News() {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
+
   const OptionsSelect: {
     Option: string;
   }[] = [
@@ -46,7 +45,7 @@ function News() {
 
         <Styles.Center>
           <Styles.ScreenMid>
-            <div>
+            <Styles.BlockDiv>
               <Title size="text-5xl lg:pt-2 lg:pr-10 pb-24 w-full pt-20 lg:w-5/6">
                 Ofrecemos información valiosa para ayudar a las empresas a crear
                 su estrategia de negocio
@@ -60,11 +59,11 @@ function News() {
                   <InputNew />
                 </Styles.BlockFullInput>
               </Styles.BlockInputSend>
-            </div>
+            </Styles.BlockDiv>
           </Styles.ScreenMid>
         </Styles.Center>
 
-        <div className="lg:pt-48 flex w-full m-auto lg:justify-center justify-start pl-8 lg:pl-0 pt-36 pb-16 ">
+        <Styles.BlockTrends>
           <Title size="text-lg lg:py-4 font-PrimarySerif">
             Filtrar noticias por
           </Title>
@@ -75,7 +74,7 @@ function News() {
               </option>
             ))}
           </Styles.Select>
-        </div>
+        </Styles.BlockTrends>
         <BlockBlog dataBlog={data.data} />
         <Styles.CenterFlex>
           <BlockSection
@@ -87,7 +86,7 @@ function News() {
             link="/contacto"
           />
         </Styles.CenterFlex>
-        <Footer />
+        <Footer subFooter={false} />
       </Styles.Body>
     </>
   );

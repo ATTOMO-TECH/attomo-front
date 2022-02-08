@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
-import { BUTTON_MODE } from '../../const/const';
+import { BUTTON_ACTIVE, BUTTON_MODE } from '../../const/const';
 
 type Props = {
   ismode: string;
@@ -33,4 +33,14 @@ export const Icon = {
   SectionIcon: tw(IconMoveS)`flex items-center `,
   Icon: tw(IconMove)<Props>`
   ${(props) => (props.ismode === BUTTON_MODE.LIGHT ? 'bg-white' : 'bg-black')}`,
+};
+
+export const Btn = {
+  Icon: tw.div<Props>`
+w-16 h-16 rounded-full p-2 bg-white fixed  cursor-pointer z-100 shadow-lg flex justify-center
+  ${(props) =>
+    props.ismode === BUTTON_ACTIVE.ON
+      ? 'bottom-10 right-10  delay-200 duration-300 ease-in-out opacity-100'
+      : '-bottom-10 right-10  delay-200 duration-300 ease-in-out opacity-0'}
+`,
 };

@@ -45,8 +45,8 @@ function New({ mode }: Props) {
             <HeaderCases
               category={data.data.attributes.title}
               title={data.data.attributes.title}
-              paragraph={data.data.attributes.title}
-              image=""
+              paragraph=""
+              image={data.data.attributes.coverImage.data.attributes?.url}
             />
             <BreadCrumbs Author="Autor" Date="Fecha" />
             <BodyCases data={data.data.attributes.content} />
@@ -71,7 +71,7 @@ function New({ mode }: Props) {
             />
           </Styles.CenterFlex>
         </Styles.Center>
-        <Footer />
+        <Footer subFooter={false} />
       </Styles.Body>
     </>
   );

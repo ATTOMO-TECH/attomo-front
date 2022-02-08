@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { Blogstyles } from './style';
 import Title from '../Text/title';
+import IconAnimate from '../button/icon';
 
 interface Props {
   dataBlog: any;
@@ -16,17 +17,31 @@ export default function BlockBlog({ dataBlog }: Props) {
       {isData.map((data: any) => (
         <Blogstyles.Article>
           <Blogstyles.BlockImg>
-            <Image src="/" width={900} height={700} alt="values.SubText" />
+            {data.attributes?.coverImage?.data?.attributes?.url ? (
+              <Image
+                src={data.attributes.coverImage.data.attributes?.url}
+                width={900}
+                height={700}
+                alt={data.attributes.name}
+              />
+            ) : (
+              ''
+            )}
           </Blogstyles.BlockImg>
           <Blogstyles.BlockText>
-            <Blogstyles.Text>{data.attributes.title}</Blogstyles.Text>
+            <Title size="text-sm leading-relaxed font-PrimarySerif ">
+              {data.attributes.title}
+            </Title>
             <Title size="text-4xl leading-relaxed">
+              {data.attributes.title}
+            </Title>
+            <Title size="text-sm leading-relaxed font-PrimarySerif">
               {data.attributes.title}
             </Title>
             <Blogstyles.SubText />
             <Link href={`/ATTOMOTrends/${data.id}`}>
               <div>
-                <Blogstyles.Btn>Leer</Blogstyles.Btn>
+                <IconAnimate text="Leer" mode />
               </div>
             </Link>
           </Blogstyles.BlockText>

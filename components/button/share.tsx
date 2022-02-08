@@ -24,11 +24,11 @@ export default function BtnShare({ valueUrl, isOpen, toggle }: Props) {
         type="button"
         className={
           isOpen
-            ? 'w-4/6 hidden lg:block h-auto delay-300 duration-300 ease-in-out opacity-100 fixed bottom-96 left-0 z-90'
+            ? 'w-4/6 hidden lg:block h-auto delay-300 duration-300 ease-in-out opacity-100 fixed top-96 left-0 z-90'
             : 'w-0 overflow-hidden opacity-0 fixed -left-10  delay-300 duration-300 ease-in-out '
         }
         onClick={handleClick}>
-        <ul className="absolute w-auto z-90 top-6 bg-primary p-5 shadow-lg shadow-indigo-500/50 ">
+        <ul className="absolute w-auto z-90 top-0 bg-primary p-5 shadow-lg shadow-indigo-500/50 ">
           {ICONNAV.map((values) => (
             <Link href={`${valueUrl}`}>
               <li className="w-auto px-1 cursor-pointer hover:opacity-50 py-2">

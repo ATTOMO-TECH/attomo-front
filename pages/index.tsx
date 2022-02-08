@@ -12,6 +12,7 @@ import { BUTTON_ACTIVE } from '../const/const';
 import { Styles } from '../styles/styles';
 import SelectedClients from '../components/section/selectedclientes';
 import { useUseAllCases } from '../domain/useCasesDetails';
+import ButtonShare from '../components/button/BtnShare';
 
 function Home() {
   const [isOpen, SetIsOpen] = useState<boolean>(false);
@@ -30,33 +31,31 @@ function Home() {
         <Styles.Margin>
           <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
         </Styles.Margin>
+        <ButtonShare />
         <Styles.Center>
           <Styles.ScreenMid>
-            <div>
-              <Hero
-                text="Somos una consultora tecnológica con una única misión: ayudar a las empresas y administraciones a liderar a través de la digitalización"
-                button="Conoce más"
-                link="conocenos"
-              />
-            </div>
+            <Hero
+              text="Somos una consultora tecnológica con una única misión: ayudar a las empresas y administraciones a liderar a través de la digitalización"
+              button="Conoce más"
+              link="conocenos"
+            />
           </Styles.ScreenMid>
         </Styles.Center>
-
         <Styles.SectionScreen id="conocenos">
           <Styles.CenterFlex>
             <SubSection />
           </Styles.CenterFlex>
           <Styles.Center>
-            <div className="lg:w-8/12 m-auto flex flex-wrap py-0">
+            <Styles.BlockSelected>
               <SelectedClients
                 text="Trabajamos de la mano con nuestros clientes para impulsar y transformar sus áreas de operación."
                 btn="Casos de éxito"
                 link="/casosdeexito"
+                textPrimary="Selected clients"
               />
-            </div>
+            </Styles.BlockSelected>
           </Styles.Center>
         </Styles.SectionScreen>
-
         <Styles.BlockSlider>
           <CompaniesScroll />
         </Styles.BlockSlider>
@@ -84,7 +83,7 @@ function Home() {
             link="/contacto"
           />
         </Styles.CenterFlex>
-        <Footer />
+        <Footer subFooter />
       </Styles.Body>
     </>
   );

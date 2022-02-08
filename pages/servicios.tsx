@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import BlockSection from '../components/block/block';
+import ButtonShare from '../components/button/BtnShare';
 import Collapse from '../components/collapse/collapse';
 import Footer from '../components/footer/footer';
 import Menu from '../components/nav/menu';
@@ -23,9 +24,10 @@ function Services() {
         <Styles.Margin>
           <Nav toggle={toggle} logo mode isOpen={isOpen} />
         </Styles.Margin>
+        <ButtonShare />
         <Styles.Center>
           <Styles.ScreenMid>
-            <div>
+            <Styles.BlockDiv>
               <Title size="text-5xl lg:pt-24 lg:pr-10 pb-24 w-full pt-20 ">
                 Combinamos ingeniería, diseño, escalabilidad e innovación para
                 transformar industrias, empresas y administraciones
@@ -36,7 +38,7 @@ function Services() {
                   y la transformación digital
                 </Subtext>
               </Styles.FlexEnd>
-            </div>
+            </Styles.BlockDiv>
           </Styles.ScreenMid>
         </Styles.Center>
         <Styles.Center>
@@ -65,7 +67,7 @@ function Services() {
           />
         </Styles.CenterFlex>
 
-        <Footer />
+        <Footer subFooter={false} />
       </Styles.Body>
     </>
   );

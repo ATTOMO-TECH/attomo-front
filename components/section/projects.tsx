@@ -12,6 +12,7 @@ interface Props {
 
 export default function SectionProjects({ Array }: Props) {
   const [isData] = useState(Array);
+
   return (
     <>
       <Styles.SectionProjects>
@@ -21,13 +22,23 @@ export default function SectionProjects({ Array }: Props) {
             key={values.Client}>
             <Styles.BlockSection
               ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-              <Image src="/" width={800} height={600} alt={values.Client} />
+              {values?.attributes?.mainPhoto?.data[0].attributes?.url ? (
+                <Image
+                  src={values.attributes.mainPhoto.data[0].attributes.url}
+                  width={800}
+                  height={600}
+                  alt={values.attributes.name}
+                  objectFit="cover"
+                />
+              ) : (
+                ''
+              )}
             </Styles.BlockSection>
             <Styles.BlockText
               ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-              <Title size="text-xl ">{values.attributes.title}</Title>
+              <Title size="text-xl ">{values.attributes.name}</Title>
               <Title size="text-5xl py-3 leading-relaxed lg:leading-normal">
-                {values.title}
+                {values.attributes.shortDescription}
               </Title>
               <Link href={`/casos/${values.id}`}>
                 <Styles.BlockBtn>

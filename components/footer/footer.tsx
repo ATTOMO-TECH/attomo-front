@@ -5,7 +5,10 @@ import SubFooter from './subfooter';
 import { Navegation } from './style';
 import InputNew from '../input/inputNews';
 
-export default function Footer() {
+interface Props {
+  subFooter: boolean;
+}
+export default function Footer({ subFooter }: Props) {
   return (
     <>
       <Navegation.SectionFooter>
@@ -18,7 +21,7 @@ export default function Footer() {
               alt="Attomo"
             />
           </Navegation.BlockLogo>
-          <Navegation.BlockNav className="order-2 lg:order-none">
+          <Navegation.BlockNavMed className="order-2 lg:order-none">
             <Navegation.TitleNav>Attomo</Navegation.TitleNav>
             <Navegation.NavFooter>
               {VALUESNAV.map((values) => (
@@ -29,8 +32,8 @@ export default function Footer() {
                 </Navegation.ItemsMenu>
               ))}
             </Navegation.NavFooter>
-          </Navegation.BlockNav>
-          <Navegation.BlockNav className="order-1 lg:order-none pt-10 lg:pt-0">
+          </Navegation.BlockNavMed>
+          <Navegation.BlockNavMed className="order-1 lg:order-none pt-10 lg:pt-0">
             <Navegation.TitleNav>Síguenos</Navegation.TitleNav>
             <Navegation.NavFooterFlex>
               {ICONNAV.map((values) => (
@@ -49,7 +52,7 @@ export default function Footer() {
                 </Navegation.ListIcon>
               ))}
             </Navegation.NavFooterFlex>
-          </Navegation.BlockNav>
+          </Navegation.BlockNavMed>
           <Navegation.BlockNav className="order-last lg:order-none">
             <Navegation.TitleNavResponsive>
               Newsletter
@@ -57,7 +60,7 @@ export default function Footer() {
             <InputNew />
           </Navegation.BlockNav>
         </Navegation.BlockFooter>
-        <SubFooter />
+        {subFooter ? <SubFooter /> : ''}
         <Navegation.BlockSubText>
           <Navegation.SubText>
             <Link href="/privacidad">Política de privacidad </Link>

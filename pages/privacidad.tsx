@@ -96,7 +96,7 @@ function Privacidad() {
           </Styles.Screen>
         </Styles.Center>
 
-        <Footer />
+        <Footer subFooter={false} />
       </Styles.Body>
     </>
   );

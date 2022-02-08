@@ -11,7 +11,7 @@ export const PARTNERS: {
   },
   {
     Name: 'HubSpot',
-    Pic: '/icon/hubspot.png',
+    Pic: '/icon/Hubspot-partner.png',
   },
   {
     Name: 'SendCloud',
@@ -50,10 +50,10 @@ export const VALUESNAV: {
     Value: 'Contacto',
     Url: '/contacto',
   },
-  // {
-  //   Value: 'Espacio Attomo',
-  //   Url: '/contacto',
-  // },
+  {
+    Value: 'Espacio Attomo',
+    Url: '/espacio',
+  },
 ];
 export const ICONNAV: {
   Name: string;
@@ -99,22 +99,52 @@ export const CUSTOMERS: {
   },
   {
     Name: 'Benneti',
-    Pic: '/customers/bennetti wha.webp',
+    Pic: '/customers/Bennetti-watches.png',
     Url: '',
   },
   {
     Name: 'ChiandSu',
-    Pic: '/customers/chiandsu.png',
+    Pic: '/customers/Chiandsu.png',
     Url: '',
   },
   {
-    Name: 'ChicParty',
-    Pic: '/customers/chic_party.png',
+    Name: 'Davo',
+    Pic: '/customers/DAVO-sin-slogan.png',
     Url: '',
   },
   {
-    Name: 'RD Estudio',
-    Pic: '/customers/RD.png',
+    Name: 'Eco Tuk Tuk',
+    Pic: '/customers/Eco-Tuk-Tuk.png',
+    Url: '',
+  },
+  {
+    Name: 'Farandula',
+    Pic: '/customers/Farandula.png',
+    Url: '',
+  },
+  {
+    Name: 'El Rincón',
+    Pic: '/customers/Grupo-El-Rincon.png',
+    Url: '',
+  },
+  {
+    Name: 'GV',
+    Pic: '/customers/GV.png',
+    Url: '',
+  },
+  {
+    Name: 'Mi pequeño rincón Azul',
+    Pic: '/customers/Mi-pequeno-rincon-azul.png',
+    Url: '',
+  },
+  {
+    Name: 'Revuelta',
+    Pic: '/customers/REVUELTA-DOMECQ.png',
+    Url: '',
+  },
+  {
+    Name: 'ROA',
+    Pic: '/customers/ROA.png',
     Url: '',
   },
 ];
@@ -126,6 +156,13 @@ export const ARTICLES: {
   Url: string;
   Tag: string;
 }[] = [
+  {
+    Text: '',
+    Pic: '/',
+    Topic: '',
+    Url: '',
+    Tag: '',
+  },
   {
     Text: 'Vulputate facilisis ipsum morbi arcu, risus semper netus',
     Pic: '/customers/customerServices1.png',
@@ -155,6 +192,13 @@ export const NEWS: {
   Url: string;
   Tag: string;
 }[] = [
+  {
+    Text: '',
+    Pic: '',
+    Topic: '',
+    Url: '',
+    Tag: '',
+  },
   {
     Text: 'Vulputate facilisis ipsum morbi arcu, risus semper netus',
     Pic: '/customers/customerServices1.png',
@@ -434,4 +478,60 @@ export const DEPARTMENT: {
     text: 'Cloud Ops',
     value: 'Cloud',
   },
+];
+
+export const PRICES: {
+  Name: string;
+  Time: string;
+  Price: number;
+  Url: string;
+}[] = [
+  {
+    Name: 'Sesión',
+    Time: '(2 horas)',
+    Price: 60,
+    Url: '/',
+  },
+  {
+    Name: 'Media jornada',
+    Time: '(4 horas)',
+    Price: 100,
+    Url: '/',
+  },
+  {
+    Name: 'Jornada completa',
+    Time: '(8 horas)',
+    Price: 180,
+    Url: '/',
+  },
+];
+
+export const OPTIONSTIME = [
+  { value: '9:00', label: '9:00' },
+  { value: '9:30', label: '9:30' },
+  { value: '10:00', label: '10:00' },
+  { value: '10:30', label: '10:30' },
+  { value: '11:00', label: '11:00' },
+  { value: '11:30', label: '11:30' },
+  { value: '12:00', label: '12:00' },
+  { value: '12:30 ', label: '12:30' },
+  { value: '13:00', label: '13:00' },
+  { value: '13:30 ', label: '13:30' },
+  { value: '14:00', label: '14:00' },
+  { value: '14:30', label: '14:30' },
+  { value: '15:00', label: '15:00' },
+  { value: '15:30', label: '15:30' },
+  { value: '16:00', label: '16:00' },
+  { value: '16:30', label: '16:30' },
+  { value: '17:00', label: '17:00' },
+  { value: '17:30', label: '17:30' },
+  { value: '18:00', label: '18:00' },
+  { value: '18:30', label: '18:30' },
+];
+export const OPTIONDISPONIBILITY = [
+  { value: '30M', label: '30 min' },
+  { value: '1', label: '1 Hora' },
+  { value: '2', label: '2 Horas' },
+  { value: '4', label: '4 Hora' },
+  { value: '8', label: '8 Horas' },
 ];

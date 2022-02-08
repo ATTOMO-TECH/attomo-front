@@ -33,15 +33,14 @@ export default function ArticlesScroll({ mode, array }: Props) {
             slidesPerView: 1,
           },
           '640': {
-            slidesPerView: 2,
+            slidesPerView: 3.5,
           },
           '768': {
-            slidesPerView: 2.5,
+            slidesPerView: 3.5,
           },
         }}
-        slidesPerView={2.5}
+        slidesPerView={3.5}
         spaceBetween={0}
-        loop
         onBeforeInit={onBeforeInit}
         navigation={{
           prevEl: prevRef.current,
@@ -51,13 +50,17 @@ export default function ArticlesScroll({ mode, array }: Props) {
         {array.map((values) => (
           <SwiperSlide key={values.Tag}>
             <StylesArticle.BlockImg>
-              <Image
-                src={values.Pic}
-                layout="responsive"
-                width={300}
-                height={200}
-                alt={values.Text}
-              />
+              {values.Pic ? (
+                <Image
+                  src={values.Pic}
+                  layout="responsive"
+                  width={300}
+                  height={200}
+                  alt={values.Text}
+                />
+              ) : (
+                ''
+              )}
             </StylesArticle.BlockImg>
             <StylesArticle.BlockText
               theme={mode === false ? lightTheme : darkTheme}>
