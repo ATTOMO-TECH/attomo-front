@@ -34,16 +34,13 @@ function Home() {
         <ButtonShare />
         <Styles.Center>
           <Styles.ScreenMid>
-            <div>
-              <Hero
-                text="Somos una consultora tecnológica con una única misión: ayudar a las empresas y administraciones a liderar a través de la digitalización"
-                button="Conoce más"
-                link="conocenos"
-              />
-            </div>
+            <Hero
+              text="Somos una consultora tecnológica con una única misión: ayudar a las empresas y administraciones a liderar a través de la digitalización"
+              button="Conoce más"
+              link="conocenos"
+            />
           </Styles.ScreenMid>
         </Styles.Center>
-
         <Styles.SectionScreen id="conocenos">
           <Styles.CenterFlex>
             <SubSection />
@@ -59,7 +56,6 @@ function Home() {
             </Styles.BlockSelected>
           </Styles.Center>
         </Styles.SectionScreen>
-
         <Styles.BlockSlider>
           <CompaniesScroll />
         </Styles.BlockSlider>
@@ -87,7 +83,7 @@ function Home() {
             link="/contacto"
           />
         </Styles.CenterFlex>
-        <Footer />
+        <Footer subFooter />
       </Styles.Body>
     </>
   );

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import BlockSection from '../components/block/block';
+import ButtonShare from '../components/button/BtnShare';
 import Footer from '../components/footer/footer';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
@@ -24,9 +25,10 @@ function Us() {
         <Styles.Margin>
           <Nav toggle={toggle} logo mode isOpen={isOpen} />
         </Styles.Margin>
+        <ButtonShare />
         <Styles.Center>
           <Styles.ScreenMid>
-            <div className="w-full">
+            <Styles.ContainerFull>
               <Title size="text-5xl lg:pt-48 lg:pr-10 pb-24 w-full pt-20">
                 El átomo es el principio de todo, alrededor del cual se
                 construye y fluye todo
@@ -38,13 +40,12 @@ function Us() {
                   proyectar a futuro
                 </Subtext>
               </Styles.FlexEnd>
-            </div>
+            </Styles.ContainerFull>
           </Styles.ScreenMid>
         </Styles.Center>
         <OneProject />
-
         <Styles.Center>
-          <div className="lg:w-8/12 m-auto flex flex-wrap pt-24">
+          <Styles.BlockUs>
             <ListUs />
             <SelectedClients
               text="Buscamos ser un partner de primer nivel, centrado en desarrollar productos y proyectos a medida, donde la calidad prima siempre por encima de la cantidad."
@@ -52,7 +53,7 @@ function Us() {
               link="/contacto"
               textPrimary="Selected clients"
             />
-          </div>
+          </Styles.BlockUs>
         </Styles.Center>
         <Styles.CenterFlex>
           <BlockSection
@@ -64,7 +65,7 @@ function Us() {
             link="/contacto"
           />
         </Styles.CenterFlex>
-        <Footer />
+        <Footer subFooter={false} />
       </Styles.Body>
     </>
   );

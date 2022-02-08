@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
+import ButtonShare from '../components/button/BtnShare';
 import IconAnimate from '../components/button/icon';
 import Footer from '../components/footer/footer';
 import Menu from '../components/nav/menu';
@@ -21,12 +22,13 @@ function Carrers() {
         <Styles.Margin>
           <Nav toggle={toggle} logo mode isOpen={isOpen} />
         </Styles.Margin>
+        <ButtonShare />
         <Styles.Center>
           <Styles.Center>
             <Styles.Center>
               <Styles.ScreenMid>
                 <div className="w-full">
-                  <Title size="text-5xl lg:pt-48 lg:pr-10 pb-24 w-full lg:w-3/6 pt-20 leading-relaxed ">
+                  <Title size="text-5xl lg:pt-8 lg:pr-10  w-full lg:w-3/6 pt-20 leading-relaxed ">
                     Trabaja con nosotros
                   </Title>
                   <Styles.FlexEnd>
@@ -60,7 +62,7 @@ function Carrers() {
             </h6>
           </Styles.Center>
         </section>
-        <Footer />
+        <Footer subFooter={false} />
       </Styles.Body>
     </>
   );

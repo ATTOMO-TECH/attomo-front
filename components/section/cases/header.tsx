@@ -19,7 +19,13 @@ export default function HeaderCases({
       <StylesCases.CategoryText>{category}</StylesCases.CategoryText>
       <StylesCases.TitularText>{title}</StylesCases.TitularText>
       <StylesCases.Paragraph>{paragraph}</StylesCases.Paragraph>
-      <Image src={image || '/'} width={950} height={500} />
+      <Image
+        src={image || '/'}
+        width={950}
+        height={500}
+        alt={title}
+        objectFit="cover"
+      />
     </>
   );
 }

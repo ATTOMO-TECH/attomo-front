@@ -12,6 +12,7 @@ import BlockSection from '../components/block/block';
 import SelectedClients from '../components/section/selectedclientes';
 import Prices from '../components/section/price';
 import FormReserver from '../components/form/formReserver';
+import ButtonShare from '../components/button/BtnShare';
 
 function Space() {
   const [isOpen, SetIsOpen] = useState<boolean>(false);
@@ -25,6 +26,7 @@ function Space() {
         <Styles.Margin>
           <Nav toggle={toggle} logo mode isOpen={isOpen} />
         </Styles.Margin>
+        <ButtonShare />
         <Styles.Center>
           <Styles.ScreenMid>
             <Styles.ContainerFull>
@@ -91,10 +93,10 @@ function Space() {
                 rel="noreferrer">
                 <Image
                   src="/Map_.jpg"
-                  width={700}
-                  height={400}
+                  width={1200}
+                  height={600}
                   alt="Maps"
-                  layout="responsive"
+                  objectFit="cover"
                 />
               </a>
             </Link>
@@ -110,7 +112,7 @@ function Space() {
             link="/contacto"
           />
         </Styles.CenterFlex>
-        <Footer />
+        <Footer subFooter={false} />
       </Styles.Body>
     </>
   );

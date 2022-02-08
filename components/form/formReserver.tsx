@@ -1,18 +1,15 @@
-import * as Yup from 'yup';
 import { Formik } from 'formik';
 import Link from 'next/link';
 import { Styles } from './style';
 import IconAnimate from '../button/icon';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { FORMVALUES } from '../../hook/types';
-import InputCheck from './inputCheck';
 import InputSelect from './select';
+import { OPTIONDISPONIBILITY, OPTIONSTIME } from '../../const/constGlobal';
+import InputCheckcondition from './inputCheckcondition';
+import { createContact } from '../../domain/useContact';
+import { validationSchema } from './validations';
 
-const registerSchema = Yup.object().shape({
-  newsletter: Yup.string()
-    .email('Email no valido')
-    .required('Email es requerido'),
-});
 export default function FormReserver() {
   const valueName = FORMVALUES.FIRSTNAME;
   const valueLastName = FORMVALUES.LASTNAME;
@@ -20,6 +17,7 @@ export default function FormReserver() {
   const valueEmail = FORMVALUES.EMAIL;
   const valueCompany = FORMVALUES.COMPANY;
   const valueMessage = FORMVALUES.MESSAGE;
+  const conditions = FORMVALUES.CONDITIONS;
 
   const initialValues = {
     [valueName]: '',
@@ -27,26 +25,33 @@ export default function FormReserver() {
     [valueCompany]: '',
     [valuePhone]: '',
     [valueEmail]: '',
-    [valueMessage]: '',
+    [conditions]: false,
   };
+
+  const { mutate: createContacts } = createContact();
 
   return (
     <>
       <Formik
-        onSubmit={(values: any) => values}
+        onSubmit={(values) => {
+          createContacts({ ...values });
+        }}
         initialValues={initialValues}
-        validationSchema={registerSchema}
+        validationSchema={validationSchema}
         validateOnMount>
         {({ touched, errors }) => (
           <>
-            <Styles.Form>
+            <Styles.Form
+              onSubmit={(values) => {
+                createContacts({ ...values });
+              }}>
               <Styles.SingleInput>
                 <Styles.SectionInput>
                   <div className="lg:w-2/6">
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
                       placeholder="Fecha"
-                      type="text"
+                      type="date"
                       name={valueName}
                     />
                     {touched.valueName && errors.valueName && (
@@ -54,10 +59,16 @@ export default function FormReserver() {
                     )}
                   </div>
                   <div className="lg:w-2/6 ">
-                    <InputSelect />
+                    <InputSelect
+                      options={OPTIONSTIME}
+                      valueLabel="Hora de inicio"
+                    />
                   </div>
                   <div className="lg:w-2/6 ">
-                    <InputSelect />
+                    <InputSelect
+                      options={OPTIONDISPONIBILITY}
+                      valueLabel="Tiempo"
+                    />
                   </div>
                 </Styles.SectionInput>
               </Styles.SingleInput>
@@ -99,10 +110,12 @@ export default function FormReserver() {
                   ismode={BUTTON_ACTIVE.OFF}
                   placeholder="Empresa/Organización *"
                   type="text"
-                  name={valueCompany}
+                  name={valueMessage}
                 />
               </Styles.SingleInput>
-              <InputCheck
+
+              <InputCheckcondition
+                data-val="true"
                 color="text-primary text-xs"
                 text={
                   <>
@@ -120,17 +133,11 @@ export default function FormReserver() {
                     </Link>
                   </>
                 }
-                value="condiciones"
+                value={conditions}
               />
-              <Styles.BlockBtn>
-                <Styles.LineBlock>
-                  <Styles.TextCount>Total:</Styles.TextCount>
-                  <Styles.TextCount>00,00 €</Styles.TextCount>
-                </Styles.LineBlock>
-                <Styles.SubText>
-                  *Suplemento de 25 € cada hora extra
-                </Styles.SubText>
-              </Styles.BlockBtn>
+
+              <div>{errors.conditions}</div>
+
               <Styles.BlockBtn type="submit">
                 <IconAnimate text="Enviar" mode />
               </Styles.BlockBtn>

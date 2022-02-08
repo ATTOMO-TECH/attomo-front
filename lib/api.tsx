@@ -8,9 +8,12 @@ const POST = {
     getAbsolutePath(`blog-posts/${id}?populate=coverImage`),
 };
 const CASES = {
-  FETCH_ALL: () => getAbsolutePath('blog-posts?populate=coverImage'),
+  FETCH_ALL: () => getAbsolutePath('successful-cases?populate=mainPhoto'),
   FETCH_ID: (id: number) =>
-    getAbsolutePath(`blog-posts/${id}?populate=coverImage`),
+    getAbsolutePath(`successful-cases/${id}?populate=mainPhoto`),
+};
+const CONTACT = {
+  CREATE: () => getAbsolutePath(''),
 };
 
-export { POST, CASES, getAbsolutePath };
+export { POST, CASES, CONTACT, getAbsolutePath };

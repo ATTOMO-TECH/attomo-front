@@ -11,7 +11,7 @@ export const PARTNERS: {
   },
   {
     Name: 'HubSpot',
-    Pic: '/icon/hubspot.png',
+    Pic: '/icon/Hubspot-partner.png',
   },
   {
     Name: 'SendCloud',
@@ -157,6 +157,13 @@ export const ARTICLES: {
   Tag: string;
 }[] = [
   {
+    Text: '',
+    Pic: '/',
+    Topic: '',
+    Url: '',
+    Tag: '',
+  },
+  {
     Text: 'Vulputate facilisis ipsum morbi arcu, risus semper netus',
     Pic: '/customers/customerServices1.png',
     Topic: '',
@@ -185,6 +192,13 @@ export const NEWS: {
   Url: string;
   Tag: string;
 }[] = [
+  {
+    Text: '',
+    Pic: '',
+    Topic: '',
+    Url: '',
+    Tag: '',
+  },
   {
     Text: 'Vulputate facilisis ipsum morbi arcu, risus semper netus',
     Pic: '/customers/customerServices1.png',
@@ -490,4 +504,34 @@ export const PRICES: {
     Price: 180,
     Url: '/',
   },
+];
+
+export const OPTIONSTIME = [
+  { value: '9:00', label: '9:00' },
+  { value: '9:30', label: '9:30' },
+  { value: '10:00', label: '10:00' },
+  { value: '10:30', label: '10:30' },
+  { value: '11:00', label: '11:00' },
+  { value: '11:30', label: '11:30' },
+  { value: '12:00', label: '12:00' },
+  { value: '12:30 ', label: '12:30' },
+  { value: '13:00', label: '13:00' },
+  { value: '13:30 ', label: '13:30' },
+  { value: '14:00', label: '14:00' },
+  { value: '14:30', label: '14:30' },
+  { value: '15:00', label: '15:00' },
+  { value: '15:30', label: '15:30' },
+  { value: '16:00', label: '16:00' },
+  { value: '16:30', label: '16:30' },
+  { value: '17:00', label: '17:00' },
+  { value: '17:30', label: '17:30' },
+  { value: '18:00', label: '18:00' },
+  { value: '18:30', label: '18:30' },
+];
+export const OPTIONDISPONIBILITY = [
+  { value: '30M', label: '30 min' },
+  { value: '1', label: '1 Hora' },
+  { value: '2', label: '2 Horas' },
+  { value: '4', label: '4 Hora' },
+  { value: '8', label: '8 Horas' },
 ];

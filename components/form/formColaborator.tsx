@@ -9,6 +9,7 @@ import Subtext from '../Text/subText';
 import InputRadio from './inputRadio';
 import { DEPARTMENT, FORMPARTOF } from '../../const/constGlobal';
 import InputCheck from './inputCheck';
+import InputCheckcondition from './inputCheckcondition';
 
 const registerSchema = Yup.object().shape({
   newsletter: Yup.string()
@@ -113,14 +114,20 @@ export default function FormColaborator() {
                 />
               </Styles.SingleInput>
 
-              <InputCheck
+              <InputCheckcondition
                 color="text-primary text-xs"
                 text={
                   <>
-                    <p>Acepto las</p>
+                    <p>He leído y acepto los </p>
+                    <Link href="/terminos">
+                      <p className="mx-1 underline cursor-pointer">
+                        Términos y condiciones
+                      </p>
+                    </Link>
+                    y la
                     <Link href="/terminos">
                       <p className="ml-1 underline cursor-pointer">
-                        condiciones generales{' '}
+                        Política de Privacidad
                       </p>
                     </Link>
                   </>

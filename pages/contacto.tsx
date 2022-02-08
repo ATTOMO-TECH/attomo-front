@@ -9,6 +9,7 @@ import Subtext from '../components/Text/subText';
 import Title from '../components/Text/title';
 import { BUTTON_ACTIVE } from '../const/const';
 import { Styles } from '../styles/styles';
+import ButtonShare from '../components/button/BtnShare';
 
 function Contact() {
   const [isOpen, SetIsOpen] = useState<boolean>(false);
@@ -23,17 +24,18 @@ function Contact() {
         <Styles.Margin>
           <Nav toggle={toggle} logo mode isOpen={isOpen} />
         </Styles.Margin>
-        <div className="pt-48">
+        <ButtonShare />
+        <Styles.BlockContact>
           <Styles.Center>
             <Title size="text-5xl lg:pt-4 lg:pr-10 pb-24 w-full pt-20">
               Contacta con nosotros
             </Title>
             <RenderForm />
           </Styles.Center>
-        </div>
+        </Styles.BlockContact>
         <Styles.Center>
           <Title size="text-2xl  lg:pr-10 ">Dónde encontrarnos</Title>
-          <div className=" lg:my-12 my-12  lg:w-4/6  m-auto">
+          <Styles.BlockAddresMap>
             <Subtext size="lg:text-xl text-sm w-full pb-10 font-PrimarySerif">
               Calle del Monte Esquinza, 8, 28010 Madrid
             </Subtext>
@@ -47,14 +49,14 @@ function Contact() {
                   width={700}
                   height={400}
                   alt="Maps"
-                  layout="responsive"
+                  objectFit="cover"
                 />
               </a>
             </Link>
-          </div>
+          </Styles.BlockAddresMap>
         </Styles.Center>
 
-        <Footer />
+        <Footer subFooter={false} />
       </Styles.Body>
     </>
   );

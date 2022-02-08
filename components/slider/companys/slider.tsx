@@ -10,20 +10,21 @@ export default function CompaniesScroll() {
   return (
     <>
       <Swiper
-        slidesPerView={4}
-        spaceBetween={30}
+        slidesPerView={6}
+        spaceBetween={2}
         loop
         className="mySwiper hidden lg:block"
         autoplay
         speed={1000}>
         {CUSTOMERS.map((values) => (
-          <SwiperSlide key={values.Name} className="w-10 h-auto">
+          <SwiperSlide key={values.Name} className="">
             <Image
               src={values.Pic}
               width="100%"
               height="100%"
               alt={values.Name}
               objectFit="contain"
+              loading="lazy"
             />
           </SwiperSlide>
         ))}

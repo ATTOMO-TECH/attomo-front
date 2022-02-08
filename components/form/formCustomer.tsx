@@ -5,7 +5,7 @@ import { Styles } from './style';
 import IconAnimate from '../button/icon';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { FORMVALUES } from '../../hook/types';
-import InputCheck from './inputCheck';
+import InputCheckcondition from './inputCheckcondition';
 
 const registerSchema = Yup.object().shape({
   newsletter: Yup.string()
@@ -88,14 +88,20 @@ export default function FormCustomer() {
                   name={valueMessage}
                 />
               </Styles.SingleInput>
-              <InputCheck
+              <InputCheckcondition
                 color="text-primary text-xs"
                 text={
                   <>
-                    <p>Acepto las</p>
+                    <p>He leído y acepto los </p>
+                    <Link href="/terminos">
+                      <p className="mx-1 underline cursor-pointer">
+                        Términos y condiciones
+                      </p>
+                    </Link>
+                    y la
                     <Link href="/terminos">
                       <p className="ml-1 underline cursor-pointer">
-                        condiciones generales{' '}
+                        Política de Privacidad
                       </p>
                     </Link>
                   </>

@@ -5,7 +5,10 @@ import SubFooter from './subfooter';
 import { Navegation } from './style';
 import InputNew from '../input/inputNews';
 
-export default function Footer() {
+interface Props {
+  subFooter: boolean;
+}
+export default function Footer({ subFooter }: Props) {
   return (
     <>
       <Navegation.SectionFooter>
@@ -57,7 +60,7 @@ export default function Footer() {
             <InputNew />
           </Navegation.BlockNav>
         </Navegation.BlockFooter>
-        <SubFooter />
+        {subFooter ? <SubFooter /> : ''}
         <Navegation.BlockSubText>
           <Navegation.SubText>
             <Link href="/privacidad">Política de privacidad </Link>

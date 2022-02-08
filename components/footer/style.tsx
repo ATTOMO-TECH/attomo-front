@@ -50,7 +50,7 @@ export const Navegation = {
     `,
 };
 export const SubNavegation = {
-  SectionSub: tw.div`bg-primary font-Secundary hidden lg:block`,
+  SectionSub: tw.div`bg-none font-Secundary hidden lg:block`,
   BlockSub: tw.div`container px-5 py-6 flex justify-between items-center justify-items-center sm:flex-row flex-col w-10/12 m-auto`,
   Listsub: tw.div`w-auto lg:w-full flex justify-center item-center`,
 };

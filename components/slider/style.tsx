@@ -19,6 +19,19 @@ export const TextTitle = styled.h2`
   }
 `;
 
+// export const Block = styled.SwiperSlide`
+//   @media screen and (max-width: 1024px) {
+//     background: linear-gradient(
+//       to right,
+//       #cccfe8 26.04%,
+//       #ffffff 69.27%,
+//       #cccfe8 100%
+//     );
+//     -webkit-background-clip: text;
+//     -webkit-text-fill-color: transparent;
+//   }
+// `;
+
 export const lightTheme = {
   headings: TextTitle,
 };
@@ -42,7 +55,6 @@ export const StylesArticle = {
   TopicText: tw.h6<Props>`
   opacity-50 font-PrimarySerif font-thin text-xs py-2
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'block' : 'hidden')}
-  
   `,
   BlockArrow: tw.div`flex w-full text-xl justify-end lg:pr-44 pr-10`,
   ArrowPrev: tw.div`cursor-pointer py-20 pr-5 hidden lg:block `,

@@ -14,6 +14,6 @@ export const SectionColor = styled.div`
 
 export const Block = {
   SectionBlock: tw.h5`lg:py-24 flex flex-wrap justify-between w-full`,
-  Block: tw(SectionColor)`text-primary lg:w-3/6 w-full block`,
+  Block: tw(SectionColor)`text-primary lg:w-3/6 w-full block pl-10`,
   Title: tw.h6`opacity-50`,
 };

@@ -1,7 +1,8 @@
 import IconAnimate from '../../button/icon';
+import { Container } from './style';
 
 interface Props {
-  data: [];
+  data: any;
 }
 export default function DetailsCases({ data }: Props) {
   return (
@@ -23,7 +24,7 @@ export default function DetailsCases({ data }: Props) {
           </div>
         </div>
         <div className="w-5/12 leading-relaxed font-PrimarySerif font-thin text-sm">
-          <p>{data}</p>
+          <Container>{data}</Container>
           <IconAnimate text="Ver online" mode={false} />
         </div>
       </section>

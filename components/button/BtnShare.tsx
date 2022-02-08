@@ -2,6 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import { useEffect, useState } from 'react';
+import { Btn } from './style';
+import { BUTTON_ACTIVE } from '../../const/const';
 
 export default function ButtonShare() {
   const [scroll, setScroll] = useState(true);
@@ -21,14 +23,9 @@ export default function ButtonShare() {
           target="_blank"
           href="https://api.whatsapp.com/send?text"
           rel="noreferrer">
-          <div
-            className={
-              scroll
-                ? 'w-auto h-auto rounded-full p-5  fixed -bottom-10 right-10  delay-200 duration-300 ease-in-out opacity-0'
-                : 'w-auto h-auto rounded-full  p-3 bg-white fixed bottom-10 right-10  delay-200 duration-300 ease-in-out opacity-100 cursor-pointer z-90 shadow-lg'
-            }>
+          <Btn.Icon ismode={!scroll ? BUTTON_ACTIVE.ON : ''}>
             <Image src="/icon/w2.svg" width={40} height={40} alt="Attomo" />
-          </div>
+          </Btn.Icon>
         </a>
       </Link>
     </>

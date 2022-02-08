@@ -23,9 +23,7 @@ export default function BodyCases({ data }: Props) {
         </div>
 
         <div className="w-11/12 ">
-          <Container className="font-PrimarySerif leading-relaxed font-light text-sm">
-            {data}
-          </Container>
+          <Container>{data}</Container>
         </div>
       </div>
     </>
