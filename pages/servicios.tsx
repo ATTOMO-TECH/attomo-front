@@ -28,12 +28,12 @@ function Services() {
         <Styles.Center>
           <Styles.ScreenMid>
             <Styles.BlockDiv>
-              <Title size="text-5xl lg:pt-24 lg:pr-10 pb-24 w-full pt-20 ">
+              <Title size="text-5xl lg:pt-24 lg:pr-0 pb-24 w-full pt-20 ">
                 Combinamos ingeniería, diseño, escalabilidad e innovación para
                 transformar industrias, empresas y administraciones
               </Title>
               <Styles.FlexEnd>
-                <Subtext size=" text-lg lg:text-base lg:w-3/6 lg:text-right">
+                <Subtext size=" text-lg lg:text-base lg:w-2/6  lg:text-left">
                   Ofrecemos cualquier servicio relacionado con la digitalización
                   y la transformación digital
                 </Subtext>

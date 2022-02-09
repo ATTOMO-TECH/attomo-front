@@ -48,7 +48,7 @@ export default function ArticlesScroll({ mode, array }: Props) {
         }}
         className="mySwiper ">
         {array.map((values) => (
-          <SwiperSlide key={values.Tag}>
+          <SwiperSlide key={values.Tag} className="swiper">
             <StylesArticle.BlockImg>
               {values.Pic ? (
                 <Image

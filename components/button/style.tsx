@@ -17,6 +17,14 @@ export const IconMove = styled.div`
   width: 100%;
   height: 1px;
 `;
+export const Image = styled.div`
+  filter: drop-shadow(0rem 0rem 0.1rem rgba(45, 140, 217, 1));
+  &:hover {
+    filter: grayscale(100%) brightness(200%);
+    -webkit-filter: grayscale(100%) brightness(200%);
+    -moz-filter: grayscale(100%) brightness(200%);
+  }
+`;
 
 export const Button = {
   ButtonRegular: tw.h5<Props>`
@@ -36,11 +44,11 @@ export const Icon = {
 };
 
 export const Btn = {
-  Icon: tw.div<Props>`
-w-16 h-16 rounded-full p-2 bg-white fixed  cursor-pointer z-100 shadow-lg flex justify-center
+  Icon: tw(Image)<Props>`
+w-16 h-16 rounded-full p-2 border fixed border-logos cursor-pointer z-100 shadow-lg flex justify-center   delay-300 duration-300 ease-in-out
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
-      ? 'bottom-10 right-10  delay-200 duration-300 ease-in-out opacity-100'
-      : '-bottom-10 right-10  delay-200 duration-300 ease-in-out opacity-0'}
+      ? 'bottom-10 right-10  delay-300 duration-300 ease-in-out opacity-100'
+      : '-bottom-20 right-10  delay-300 duration-300 ease-in-outopacity-0 overflow-hidden h-0'}
 `,
 };

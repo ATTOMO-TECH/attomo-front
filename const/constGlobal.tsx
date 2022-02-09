@@ -64,25 +64,25 @@ export const ICONNAV: {
   {
     Name: 'Whatsapp',
     UrlShare: 'https://api.whatsapp.com/send?text',
-    Pic2: '/icon/w2.svg',
+    Pic2: '/icon/whatsapp.svg',
     Url: 'tel:+34610516285',
   },
   {
     Name: 'Mail',
     UrlShare: 'mailto:equipo@attomo.digital?subject=',
-    Pic2: '/icon/m2.svg',
+    Pic2: '/icon/mail.svg',
     Url: 'mailto:equipo@attomo.digital',
   },
   {
     Name: 'Instagram',
     UrlShare: '/icon/instagram.svg',
-    Pic2: '/icon/i2.svg',
+    Pic2: '/icon/instagram.svg',
     Url: 'https://www.instagram.com/attomo.digital/',
   },
   {
     Name: 'Linkedin',
-    UrlShare: '/icon/vector.svg',
-    Pic2: '/icon/l2.svg',
+    UrlShare: '/icon/linkedin.svg',
+    Pic2: '/icon/linkedin.svg',
     Url: 'https://www.linkedin.com/company/attomo-digital/',
   },
 ];
