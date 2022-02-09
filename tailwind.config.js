@@ -23,6 +23,7 @@ module.exports = {
         'secundary': '#0F0C11',
         'error': '#D60000',
         'addictional': '#4B494D',
+        'logos': '#7CBBB7',
    
       },   
       zIndex: {

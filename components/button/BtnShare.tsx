@@ -24,7 +24,12 @@ export default function ButtonShare() {
           href="https://api.whatsapp.com/send?text"
           rel="noreferrer">
           <Btn.Icon ismode={!scroll ? BUTTON_ACTIVE.ON : ''}>
-            <Image src="/icon/w2.svg" width={40} height={40} alt="Attomo" />
+            <Image
+              src="/icon/whatsapp.svg"
+              width={40}
+              height={40}
+              alt="Attomo"
+            />
           </Btn.Icon>
         </a>
       </Link>
