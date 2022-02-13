@@ -5,13 +5,15 @@ import { Button, Icon } from './style';
 interface Props {
   text: string;
   mode: boolean;
+  styleText?: string;
 }
 
-export default function IconAnimate({ text, mode }: Props) {
+export default function IconAnimate({ text, mode, styleText }: Props) {
   return (
     <>
       <Icon.BlockHidden>
         <Button.ButtonRegular
+          className={`${styleText}`}
           ismode={mode ? BUTTON_MODE.LIGHT : BUTTON_MODE.DARK}>
           {text}
         </Button.ButtonRegular>

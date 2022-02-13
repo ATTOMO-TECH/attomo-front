@@ -72,7 +72,7 @@ bg-secundary scroll-smooth m-auto
   AlingButton: tw.div`w-full lg:pl-24 text-primary pt-10`,
   BlockFullInput: tw.div`lg:w-5/12 w-full `,
   BlockContact: tw.div`pt-48`,
-  BlockAddresMap: tw.div`lg:my-12 my-12  lg:w-4/6  m-auto`,
+  BlockAddresMap: tw.div`lg:my-12 my-12  lg:w-4/6  m-auto overflow-hidden`,
   Select: tw(
     Select,
   )`bg-black text-primary outline-none text-sm lg:py-4 font-PrimarySerif font-light ml-5`,

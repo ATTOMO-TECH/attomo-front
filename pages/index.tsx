@@ -13,6 +13,7 @@ import { Styles } from '../styles/styles';
 import SelectedClients from '../components/section/selectedclientes';
 import { useUseAllCases } from '../domain/useCasesDetails';
 import ButtonShare from '../components/button/BtnShare';
+import RenderLoading from '../components/loading/loading';
 
 function Home() {
   const [isOpen, SetIsOpen] = useState<boolean>(false);
@@ -21,7 +22,11 @@ function Home() {
   };
   const { data, isLoading } = useUseAllCases();
   if (isLoading) {
-    return <>...Cargando</>;
+    return (
+      <>
+        <RenderLoading mode={false} />
+      </>
+    );
   }
 
   return (
@@ -71,7 +76,7 @@ function Home() {
           />
         </Styles.CenterFlex>
         <Styles.CenterFull>
-          <HeroFooter />
+          <HeroFooter text="Diseñamos, desarrollamos e implantamos proyectos a medida para nuestros socios y clientes" />
         </Styles.CenterFull>
         <Styles.CenterFlex>
           <BlockSection

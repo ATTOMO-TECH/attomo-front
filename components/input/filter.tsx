@@ -13,11 +13,13 @@ const OptionsSelect: {
     Option: 'Estrategia3',
   },
 ];
-
-export default function Filter() {
+interface Props {
+  toggle: () => void;
+}
+export default function Filter({ toggle }: Props) {
   return (
     <>
-      <Styles.BlockFilter>
+      <Styles.BlockFilter onClick={toggle}>
         <Styles.TextFilter>Filtrar por</Styles.TextFilter>
         <Styles.Select name="select">
           {OptionsSelect.map((options) => (

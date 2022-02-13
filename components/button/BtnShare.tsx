@@ -18,16 +18,16 @@ export default function ButtonShare() {
   }, []);
   return (
     <>
-      <Link href="https://api.whatsapp.com/send?text">
+      <Link href="https://api.whatsapp.com/send/?phone=34610516285">
         <a
           target="_blank"
-          href="https://api.whatsapp.com/send?text"
+          href="https://api.whatsapp.com/send/?phone=34610516285"
           rel="noreferrer">
           <Btn.Icon ismode={!scroll ? BUTTON_ACTIVE.ON : ''}>
             <Image
               src="/icon/whatsapp.svg"
-              width={40}
-              height={40}
+              width={60}
+              height={60}
               alt="Attomo"
             />
           </Btn.Icon>

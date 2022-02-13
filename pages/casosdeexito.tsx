@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import BlockSection from '../components/block/block';
 import ButtonShare from '../components/button/BtnShare';
+import FilterMenu from '../components/filter/filter';
 import Footer from '../components/footer/footer';
 import HeroCase from '../components/hero/heroCase';
 import Menu from '../components/nav/menu';
@@ -15,6 +16,10 @@ function Cases() {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
+  const [isOpenFilter, SetIsOpenFilter] = useState<boolean>(false);
+  const toggleFilter = () => {
+    SetIsOpenFilter(!isOpenFilter);
+  };
   const { data, isLoading } = useUseAllCases();
   if (isLoading) {
     return <>...Cargando</>;
@@ -22,13 +27,14 @@ function Cases() {
 
   return (
     <>
+      <FilterMenu isOpen={isOpenFilter} toggle={toggleFilter} />
       <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
           <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
         </Styles.Margin>
         <ButtonShare />
-        <HeroCase />
+        <HeroCase toggle={toggleFilter} />
         <Styles.BlockSections>
           <SectionProjects Array={data.data} />
         </Styles.BlockSections>

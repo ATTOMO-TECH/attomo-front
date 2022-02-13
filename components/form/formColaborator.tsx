@@ -60,7 +60,7 @@ export default function FormColaborator() {
               <div className="w-full flex flex-wrap pt-5 text-white font-PrimarySerif font-thin text-sm pb-10">
                 {DEPARTMENT.map((values) => (
                   <div className="w-2/6" key={`check${values.value}`}>
-                    <InputCheck text={values.text} value={values.value} />
+                    <InputCheck text={values.label} value={values.value} />
                   </div>
                 ))}
               </div>
@@ -125,7 +125,7 @@ export default function FormColaborator() {
                       </p>
                     </Link>
                     y la
-                    <Link href="/terminos">
+                    <Link href="/privacidad">
                       <p className="ml-1 underline cursor-pointer">
                         Política de Privacidad
                       </p>

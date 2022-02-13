@@ -65,7 +65,7 @@ export const ICONNAV: {
     Name: 'Whatsapp',
     UrlShare: 'https://api.whatsapp.com/send?text',
     Pic2: '/icon/whatsapp.svg',
-    Url: 'tel:+34610516285',
+    Url: 'https://api.whatsapp.com/send/?phone=34610516285',
   },
   {
     Name: 'Mail',
@@ -427,55 +427,55 @@ export const FORMPARTOF: {
   },
 ];
 export const DEPARTMENT: {
-  text: string;
+  label: string;
   value: string;
 }[] = [
   {
-    text: 'Product Design',
+    label: 'Product Design',
     value: 'PM',
   },
   {
-    text: 'UX / UI',
+    label: 'UX / UI',
     value: 'UXUI',
   },
   {
-    text: 'Diseño gráfico',
+    label: 'Diseño gráfico',
     value: 'GraphicDesing',
   },
   {
-    text: 'Ilustración',
+    label: 'Ilustración',
     value: 'Illustration',
   },
   {
-    text: 'Marketing digital',
+    label: 'Marketing digital',
     value: 'MK',
   },
   {
-    text: 'Estrategia',
+    label: 'Estrategia',
     value: 'Strategy',
   },
   {
-    text: 'Fotografía',
+    label: 'Fotografía',
     value: 'Photo',
   },
   {
-    text: 'CRM',
+    label: 'CRM',
     value: 'CRM',
   },
   {
-    text: 'ERP',
+    label: 'ERP',
     value: 'ERP',
   },
   {
-    text: 'Front-end',
+    label: 'Front-end',
     value: 'Front-end',
   },
   {
-    text: 'Back-end',
+    label: 'Back-end',
     value: 'Back-end',
   },
   {
-    text: 'Cloud Ops',
+    label: 'Cloud Ops',
     value: 'Cloud',
   },
 ];
@@ -490,23 +490,41 @@ export const PRICES: {
     Name: 'Sesión',
     Time: '(2 horas)',
     Price: 60,
-    Url: '/',
+    Url: '/espacio#reserva',
   },
   {
     Name: 'Media jornada',
     Time: '(4 horas)',
     Price: 100,
-    Url: '/',
+    Url: '/espacio#reserva',
   },
   {
     Name: 'Jornada completa',
     Time: '(8 horas)',
     Price: 180,
-    Url: '/',
+    Url: '/espacio#reserva',
   },
 ];
 
 export const OPTIONSTIME = [
+  { value: '0:00', label: '0:00' },
+  { value: '0:30', label: '0:30' },
+  { value: '1:00', label: '1:00' },
+  { value: '1:30', label: '1:30' },
+  { value: '2:00', label: '2:00' },
+  { value: '2:30', label: '2:30' },
+  { value: '3:00', label: '3:00' },
+  { value: '3:30', label: '3:30' },
+  { value: '4:00', label: '4:00' },
+  { value: '4:30', label: '4:30' },
+  { value: '5:00', label: '5:00' },
+  { value: '5:30', label: '5:30' },
+  { value: '6:00', label: '6:00' },
+  { value: '6:30', label: '6:30' },
+  { value: '7:00', label: '7:00' },
+  { value: '7:30', label: '7:30' },
+  { value: '8:00', label: '8:00' },
+  { value: '8:30', label: '8:30' },
   { value: '9:00', label: '9:00' },
   { value: '9:30', label: '9:30' },
   { value: '10:00', label: '10:00' },
@@ -527,11 +545,25 @@ export const OPTIONSTIME = [
   { value: '17:30', label: '17:30' },
   { value: '18:00', label: '18:00' },
   { value: '18:30', label: '18:30' },
+  { value: '19:00', label: '19:00' },
+  { value: '19:30', label: '19:30' },
+  { value: '20:00', label: '20:00' },
+  { value: '20:30', label: '20:30' },
+  { value: '21:00', label: '21:00' },
+  { value: '21:30', label: '21:30' },
+  { value: '22:00', label: '22:00' },
+  { value: '22:30', label: '22:30' },
+  { value: '23:00', label: '23:00' },
+  { value: '23:30', label: '23:30' },
 ];
 export const OPTIONDISPONIBILITY = [
   { value: '30M', label: '30 min' },
   { value: '1', label: '1 Hora' },
   { value: '2', label: '2 Horas' },
-  { value: '4', label: '4 Hora' },
+  { value: '3', label: '3 Horas' },
+  { value: '4', label: '4 Horas' },
+  { value: '5', label: '5 Horas' },
+  { value: '6', label: '6 Horas' },
+  { value: '7', label: '7 Horas' },
   { value: '8', label: '8 Horas' },
 ];

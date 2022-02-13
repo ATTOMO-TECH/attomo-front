@@ -3,8 +3,10 @@ import { useState } from 'react';
 import ButtonShare from '../components/button/BtnShare';
 import IconAnimate from '../components/button/icon';
 import Footer from '../components/footer/footer';
+import HeroFooter from '../components/hero/heroFooter';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
+import Work from '../components/section/work';
 import Subtext from '../components/Text/subText';
 import Title from '../components/Text/title';
 import { BUTTON_ACTIVE } from '../const/const';
@@ -25,29 +27,32 @@ function Carrers() {
         <ButtonShare />
         <Styles.Center>
           <Styles.Center>
-            <Styles.Center>
-              <Styles.ScreenMid>
-                <div className="w-full">
-                  <Title size="text-5xl lg:pt-8 lg:pr-10  w-full lg:w-3/6 pt-20 leading-relaxed ">
-                    Trabaja con nosotros
-                  </Title>
-                  <Styles.FlexEnd>
-                    <Subtext size="text-lg lg:w-3/6 lg:text-left font-PrimarySerif">
-                      Siempre estamos buscando perfiles digitales, tecnológicos
-                      y creativos para incorporar a nuestro equipo
-                    </Subtext>
-                  </Styles.FlexEnd>
-                </div>
-              </Styles.ScreenMid>
-            </Styles.Center>
+            <Styles.ScreenMid>
+              <Styles.BlockDiv>
+                <Title size="text-5xl lg:pt-24 lg:pr-0 pb-12 lg:w-3/6 pt-20 ">
+                  Trabaja con nosotros
+                </Title>
+                <Styles.FlexEnd>
+                  <Subtext size=" text-lg lg:text-base lg:w-3/6  lg:text-left">
+                    Siempre estamos buscando perfiles digitales, tecnológicos y
+                    creativos para incorporar a nuestro equipo
+                  </Subtext>
+                </Styles.FlexEnd>
+              </Styles.BlockDiv>
+            </Styles.ScreenMid>
           </Styles.Center>
+        </Styles.Center>
+        <Styles.Center>
+          <Subtext size=" text-2xl pb-8">Ofertas de trabajo </Subtext>
+
+          <Work works={[]} />
         </Styles.Center>
         <Styles.Center>
           <Subtext size=" text-2xl">Queremos conocerte </Subtext>
           <Subtext size=" text-sm w-3/6 font-PrimarySerif py-5">
             Si no hay ninguna oferta que se ajuste a tu perfil, súmate a nuestra
             base de datos. Nos pondremos en contacto contigo cuando necesitemos
-            a alguien como tú.{' '}
+            a alguien como tú.
           </Subtext>
           <Link href="/">
             <div className="lg:w-2/6">
@@ -55,13 +60,10 @@ function Carrers() {
             </div>
           </Link>
         </Styles.Center>
-        <section className="mt-24 bg-blue-700 h-auto flex w-full flex-wrap justify-center items-center lg:p-48 py-24 ">
-          <Styles.Center>
-            <h6 className="font-Primary text-primary text-5xl leading-relaxed lg:m-auto font-thin">
-              Construyamos juntos el futuro digital de las organizaciones
-            </h6>
-          </Styles.Center>
-        </section>
+
+        <Styles.CenterFull>
+          <HeroFooter text="Construyamos juntos el futuro digital de las organizaciones" />
+        </Styles.CenterFull>
         <Footer subFooter={false} />
       </Styles.Body>
     </>
