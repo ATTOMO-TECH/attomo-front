@@ -1,4 +1,3 @@
-import * as Yup from 'yup';
 import { Formik } from 'formik';
 import Link from 'next/link';
 import { Styles } from './style';
@@ -6,12 +5,8 @@ import IconAnimate from '../button/icon';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { FORMVALUES } from '../../hook/types';
 import InputCheckcondition from './inputCheckcondition';
+import { validationSchema } from './validations';
 
-const registerSchema = Yup.object().shape({
-  newsletter: Yup.string()
-    .email('Email no valido')
-    .required('Email es requerido'),
-});
 export default function FormCustomer() {
   const valueName = FORMVALUES.FIRSTNAME;
   const valueLastName = FORMVALUES.LASTNAME;
@@ -21,12 +16,12 @@ export default function FormCustomer() {
   const valueMessage = FORMVALUES.MESSAGE;
 
   const initialValues = {
-    [valueName]: '',
-    [valueLastName]: '',
-    [valueCompany]: '',
-    [valuePhone]: '',
-    [valueEmail]: '',
-    [valueMessage]: '',
+    [FORMVALUES.FIRSTNAME]: '',
+    [FORMVALUES.LASTNAME]: '',
+    [FORMVALUES.PHONE]: '',
+    [FORMVALUES.EMAIL]: '',
+    [FORMVALUES.COMPANY]: '',
+    [FORMVALUES.MESSAGE]: '',
   };
 
   return (
@@ -34,21 +29,27 @@ export default function FormCustomer() {
       <Formik
         onSubmit={(values: any) => values}
         initialValues={initialValues}
-        validationSchema={registerSchema}
+        validationSchema={validationSchema}
         validateOnMount>
         {({ touched, errors }) => (
           <>
             <Styles.Form>
               <Styles.SectionInput>
-                <Styles.Input
-                  ismode={BUTTON_ACTIVE.ON}
-                  placeholder="Nombre *"
-                  type="text"
-                  name={valueName}
-                />
-                {touched.valueName && errors.valueName && (
-                  <div>{errors.valueName}</div>
-                )}
+                <div className="w-full relative">
+                  <Styles.BlockInput active={errors.valueName !== ''}>
+                    <Styles.Input
+                      ismode={BUTTON_ACTIVE.ON}
+                      placeholder="Nombre *"
+                      type="text"
+                      name={valueName}
+                    />
+                  </Styles.BlockInput>
+                  {touched.valueName && errors.valueName && (
+                    <div className="text-red-500 absolute text-PrimarySerif text-sm">
+                      {errors.valueName}
+                    </div>
+                  )}
+                </div>
                 <Styles.Input
                   ismode={BUTTON_ACTIVE.ON}
                   placeholder="Apellidos *"
@@ -88,6 +89,7 @@ export default function FormCustomer() {
                   name={valueMessage}
                 />
               </Styles.SingleInput>
+
               <InputCheckcondition
                 color="text-primary text-xs"
                 text={

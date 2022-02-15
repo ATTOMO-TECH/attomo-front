@@ -1,4 +1,4 @@
-import { Field } from 'formik';
+import { Field, Form } from 'formik';
 import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -10,6 +10,15 @@ type Props = {
 export const Select = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
+`;
+export const Input = styled.div<Props>`
+  position: relative;
+  &:after {
+    ${({ active }) =>
+      active
+        ? 'content: url(/icon/x.svg);width: 1em; height: 1em; position: absolute; right: 2%; bottom: 40%;'
+        : ''}
+  }
 `;
 
 export const CheckRadio = styled.input`
@@ -88,7 +97,7 @@ export const Styles = {
     BtnSelect,
   )`block ease-out duration-200 text-primary border-2 border-primary px-16 lg:text-sm py-4 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none mr-5 `,
 
-  Form: tw.form`lg:w-4/6 m-auto`,
+  Form: tw(Form)`lg:w-4/6 m-auto`,
   SectionInput: tw.div`flex flex-col lg:flex-row `,
   SingleInput: tw.div`py-5`,
   BlockBtn: tw.button`text-primary font-thin w-7/12 flex ml-auto z-0`,
@@ -96,7 +105,7 @@ export const Styles = {
   LineBlock: tw.div`flex flex-wrap justify-between pt-5`,
   TextCount: tw.h6`font-Primary text-xl text-primary`,
   SubText: tw.h6`font-Secundary text-sm opacity-50 text-primary font-thin`,
-
+  BlockInput: tw(Input)`w-11/12 delay-150 duration-300 ease-in-out`,
   Input: tw(
     Field,
   )<Props>`pl-2 lg:pl-0 outline-none w-full bg-transparent pr-5 border-b border-primary py-2 mr-5 text-primary opacity-40 focus:opacity-100 ease-out duration-200

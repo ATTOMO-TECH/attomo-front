@@ -36,7 +36,11 @@ function Cases() {
         <ButtonShare />
         <HeroCase toggle={toggleFilter} />
         <Styles.BlockSections>
-          <SectionProjects Array={data.data} />
+          <SectionProjects
+            Array={data.data}
+            shouldShowActions={undefined}
+            servicesAnimations={undefined}
+          />
         </Styles.BlockSections>
         <Styles.CenterFlex>
           <BlockSection

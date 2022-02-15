@@ -35,8 +35,9 @@ function Contact() {
         <Styles.Center>
           <Title size="text-2xl  lg:pr-10 ">Dónde encontrarnos</Title>
           <Styles.BlockAddresMap>
-            <Subtext size="lg:text-xl text-sm w-full pb-10 font-PrimarySerif">
-              Calle del Monte Esquinza, 8, 28010 Madrid
+            <Subtext size="lg:text-sm text-sm w-full pb-10 font-PrimarySerif">
+              Calle del Monte Esquinza, 8-Bajo Izquierda <br />
+              28010 Madrid
             </Subtext>
 
             <MapsBlock />
