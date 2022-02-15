@@ -2,14 +2,34 @@ import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 
 export const TextHero = styled.h2`
-  background: linear-gradient(
-    to right,
-    #cccfe8 26.04%,
-    #ffffff 69.27%,
-    #cccfe8 100%
-  );
-  -webkit-background-clip: text;
+  will-change: transform;
+  background-color: #fff;
+  background-image: url(/bg.png);
+  background-repeat: no-repeat;
   -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation-name: movingBox;
+  animation-duration: 1300ms;
+  animation-iteration-count: infinite;
+
+  @keyframes movingBox {
+    0% {
+      opacity: 0.8;
+    }
+
+    25% {
+      opacity: 0.9;
+    }
+
+    50% {
+      opacity: 0.8;
+    }
+
+    100% {
+      opacity: 0.9;
+    }
+  }
 `;
 
 export const Select = styled.select`
@@ -24,7 +44,7 @@ export const HeadSection = {
   SectionHero: tw.section`font-Primary`,
   Blockbutton: tw.div`relative cursor-pointer`,
   TextButton: tw.h6`text-primary`,
-  BlockArrow: tw.span`absolute -left-12`,
+  BlockArrow: tw.span`absolute `,
 
   // HeroFooter
 

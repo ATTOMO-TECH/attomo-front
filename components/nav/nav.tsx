@@ -66,14 +66,16 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
               </>
             )}
           </Navegation.ItemsMenu>
-          <Navegation.ItemsMenu onClick={toggle}>
+          <Navegation.ItemsMenu onClick={toggle} className="colorMenu">
             <Navegation.TextMenu
               theme={mode === true ? lightTheme : darkTheme}
               ismode={!scroll ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
               Menú
             </Navegation.TextMenu>
             {mode ? (
-              <Image src="/icon/menu.svg" width={30} height={30} alt="Menu" />
+              <>
+                <Navegation.ButtonLogo />
+              </>
             ) : (
               <Image
                 src="/icon/darkMenu.svg"

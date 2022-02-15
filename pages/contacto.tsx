@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
 import Footer from '../components/footer/footer';
 import RenderForm from '../components/form/renderForm';
 import Menu from '../components/nav/menu';
@@ -10,6 +8,7 @@ import Title from '../components/Text/title';
 import { BUTTON_ACTIVE } from '../const/const';
 import { Styles } from '../styles/styles';
 import ButtonShare from '../components/button/BtnShare';
+import MapsBlock from '../components/maps/maps';
 
 function Contact() {
   const [isOpen, SetIsOpen] = useState<boolean>(false);
@@ -36,23 +35,12 @@ function Contact() {
         <Styles.Center>
           <Title size="text-2xl  lg:pr-10 ">Dónde encontrarnos</Title>
           <Styles.BlockAddresMap>
-            <Subtext size="lg:text-xl text-sm w-full pb-10 font-PrimarySerif">
-              Calle del Monte Esquinza, 8, 28010 Madrid
+            <Subtext size="lg:text-sm text-sm w-full pb-10 font-PrimarySerif">
+              Calle del Monte Esquinza, 8-Bajo Izquierda <br />
+              28010 Madrid
             </Subtext>
-            <Link href="https://www.google.es/maps/?hl=es">
-              <a
-                target="_blank"
-                href="https://www.google.es/maps/?hl=es"
-                rel="noreferrer">
-                <Image
-                  src="/Map_.jpg"
-                  width={700}
-                  height={400}
-                  alt="Maps"
-                  objectFit="cover"
-                />
-              </a>
-            </Link>
+
+            <MapsBlock />
           </Styles.BlockAddresMap>
         </Styles.Center>
 

@@ -20,6 +20,24 @@ export const SectionColor = styled.div`
   z-index: 100 !important;
 `;
 
+export const Logo = styled.div`
+  &:after {
+    content: url('/icon/after.svg');
+    position: absolute;
+    margin: auto;
+    right: 1em;
+    top: 0.4em;
+    transition: all 1s ease-in-out;
+  }
+  &:before {
+    content: url('/icon/before.svg');
+    position: absolute;
+    margin: auto;
+    transition: all 1s ease-in;
+    background-color: black;
+    border-radius: 100%;
+  }
+`;
 export const Navegation = {
   SectionMenu: tw(SectionColor)<Props>`
   lg:transition ease-in-out delay-150 z-100 transition ease-in-out delay-150  overflow-y-scroll 
@@ -34,11 +52,13 @@ export const Navegation = {
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'pt-10' : '')}
   `,
   ItemsMenu: tw.li`flex items-center list-none`,
+  BlockMenu: tw.div``,
   TextMenu: tw(SectionColor)<Props>`
-  mr-5 font-Primary 
+  mr-5 font-Primary colorMenu
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-0' : '')}
   `,
-  ItemList: tw.li`list-none m-10 absu`,
+  ButtonLogo: tw(Logo)`relative w-10 h-10 menu`,
+  ItemList: tw.li`list-none m-10 `,
   SelectMenu: tw.p`text-primary font-Primary text-center text-4xl opacity-60 hover:opacity-100 cursor-pointer lg:transition ease-in-out delay-50 `,
 
   // NAV

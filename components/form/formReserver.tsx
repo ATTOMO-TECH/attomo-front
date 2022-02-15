@@ -126,7 +126,7 @@ export default function FormReserver() {
                       </p>
                     </Link>
                     y la
-                    <Link href="/terminos">
+                    <Link href="/privacidad">
                       <p className="ml-1 underline cursor-pointer">
                         Política de Privacidad
                       </p>

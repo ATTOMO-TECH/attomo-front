@@ -27,21 +27,23 @@ function Us() {
         </Styles.Margin>
         <ButtonShare />
         <Styles.Center>
-          <Styles.ScreenMid>
-            <Styles.ContainerFull>
-              <Title size="text-5xl lg:pt-48 lg:pr-10 pb-24 w-full pt-20">
-                El átomo es el principio de todo, alrededor del cual se
-                construye y fluye todo
-              </Title>
-              <Styles.FlexEnd>
-                <Subtext size=" text-lg lg:text-base lg:w-3/6 lg:text-right">
-                  La digitalización también es el principio de todo para
-                  cualquier empresa que quiera sobrevivir en el mundo actual y
-                  proyectar a futuro
-                </Subtext>
-              </Styles.FlexEnd>
-            </Styles.ContainerFull>
-          </Styles.ScreenMid>
+          <Styles.Center>
+            <Styles.ScreenMid>
+              <Styles.BlockDiv>
+                <Title size="text-5xl lg:pt-24 lg:pr-0 pb-12 lg:w-5/6 pt-20 ">
+                  El átomo es el principio de todo, alrededor del cual se
+                  construye y fluye todo
+                </Title>
+                <Styles.FlexEnd>
+                  <Subtext size=" text-lg lg:text-base lg:w-3/6  lg:text-left">
+                    La digitalización también es el principio de todo para
+                    cualquier empresa que quiera sobrevivir en el mundo actual y
+                    proyectar a futuro
+                  </Subtext>
+                </Styles.FlexEnd>
+              </Styles.BlockDiv>
+            </Styles.ScreenMid>
+          </Styles.Center>
         </Styles.Center>
         <OneProject />
         <Styles.Center>

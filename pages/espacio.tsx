@@ -1,6 +1,4 @@
-import Link from 'next/link';
 import { useState } from 'react';
-import Image from 'next/image';
 import Footer from '../components/footer/footer';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
@@ -13,6 +11,7 @@ import SelectedClients from '../components/section/selectedclientes';
 import Prices from '../components/section/price';
 import FormReserver from '../components/form/formReserver';
 import ButtonShare from '../components/button/BtnShare';
+import MapsBlock from '../components/maps/maps';
 
 function Space() {
   const [isOpen, SetIsOpen] = useState<boolean>(false);
@@ -27,29 +26,33 @@ function Space() {
           <Nav toggle={toggle} logo mode isOpen={isOpen} />
         </Styles.Margin>
         <ButtonShare />
+
         <Styles.Center>
-          <Styles.ScreenMid>
-            <Styles.ContainerFull>
-              <Title size="text-5xl lg:pt-36 pb-24 w-full lg:w-4/6 pt-20 leading-relaxed ">
-                Espacio Attomo Digital
-              </Title>
-              <Styles.FlexEnd>
-                <Subtext size="text-regular lg:w-2/6 lg:text-left font-PrimarySerif">
-                  Ofrecemos a otros profesionales la oportunidad de utilizar
-                  nuestras instalaciones para desarrollar sus proyectos o
-                  realizar sesiones fotográficas.
-                </Subtext>
-              </Styles.FlexEnd>
-            </Styles.ContainerFull>
-          </Styles.ScreenMid>
+          <Styles.Center>
+            <Styles.ScreenMid>
+              <Styles.BlockDiv>
+                <Title size="text-5xl lg:pt-24 lg:pr-0 pb-12 lg:w-3/6 pt-20 ">
+                  Espacio Attomo
+                </Title>
+                <Styles.FlexEnd>
+                  <Subtext size=" text-lg lg:text-base lg:w-3/6  lg:text-left">
+                    Ofrecemos a otros profesionales la oportunidad de utilizar
+                    nuestras instalaciones para desarrollar sus proyectos o
+                    realizar sesiones fotográficas.
+                  </Subtext>
+                </Styles.FlexEnd>
+              </Styles.BlockDiv>
+            </Styles.ScreenMid>
+          </Styles.Center>
         </Styles.Center>
+
         <Styles.HeroEspace />
         <Styles.Center>
           <Styles.BlockSelected>
             <SelectedClients
               text="Contamos con ambientes amplios y polivalentes, que alquilamos por hora o por jornada a emprendedores, fotógrafos, agencias y productoras."
               btn="Reservar"
-              link="/Reservar"
+              link="/espacio#reserva"
               textPrimary="Reserva el espacio"
             />
           </Styles.BlockSelected>
@@ -68,10 +71,10 @@ function Space() {
             <Prices />
           </Styles.ContainerFull>
         </Styles.Center>
-        <Styles.Center>
+        <Styles.Center id="reserva">
           <Styles.ContainerFull>
             <Title size="text-5xl lg:pt-36 w-full text-center pt-20 leading-relaxed ">
-              Reserva el Espacio Attomo Digital
+              Reserva el Espacio Attomo
             </Title>
             <Title size="text-regular lg:pt-3 w-full text-center leading-relaxed pb-8">
               Selecciona la fecha y consulta su disponibilidad
@@ -82,24 +85,12 @@ function Space() {
         <Styles.Center>
           <Styles.BlockAddres>
             <Styles.BreakLine />
-            <Title size="text-2xl  lg:pr-10 ">Espacio Attomo Digital</Title>
-            <Subtext size="lg:text-sm text-sm w-full py-5 font-PrimarySerif ">
-              Calle del Monte Esquinza, 8, 28010 Madrid
+            <Title size="text-2xl  lg:pr-10 ">Espacio Attomo</Title>
+            <Subtext size="lg:text-sm text-sm w-full pb-10 font-PrimarySerif">
+              Calle del Monte Esquinza, 8-Bajo Izquierda <br />
+              28010 Madrid
             </Subtext>
-            <Link href="https://www.google.es/maps/?hl=es">
-              <a
-                target="_blank"
-                href="https://www.google.es/maps/?hl=es"
-                rel="noreferrer">
-                <Image
-                  src="/Map_.jpg"
-                  width={1200}
-                  height={600}
-                  alt="Maps"
-                  objectFit="cover"
-                />
-              </a>
-            </Link>
+            <MapsBlock />
           </Styles.BlockAddres>
         </Styles.Center>
         <Styles.CenterFlex>

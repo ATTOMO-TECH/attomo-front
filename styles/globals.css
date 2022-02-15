@@ -19,6 +19,9 @@
   filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.24));
 }
 
+.swiper-container-free-mode > .swiper-wrapper {
+  transition-timing-function: linear;
+}
 @media (max-width: 640px) {
   .swiper-slide-active {
     display: none !important;
@@ -38,5 +41,22 @@
 }
 
 .btn:hover span {
-  width: 4%;
+  width: 6%;
+}
+.colorMenu:hover .menu::after {
+  top: 0em;
+  transform: scale(8);
+  transition: all 1s ease-in-out;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+.colorMenu:hover .menu::before {
+  transform: scale(0.2);
+  background-color: white;
+  border-radius: 100%;
+  transition: all 0.5s ease-in;
+}
+.colorMenu:hover {
+  transition: all 1s ease-in-out;
+  opacity: 0.6;
 }

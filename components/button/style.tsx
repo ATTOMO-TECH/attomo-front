@@ -15,7 +15,7 @@ export const IconMoveS = styled.span`
 export const IconMove = styled.div`
   bottom: 0px;
   width: 100%;
-  height: 1px;
+  height: 2px;
 `;
 export const Image = styled.div`
   filter: drop-shadow(0rem 0rem 0.1rem rgba(45, 140, 217, 1));
@@ -44,8 +44,8 @@ export const Icon = {
 };
 
 export const Btn = {
-  Icon: tw(Image)<Props>`
-w-16 h-16 rounded-full p-2 border fixed border-logos cursor-pointer z-100 shadow-lg flex justify-center   delay-300 duration-300 ease-in-out
+  Icon: tw.div<Props>`
+w-16 h-16 rounded-full p-2  fixed  cursor-pointer z-90 shadow-lg flex justify-center   delay-300 duration-300 ease-in-out
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
       ? 'bottom-10 right-10  delay-300 duration-300 ease-in-out opacity-100'

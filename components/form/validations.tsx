@@ -2,7 +2,7 @@ import * as Yup from 'yup';
 import { FORMVALUES } from '../../hook/types';
 
 export const validationSchema = Yup.object().shape({
-  [FORMVALUES.FIRSTNAME]: Yup.string()
+  valueName: Yup.string()
     .min(4, 'El nombre requiere de 4 caracteres')
     .max(8, 'El nombre maximo 8 caracteres')
     .required('El campo es requerido'),

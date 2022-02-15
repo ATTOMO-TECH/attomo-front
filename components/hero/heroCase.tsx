@@ -2,11 +2,15 @@ import Image from 'next/image';
 import Filter from '../input/filter';
 import { HeadSection } from './style';
 
-export default function HeroCase() {
+interface Props {
+  toggle: () => void;
+}
+
+export default function HeroCase({ toggle }: Props) {
   return (
     <>
       <HeadSection.SectionCase>
-        <Filter />
+        <Filter toggle={toggle} />
         <Image
           src="/cases/header_case.jpg"
           width={1200}
