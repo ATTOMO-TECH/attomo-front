@@ -5,31 +5,25 @@ export const TextHero = styled.h2`
   will-change: transform;
   background-color: #fff;
   background-image: url(/bg.png);
-  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  background-repeat: repeat-x;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  animation-name: movingBox;
-  animation-duration: 1300ms;
-  animation-iteration-count: infinite;
-
-  @keyframes movingBox {
-    0% {
-      opacity: 0.8;
+  -webkit-animation: backgroundScroll 20s linear infinite;
+  animation: backgroundScroll 20s linear infinite;
+  }
+  
+  @-webkit-keyframes backgroundScroll {
+    from {
+      transform: scale(1) translateX(0);
     }
-
-    25% {
-      opacity: 0.9;
-    }
-
-    50% {
-      opacity: 0.8;
-    }
-
-    100% {
-      opacity: 0.9;
+    to {
+      transform: scale(1.5) translateX(-50%);
     }
   }
+          
+
 `;
 
 export const Select = styled.select`

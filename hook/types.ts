@@ -1,9 +1,9 @@
 export const FORMVALUES = {
-  FIRSTNAME: 'firstName',
-  LASTNAME: 'lastName',
-  PHONE: 'phone',
-  EMAIL: 'email',
-  COMPANY: 'name',
-  MESSAGE: 'message',
+  FIRSTNAME: 'valueName',
+  LASTNAME: 'valueLastName',
+  PHONE: 'valuePhone',
+  EMAIL: 'valueEmail',
+  COMPANY: 'valueCompany',
+  MESSAGE: 'valueMessage',
   CONDITIONS: 'conditions',
 };

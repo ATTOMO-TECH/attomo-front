@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import BlockSection from '../components/block/block';
 import ButtonShare from '../components/button/BtnShare';
@@ -20,7 +21,14 @@ function Cases() {
   const toggleFilter = () => {
     SetIsOpenFilter(!isOpenFilter);
   };
-  const { data, isLoading } = useUseAllCases();
+  const router = useRouter();
+  let { locale } = router;
+  if (locale === '/') {
+    locale = 'es';
+  }
+
+  const { data, isLoading } = useUseAllCases(locale!);
+
   if (isLoading) {
     return <>...Cargando</>;
   }

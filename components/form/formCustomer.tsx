@@ -31,63 +31,134 @@ export default function FormCustomer() {
         initialValues={initialValues}
         validationSchema={validationSchema}
         validateOnMount>
-        {({ touched, errors }) => (
+        {({ touched, errors, setFieldValue }) => (
           <>
             <Styles.Form>
               <Styles.SectionInput>
-                <div className="w-full relative">
-                  <Styles.BlockInput active={errors.valueName !== ''}>
+                <div className="w-full relative pr-5">
+                  <Styles.BlockInput>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
                       placeholder="Nombre *"
                       type="text"
-                      name={valueName}
+                      name={FORMVALUES.FIRSTNAME}
                     />
+                    {touched.valueName && errors.valueName && (
+                      <Styles.BlockClose
+                        onClick={() => setFieldValue(valueName, '')}
+                      />
+                    )}
                   </Styles.BlockInput>
                   {touched.valueName && errors.valueName && (
-                    <div className="text-red-500 absolute text-PrimarySerif text-sm">
+                    <div className="text-red-500 absolute text-PrimarySerif text-sm ">
                       {errors.valueName}
                     </div>
                   )}
                 </div>
-                <Styles.Input
-                  ismode={BUTTON_ACTIVE.ON}
-                  placeholder="Apellidos *"
-                  type="text"
-                  name={valueLastName}
-                />
+
+                <div className="w-full relative">
+                  <Styles.BlockInput>
+                    <Styles.Input
+                      ismode={BUTTON_ACTIVE.ON}
+                      placeholder="Apellidos *"
+                      type="text"
+                      name={FORMVALUES.LASTNAME}
+                    />
+                    {touched.valueLastName && errors.valueLastName && (
+                      <Styles.BlockClose
+                        onClick={() => setFieldValue(valueLastName, '')}
+                      />
+                    )}
+                  </Styles.BlockInput>
+                  {touched.valueName && errors.valueName && (
+                    <div className="text-red-500 absolute text-PrimarySerif text-sm ">
+                      {errors.valueName}
+                    </div>
+                  )}
+                </div>
+              </Styles.SectionInput>
+              <Styles.SectionInput>
+                <div className="w-full relative pt-5 pr-5">
+                  <Styles.BlockInput>
+                    <Styles.Input
+                      ismode={BUTTON_ACTIVE.ON}
+                      placeholder="Email *"
+                      type="email"
+                      name={FORMVALUES.EMAIL}
+                    />
+                    {touched.valueEmail && errors.valueEmail && (
+                      <Styles.BlockClose
+                        onClick={() => setFieldValue(valueEmail, '')}
+                      />
+                    )}
+                  </Styles.BlockInput>
+                  {touched.valueEmail && errors.valueEmail && (
+                    <div className="text-red-500 absolute text-PrimarySerif text-sm ">
+                      {errors.valueEmail}
+                    </div>
+                  )}
+                </div>
+
+                <div className="w-full relative pt-5">
+                  <Styles.BlockInput>
+                    <Styles.Input
+                      ismode={BUTTON_ACTIVE.ON}
+                      placeholder="Móvil *"
+                      type="phone"
+                      name={FORMVALUES.PHONE}
+                    />
+                    {touched.valuePhone && errors.valuePhone && (
+                      <Styles.BlockClose
+                        onClick={() => setFieldValue(valuePhone, '')}
+                      />
+                    )}
+                  </Styles.BlockInput>
+                  {touched.valuePhone && errors.valuePhone && (
+                    <div className="text-red-500 absolute text-PrimarySerif text-sm ">
+                      {errors.valuePhone}
+                    </div>
+                  )}
+                </div>
               </Styles.SectionInput>
               <Styles.SingleInput>
-                <Styles.SectionInput>
+                <div className="w-full relative pt-5">
                   <Styles.Input
-                    ismode={BUTTON_ACTIVE.ON}
-                    placeholder="Email *"
-                    type="email"
-                    name={valueEmail}
+                    ismode={BUTTON_ACTIVE.OFF}
+                    placeholder="Empresa/Organización *"
+                    type="text"
+                    name={FORMVALUES.COMPANY}
                   />
-                  <Styles.Input
-                    ismode={BUTTON_ACTIVE.ON}
-                    placeholder="Móvil *"
-                    type="tel"
-                    name={valuePhone}
-                  />
-                </Styles.SectionInput>
+                  {touched.valueCompany && errors.valueCompany && (
+                    <Styles.BlockClose
+                      onClick={() => setFieldValue(valueCompany, '')}
+                    />
+                  )}
+                  {touched.valueCompany && errors.valueCompany && (
+                    <div className="text-red-500 absolute text-PrimarySerif text-sm ">
+                      {errors.valueCompany}
+                    </div>
+                  )}
+                </div>
               </Styles.SingleInput>
               <Styles.SingleInput>
-                <Styles.Input
-                  ismode={BUTTON_ACTIVE.OFF}
-                  placeholder="Empresa/Organización *"
-                  type="text"
-                  name={valueCompany}
-                />
-              </Styles.SingleInput>
-              <Styles.SingleInput>
-                <Styles.Input
-                  ismode={BUTTON_ACTIVE.OFF}
-                  placeholder="Tu mensaje *"
-                  type="textarea"
-                  name={valueMessage}
-                />
+                <div className="w-full relative pt-5">
+                  <Styles.Input
+                    ismode={BUTTON_ACTIVE.OFF}
+                    placeholder="Tu mensaje *"
+                    type="textarea"
+                    name={FORMVALUES.MESSAGE}
+                  />
+                  {touched.valueMessage && errors.valueMessage && (
+                    <Styles.BlockClose
+                      onClick={() => setFieldValue(valueMessage, '')}
+                    />
+                  )}
+                  {touched.valueMessage && errors.valueMessage && (
+                    <div className="text-red-500 absolute text-PrimarySerif text-sm ">
+                      {errors.valueMessage}
+                    </div>
+                  )}
+                </div>
               </Styles.SingleInput>
 
               <InputCheckcondition

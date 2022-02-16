@@ -2,8 +2,8 @@ import { useQuery } from 'react-query';
 import { CASES } from '../lib/api';
 import { get } from '../lib/restClient';
 
-const getAllCases = async () => {
-  const { data } = await get(CASES.FETCH_ALL());
+const getAllCases = async (lenguage: string) => {
+  const { data } = await get(CASES.FETCH_ALL(lenguage));
   return data;
 };
 
@@ -12,8 +12,8 @@ const getCaseId = async (id: number) => {
   return data;
 };
 
-export function useUseAllCases() {
-  return useQuery(['useAllCases'], () => getAllCases(), {
+export function useUseAllCases(lenguage: string) {
+  return useQuery(['useAllCases'], () => getAllCases(lenguage), {
     staleTime: 2500,
     notifyOnChangePropsExclusions: ['isStale'],
     refetchOnWindowFocus: false,

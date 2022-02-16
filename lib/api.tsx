@@ -8,7 +8,8 @@ const POST = {
     getAbsolutePath(`blog-posts/${id}?populate=coverImage`),
 };
 const CASES = {
-  FETCH_ALL: () => getAbsolutePath('successful-cases?populate=mainPhoto'),
+  FETCH_ALL: (lenguage: string) =>
+    getAbsolutePath(`successful-cases?populate=mainPhoto&locale=${lenguage}`),
   FETCH_ID: (id: number) =>
     getAbsolutePath(`successful-cases/${id}?populate=mainPhoto`),
 };

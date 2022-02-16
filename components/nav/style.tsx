@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
+import { motion } from 'framer-motion';
 import { BUTTON_ACTIVE } from '../../const/const';
 
 type Props = {
@@ -14,7 +15,7 @@ export const darkTheme = {
   headings: '#0F0C11',
 };
 
-export const SectionColor = styled.div`
+export const SectionColor = styled(motion.nav)`
   color: ${(props) => props.theme.headings};
   background-color: ${(props) => props.theme.bodyBg};
   z-index: 100 !important;
@@ -40,11 +41,11 @@ export const Logo = styled.div`
 `;
 export const Navegation = {
   SectionMenu: tw(SectionColor)<Props>`
-  lg:transition ease-in-out delay-150 z-100 transition ease-in-out delay-150  overflow-y-scroll 
+  lg:transition ease-in-out delay-150 z-100 overflow-y-scroll 
     ${(props) =>
       props.ismode === BUTTON_ACTIVE.ON
         ? `cursor-pointer h-screen w-full overflow-hidden z-100 opacity-100 relative `
-        : 'opacity-0 overflow-hidden h-0'}
+        : 'opacity-0 overflow-hidden h-0 '}
   `,
   Menu: tw.nav``,
   AlinItems: tw.ul<Props>`

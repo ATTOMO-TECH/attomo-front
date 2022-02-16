@@ -32,7 +32,7 @@ const getInitializedApi = () => {
 
 export const get = async (url: string, data?: any) => {
   const headers = await getHeaders();
-  return getInitializedApi().get(url, { headers, params: data });
+  return getInitializedApi().get(`${url}`, { headers, params: data });
 };
 
 export const post = async (url: string, data?: any, options?: any) => {
