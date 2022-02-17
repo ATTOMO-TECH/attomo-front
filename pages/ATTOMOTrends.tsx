@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import BgComponent from '../components/animations/bg';
 import BlockSection from '../components/block/block';
 import BlockBlog from '../components/blog/blog';
 import Footer from '../components/footer/footer';
@@ -42,6 +43,7 @@ function News() {
 
   return (
     <>
+      <BgComponent />
       <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
