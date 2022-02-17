@@ -5,7 +5,8 @@ import IconAnimate from '../button/icon';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { FORMVALUES } from '../../hook/types';
 import InputCheckcondition from './inputCheckcondition';
-import { validationSchema } from './validations';
+import { validationSchemaContact } from './validations';
+import { createContact } from '../../domain/useContact';
 
 export default function FormCustomer() {
   const valueName = FORMVALUES.FIRSTNAME;
@@ -14,6 +15,7 @@ export default function FormCustomer() {
   const valueEmail = FORMVALUES.EMAIL;
   const valueCompany = FORMVALUES.COMPANY;
   const valueMessage = FORMVALUES.MESSAGE;
+  const check = false;
 
   const initialValues = {
     [FORMVALUES.FIRSTNAME]: '',
@@ -22,20 +24,42 @@ export default function FormCustomer() {
     [FORMVALUES.EMAIL]: '',
     [FORMVALUES.COMPANY]: '',
     [FORMVALUES.MESSAGE]: '',
+    check: false,
+  };
+  const { mutate } = createContact();
+  const handleSubmit = (action: any) => {
+    const contact = {
+      [FORMVALUES.FIRSTNAME]: valueName,
+      [FORMVALUES.LASTNAME]: valueLastName,
+      [FORMVALUES.PHONE]: valuePhone,
+      [FORMVALUES.EMAIL]: valueEmail,
+      [FORMVALUES.COMPANY]: valueCompany,
+      [FORMVALUES.MESSAGE]: valueMessage,
+      check: !check,
+    };
+
+    mutate(contact, {
+      onSuccess: () => {
+        action.resetForm();
+      },
+      onError: () => {
+        action.resetForm();
+      },
+    });
   };
 
   return (
     <>
       <Formik
-        onSubmit={(values: any) => values}
+        onSubmit={handleSubmit}
         initialValues={initialValues}
-        validationSchema={validationSchema}
+        validationSchema={validationSchemaContact}
         validateOnMount>
         {({ touched, errors, setFieldValue }) => (
           <>
             <Styles.Form>
               <Styles.SectionInput>
-                <div className="w-full relative pr-5">
+                <div className="w-full relative lg:pr-5">
                   <Styles.BlockInput>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
@@ -78,7 +102,7 @@ export default function FormCustomer() {
                 </div>
               </Styles.SectionInput>
               <Styles.SectionInput>
-                <div className="w-full relative pt-5 pr-5">
+                <div className="w-full relative pt-5 lg:pr-5">
                   <Styles.BlockInput>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
@@ -124,20 +148,10 @@ export default function FormCustomer() {
                 <div className="w-full relative pt-5">
                   <Styles.Input
                     ismode={BUTTON_ACTIVE.OFF}
-                    placeholder="Empresa/Organización *"
+                    placeholder="Empresa/Organización"
                     type="text"
                     name={FORMVALUES.COMPANY}
                   />
-                  {touched.valueCompany && errors.valueCompany && (
-                    <Styles.BlockClose
-                      onClick={() => setFieldValue(valueCompany, '')}
-                    />
-                  )}
-                  {touched.valueCompany && errors.valueCompany && (
-                    <div className="text-red-500 absolute text-PrimarySerif text-sm ">
-                      {errors.valueCompany}
-                    </div>
-                  )}
                 </div>
               </Styles.SingleInput>
               <Styles.SingleInput>
@@ -164,7 +178,7 @@ export default function FormCustomer() {
               <InputCheckcondition
                 color="text-primary text-xs"
                 text={
-                  <>
+                  <div className="flex flex-wrap">
                     <p>He leído y acepto los </p>
                     <Link href="/terminos">
                       <p className="mx-1 underline cursor-pointer">
@@ -177,10 +191,15 @@ export default function FormCustomer() {
                         Política de Privacidad
                       </p>
                     </Link>
-                  </>
+                  </div>
                 }
-                value="condiciones"
+                value={check}
               />
+              {touched.check && errors.check && (
+                <div className="text-red-500 absolute text-PrimarySerif text-sm ">
+                  {errors.check}
+                </div>
+              )}
               <Styles.BlockBtn type="submit">
                 <IconAnimate text="Enviar" mode />
               </Styles.BlockBtn>

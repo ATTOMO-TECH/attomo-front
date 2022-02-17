@@ -68,7 +68,7 @@ export const Item = styled.div<Props>`
   @media screen and (min-width: 1024px) 
   {
     {transform: rotate(50deg)}
-  }; transform: rotate(-16deg)`
+  }; transform: rotate(-14deg)`
       : ''}
     ${(props) =>
     props.ismode === 2
@@ -76,7 +76,7 @@ export const Item = styled.div<Props>`
     @media screen and (min-width: 1024px) 
     {
       {transform: rotate(65deg)}
-    }; transform: rotate(15deg)`
+    }; transform: rotate(22deg)`
       : ''}
 `;
 
@@ -85,8 +85,8 @@ export const ItemSection = styled.div`
   height: 8px;
   border-radius: 80% 80% 40% 40%;
   position: absolute;
-  top: -10px;
-  left: 50%;
+  top: -12px;
+  left: 48%;
   transition: all 3s;
 
   &:after {
@@ -94,8 +94,9 @@ export const ItemSection = styled.div`
   }
   @media screen and (min-width: 1024px) {
     transform: rotate(-40deg);
+    left: 50%;
   }
-  transform: rotate(-35deg);
+  transform: rotate(-37deg);
 `;
 
 export const Imgen = styled.img<Props>`
@@ -133,6 +134,11 @@ export const TextTitle = styled.h2`
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  @media screen and (min-width: 1024px) {
+    &:nth-child(2) {
+      margin-bottom: 5%;
+    }
+  } ;
 `;
 export const Styles = {
   SectionCollapse: tw.section`h-screen lg:h-auto font-PrimarySerif overflow-hidden max-w-100 flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative my-24 font-light leading-loose`,
@@ -153,5 +159,5 @@ export const Styles = {
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : '')}`,
   TextCentral: tw(
     TextTitle,
-  )`absolute lg:top-52 top-40 left-16 lg:left-32 w-4/6 lg:w-3/6 text-center text-xl `,
+  )`absolute   lg:top-52 top-40 left-16 lg:left-24 w-4/6 lg:w-4/6 text-center lg:text-2xl text-xl `,
 };

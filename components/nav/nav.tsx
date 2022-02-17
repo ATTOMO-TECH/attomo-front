@@ -99,12 +99,7 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
                   <Navegation.ButtonLogo />
                 </>
               ) : (
-                <Image
-                  src="/icon/darkMenu.svg"
-                  width={30}
-                  height={30}
-                  alt="Menu"
-                />
+                <Navegation.ButtonLogoInvert />
               )}
             </Navegation.ItemsMenu>
           </div>

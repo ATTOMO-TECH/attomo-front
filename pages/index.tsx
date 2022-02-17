@@ -17,6 +17,7 @@ import { useUseAllCases } from '../domain/useCasesDetails';
 import ButtonShare from '../components/button/BtnShare';
 import RenderLoading from '../components/loading/loading';
 import { servicesAnimations } from '../components/animations/animations';
+import BgComponent from '../components/animations/bg';
 
 function Home() {
   const router = useRouter();
@@ -25,7 +26,7 @@ function Home() {
     locale = 'es';
   }
 
-  const { data, isLoading } = useUseAllCases(locale!);
+  const { data, isLoading } = useUseAllCases(locale || 'es');
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const [lastYPos, setLastYPos] = useState(0);
   const [shouldShowActions, setShouldShowActions] = useState(false);
@@ -58,6 +59,7 @@ function Home() {
 
   return (
     <>
+      <BgComponent />
       <AnimateSharedLayout>
         <AnimatePresence>
           <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>

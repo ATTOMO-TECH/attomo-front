@@ -6,4 +6,6 @@ export const FORMVALUES = {
   COMPANY: 'valueCompany',
   MESSAGE: 'valueMessage',
   CONDITIONS: 'conditions',
+  PARTOF: 'partOf',
+  LINK: 'link',
 };

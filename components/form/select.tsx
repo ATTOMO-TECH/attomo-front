@@ -78,7 +78,7 @@ export default function InputSelect({ options, valueLabel }: Props) {
         styles={customStyles(selected)}
         onChange={onChange}
         value={displayItem(selected)}
-        className="w-full  text-gray-300 lg:py-1 py-4 lg:px-3 font-PrimarySerif font-thin"
+        className="w-full  text-gray-300 lg:py-1 py-4  font-PrimarySerif font-thin top-1"
         placeholder="30M"
         defaultValue={{ value: '30M', label: '30 min' }}
       />

@@ -13,6 +13,7 @@ import ArticlesScroll from '../../components/slider/article/slider';
 import BlockSection from '../../components/block/block';
 import { NEWS } from '../../const/constGlobal';
 import { useAPost } from '../../domain/useBlogDetails';
+import RenderLoading from '../../components/loading/loading';
 
 interface Props {
   mode: boolean;
@@ -23,12 +24,16 @@ function New({ mode }: Props) {
   const router = useRouter();
   const { slug } = router.query;
   const { data, isLoading } = useAPost(Number(slug));
-  if (isLoading) {
-    return <>...Cargando</>;
-  }
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
+  if (isLoading) {
+    return (
+      <>
+        <RenderLoading mode={false} />
+      </>
+    );
+  }
 
   return (
     <>

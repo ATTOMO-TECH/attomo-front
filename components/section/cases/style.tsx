@@ -2,13 +2,13 @@ import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 
 export const Container = styled(ReactMarkdown)`
+  * {
+    font-family: [ 'Merriweather Sans', 'sans-serif' ];
+  }
   h1 {
-    color: blue;
   }
   h2 {
-    color: red;
   }
   p {
-    color: green;
   }
 `;

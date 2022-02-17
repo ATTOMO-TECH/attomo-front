@@ -12,6 +12,7 @@ import Prices from '../components/section/price';
 import FormReserver from '../components/form/formReserver';
 import ButtonShare from '../components/button/BtnShare';
 import MapsBlock from '../components/maps/maps';
+import BgComponent from '../components/animations/bg';
 
 function Space() {
   const [isOpen, SetIsOpen] = useState<boolean>(false);
@@ -20,6 +21,7 @@ function Space() {
   };
   return (
     <>
+      <BgComponent />
       <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>

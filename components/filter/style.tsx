@@ -1,3 +1,4 @@
+import { Field } from 'formik';
 import tw from 'tailwind-styled-components';
 import { BUTTON_ACTIVE } from '../../const/const';
 
@@ -19,4 +20,10 @@ export const Filter = {
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'pt-10' : '')}
   `,
   ItemsMenu: tw.li`flex items-center list-none`,
+
+  InputDate: tw(
+    Field,
+  )<Props>`pl-2 lg:pl-0 outline-none w-full bg-transparent opacity-20 border-b border-primary mr-7 text-primary opacity-40 focus:opacity-100 ease-out duration-200
+  ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
+  `,
 };

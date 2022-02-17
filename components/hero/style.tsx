@@ -30,6 +30,10 @@ export const Select = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
 `;
+export const Block = styled.section`
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+`;
 
 export const HeadSection = {
   TextHead: tw(
@@ -42,7 +46,9 @@ export const HeadSection = {
 
   // HeroFooter
 
-  SectionHeroFooter: tw.section`h-auto lg:h-96 text-primary lg:rounded-3xl font-Primary lg:border border-primary my-24 bg-gradient-to-b lg:from-gray-900 from-gray-700 border-opacity-10 flex justify-center items-center`,
+  SectionHeroFooter: tw(
+    Block,
+  )`h-auto lg:h-96 text-primary lg:rounded-3xl font-Primary lg:border border-primary my-24 bg-gradient-to-b lg:from-gray-900 from-gray-700 border-opacity-10 flex justify-center items-center`,
   TextHeroFooter: tw.h5`text-4xl lg:p-44 p-14 font-light leading-relaxed lg:leading-normal`,
   SectionCase: tw.section`flex justify-center items-center pt-12`,
 };

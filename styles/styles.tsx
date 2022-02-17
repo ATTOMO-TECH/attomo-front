@@ -77,7 +77,7 @@ export const BtnSelect = styled.button<Props>`
 
 export const Styles = {
   Body: tw(SectionColor)<Props>`
-bg-secundary scroll-smooth m-auto
+ scroll-smooth m-auto
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
       ? 'overflow-hidden h-screen max-w-full'
@@ -91,7 +91,7 @@ bg-secundary scroll-smooth m-auto
   CenterFull: tw.section`w-full lg:w-10/12 m-auto`,
   CenterFlex: tw.section`w-11/12 m-auto flex py-10 lg:py-0`,
   ContainerFull: tw.div`w-full`,
-  BlockAddres: tw.div`lg:my-12 my-12  lg:w-5/6  m-auto`,
+  BlockAddres: tw.div`lg:my-12 my-12  lg:w-5/6  m-auto overflow-hidden`,
   SectionScreen: tw.section`pt-48 h-auto`,
   BlockSections: tw.div`py-10`,
   DivideSection: tw.div`lg:w-3/6 w-full pb-2`,
@@ -101,7 +101,7 @@ bg-secundary scroll-smooth m-auto
   BlockUs: tw.div`lg:w-8/12 m-auto flex flex-wrap pt-24`,
   Screen: tw.div`h-screen mb-48 justify-between`,
   ScreenResponsive: tw.div`h-screen pt-24`,
-  ScreenMid: tw.div`h-screen flex justify-center items-center justify-between `,
+  ScreenMid: tw.div`h-screen flex justify-center items-center justify-between`,
   FlexEnd: tw.div`flex lg:justify-end`,
   TitleSubSection: tw.h5`text-primary py-20 font-Primary text-lg font-light`,
   AlingBlock: tw.div`w-11/12 lg:w-full overflow-x-hidden`,
@@ -123,7 +123,7 @@ bg-secundary scroll-smooth m-auto
   BtnSelect: tw(
     BtnSelect,
   )`text-primary border-2 border-primary px-14 py-3 rounded-full opacity-80 font-PrimarySerif font-thin shadow-none`,
-  TitularText: tw.h3`font-Primary lg:text-5xl text-3xl font-light py-5 leading-relaxed`,
+  TitularText: tw.h3`font-PrimarySerif  lg:text-4xl text-3xl font-light py-5 leading-relaxed`,
   // SPACE
   HeroEspace: tw.section`h-auto bg-hero-Space bg-cover bg-center py-72 bg-no-repeat`,
   SectionImg: tw.section`grid grid-cols-1 sm:grid-cols-2 gap-6`,

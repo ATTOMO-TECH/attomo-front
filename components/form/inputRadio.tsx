@@ -17,7 +17,7 @@ export default function InputRadio({ text, value }: Props) {
           type="radio"
           name="partner"
           value={value}
-          onChange={(e: any) => setCheck(e.target.checked)}
+          onChange={(e: any) => setCheck(e.target.value)}
         />
         {text}
       </Styles.LabelCheck>

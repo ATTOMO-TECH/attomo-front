@@ -60,3 +60,23 @@
   transition: all 1s ease-in-out;
   opacity: 0.6;
 }
+
+.colorMenu:hover .menuInvert::after {
+  opacity: 0;
+}
+.colorMenu:hover .menuInvert::before {
+  transform: scale(0.2);
+  background-color: white;
+  border-radius: 100%;
+  transition: all 0.5s ease-in;
+}
+.colorMenu:hover {
+  transition: all 1s ease-in-out;
+  opacity: 0.6;
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  margin: 0px;
+  margin-right: 5px !important;
+}

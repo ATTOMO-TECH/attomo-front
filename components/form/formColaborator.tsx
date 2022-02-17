@@ -1,4 +1,3 @@
-import * as Yup from 'yup';
 import { Formik } from 'formik';
 import Link from 'next/link';
 import { Styles } from './style';
@@ -10,39 +9,59 @@ import InputRadio from './inputRadio';
 import { DEPARTMENT, FORMPARTOF } from '../../const/constGlobal';
 import InputCheck from './inputCheck';
 import InputCheckcondition from './inputCheckcondition';
+import { validationSchemaColaborator } from './validations';
+import { createContact } from '../../domain/useContact';
 
-const registerSchema = Yup.object().shape({
-  newsletter: Yup.string()
-    .email('Email no valido')
-    .required('Email es requerido'),
-});
 export default function FormColaborator() {
+  const valuepartOf = FORMVALUES.PARTOF;
   const valueName = FORMVALUES.FIRSTNAME;
   const valueLastName = FORMVALUES.LASTNAME;
   const valuePhone = FORMVALUES.PHONE;
   const valueEmail = FORMVALUES.EMAIL;
-  const valueCompany = FORMVALUES.COMPANY;
+  const valueLink = FORMVALUES.LINK;
   const valueMessage = FORMVALUES.MESSAGE;
+  const check = false;
 
   const initialValues = {
     [valueName]: '',
     [valueLastName]: '',
-    [valueCompany]: '',
+    [valueLink]: '',
     [valuePhone]: '',
     [valueEmail]: '',
     [valueMessage]: '',
+    [valuepartOf]: '',
+  };
+
+  const { mutate } = createContact();
+  const handleSubmitContact = (data: any, action: any) => {
+    const contact = {
+      [FORMVALUES.FIRSTNAME]: valueName,
+      [FORMVALUES.LASTNAME]: valueLastName,
+      [FORMVALUES.PHONE]: valuePhone,
+      [FORMVALUES.EMAIL]: data.size,
+      [FORMVALUES.COMPANY]: data.notes,
+      [FORMVALUES.MESSAGE]: data.stops,
+    };
+    mutate(contact, {
+      onSuccess: () => {
+        action.resetForm();
+      },
+      onError: () => {
+        action.resetForm();
+      },
+    });
   };
 
   return (
     <>
       <Formik
-        onSubmit={(values: any) => values}
+        onSubmit={handleSubmitContact}
         initialValues={initialValues}
-        validationSchema={registerSchema}
+        validationSchema={validationSchemaColaborator}
         validateOnMount>
-        {({ touched, errors }) => (
+        {({ touched, errors, handleSubmit }) => (
           <>
-            <Styles.Form>
+            <Styles.Form onSubmit={handleSubmit}>
               <Subtext size="lg:text-sm w-full pb-10 font-PrimarySerif">
                 ¿Quieres formar parte de nuestro equipo o colaborar como
                 partner? *
@@ -53,6 +72,11 @@ export default function FormColaborator() {
                     <InputRadio text={values.text} value={values.value} />
                   </div>
                 ))}
+                {touched.valueName && errors.valueName && (
+                  <div className="text-red-500 absolute text-PrimarySerif text-sm ">
+                    {errors.valueName}
+                  </div>
+                )}
               </div>
               <Subtext size="lg:text-sm w-full pb-10 font-PrimarySerif pt-10">
                 ¿Cuál es tu especialidad? *
@@ -100,9 +124,9 @@ export default function FormColaborator() {
               <Styles.SingleInput>
                 <Styles.Input
                   ismode={BUTTON_ACTIVE.OFF}
-                  placeholder="Empresa/Organización *"
+                  placeholder="Enlace al portfolio o al perfil de LinkedIn *"
                   type="text"
-                  name={valueCompany}
+                  name={valueLink}
                 />
               </Styles.SingleInput>
               <Styles.SingleInput>
@@ -132,7 +156,7 @@ export default function FormColaborator() {
                     </Link>
                   </>
                 }
-                value="condiciones"
+                value={check}
               />
 
               <Styles.BlockBtn type="submit">
