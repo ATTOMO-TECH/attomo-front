@@ -1,4 +1,5 @@
 import type { AppProps } from 'next/app';
+import { appWithTranslation } from 'next-i18next';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { AuthProvider } from '../context/AuthContext';
 import '../styles/globals.css';
@@ -13,4 +14,4 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
   </AuthProvider>
 );
 
-export default MyApp;
+export default appWithTranslation(MyApp);

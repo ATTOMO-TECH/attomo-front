@@ -12,6 +12,7 @@ import { NEWS } from '../../const/constGlobal';
 import DetailsCases from '../../components/section/cases/details';
 import { useaCase } from '../../domain/useCasesDetails';
 import BreadCrumbs from '../../components/breadcrumbs/breadcrumbs';
+import RenderLoading from '../../components/loading/loading';
 
 interface Props {
   mode: boolean;
@@ -26,7 +27,11 @@ export default function Cases({ mode }: Props) {
   };
   const { data, isLoading } = useaCase(Number(slug));
   if (isLoading) {
-    return <>...Cargando</>;
+    return (
+      <>
+        <RenderLoading mode={false} />
+      </>
+    );
   }
 
   return (
@@ -41,11 +46,11 @@ export default function Cases({ mode }: Props) {
         <Styles.Center className="mt-44">
           <Styles.Center>
             <BreadCrumbs
-              Author={data.data.attributes.name}
-              Date={data.data.attributes.updatedAt}
+              Author={data.data.attributes.company}
+              Date={data.data.attributes.sumary}
             />
             <Styles.TitularText>
-              {data.data.attributes.shortDescription}
+              {data.data.attributes.title}
             </Styles.TitularText>
           </Styles.Center>
         </Styles.Center>

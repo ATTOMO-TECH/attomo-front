@@ -1,18 +1,5 @@
 import { Styles } from './styles';
 
-const OptionsSelect: {
-  Option: string;
-}[] = [
-  {
-    Option: 'Estrategia1',
-  },
-  {
-    Option: 'Estrategia2',
-  },
-  {
-    Option: 'Estrategia3',
-  },
-];
 interface Props {
   toggle: () => void;
 }
@@ -21,13 +8,24 @@ export default function Filter({ toggle }: Props) {
     <>
       <Styles.BlockFilter onClick={toggle}>
         <Styles.TextFilter>Filtrar por</Styles.TextFilter>
-        <Styles.Select name="select">
-          {OptionsSelect.map((options) => (
-            <option value={options.Option} key={options.Option}>
-              {options.Option}
-            </option>
-          ))}
-        </Styles.Select>
+        <div className="block">
+          <input
+            type="text"
+            name="value"
+            id=""
+            placeholder="Estrategia"
+            disabled
+            className="bg-black text-primary outline-none text-sm absolute -right-36"
+          />
+          <input
+            type="date"
+            name="date"
+            id=""
+            placeholder="Estrategia"
+            disabled
+            className="bg-black text-primary outline-none text-sm absolute -right-56"
+          />
+        </div>
       </Styles.BlockFilter>
     </>
   );

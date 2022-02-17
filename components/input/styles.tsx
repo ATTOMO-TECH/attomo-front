@@ -10,6 +10,17 @@ export const Select = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
 `;
+export const Input = styled.input`
+  will-change: transform;
+  background-color: #fff;
+  background-image: url(/bg.png);
+  background-position: 0px 0px;
+  background-repeat: repeat-x;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+`;
+
 export const Navegation = {
   SectionFooter: tw.footer`text-gray-600 body-font border-t border-primary bg-secundary`,
   BlockFooter: tw.div`container px-5 py-20 mx-auto flex flex-wrap md:text-left text-center order-first items-start`,
@@ -49,4 +60,5 @@ export const Styles = {
   Select: tw(
     Select,
   )`bg-black text-primary outline-none text-sm absolute -right-16`,
+  InputFilterInv: tw(Input)``,
 };

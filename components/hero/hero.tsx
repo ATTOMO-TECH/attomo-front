@@ -62,13 +62,19 @@ export default function Hero({ text, text2, button, link }: Props) {
             initial="hidden"
             animate="visible">
             {line1.split('').map((char) => (
-              <motion.span key={char} variants={sentence} style={{ margin: 0 }}>
+              <motion.span
+                variants={sentence}
+                style={{ margin: 0 }}
+                key={`value+${char}`}>
                 {char}
               </motion.span>
             ))}
             <br />
             {line2.split('').map((char) => (
-              <motion.span key={char} variants={letter} style={{ margin: 0 }}>
+              <motion.span
+                variants={letter}
+                style={{ margin: 0 }}
+                key={`value+${char}`}>
                 {char}
               </motion.span>
             ))}

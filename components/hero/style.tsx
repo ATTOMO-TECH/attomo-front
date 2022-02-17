@@ -5,36 +5,34 @@ export const TextHero = styled.h2`
   will-change: transform;
   background-color: #fff;
   background-image: url(/bg.png);
-  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  background-repeat: repeat-x;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  animation-name: movingBox;
-  animation-duration: 1300ms;
-  animation-iteration-count: infinite;
-
-  @keyframes movingBox {
-    0% {
-      opacity: 0.8;
+  -webkit-animation: backgroundScroll 20s linear infinite;
+  animation: backgroundScroll 20s linear infinite;
+  }
+  
+  @-webkit-keyframes backgroundScroll {
+    from {
+      transform: scale(1) translateX(0);
     }
-
-    25% {
-      opacity: 0.9;
-    }
-
-    50% {
-      opacity: 0.8;
-    }
-
-    100% {
-      opacity: 0.9;
+    to {
+      transform: scale(1.5) translateX(-50%);
     }
   }
+          
+
 `;
 
 export const Select = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
+`;
+export const Block = styled.section`
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 `;
 
 export const HeadSection = {
@@ -48,7 +46,9 @@ export const HeadSection = {
 
   // HeroFooter
 
-  SectionHeroFooter: tw.section`h-auto lg:h-96 text-primary lg:rounded-3xl font-Primary lg:border border-primary my-24 bg-gradient-to-b lg:from-gray-900 from-gray-700 border-opacity-10 flex justify-center items-center`,
+  SectionHeroFooter: tw(
+    Block,
+  )`h-auto lg:h-96 text-primary lg:rounded-3xl font-Primary lg:border border-primary my-24 bg-gradient-to-b lg:from-gray-900 from-gray-700 border-opacity-10 flex justify-center items-center`,
   TextHeroFooter: tw.h5`text-4xl lg:p-44 p-14 font-light leading-relaxed lg:leading-normal`,
   SectionCase: tw.section`flex justify-center items-center pt-12`,
 };

@@ -1,9 +1,12 @@
+import { useRouter } from 'next/router';
 import { useState } from 'react';
+import BgComponent from '../components/animations/bg';
 import BlockSection from '../components/block/block';
 import ButtonShare from '../components/button/BtnShare';
 import FilterMenu from '../components/filter/filter';
 import Footer from '../components/footer/footer';
 import HeroCase from '../components/hero/heroCase';
+import RenderLoading from '../components/loading/loading';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
 import SectionProjects from '../components/section/projects';
@@ -20,13 +23,24 @@ function Cases() {
   const toggleFilter = () => {
     SetIsOpenFilter(!isOpenFilter);
   };
-  const { data, isLoading } = useUseAllCases();
+  const router = useRouter();
+  let { locale } = router;
+  const { data, isLoading } = useUseAllCases(locale || 'es');
+  if (locale === '/') {
+    locale = 'es';
+  }
+
   if (isLoading) {
-    return <>...Cargando</>;
+    return (
+      <>
+        <RenderLoading mode={false} />
+      </>
+    );
   }
 
   return (
     <>
+      <BgComponent />
       <FilterMenu isOpen={isOpenFilter} toggle={toggleFilter} />
       <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />

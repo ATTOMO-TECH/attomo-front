@@ -9,6 +9,7 @@ import { BUTTON_ACTIVE } from '../const/const';
 import { Styles } from '../styles/styles';
 import ButtonShare from '../components/button/BtnShare';
 import MapsBlock from '../components/maps/maps';
+import BgComponent from '../components/animations/bg';
 
 function Contact() {
   const [isOpen, SetIsOpen] = useState<boolean>(false);
@@ -18,6 +19,7 @@ function Contact() {
 
   return (
     <>
+      <BgComponent />
       <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>

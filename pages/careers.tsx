@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
+import BgComponent from '../components/animations/bg';
 import ButtonShare from '../components/button/BtnShare';
 import IconAnimate from '../components/button/icon';
 import Footer from '../components/footer/footer';
@@ -19,6 +20,7 @@ function Carrers() {
   };
   return (
     <>
+      <BgComponent />
       <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>

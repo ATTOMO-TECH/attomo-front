@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import BgComponent from '../components/animations/bg';
 import BlockSection from '../components/block/block';
 import ButtonShare from '../components/button/BtnShare';
 import Collapse from '../components/collapse/collapse';
@@ -19,6 +20,7 @@ function Services() {
   };
   return (
     <>
+      <BgComponent />
       <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
@@ -28,7 +30,7 @@ function Services() {
         <Styles.Center>
           <Styles.ScreenMid>
             <Styles.BlockDiv>
-              <Title size="text-5xl lg:pt-24 lg:pr-0 pb-24 w-full pt-20 ">
+              <Title size="text-5xl lg:pt-24 lg:pr-0 pb-24 w-full pt-20  ">
                 Combinamos ingeniería, diseño, escalabilidad e innovación para
                 transformar industrias, empresas y administraciones
               </Title>

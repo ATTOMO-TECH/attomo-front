@@ -3,6 +3,7 @@ import BlockSection from '../components/block/block';
 import BlockBlog from '../components/blog/blog';
 import Footer from '../components/footer/footer';
 import InputNew from '../components/input/inputNews';
+import RenderLoading from '../components/loading/loading';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
 import Title from '../components/Text/title';
@@ -32,7 +33,11 @@ function News() {
     },
   ];
   if (isLoading) {
-    return <>...Cargando</>;
+    return (
+      <>
+        <RenderLoading mode={false} />
+      </>
+    );
   }
 
   return (

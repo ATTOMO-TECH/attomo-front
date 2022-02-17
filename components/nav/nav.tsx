@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { darkTheme, lightTheme, Navegation } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
 
@@ -22,6 +23,11 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
       }
     });
   }, []);
+  const router = useRouter();
+  const handleBtn = (value: string) => {
+    router.push('/', '/', { locale: value });
+  };
+
   return (
     <>
       <Navegation.SectionNav
@@ -66,25 +72,37 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
               </>
             )}
           </Navegation.ItemsMenu>
-          <Navegation.ItemsMenu onClick={toggle} className="colorMenu">
-            <Navegation.TextMenu
-              theme={mode === true ? lightTheme : darkTheme}
-              ismode={!scroll ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-              Menú
-            </Navegation.TextMenu>
-            {mode ? (
-              <>
-                <Navegation.ButtonLogo />
-              </>
-            ) : (
-              <Image
-                src="/icon/darkMenu.svg"
-                width={30}
-                height={30}
-                alt="Menu"
-              />
-            )}
-          </Navegation.ItemsMenu>
+          <div className="flex  items-end">
+            <div className="flex text-Primary text-primary text-sm mr-5 items-center">
+              <button
+                onClick={() => handleBtn('es')}
+                className="block p-2 delay-150 duration-300 ease-in-out hover:opacity-50"
+                type="button">
+                Es
+              </button>
+              <span>|</span>
+              <button
+                onClick={() => handleBtn('en')}
+                className="block p-2 delay-150 duration-300 ease-in-out hover:opacity-50"
+                type="button">
+                En
+              </button>
+            </div>
+            <Navegation.ItemsMenu onClick={toggle} className="colorMenu">
+              <Navegation.TextMenu
+                theme={mode === true ? lightTheme : darkTheme}
+                ismode={!scroll ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+                Menú
+              </Navegation.TextMenu>
+              {mode ? (
+                <>
+                  <Navegation.ButtonLogo />
+                </>
+              ) : (
+                <Navegation.ButtonLogoInvert />
+              )}
+            </Navegation.ItemsMenu>
+          </div>
         </Navegation.AlinItems>
       </Navegation.SectionNav>
     </>

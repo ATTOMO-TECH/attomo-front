@@ -55,9 +55,9 @@ export default function SectionProjects({
               </Styles.BlockSection>
               <Styles.BlockText
                 ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-                <Title size="text-xl ">{values.attributes.name}</Title>
+                <Title size="text-xl ">{values.attributes.company}</Title>
                 <Title size="text-5xl py-3 leading-relaxed lg:leading-normal">
-                  {values.attributes.shortDescription}
+                  {values.attributes.title}
                 </Title>
                 <Link href={`/casos/${values.id}`}>
                   <Styles.BlockBtn>
