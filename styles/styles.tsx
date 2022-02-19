@@ -62,6 +62,12 @@ export const SectionColor = styled.div`
   color: ${(props) => props.theme.headings};
   background-color: ${(props) => props.theme.bodyBg};
 `;
+export const subMenu = styled.span<Props>`
+  ${({ active }) =>
+    active
+      ? `&:before{ border:2px solid white;border-radius:30px;height: 25px;;position: absolute; left:-5%; content:'';  } `
+      : ''}
+`;
 
 export const Select = styled.select`
   -webkit-appearance: none;
@@ -77,7 +83,7 @@ export const BtnSelect = styled.button<Props>`
 
 export const Styles = {
   Body: tw(SectionColor)<Props>`
- scroll-smooth m-auto
+ scroll-smooth m-auto 
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
       ? 'overflow-hidden h-screen max-w-full'
@@ -86,6 +92,7 @@ export const Styles = {
   `,
   Margin: tw.div`m-auto`,
   Center: tw.section`w-10/12 m-auto`,
+  CenterCases: tw.section`w-10/12 m-auto pt-36 overflow-hidden flex `,
   AlingCases: tw.section`w-11/12 ml-auto py-24`,
   AlingCasesNoP: tw.section`w-11/12 ml-auto pb-24`,
   CenterFull: tw.section`w-full lg:w-10/12 m-auto`,
@@ -129,4 +136,7 @@ export const Styles = {
   SectionImg: tw.section`grid grid-cols-1 sm:grid-cols-2 gap-6`,
   SectionPrices: tw.section`grid grid-cols-1 sm:grid-cols-3 gap-6`,
   BlockImg: tw.div`w-full bg-cover bg-center py-44 bg-no-repeat `,
+  // DETAILS SERVICES
+  SelectSubMenu: tw(subMenu)`cursor-pointer
+`,
 };

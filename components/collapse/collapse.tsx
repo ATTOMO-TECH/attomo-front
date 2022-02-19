@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { SERVICES } from '../../const/constGlobal';
@@ -47,12 +48,14 @@ export default function Collapse() {
         <Styles.BlockSectionTitle>
           <Styles.BlockTextSelect>
             {SERVICES.map((tab, i) => (
-              <Styles.TextSelect
-                ismode={i === idx ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-                key={tab.Title}
-                onClick={() => handleClick(i)}>
-                {tab.Title}
-              </Styles.TextSelect>
+              <Link href={`/servicios/${tab.Title}`}>
+                <Styles.TextSelect
+                  ismode={i === idx ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+                  key={tab.Title}
+                  onClick={() => handleClick(i)}>
+                  {tab.Title}
+                </Styles.TextSelect>
+              </Link>
             ))}
           </Styles.BlockTextSelect>
         </Styles.BlockSectionTitle>
