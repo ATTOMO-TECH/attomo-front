@@ -1,12 +1,12 @@
 import { Formik } from 'formik';
-import Link from 'next/link';
 import { Styles } from './style';
-import IconAnimate from '../button/icon';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { FORMVALUES } from '../../hook/types';
 import InputCheckcondition from './inputCheckcondition';
 import { validationSchemaContact } from './validations';
 import { createContact } from '../../domain/useContact';
+import Conditions from './conditions';
+import IconAnimate from '../button/icon';
 
 export default function FormCustomer() {
   const valueName = FORMVALUES.FIRSTNAME;
@@ -15,7 +15,7 @@ export default function FormCustomer() {
   const valueEmail = FORMVALUES.EMAIL;
   const valueCompany = FORMVALUES.COMPANY;
   const valueMessage = FORMVALUES.MESSAGE;
-  const check = false;
+  const check = FORMVALUES.CONDITIONS;
 
   const initialValues = {
     [FORMVALUES.FIRSTNAME]: '',
@@ -24,18 +24,18 @@ export default function FormCustomer() {
     [FORMVALUES.EMAIL]: '',
     [FORMVALUES.COMPANY]: '',
     [FORMVALUES.MESSAGE]: '',
-    check: false,
+    [FORMVALUES.CONDITIONS]: false,
   };
   const { mutate } = createContact();
-  const handleSubmit = (action: any) => {
+  const handleSubmit = (data: any, action: any) => {
     const contact = {
-      [FORMVALUES.FIRSTNAME]: valueName,
-      [FORMVALUES.LASTNAME]: valueLastName,
-      [FORMVALUES.PHONE]: valuePhone,
-      [FORMVALUES.EMAIL]: valueEmail,
-      [FORMVALUES.COMPANY]: valueCompany,
-      [FORMVALUES.MESSAGE]: valueMessage,
-      check: !check,
+      [FORMVALUES.FIRSTNAME]: data.valueName,
+      [FORMVALUES.LASTNAME]: data.valueLastName,
+      [FORMVALUES.PHONE]: data.valuePhone,
+      [FORMVALUES.EMAIL]: data.valueEmail,
+      [FORMVALUES.COMPANY]: data.valueCompany,
+      [FORMVALUES.MESSAGE]: data.valueMessage,
+      [FORMVALUES.CONDITIONS]: data.conditions,
     };
 
     mutate(contact, {
@@ -59,7 +59,7 @@ export default function FormCustomer() {
           <>
             <Styles.Form>
               <Styles.SectionInput>
-                <div className="w-full relative lg:pr-5">
+                <Styles.BlockSections>
                   <Styles.BlockInput>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
@@ -74,13 +74,11 @@ export default function FormCustomer() {
                     )}
                   </Styles.BlockInput>
                   {touched.valueName && errors.valueName && (
-                    <div className="text-red-500 absolute text-PrimarySerif text-sm ">
-                      {errors.valueName}
-                    </div>
+                    <Styles.Error>{errors.valueName}</Styles.Error>
                   )}
-                </div>
+                </Styles.BlockSections>
 
-                <div className="w-full relative">
+                <Styles.SubBlock>
                   <Styles.BlockInput>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
@@ -94,15 +92,13 @@ export default function FormCustomer() {
                       />
                     )}
                   </Styles.BlockInput>
-                  {touched.valueName && errors.valueName && (
-                    <div className="text-red-500 absolute text-PrimarySerif text-sm ">
-                      {errors.valueName}
-                    </div>
+                  {touched.valueLastName && errors.valueLastName && (
+                    <Styles.Error>{errors.valueLastName}</Styles.Error>
                   )}
-                </div>
+                </Styles.SubBlock>
               </Styles.SectionInput>
               <Styles.SectionInput>
-                <div className="w-full relative pt-5 lg:pr-5">
+                <Styles.BlockSectionMargin>
                   <Styles.BlockInput>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
@@ -117,13 +113,11 @@ export default function FormCustomer() {
                     )}
                   </Styles.BlockInput>
                   {touched.valueEmail && errors.valueEmail && (
-                    <div className="text-red-500 absolute text-PrimarySerif text-sm ">
-                      {errors.valueEmail}
-                    </div>
+                    <Styles.Error>{errors.valueEmail}</Styles.Error>
                   )}
-                </div>
+                </Styles.BlockSectionMargin>
 
-                <div className="w-full relative pt-5">
+                <Styles.BlockSectionMarginTop>
                   <Styles.BlockInput>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
@@ -138,24 +132,22 @@ export default function FormCustomer() {
                     )}
                   </Styles.BlockInput>
                   {touched.valuePhone && errors.valuePhone && (
-                    <div className="text-red-500 absolute text-PrimarySerif text-sm ">
-                      {errors.valuePhone}
-                    </div>
+                    <Styles.Error>{errors.valuePhone}</Styles.Error>
                   )}
-                </div>
+                </Styles.BlockSectionMarginTop>
               </Styles.SectionInput>
               <Styles.SingleInput>
-                <div className="w-full relative pt-5">
+                <Styles.BlockSectionMarginTop>
                   <Styles.Input
                     ismode={BUTTON_ACTIVE.OFF}
                     placeholder="Empresa/Organización"
                     type="text"
-                    name={FORMVALUES.COMPANY}
+                    name={valueCompany}
                   />
-                </div>
+                </Styles.BlockSectionMarginTop>
               </Styles.SingleInput>
               <Styles.SingleInput>
-                <div className="w-full relative pt-5">
+                <Styles.BlockSectionMarginTop>
                   <Styles.Input
                     ismode={BUTTON_ACTIVE.OFF}
                     placeholder="Tu mensaje *"
@@ -168,37 +160,19 @@ export default function FormCustomer() {
                     />
                   )}
                   {touched.valueMessage && errors.valueMessage && (
-                    <div className="text-red-500 absolute text-PrimarySerif text-sm ">
-                      {errors.valueMessage}
-                    </div>
+                    <Styles.Error>{errors.valueMessage}</Styles.Error>
                   )}
-                </div>
+                </Styles.BlockSectionMarginTop>
               </Styles.SingleInput>
 
               <InputCheckcondition
-                color="text-primary text-xs"
-                text={
-                  <div className="flex flex-wrap">
-                    <p>He leído y acepto los </p>
-                    <Link href="/terminos">
-                      <p className="mx-1 underline cursor-pointer">
-                        Términos y condiciones
-                      </p>
-                    </Link>
-                    y la
-                    <Link href="/privacidad">
-                      <p className="ml-1 underline cursor-pointer">
-                        Política de Privacidad
-                      </p>
-                    </Link>
-                  </div>
-                }
-                value={check}
-              />
+                color="text-primary text-xs pt-6"
+                value={FORMVALUES.CONDITIONS}
+                onChange={(e: any) => setFieldValue(check, e)}>
+                <Conditions />
+              </InputCheckcondition>
               {touched.check && errors.check && (
-                <div className="text-red-500 absolute text-PrimarySerif text-sm ">
-                  {errors.check}
-                </div>
+                <Styles.Error>{errors.check}</Styles.Error>
               )}
               <Styles.BlockBtn type="submit">
                 <IconAnimate text="Enviar" mode />

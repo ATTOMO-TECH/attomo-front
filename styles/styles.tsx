@@ -89,7 +89,7 @@ export const Styles = {
   AlingCases: tw.section`w-11/12 ml-auto py-24`,
   AlingCasesNoP: tw.section`w-11/12 ml-auto pb-24`,
   CenterFull: tw.section`w-full lg:w-10/12 m-auto`,
-  CenterFlex: tw.section`w-11/12 m-auto flex py-10 lg:py-0`,
+  CenterFlex: tw.section`w-11/12 m-auto flex overflow-hidden`,
   ContainerFull: tw.div`w-full`,
   BlockAddres: tw.div`lg:my-12 my-12  lg:w-5/6  m-auto overflow-hidden`,
   SectionScreen: tw.section`pt-48 h-auto`,

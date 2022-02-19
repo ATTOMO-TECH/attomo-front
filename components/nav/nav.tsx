@@ -78,14 +78,14 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
                 onClick={() => handleBtn('es')}
                 className="block p-2 delay-150 duration-300 ease-in-out hover:opacity-50"
                 type="button">
-                Es
+                ES
               </button>
               <span>|</span>
               <button
                 onClick={() => handleBtn('en')}
                 className="block p-2 delay-150 duration-300 ease-in-out hover:opacity-50"
                 type="button">
-                En
+                EN
               </button>
             </div>
             <Navegation.ItemsMenu onClick={toggle} className="colorMenu">

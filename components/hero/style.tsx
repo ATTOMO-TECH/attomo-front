@@ -12,18 +12,15 @@ export const TextHero = styled.h2`
   background-clip: text;
   -webkit-animation: backgroundScroll 20s linear infinite;
   animation: backgroundScroll 20s linear infinite;
-  }
-  
+
   @-webkit-keyframes backgroundScroll {
     from {
-      transform: scale(1) translateX(0);
+      top: 0;
     }
     to {
-      transform: scale(1.5) translateX(-50%);
+      top: 10;
     }
   }
-          
-
 `;
 
 export const Select = styled.select`

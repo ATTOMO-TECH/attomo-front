@@ -67,16 +67,18 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                 />
               </Navegation.ItemsMenu>
             </Navegation.AlinItems>
-            <div className="pt-40">
-              {translate.menu.map((values) => (
-                <Navegation.ItemList key={`${values.Value}`}>
-                  <Navegation.SelectMenu
-                    key={`${values.Value}`}
-                    onClick={CloseMenu}>
-                    <Link href={values.Url}>{values.Value}</Link>
-                  </Navegation.SelectMenu>
-                </Navegation.ItemList>
-              ))}
+            <div className="flex flex-col items-center justify-center h-screen text-center">
+              <div>
+                {translate.menu.map((values) => (
+                  <Navegation.ItemList key={`${values.Value}`}>
+                    <Navegation.SelectMenu
+                      key={`${values.Value}`}
+                      onClick={CloseMenu}>
+                      <Link href={values.Url}>{values.Value}</Link>
+                    </Navegation.SelectMenu>
+                  </Navegation.ItemList>
+                ))}
+              </div>
             </div>
           </Navegation.Menu>
         </Navegation.SectionMenu>

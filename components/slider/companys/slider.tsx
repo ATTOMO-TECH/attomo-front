@@ -10,13 +10,12 @@ export default function CompaniesScroll() {
   return (
     <>
       <Swiper
-        slidesPerView={5.5}
+        className="hidden lg:block swiper-container-free-mode"
         loop
-        className="hidden lg:block swiper-play swiper-container-free-mode"
-        speed={1200}
-        freeMode
-        grabCursor
-        autoplay={{ delay: 0 }}>
+        speed={5000}
+        slidesPerView={5}
+        autoplay={{ delay: 1 }}
+        freeMode>
         {CUSTOMERS.map((values) => (
           <SwiperSlide key={values.Name} className="swiper-wrapper">
             <Image

@@ -1,6 +1,10 @@
 import FormColaborator from '../components/form/formColaborator';
 import FormCustomer from '../components/form/formCustomer';
 
+export enum CONDITIONFORM {
+  TEAM = 'team',
+  PARTNER = 'partner',
+}
 export const PARTNERS: {
   Name: string;
   Pic: string;
@@ -419,11 +423,11 @@ export const FORMPARTOF: {
 }[] = [
   {
     text: 'Formar parte del equipo',
-    value: 'team',
+    value: CONDITIONFORM.TEAM,
   },
   {
     text: 'Colaborar como partner',
-    value: 'partner',
+    value: CONDITIONFORM.PARTNER,
   },
 ];
 export const DEPARTMENT: {
@@ -480,6 +484,59 @@ export const DEPARTMENT: {
   },
 ];
 
+export const DEPARTMENTS: {
+  label: string;
+  value: string;
+}[] = [
+  {
+    label: 'Productora',
+    value: 'PM',
+  },
+  {
+    label: 'Agencia de Marketing digital',
+    value: 'UXUI',
+  },
+  {
+    label: 'Desarrollo de software',
+    value: 'GraphicDesing',
+  },
+  {
+    label: 'Especialidad ',
+    value: 'Illustration',
+  },
+  {
+    label: 'Especialidad 5',
+    value: 'MK',
+  },
+  {
+    label: 'Especialidad 6',
+    value: 'Strategy',
+  },
+  {
+    label: 'Fotografía',
+    value: 'Photo',
+  },
+  {
+    label: 'CRM',
+    value: 'CRM',
+  },
+  {
+    label: 'ERP',
+    value: 'ERP',
+  },
+  {
+    label: 'Front-end',
+    value: 'Front-end',
+  },
+  {
+    label: 'Back-end',
+    value: 'Back-end',
+  },
+  {
+    label: 'Cloud Ops',
+    value: 'Cloud',
+  },
+];
 export const PRICES: {
   Name: string;
   Time: string;

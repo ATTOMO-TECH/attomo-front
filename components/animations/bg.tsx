@@ -28,23 +28,23 @@ export default function BgComponent() {
               parallax: {
                 enable: true,
                 force: 10,
-                smooth: 50,
+                smooth: 100,
               },
             },
           },
           modes: {
             bubble: {
-              distance: 400,
-              duration: 2,
+              distance: 4,
+              duration: 200,
               opacity: 0.8,
-              size: 40,
+              size: 100,
             },
             push: {
               quantity: 4,
             },
             repulse: {
               distance: 200,
-              duration: 0.4,
+              duration: 4,
             },
           },
         },
@@ -54,14 +54,14 @@ export default function BgComponent() {
           },
 
           collisions: {
-            enable: false,
+            enable: true,
           },
           move: {
             direction: 'top',
             enable: true,
-            outMode: 'bounce',
+            outMode: 'destroy',
             random: true,
-            speed: 2,
+            speed: 1,
             straight: true,
           },
           number: {
@@ -72,12 +72,12 @@ export default function BgComponent() {
             value: 100,
           },
           opacity: {
-            value: 0.3,
+            value: 0.4,
           },
 
           size: {
             random: true,
-            value: 5,
+            value: 1,
           },
         },
         detectRetina: true,

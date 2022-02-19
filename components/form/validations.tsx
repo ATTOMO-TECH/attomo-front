@@ -23,7 +23,10 @@ export const validationSchemaColaborator = Yup.object().shape({
     .email('Email no valido')
     .required('Email es requerido'),
   [FORMVALUES.MESSAGE]: Yup.string().required('El campo es requerido'),
-  // check: Yup.boolean().oneOf([true],'Debes aceptar las condiciones')
+  [FORMVALUES.CONDITIONS]: Yup.boolean().oneOf(
+    [true],
+    'Debes aceptar las condiciones',
+  ),
 });
 export const validationSchemaBooking = Yup.object().shape({
   [FORMVALUES.FIRSTNAME]: Yup.string().required('El nombre es requerido'),
@@ -35,5 +38,8 @@ export const validationSchemaBooking = Yup.object().shape({
     .email('Email no valido')
     .required('Email es requerido'),
   [FORMVALUES.MESSAGE]: Yup.string().required('El campo es requerido'),
-  // check: Yup.boolean().oneOf([true],'Debes aceptar las condiciones')
+  [FORMVALUES.CONDITIONS]: Yup.boolean().oneOf(
+    [true],
+    'Debes aceptar las condiciones',
+  ),
 });

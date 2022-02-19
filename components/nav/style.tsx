@@ -20,7 +20,13 @@ export const SectionColor = styled(motion.nav)`
   background-color: ${(props) => props.theme.bodyBg};
   z-index: 100 !important;
 `;
-
+export const itemMenu = styled.h6`
+  font-family: Merriweather;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 47.78px;
+  line-height: 72px;
+`;
 export const Logo = styled.div`
   &:after {
     content: url('/icon/after.svg');
@@ -72,7 +78,7 @@ export const Navegation = {
   flex items-center justify-between mb-20 w-10/12 absolute lg:left-24 left-12 lg:top-10
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'pt-10' : '')}
   `,
-  ItemsMenu: tw.li`flex items-center list-none`,
+  ItemsMenu: tw.li`flex items-center list-none z-100`,
   BlockMenu: tw.div``,
   TextMenu: tw(SectionColor)<Props>`
   mr-5 font-Primary colorMenu
@@ -80,8 +86,10 @@ export const Navegation = {
   `,
   ButtonLogo: tw(Logo)`relative w-10 h-10 menu`,
   ButtonLogoInvert: tw(LogoInvert)`relative w-10 h-10 menuInvert`,
-  ItemList: tw.li`list-none m-10 `,
-  SelectMenu: tw.p`text-primary font-Primary text-center text-4xl opacity-60 hover:opacity-100 cursor-pointer lg:transition ease-in-out delay-50 `,
+  ItemList: tw.li`list-none `,
+  SelectMenu: tw(
+    itemMenu,
+  )`hover:opacity-100 opacity-60 cursor-pointer transition ease-in-out delay-100 duration-100`,
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`

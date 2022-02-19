@@ -1,5 +1,4 @@
 import { Formik } from 'formik';
-import Link from 'next/link';
 import { Styles } from './style';
 import IconAnimate from '../button/icon';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -9,6 +8,7 @@ import { OPTIONDISPONIBILITY } from '../../const/constGlobal';
 import InputCheckcondition from './inputCheckcondition';
 import { createContact } from '../../domain/useContact';
 import { validationSchemaBooking } from './validations';
+import Conditions from './conditions';
 
 export default function FormReserver() {
   const valueName = FORMVALUES.FIRSTNAME;
@@ -17,7 +17,7 @@ export default function FormReserver() {
   const valueEmail = FORMVALUES.EMAIL;
   const valueCompany = FORMVALUES.COMPANY;
   const valueMessage = FORMVALUES.MESSAGE;
-  const check = false;
+  const check = FORMVALUES.CONDITIONS;
 
   const initialValues = {
     [valueName]: '',
@@ -25,18 +25,19 @@ export default function FormReserver() {
     [valueCompany]: '',
     [valuePhone]: '',
     [valueEmail]: '',
-    check: false,
+    [FORMVALUES.CONDITIONS]: false,
   };
 
   const { mutate } = createContact();
   const handleSubmitReserve = (data: any, action: any) => {
     const contact = {
-      [FORMVALUES.FIRSTNAME]: valueName,
-      [FORMVALUES.LASTNAME]: valueLastName,
-      [FORMVALUES.PHONE]: valuePhone,
-      [FORMVALUES.EMAIL]: data.size,
-      [FORMVALUES.COMPANY]: data.notes,
-      [FORMVALUES.MESSAGE]: data.stops,
+      [FORMVALUES.FIRSTNAME]: data.valueName,
+      [FORMVALUES.LASTNAME]: data.valueLastName,
+      [FORMVALUES.PHONE]: data.valuePhone,
+      [FORMVALUES.EMAIL]: data.valueEmail,
+      [FORMVALUES.COMPANY]: data.valueCompany,
+      [FORMVALUES.MESSAGE]: data.valueMessage,
+      [FORMVALUES.CONDITIONS]: data.conditions,
     };
     mutate(contact, {
       onSuccess: () => {
@@ -55,7 +56,7 @@ export default function FormReserver() {
         initialValues={initialValues}
         validationSchema={validationSchemaBooking}
         validateOnMount>
-        {({ touched, errors, handleSubmit }) => (
+        {({ touched, errors, handleSubmit, setFieldValue }) => (
           <>
             <Styles.Form onSubmit={handleSubmit}>
               <Styles.SingleInput>
@@ -137,29 +138,14 @@ export default function FormReserver() {
               </Styles.SingleInput>
 
               <InputCheckcondition
-                data-val="true"
-                color="text-primary text-xs"
-                text={
-                  <div className="flex flex-wrap">
-                    <p>He leído y acepto los </p>
-                    <Link href="/terminos">
-                      <p className="mx-1 underline cursor-pointer">
-                        Términos y condiciones
-                      </p>
-                    </Link>
-                    y la
-                    <Link href="/privacidad">
-                      <p className="ml-1 underline cursor-pointer">
-                        Política de Privacidad
-                      </p>
-                    </Link>
-                  </div>
-                }
-                value={check}
-              />
-
-              <div>{errors.conditions}</div>
-
+                color="text-primary text-xs pt-6"
+                value={FORMVALUES.CONDITIONS}
+                onChange={(e: any) => setFieldValue(check, e)}>
+                <Conditions />
+              </InputCheckcondition>
+              {touched.check && errors.check && (
+                <Styles.Error>{errors.check}</Styles.Error>
+              )}
               <Styles.BlockBtn type="submit">
                 <IconAnimate text="Enviar" mode />
               </Styles.BlockBtn>
