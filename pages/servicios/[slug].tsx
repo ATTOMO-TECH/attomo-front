@@ -2,12 +2,15 @@ import { motion } from 'framer-motion';
 
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { fadeInUp, stagger } from '../../components/animations/animations';
 import BgComponent from '../../components/animations/bg';
 import BlockSection from '../../components/block/block';
 import ButtonShare from '../../components/button/BtnShare';
+import FilterDetails from '../../components/filter/filterDetails';
 import Footer from '../../components/footer/footer';
 import Menu from '../../components/nav/menu';
 import Nav from '../../components/nav/nav';
+import SubMenu from '../../components/nav/submenu';
 import ArticlesScroll from '../../components/slider/article/slider';
 import Title from '../../components/Text/title';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -33,42 +36,20 @@ function DetailsServices() {
     },
   ];
   const [isOpen, SetIsOpen] = useState<boolean>(false);
-  const [isToggle, SetIsToggle] = useState<boolean>(true);
-  const [iDx, handleClick] = useState(0);
+
   const router = useRouter();
   const { slug } = router.query;
-  const easing = [0.6, -0.05, 0.01, 0.99];
-
-  const stagger = {
-    animate: {
-      transition: {
-        staggerChildren: 0.05,
-      },
-    },
+  const [isOpenFilter, SetIsOpenFilter] = useState<boolean>(false);
+  const toggleFilter = () => {
+    SetIsOpenFilter(!isOpenFilter);
   };
-
-  const fadeInUp = {
-    initial: {
-      y: 60,
-      opacity: 0,
-      transition: { duration: 1, ease: easing },
-    },
-    animate: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: easing,
-      },
-    },
-  };
-
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
   return (
     <>
       <BgComponent />
+      <FilterDetails isOpen={isOpenFilter} toggle={toggleFilter} />
       <motion.div
         initial="initial"
         animate="animate"
@@ -86,50 +67,28 @@ function DetailsServices() {
             initial={{ opacity: 0 }}
             className="pb-36">
             <Styles.CenterCases>
-              <div className="w-2/6">
-                <div className="pt-12">
-                  <motion.div variants={stagger} className="inner">
-                    <motion.div variants={fadeInUp}>
-                      <button
-                        type="button"
-                        className="category"
-                        onClick={() => SetIsToggle(!isToggle)}>
-                        Estrategia
-                        {slug}
-                      </button>
-                    </motion.div>
-                    {isToggle && (
-                      <motion.div
-                        variants={fadeInUp}
-                        className="flex flex-wrap ">
-                        <span className="h-auto w-1 rounded-xl opacity-60 bg-white" />
-                        <div className="flex flex-col relative pl-5">
-                          {array.map((tab, i) => (
-                            <Styles.SelectSubMenu
-                              key={tab.Name}
-                              active={i === iDx}
-                              onClick={() => handleClick(i)}>
-                              {tab.Name}
-                            </Styles.SelectSubMenu>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </motion.div>
-                </div>
+              <div className="lg:flex flex-col pt-10 hidden relative">
+                <SubMenu section="Estrategia" subsection={array} collapse />
+                <SubMenu section="Diseño" subsection={array} collapse />
+                <SubMenu section="Tecnología" subsection={array} collapse />
               </div>
+              <Styles.BlockFilter onClick={toggleFilter}>
+                <Title size="lg:text-lg text-lg font-Primary font-light">
+                  {slug}
+                </Title>
+              </Styles.BlockFilter>
               <motion.div
-                className="pt-12 w-full"
+                className="lg:pt-12 lg:w-10/12 w-10/12 ml-auto"
                 animate={{ x: 0, opacity: 1 }}
                 initial={{ x: 200, opacity: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ delay: 0.5 }}>
-                <Title size="text-6xl font-primary font-light pb-1">
-                  Digital Marketing
+                <Title size="lg:text-5xl text-2xl font-Primary font-light pb-1">
+                  {slug}
                 </Title>
 
                 <motion.div
-                  className="pt-12 w-full"
+                  className="pt-2 w-full"
                   animate={{ y: 0, opacity: 1 }}
                   initial={{ y: 100, opacity: 0 }}
                   exit={{ opacity: 0 }}
@@ -138,7 +97,7 @@ function DetailsServices() {
                   <motion.p
                     variants={fadeInUp}
                     transition={{ delay: 5.5 }}
-                    className="overflow-y-scroll h-48 pr-5 relative">
+                    className="lg:overflow-y-scroll lg:h-48 pr-5 relative">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Atque labore beatae provident eum, sunt animi repellat enim
                     deserunt commodi, numquam magni ex exercitationem adipisci
@@ -168,27 +127,33 @@ function DetailsServices() {
               </motion.div>
             </Styles.CenterCases>
           </motion.div>
-          <Styles.Center>
-            <Styles.TitleSubSection>
-              Proyectos relacionados
-            </Styles.TitleSubSection>
-          </Styles.Center>
-          <Styles.FlexEnd>
-            <Styles.AlingBlock>
-              <ArticlesScroll mode array={ARTICLES} />
-            </Styles.AlingBlock>
-          </Styles.FlexEnd>
-          <Styles.CenterFlex>
-            <BlockSection
-              text="¿Tienes un proyecto?"
-              button="Contacta con nosotros"
-              text2=""
-              button2=""
-              mode
-              link="/contacto"
-            />
-          </Styles.CenterFlex>
-
+          <motion.div
+            animate={{ y: 0, opacity: 1 }}
+            initial={{ y: 100, opacity: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ delay: 0.8 }}
+            variants={stagger}>
+            <Styles.Center>
+              <Styles.TitleSubSection>
+                Proyectos relacionados
+              </Styles.TitleSubSection>
+            </Styles.Center>
+            <Styles.FlexEnd>
+              <Styles.AlingBlock>
+                <ArticlesScroll mode array={ARTICLES} />
+              </Styles.AlingBlock>
+            </Styles.FlexEnd>
+            <Styles.CenterFlex>
+              <BlockSection
+                text="¿Tienes un proyecto?"
+                button="Contacta con nosotros"
+                text2=""
+                button2=""
+                mode
+                link="/contacto"
+              />
+            </Styles.CenterFlex>
+          </motion.div>
           <Footer subFooter={false} />
         </Styles.Body>
       </motion.div>

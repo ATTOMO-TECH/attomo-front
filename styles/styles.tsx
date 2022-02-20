@@ -65,7 +65,7 @@ export const SectionColor = styled.div`
 export const subMenu = styled.span<Props>`
   ${({ active }) =>
     active
-      ? `&:before{ border:2px solid white;border-radius:30px;height: 25px;;position: absolute; left:-5%; content:'';  } `
+      ? `&:before{transition: all .5s;border:2px solid white;border-radius:30px;height: 30px;position: absolute; left:-5%; content:'';  } `
       : ''}
 `;
 
@@ -92,7 +92,8 @@ export const Styles = {
   `,
   Margin: tw.div`m-auto`,
   Center: tw.section`w-10/12 m-auto`,
-  CenterCases: tw.section`w-10/12 m-auto pt-36 overflow-hidden flex `,
+  CenterCases: tw.section`w-10/12 m-auto pt-36 overflow-hidden flex justify-between`,
+  BlockFilter: tw.div`w-auto m-auto text-center transform -rotate-90 z-80 flex justify-center lg:hidden opacity-60 hover:opacity-90  duration-100 ease-in`,
   AlingCases: tw.section`w-11/12 ml-auto py-24`,
   AlingCasesNoP: tw.section`w-11/12 ml-auto pb-24`,
   CenterFull: tw.section`w-full lg:w-10/12 m-auto`,
@@ -137,6 +138,10 @@ export const Styles = {
   SectionPrices: tw.section`grid grid-cols-1 sm:grid-cols-3 gap-6`,
   BlockImg: tw.div`w-full bg-cover bg-center py-44 bg-no-repeat `,
   // DETAILS SERVICES
-  SelectSubMenu: tw(subMenu)`cursor-pointer
+  SelectSubMenu: tw(
+    subMenu,
+  )<Props>`cursor-pointer font-PrimarySerif font-thin text-sm leading-loose py-1
+  ${(props) =>
+    props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : 'opacity-50'}
 `,
 };
