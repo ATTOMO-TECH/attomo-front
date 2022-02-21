@@ -8,7 +8,7 @@ type Props = {
 
 export const Filter = {
   BlockFilter: tw.div<Props>`
-   z-100 transition delay-100 duration-500 ease-in-out bg-black fixed
+   z-100 transition delay-100 duration-500 ease-in-out bg-black fixed pt-12
     ${(props) =>
       props.ismode === BUTTON_ACTIVE.ON
         ? `cursor-pointer h-screen w-full overflow-hidden z-100 opacity-100 top-0 delay-100 duration-500 ease-in-out `

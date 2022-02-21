@@ -17,12 +17,12 @@ export const Image = styled.img`
 
 export const Navegation = {
   SectionFooter: tw.footer`text-gray-600 body-font border-t border-primary bg-secundary border-opacity-20`,
-  BlockFooter: tw.div`container px-5 py-20 mx-auto flex flex-wrap md:text-left text-center order-first items-start`,
+  BlockFooter: tw.div`container w-10/12  py-20 mx-auto flex flex-wrap md:text-left text-center order-first items-start`,
   BlockLogo: tw.div`lg:w-5/12 md:w-1/2 w-full text-left`,
   BlockNavMed: tw.div`lg:w-2/12 md:w-1/2 w-full text-left`,
   BlockNav: tw.div`lg:w-3/12 md:w-1/2 w-full text-left`,
-  TitleNav: tw.h2`font-Primary text-primary tracking-widest text-lg mb-3 hidden lg:block`,
-  TitleNavResponsive: tw.h2`font-Primary text-primary tracking-widest text-lg mb-3`,
+  TitleNav: tw.h2`font-PrimarySerif text-primary font-thin text-regular mb-3 hidden lg:block`,
+  TitleNavResponsive: tw.h2`font-PrimarySerif text-primary font-thin  text-regular  mb-3`,
   NavFooter: tw.nav`list-none mb-10 font-secundary text-primary text-sm cursor-pointer`,
   NavFooterFlex: tw.nav`list-none mb-10 flex cursor-pointer justify-start items-center`,
   ItemsMenu: tw.p`py-1 leading-relaxed lg:leading-none text-sm font-extralight`,

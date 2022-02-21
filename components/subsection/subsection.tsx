@@ -9,6 +9,7 @@ export default function SubSection() {
     <>
       <SubSections.Subsection>
         <Counter />
+
         <SubSections.TextSubsection>
           <Title size="text-4xl">
             Acompañamos a nuestros clientes en todo el proceso de transformación

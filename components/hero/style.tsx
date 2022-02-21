@@ -12,18 +12,15 @@ export const TextHero = styled.h2`
   background-clip: text;
   -webkit-animation: backgroundScroll 20s linear infinite;
   animation: backgroundScroll 20s linear infinite;
-  }
-  
+
   @-webkit-keyframes backgroundScroll {
     from {
-      transform: scale(1) translateX(0);
+      top: 0;
     }
     to {
-      transform: scale(1.5) translateX(-50%);
+      top: 10;
     }
   }
-          
-
 `;
 
 export const Select = styled.select`
@@ -36,9 +33,7 @@ export const Block = styled.section`
 `;
 
 export const HeadSection = {
-  TextHead: tw(
-    TextHero,
-  )`lg:py-48 lg:pr-10 pb-12 pt-12 lg:text-4xl font-thin text-5xl `,
+  TextHead: tw(TextHero)` lg:pr-10 lg:text-4xl font-thin text-5xl `,
   SectionHero: tw.section`font-Primary`,
   Blockbutton: tw.div`relative cursor-pointer`,
   TextButton: tw.h6`text-primary`,

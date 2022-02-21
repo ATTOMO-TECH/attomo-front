@@ -1,7 +1,7 @@
 import { Text } from './style';
 
 interface Props {
-  children: string;
+  children: any;
   size: string;
 }
 

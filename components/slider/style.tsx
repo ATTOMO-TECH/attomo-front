@@ -4,8 +4,14 @@ import { BUTTON_ACTIVE } from '../../const/const';
 
 type Props = {
   ismode: string;
+  active?: boolean;
 };
-
+export const SelectedSlide = styled.div<Props>`
+  ${({ active }) =>
+    active
+      ? 'transform: translatex(25%) scale(1.5); transition: all 0.3s ease; '
+      : 'transform: scale(1); transition: all 0.3s ease; &:nth-child(1){ opacity:0.5;} '}
+`;
 export const TextTitle = styled.h2`
   @media screen and (max-width: 1024px) {
     background: linear-gradient(
@@ -59,4 +65,6 @@ export const StylesArticle = {
   BlockArrow: tw.div`flex w-full text-xl justify-end lg:pr-44 pr-10`,
   ArrowPrev: tw.div`cursor-pointer py-20 pr-5 hidden lg:block `,
   ArrowNext: tw.div`cursor-pointer lg:py-20 py-10`,
+  Slide: tw(SelectedSlide)<Props>`
+  ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'w-4/6 ' : 'w-4/6 ')}`,
 };

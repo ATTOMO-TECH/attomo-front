@@ -8,4 +8,5 @@ export const FORMVALUES = {
   CONDITIONS: 'conditions',
   PARTOF: 'partOf',
   LINK: 'link',
+  SPECIALITY: 'speciality',
 };

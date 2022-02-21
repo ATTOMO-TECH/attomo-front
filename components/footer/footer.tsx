@@ -16,13 +16,13 @@ export default function Footer({ subFooter }: Props) {
           <Navegation.BlockLogo>
             <Image
               src="/icon/attomo.svg"
-              width={120}
+              width={100}
               height={40}
               alt="Attomo"
             />
           </Navegation.BlockLogo>
           <Navegation.BlockNavMed className="order-2 lg:order-none">
-            <Navegation.TitleNav>Attomo</Navegation.TitleNav>
+            <Navegation.TitleNav>ATTOMO</Navegation.TitleNav>
             <Navegation.NavFooter>
               {VALUESNAV.map((values) => (
                 <Navegation.ItemsMenu key={`footer${values.Value}`}>

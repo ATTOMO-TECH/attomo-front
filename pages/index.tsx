@@ -56,7 +56,6 @@ function Home() {
       </>
     );
   }
-
   return (
     <>
       <BgComponent />
@@ -71,7 +70,7 @@ function Home() {
             <Styles.Center>
               <Styles.ScreenMid>
                 <Hero
-                  text="Somos una consultora tecnológica con una única misión: "
+                  text="Somos una consultora tecnológica con una única misión:"
                   text2=" ayudar a las empresas y administraciones a liderar a través de la digitalización"
                   button="Conoce más"
                   link="conocenos"
@@ -85,10 +84,9 @@ function Home() {
                   variants={servicesAnimations}
                   className="actions"
                   transition={{
-                    delay: 0.2,
-                    type: 'fade',
-                    stiffness: 50,
-                    duration: 2,
+                    type: 'magic',
+                    stiffness: 100,
+                    duration: 0.5,
                   }}
                   whileInView={{ opacity: 1, y: 0 }}
                   initial={{ opacity: 0, y: '50%' }}>
@@ -102,10 +100,9 @@ function Home() {
                     variants={servicesAnimations}
                     className="actions"
                     transition={{
-                      delay: 0.2,
-                      type: 'fade',
-                      stiffness: 50,
-                      duration: 2,
+                      type: 'magic',
+                      stiffness: 100,
+                      duration: 0.5,
                     }}
                     whileInView={{ opacity: 1, y: 0 }}
                     initial={{ opacity: 0, y: '50%' }}>

@@ -100,6 +100,10 @@ export const Styles = {
 
   Form: tw(Form)`lg:w-4/6 m-auto`,
   SectionInput: tw.div`flex flex-col lg:flex-row `,
+  BlockSections: tw.div`w-full relative lg:pr-5`,
+  BlockSectionMargin: tw.div`w-full relative pt-5 lg:pr-5`,
+  BlockSectionMarginTop: tw.div`w-full relative pt-5`,
+  SubBlock: tw.div`w-full relative`,
   SingleInput: tw.div`py-1`,
   BlockBtn: tw.button`text-primary font-thin w-7/12 flex ml-auto z-0`,
   BlockCount: tw.div`text-primary `,
@@ -120,12 +124,23 @@ ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
 `,
   InputRadio: tw(CheckRadio)`cursor-pointer`,
   InputCheck: tw(CheckCheck)`cursor-pointer `,
+  TextCheck: tw.p`truncate text-ellipsis overflow-hidden w-24 lg:w-auto`,
   InputCheckCondition: tw(CheckCheckCondition)`cursor-pointer `,
   LabelCheck: tw.label<Props>`flex ease-out 
-  ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : '')}
+  ${(props) =>
+    props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : 'opacity-50'}
   ${(props) => (props.ismode === BUTTON_ACTIVE.OFF ? 'opacity-50' : '')}`,
   LabelCheckBox: tw.label<Props>`
-  flex ease-out duration-200 py-2
+  flex ease-out duration-200 py-2 text-sm 
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : '')}
   ${(props) => (props.ismode === BUTTON_ACTIVE.OFF ? 'opacity-50' : '')}`,
+  // FORM
+  Error: tw.div`text-red-500 absolute text-PrimarySerif text-sm`,
+  BlockSelect: tw.div`w-full flex flex-wrap pt-5 text-white font-PrimarySerif font-thin text-sm`,
+  BlockSelectSecond: tw.div`w-full flex flex-wrap pt-5 text-white font-PrimarySerif font-thin text-sm pb-10`,
+  AlingSelect: tw.div`w-3/6`,
+  AlingSelectSecond: tw.div`w-2/6`,
+  BlockCheck: tw.div`flex flex-wrap`,
+  TextChecked: tw.p``,
+  LinkCheck: tw.h6`ml-1 underline cursor-pointer`,
 };

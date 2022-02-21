@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { SERVICES } from '../../const/constGlobal';
@@ -18,7 +19,11 @@ export default function Collapse() {
       <Styles.SectionCollapse>
         <Styles.BlockDescription>
           {innerRender(idx).map((tab) => (
-            <Styles.SubSection>{tab} </Styles.SubSection>
+            <Link href={`/servicios/${tab}`}>
+              <Styles.SubSection key={`${tab}-services`}>
+                {tab}{' '}
+              </Styles.SubSection>
+            </Link>
           ))}
         </Styles.BlockDescription>
         <Styles.BlockImg>
@@ -31,6 +36,7 @@ export default function Collapse() {
                 width={500}
                 height={500}
                 alt="Elipse"
+                className="z-0"
               />
             </Styles.BlockAtom>
             <Image
@@ -38,6 +44,7 @@ export default function Collapse() {
               width={500}
               height={500}
               alt="Elipse"
+              className="z-0 flex justify-center items-center"
             />
           </Styles.SectionAtom>
           <Styles.TextCentral>

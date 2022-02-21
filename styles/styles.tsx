@@ -62,6 +62,36 @@ export const SectionColor = styled.div`
   color: ${(props) => props.theme.headings};
   background-color: ${(props) => props.theme.bodyBg};
 `;
+export const subMenu = styled.span<Props>`
+  ${({ active }) =>
+    active
+      ? `&:before{transition: all .5s;border:2px solid white;border-radius:30px;height:25px;position: absolute; left:0; content:'';  animation: expandCircle .2s forwards;
+      animation-timing-function: cubic-bezier(.79,-0.08,.37,1.47); };
+     `
+      : ''}
+
+  @keyframes expandCircle {
+    0% {
+      transform: scale(1);
+      color: #fff;
+    }
+    100% {
+      transform: scale(1.2);
+      color: #fff;
+    }
+  }
+
+  @keyframes contractCircle {
+    0% {
+      transform: scale(1);
+      color: #fff;
+    }
+    100% {
+      transform: scale(1.2);
+      color: #fff;
+    }
+  }
+`;
 
 export const Select = styled.select`
   -webkit-appearance: none;
@@ -77,7 +107,7 @@ export const BtnSelect = styled.button<Props>`
 
 export const Styles = {
   Body: tw(SectionColor)<Props>`
- scroll-smooth m-auto
+ scroll-smooth m-auto 
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
       ? 'overflow-hidden h-screen max-w-full'
@@ -86,10 +116,12 @@ export const Styles = {
   `,
   Margin: tw.div`m-auto`,
   Center: tw.section`w-10/12 m-auto`,
+  CenterCases: tw.section`w-10/12 m-auto pt-36 overflow-hidden flex justify-between`,
+  BlockFilter: tw.div`w-auto m-auto text-center transform -rotate-90 z-80 flex justify-center lg:hidden opacity-60 hover:opacity-90  duration-100 ease-in cursor-pointer`,
   AlingCases: tw.section`w-11/12 ml-auto py-24`,
   AlingCasesNoP: tw.section`w-11/12 ml-auto pb-24`,
   CenterFull: tw.section`w-full lg:w-10/12 m-auto`,
-  CenterFlex: tw.section`w-11/12 m-auto flex py-10 lg:py-0`,
+  CenterFlex: tw.section`w-11/12 m-auto flex overflow-hidden`,
   ContainerFull: tw.div`w-full`,
   BlockAddres: tw.div`lg:my-12 my-12  lg:w-5/6  m-auto overflow-hidden`,
   SectionScreen: tw.section`pt-48 h-auto`,
@@ -129,4 +161,11 @@ export const Styles = {
   SectionImg: tw.section`grid grid-cols-1 sm:grid-cols-2 gap-6`,
   SectionPrices: tw.section`grid grid-cols-1 sm:grid-cols-3 gap-6`,
   BlockImg: tw.div`w-full bg-cover bg-center py-44 bg-no-repeat `,
+  // DETAILS SERVICES
+  SelectSubMenu: tw(
+    subMenu,
+  )<Props>`cursor-pointer font-PrimarySerif font-thin text-sm leading-loose py-1 h-auto 
+  ${(props) =>
+    props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : 'opacity-50'}
+`,
 };

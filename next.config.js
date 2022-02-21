@@ -5,6 +5,7 @@ module.exports = {
     localeDetection:false,
     defaultLocale: 'es'
   },
+  optimizeFonts: false,
   images: {
     // domains: ['https://attomo-admin.herokuapp.com/'],
     domains: ['attomo-test.s3.eu-west-3.amazonaws.com'],

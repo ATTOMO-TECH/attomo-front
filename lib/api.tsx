@@ -15,6 +15,8 @@ const CASES = {
 };
 const CONTACT = {
   CREATE: () => getAbsolutePath('subscribers'),
+  CREATECOLABORAROT: () => getAbsolutePath('client-forms'),
+  CREATERESERVE: () => getAbsolutePath('client-forms'),
 };
 
 export { POST, CASES, CONTACT, getAbsolutePath };
