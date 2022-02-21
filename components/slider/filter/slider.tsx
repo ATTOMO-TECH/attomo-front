@@ -13,9 +13,11 @@ export default function FilterScroll() {
       <Swiper
         slidesPerView={5.5}
         direction="vertical"
-        mousewheel
         centeredSlides
         freeMode
+        mousewheel={{
+          releaseOnEdges: true,
+        }}
         pagination={false}
         modules={[Pagination]}
         className="mySwiper h-48 w-full degrade">
