@@ -21,7 +21,8 @@ export const SectionColor = styled(motion.nav)`
   z-index: 100 !important;
 `;
 export const itemMenu = styled.h6`
-  font-family: Merriweather;
+  font-family: 'Merriweather', 'serif';
+
   font-style: normal;
   font-weight: 300;
   font-size: 47.78px;
@@ -86,7 +87,7 @@ export const Navegation = {
   `,
   ButtonLogo: tw(Logo)`relative w-10 h-10 menu`,
   ButtonLogoInvert: tw(LogoInvert)`relative w-10 h-10 menuInvert`,
-  ItemList: tw.li`list-none `,
+  ItemList: tw(itemMenu)`list-none `,
   SelectMenu: tw(
     itemMenu,
   )`hover:opacity-100 opacity-60 cursor-pointer transition ease-in-out delay-100 duration-100`,

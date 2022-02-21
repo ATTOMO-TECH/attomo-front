@@ -69,12 +69,10 @@ function DetailsServices() {
             <Styles.CenterCases>
               <div className="lg:flex flex-col pt-10 hidden relative">
                 <SubMenu section="Estrategia" subsection={array} collapse />
-                <SubMenu section="Diseño" subsection={array} collapse />
-                <SubMenu section="Tecnología" subsection={array} collapse />
               </div>
               <Styles.BlockFilter onClick={toggleFilter}>
                 <Title size="lg:text-lg text-lg font-Primary font-light">
-                  {slug}
+                  Servicios
                 </Title>
               </Styles.BlockFilter>
               <motion.div

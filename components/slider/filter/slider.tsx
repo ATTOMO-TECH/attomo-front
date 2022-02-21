@@ -20,7 +20,7 @@ export default function FilterScroll() {
         }}
         pagination={false}
         modules={[Pagination]}
-        className="mySwiper h-48 w-full degrade">
+        className="mySwiper h-48 w-full">
         {DEPARTMENT.map((values, i) => (
           <SwiperSlide className="font-Primary text-Primary">
             <>

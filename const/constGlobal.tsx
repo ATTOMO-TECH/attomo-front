@@ -227,7 +227,7 @@ export const NEWS: {
 ];
 export const SERVICES: {
   Title: string;
-  Services: [string, string, string, string, string, string];
+  Services: any[];
   Description: string;
 }[] = [
   {

@@ -19,7 +19,11 @@ export default function Collapse() {
       <Styles.SectionCollapse>
         <Styles.BlockDescription>
           {innerRender(idx).map((tab) => (
-            <Styles.SubSection>{tab} </Styles.SubSection>
+            <Link href={`/servicios/${tab}`}>
+              <Styles.SubSection key={`${tab}-services`}>
+                {tab}{' '}
+              </Styles.SubSection>
+            </Link>
           ))}
         </Styles.BlockDescription>
         <Styles.BlockImg>
@@ -32,6 +36,7 @@ export default function Collapse() {
                 width={500}
                 height={500}
                 alt="Elipse"
+                className="z-0"
               />
             </Styles.BlockAtom>
             <Image
@@ -39,6 +44,7 @@ export default function Collapse() {
               width={500}
               height={500}
               alt="Elipse"
+              className="z-0 flex justify-center items-center"
             />
           </Styles.SectionAtom>
           <Styles.TextCentral>
@@ -48,14 +54,12 @@ export default function Collapse() {
         <Styles.BlockSectionTitle>
           <Styles.BlockTextSelect>
             {SERVICES.map((tab, i) => (
-              <Link href={`/servicios/${tab.Title}`}>
-                <Styles.TextSelect
-                  ismode={i === idx ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-                  key={tab.Title}
-                  onClick={() => handleClick(i)}>
-                  {tab.Title}
-                </Styles.TextSelect>
-              </Link>
+              <Styles.TextSelect
+                ismode={i === idx ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+                key={tab.Title}
+                onClick={() => handleClick(i)}>
+                {tab.Title}
+              </Styles.TextSelect>
             ))}
           </Styles.BlockTextSelect>
         </Styles.BlockSectionTitle>

@@ -143,7 +143,7 @@ export const TextTitle = styled.h2`
 export const Styles = {
   SectionCollapse: tw.section`h-screen lg:h-auto font-PrimarySerif overflow-hidden max-w-100 flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative my-24 font-light leading-loose`,
   BlockDescription: tw.div`lg:text-right text-xl lg:absolute bottom-12 lg:-right-4 w-full text-center `,
-  SubSection: tw(SubSection)`font-regular  py-0.5 text-base`,
+  SubSection: tw(SubSection)`font-regular py-0.5 text-base cursor-pointer z-80`,
   BlockImg: tw.div`relative p-1`,
   SectionAtom: tw(Item)`animate-pulse transition ease-in-out delay-150 `,
   BlockAtom: tw.div`absolute`,
@@ -155,7 +155,7 @@ export const Styles = {
   BlockSectionTitle: tw.div`w-auto`,
   TextSelect: tw(
     SectionTitle,
-  )<Props>`py-7 opacity-40 hover:opacity-100 px-5 order-last block transition ease-in duration-300 cursor-pointer
+  )<Props>`py-7 opacity-40 hover:opacity-100 px-5 order-last block transition ease-in duration-300 cursor-pointer z-70
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : '')}`,
   TextCentral: tw(
     TextTitle,
