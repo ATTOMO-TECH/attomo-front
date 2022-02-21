@@ -67,7 +67,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                 />
               </Navegation.ItemsMenu>
             </Navegation.AlinItems>
-            <div className="flex flex-col items-center justify-center h-screen text-center">
+            <div className="flex flex-col items-center justify-center h-screen text-center ">
               <div>
                 {translate.menu.map((values) => (
                   <Navegation.ItemList key={`${values.Value}`}>

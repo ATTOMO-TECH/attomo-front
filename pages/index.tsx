@@ -70,7 +70,7 @@ function Home() {
             <Styles.Center>
               <Styles.ScreenMid>
                 <Hero
-                  text="Somos una consultora tecnológica con una única misión: "
+                  text="Somos una consultora tecnológica con una única misión:"
                   text2=" ayudar a las empresas y administraciones a liderar a través de la digitalización"
                   button="Conoce más"
                   link="conocenos"
