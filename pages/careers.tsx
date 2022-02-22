@@ -11,6 +11,7 @@ import Work from '../components/section/work';
 import Subtext from '../components/Text/subText';
 import Title from '../components/Text/title';
 import { BUTTON_ACTIVE } from '../const/const';
+import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 
 function Carrers() {
@@ -18,6 +19,7 @@ function Carrers() {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
+  const translate = getLocale();
   return (
     <>
       <BgComponent />
@@ -30,38 +32,39 @@ function Carrers() {
         <Styles.Center>
           <Styles.Center>
             <Styles.ScreenMid>
-              <Styles.BlockDiv>
-                <Title size="text-5xl lg:pt-24 lg:pr-0 pb-12 lg:w-3/6 pt-20 ">
-                  Trabaja con nosotros
-                </Title>
-                <Styles.FlexEnd>
-                  <Subtext size=" text-lg lg:text-base lg:w-3/6  lg:text-left">
-                    Siempre estamos buscando perfiles digitales, tecnológicos y
-                    creativos para incorporar a nuestro equipo
-                  </Subtext>
-                </Styles.FlexEnd>
-              </Styles.BlockDiv>
+              {translate.workUs.map((value) => (
+                <Styles.BlockDiv>
+                  <Title size="text-5xl lg:pt-20 lg:pr-0 pb-12 lg:w-3/6 pt-20 ">
+                    {value.Text}
+                  </Title>
+                  <Styles.FlexEnd>
+                    <Subtext size=" text-lg lg:text-base lg:w-3/6  lg:text-left">
+                      {value.Subtext}
+                    </Subtext>
+                  </Styles.FlexEnd>
+                </Styles.BlockDiv>
+              ))}
             </Styles.ScreenMid>
           </Styles.Center>
         </Styles.Center>
         <Styles.Center>
-          <Subtext size=" text-2xl pb-8">Ofertas de trabajo </Subtext>
+          <Subtext size=" text-2xl pb-8">{translate.offerWork} </Subtext>
 
           <Work works={[]} />
         </Styles.Center>
-        <Styles.Center>
-          <Subtext size=" text-2xl">Queremos conocerte </Subtext>
-          <Subtext size=" text-sm w-3/6 font-PrimarySerif py-5">
-            Si no hay ninguna oferta que se ajuste a tu perfil, súmate a nuestra
-            base de datos. Nos pondremos en contacto contigo cuando necesitemos
-            a alguien como tú.
-          </Subtext>
-          <Link href="/">
-            <div className="lg:w-2/6">
-              <IconAnimate text="Enviar mi candidatura" mode />
-            </div>
-          </Link>
-        </Styles.Center>
+        {translate.contactUsWork.map((value) => (
+          <Styles.Center>
+            <Subtext size=" text-2xl">{value.Text} </Subtext>
+            <Subtext size=" text-sm w-3/6 font-PrimarySerif py-5">
+              {value.Text}
+            </Subtext>
+            <Link href="/">
+              <div className="lg:w-2/6">
+                <IconAnimate text={value.Button} mode />
+              </div>
+            </Link>
+          </Styles.Center>
+        ))}
 
         <Styles.CenterFull>
           <HeroFooter text="Construyamos juntos el futuro digital de las organizaciones" />

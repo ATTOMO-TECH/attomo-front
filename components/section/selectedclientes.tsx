@@ -7,7 +7,7 @@ interface Props {
   text: string;
   btn: string;
   link: string;
-  textPrimary: string;
+  textPrimary: any;
 }
 
 export default function SelectedClients({

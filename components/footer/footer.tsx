@@ -34,7 +34,7 @@ export default function Footer({ subFooter }: Props) {
             </Navegation.NavFooter>
           </Navegation.BlockNavMed>
           <Navegation.BlockNavMed className="order-1 lg:order-none pt-10 lg:pt-0">
-            <Navegation.TitleNav>Síguenos</Navegation.TitleNav>
+            <Navegation.TitleNav>SÍGUENOS</Navegation.TitleNav>
             <Navegation.NavFooterFlex>
               {ICONNAV.map((values) => (
                 <Navegation.ListIcon key={`footer${values.Name}`}>
@@ -55,7 +55,7 @@ export default function Footer({ subFooter }: Props) {
           </Navegation.BlockNavMed>
           <Navegation.BlockNav className="order-last lg:order-none">
             <Navegation.TitleNavResponsive>
-              Newsletter
+              NEWSLETTER
             </Navegation.TitleNavResponsive>
             <InputNew />
           </Navegation.BlockNav>

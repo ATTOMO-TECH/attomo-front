@@ -3,7 +3,11 @@ import { BUTTON_ACTIVE } from '../../const/const';
 import Title from '../Text/title';
 import { Styles } from './style';
 
-export default function OneProject() {
+type Props = {
+  data: any;
+};
+
+export default function OneProject({ data }: Props) {
   return (
     <>
       <Styles.SectionProjects>
@@ -17,13 +21,11 @@ export default function OneProject() {
             />
           </Styles.BlockSection>
           <Styles.OnlyProjectBlock>
-            <Title size="text-regular leading-relaxed lg:leading-normal pb-5 font-extralight">
-              ATTOMO nace en enero de 2021 con la misión de ayudar a las pymes
-              en su proceso de digitalización.
+            <Title size="text-regular font-light font-PrimarySerif leading-relaxed leading-normal pb-5 font-extralight lg:w-4/6">
+              {data.Text}
             </Title>
-            <Title size="text-regular leading-relaxed lg:leading-normal font-extralight">
-              Está fundada por Álvaro Barrera y Mateo Hernández, que llevan 10
-              años en el sector tecnológico.
+            <Title size="text-regular font-light font-PrimarySerif leading-relaxed leading-normal pb-5 font-extralight lg:w-4/6">
+              {data.Subtext}
             </Title>
           </Styles.OnlyProjectBlock>
         </Styles.BlockSections>

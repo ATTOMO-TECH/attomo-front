@@ -11,6 +11,7 @@ import Subtext from '../components/Text/subText';
 import Title from '../components/Text/title';
 import { BUTTON_ACTIVE } from '../const/const';
 import { ARTICLES } from '../const/constGlobal';
+import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 
 function Services() {
@@ -18,6 +19,7 @@ function Services() {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
+  const translate = getLocale();
   return (
     <>
       <BgComponent />
@@ -29,18 +31,18 @@ function Services() {
         <ButtonShare />
         <Styles.Center>
           <Styles.ScreenMid>
-            <Styles.BlockDiv>
-              <Title size="text-5xl lg:pt-24 lg:pr-0 pb-24 w-full pt-20  ">
-                Combinamos ingeniería, diseño, escalabilidad e innovación para
-                transformar industrias, empresas y administraciones
-              </Title>
-              <Styles.FlexEnd>
-                <Subtext size=" text-lg lg:text-base lg:w-2/6  lg:text-left">
-                  Ofrecemos cualquier servicio relacionado con la digitalización
-                  y la transformación digital
-                </Subtext>
-              </Styles.FlexEnd>
-            </Styles.BlockDiv>
+            {translate.services.map((values) => (
+              <Styles.BlockDiv>
+                <Title size="text-5xl lg:pt-24 lg:pr-0 pb-24 w-full pt-20  ">
+                  {values.Text}
+                </Title>
+                <Styles.FlexEnd>
+                  <Subtext size=" text-lg lg:text-base lg:w-2/6  lg:text-left">
+                    {values.Subtext}
+                  </Subtext>
+                </Styles.FlexEnd>
+              </Styles.BlockDiv>
+            ))}
           </Styles.ScreenMid>
         </Styles.Center>
         <Styles.Center>
@@ -59,14 +61,17 @@ function Services() {
           </Styles.AlingBlock>
         </Styles.FlexEnd>
         <Styles.CenterFlex>
-          <BlockSection
-            text="¿Tienes un proyecto?"
-            button="Contacta con nosotros"
-            text2=""
-            button2=""
-            mode
-            link="/contacto"
-          />
+          {translate.contact.map((values) => (
+            <BlockSection
+              key={values.Link}
+              text={values.Text}
+              button={values.Link}
+              text2=""
+              button2=""
+              mode
+              link="/contacto"
+            />
+          ))}
         </Styles.CenterFlex>
 
         <Footer subFooter={false} />
