@@ -18,6 +18,7 @@ import ButtonShare from '../components/button/BtnShare';
 import RenderLoading from '../components/loading/loading';
 import { servicesAnimations } from '../components/animations/animations';
 import BgComponent from '../components/animations/bg';
+import { getLocale } from '../public/locales/getLocale';
 
 function Home() {
   const router = useRouter();
@@ -56,6 +57,7 @@ function Home() {
       </>
     );
   }
+  const translate = getLocale();
   return (
     <>
       <BgComponent />
@@ -69,12 +71,14 @@ function Home() {
             <ButtonShare />
             <Styles.Center>
               <Styles.ScreenMid>
-                <Hero
-                  text="Somos una consultora tecnológica con una única misión:"
-                  text2=" ayudar a las empresas y administraciones a liderar a través de la digitalización"
-                  button="Conoce más"
-                  link="conocenos"
-                />
+                {translate.home.map((values) => (
+                  <Hero
+                    text={values.HeroText}
+                    text2={values.HeroSubTex}
+                    button={values.Button}
+                    link="conocenos"
+                  />
+                ))}
               </Styles.ScreenMid>
             </Styles.Center>
             <Styles.SectionScreen id="conocenos">
@@ -90,7 +94,7 @@ function Home() {
                   }}
                   whileInView={{ opacity: 1, y: 0 }}
                   initial={{ opacity: 0, y: '50%' }}>
-                  <SubSection />
+                  <SubSection locale={translate} />
                 </motion.div>
               </Styles.CenterFlex>
               <Styles.Center>
@@ -106,12 +110,14 @@ function Home() {
                     }}
                     whileInView={{ opacity: 1, y: 0 }}
                     initial={{ opacity: 0, y: '50%' }}>
-                    <SelectedClients
-                      text="Trabajamos de la mano con nuestros clientes para impulsar y transformar sus áreas de operación."
-                      btn="Casos de éxito"
-                      link="/casosdeexito"
-                      textPrimary="Selected clients"
-                    />
+                    {translate.selected.map((values) => (
+                      <SelectedClients
+                        textPrimary={values.Section}
+                        text={values.Title}
+                        btn={values.Button}
+                        link="/casosdeexito"
+                      />
+                    ))}
                   </motion.div>
                 </Styles.BlockSelected>
               </Styles.Center>
@@ -137,14 +143,17 @@ function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: '50%' }}>
               <Styles.CenterFlex>
-                <BlockSection
-                  text=""
-                  button=""
-                  text2="¿Quieres ver más casos de éxito?"
-                  button2="Nuestro portfolio"
-                  mode
-                  link="/ATTOMOTrends"
-                />
+                {translate.seeMore.map((values) => (
+                  <BlockSection
+                    key={values.Link}
+                    text=""
+                    button=""
+                    text2={values.Text}
+                    button2={values.Link}
+                    mode
+                    link="/ATTOMOTrends"
+                  />
+                ))}
               </Styles.CenterFlex>
             </motion.div>
             <motion.div
@@ -176,14 +185,17 @@ function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: '50%' }}>
               <Styles.CenterFlex>
-                <BlockSection
-                  text="¿Tienes un proyecto?"
-                  button="Contacta con nosotros"
-                  text2=""
-                  button2=""
-                  mode
-                  link="/contacto"
-                />
+                {translate.contact.map((values) => (
+                  <BlockSection
+                    key={values.Link}
+                    text={values.Text}
+                    button={values.Link}
+                    text2=""
+                    button2=""
+                    mode
+                    link="/contacto"
+                  />
+                ))}
               </Styles.CenterFlex>
             </motion.div>
             <Footer subFooter />

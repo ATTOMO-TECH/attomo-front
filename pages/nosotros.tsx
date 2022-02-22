@@ -11,6 +11,7 @@ import ListUs from '../components/section/us';
 import Subtext from '../components/Text/subText';
 import Title from '../components/Text/title';
 import { BUTTON_ACTIVE } from '../const/const';
+import { getLocale } from '../public/locales/getLocale';
 
 import { Styles } from '../styles/styles';
 
@@ -19,6 +20,7 @@ function Us() {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
+  const translate = getLocale();
   return (
     <>
       <BgComponent />
@@ -31,43 +33,45 @@ function Us() {
         <Styles.Center>
           <Styles.Center>
             <Styles.ScreenMid>
-              <Styles.BlockDiv>
-                <Title size="text-5xl lg:pt-24 lg:pr-0 pb-12 lg:w-5/6 pt-20 ">
-                  El átomo es el principio de todo, alrededor del cual se
-                  construye y fluye todo
-                </Title>
-                <Styles.FlexEnd>
-                  <Subtext size=" text-lg lg:text-base lg:w-3/6  lg:text-left">
-                    La digitalización también es el principio de todo para
-                    cualquier empresa que quiera sobrevivir en el mundo actual y
-                    proyectar a futuro
-                  </Subtext>
-                </Styles.FlexEnd>
-              </Styles.BlockDiv>
+              {translate.us.map((values) => (
+                <Styles.BlockDiv>
+                  <Title size="text-5xl lg:pt-24 lg:pr-0 pb-12 lg:w-5/6 pt-20 ">
+                    {values.Text}
+                  </Title>
+                  <Styles.FlexEnd>
+                    <Subtext size=" text-lg lg:text-base lg:w-3/6  lg:text-left">
+                      {values.Subtext}
+                    </Subtext>
+                  </Styles.FlexEnd>
+                </Styles.BlockDiv>
+              ))}
             </Styles.ScreenMid>
           </Styles.Center>
         </Styles.Center>
-        <OneProject />
+        <OneProject data={translate.projectUs[0]} />
         <Styles.Center>
           <Styles.BlockUs>
             <ListUs />
             <SelectedClients
-              text="Buscamos ser un partner de primer nivel, centrado en desarrollar productos y proyectos a medida, donde la calidad prima siempre por encima de la cantidad."
-              btn="Quiero ser cliente"
+              text={translate.selectedUs[0].Subtext}
+              btn={translate.selectedUs[0].Button}
               link="/contacto"
-              textPrimary="Selected clients"
+              textPrimary={translate.selectedUs[0].Text}
             />
           </Styles.BlockUs>
         </Styles.Center>
         <Styles.CenterFlex>
-          <BlockSection
-            text="¿Tienes un proyecto?"
-            button="Contacta con nosotros"
-            text2=""
-            button2=""
-            mode
-            link="/contacto"
-          />
+          {translate.contact.map((values) => (
+            <BlockSection
+              key={values.Link}
+              text={values.Text}
+              button={values.Link}
+              text2=""
+              button2=""
+              mode
+              link="/contacto"
+            />
+          ))}
         </Styles.CenterFlex>
         <Footer subFooter={false} />
       </Styles.Body>

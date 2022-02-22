@@ -12,11 +12,11 @@ function Prices() {
           <Styles.SectionPrices>
             {PRICES.map((values) => (
               <Styles.BlockSelect>
-                <Title size="text-2xl pt-5 leading-relaxed ">
+                <Title size=" pt-0 leading-relaxed md:text-xl lg:text-2xl text-3xl">
                   {values.Name}
                 </Title>
 
-                <Title size="text-regular leading-relaxed font-Secundary font-light">
+                <Title size="text-regular leading-relaxed font-Secundary font-light ">
                   {values.Time}
                 </Title>
 
@@ -24,7 +24,7 @@ function Prices() {
                   {`${values.Price}€`}
                 </Title>
 
-                <div className="w-full lg:ml-44 ml-60">
+                <div className="w-full lg:ml-32 md:ml-24 ml-36">
                   <IconAnimate text="Alquilar" mode />
                 </div>
               </Styles.BlockSelect>

@@ -44,11 +44,11 @@ ${(props) =>
   BlockBtn: tw.div`text-primary z-100`,
 
   SectionImg: tw.section`grid grid-cols-1 sm:grid-cols-2 gap-6`,
-  SectionPrices: tw.section`grid grid-cols-1 sm:grid-cols-3 gap-6`,
+  SectionPrices: tw.section`grid grid-cols-1 sm:grid-cols-3 gap-8 px-12`,
   BlockImg: tw.div`w-full bg-cover bg-center py-44 bg-no-repeat `,
   BlockSelect: tw(
     BlockSelected,
-  )`w-full border border-primary rounded-xl overflow-hidden flex flex-col justify-center items-center p-8  duration-300 ease-in-out cursor-pointer shadow-none border-opacity-40 hover:border-opacity-100 py-12`,
+  )`w-5/6 border border-primary rounded-xl overflow-hidden flex flex-col p-4 justify-center items-center text-center  duration-300 ease-in-out cursor-pointer shadow-none border-opacity-40 hover:border-opacity-100 py-12`,
 };
 
 export const StylesCases = {

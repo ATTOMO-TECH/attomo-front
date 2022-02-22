@@ -13,12 +13,14 @@ import FormReserver from '../components/form/formReserver';
 import ButtonShare from '../components/button/BtnShare';
 import MapsBlock from '../components/maps/maps';
 import BgComponent from '../components/animations/bg';
+import { getLocale } from '../public/locales/getLocale';
 
 function Space() {
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
+  const translate = getLocale();
   return (
     <>
       <BgComponent />
@@ -32,18 +34,18 @@ function Space() {
         <Styles.Center>
           <Styles.Center>
             <Styles.ScreenMid>
-              <Styles.BlockDiv>
-                <Title size="text-5xl lg:pt-24 lg:pr-0 pb-12 lg:w-3/6 pt-20 ">
-                  Espacio Attomo
-                </Title>
-                <Styles.FlexEnd>
-                  <Subtext size=" text-lg lg:text-base lg:w-3/6  lg:text-left">
-                    Ofrecemos a otros profesionales la oportunidad de utilizar
-                    nuestras instalaciones para desarrollar sus proyectos o
-                    realizar sesiones fotográficas.
-                  </Subtext>
-                </Styles.FlexEnd>
-              </Styles.BlockDiv>
+              {translate.spaceAttomo.map((values) => (
+                <Styles.BlockDiv>
+                  <Title size="text-5xl lg:pt-24 lg:pr-0 pb-12 lg:w-3/6 pt-20 ">
+                    {values.Text}
+                  </Title>
+                  <Styles.FlexEnd>
+                    <Subtext size=" text-lg lg:text-base lg:w-3/6  lg:text-left">
+                      {values.Subtext}
+                    </Subtext>
+                  </Styles.FlexEnd>
+                </Styles.BlockDiv>
+              ))}
             </Styles.ScreenMid>
           </Styles.Center>
         </Styles.Center>
@@ -51,12 +53,14 @@ function Space() {
         <Styles.HeroEspace />
         <Styles.Center>
           <Styles.BlockSelected>
-            <SelectedClients
-              text="Contamos con ambientes amplios y polivalentes, que alquilamos por hora o por jornada a emprendedores, fotógrafos, agencias y productoras."
-              btn="Reservar"
-              link="/espacio#reserva"
-              textPrimary="Reserva el espacio"
-            />
+            {translate.bookingAttomo.map((values) => (
+              <SelectedClients
+                text={values.Subtext}
+                btn={values.Button}
+                link="/espacio#reserva"
+                textPrimary={values.Text}
+              />
+            ))}
           </Styles.BlockSelected>
           <Styles.SectionImg>
             <Styles.BlockImg className="bg-space-Attomo" />
@@ -67,22 +71,24 @@ function Space() {
         </Styles.Center>
         <Styles.Center>
           <Styles.ContainerFull>
-            <Title size="text-5xl lg:pt-36 pb-24 w-full text-center pt-20 leading-relaxed ">
-              Tarifas
+            <Title size="text-5xl lg:pt-36 pb-24 w-full text-center pt-20 ">
+              {translate.prices}
             </Title>
             <Prices />
           </Styles.ContainerFull>
         </Styles.Center>
         <Styles.Center id="reserva">
-          <Styles.ContainerFull>
-            <Title size="text-5xl lg:pt-36 w-full text-center pt-20 leading-relaxed ">
-              Reserva el Espacio Attomo
-            </Title>
-            <Title size="text-regular lg:pt-3 w-full text-center leading-relaxed pb-8">
-              Selecciona la fecha y consulta su disponibilidad
-            </Title>
-            <FormReserver />
-          </Styles.ContainerFull>
+          {translate.formBooking.map((values) => (
+            <Styles.ContainerFull>
+              <Title size="text-5xl lg:pt-36 w-full text-center pt-20 leading-relaxed ">
+                {values.Text}
+              </Title>
+              <Title size="text-regular lg:pt-3 w-full text-center leading-relaxed pb-8">
+                {values.Subtext}
+              </Title>
+              <FormReserver />
+            </Styles.ContainerFull>
+          ))}
         </Styles.Center>
         <Styles.Center>
           <Styles.BlockAddres>
@@ -96,14 +102,17 @@ function Space() {
           </Styles.BlockAddres>
         </Styles.Center>
         <Styles.CenterFlex>
-          <BlockSection
-            text="¿Tienes un proyecto?"
-            button="Contacta con nosotros"
-            text2=""
-            button2=""
-            mode
-            link="/contacto"
-          />
+          {translate.contact.map((values) => (
+            <BlockSection
+              key={values.Link}
+              text={values.Text}
+              button={values.Link}
+              text2=""
+              button2=""
+              mode
+              link="/contacto"
+            />
+          ))}
         </Styles.CenterFlex>
         <Footer subFooter={false} />
       </Styles.Body>

@@ -12,6 +12,7 @@ import Nav from '../components/nav/nav';
 import SectionProjects from '../components/section/projects';
 import { BUTTON_ACTIVE } from '../const/const';
 import { useUseAllCases } from '../domain/useCasesDetails';
+import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 
 function Cases() {
@@ -37,7 +38,7 @@ function Cases() {
       </>
     );
   }
-
+  const translate = getLocale();
   return (
     <>
       <BgComponent />
@@ -57,14 +58,17 @@ function Cases() {
           />
         </Styles.BlockSections>
         <Styles.CenterFlex>
-          <BlockSection
-            text="¿Tienes un proyecto?"
-            button="Contacta con nosotros"
-            text2=""
-            button2=""
-            mode
-            link="/contacto"
-          />
+          {translate.contact.map((values) => (
+            <BlockSection
+              key={values.Link}
+              text={values.Text}
+              button={values.Link}
+              text2=""
+              button2=""
+              mode
+              link="/contacto"
+            />
+          ))}
         </Styles.CenterFlex>
         <Footer subFooter={false} />
       </Styles.Body>

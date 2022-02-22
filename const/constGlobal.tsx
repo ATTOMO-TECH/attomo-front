@@ -334,28 +334,6 @@ export const CASE: {
   },
 ];
 
-export const AboutUs: {
-  Title: string;
-  Text: string;
-}[] = [
-  {
-    Title: 'Scale',
-    Text: 'Hoy en día, la competencia está en cualquier mercado, la escala para llegar a millones de personas es fundamental para subsistir.',
-  },
-  {
-    Title: 'Data',
-    Text: 'La información está por todos lados. Lo importante es saber diferenciar entre la buena y la mejorable.',
-  },
-  {
-    Title: 'Velocity',
-    Text: 'Las buenas ideas son importantes, pero en este mundo de inmediatez, sólo sobreviven los que crecen y se mueven con rapidez.',
-  },
-  {
-    Title: 'Design',
-    Text: 'En un mundo visual, donde el arte está en todos sitios, generar experiencias inolvidables es más importante que nunca.',
-  },
-];
-
 export const BLOG: {
   Topic: string;
   Text: string;

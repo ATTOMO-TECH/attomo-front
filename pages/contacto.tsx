@@ -10,13 +10,14 @@ import { Styles } from '../styles/styles';
 import ButtonShare from '../components/button/BtnShare';
 import MapsBlock from '../components/maps/maps';
 import BgComponent from '../components/animations/bg';
+import { getLocale } from '../public/locales/getLocale';
 
 function Contact() {
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
-
+  const translate = getLocale();
   return (
     <>
       <BgComponent />
@@ -29,13 +30,13 @@ function Contact() {
         <Styles.BlockContact>
           <Styles.Center>
             <Title size="text-5xl lg:pt-4 lg:pr-10 pb-24 w-full pt-20">
-              Contacta con nosotros
+              {translate.contactTitle}
             </Title>
             <RenderForm />
           </Styles.Center>
         </Styles.BlockContact>
         <Styles.Center>
-          <Title size="text-2xl  lg:pr-10 ">Dónde encontrarnos</Title>
+          <Title size="text-2xl  lg:pr-10 "> {translate.whereUs}</Title>
           <Styles.BlockAddresMap>
             <Subtext size="lg:text-sm text-sm w-full pb-10 font-PrimarySerif">
               Calle del Monte Esquinza, 8-Bajo Izquierda <br />

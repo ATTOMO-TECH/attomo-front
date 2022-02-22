@@ -1,21 +1,21 @@
 import Subtext from '../Text/title';
-
-import { AboutUs } from '../../const/constGlobal';
+import { getLocale } from '../../public/locales/getLocale';
 
 export default function ListUs() {
+  const translate = getLocale();
   return (
     <>
       <section className="flex flex-wrap pt-24 lg:pt-4">
         <Subtext size="lg:text-xl text-2xl w-full pb-10">
-          La compañía se desarrolla sobre cuatro pilares diferenciadores:
+          {translate.titleValuesUr}
         </Subtext>
-        {AboutUs.map((values) => (
+        {translate.valuesUs.map((values) => (
           <div className="lg:w-6/12 pr-10 w-full">
             <Subtext size="lg:text-3xl text-3xl w-full py-10">
-              {values.Title}
+              {values.Text}
             </Subtext>
             <Subtext size="text-regular w-full leading-loose">
-              {values.Text}
+              {values.Subtext}
             </Subtext>
           </div>
         ))}
