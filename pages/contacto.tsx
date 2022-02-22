@@ -29,7 +29,7 @@ function Contact() {
         <ButtonShare />
         <Styles.BlockContact>
           <Styles.Center>
-            <Title size="text-5xl lg:pt-4 lg:pr-10 pb-24 w-full pt-20">
+            <Title size="lg:text-5xl text-4xl lg:pt-4 lg:pr-10 pb-24 w-full pt-20">
               {translate.contactTitle}
             </Title>
             <RenderForm />

@@ -33,7 +33,7 @@ function Services() {
           <Styles.ScreenMid>
             {translate.services.map((values) => (
               <Styles.BlockDiv>
-                <Title size="text-5xl lg:pt-24 lg:pr-0 pb-24 w-full pt-20  ">
+                <Title size="text-5xl lg:pt-24 lg:pr-0 pb-24 w-full pt-36  ">
                   {values.Text}
                 </Title>
                 <Styles.FlexEnd>
@@ -46,7 +46,7 @@ function Services() {
           </Styles.ScreenMid>
         </Styles.Center>
         <Styles.Center>
-          <div className="lg:py-48">
+          <div className="lg:py-48 overflow-hidden px-1">
             <Collapse />
           </div>
         </Styles.Center>

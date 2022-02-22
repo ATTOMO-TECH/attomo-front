@@ -151,7 +151,7 @@ export const Styles = {
   Select: tw(
     Select,
   )`bg-black text-primary outline-none text-sm lg:py-4 font-PrimarySerif font-light ml-5`,
-  BlockDiv: tw.div`flex flex-col p-10`,
+  BlockDiv: tw.div`flex flex-col `,
   BtnSelect: tw(
     BtnSelect,
   )`text-primary border-2 border-primary px-14 py-3 rounded-full opacity-80 font-PrimarySerif font-thin shadow-none`,

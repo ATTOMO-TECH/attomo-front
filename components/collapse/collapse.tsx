@@ -67,7 +67,7 @@ export default function Collapse() {
                 width={500}
                 height={500}
                 alt="Elipse"
-                className="z-0 object-contain overflow-hidden  "
+                className="z-0 object-contain overflow-hidden opacity-0  "
               />
             </Styles.BlockAtom>
             <Image
@@ -78,12 +78,12 @@ export default function Collapse() {
               className="opacity-0 overflow-hidden object-contain"
             />
           </Styles.SectionAtom>
-
-          <div className="border-4 border-white w-4/6 h-4/6 absolute lg:top-20 lg:right-20 md:right-4 right-16 top-16 rounded-full flex justify-center items-center animate-pulse">
+          <div className="border-4 border-white w-4/6 h-4/6 absolute lg:top-20 lg:right-20 right-16 top-16 rounded-full flex justify-center items-center animate-pulse md:">
             <Styles.TextCentral>
               <p>{innerRenderText(idx)}</p>
             </Styles.TextCentral>
           </div>
+          <Styles.Circle />
         </Styles.BlockImg>
         <Styles.BlockSectionTitle>
           <Styles.BlockTextSelect>
