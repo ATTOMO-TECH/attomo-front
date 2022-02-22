@@ -29,31 +29,35 @@ export const SectionTitle = styled.div`
     }
   }
 `;
-export const SubSection = styled.p`
+export const SubSection = styled.div`
 @media screen and (min-width: 1024px) {
+
    {
     &:nth-child(1) {
-      padding-right: 75%;
+      padding-right: 74%;
+    
     }
     &:nth-child(2) {
-      padding-right: 74%;
-    }
-    &:nth-child(3) {
       padding-right: 73%;
     }
-    &:nth-child(4) {
+    &:nth-child(3) {
       padding-right: 72%;
     }
-    &:nth-child(5) {
+    &:nth-child(4) {
       padding-right: 71%;
     }
-    &:nth-child(6) {
+    &:nth-child(5) {
       padding-right: 70%;
+    }
+    &:nth-child(6) {
+      padding-right: 69%;
     }
   }
 `;
 
 export const Item = styled.div<Props>`
+  transition-duration: 0.4s;
+  transition-property: transform;
   ${(props) =>
     props.ismode === 0
       ? `
@@ -87,14 +91,14 @@ export const ItemSection = styled.div`
   position: absolute;
   top: -12px;
   left: 48%;
-  transition: all 3s;
 
+  -webkit-animation-duration: 4000ms;
   &:after {
     content: url('/icon/elementElipse.svg');
   }
   @media screen and (min-width: 1024px) {
     transform: rotate(-40deg);
-    left: 50%;
+    left: 48%;
   }
   transform: rotate(-37deg);
 `;
@@ -142,10 +146,12 @@ export const TextTitle = styled.h2`
 `;
 export const Styles = {
   SectionCollapse: tw.section`h-screen lg:h-auto font-PrimarySerif overflow-hidden max-w-100 flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative my-24 font-light leading-loose`,
-  BlockDescription: tw.div`lg:text-right text-xl lg:absolute bottom-12 lg:-right-4 w-full text-center `,
-  SubSection: tw(SubSection)`font-regular py-0.5 text-base cursor-pointer z-80`,
-  BlockImg: tw.div`relative p-1`,
-  SectionAtom: tw(Item)`animate-pulse transition ease-in-out delay-150 `,
+  BlockDescription: tw.div`lg:text-right text-xl lg:absolute bottom-24 lg:-right-4 w-full text-center `,
+  SubSection: tw(SubSection)`font-regular text-base cursor-pointer z-80`,
+  BlockImg: tw.div`relative p-1 overflow-hidden`,
+  SectionAtom: tw(
+    Item,
+  )`lg:animate-pulse transition ease-in-out delay-150 z-0  p-2 lg:p-0`,
   BlockAtom: tw.div`absolute`,
   Atom: tw(ItemSection)``,
   Image: tw(Imgen)``,
@@ -157,7 +163,5 @@ export const Styles = {
     SectionTitle,
   )<Props>`py-7 opacity-40 hover:opacity-100 px-5 order-last block transition ease-in duration-300 cursor-pointer z-70
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : '')}`,
-  TextCentral: tw(
-    TextTitle,
-  )`absolute   lg:top-52 top-40 left-16 lg:left-24 w-4/6 lg:w-4/6 text-center lg:text-2xl text-xl `,
+  TextCentral: tw(TextTitle)` w-4/6 text-center lg:text-sm `,
 };

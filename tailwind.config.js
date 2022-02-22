@@ -10,6 +10,7 @@ module.exports = {
         'space-Attomo3': "url('/cases/Espacio_Attomo_3.jpg')",
         'space-Attomo4': "url('/cases/Espacio_Attomo_4.jpg')",
         'localitation': "url('/Map_.jpg')",
+        'circle': "url('/icon/semiElipse.svg')",
     
 
       },

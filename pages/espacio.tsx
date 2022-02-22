@@ -80,7 +80,7 @@ function Space() {
         <Styles.Center id="reserva">
           {translate.formBooking.map((values) => (
             <Styles.ContainerFull>
-              <Title size="text-5xl lg:pt-36 w-full text-center pt-20 leading-relaxed ">
+              <Title size="lg:text-5xl text-3xl lg:pt-36 w-full text-center pt-20 leading-relaxed ">
                 {values.Text}
               </Title>
               <Title size="text-regular lg:pt-3 w-full text-center leading-relaxed pb-8">

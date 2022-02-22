@@ -23,7 +23,7 @@ export default function Counter() {
           <AnimatedProgressProvider
             valueStart={value}
             valueEnd={value}
-            duration={0.4}>
+            duration={1.5}>
             {(valueCount) => {
               const roundedValue = Math.round(valueCount);
               return (
@@ -44,7 +44,7 @@ export default function Counter() {
                       fontFamily: 'Lato',
                     },
                   }}
-                  value={roundedValue}
+                  value={(roundedValue * 3) / 10}
                 />
               );
             }}

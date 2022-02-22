@@ -69,9 +69,11 @@ function DetailsServices() {
             <Styles.CenterCases>
               <div className="lg:flex flex-col pt-10 hidden relative">
                 <SubMenu section="Estrategia" subsection={array} collapse />
+                <SubMenu section="Diseño" subsection={array} collapse />
+                <SubMenu section="Tecnología" subsection={array} collapse />
               </div>
               <Styles.BlockFilter onClick={toggleFilter}>
-                <Title size="lg:text-lg text-lg font-Primary font-light">
+                <Title size="lg:text-lg text-lg font-Primary font-light ">
                   Servicios
                 </Title>
               </Styles.BlockFilter>
@@ -81,7 +83,7 @@ function DetailsServices() {
                 initial={{ x: 200, opacity: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ delay: 0.5 }}>
-                <Title size="lg:text-5xl text-2xl font-Primary font-light pb-1">
+                <Title size="lg:text-5xl text-2xl font-Primary font-light pb-3">
                   {slug}
                 </Title>
 

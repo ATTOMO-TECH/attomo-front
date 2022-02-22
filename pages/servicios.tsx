@@ -46,7 +46,7 @@ function Services() {
           </Styles.ScreenMid>
         </Styles.Center>
         <Styles.Center>
-          <div className="py-48">
+          <div className="lg:py-48">
             <Collapse />
           </div>
         </Styles.Center>

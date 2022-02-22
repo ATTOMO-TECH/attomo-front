@@ -14,7 +14,7 @@ const CASES = {
     getAbsolutePath(`successful-cases/${id}?populate=mainPhoto`),
 };
 const CONTACT = {
-  CREATE: () => getAbsolutePath('subscribers'),
+  CREATE: () => getAbsolutePath('client-forms'),
   CREATECOLABORAROT: () => getAbsolutePath('client-forms'),
   CREATERESERVE: () => getAbsolutePath('client-forms'),
 };

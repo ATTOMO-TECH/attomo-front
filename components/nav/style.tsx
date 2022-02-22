@@ -22,11 +22,8 @@ export const SectionColor = styled(motion.nav)`
 `;
 export const itemMenu = styled.h6`
   font-family: 'Merriweather', 'serif';
-
   font-style: normal;
   font-weight: 300;
-  font-size: 47.78px;
-  line-height: 72px;
 `;
 export const Logo = styled.div`
   &:after {
@@ -88,9 +85,7 @@ export const Navegation = {
   ButtonLogo: tw(Logo)`relative w-10 h-10 menu`,
   ButtonLogoInvert: tw(LogoInvert)`relative w-10 h-10 menuInvert`,
   ItemList: tw(itemMenu)`list-none `,
-  SelectMenu: tw(
-    itemMenu,
-  )`hover:opacity-100 opacity-60 cursor-pointer transition ease-in-out delay-100 duration-100`,
+  SelectMenu: tw.p`leading-loose hover:opacity-100 opacity-60 cursor-pointer transition ease-in-out delay-100 duration-100 text-4xl lg:text-5xl lg:py-5`,
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`

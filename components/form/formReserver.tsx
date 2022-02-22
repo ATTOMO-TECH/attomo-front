@@ -88,7 +88,7 @@ export default function FormReserver() {
                     <div>{errors.valueName}</div>
                   )}
                 </div>
-                <div className="w-full lg:pr-5 pt-5">
+                <div className="w-full lg:pr-5 lg:pt-5">
                   <Styles.Input
                     ismode={BUTTON_ACTIVE.ON}
                     placeholder="Apellidos *"

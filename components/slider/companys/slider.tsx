@@ -12,7 +12,7 @@ export default function CompaniesScroll() {
       <Swiper
         className="hidden lg:block swiper-container-free-mode"
         loop
-        speed={5000}
+        speed={3500}
         slidesPerView={5}
         autoplay={{ delay: 1 }}
         freeMode>

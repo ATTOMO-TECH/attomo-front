@@ -14,6 +14,16 @@ export const Image = styled.img`
     -moz-filter: grayscale(100%) brightness(200%);
   }
 `;
+export const SubTitle = styled.h2`
+  background: linear-gradient(
+    90deg,
+    #cccfe8 26.04%,
+    #ffffff 69.27%,
+    #cccfe8 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`;
 
 export const Navegation = {
   SectionFooter: tw.footer`text-gray-600 body-font border-t border-primary bg-secundary border-opacity-20`,
@@ -22,7 +32,7 @@ export const Navegation = {
   BlockNavMed: tw.div`lg:w-2/12 md:w-1/2 w-full text-left`,
   BlockNav: tw.div`lg:w-3/12 md:w-1/2 w-full text-left`,
   TitleNav: tw.h2`font-PrimarySerif text-primary font-thin text-regular mb-3 hidden lg:block`,
-  TitleNavResponsive: tw.h2`font-PrimarySerif text-primary font-thin  text-regular  mb-3`,
+  TitleNavResponsive: tw.h2`lg:font-PrimarySerif font-Primary text-primary lg:font-thin text-regular mb-3 `,
   NavFooter: tw.nav`list-none mb-10 font-secundary text-primary text-sm cursor-pointer`,
   NavFooterFlex: tw.nav`list-none mb-10 flex cursor-pointer justify-start items-center`,
   ItemsMenu: tw.p`py-1 leading-relaxed lg:leading-none text-sm font-extralight`,

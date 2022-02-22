@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -13,18 +14,48 @@ export default function Collapse() {
 
   const innerRender = (iDx: number) => SERVICES[iDx].Services;
   const innerRenderText = (iDx: number) => SERVICES[iDx].Description;
+  const variants = {
+    hidden: {
+      opacity: 0,
+    },
+    show: {
+      opacity: 1,
+      transition: {
+        straggerchildren: 1,
+      },
+    },
+  };
+  const item = {
+    hidden: {
+      opacity: 0,
+      y: '20%',
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+      },
+    },
+  };
 
   return (
     <>
       <Styles.SectionCollapse>
         <Styles.BlockDescription>
-          {innerRender(idx).map((tab) => (
-            <Link href={`/servicios/${tab}`}>
-              <Styles.SubSection key={`${tab}-services`}>
-                {tab}{' '}
-              </Styles.SubSection>
-            </Link>
-          ))}
+          <motion.div
+            className="children"
+            variants={variants}
+            initial="hidden"
+            animate="show">
+            {innerRender(idx).map((tab) => (
+              <Link href={`/servicios/${tab}`}>
+                <Styles.SubSection key={`${tab}-services`}>
+                  <motion.div variants={item}>{tab}</motion.div>
+                </Styles.SubSection>
+              </Link>
+            ))}
+          </motion.div>
         </Styles.BlockDescription>
         <Styles.BlockImg>
           <Styles.SectionAtom ismode={idx}>
@@ -36,7 +67,7 @@ export default function Collapse() {
                 width={500}
                 height={500}
                 alt="Elipse"
-                className="z-0"
+                className="z-0 object-contain overflow-hidden  "
               />
             </Styles.BlockAtom>
             <Image
@@ -44,12 +75,15 @@ export default function Collapse() {
               width={500}
               height={500}
               alt="Elipse"
-              className="z-0 flex justify-center items-center"
+              className="opacity-0 overflow-hidden object-contain"
             />
           </Styles.SectionAtom>
-          <Styles.TextCentral>
-            <p>{innerRenderText(idx)}</p>
-          </Styles.TextCentral>
+
+          <div className="border-4 border-white w-4/6 h-4/6 absolute lg:top-20 lg:right-20 md:right-4 right-16 top-16 rounded-full flex justify-center items-center animate-pulse">
+            <Styles.TextCentral>
+              <p>{innerRenderText(idx)}</p>
+            </Styles.TextCentral>
+          </div>
         </Styles.BlockImg>
         <Styles.BlockSectionTitle>
           <Styles.BlockTextSelect>

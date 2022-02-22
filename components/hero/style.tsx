@@ -33,7 +33,7 @@ export const Block = styled.section`
 `;
 
 export const HeadSection = {
-  TextHead: tw(TextHero)` lg:pr-10 lg:text-4xl font-thin text-5xl `,
+  TextHead: tw(TextHero)` lg:pr-10 lg:text-4xl font-thin text-3xl `,
   SectionHero: tw.section`font-Primary`,
   Blockbutton: tw.div`relative cursor-pointer`,
   TextButton: tw.h6`text-primary`,

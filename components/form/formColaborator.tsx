@@ -202,14 +202,25 @@ export default function FormColaborator() {
                 </Styles.BlockSectionMarginTop>
               </Styles.SectionInput>
               <Styles.SingleInput>
-                <Styles.BlockSectionMarginTop>
-                  <Styles.Input
-                    ismode={BUTTON_ACTIVE.OFF}
-                    placeholder="Empresa/Organización"
-                    type="text"
-                    name={FORMVALUES.COMPANY}
-                  />
-                </Styles.BlockSectionMarginTop>
+                {values[valuepartOf] === CONDITIONFORM.TEAM ? (
+                  <Styles.BlockSectionMarginTop>
+                    <Styles.Input
+                      ismode={BUTTON_ACTIVE.OFF}
+                      placeholder="Enlace al portfolio o perfil de LinkedIn"
+                      type="text"
+                      name={FORMVALUES.COMPANY}
+                    />
+                  </Styles.BlockSectionMarginTop>
+                ) : (
+                  <Styles.BlockSectionMarginTop>
+                    <Styles.Input
+                      ismode={BUTTON_ACTIVE.OFF}
+                      placeholder="Empresa/Organización"
+                      type="text"
+                      name={FORMVALUES.COMPANY}
+                    />
+                  </Styles.BlockSectionMarginTop>
+                )}
               </Styles.SingleInput>
               <Styles.SingleInput>
                 <Styles.BlockSectionMarginTop>
