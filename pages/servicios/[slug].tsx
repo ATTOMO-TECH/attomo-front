@@ -97,7 +97,7 @@ function DetailsServices() {
                   <motion.p
                     variants={fadeInUp}
                     transition={{ delay: 5.5 }}
-                    className="lg:overflow-y-scroll lg:h-48 pr-5 relative">
+                    className="pr-5 relative font-PrimarySerif font-light leading-relaxed textDegrade">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Atque labore beatae provident eum, sunt animi repellat enim
                     deserunt commodi, numquam magni ex exercitationem adipisci

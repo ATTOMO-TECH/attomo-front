@@ -3,22 +3,29 @@ import tw from 'tailwind-styled-components';
 
 export const TextHero = styled.h2`
   will-change: transform;
-  background-color: #fff;
-  background-image: url(/bg.png);
-  background-position: 0px 0px;
-  background-repeat: repeat-x;
+  background: linear-gradient(
+    90deg,
+    #b4a9bc 0%,
+    #ffffff 17.79%,
+    #ffffff 63.3%,
+    #b4a9bc 100%
+  );
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-animation: backgroundScroll 20s linear infinite;
-  animation: backgroundScroll 20s linear infinite;
-
-  @-webkit-keyframes backgroundScroll {
-    from {
-      top: 0;
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  -webkit-animation: gradient 1s ease infinite;
+  animation: gradient 8s ease infinite;
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
     }
-    to {
-      top: 10;
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
     }
   }
 `;

@@ -7,6 +7,7 @@ import { SERVICES } from '../../const/constGlobal';
 import { Styles } from './style';
 
 export default function Collapse() {
+  // const { data, isLoading } = useUseAllCases(locale || 'es');
   const [idx, setIdx] = useState(0);
   const handleClick = (iDx: number) => {
     setIdx(iDx);

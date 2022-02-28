@@ -10,12 +10,14 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@types/qs": "^6.9.7",
     "axios": "^0.24.0",
     "formik": "^2.2.9",
     "framer-motion": "^6.2.6",
     "next": "^12.0.10",
     "next-i18next": "^10.3.0",
     "nextjs-progressbar": "^0.0.13",
+    "qs": "^6.10.3",
     "react": "^17.0.2",
     "react-circular-progressbar": "^2.0.4",
     "react-dom": "^17.0.2",

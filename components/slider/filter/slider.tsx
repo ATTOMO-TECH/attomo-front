@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper';
+import SwiperCore, { EffectFade, EffectCoverflow, Pagination } from 'swiper';
 import { useState } from 'react';
 import { DEPARTMENT } from '../../../const/constGlobal';
 import { StylesArticle } from '../style';
@@ -8,18 +8,27 @@ import { BUTTON_ACTIVE } from '../../../const/const';
 
 export default function FilterScroll() {
   const [iDx, handleClick] = useState(0);
+  SwiperCore.use([EffectCoverflow, EffectFade, Pagination]);
   return (
     <>
       <Swiper
-        slidesPerView={5.5}
+        id="filter"
+        slidesPerView={4.5}
         direction="vertical"
+        grabCursor
+        effect="coverflow"
         centeredSlides
-        freeMode
-        mousewheel={{
-          releaseOnEdges: true,
+        modules={[EffectFade, EffectCoverflow]}
+        slideToClickedSlide
+        watchOverflow
+        coverflowEffect={{
+          stretch: 100,
+          depth: 100,
+          modifier: 0,
+          slideShadows: true,
         }}
+        watchSlidesProgress
         pagination={false}
-        modules={[Pagination]}
         className="mySwiper h-48 w-full">
         {DEPARTMENT.map((values, i) => (
           <SwiperSlide className="font-Primary text-Primary">

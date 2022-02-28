@@ -2,8 +2,8 @@ import { useQuery } from 'react-query';
 import { POST } from '../lib/api';
 import { get } from '../lib/restClient';
 
-const getAllPost = async () => {
-  const { data } = await get(POST.FETCH_ALL());
+const getAllPost = async (query: any) => {
+  const { data } = await get(POST.FETCH_ALL(query));
   return data;
 };
 
@@ -12,8 +12,8 @@ const getPostId = async (id: number) => {
   return data;
 };
 
-export function useUseAllPost() {
-  return useQuery(['useAllPost'], () => getAllPost(), {
+export function useUseAllPost(query: any) {
+  return useQuery(['useAllPost', query], () => getAllPost(query), {
     staleTime: 2500,
     notifyOnChangePropsExclusions: ['isStale'],
     refetchOnWindowFocus: false,

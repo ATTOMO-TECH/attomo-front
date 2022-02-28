@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import * as qs from 'qs';
 import BgComponent from '../components/animations/bg';
 import BlockSection from '../components/block/block';
 import BlockBlog from '../components/blog/blog';
+import { Blogstyles } from '../components/blog/style';
 import Footer from '../components/footer/footer';
 import InputNew from '../components/input/inputNews';
 import RenderLoading from '../components/loading/loading';
@@ -14,12 +16,42 @@ import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 
 function News() {
-  const { data, isLoading } = useUseAllPost();
-
+  const translate = getLocale();
+  const [params, setParams] = useState(1);
+  const [query, setQuery] = useState(
+    'pagination[page]=1&pagination[pageSize]=3&populate=coverImage',
+  );
+  const { data, isLoading } = useUseAllPost(query);
+  const [preData, SetPreData] = useState<any[]>([]);
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
+  const handleAddBlog = (value: number) => {
+    setParams(value);
+  };
+  useEffect(() => {
+    if (data) {
+      SetPreData([...preData, data.data]);
+    }
+  }, [data]);
+  useEffect(() => {
+    const queryQs = qs.stringify(
+      {
+        pagination: {
+          page: params,
+          pageSize: 3,
+        },
+        populate: 'coverImage',
+      },
+
+      {
+        encodeValuesOnly: true,
+      },
+    );
+
+    setQuery(queryQs);
+  }, [params]);
 
   const OptionsSelect: {
     Option: string;
@@ -34,14 +66,15 @@ function News() {
       Option: 'Estrategia3',
     },
   ];
-  if (isLoading) {
+
+  if (isLoading && !preData) {
     return (
       <>
         <RenderLoading mode={false} />
       </>
     );
   }
-  const translate = getLocale();
+
   return (
     <>
       <BgComponent />
@@ -84,7 +117,13 @@ function News() {
             ))}
           </Styles.Select>
         </Styles.BlockTrends>
-        <BlockBlog dataBlog={data.data} />
+        <BlockBlog dataBlog={preData} />
+        <Blogstyles.SectionMore>
+          <Blogstyles.BlockMore
+            onClick={() => handleAddBlog(data.meta.pagination.page + 1)}>
+            Ver más noticias
+          </Blogstyles.BlockMore>
+        </Blogstyles.SectionMore>
         <Styles.CenterFlex>
           {translate.contact.map((values) => (
             <BlockSection

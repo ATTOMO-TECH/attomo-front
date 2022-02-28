@@ -5,6 +5,7 @@ export default function BgComponent() {
     <Particles
       id="tsparticles"
       options={{
+        autoPlay: true,
         background: {
           color: {
             value: '#0F0B11',
@@ -20,19 +21,39 @@ export default function BgComponent() {
             resize: true,
             onClick: {
               enable: true,
-              mode: [],
             },
+
             onhover: {
               enable: true,
               mode: 'attract',
               parallax: {
                 enable: true,
-                force: 10,
-                smooth: 100,
+                force: 100,
+                smooth: 1000,
               },
             },
           },
           modes: {
+            light: {
+              area: {
+                gradient: {
+                  start: {
+                    value: '#ffffff',
+                  },
+                  stop: {
+                    value: '#ffffff',
+                  },
+                },
+                radius: 1000,
+              },
+            },
+            attract: {
+              distance: 100,
+              duration: 1000,
+              factor: 1,
+              maxSpeed: 10,
+              speed: 1,
+            },
             bubble: {
               distance: 4,
               duration: 200,
@@ -50,9 +71,20 @@ export default function BgComponent() {
         },
         particles: {
           color: {
-            value: '#ffffff',
+            value: ['#ffffff', '#757676', '#ffffff', '#800909', '#ffffff'],
+            animation: {
+              enable: true,
+              speed: 50,
+              sync: false,
+            },
           },
-
+          shape: {
+            type: 'circle',
+          },
+          shadow: {
+            color: 'blue',
+            blur: 5,
+          },
           collisions: {
             enable: true,
           },
@@ -69,15 +101,21 @@ export default function BgComponent() {
               enable: true,
               area: 800,
             },
-            value: 100,
+            value: 220,
           },
           opacity: {
             value: 0.4,
           },
 
           size: {
-            random: true,
             value: 1,
+            random: true,
+            animation: {
+              enable: true,
+              speed: 20,
+              minimumValue: 0.1,
+              sync: false,
+            },
           },
         },
         detectRetina: true,

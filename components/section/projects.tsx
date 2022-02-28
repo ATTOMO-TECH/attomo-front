@@ -66,7 +66,7 @@ export default function SectionProjects({
                     <IconAnimate
                       text="Ver proyecto"
                       mode
-                      styleText="uppercase text-sm"
+                      styleText=" text-sm"
                     />
                   </Styles.BlockBtn>
                 </Link>

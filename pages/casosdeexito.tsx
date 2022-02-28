@@ -42,13 +42,14 @@ function Cases() {
   return (
     <>
       <BgComponent />
-      <FilterMenu isOpen={isOpenFilter} toggle={toggleFilter} />
       <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
+        <FilterMenu isOpen={isOpenFilter} toggle={toggleFilter} />
         <Styles.Margin>
           <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
         </Styles.Margin>
-        <ButtonShare />
+        {!isOpenFilter && <ButtonShare />}
+
         <HeroCase toggle={toggleFilter} />
         <Styles.BlockSections>
           <SectionProjects

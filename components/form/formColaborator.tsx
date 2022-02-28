@@ -23,48 +23,49 @@ export default function FormColaborator() {
   const valueLastName = FORMVALUES.LASTNAME;
   const valuePhone = FORMVALUES.PHONE;
   const valueEmail = FORMVALUES.EMAIL;
-  const valueLink = FORMVALUES.LINK;
-  const valueCompany = FORMVALUES.COMPANY;
   const valuepartOf = FORMVALUES.PARTOF;
   const valueSpeciality = FORMVALUES.SPECIALITY;
   const valueMessage = FORMVALUES.MESSAGE;
   const check = FORMVALUES.CONDITIONS;
 
   const initialValues = {
-    [valueName]: '',
-    [valueLastName]: '',
-    [valueLink]: '',
-    [valuePhone]: '',
-    [valueEmail]: '',
-    [valueCompany]: '',
-    [valueMessage]: '',
-    [valuepartOf]: '',
-    [valueSpeciality]: [],
-    check: false,
+    [FORMVALUES.FIRSTNAME]: '',
+    [FORMVALUES.LASTNAME]: '',
+    [FORMVALUES.PHONE]: '',
+    [FORMVALUES.EMAIL]: '',
+    [FORMVALUES.LINK]: '',
+    [FORMVALUES.COMPANY]: '',
+    [FORMVALUES.PARTOF]: '',
+    [FORMVALUES.SPECIALITY]: '',
+    [FORMVALUES.MESSAGE]: '',
+    [FORMVALUES.CONDITIONS]: false,
   };
 
   const { mutate } = createContactColaborator();
-  const handleSubmitContact = (action: any) => {
-    const contact = {
-      [FORMVALUES.FIRSTNAME]: valueName,
-      [FORMVALUES.LASTNAME]: valueLastName,
-      [FORMVALUES.PHONE]: valuePhone,
-      [FORMVALUES.EMAIL]: valueEmail,
-      [FORMVALUES.COMPANY]: valueCompany,
-      [FORMVALUES.MESSAGE]: valueMessage,
-      [FORMVALUES.COMPANY]: valueCompany,
-      [FORMVALUES.PARTOF]: valuepartOf,
-      [FORMVALUES.SPECIALITY]: [valueSpeciality],
-      check,
+  const handleSubmitContact = (values: any, action: any) => {
+    const data = {
+      [FORMVALUES.FIRSTNAME]: values.valueName,
+      [FORMVALUES.LASTNAME]: values.valueLastName,
+      [FORMVALUES.PHONE]: values.valuePhone,
+      [FORMVALUES.EMAIL]: values.valueEmail,
+      [FORMVALUES.COMPANY]: values.valueCompany,
+      [FORMVALUES.MESSAGE]: values.valueMessage,
+      [FORMVALUES.COMPANY]: values.valueCompany,
+      [FORMVALUES.PARTOF]: values.valuepartOf,
+      [FORMVALUES.SPECIALITY]: values.valueSpeciality,
+      [FORMVALUES.CONDITIONS]: values.check,
     };
-    mutate(contact, {
-      onSuccess: () => {
-        action.resetForm();
+    mutate(
+      { data },
+      {
+        onSuccess: () => {
+          action.resetForm();
+        },
+        onError: () => {
+          action.resetForm();
+        },
       },
-      onError: () => {
-        action.resetForm();
-      },
-    });
+    );
   };
 
   return (
@@ -208,7 +209,7 @@ export default function FormColaborator() {
                       ismode={BUTTON_ACTIVE.OFF}
                       placeholder="Enlace al portfolio o perfil de LinkedIn"
                       type="text"
-                      name={FORMVALUES.COMPANY}
+                      name={FORMVALUES.LINK}
                     />
                   </Styles.BlockSectionMarginTop>
                 ) : (

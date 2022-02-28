@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
 import { Blogstyles } from './style';
 import Title from '../Text/title';
 import IconAnimate from '../button/icon';
@@ -10,11 +9,9 @@ interface Props {
 }
 
 export default function BlockBlog({ dataBlog }: Props) {
-  const [isData] = useState(dataBlog);
-
   return (
     <>
-      {isData.map((data: any) => (
+      {dataBlog.map((data: any) => (
         <Blogstyles.Article>
           <Blogstyles.BlockImg>
             {data.attributes?.coverImage?.data?.attributes?.url ? (
@@ -47,9 +44,6 @@ export default function BlockBlog({ dataBlog }: Props) {
           </Blogstyles.BlockText>
         </Blogstyles.Article>
       ))}
-      <Blogstyles.SectionMore>
-        <Blogstyles.BlockMore>Ver más noticias</Blogstyles.BlockMore>
-      </Blogstyles.SectionMore>
     </>
   );
 }

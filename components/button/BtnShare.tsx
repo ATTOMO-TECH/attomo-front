@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/image';
-
 import { useEffect, useState } from 'react';
 import { Btn } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';

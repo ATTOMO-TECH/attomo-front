@@ -11,6 +11,18 @@
 * {
   scroll-behavior: smooth;
 }
+
+.textDegrade {
+  background: linear-gradient(
+    90deg,
+    #b4a9bc 0%,
+    #ffffff 40%,
+    #ffffff 80%,
+    #b4a9bc 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 ::-webkit-scrollbar {
   width: 6px;
   height: 10px;
@@ -56,6 +68,14 @@
   .swiper-container {
     width: 768px;
   }
+}
+
+#filter
+  .swiper-slide:not(.swiper-slide-active):not(.swiper-slide-next):not(.swiper-slide-prev) {
+  opacity: 0.4;
+}
+#filter .swiper-slide-visible {
+  opacity: 1;
 }
 .btn {
   overflow: hidden;

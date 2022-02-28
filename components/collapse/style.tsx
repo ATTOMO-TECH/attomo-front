@@ -182,5 +182,5 @@ export const Styles = {
   TextCentral: tw(TextTitle)` w-4/6 text-center lg:text-sm `,
   Circle: tw(
     Circle,
-  )`z-0 w-full h-full bg-circle bg-no-repeat absolute rounded-full bg-center bg-contain top-0   `,
+  )`z-0 w-full h-full bg-circle bg-no-repeat absolute  bg-center bg-contain top-0   `,
 };
