@@ -6,6 +6,10 @@ const getAllPost = async (query: any) => {
   const { data } = await get(POST.FETCH_ALL(query));
   return data;
 };
+const getAllTags = async () => {
+  const { data } = await get(POST.FETCH_ALL_TAG());
+  return data;
+};
 
 const getPostId = async (id: number) => {
   const { data } = await get(POST.FETCH_ID(id));
@@ -14,6 +18,13 @@ const getPostId = async (id: number) => {
 
 export function useUseAllPost(query: any) {
   return useQuery(['useAllPost', query], () => getAllPost(query), {
+    staleTime: 2500,
+    notifyOnChangePropsExclusions: ['isStale'],
+    refetchOnWindowFocus: false,
+  });
+}
+export function useUseAllTags() {
+  return useQuery(['useAllPost'], () => getAllTags(), {
     staleTime: 2500,
     notifyOnChangePropsExclusions: ['isStale'],
     refetchOnWindowFocus: false,

@@ -4,6 +4,7 @@ const getAbsolutePath = (path: string) => `${API_URL}/${path}`;
 
 const POST = {
   FETCH_ALL: (query: any) => getAbsolutePath(`blog-posts?${query}`),
+  FETCH_ALL_TAG: () => getAbsolutePath(`blog-tags`),
   FETCH_ID: (id: number) =>
     getAbsolutePath(`blog-posts/${id}?populate=coverImage`),
 };

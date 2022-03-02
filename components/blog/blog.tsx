@@ -68,7 +68,7 @@ export default function BlockBlog({ dataBlog }: Props) {
                     {data.attributes.title}
                   </Title>
                   <Blogstyles.SubText />
-                  <Link href={`/ATTOMOTrends/${data.id}`}>
+                  <Link href={`/ATTOMOTrends/${data.attributes.title}`}>
                     <div>
                       <IconAnimate text="Leer" mode />
                     </div>

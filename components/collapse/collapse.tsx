@@ -1,8 +1,9 @@
+// eslint-disable-next-line no-use-before-define
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { useUseAllServices } from '../../domain/useServices';
 import RenderLoading from '../loading/loading';
@@ -65,8 +66,10 @@ export default function Collapse() {
             initial="hidden"
             animate="show">
             {data.data[idx].attributes.subservices.data.map((tab: any) => (
-              <Link href={`/servicios/${tab.attributes.name}`}>
-                <Styles.SubSection key={`${tab.attributes.name}-services`}>
+              <Link
+                href={`/servicios/${tab.attributes.name}`}
+                key={`${tab.attributes.name}-services`}>
+                <Styles.SubSection>
                   <motion.div variants={item}>{tab.attributes.name}</motion.div>
                 </Styles.SubSection>
               </Link>
@@ -102,7 +105,6 @@ export default function Collapse() {
           </Styles.BlockTextCenter>
           <Styles.Circle />
         </Styles.BlockImg>
-
         <Styles.BlockSectionTitle>
           <Styles.BlockTextSelect>
             {data.data.map((tab: any, i: number) => (

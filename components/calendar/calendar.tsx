@@ -21,7 +21,6 @@ const CalendarPicker = () => {
           onChange={(date) => setState(date)}
           icon={
             <>
-              {' '}
               <Image
                 src="/icon/calendar.svg"
                 width={100}

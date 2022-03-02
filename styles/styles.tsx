@@ -150,7 +150,7 @@ export const Styles = {
   BlockAddresMap: tw.div`lg:my-12 my-12  lg:w-4/6  m-auto overflow-hidden`,
   Select: tw(
     Select,
-  )`bg-black text-primary outline-none text-sm lg:py-4 font-PrimarySerif font-light ml-5`,
+  )`bg-backCollaplse text-primary outline-none text-sm lg:py-4 font-PrimarySerif font-light ml-5`,
   BlockDiv: tw.div`flex flex-col `,
   BtnSelect: tw(
     BtnSelect,
