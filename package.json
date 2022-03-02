@@ -26,6 +26,7 @@
     "react-markdown": "^8.0.0",
     "react-move": "^6.5.0",
     "react-query": "^3.26.0",
+    "react-rainbow-components": "^1.29.0",
     "react-select": "^5.2.2",
     "react-share": "^4.4.0",
     "react-toastify": "^8.1.0",

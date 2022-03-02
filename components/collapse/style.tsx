@@ -63,7 +63,7 @@ export const Item = styled.div<Props>`
       ? `
 @media screen and (min-width: 1024px) 
 {
-  {transform: rotate(35deg)}
+  {transform: rotate(30deg)}
 }; transform: rotate(-50deg)`
       : ''}
   ${(props) =>
@@ -71,16 +71,16 @@ export const Item = styled.div<Props>`
       ? `
   @media screen and (min-width: 1024px) 
   {
-    {transform: rotate(50deg)}
-  }; transform: rotate(-14deg)`
+    {transform: rotate(45deg)}
+  }; transform: rotate(-12deg)`
       : ''}
     ${(props) =>
     props.ismode === 2
       ? `
     @media screen and (min-width: 1024px) 
     {
-      {transform: rotate(65deg)}
-    }; transform: rotate(22deg)`
+      {transform: rotate(60deg)}
+    }; transform: rotate(26deg)`
       : ''}
 `;
 
@@ -102,7 +102,7 @@ export const ItemSection = styled.div`
   }
   @media screen and (min-width: 1024px) {
     left: 52%;
-    top: -14px;
+    top: -4px;
   }
   transform: rotate(-38deg);
 `;
@@ -150,6 +150,8 @@ export const TextTitle = styled.h2`
 `;
 export const Circle = styled.div`
    {
+    width: 98%;
+    height: 100%;
     transform: rotate(-70deg);
   }
 
@@ -161,19 +163,19 @@ export const Circle = styled.div`
 `;
 
 export const Styles = {
-  SectionCollapse: tw.section`h-screen relative lg:h-auto font-PrimarySerif flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative my-24 font-light leading-loose`,
-  BlockDescription: tw.div`lg:text-right text-xl lg:absolute bottom-24 lg:-right-4 w-full text-center `,
+  SectionCollapse: tw.section`h-screen w-full relative z-80 lg:h-auto font-PrimarySerif flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative my-24 px-1 font-light leading-loose`,
+  BlockDescription: tw.div`lg:text-right text-xl lg:absolute bottom-24 lg:-right-4 w-full text-center z-10`,
   SubSection: tw(SubSection)`font-regular text-base cursor-pointer z-80`,
-  BlockImg: tw.div`relative p-1 `,
+  BlockImg: tw.div`relative overflow-hidden `,
   SectionAtom: tw(
     Item,
-  )`lg:animate-pulse transition ease-in-out delay-150 z-0  p-2 lg:p-0`,
-  BlockAtom: tw.div`absolute`,
+  )`lg:animate-pulse transition ease-in-out delay-150 relative z-40 p-2 lg:p-0`,
+  BlockAtom: tw.div`absolute z-10`,
   Atom: tw(ItemSection)``,
   Image: tw(Imgen)``,
   BlockTextSelect: tw(
     SectionTitle,
-  )`text-2xl  lg:absolute  bottom-2 lg:bottom-2  lg:top-7 flex lg:block lg:w-1/3 w-full h-1/3`,
+  )`text-2xl block  lg:absolute  bottom-2 lg:bottom-2  lg:top-7 flex lg:block lg:w-1/3 w-full h-1/3`,
   BlockSectionTitle: tw.div`w-auto z-70 `,
   TextSelect: tw(
     SectionTitle,
@@ -182,5 +184,6 @@ export const Styles = {
   TextCentral: tw(TextTitle)` w-4/6 text-center lg:text-sm `,
   Circle: tw(
     Circle,
-  )`z-0 w-full h-full bg-circle bg-no-repeat absolute  bg-center bg-contain top-0   `,
+  )` bg-backCollaplse bg-circle bg-no-repeat absolute bg-center bg-contain -top-2 lg:top-0 right-1 rounded-full lg:-right-0 md:right-0 z-0`,
+  BlockTextCenter: tw.div`z-10 border-4 border-white w-4/6 h-4/6 absolute md:top-20 md:right-20 right-16 top-16 rounded-full flex justify-center items-center animate-pulse `,
 };

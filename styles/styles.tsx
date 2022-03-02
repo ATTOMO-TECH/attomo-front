@@ -107,7 +107,7 @@ export const BtnSelect = styled.button<Props>`
 
 export const Styles = {
   Body: tw(SectionColor)<Props>`
- scroll-smooth m-auto 
+ scroll-smooth m-auto overflow-hidden
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
       ? 'overflow-hidden h-screen max-w-full'

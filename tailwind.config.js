@@ -26,6 +26,7 @@ module.exports = {
         'error': '#D60000',
         'addictional': '#4B494D',
         'logos': '#7CBBB7',
+        'backCollaplse': '#0f0b11',
    
       },   
       zIndex: {

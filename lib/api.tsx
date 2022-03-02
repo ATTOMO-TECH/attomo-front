@@ -7,11 +7,19 @@ const POST = {
   FETCH_ID: (id: number) =>
     getAbsolutePath(`blog-posts/${id}?populate=coverImage`),
 };
+const SERVICES = {
+  FETCH_ALL: (lenguage: string) =>
+    getAbsolutePath(`services?locale=${lenguage}&populate=subservices`),
+};
 const CASES = {
   FETCH_ALL: (lenguage: string) =>
     getAbsolutePath(`successful-cases?populate=mainPhoto&locale=${lenguage}`),
   FETCH_ID: (id: number) =>
     getAbsolutePath(`successful-cases/${id}?populate=mainPhoto`),
+};
+const RATES = {
+  FETCH_ALL: (lenguage: string) =>
+    getAbsolutePath(`espacio-attomo-rates?locale=${lenguage}`),
 };
 const CONTACT = {
   CREATE: () => getAbsolutePath('client-forms'),
@@ -19,4 +27,4 @@ const CONTACT = {
   CREATERESERVE: () => getAbsolutePath('client-forms'),
 };
 
-export { POST, CASES, CONTACT, getAbsolutePath };
+export { POST, CASES, CONTACT, SERVICES, RATES, getAbsolutePath };

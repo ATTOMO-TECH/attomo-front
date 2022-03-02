@@ -121,3 +121,52 @@ input[type='date']::-webkit-calendar-picker-indicator {
   margin: 0px;
   margin-right: 5px !important;
 }
+input#input-4 {
+  background-color: black;
+  border: 0 !important;
+  outline: none !important;
+}
+#datePicker-19_modal section {
+  background-color: black;
+  border-radius: 0%;
+  margin: 10px;
+}
+.dJHgI::after,
+.dgExyT,
+.sc-cJSrbW.jsQYfv,
+.eWjXmP,
+.bhKBNK,
+.iunbWn {
+  background: white !important;
+  background-color: white !important;
+}
+.dJHgI:focus,
+.dJHgI:active,
+.dJHgI:hover,
+.ceEIkZ:focus,
+.ceEIkZ:active,
+.csLTLp:focus,
+.csLTLp:active,
+.csLTLp:hover {
+  box-shadow: 0 0 2px white !important;
+  border: 1px solid white !important;
+  box-shadow: none !important;
+}
+#modal-content-10 header {
+  display: none;
+}
+#modal-content-10 section {
+  margin-top: 10%;
+}
+
+#modal-content-10 button {
+  background-color: black;
+  color: white;
+}
+#modal-content-10 .dgEx {
+  border: 1px solid white;
+  background: rgb(255 255 255 / 0%) !important;
+}
+.kLGRex {
+  padding: 3rem;
+}

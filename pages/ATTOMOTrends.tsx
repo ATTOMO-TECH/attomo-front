@@ -15,6 +15,20 @@ import { useUseAllPost } from '../domain/useBlogDetails';
 import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 
+const OptionsSelect: {
+  Option: string;
+}[] = [
+  {
+    Option: 'Estrategia1',
+  },
+  {
+    Option: 'Estrategia2',
+  },
+  {
+    Option: 'Estrategia3',
+  },
+];
+
 function News() {
   const translate = getLocale();
   const [params, setParams] = useState(1);
@@ -22,50 +36,40 @@ function News() {
     'pagination[page]=1&pagination[pageSize]=3&populate=coverImage',
   );
   const { data, isLoading } = useUseAllPost(query);
-  const [preData, SetPreData] = useState<any[]>([]);
-  const [isOpen, SetIsOpen] = useState<boolean>(false);
+  const [preData, setPreData] = useState<any[]>([]);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
   const toggle = () => {
-    SetIsOpen(!isOpen);
+    setIsOpen(!isOpen);
   };
+
   const handleAddBlog = (value: number) => {
     setParams(value);
   };
+
+  const queryQs = qs.stringify(
+    {
+      pagination: {
+        page: params,
+        pageSize: 3,
+      },
+      populate: 'coverImage',
+    },
+
+    {
+      encodeValuesOnly: true,
+    },
+  );
+
   useEffect(() => {
     if (data) {
-      SetPreData([...preData, data.data]);
+      setPreData([...preData, ...data.data]);
     }
   }, [data]);
+
   useEffect(() => {
-    const queryQs = qs.stringify(
-      {
-        pagination: {
-          page: params,
-          pageSize: 3,
-        },
-        populate: 'coverImage',
-      },
-
-      {
-        encodeValuesOnly: true,
-      },
-    );
-
     setQuery(queryQs);
   }, [params]);
-
-  const OptionsSelect: {
-    Option: string;
-  }[] = [
-    {
-      Option: 'Estrategia1',
-    },
-    {
-      Option: 'Estrategia2',
-    },
-    {
-      Option: 'Estrategia3',
-    },
-  ];
 
   if (isLoading && !preData) {
     return (
@@ -91,7 +95,6 @@ function News() {
                 <Title size="text-4xl lg:pt-2 lg:pr-10 pb-24 w-full pt-20 lg:w-5/6">
                   {value.Text}
                 </Title>
-
                 <Styles.BlockInputSend>
                   <Title size="text-xl lg:py-4 lg:w-auto w-full py-6 lg:pr-5">
                     {value.Subtext}
@@ -118,12 +121,16 @@ function News() {
           </Styles.Select>
         </Styles.BlockTrends>
         <BlockBlog dataBlog={preData} />
-        <Blogstyles.SectionMore>
-          <Blogstyles.BlockMore
-            onClick={() => handleAddBlog(data.meta.pagination.page + 1)}>
-            Ver más noticias
-          </Blogstyles.BlockMore>
-        </Blogstyles.SectionMore>
+        {preData.length !== 4 ? (
+          <Blogstyles.SectionMore>
+            <Blogstyles.BlockMore
+              onClick={() => handleAddBlog(data.meta.pagination.page + 1)}>
+              Ver más noticias
+            </Blogstyles.BlockMore>
+          </Blogstyles.SectionMore>
+        ) : (
+          ''
+        )}
         <Styles.CenterFlex>
           {translate.contact.map((values) => (
             <BlockSection

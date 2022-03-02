@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import Footer from '../components/footer/footer';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
@@ -16,6 +17,12 @@ import BgComponent from '../components/animations/bg';
 import { getLocale } from '../public/locales/getLocale';
 
 function Space() {
+  const router = useRouter();
+  let { locale } = router;
+  if (locale === '/') {
+    locale = 'es';
+  }
+
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const toggle = () => {
     SetIsOpen(!isOpen);
@@ -74,7 +81,7 @@ function Space() {
             <Title size="text-5xl lg:pt-36 pb-24 w-full text-center pt-20 ">
               {translate.prices}
             </Title>
-            <Prices />
+            <Prices locale={locale} />
           </Styles.ContainerFull>
         </Styles.Center>
         <Styles.Center id="reserva">

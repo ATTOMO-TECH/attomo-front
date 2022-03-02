@@ -96,7 +96,7 @@ export const Styles = {
 
   BtnSelect: tw(
     BtnSelect,
-  )`block ease-out duration-200 text-primary border-2 border-primary px-16 lg:text-sm py-4 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none mr-5 `,
+  )`block ease-out duration-200 text-primary border-2 border-primary px-12 lg:text-sm py-3 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none mr-5 `,
 
   Form: tw(Form)`lg:w-4/6 m-auto`,
   SectionInput: tw.div`flex flex-col lg:flex-row `,

@@ -24,10 +24,10 @@ export default function ButtonShare() {
           rel="noreferrer">
           <Btn.Icon ismode={!scroll ? BUTTON_ACTIVE.ON : ''}>
             <Image
-              src="/icon/whatsapp.svg"
-              width={60}
-              height={60}
-              alt="Attomo"
+              src="/icon/WhatsApp.png"
+              width={100}
+              height={100}
+              alt="WhatsApp"
             />
           </Btn.Icon>
         </a>

@@ -6,9 +6,12 @@ type Props = {
   ismode: any;
 };
 export const BlockSelected = styled.div`
-  // -webkit-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.2);
-  // -moz-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.2);
-  // box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.2);
+  &:hover {
+    -webkit-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
+    -moz-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
+    opacity: 1;
+  }
 `;
 
 export const Styles = {
@@ -48,7 +51,7 @@ ${(props) =>
   BlockImg: tw.div`w-full bg-cover bg-center py-44 bg-no-repeat `,
   BlockSelect: tw(
     BlockSelected,
-  )`w-5/6 border bg-black border-primary rounded-xl overflow-hidden flex flex-col p-4 justify-center items-center text-center  duration-300 ease-in-out cursor-pointer  border-opacity-40 hover:border-opacity-100 py-12`,
+  )`w-5/6 border bg-black border-primary rounded-xl overflow-hidden flex flex-col p-4 justify-center items-center text-center  duration-300 ease-in-out cursor-pointer  border-opacity-40 hover:border-opacity-100 py-12 transition delay-100 duration-500 ease-in-out`,
 };
 
 export const StylesCases = {

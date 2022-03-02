@@ -58,12 +58,7 @@ export default function FilterDetails({ isOpen, toggle }: Props) {
                 section="Estrategia"
                 subsection={array}
                 collapse={false}
-              />
-              <SubMenu section="Diseño" subsection={array} collapse={false} />
-              <SubMenu
-                section="Tecnología"
-                subsection={array}
-                collapse={false}
+                slug={undefined}
               />
             </div>
           </div>

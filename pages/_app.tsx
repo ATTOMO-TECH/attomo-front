@@ -1,4 +1,5 @@
 import type { AppProps } from 'next/app';
+import { createContext } from 'react';
 import Head from 'next/head';
 import { appWithTranslation } from 'next-i18next';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -6,6 +7,7 @@ import { AuthProvider } from '../context/AuthContext';
 import '../styles/globals.css';
 
 const queryClient = new QueryClient();
+export const GlobalContext = createContext({});
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <AuthProvider>
@@ -20,6 +22,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
       <title>ATTOMO - Estudio</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
+
     <QueryClientProvider client={queryClient}>
       <Component {...pageProps} />
     </QueryClientProvider>

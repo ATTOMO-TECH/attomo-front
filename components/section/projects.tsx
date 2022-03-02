@@ -41,7 +41,7 @@ export default function SectionProjects({
               key={values.Client}>
               <Styles.BlockSection
                 ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-                {values?.attributes?.mainPhoto?.data[0].attributes?.url ? (
+                {values?.attributes?.mainPhoto?.data[0].attributes?.url && (
                   <Image
                     src={values.attributes.mainPhoto.data[0].attributes.url}
                     width={800}
@@ -49,8 +49,6 @@ export default function SectionProjects({
                     alt={values.attributes.name}
                     objectFit="cover"
                   />
-                ) : (
-                  ''
                 )}
               </Styles.BlockSection>
               <Styles.BlockText

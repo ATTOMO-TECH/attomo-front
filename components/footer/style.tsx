@@ -27,8 +27,8 @@ export const SubTitle = styled.h2`
 
 export const Navegation = {
   SectionFooter: tw.footer`text-gray-600 body-font border-t border-primary bg-secundary border-opacity-20`,
-  BlockFooter: tw.div`container w-10/12  py-20 mx-auto flex flex-wrap md:text-left text-center order-first items-start`,
-  BlockLogo: tw.div`lg:w-5/12 md:w-1/2 w-full text-left`,
+  BlockFooter: tw.div` w-10/12 py-20 mx-auto flex flex-wrap justify-between md:text-left text-center order-first items-start`,
+  BlockLogo: tw.div`lg:w-6/12 md:w-1/2 w-full text-left `,
   BlockNavMed: tw.div`lg:w-2/12 md:w-1/2 w-full text-left`,
   BlockNav: tw.div`lg:w-3/12 md:w-1/2 w-full text-left`,
   TitleNav: tw.h2`font-PrimarySerif text-primary font-thin text-regular mb-3 hidden lg:block`,

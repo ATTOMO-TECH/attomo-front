@@ -4,6 +4,7 @@ import { Formik } from 'formik';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { Filter } from './style';
 import FilterScroll from '../slider/filter/slider';
+import CalendarPicker from '../calendar/calendar';
 
 interface Props {
   isOpen: boolean;
@@ -13,7 +14,7 @@ interface Props {
 export default function FilterMenu({ isOpen, toggle }: Props) {
   return (
     <>
-      <div className="relative">
+      <div className="relative ">
         <Formik onSubmit={(e: any) => e} initialValues={{}} validateOnMount>
           <Filter.BlockFilter
             ismode={isOpen ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
@@ -37,7 +38,7 @@ export default function FilterMenu({ isOpen, toggle }: Props) {
                 />
               </Filter.ItemsMenu>
             </Filter.AlinItems>
-            <div className="flex flex-col pt-24 justify-items-stretch h-screen  text-primary self-center ">
+            <div className="flex flex-col pt-24 justify-items-stretch h-screen  text-primary self-center  ">
               <div className="w-full flex flex-col justify-items-stretch items-center">
                 <input
                   type="text"
@@ -62,12 +63,8 @@ export default function FilterMenu({ isOpen, toggle }: Props) {
                       <div className="w-3/6">
                         <h6 className="text-xl">Fecha</h6>
                       </div>
-                      <div className="w-full lg:w-4/6">
-                        <Filter.InputDate
-                          ismode={BUTTON_ACTIVE.ON}
-                          placeholder="Fecha"
-                          type="date"
-                        />
+                      <div className="w-full lg:w-4/6  z-100">
+                        <CalendarPicker />
                       </div>
                     </div>
                   </div>

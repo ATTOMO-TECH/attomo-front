@@ -46,7 +46,7 @@ function Services() {
           </Styles.ScreenMid>
         </Styles.Center>
         <Styles.Center>
-          <div className="lg:py-48 overflow-hidden px-1">
+          <div className="lg:py-48 overflow-hidden">
             <Collapse />
           </div>
         </Styles.Center>

@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { fadeInUp, stagger } from '../../components/animations/animations';
@@ -16,36 +15,35 @@ import Title from '../../components/Text/title';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { ARTICLES } from '../../const/constGlobal';
 import { Styles } from '../../styles/styles';
+import { useUseAllServices } from '../../domain/useServices';
+import RenderLoading from '../../components/loading/loading';
 
 function DetailsServices() {
-  const array: {
-    Name: string;
-    Component: any;
-  }[] = [
-    {
-      Name: 'Estrategia',
-      Component: '',
-    },
-    {
-      Name: 'Estrategia',
-      Component: '',
-    },
-    {
-      Name: 'Estrategia',
-      Component: '',
-    },
-  ];
+  const [isOpenFilter, SetIsOpenFilter] = useState<boolean>(false);
   const [isOpen, SetIsOpen] = useState<boolean>(false);
-
   const router = useRouter();
   const { slug } = router.query;
-  const [isOpenFilter, SetIsOpenFilter] = useState<boolean>(false);
+
+  let { locale } = router;
+  if (locale === '/') {
+    locale = 'es';
+  }
+  const { data, isLoading } = useUseAllServices(locale || 'es');
+  if (isLoading) {
+    return (
+      <>
+        <RenderLoading mode={false} />
+      </>
+    );
+  }
+
   const toggleFilter = () => {
     SetIsOpenFilter(!isOpenFilter);
   };
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
+
   return (
     <>
       <BgComponent />
@@ -68,9 +66,14 @@ function DetailsServices() {
             className="pb-36">
             <Styles.CenterCases>
               <div className="lg:flex flex-col pt-10 hidden relative">
-                <SubMenu section="Estrategia" subsection={array} collapse />
-                <SubMenu section="Diseño" subsection={array} collapse />
-                <SubMenu section="Tecnología" subsection={array} collapse />
+                {data.data.map((tab: any) => (
+                  <SubMenu
+                    section={tab.attributes.name}
+                    subsection={tab}
+                    collapse
+                    slug={slug}
+                  />
+                ))}
               </div>
               <Styles.BlockFilter onClick={toggleFilter}>
                 <Title size="lg:text-lg text-lg font-Primary font-light ">
@@ -98,30 +101,7 @@ function DetailsServices() {
                     variants={fadeInUp}
                     transition={{ delay: 5.5 }}
                     className="pr-5 relative font-PrimarySerif font-light leading-relaxed textDegrade">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Atque labore beatae provident eum, sunt animi repellat enim
-                    deserunt commodi, numquam magni ex exercitationem adipisci
-                    sapiente laudantium odio libero, illum amet! Lorem ipsum
-                    dolor sit amet consectetur adipisicing elit. Atque labore
-                    beatae provident eum, sunt animi repellat enim deserunt
-                    commodi, numquam magni ex exercitationem adipisci sapiente
-                    laudantium odio libero, illum amet! Lorem ipsum dolor sit
-                    amet consectetur adipisicing elit. Atque labore beatae
-                    provident eum, sunt animi repellat enim deserunt commodi,
-                    numquam magni ex exercitationem adipisci sapiente laudantium
-                    odio libero, illum amet! Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Atque labore beatae provident
-                    eum, sunt animi repellat enim deserunt commodi, numquam
-                    magni ex exercitationem adipisci sapiente laudantium odio
-                    libero, illum amet! Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Atque labore beatae provident eum, sunt
-                    animi repellat enim deserunt commodi, numquam magni ex
-                    exercitationem adipisci sapiente laudantium odio libero,
-                    illum amet! Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Atque labore beatae provident eum, sunt
-                    animi repellat enim deserunt commodi, numquam magni ex
-                    exercitationem adipisci sapiente laudantium odio libero,
-                    illum amet!
+                    {/* {innerRenderText()} */}
                   </motion.p>
                 </motion.div>
               </motion.div>
