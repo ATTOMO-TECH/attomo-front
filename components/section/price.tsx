@@ -26,7 +26,7 @@ function Prices({ locale }: Props) {
         <Link href="/espacio#reserva">
           <Styles.SectionPrices>
             {data.data.map((values: any) => (
-              <Styles.BlockSelect>
+              <Styles.BlockSelect key={`value${values.attributes.text}`}>
                 <Title size=" pt-0 leading-relaxed md:text-xl lg:text-2xl text-3xl">
                   {values.attributes.text}
                 </Title>

@@ -65,7 +65,8 @@ export const SectionColor = styled.div`
 export const subMenu = styled.span<Props>`
   ${({ active }) =>
     active
-      ? `&:before{transition: all .5s;border:2px solid white;border-radius:30px;height:25px;position: absolute; left:0; content:'';  animation: expandCircle .2s forwards;
+      ? `&:before{transition: all .5s;border:2px solid white;border-radius:30px;height:25px;position: absolute; left:0; content:'';
+        animation: expandCircle .2s forwards;
       animation-timing-function: cubic-bezier(.79,-0.08,.37,1.47); };
      `
       : ''}

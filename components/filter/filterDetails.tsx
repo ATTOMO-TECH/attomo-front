@@ -58,7 +58,6 @@ export default function FilterDetails({ isOpen, toggle }: Props) {
                 section="Estrategia"
                 subsection={array}
                 collapse={false}
-                slug={undefined}
               />
             </div>
           </div>

@@ -84,8 +84,9 @@ export const Navegation = {
   `,
   ButtonLogo: tw(Logo)`relative w-10 h-10 menu`,
   ButtonLogoInvert: tw(LogoInvert)`relative w-10 h-10 menuInvert`,
-  ItemList: tw(itemMenu)`list-none `,
-  SelectMenu: tw.p`leading-loose tracking-wide hover:opacity-100 opacity-60 cursor-pointer transition ease-in-out delay-100 duration-100 text-4xl lg:text-5xl lg:py-5`,
+  SelectMenu: tw(
+    itemMenu,
+  )` leading-loose tracking-wide hover:opacity-100 opacity-60 cursor-pointer transition ease-in-out delay-100 duration-100 text-4xl lg:text-5xl lg:py-5`,
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`

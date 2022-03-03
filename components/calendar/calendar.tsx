@@ -18,6 +18,7 @@ const CalendarPicker = () => {
           selectionType="range"
           placeholder="Todas las fechas"
           value={dateValue}
+          locale="es-ES"
           onChange={(date) => setState(date)}
           icon={
             <>

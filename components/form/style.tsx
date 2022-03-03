@@ -137,7 +137,7 @@ ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
   // FORM
   Error: tw.div`text-red-500 absolute text-PrimarySerif text-sm`,
   BlockSelect: tw.div`w-full flex flex-wrap pt-5 text-white font-PrimarySerif font-thin text-sm`,
-  BlockSelectSecond: tw.div`w-full flex flex-wrap pt-5 text-white font-PrimarySerif font-thin text-sm pb-10`,
+  BlockSelectSecond: tw.div`w-full flex flex-wrap  text-white font-PrimarySerif font-thin text-sm pb-10`,
   AlingSelect: tw.div`w-3/6`,
   AlingSelectSecond: tw.div`w-2/6`,
   BlockCheck: tw.div`flex flex-wrap`,

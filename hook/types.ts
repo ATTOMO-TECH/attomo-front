@@ -9,4 +9,6 @@ export const FORMVALUES = {
   PARTOF: 'partOf',
   LINK: 'link',
   SPECIALITY: 'speciality',
+  DATE: 'date',
+  TIME: 'time',
 };

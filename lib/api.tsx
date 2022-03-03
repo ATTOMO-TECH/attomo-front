@@ -8,9 +8,16 @@ const POST = {
   FETCH_ID: (id: number) =>
     getAbsolutePath(`blog-posts/${id}?populate=coverImage`),
 };
+const PARTNER = {
+  FETCH_ALL: (query: any) => getAbsolutePath(`partner-areas?${query}`),
+};
 const SERVICES = {
   FETCH_ALL: (lenguage: string) =>
     getAbsolutePath(`services?locale=${lenguage}&populate=subservices`),
+  FETCH_ONE: (query: any, lenguage: string) =>
+    getAbsolutePath(
+      `services?locale=${lenguage}&populate=subservices&${query}`,
+    ),
 };
 const CASES = {
   FETCH_ALL: (lenguage: string) =>
@@ -28,4 +35,4 @@ const CONTACT = {
   CREATERESERVE: () => getAbsolutePath('client-forms'),
 };
 
-export { POST, CASES, CONTACT, SERVICES, RATES, getAbsolutePath };
+export { POST, CASES, CONTACT, SERVICES, RATES, PARTNER, getAbsolutePath };

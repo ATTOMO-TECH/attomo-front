@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import { darkTheme, lightTheme, Navegation } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { getLocale } from '../../public/locales/getLocale';
@@ -12,17 +14,30 @@ interface Props {
 }
 
 export default function Menu({ isOpen, toggle, logo, mode }: Props) {
+  const translate = getLocale();
+  const [items, setItems] = useState(translate.menu);
+  useEffect(() => {
+    setItems(translate.menu);
+  }, [items]);
+
   const CloseMenu = () => {
     setTimeout(() => {
       toggle();
     }, 1000);
   };
+
   const variants = {
-    open: { opacity: 1, x: 0 },
-    closed: { opacity: 0, x: '-100%' },
+    hidden: {
+      opacity: 0,
+    },
+    show: {
+      opacity: 1,
+      transition: {
+        straggerchildren: 1.5,
+      },
+    },
   };
 
-  const translate = getLocale();
   return (
     <>
       <div className="relative">
@@ -59,26 +74,62 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                   ismode=""
                   theme={mode === true ? lightTheme : darkTheme}
                 />
-                <Image
-                  src="/icon/close.svg"
-                  width={30}
-                  height={30}
-                  alt="close"
-                />
+                <motion.svg
+                  width="36"
+                  height="36"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  transition={{ duration: 1, ease: 'easeInOut' }}>
+                  <motion.path
+                    d="M18 6L6 18"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    initial={{ pathLength: 0 }}
+                    animate={
+                      isOpen
+                        ? { pathLength: 1, type: 'tween' }
+                        : { pathLength: 0, type: 'spring' }
+                    }
+                    transition={{ duration: 1, ease: 'easeInOut' }}
+                  />
+                  <motion.path
+                    d="M6 6L18 18"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    initial={{ pathLength: 0 }}
+                    animate={
+                      isOpen
+                        ? { pathLength: 1, type: 'tween' }
+                        : { pathLength: 0, type: 'spring' }
+                    }
+                    transition={{ duration: 1, ease: 'easeInOut' }}
+                  />
+                </motion.svg>
               </Navegation.ItemsMenu>
             </Navegation.AlinItems>
             <div className="flex flex-col items-center justify-center h-screen text-center ">
-              <div>
-                {translate.menu.map((values) => (
-                  <Navegation.ItemList key={`${values.Value}`}>
-                    <Navegation.SelectMenu
-                      key={`${values.Value}`}
-                      onClick={CloseMenu}>
-                      <Link href={values.Url}>{values.Value}</Link>
-                    </Navegation.SelectMenu>
-                  </Navegation.ItemList>
-                ))}
-              </div>
+              {items.map((values, i) => (
+                <Navegation.SelectMenu
+                  key={`${values.Value}`}
+                  onClick={CloseMenu}>
+                  <motion.li
+                    key={`${values.Value}`}
+                    animate={
+                      isOpen
+                        ? { opacity: 1, translateY: 0 }
+                        : { opacity: 0, translateY: '50%' }
+                    }
+                    className="list-none"
+                    transition={{ duration: 1, delay: i * 0.2 }}>
+                    <Link href={values.Url}>{values.Value}</Link>
+                  </motion.li>
+                </Navegation.SelectMenu>
+              ))}
             </div>
           </Navegation.Menu>
         </Navegation.SectionMenu>

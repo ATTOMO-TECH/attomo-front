@@ -44,13 +44,13 @@ function News() {
           pageSize: 3,
         },
         populate: 'coverImage',
-        filters: {
-          blog_tags: {
-            name: {
-              $eq: filter,
-            },
-          },
-        },
+        // filters: {
+        //   blog_tags: {
+        //     name: {
+        //       $eq: filter,
+        //     },
+        //   },
+        // },
       },
       {
         encodeValuesOnly: true,

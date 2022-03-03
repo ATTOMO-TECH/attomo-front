@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
+import * as qs from 'qs';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { fadeInUp, stagger } from '../../components/animations/animations';
 import BgComponent from '../../components/animations/bg';
 import BlockSection from '../../components/block/block';
@@ -22,13 +23,34 @@ function DetailsServices() {
   const [isOpenFilter, SetIsOpenFilter] = useState<boolean>(false);
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const router = useRouter();
+  const [query, setQuery] = useState(
+    'pagination[page]=1&pagination[pageSize]=3&populate=coverImage?populate=blog_tags',
+  );
   const { slug } = router.query;
-
   let { locale } = router;
   if (locale === '/') {
     locale = 'es';
   }
   const { data, isLoading } = useUseAllServices(locale || 'es');
+  useEffect(() => {
+    const queryQs = qs.stringify(
+      {
+        filters: {
+          subservices: {
+            id: {
+              $eq: slug,
+            },
+          },
+        },
+      },
+      {
+        encodeValuesOnly: true,
+      },
+    );
+
+    setQuery(queryQs);
+  }, [query]);
+
   if (isLoading) {
     return (
       <>
@@ -43,6 +65,9 @@ function DetailsServices() {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
+
+  const innerRenderText = (iDx: any) =>
+    data.data[iDx].attributes.subservices.data[1].attributes.description;
 
   return (
     <>
@@ -70,8 +95,7 @@ function DetailsServices() {
                   <SubMenu
                     section={tab.attributes.name}
                     subsection={tab}
-                    collapse
-                    slug={slug}
+                    collapse={false}
                   />
                 ))}
               </div>
@@ -89,7 +113,6 @@ function DetailsServices() {
                 <Title size="lg:text-5xl text-2xl font-Primary font-light pb-3">
                   {slug}
                 </Title>
-
                 <motion.div
                   className="pt-2 w-full"
                   animate={{ y: 0, opacity: 1 }}
@@ -101,7 +124,7 @@ function DetailsServices() {
                     variants={fadeInUp}
                     transition={{ delay: 5.5 }}
                     className="pr-5 relative font-PrimarySerif font-light leading-relaxed textDegrade">
-                    {/* {innerRenderText()} */}
+                    {innerRenderText(2)}
                   </motion.p>
                 </motion.div>
               </motion.div>

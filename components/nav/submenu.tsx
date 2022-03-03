@@ -9,15 +9,9 @@ interface Props {
   section: string;
   subsection: any;
   collapse: boolean;
-  slug: any;
 }
 
-export default function SubMenu({
-  section,
-  subsection,
-  collapse,
-  slug,
-}: Props) {
+export default function SubMenu({ section, subsection, collapse }: Props) {
   const [isToggle, SetIsToggle] = useState<boolean>(collapse);
   const [iDx, handleClick] = useState(0);
 
@@ -40,9 +34,9 @@ export default function SubMenu({
                 {subsection.attributes.subservices.data.map(
                   (tab: any, i: number) => (
                     <Styles.SelectSubMenu
-                      ismode={i === iDx && slug ? BUTTON_ACTIVE.ON : ''}
+                      ismode={i === iDx ? BUTTON_ACTIVE.ON : ''}
                       key={tab.attributes.name}
-                      active={i === slug}
+                      active={i === iDx}
                       onClick={() => {
                         handleClick(i);
                         router.push(tab.attributes.name);

@@ -20,6 +20,7 @@ export default function BgComponent() {
           events: {
             resize: true,
             onClick: {
+              mode: 'push',
               enable: true,
             },
 

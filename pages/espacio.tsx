@@ -37,12 +37,11 @@ function Space() {
           <Nav toggle={toggle} logo mode isOpen={isOpen} />
         </Styles.Margin>
         <ButtonShare />
-
         <Styles.Center>
           <Styles.Center>
             <Styles.ScreenMid>
               {translate.spaceAttomo.map((values) => (
-                <Styles.BlockDiv>
+                <Styles.BlockDiv key={`value${values.Text}`}>
                   <Title size="text-5xl lg:pt-24 lg:pr-0 pb-12 lg:w-3/6 pt-20 ">
                     {values.Text}
                   </Title>
@@ -56,7 +55,6 @@ function Space() {
             </Styles.ScreenMid>
           </Styles.Center>
         </Styles.Center>
-
         <Styles.HeroEspace />
         <Styles.Center>
           <Styles.BlockSelected>

@@ -396,17 +396,12 @@ export const TABCONTACT: {
 
 // FORM
 export const FORMPARTOF: {
+  id: number;
   text: string;
   value: string;
 }[] = [
-  {
-    text: 'Formar parte del equipo',
-    value: CONDITIONFORM.TEAM,
-  },
-  {
-    text: 'Colaborar como partner',
-    value: CONDITIONFORM.PARTNER,
-  },
+  { id: 1, text: 'Formar parte del equipo', value: CONDITIONFORM.TEAM },
+  { id: 2, text: 'Colaborar como partner', value: CONDITIONFORM.PARTNER },
 ];
 export const DEPARTMENT: {
   label: string;

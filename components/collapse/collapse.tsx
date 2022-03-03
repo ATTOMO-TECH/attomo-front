@@ -21,7 +21,6 @@ export default function Collapse() {
   const handleClick = (iDx: number) => {
     setIdx(iDx);
   };
-
   const variants = {
     hidden: {
       opacity: 0,
@@ -56,6 +55,7 @@ export default function Collapse() {
 
   const innerRenderText = (iDx: number) =>
     data.data[iDx].attributes.description;
+
   return (
     <>
       <Styles.SectionCollapse>
@@ -67,7 +67,7 @@ export default function Collapse() {
             animate="show">
             {data.data[idx].attributes.subservices.data.map((tab: any) => (
               <Link
-                href={`/servicios/${tab.attributes.name}`}
+                href={`/servicios/${encodeURIComponent(tab.attributes.name)}`}
                 key={`${tab.attributes.name}-services`}>
                 <Styles.SubSection>
                   <motion.div variants={item}>{tab.attributes.name}</motion.div>

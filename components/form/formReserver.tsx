@@ -1,4 +1,5 @@
 import { Formik } from 'formik';
+import { useState } from 'react';
 import { Styles } from './style';
 import IconAnimate from '../button/icon';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -7,10 +8,16 @@ import InputSelect from './select';
 import { OPTIONDISPONIBILITY } from '../../const/constGlobal';
 import InputCheckcondition from './inputCheckcondition';
 import { createContact } from '../../domain/useContact';
-import { validationSchemaBooking } from './validations';
 import Conditions from './conditions';
 
 export default function FormReserver() {
+  const [selected, setSelected] = useState('');
+  const onChange = (e: any) => {
+    setSelected(e.value);
+  };
+
+  const valueDate = FORMVALUES.DATE;
+  const valueTime = FORMVALUES.TIME;
   const valueName = FORMVALUES.FIRSTNAME;
   const valueLastName = FORMVALUES.LASTNAME;
   const valuePhone = FORMVALUES.PHONE;
@@ -25,6 +32,9 @@ export default function FormReserver() {
     [valueCompany]: '',
     [valuePhone]: '',
     [valueEmail]: '',
+    [valueDate]: '',
+    [valueTime]: selected,
+    [valueMessage]: '',
     [FORMVALUES.CONDITIONS]: false,
   };
 
@@ -38,6 +48,8 @@ export default function FormReserver() {
       [FORMVALUES.COMPANY]: data.valueCompany,
       [FORMVALUES.MESSAGE]: data.valueMessage,
       [FORMVALUES.CONDITIONS]: data.conditions,
+      [FORMVALUES.DATE]: data.date,
+      [FORMVALUES.TIME]: selected,
     };
     mutate(contact, {
       onSuccess: () => {
@@ -54,7 +66,7 @@ export default function FormReserver() {
       <Formik
         onSubmit={handleSubmitReserve}
         initialValues={initialValues}
-        validationSchema={validationSchemaBooking}
+        // validationSchema={validationSchemaBooking}
         validateOnMount>
         {({ touched, errors, handleSubmit, setFieldValue }) => (
           <>
@@ -65,13 +77,16 @@ export default function FormReserver() {
                     ismode={BUTTON_ACTIVE.ON}
                     placeholder="Fecha"
                     type="date"
-                    name={valueName}
+                    name={FORMVALUES.DATE}
                   />
 
-                  <div className="lg:w-full lg:mr-6  ">
+                  <div className="lg:w-full lg:mr-6">
                     <InputSelect
+                      selected={selected}
                       options={OPTIONDISPONIBILITY}
                       valueLabel="Tiempo"
+                      name={FORMVALUES.TIME}
+                      onChange={onChange}
                     />
                   </div>
                 </Styles.SectionInput>
@@ -82,7 +97,7 @@ export default function FormReserver() {
                     ismode={BUTTON_ACTIVE.ON}
                     placeholder="Nombre *"
                     type="text"
-                    name={valueName}
+                    name={FORMVALUES.FIRSTNAME}
                   />
                   {touched.valueName && errors.valueName && (
                     <div>{errors.valueName}</div>
@@ -93,7 +108,7 @@ export default function FormReserver() {
                     ismode={BUTTON_ACTIVE.ON}
                     placeholder="Apellidos *"
                     type="text"
-                    name={valueLastName}
+                    name={FORMVALUES.LASTNAME}
                   />
                   {touched.valueName && errors.valueName && (
                     <div>{errors.valueName}</div>
@@ -107,7 +122,7 @@ export default function FormReserver() {
                       ismode={BUTTON_ACTIVE.ON}
                       placeholder="Email *"
                       type="email"
-                      name={valueEmail}
+                      name={FORMVALUES.EMAIL}
                     />
                     {touched.valueName && errors.valueName && (
                       <div>{errors.valueName}</div>
@@ -118,7 +133,7 @@ export default function FormReserver() {
                       ismode={BUTTON_ACTIVE.ON}
                       placeholder="Móvil *"
                       type="tel"
-                      name={valuePhone}
+                      name={FORMVALUES.PHONE}
                     />
                     {touched.valueName && errors.valueName && (
                       <div>{errors.valueName}</div>
@@ -132,7 +147,7 @@ export default function FormReserver() {
                     ismode={BUTTON_ACTIVE.OFF}
                     placeholder="Empresa/Organización *"
                     type="text"
-                    name={valueMessage}
+                    name={FORMVALUES.COMPANY}
                   />
                 </div>
               </Styles.SingleInput>
