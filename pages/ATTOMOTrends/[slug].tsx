@@ -48,13 +48,13 @@ function New({ mode }: Props) {
         <Styles.Center>
           <Styles.AlingCasesNoP>
             <HeaderCases
-              category={data.data.attributes.title}
-              title={data.data.attributes.title}
+              category={data?.data.attributes.title}
+              title={data?.data.attributes.title}
               paragraph=""
-              image={data.data.attributes.coverImage.data.attributes?.url}
+              image={data?.data.attributes.coverImage.data.attributes?.url}
             />
             <BreadCrumbs Author="Autor" Date="Fecha" />
-            <BodyCases data={data.data.attributes.content} />
+            <BodyCases data={data?.data.attributes.content} />
           </Styles.AlingCasesNoP>
           <Styles.TextSubSection>Podría interesarte</Styles.TextSubSection>
         </Styles.Center>

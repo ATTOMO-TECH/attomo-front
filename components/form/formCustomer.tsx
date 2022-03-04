@@ -27,25 +27,28 @@ export default function FormCustomer() {
     [FORMVALUES.CONDITIONS]: false,
   };
   const { mutate } = createContact();
-  const handleSubmit = (data: any, action: any) => {
-    const contact = {
-      [FORMVALUES.FIRSTNAME]: data.valueName,
-      [FORMVALUES.LASTNAME]: data.valueLastName,
-      [FORMVALUES.PHONE]: data.valuePhone,
-      [FORMVALUES.EMAIL]: data.valueEmail,
-      [FORMVALUES.COMPANY]: data.valueCompany,
-      [FORMVALUES.MESSAGE]: data.valueMessage,
-      [FORMVALUES.CONDITIONS]: data.conditions,
+  const handleSubmit = (values: any, action: any) => {
+    const data = {
+      [FORMVALUES.FIRSTNAME]: values.firstname,
+      [FORMVALUES.LASTNAME]: values.lastname,
+      [FORMVALUES.PHONE]: values.mobile,
+      [FORMVALUES.EMAIL]: values.email,
+      [FORMVALUES.COMPANY]: values.valueCompany,
+      [FORMVALUES.MESSAGE]: values.message,
+      [FORMVALUES.CONDITIONS]: values.conditions,
     };
 
-    mutate(contact, {
-      onSuccess: () => {
-        action.resetForm();
+    mutate(
+      { data },
+      {
+        onSuccess: () => {
+          action.resetForm();
+        },
+        onError: () => {
+          action.resetForm();
+        },
       },
-      onError: () => {
-        action.resetForm();
-      },
-    });
+    );
   };
 
   return (

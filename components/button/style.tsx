@@ -45,7 +45,7 @@ export const Icon = {
 
 export const Btn = {
   Icon: tw.div<Props>`
-w-16 h-16 rounded-full p-2  fixed  cursor-pointer z-90 shadow-lg flex justify-center   delay-300 duration-300 ease-in-out
+w-24 h-24 rounded-full p-2  fixed hover:opacity-80 cursor-pointer z-90 flex justify-center z-100  delay-300 duration-300 ease-in-out
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
       ? 'bottom-10 right-10  delay-300 duration-300 ease-in-out opacity-100'

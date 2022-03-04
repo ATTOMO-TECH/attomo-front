@@ -39,38 +39,43 @@ function Cases() {
     );
   }
   const translate = getLocale();
+
   return (
     <>
       <BgComponent />
-      <FilterMenu isOpen={isOpenFilter} toggle={toggleFilter} />
       <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
+        <FilterMenu isOpen={isOpenFilter} toggle={toggleFilter} />
         <Styles.Margin>
           <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
         </Styles.Margin>
-        <ButtonShare />
-        <HeroCase toggle={toggleFilter} />
-        <Styles.BlockSections>
-          <SectionProjects
-            Array={data.data}
-            shouldShowActions={undefined}
-            servicesAnimations={undefined}
-          />
-        </Styles.BlockSections>
-        <Styles.CenterFlex>
-          {translate.contact.map((values) => (
-            <BlockSection
-              key={values.Link}
-              text={values.Text}
-              button={values.Link}
-              text2=""
-              button2=""
-              mode
-              link="/contacto"
-            />
-          ))}
-        </Styles.CenterFlex>
-        <Footer subFooter={false} />
+        {!isOpenFilter && <ButtonShare />}
+        {!isOpenFilter && (
+          <>
+            <HeroCase toggle={toggleFilter} />
+            <Styles.BlockSections>
+              <SectionProjects
+                Array={data.data}
+                shouldShowActions={undefined}
+                servicesAnimations={undefined}
+              />
+            </Styles.BlockSections>
+            <Styles.CenterFlex>
+              {translate.contact.map((values) => (
+                <BlockSection
+                  key={values.Link}
+                  text={values.Text}
+                  button={values.Link}
+                  text2=""
+                  button2=""
+                  mode
+                  link="/contacto"
+                />
+              ))}
+            </Styles.CenterFlex>
+            <Footer subFooter={false} />
+          </>
+        )}
       </Styles.Body>
     </>
   );

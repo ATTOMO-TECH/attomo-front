@@ -83,6 +83,7 @@ export default function Hero({ text, text2, button, link }: Props) {
           <HeadSection.TextHead>{line1}</HeadSection.TextHead>
         </motion.div>
         <motion.div
+          className="pb-24"
           variants={variantsInvert}
           initial="initial"
           animate="animate"

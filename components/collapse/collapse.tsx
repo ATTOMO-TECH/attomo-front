@@ -1,31 +1,82 @@
+// eslint-disable-next-line no-use-before-define
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { BUTTON_ACTIVE } from '../../const/const';
-import { SERVICES } from '../../const/constGlobal';
+import { useUseAllServices } from '../../domain/useServices';
+import RenderLoading from '../loading/loading';
 import { Styles } from './style';
 
 export default function Collapse() {
+  const router = useRouter();
+  let { locale } = router;
+  if (locale === '/') {
+    locale = 'es';
+  }
+  const { data, isLoading } = useUseAllServices(locale || 'es');
+
   const [idx, setIdx] = useState(0);
   const handleClick = (iDx: number) => {
     setIdx(iDx);
   };
+  const variants = {
+    hidden: {
+      opacity: 0,
+    },
+    show: {
+      opacity: 1,
+      transition: {
+        straggerchildren: 1,
+      },
+    },
+  };
+  const item = {
+    hidden: {
+      opacity: 0,
+      y: '20%',
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+      },
+    },
+  };
+  if (isLoading) {
+    return (
+      <>
+        <RenderLoading mode={false} />
+      </>
+    );
+  }
 
-  const innerRender = (iDx: number) => SERVICES[iDx].Services;
-  const innerRenderText = (iDx: number) => SERVICES[iDx].Description;
+  const innerRenderText = (iDx: number) =>
+    data.data[iDx].attributes.description;
 
   return (
     <>
       <Styles.SectionCollapse>
         <Styles.BlockDescription>
-          {innerRender(idx).map((tab) => (
-            <Link href={`/servicios/${tab}`}>
-              <Styles.SubSection key={`${tab}-services`}>
-                {tab}{' '}
-              </Styles.SubSection>
-            </Link>
-          ))}
+          <motion.div
+            className="children"
+            variants={variants}
+            initial="hidden"
+            animate="show">
+            {data.data[idx].attributes.subservices.data.map((tab: any) => (
+              <Link
+                href={`/servicios/${encodeURIComponent(tab.attributes.name)}`}
+                key={`${tab.attributes.name}-services`}>
+                <Styles.SubSection>
+                  <motion.div variants={item}>{tab.attributes.name}</motion.div>
+                </Styles.SubSection>
+              </Link>
+            ))}
+          </motion.div>
         </Styles.BlockDescription>
+
         <Styles.BlockImg>
           <Styles.SectionAtom ismode={idx}>
             <Styles.BlockAtom>
@@ -36,7 +87,7 @@ export default function Collapse() {
                 width={500}
                 height={500}
                 alt="Elipse"
-                className="z-0"
+                className="z-0 object-contain overflow-hidden opacity-0  "
               />
             </Styles.BlockAtom>
             <Image
@@ -44,21 +95,24 @@ export default function Collapse() {
               width={500}
               height={500}
               alt="Elipse"
-              className="z-0 flex justify-center items-center"
+              className="opacity-0 overflow-hidden object-contain"
             />
           </Styles.SectionAtom>
-          <Styles.TextCentral>
-            <p>{innerRenderText(idx)}</p>
-          </Styles.TextCentral>
+          <Styles.BlockTextCenter>
+            <Styles.TextCentral>
+              <p>{innerRenderText(idx)}</p>
+            </Styles.TextCentral>
+          </Styles.BlockTextCenter>
+          <Styles.Circle />
         </Styles.BlockImg>
         <Styles.BlockSectionTitle>
           <Styles.BlockTextSelect>
-            {SERVICES.map((tab, i) => (
+            {data.data.map((tab: any, i: number) => (
               <Styles.TextSelect
                 ismode={i === idx ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-                key={tab.Title}
+                key={tab.attributes.name}
                 onClick={() => handleClick(i)}>
-                {tab.Title}
+                {tab.attributes.name}
               </Styles.TextSelect>
             ))}
           </Styles.BlockTextSelect>

@@ -3,9 +3,21 @@ import { API_URL } from './httpClient';
 const getAbsolutePath = (path: string) => `${API_URL}/${path}`;
 
 const POST = {
-  FETCH_ALL: () => getAbsolutePath('blog-posts?populate=coverImage'),
+  FETCH_ALL: (query: any) => getAbsolutePath(`blog-posts?${query}`),
+  FETCH_ALL_TAG: () => getAbsolutePath(`blog-tags`),
   FETCH_ID: (id: number) =>
     getAbsolutePath(`blog-posts/${id}?populate=coverImage`),
+};
+const PARTNER = {
+  FETCH_ALL: (query: any) => getAbsolutePath(`partner-areas?${query}`),
+};
+const SERVICES = {
+  FETCH_ALL: (lenguage: string) =>
+    getAbsolutePath(`services?locale=${lenguage}&populate=subservices`),
+  FETCH_ONE: (query: any, lenguage: string) =>
+    getAbsolutePath(
+      `services?locale=${lenguage}&populate=subservices&${query}`,
+    ),
 };
 const CASES = {
   FETCH_ALL: (lenguage: string) =>
@@ -13,10 +25,14 @@ const CASES = {
   FETCH_ID: (id: number) =>
     getAbsolutePath(`successful-cases/${id}?populate=mainPhoto`),
 };
+const RATES = {
+  FETCH_ALL: (lenguage: string) =>
+    getAbsolutePath(`espacio-attomo-rates?locale=${lenguage}`),
+};
 const CONTACT = {
-  CREATE: () => getAbsolutePath('subscribers'),
-  CREATECOLABORAROT: () => getAbsolutePath('client-forms'),
+  CREATE: () => getAbsolutePath('client-forms'),
+  CREATECOLABORATOR: () => getAbsolutePath('partner-forms'),
   CREATERESERVE: () => getAbsolutePath('client-forms'),
 };
 
-export { POST, CASES, CONTACT, getAbsolutePath };
+export { POST, CASES, CONTACT, SERVICES, RATES, PARTNER, getAbsolutePath };

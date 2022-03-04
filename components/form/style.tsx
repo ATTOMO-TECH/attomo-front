@@ -96,7 +96,7 @@ export const Styles = {
 
   BtnSelect: tw(
     BtnSelect,
-  )`block ease-out duration-200 text-primary border-2 border-primary px-16 lg:text-sm py-4 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none mr-5 `,
+  )`block ease-out duration-200 text-primary border-2 border-primary px-12 lg:text-sm py-3 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none mr-5 `,
 
   Form: tw(Form)`lg:w-4/6 m-auto`,
   SectionInput: tw.div`flex flex-col lg:flex-row `,
@@ -137,7 +137,7 @@ ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
   // FORM
   Error: tw.div`text-red-500 absolute text-PrimarySerif text-sm`,
   BlockSelect: tw.div`w-full flex flex-wrap pt-5 text-white font-PrimarySerif font-thin text-sm`,
-  BlockSelectSecond: tw.div`w-full flex flex-wrap pt-5 text-white font-PrimarySerif font-thin text-sm pb-10`,
+  BlockSelectSecond: tw.div`w-full flex flex-wrap  text-white font-PrimarySerif font-thin text-sm pb-10`,
   AlingSelect: tw.div`w-3/6`,
   AlingSelectSecond: tw.div`w-2/6`,
   BlockCheck: tw.div`flex flex-wrap`,

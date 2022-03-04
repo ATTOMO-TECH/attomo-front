@@ -73,7 +73,7 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
             )}
           </Navegation.ItemsMenu>
           <div className="flex  items-end">
-            <div className="flex text-Primary text-primary text-sm mr-5 items-center">
+            <div className="flex font-Secundary text-primary text-sm mr-5 items-center">
               <button
                 onClick={() => handleBtn('es')}
                 className="block p-2 delay-150 duration-300 ease-in-out hover:opacity-50"

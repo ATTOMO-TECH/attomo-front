@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import Footer from '../components/footer/footer';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
@@ -16,6 +17,12 @@ import BgComponent from '../components/animations/bg';
 import { getLocale } from '../public/locales/getLocale';
 
 function Space() {
+  const router = useRouter();
+  let { locale } = router;
+  if (locale === '/') {
+    locale = 'es';
+  }
+
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const toggle = () => {
     SetIsOpen(!isOpen);
@@ -30,12 +37,11 @@ function Space() {
           <Nav toggle={toggle} logo mode isOpen={isOpen} />
         </Styles.Margin>
         <ButtonShare />
-
         <Styles.Center>
           <Styles.Center>
             <Styles.ScreenMid>
               {translate.spaceAttomo.map((values) => (
-                <Styles.BlockDiv>
+                <Styles.BlockDiv key={`value${values.Text}`}>
                   <Title size="text-5xl lg:pt-24 lg:pr-0 pb-12 lg:w-3/6 pt-20 ">
                     {values.Text}
                   </Title>
@@ -49,7 +55,6 @@ function Space() {
             </Styles.ScreenMid>
           </Styles.Center>
         </Styles.Center>
-
         <Styles.HeroEspace />
         <Styles.Center>
           <Styles.BlockSelected>
@@ -74,13 +79,13 @@ function Space() {
             <Title size="text-5xl lg:pt-36 pb-24 w-full text-center pt-20 ">
               {translate.prices}
             </Title>
-            <Prices />
+            <Prices locale={locale} />
           </Styles.ContainerFull>
         </Styles.Center>
         <Styles.Center id="reserva">
           {translate.formBooking.map((values) => (
             <Styles.ContainerFull>
-              <Title size="text-5xl lg:pt-36 w-full text-center pt-20 leading-relaxed ">
+              <Title size="lg:text-5xl text-3xl lg:pt-36 w-full text-center pt-20 leading-relaxed ">
                 {values.Text}
               </Title>
               <Title size="text-regular lg:pt-3 w-full text-center leading-relaxed pb-8">

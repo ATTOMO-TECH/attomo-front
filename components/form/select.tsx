@@ -1,12 +1,20 @@
-import { useState } from 'react';
 import Select from 'react-select';
 
 type Props = {
   options: any[];
   valueLabel: string;
+  name: string;
+  onChange?: any;
+  selected: any;
 };
 
-export default function InputSelect({ options, valueLabel }: Props) {
+export default function InputSelect({
+  options,
+  valueLabel,
+  name,
+  onChange,
+  selected,
+}: Props) {
   const customStyles = (value: string) => ({
     placeholder: (base: any) => ({
       ...base,
@@ -60,11 +68,6 @@ export default function InputSelect({ options, valueLabel }: Props) {
     value,
   });
 
-  const [selected, setSelected] = useState('');
-  const onChange = (e: any) => {
-    setSelected(e.value);
-  };
-
   const displayItem = (Selected: any) => {
     const item = options.find((x) => x.value === Selected);
     return item || { value: '', label: `${valueLabel}` };
@@ -74,6 +77,7 @@ export default function InputSelect({ options, valueLabel }: Props) {
     <>
       <Select
         components={{ IndicatorSeparator: () => null }}
+        name={name}
         options={options}
         styles={customStyles(selected)}
         onChange={onChange}

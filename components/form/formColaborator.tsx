@@ -1,71 +1,90 @@
 import { Formik } from 'formik';
-
+import * as qs from 'qs';
+import { useEffect, useState } from 'react';
 import { Styles } from './style';
 import IconAnimate from '../button/icon';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { FORMVALUES } from '../../hook/types';
 import Subtext from '../Text/subText';
 import InputRadio from './inputRadio';
-import {
-  CONDITIONFORM,
-  DEPARTMENT,
-  DEPARTMENTS,
-  FORMPARTOF,
-} from '../../const/constGlobal';
+import { CONDITIONFORM, FORMPARTOF } from '../../const/constGlobal';
 import InputCheck from './inputCheck';
 import InputCheckcondition from './inputCheckcondition';
 import { validationSchemaColaborator } from './validations';
 import { createContactColaborator } from '../../domain/useContact';
 import Conditions from './conditions';
+import { useUseAllPartner } from '../../domain/usePartners';
 
 export default function FormColaborator() {
+  const [query, setQuery] = useState('');
+  const [filter, setFilter] = useState('team');
+  const { data, isLoading } = useUseAllPartner(query);
+  const queryQs = qs.stringify(
+    {
+      filters: {
+        partnerOrTeam: {
+          $eq: filter,
+        },
+      },
+    },
+    {
+      encodeValuesOnly: true,
+    },
+  );
+  useEffect(() => {
+    setQuery(queryQs);
+  }, [filter]);
+
   const valueName = FORMVALUES.FIRSTNAME;
   const valueLastName = FORMVALUES.LASTNAME;
   const valuePhone = FORMVALUES.PHONE;
   const valueEmail = FORMVALUES.EMAIL;
-  const valueLink = FORMVALUES.LINK;
-  const valueCompany = FORMVALUES.COMPANY;
   const valuepartOf = FORMVALUES.PARTOF;
   const valueSpeciality = FORMVALUES.SPECIALITY;
   const valueMessage = FORMVALUES.MESSAGE;
   const check = FORMVALUES.CONDITIONS;
 
   const initialValues = {
-    [valueName]: '',
-    [valueLastName]: '',
-    [valueLink]: '',
-    [valuePhone]: '',
-    [valueEmail]: '',
-    [valueCompany]: '',
-    [valueMessage]: '',
-    [valuepartOf]: '',
-    [valueSpeciality]: [],
-    check: false,
+    [FORMVALUES.FIRSTNAME]: '',
+    [FORMVALUES.LASTNAME]: '',
+    [FORMVALUES.PHONE]: '',
+    [FORMVALUES.EMAIL]: '',
+    [FORMVALUES.LINK]: '',
+    [FORMVALUES.COMPANY]: '',
+    [FORMVALUES.PARTOF]: '',
+    [FORMVALUES.SPECIALITY]: '',
+    [FORMVALUES.MESSAGE]: '',
+    [FORMVALUES.CONDITIONS]: false,
   };
 
   const { mutate } = createContactColaborator();
-  const handleSubmitContact = (action: any) => {
-    const contact = {
-      [FORMVALUES.FIRSTNAME]: valueName,
-      [FORMVALUES.LASTNAME]: valueLastName,
-      [FORMVALUES.PHONE]: valuePhone,
-      [FORMVALUES.EMAIL]: valueEmail,
-      [FORMVALUES.COMPANY]: valueCompany,
-      [FORMVALUES.MESSAGE]: valueMessage,
-      [FORMVALUES.COMPANY]: valueCompany,
-      [FORMVALUES.PARTOF]: valuepartOf,
-      [FORMVALUES.SPECIALITY]: [valueSpeciality],
-      check,
+  const handleSubmitContact = (values: any, action: any) => {
+    const colaborator = {
+      [FORMVALUES.FIRSTNAME]: values.firstname,
+      [FORMVALUES.LASTNAME]: values.lastname,
+      [FORMVALUES.PHONE]: values.mobile,
+      [FORMVALUES.EMAIL]: values.email,
+      [FORMVALUES.COMPANY]: values.valueCompany,
+      [FORMVALUES.MESSAGE]: values.message,
+      [FORMVALUES.PARTOF]: values.partOf,
+      [FORMVALUES.SPECIALITY]: values.speciality,
+      [FORMVALUES.CONDITIONS]: values.conditions,
     };
-    mutate(contact, {
-      onSuccess: () => {
-        action.resetForm();
+    mutate(
+      { colaborator },
+      {
+        onSuccess: () => {
+          action.resetForm();
+        },
+        onError: () => {
+          action.resetForm();
+        },
       },
-      onError: () => {
-        action.resetForm();
-      },
-    });
+    );
   };
+  if (isLoading) {
+    return <></>;
+  }
 
   return (
     <>
@@ -83,13 +102,14 @@ export default function FormColaborator() {
               </Subtext>
               <Styles.BlockSelect>
                 {FORMPARTOF.map((valuesCheck) => (
-                  <Styles.AlingSelect
-                    key={`Radio${values.value}`}
-                    onClick={() => setFieldValue(valueSpeciality, '')}>
+                  <Styles.AlingSelect key={`Radio-${valuesCheck.value}`}>
                     <InputRadio
                       text={valuesCheck.text}
                       value={valuesCheck.value}
-                      onChange={(e: any) => setFieldValue(valuepartOf, e)}
+                      onChange={(e: any) => {
+                        setFieldValue(valuepartOf, e);
+                        setFilter(e);
+                      }}
                     />
                   </Styles.AlingSelect>
                 ))}
@@ -97,32 +117,18 @@ export default function FormColaborator() {
               <Subtext size="lg:text-sm w-full pb-10 font-PrimarySerif pt-10">
                 ¿Cuál es tu especialidad? *
               </Subtext>
-              {values[valuepartOf] === CONDITIONFORM.TEAM ? (
-                <Styles.BlockSelectSecond>
-                  {DEPARTMENT.map((valuesCheck) => (
-                    <Styles.AlingSelectSecond key={`check${valuesCheck.value}`}>
-                      <InputCheck
-                        text={valuesCheck.label}
-                        value={FORMVALUES.SPECIALITY}
-                        onChange={(e: any) => setFieldValue(valueSpeciality, e)}
-                      />
-                    </Styles.AlingSelectSecond>
-                  ))}
-                </Styles.BlockSelectSecond>
-              ) : (
-                <Styles.BlockSelectSecond>
-                  {DEPARTMENTS.map((valueRadio) => (
-                    <Styles.AlingSelectSecond key={`check${valueRadio.value}`}>
-                      <InputCheck
-                        text={valueRadio.label}
-                        value={FORMVALUES.SPECIALITY}
-                        onChange={(e: any) => setFieldValue(valueSpeciality, e)}
-                      />
-                    </Styles.AlingSelectSecond>
-                  ))}
-                </Styles.BlockSelectSecond>
-              )}
-
+              <Styles.BlockSelectSecond>
+                {data.data.map((valuesCheck: any) => (
+                  <Styles.AlingSelectSecond
+                    key={`check-${valuesCheck.attributes.area}`}>
+                    <InputCheck
+                      text={valuesCheck.attributes.area}
+                      value={FORMVALUES.SPECIALITY}
+                      onChange={(e: any) => setFieldValue(valueSpeciality, e)}
+                    />
+                  </Styles.AlingSelectSecond>
+                ))}
+              </Styles.BlockSelectSecond>
               <Styles.SectionInput>
                 <Styles.BlockSections>
                   <Styles.BlockInput>
@@ -202,14 +208,25 @@ export default function FormColaborator() {
                 </Styles.BlockSectionMarginTop>
               </Styles.SectionInput>
               <Styles.SingleInput>
-                <Styles.BlockSectionMarginTop>
-                  <Styles.Input
-                    ismode={BUTTON_ACTIVE.OFF}
-                    placeholder="Empresa/Organización"
-                    type="text"
-                    name={FORMVALUES.COMPANY}
-                  />
-                </Styles.BlockSectionMarginTop>
+                {values[valuepartOf] === CONDITIONFORM.TEAM ? (
+                  <Styles.BlockSectionMarginTop>
+                    <Styles.Input
+                      ismode={BUTTON_ACTIVE.OFF}
+                      placeholder="Enlace al portfolio o perfil de LinkedIn"
+                      type="text"
+                      name={FORMVALUES.LINK}
+                    />
+                  </Styles.BlockSectionMarginTop>
+                ) : (
+                  <Styles.BlockSectionMarginTop>
+                    <Styles.Input
+                      ismode={BUTTON_ACTIVE.OFF}
+                      placeholder="Empresa/Organización"
+                      type="text"
+                      name={FORMVALUES.COMPANY}
+                    />
+                  </Styles.BlockSectionMarginTop>
+                )}
               </Styles.SingleInput>
               <Styles.SingleInput>
                 <Styles.BlockSectionMarginTop>

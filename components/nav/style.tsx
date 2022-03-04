@@ -22,11 +22,8 @@ export const SectionColor = styled(motion.nav)`
 `;
 export const itemMenu = styled.h6`
   font-family: 'Merriweather', 'serif';
-
   font-style: normal;
   font-weight: 300;
-  font-size: 47.78px;
-  line-height: 72px;
 `;
 export const Logo = styled.div`
   &:after {
@@ -68,7 +65,7 @@ export const LogoInvert = styled.div`
 `;
 export const Navegation = {
   SectionMenu: tw(SectionColor)<Props>`
-  lg:transition ease-in-out delay-150 z-100 overflow-y-scroll 
+  lg:transition ease-in-out delay-150 fixed overflow-y-scroll 
     ${(props) =>
       props.ismode === BUTTON_ACTIVE.ON
         ? `cursor-pointer h-screen w-full overflow-hidden z-100 opacity-100 relative `
@@ -76,7 +73,7 @@ export const Navegation = {
   `,
   Menu: tw.nav``,
   AlinItems: tw.ul<Props>`
-  flex items-center justify-between mb-20 w-10/12 absolute lg:left-24 left-12 lg:top-10
+  flex items-center justify-between mb-20 w-10/12 absolute lg:left-24 left-12 lg:top-10 
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'pt-10' : '')}
   `,
   ItemsMenu: tw.li`flex items-center list-none z-100`,
@@ -87,10 +84,9 @@ export const Navegation = {
   `,
   ButtonLogo: tw(Logo)`relative w-10 h-10 menu`,
   ButtonLogoInvert: tw(LogoInvert)`relative w-10 h-10 menuInvert`,
-  ItemList: tw(itemMenu)`list-none `,
   SelectMenu: tw(
     itemMenu,
-  )`hover:opacity-100 opacity-60 cursor-pointer transition ease-in-out delay-100 duration-100`,
+  )` leading-loose tracking-wide hover:opacity-100 opacity-60 cursor-pointer transition ease-in-out delay-100 duration-100 text-4xl lg:text-5xl lg:py-5`,
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`

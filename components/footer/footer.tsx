@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { ICONNAV, VALUESNAV } from '../../const/constGlobal';
 import SubFooter from './subfooter';
@@ -14,16 +13,8 @@ export default function Footer({ subFooter }: Props) {
       <Navegation.SectionFooter>
         <Navegation.BlockFooter>
           <Navegation.BlockLogo>
-            <Image
-              src="/icon/attomo.svg"
-              width={100}
-              height={40}
-              alt="Attomo"
-            />
-          </Navegation.BlockLogo>
-          <Navegation.BlockNavMed className="order-2 lg:order-none">
-            <Navegation.TitleNav>ATTOMO</Navegation.TitleNav>
             <Navegation.NavFooter>
+              <Navegation.TitleNav>ATTOMO</Navegation.TitleNav>
               {VALUESNAV.map((values) => (
                 <Navegation.ItemsMenu key={`footer${values.Value}`}>
                   <Link href={values.Url} passHref>
@@ -32,7 +23,7 @@ export default function Footer({ subFooter }: Props) {
                 </Navegation.ItemsMenu>
               ))}
             </Navegation.NavFooter>
-          </Navegation.BlockNavMed>
+          </Navegation.BlockLogo>
           <Navegation.BlockNavMed className="order-1 lg:order-none pt-10 lg:pt-0">
             <Navegation.TitleNav>SÍGUENOS</Navegation.TitleNav>
             <Navegation.NavFooterFlex>
@@ -60,6 +51,7 @@ export default function Footer({ subFooter }: Props) {
             <InputNew />
           </Navegation.BlockNav>
         </Navegation.BlockFooter>
+
         {subFooter ? <SubFooter /> : ''}
         <Navegation.BlockSubText>
           <Navegation.SubText>

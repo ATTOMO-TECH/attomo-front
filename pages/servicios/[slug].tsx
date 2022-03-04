@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-
+import * as qs from 'qs';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { fadeInUp, stagger } from '../../components/animations/animations';
 import BgComponent from '../../components/animations/bg';
 import BlockSection from '../../components/block/block';
@@ -16,36 +16,59 @@ import Title from '../../components/Text/title';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { ARTICLES } from '../../const/constGlobal';
 import { Styles } from '../../styles/styles';
+import { useUseAllServices } from '../../domain/useServices';
+import RenderLoading from '../../components/loading/loading';
 
 function DetailsServices() {
-  const array: {
-    Name: string;
-    Component: any;
-  }[] = [
-    {
-      Name: 'Estrategia',
-      Component: '',
-    },
-    {
-      Name: 'Estrategia',
-      Component: '',
-    },
-    {
-      Name: 'Estrategia',
-      Component: '',
-    },
-  ];
-  const [isOpen, SetIsOpen] = useState<boolean>(false);
-
-  const router = useRouter();
-  const { slug } = router.query;
   const [isOpenFilter, SetIsOpenFilter] = useState<boolean>(false);
+  const [isOpen, SetIsOpen] = useState<boolean>(false);
+  const router = useRouter();
+  const [query, setQuery] = useState(
+    'pagination[page]=1&pagination[pageSize]=3&populate=coverImage?populate=blog_tags',
+  );
+  const { slug } = router.query;
+  let { locale } = router;
+  if (locale === '/') {
+    locale = 'es';
+  }
+  const { data, isLoading } = useUseAllServices(locale || 'es');
+  useEffect(() => {
+    const queryQs = qs.stringify(
+      {
+        filters: {
+          subservices: {
+            id: {
+              $eq: slug,
+            },
+          },
+        },
+      },
+      {
+        encodeValuesOnly: true,
+      },
+    );
+
+    setQuery(queryQs);
+  }, [query]);
+
+  if (isLoading) {
+    return (
+      <>
+        <RenderLoading mode={false} />
+      </>
+    );
+  }
+
   const toggleFilter = () => {
     SetIsOpenFilter(!isOpenFilter);
   };
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
+
+  const innerRenderText = (iDx: any) =>
+    data.data[iDx].attributes.subservices.data[1].attributes.description;
+
   return (
     <>
       <BgComponent />
@@ -68,10 +91,16 @@ function DetailsServices() {
             className="pb-36">
             <Styles.CenterCases>
               <div className="lg:flex flex-col pt-10 hidden relative">
-                <SubMenu section="Estrategia" subsection={array} collapse />
+                {data.data.map((tab: any) => (
+                  <SubMenu
+                    section={tab.attributes.name}
+                    subsection={tab}
+                    collapse={false}
+                  />
+                ))}
               </div>
               <Styles.BlockFilter onClick={toggleFilter}>
-                <Title size="lg:text-lg text-lg font-Primary font-light">
+                <Title size="lg:text-lg text-lg font-Primary font-light ">
                   Servicios
                 </Title>
               </Styles.BlockFilter>
@@ -81,10 +110,9 @@ function DetailsServices() {
                 initial={{ x: 200, opacity: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ delay: 0.5 }}>
-                <Title size="lg:text-5xl text-2xl font-Primary font-light pb-1">
+                <Title size="lg:text-5xl text-2xl font-Primary font-light pb-3">
                   {slug}
                 </Title>
-
                 <motion.div
                   className="pt-2 w-full"
                   animate={{ y: 0, opacity: 1 }}
@@ -95,31 +123,8 @@ function DetailsServices() {
                   <motion.p
                     variants={fadeInUp}
                     transition={{ delay: 5.5 }}
-                    className="lg:overflow-y-scroll lg:h-48 pr-5 relative">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Atque labore beatae provident eum, sunt animi repellat enim
-                    deserunt commodi, numquam magni ex exercitationem adipisci
-                    sapiente laudantium odio libero, illum amet! Lorem ipsum
-                    dolor sit amet consectetur adipisicing elit. Atque labore
-                    beatae provident eum, sunt animi repellat enim deserunt
-                    commodi, numquam magni ex exercitationem adipisci sapiente
-                    laudantium odio libero, illum amet! Lorem ipsum dolor sit
-                    amet consectetur adipisicing elit. Atque labore beatae
-                    provident eum, sunt animi repellat enim deserunt commodi,
-                    numquam magni ex exercitationem adipisci sapiente laudantium
-                    odio libero, illum amet! Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Atque labore beatae provident
-                    eum, sunt animi repellat enim deserunt commodi, numquam
-                    magni ex exercitationem adipisci sapiente laudantium odio
-                    libero, illum amet! Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Atque labore beatae provident eum, sunt
-                    animi repellat enim deserunt commodi, numquam magni ex
-                    exercitationem adipisci sapiente laudantium odio libero,
-                    illum amet! Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Atque labore beatae provident eum, sunt
-                    animi repellat enim deserunt commodi, numquam magni ex
-                    exercitationem adipisci sapiente laudantium odio libero,
-                    illum amet!
+                    className="pr-5 relative font-PrimarySerif font-light leading-relaxed textDegrade">
+                    {innerRenderText(2)}
                   </motion.p>
                 </motion.div>
               </motion.div>

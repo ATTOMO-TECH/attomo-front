@@ -65,7 +65,8 @@ export const SectionColor = styled.div`
 export const subMenu = styled.span<Props>`
   ${({ active }) =>
     active
-      ? `&:before{transition: all .5s;border:2px solid white;border-radius:30px;height:25px;position: absolute; left:0; content:'';  animation: expandCircle .2s forwards;
+      ? `&:before{transition: all .5s;border:2px solid white;border-radius:30px;height:25px;position: absolute; left:0; content:'';
+        animation: expandCircle .2s forwards;
       animation-timing-function: cubic-bezier(.79,-0.08,.37,1.47); };
      `
       : ''}
@@ -107,7 +108,7 @@ export const BtnSelect = styled.button<Props>`
 
 export const Styles = {
   Body: tw(SectionColor)<Props>`
- scroll-smooth m-auto 
+ scroll-smooth m-auto overflow-hidden
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
       ? 'overflow-hidden h-screen max-w-full'
@@ -150,8 +151,8 @@ export const Styles = {
   BlockAddresMap: tw.div`lg:my-12 my-12  lg:w-4/6  m-auto overflow-hidden`,
   Select: tw(
     Select,
-  )`bg-black text-primary outline-none text-sm lg:py-4 font-PrimarySerif font-light ml-5`,
-  BlockDiv: tw.div`flex flex-col p-10`,
+  )`bg-backCollaplse text-primary outline-none text-sm lg:py-4 font-PrimarySerif font-light ml-5`,
+  BlockDiv: tw.div`flex flex-col `,
   BtnSelect: tw(
     BtnSelect,
   )`text-primary border-2 border-primary px-14 py-3 rounded-full opacity-80 font-PrimarySerif font-thin shadow-none`,

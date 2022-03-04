@@ -6,13 +6,16 @@ type Props = {
   ismode: any;
 };
 export const BlockSelected = styled.div`
-  -webkit-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.2);
-  -moz-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.2);
-  box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.2);
+  &:hover {
+    -webkit-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
+    -moz-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
+    opacity: 1;
+  }
 `;
 
 export const Styles = {
-  SectionProjects: tw.div`py-14  overflow-hidden`,
+  SectionProjects: tw.div`py-14  overflow-hidden relative z-40`,
   BlockSections: tw.div<Props>`
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
@@ -43,12 +46,12 @@ ${(props) =>
   DivideSection: tw.div`lg:w-3/6 w-full pb-2`,
   BlockBtn: tw.div`text-primary z-100`,
 
-  SectionImg: tw.section`grid grid-cols-1 sm:grid-cols-2 gap-6`,
-  SectionPrices: tw.section`grid grid-cols-1 sm:grid-cols-3 gap-8 px-12`,
+  SectionImg: tw.section`grid grid-cols-1 sm:grid-cols-2 lg:gap-6 `,
+  SectionPrices: tw.section`grid grid-cols-1 sm:grid-cols-3 gap-8 px-12 place-items-center`,
   BlockImg: tw.div`w-full bg-cover bg-center py-44 bg-no-repeat `,
   BlockSelect: tw(
     BlockSelected,
-  )`w-5/6 border border-primary rounded-xl overflow-hidden flex flex-col p-4 justify-center items-center text-center  duration-300 ease-in-out cursor-pointer shadow-none border-opacity-40 hover:border-opacity-100 py-12`,
+  )`w-5/6 border bg-black border-primary rounded-xl overflow-hidden flex flex-col p-4 justify-center items-center text-center  duration-300 ease-in-out cursor-pointer  border-opacity-40 hover:border-opacity-100 py-12 transition delay-100 duration-500 ease-in-out`,
 };
 
 export const StylesCases = {

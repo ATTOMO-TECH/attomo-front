@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import router from 'next/router';
 import { fadeInUp, stagger } from '../animations/animations';
 import { Styles } from '../../styles/styles';
 import { BUTTON_ACTIVE } from '../../const/const';
 
 interface Props {
   section: string;
-  subsection: any[];
+  subsection: any;
   collapse: boolean;
 }
 
@@ -30,15 +31,20 @@ export default function SubMenu({ section, subsection, collapse }: Props) {
             <motion.div variants={fadeInUp} className="flex flex-wrap ">
               <div className="flex flex-col relative pl-5">
                 <span className="h-full w-1 rounded-xl opacity-60 bg-white absolute left-0 " />
-                {subsection.map((tab, i) => (
-                  <Styles.SelectSubMenu
-                    ismode={i === iDx ? BUTTON_ACTIVE.ON : ''}
-                    key={tab.Name}
-                    active={i === iDx}
-                    onClick={() => handleClick(i)}>
-                    {tab.Name}
-                  </Styles.SelectSubMenu>
-                ))}
+                {subsection.attributes.subservices.data.map(
+                  (tab: any, i: number) => (
+                    <Styles.SelectSubMenu
+                      ismode={i === iDx ? BUTTON_ACTIVE.ON : ''}
+                      key={tab.attributes.name}
+                      active={i === iDx}
+                      onClick={() => {
+                        handleClick(i);
+                        router.push(tab.attributes.name);
+                      }}>
+                      {tab.attributes.name}
+                    </Styles.SelectSubMenu>
+                  ),
+                )}
               </div>
             </motion.div>
           )}

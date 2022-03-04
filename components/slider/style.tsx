@@ -10,7 +10,7 @@ export const SelectedSlide = styled.div<Props>`
   ${({ active }) =>
     active
       ? 'transform: translatex(25%) scale(1.5); transition: all 0.3s ease; '
-      : 'transform: scale(1); transition: all 0.3s ease; &:nth-child(1){ opacity:0.5;} '}
+      : 'transform: scale(1); transition: all 0.3s ease; &:nth-child(1){ opacity:0.5} '}
 `;
 export const TextTitle = styled.h2`
   @media screen and (max-width: 1024px) {
@@ -24,19 +24,6 @@ export const TextTitle = styled.h2`
     -webkit-text-fill-color: transparent;
   }
 `;
-
-// export const Block = styled.SwiperSlide`
-//   @media screen and (max-width: 1024px) {
-//     background: linear-gradient(
-//       to right,
-//       #cccfe8 26.04%,
-//       #ffffff 69.27%,
-//       #cccfe8 100%
-//     );
-//     -webkit-background-clip: text;
-//     -webkit-text-fill-color: transparent;
-//   }
-// `;
 
 export const lightTheme = {
   headings: TextTitle,

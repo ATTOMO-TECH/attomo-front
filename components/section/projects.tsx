@@ -23,25 +23,25 @@ export default function SectionProjects({
   return (
     <>
       <Styles.SectionProjects>
-        <motion.div
-          animate={shouldShowActions}
-          variants={servicesAnimations}
-          className="actions"
-          transition={{
-            delay: 0.2,
-            type: 'Magic',
+        {isData.map((values: any, i) => (
+          <motion.div
+            animate={shouldShowActions}
+            variants={servicesAnimations}
+            className="actions"
+            transition={{
+              delay: 0.2,
+              type: 'tween',
 
-            duration: 1,
-          }}
-          whileInView={{ opacity: 1, x: 0 }}
-          initial={{ opacity: 0, x: '50%' }}>
-          {isData.map((values: any, i) => (
+              duration: 1,
+            }}
+            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: '50%' }}>
             <Styles.BlockSections
               ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
               key={values.Client}>
               <Styles.BlockSection
                 ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-                {values?.attributes?.mainPhoto?.data[0].attributes?.url ? (
+                {values?.attributes?.mainPhoto?.data[0].attributes?.url && (
                   <Image
                     src={values.attributes.mainPhoto.data[0].attributes.url}
                     width={800}
@@ -49,25 +49,41 @@ export default function SectionProjects({
                     alt={values.attributes.name}
                     objectFit="cover"
                   />
-                ) : (
-                  ''
                 )}
               </Styles.BlockSection>
               <Styles.BlockText
                 ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-                <Title size="text-xl ">{values.attributes.company}</Title>
-                <Title size="text-5xl py-3 leading-relaxed lg:leading-normal">
-                  {values.attributes.title}
-                </Title>
-                <Link href={`/casos/${values.id}`}>
-                  <Styles.BlockBtn>
-                    <IconAnimate text="Ver proyecto" mode />
-                  </Styles.BlockBtn>
-                </Link>
+                <motion.div
+                  animate={shouldShowActions}
+                  variants={servicesAnimations}
+                  transition={{
+                    delay: 0.5,
+                    type: 'Magic',
+
+                    duration: 1,
+                  }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 50 }}>
+                  <Title size="text-lg font-PrimarySerif uppercase ">
+                    {values.attributes.company}
+                  </Title>
+                  <Title size="text-5xl py-3 leading-relaxed lg:leading-normal">
+                    {values.attributes.title}
+                  </Title>
+                  <Link href={`/casos/${values.id}`}>
+                    <Styles.BlockBtn>
+                      <IconAnimate
+                        text="Ver proyecto"
+                        mode
+                        styleText=" text-sm"
+                      />
+                    </Styles.BlockBtn>
+                  </Link>
+                </motion.div>
               </Styles.BlockText>
             </Styles.BlockSections>
-          ))}
-        </motion.div>
+          </motion.div>
+        ))}
       </Styles.SectionProjects>
     </>
   );

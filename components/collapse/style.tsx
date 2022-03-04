@@ -29,37 +29,41 @@ export const SectionTitle = styled.div`
     }
   }
 `;
-export const SubSection = styled.p`
+export const SubSection = styled.div`
 @media screen and (min-width: 1024px) {
+
    {
     &:nth-child(1) {
-      padding-right: 75%;
+      padding-right: 74%;
+    
     }
     &:nth-child(2) {
-      padding-right: 74%;
-    }
-    &:nth-child(3) {
       padding-right: 73%;
     }
-    &:nth-child(4) {
+    &:nth-child(3) {
       padding-right: 72%;
     }
-    &:nth-child(5) {
+    &:nth-child(4) {
       padding-right: 71%;
     }
-    &:nth-child(6) {
+    &:nth-child(5) {
       padding-right: 70%;
+    }
+    &:nth-child(6) {
+      padding-right: 69%;
     }
   }
 `;
 
 export const Item = styled.div<Props>`
+  transition-duration: 0.4s;
+  transition-property: transform;
   ${(props) =>
     props.ismode === 0
       ? `
 @media screen and (min-width: 1024px) 
 {
-  {transform: rotate(35deg)}
+  {transform: rotate(30deg)}
 }; transform: rotate(-50deg)`
       : ''}
   ${(props) =>
@@ -67,16 +71,16 @@ export const Item = styled.div<Props>`
       ? `
   @media screen and (min-width: 1024px) 
   {
-    {transform: rotate(50deg)}
-  }; transform: rotate(-14deg)`
+    {transform: rotate(45deg)}
+  }; transform: rotate(-12deg)`
       : ''}
     ${(props) =>
     props.ismode === 2
       ? `
     @media screen and (min-width: 1024px) 
     {
-      {transform: rotate(65deg)}
-    }; transform: rotate(22deg)`
+      {transform: rotate(60deg)}
+    }; transform: rotate(26deg)`
       : ''}
 `;
 
@@ -85,18 +89,22 @@ export const ItemSection = styled.div`
   height: 8px;
   border-radius: 80% 80% 40% 40%;
   position: absolute;
-  top: -12px;
+  top: -17px;
   left: 48%;
-  transition: all 3s;
 
+  -webkit-animation-duration: 4000ms;
   &:after {
     content: url('/icon/elementElipse.svg');
   }
-  @media screen and (min-width: 1024px) {
-    transform: rotate(-40deg);
-    left: 50%;
+  @media screen and (min-width: 768px) {
+    top: -17px;
+    left: 52%;
   }
-  transform: rotate(-37deg);
+  @media screen and (min-width: 1024px) {
+    left: 52%;
+    top: -4px;
+  }
+  transform: rotate(-38deg);
 `;
 
 export const Imgen = styled.img<Props>`
@@ -140,24 +148,42 @@ export const TextTitle = styled.h2`
     }
   } ;
 `;
+export const Circle = styled.div`
+   {
+    width: 98%;
+    height: 100%;
+    transform: rotate(-70deg);
+  }
+
+  @media screen and (min-width: 1024px) {
+     {
+      transform: rotate(0);
+    }
+  }
+`;
+
 export const Styles = {
-  SectionCollapse: tw.section`h-screen lg:h-auto font-PrimarySerif overflow-hidden max-w-100 flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative my-24 font-light leading-loose`,
-  BlockDescription: tw.div`lg:text-right text-xl lg:absolute bottom-12 lg:-right-4 w-full text-center `,
-  SubSection: tw(SubSection)`font-regular py-0.5 text-base cursor-pointer z-80`,
-  BlockImg: tw.div`relative p-1`,
-  SectionAtom: tw(Item)`animate-pulse transition ease-in-out delay-150 `,
-  BlockAtom: tw.div`absolute`,
+  SectionCollapse: tw.section`h-screen w-full relative z-80 lg:h-auto font-PrimarySerif flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative my-24 px-1 font-light leading-loose`,
+  BlockDescription: tw.div`lg:text-right text-xl lg:absolute bottom-24 lg:-right-4 w-full text-center z-10`,
+  SubSection: tw(SubSection)`font-regular text-base cursor-pointer z-80`,
+  BlockImg: tw.div`relative overflow-hidden `,
+  SectionAtom: tw(
+    Item,
+  )`lg:animate-pulse transition ease-in-out delay-150 relative z-40 p-2 lg:p-0`,
+  BlockAtom: tw.div`absolute z-10`,
   Atom: tw(ItemSection)``,
   Image: tw(Imgen)``,
   BlockTextSelect: tw(
     SectionTitle,
-  )`text-2xl  lg:absolute left-0 bottom-2 lg:bottom-2 lg:left-auto lg:top-7 flex lg:block w-1/3 h-1/3`,
-  BlockSectionTitle: tw.div`w-auto`,
+  )`text-2xl block  lg:absolute  bottom-2 lg:bottom-2  lg:top-7 flex lg:block lg:w-1/3 w-full h-1/3`,
+  BlockSectionTitle: tw.div`w-auto z-70 `,
   TextSelect: tw(
     SectionTitle,
-  )<Props>`py-7 opacity-40 hover:opacity-100 px-5 order-last block transition ease-in duration-300 cursor-pointer z-70
+  )<Props>`py-7 w-full opacity-40 hover:opacity-100 px-5 order-last block transition ease-in duration-300 cursor-pointer z-70
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : '')}`,
-  TextCentral: tw(
-    TextTitle,
-  )`absolute   lg:top-52 top-40 left-16 lg:left-24 w-4/6 lg:w-4/6 text-center lg:text-2xl text-xl `,
+  TextCentral: tw(TextTitle)` w-4/6 text-center lg:text-sm `,
+  Circle: tw(
+    Circle,
+  )` bg-backCollaplse bg-circle bg-no-repeat absolute bg-center bg-contain -top-2 lg:top-0 right-1 rounded-full lg:-right-0 md:right-0 z-0`,
+  BlockTextCenter: tw.div`z-10 border-4 border-white w-4/6 h-4/6 absolute md:top-20 md:right-20 right-16 top-16 rounded-full flex justify-center items-center animate-pulse `,
 };

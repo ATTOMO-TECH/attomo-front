@@ -59,12 +59,6 @@ export default function FilterDetails({ isOpen, toggle }: Props) {
                 subsection={array}
                 collapse={false}
               />
-              <SubMenu section="Diseño" subsection={array} collapse={false} />
-              <SubMenu
-                section="Tecnología"
-                subsection={array}
-                collapse={false}
-              />
             </div>
           </div>
         </Filter.BlockFilter>
