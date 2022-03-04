@@ -62,37 +62,6 @@ export const SectionColor = styled.div`
   color: ${(props) => props.theme.headings};
   background-color: ${(props) => props.theme.bodyBg};
 `;
-export const subMenu = styled.span<Props>`
-  ${({ active }) =>
-    active
-      ? `&:before{transition: all .5s;border:2px solid white;border-radius:30px;height:25px;position: absolute; left:0; content:'';
-        animation: expandCircle .2s forwards;
-      animation-timing-function: cubic-bezier(.79,-0.08,.37,1.47); };
-     `
-      : ''}
-
-  @keyframes expandCircle {
-    0% {
-      transform: scale(1);
-      color: #fff;
-    }
-    100% {
-      transform: scale(1.2);
-      color: #fff;
-    }
-  }
-
-  @keyframes contractCircle {
-    0% {
-      transform: scale(1);
-      color: #fff;
-    }
-    100% {
-      transform: scale(1.2);
-      color: #fff;
-    }
-  }
-`;
 
 export const Select = styled.select`
   -webkit-appearance: none;
@@ -163,9 +132,7 @@ export const Styles = {
   SectionPrices: tw.section`grid grid-cols-1 sm:grid-cols-3 gap-6`,
   BlockImg: tw.div`w-full bg-cover bg-center py-44 bg-no-repeat `,
   // DETAILS SERVICES
-  SelectSubMenu: tw(
-    subMenu,
-  )<Props>`cursor-pointer font-PrimarySerif font-thin text-sm leading-loose py-1 h-auto 
+  SelectSubMenu: tw.h6<Props>`cursor-pointer font-PrimarySerif font-thin text-xs leading-loose 
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : 'opacity-50'}
 `,

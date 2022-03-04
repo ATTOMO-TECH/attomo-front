@@ -13,12 +13,12 @@ const CalendarPicker = () => {
       <div className="rainbow-align-content_center rainbow-m-vertical_large rainbow-p-horizontal_small rainbow-m_auto border-b border-white">
         <DatePicker
           style={containerStyles}
-          formatStyle="large"
           id="datePicker-19"
           selectionType="range"
           placeholder="Todas las fechas"
           value={dateValue}
           locale="es-ES"
+          formatStyle="medium"
           onChange={(date) => setState(date)}
           icon={
             <>

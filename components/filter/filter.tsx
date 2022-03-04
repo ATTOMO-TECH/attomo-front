@@ -43,7 +43,7 @@ export default function FilterMenu({ isOpen, toggle }: Props) {
                 <input
                   type="text"
                   placeholder="Buscar"
-                  className="border-b border-primary bg-secundary text-primary w-4/6 font-Primary text-4xl outline-none focus:opacity-100 opacity-50 ease-in-out duration-300 font-light"
+                  className="border-b border-primary bg-secundary text-primary w-4/6 font-Primary text-xl outline-none focus:opacity-100 opacity-50 ease-in-out duration-300 font-light"
                 />
                 <div className="w-full h-auto pt-24">
                   <div className="w-8/12 flex justify-around m-auto  items-center">

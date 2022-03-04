@@ -131,15 +131,24 @@ input#input-4 {
   border-radius: 0%;
   margin: 10px;
 }
-.dJHgI::after,
+.dJHgI:after,
 .dgExyT,
 .sc-cJSrbW.jsQYfv,
 .eWjXmP,
 .bhKBNK,
-.iunbWn {
+.iunbWn,
+.hlwPvy,
+.fUNNLN {
   background: white !important;
   background-color: white !important;
+  border-radius: 100%;
 }
+.gygcQf:hover,
+.gygcQf:focus,
+.gygcQf:active,
+.hlwPvy:focus,
+.hlwPvy:active,
+.hlwPvy:hover,
 .dJHgI:focus,
 .dJHgI:active,
 .dJHgI:hover,
@@ -147,10 +156,17 @@ input#input-4 {
 .ceEIkZ:active,
 .csLTLp:focus,
 .csLTLp:active,
-.csLTLp:hover {
+.csLTLp:hover,
+.gBfPDK:hover,
+.gBfPDK:focus,
+.gBfPDK:active,
+.fwtx:focus,
+.fwtx:active,
+.fwtx:visited {
   box-shadow: 0 0 2px white !important;
   border: 1px solid white !important;
   box-shadow: none !important;
+  color: white;
 }
 #modal-content-10 header {
   display: none;
@@ -159,9 +175,11 @@ input#input-4 {
   margin-top: 10%;
 }
 
-#modal-content-10 button {
-  background-color: black;
-  color: white;
+#modal-content-10 button,
+#month-12,
+#modal-close-button {
+  background-color: black !important;
+  color: white !important;
 }
 #modal-content-10 .dgEx {
   border: 1px solid white;
@@ -169,4 +187,19 @@ input#input-4 {
 }
 .kLGRex {
   padding: 3rem;
+}
+
+#modal-content-10 tr {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+#modal-content-10 th:nth-child(1) {
+  order: 7;
+}
+#modal-content-10 td:nth-child(1) {
+  order: 7;
+}
+#modal-content-10 tr td:nth-child(1) {
+  display: none;
 }

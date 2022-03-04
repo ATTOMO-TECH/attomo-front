@@ -8,12 +8,18 @@ import { BUTTON_ACTIVE } from '../../const/const';
 interface Props {
   section: string;
   subsection: any;
-  collapse: boolean;
+  SetIsToggle: any;
+  isOpen: boolean;
 }
 
-export default function SubMenu({ section, subsection, collapse }: Props) {
-  const [isToggle, SetIsToggle] = useState<boolean>(collapse);
+export default function SubMenu({
+  section,
+  subsection,
+  isOpen,
+  SetIsToggle,
+}: Props) {
   const [iDx, handleClick] = useState(0);
+  //   const [menuCollapse, setMenuCollapse] = useState<any>();
 
   return (
     <>
@@ -23,14 +29,13 @@ export default function SubMenu({ section, subsection, collapse }: Props) {
             <button
               type="button"
               className="font-Primary text-xl"
-              onClick={() => SetIsToggle(!isToggle)}>
+              onClick={() => SetIsToggle(subsection.id)}>
               {section}
             </button>
           </motion.div>
-          {isToggle && (
+          {isOpen && (
             <motion.div variants={fadeInUp} className="flex flex-wrap ">
-              <div className="flex flex-col relative pl-5">
-                <span className="h-full w-1 rounded-xl opacity-60 bg-white absolute left-0 " />
+              <div className="flex flex-col relative pl-1">
                 {subsection.attributes.subservices.data.map(
                   (tab: any, i: number) => (
                     <Styles.SelectSubMenu

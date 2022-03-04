@@ -57,7 +57,8 @@ export default function FilterDetails({ isOpen, toggle }: Props) {
               <SubMenu
                 section="Estrategia"
                 subsection={array}
-                collapse={false}
+                SetIsToggle={undefined}
+                isOpen={false}
               />
             </div>
           </div>
