@@ -40,24 +40,6 @@ export const post = async (url: string, data?: any, options?: any) => {
   return getInitializedApi().post(url, data, { headers, ...options });
 };
 
-export const remove = async (url: string, data = null, options: any) => {
-  const headers = await getHeaders();
-  return getInitializedApi().delete(url, {
-    ...options,
-    headers,
-    data,
-  });
-};
-
-export const del = async (url: string, data = null, options: any) => {
-  const headers = await getHeaders();
-  return getInitializedApi().delete(url, {
-    ...options,
-    headers,
-    data,
-  });
-};
-
 export const postMultiPart = async (url: string, data: any) => {
   const headers = await getHeaders();
   return getInitializedApi().post(url, data, { headers });
