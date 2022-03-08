@@ -1,3 +1,4 @@
+import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 import { BUTTON_ACTIVE } from '../const/const';
@@ -55,6 +56,30 @@ export const Sticky2Styled = styled.div`
         margin: 0;
       }
     }
+  }
+`;
+
+export const ContainerLegal = styled(ReactMarkdown)`
+  margin-top: 2%;
+  * {
+    font-family: [ 'Merriweather Sans', 'sans-serif' ];
+    background: linear-gradient(
+      to right,
+      #cccfe8 26.04%,
+      #ffffff 69.27%,
+      #cccfe8 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  h1 {
+    padding-top: 2%;
+    font-size: 2em;
+    font-weight: 400;
+  }
+  h2 {
+  }
+  p {
   }
 `;
 

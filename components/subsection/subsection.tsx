@@ -11,7 +11,9 @@ export default function SubSection({ locale }: Props) {
   return (
     <>
       <SubSections.Subsection>
-        <Counter />
+        <div className="p-6 lg:p-0">
+          <Counter />
+        </div>
         {locale.counter.map((values: any) => (
           <SubSections.TextSubsection>
             <Title size="text-4xl">{values.HeaderCounter}</Title>

@@ -11,6 +11,15 @@ const POST = {
 const PARTNER = {
   FETCH_ALL: (query: any) => getAbsolutePath(`partner-areas?${query}`),
 };
+
+const QUOTE = {
+  FETCH_ONE: (id: number, lenguage: any) =>
+    getAbsolutePath(`quotes/${id}?locale=${lenguage}`),
+};
+const PRIVACY = {
+  FETCH_ONE: (lenguage: any) =>
+    getAbsolutePath(`privacy-policies?locale=${lenguage}`),
+};
 const SERVICES = {
   FETCH_ALL: (lenguage: string) =>
     getAbsolutePath(`services?locale=${lenguage}&populate=subservices`),
@@ -35,4 +44,14 @@ const CONTACT = {
   CREATERESERVE: () => getAbsolutePath('client-forms'),
 };
 
-export { POST, CASES, CONTACT, SERVICES, RATES, PARTNER, getAbsolutePath };
+export {
+  POST,
+  CASES,
+  CONTACT,
+  SERVICES,
+  RATES,
+  PARTNER,
+  QUOTE,
+  PRIVACY,
+  getAbsolutePath,
+};

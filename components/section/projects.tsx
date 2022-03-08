@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -42,12 +41,12 @@ export default function SectionProjects({
               <Styles.BlockSection
                 ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
                 {values?.attributes?.mainPhoto?.data[0].attributes?.url && (
-                  <Image
+                  <img
                     src={values.attributes.mainPhoto.data[0].attributes.url}
                     width={800}
                     height={600}
                     alt={values.attributes.name}
-                    objectFit="cover"
+                    className="object-cover"
                   />
                 )}
               </Styles.BlockSection>

@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { BUTTON_ACTIVE } from '../../const/const';
 import Title from '../Text/title';
 import { Styles } from './style';
@@ -13,7 +12,7 @@ export default function OneProject({ data }: Props) {
       <Styles.SectionProjects>
         <Styles.BlockSections ismode={BUTTON_ACTIVE.ON}>
           <Styles.BlockSection ismode={BUTTON_ACTIVE.ON}>
-            <Image
+            <img
               src="/customers/US.png"
               width={800}
               height={600}

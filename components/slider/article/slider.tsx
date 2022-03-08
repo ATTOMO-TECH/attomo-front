@@ -53,7 +53,6 @@ export default function ArticlesScroll({ mode, array }: Props) {
               {values.Pic ? (
                 <Image
                   src={values.Pic}
-                  layout="responsive"
                   width={300}
                   height={200}
                   alt={values.Text}
@@ -76,7 +75,7 @@ export default function ArticlesScroll({ mode, array }: Props) {
         ))}
         <StylesArticle.BlockArrow>
           <StylesArticle.ArrowPrev ref={prevRef}>
-            <Image
+            <img
               src={!mode ? '/icon/prevDark.svg' : '/icon/prev.svg'}
               width={100}
               height={100}
@@ -84,7 +83,7 @@ export default function ArticlesScroll({ mode, array }: Props) {
             />
           </StylesArticle.ArrowPrev>
           <StylesArticle.ArrowNext ref={nextRef}>
-            <Image
+            <img
               src={!mode ? '/icon/nextDark.svg' : '/icon/next.svg'}
               width={100}
               height={100}

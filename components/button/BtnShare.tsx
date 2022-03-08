@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+
 import { useEffect, useState } from 'react';
 import { Btn } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -23,7 +23,7 @@ export default function ButtonShare() {
           href="https://api.whatsapp.com/send/?phone=34610516285"
           rel="noreferrer">
           <Btn.Icon ismode={!scroll ? BUTTON_ACTIVE.ON : ''}>
-            <Image
+            <img
               src="/icon/WhatsApp.png"
               width={100}
               height={100}
