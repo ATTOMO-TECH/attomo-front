@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { Formik } from 'formik';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -10,26 +9,20 @@ import { Navegation } from '../nav/style';
 interface Props {
   isOpen: boolean;
   toggle: () => void;
+  data: any;
+  menuId: any;
+  setMenuId: any;
+  router: any;
 }
 
-export default function FilterDetails({ isOpen, toggle }: Props) {
-  const array: {
-    Name: string;
-    Component: any;
-  }[] = [
-    {
-      Name: 'Estrategia',
-      Component: '',
-    },
-    {
-      Name: 'Estrategia',
-      Component: '',
-    },
-    {
-      Name: 'Estrategia',
-      Component: '',
-    },
-  ];
+export default function FilterDetails({
+  isOpen,
+  toggle,
+  data,
+  menuId,
+  setMenuId,
+  router,
+}: Props) {
   return (
     <>
       <Formik onSubmit={(e: any) => e} initialValues={{}} validateOnMount>
@@ -38,7 +31,7 @@ export default function FilterDetails({ isOpen, toggle }: Props) {
           <Filter.AlinItems ismode={BUTTON_ACTIVE.ON}>
             <Filter.ItemsMenu>
               <Link href="/">
-                <Image
+                <img
                   src="/icon/isoAttomo.svg"
                   width={30}
                   height={30}
@@ -54,7 +47,22 @@ export default function FilterDetails({ isOpen, toggle }: Props) {
             <Styles.BlockFilter onClick={toggle}>Cerrar</Styles.BlockFilter>
 
             <div className="w-10/12  flex flex-col items-start">
-              <SubMenu section="Estrategia" subsection={array} isOpen={false} />
+              {data.data.map((tab: any) => (
+                <SubMenu
+                  isOpen={
+                    !menuId
+                      ? tab.attributes?.subservices?.data?.some(
+                          ({ attributes: { name } }: any) =>
+                            name.replaceAll(' ', '_').toLowerCase() ===
+                            router.query.slug,
+                        )
+                      : menuId === tab.id
+                  }
+                  section={tab.attributes.name}
+                  subsection={tab}
+                  setIsToggle={setMenuId}
+                />
+              ))}
             </div>
           </div>
         </Filter.BlockFilter>

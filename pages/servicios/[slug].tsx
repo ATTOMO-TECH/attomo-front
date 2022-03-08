@@ -18,15 +18,16 @@ import { ARTICLES } from '../../const/constGlobal';
 import { Styles } from '../../styles/styles';
 import { useUseAllServices } from '../../domain/useServices';
 import RenderLoading from '../../components/loading/loading';
+import { getLocale } from '../../public/locales/getLocale';
 
 function DetailsServices() {
   const [isOpenFilter, SetIsOpenFilter] = useState<boolean>(false);
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const router = useRouter();
-  const [menuId] = useState(null);
   const [query, setQuery] = useState(
     'pagination[page]=1&pagination[pageSize]=3&populate=coverImage?populate=blog_tags',
   );
+  const [menuId, setMenuId] = useState(null);
   const { slug } = router.query;
 
   let { locale } = router;
@@ -52,15 +53,6 @@ function DetailsServices() {
     setQuery(queryQs);
   }, [query]);
 
-  const toggleFilter = () => {
-    SetIsOpenFilter(!isOpenFilter);
-  };
-  const toggle = () => {
-    SetIsOpen(!isOpen);
-  };
-  const innerRenderText = (iDx: number) =>
-    data.data[iDx].attributes.description;
-
   if (isLoading) {
     return (
       <>
@@ -68,28 +60,41 @@ function DetailsServices() {
       </>
     );
   }
+  const toggleFilter = () => {
+    SetIsOpenFilter(!isOpenFilter);
+  };
+  const toggle = () => {
+    SetIsOpen(!isOpen);
+  };
+  const translate = getLocale();
   return (
     <>
       <BgComponent />
-      <FilterDetails isOpen={isOpenFilter} toggle={toggleFilter} />
+      <FilterDetails
+        isOpen={isOpenFilter}
+        toggle={toggleFilter}
+        data={data}
+        menuId={menuId}
+        setMenuId={setMenuId}
+        router={router}
+      />
       <motion.div
         initial="initial"
         animate="animate"
         exit={{ opacity: 0 }}
         className="text-primary">
-        <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
+        <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
           <Menu isOpen={isOpen} toggle={toggle} logo mode />
           <Styles.Margin>
             <Nav toggle={toggle} logo mode isOpen={isOpen} />
           </Styles.Margin>
           <ButtonShare />
-
           <motion.div
             animate={{ opacity: 1 }}
             initial={{ opacity: 0 }}
             className="pb-36">
             <Styles.CenterCases>
-              <div className="lg:flex flex-col pt-10 hidden relative">
+              <Styles.BlockRenderDetails>
                 {data.data.map((tab: any) => (
                   <SubMenu
                     isOpen={
@@ -103,9 +108,10 @@ function DetailsServices() {
                     }
                     section={tab.attributes.name}
                     subsection={tab}
+                    setIsToggle={setMenuId}
                   />
                 ))}
-              </div>
+              </Styles.BlockRenderDetails>
               <Styles.BlockFilter onClick={toggleFilter}>
                 <Title size="lg:text-lg text-lg font-Primary font-light ">
                   Servicios
@@ -117,10 +123,11 @@ function DetailsServices() {
                 initial={{ x: 200, opacity: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ delay: 0.5 }}>
-                <Title size="lg:text-5xl text-2xl font-Primary font-light pb-3 capitalize">
-                  {slug}
-                </Title>
-
+                {data.data.map((tab: any) => (
+                  <Title size="lg:text-5xl text-2xl font-Primary font-light pb-3 capitalize">
+                    {tab.name}
+                  </Title>
+                ))}
                 <motion.div
                   className="pt-2 w-full"
                   animate={{ y: 0, opacity: 1 }}
@@ -132,7 +139,7 @@ function DetailsServices() {
                     variants={fadeInUp}
                     transition={{ delay: 5.5 }}
                     className="pr-5 relative font-PrimarySerif font-light leading-relaxed textDegrade">
-                    {innerRenderText(1)}
+                    {/* {innerRenderText()}  */}
                   </motion.p>
                 </motion.div>
               </motion.div>
@@ -146,7 +153,7 @@ function DetailsServices() {
             variants={stagger}>
             <Styles.Center>
               <Styles.TitleSubSection>
-                Proyectos relacionados
+                {translate.project}
               </Styles.TitleSubSection>
             </Styles.Center>
             <Styles.FlexEnd>

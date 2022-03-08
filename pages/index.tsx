@@ -31,11 +31,11 @@ function Home() {
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const [lastYPos, setLastYPos] = useState(0);
   const [shouldShowActions, setShouldShowActions] = useState(false);
-  const random = (min: number, max: number) =>
-    Math.floor(Math.random() * (max - min + 1) + min);
+  // const random = (min: number, max: number) =>
+  //   Math.floor(Math.random() * (max - min + 1) + min);
 
   const { data: Quote, isLoading: QuoteIsLoading } = useUseAllQuote(
-    random(1, 2),
+    1,
     locale || 'es',
   );
 
@@ -71,7 +71,7 @@ function Home() {
       <BgComponent />
       <AnimateSharedLayout>
         <AnimatePresence>
-          <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
+          <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
             <Menu isOpen={isOpen} toggle={toggle} logo={false} mode />
             <Styles.Margin>
               <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />

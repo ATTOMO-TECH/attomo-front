@@ -23,7 +23,7 @@ function Services() {
   return (
     <>
       <BgComponent />
-      <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
+      <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
           <Nav toggle={toggle} logo mode isOpen={isOpen} />
@@ -31,14 +31,14 @@ function Services() {
         <ButtonShare />
         <Styles.Center>
           <Styles.ScreenMid>
-            {translate.services.map((values) => (
+            {translate.services.map((services) => (
               <Styles.BlockDiv>
                 <Title size="text-5xl lg:pt-24 lg:pr-0 pb-24 w-full pt-36  ">
-                  {values.Text}
+                  {services.Text}
                 </Title>
                 <Styles.FlexEnd>
                   <Subtext size=" text-lg lg:text-base lg:w-2/6  lg:text-left">
-                    {values.Subtext}
+                    {services.Subtext}
                   </Subtext>
                 </Styles.FlexEnd>
               </Styles.BlockDiv>
@@ -46,9 +46,9 @@ function Services() {
           </Styles.ScreenMid>
         </Styles.Center>
         <Styles.Center>
-          <div className="lg:py-48 overflow-hidden">
+          <Styles.SpaceCollapse>
             <Collapse />
-          </div>
+          </Styles.SpaceCollapse>
         </Styles.Center>
         <Styles.Center>
           <Styles.TitleSubSection>

@@ -174,4 +174,5 @@ export default {
   ],
   policy: 'Política de privacidad',
   terms: 'Terminos y condiciones',
+  project: 'Proyectos relacionados',
 };

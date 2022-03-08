@@ -174,4 +174,5 @@ export default {
   ],
   policy: 'Policy',
   terms: 'Terms',
+  project: 'Proyectos relacionados',
 };

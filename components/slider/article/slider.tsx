@@ -1,7 +1,6 @@
 // eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
-import Image from 'next/image';
 import { useRef } from 'react';
 // eslint-disable-next-line import/no-unresolved
 import { NavigationOptions } from 'swiper/types/modules/public-api';
@@ -51,11 +50,12 @@ export default function ArticlesScroll({ mode, array }: Props) {
           <SwiperSlide key={values.Tag} className="swiper">
             <StylesArticle.BlockImg>
               {values.Pic ? (
-                <Image
+                <img
                   src={values.Pic}
                   width={300}
-                  height={200}
+                  height={300}
                   alt={values.Text}
+                  className={values.Pic === '/' ? 'hidden ' : 'object-fill'}
                 />
               ) : (
                 ''
@@ -65,7 +65,7 @@ export default function ArticlesScroll({ mode, array }: Props) {
               theme={mode === false ? lightTheme : darkTheme}>
               <StylesArticle.TopicText
                 ismode={
-                  values.Topic === '' ? BUTTON_ACTIVE.OFF : BUTTON_ACTIVE.ON
+                  values.Topic === '/' ? BUTTON_ACTIVE.OFF : BUTTON_ACTIVE.ON
                 }>
                 {values.Topic}
               </StylesArticle.TopicText>

@@ -38,7 +38,7 @@ function New({ mode }: Props) {
   return (
     <>
       <Styles.Body
-        ismode={isOpen ? BUTTON_ACTIVE.ON : ''}
+        mode={isOpen ? BUTTON_ACTIVE.ON : ''}
         theme={mode === true ? lightTheme : darkTheme}>
         <Menu isOpen={isOpen} toggle={toggle} logo={false} mode />
         <Styles.Margin>

@@ -1,7 +1,6 @@
 // eslint-disable-next-line no-use-before-define
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -88,21 +87,19 @@ export default function Collapse() {
                 width={500}
                 height={500}
                 alt="Elipse"
-                className="z-0 object-contain overflow-hidden opacity-0  "
+                className="z-0 overflow-hidden opacity-0 relative  "
               />
             </Styles.BlockAtom>
-            <Image
+            <img
               src="/icon/Ellipse.svg"
               width={500}
               height={500}
               alt="Elipse"
-              className="opacity-0 overflow-hidden object-contain"
+              className="opacity-0 overflow-hidden z-0 relative  "
             />
           </Styles.SectionAtom>
           <Styles.BlockTextCenter>
-            <Styles.TextCentral>
-              <p>{innerRenderText(idx)}</p>
-            </Styles.TextCentral>
+            <Styles.TextCentral>{innerRenderText(idx)}</Styles.TextCentral>
           </Styles.BlockTextCenter>
           <Styles.Circle />
         </Styles.BlockImg>

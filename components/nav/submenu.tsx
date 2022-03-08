@@ -8,35 +8,39 @@ import { BUTTON_ACTIVE } from '../../const/const';
 interface Props {
   section: string;
   subsection: any;
-
+  setIsToggle: any;
   isOpen: boolean;
 }
 
-export default function SubMenu({ section, subsection, isOpen }: Props) {
+export default function SubMenu({
+  section,
+  subsection,
+  isOpen,
+  setIsToggle,
+}: Props) {
   const router = useRouter();
 
   return (
     <>
-      <div className="w-2/6">
+      <Styles.SubMenuBlock>
         <motion.div variants={stagger} className="inner">
           <motion.div variants={fadeInUp}>
-            <button
+            <Styles.ButtonSubMenu
               type="button"
-              className="font-Primary text-xl"
-              onClick={() => subsection.id}>
+              onClick={() => setIsToggle(subsection.id)}>
               {section}
-            </button>
+            </Styles.ButtonSubMenu>
           </motion.div>
           {isOpen && (
             <motion.div variants={fadeInUp} className="flex flex-wrap ">
-              <div className="flex flex-col relative pl-1">
+              <Styles.BlockSubSection>
                 {subsection.attributes.subservices.data.map((subTask: any) => (
                   <Link
                     href={subTask.attributes.name
                       .replaceAll(' ', '_')
                       .toLowerCase()}>
                     <Styles.SelectSubMenu
-                      ismode={
+                      mode={
                         subTask.attributes.name
                           .replaceAll(' ', '_')
                           .toLowerCase() === router.query.slug
@@ -47,11 +51,11 @@ export default function SubMenu({ section, subsection, isOpen }: Props) {
                     </Styles.SelectSubMenu>
                   </Link>
                 ))}
-              </div>
+              </Styles.BlockSubSection>
             </motion.div>
           )}
         </motion.div>
-      </div>
+      </Styles.SubMenuBlock>
     </>
   );
 }

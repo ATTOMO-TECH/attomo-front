@@ -4,7 +4,7 @@ import tw from 'tailwind-styled-components';
 import { BUTTON_ACTIVE } from '../const/const';
 
 type Props = {
-  ismode?: string;
+  mode?: string;
   active?: boolean;
 };
 export const lightTheme = {
@@ -104,7 +104,7 @@ export const Styles = {
   Body: tw(SectionColor)<Props>`
  scroll-smooth m-auto overflow-hidden
   ${(props) =>
-    props.ismode === BUTTON_ACTIVE.ON
+    props.mode === BUTTON_ACTIVE.ON
       ? 'overflow-hidden h-screen max-w-full'
       : ''}
   
@@ -112,6 +112,7 @@ export const Styles = {
   Margin: tw.div`m-auto`,
   Center: tw.section`w-10/12 m-auto`,
   CenterCases: tw.section`w-10/12 m-auto pt-36 overflow-hidden flex justify-between`,
+  BlockRenderDetails: tw.div`lg:flex flex-col pt-10 hidden relative`,
   BlockFilter: tw.div`w-auto m-auto text-center transform -rotate-90 z-80 flex justify-center lg:hidden opacity-60 hover:opacity-90  duration-100 ease-in cursor-pointer`,
   AlingCases: tw.section`w-11/12 ml-auto py-24`,
   AlingCasesNoP: tw.section`w-11/12 ml-auto pb-24`,
@@ -158,7 +159,11 @@ export const Styles = {
   BlockImg: tw.div`w-full bg-cover bg-center py-44 bg-no-repeat `,
   // DETAILS SERVICES
   SelectSubMenu: tw.a<Props>`cursor-pointer font-PrimarySerif font-thin text-xs leading-loose 
-  ${(props) =>
-    props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : 'opacity-50'}
+  ${(props) => (props.mode === BUTTON_ACTIVE.ON ? 'opacity-100' : 'opacity-50')}
 `,
+  SpaceCollapse: tw.div`lg:py-48 overflow-hidden`,
+  // SUBMENU
+  SubMenuBlock: tw.div`w-2/6`,
+  ButtonSubMenu: tw.button`font-Primary text-xl`,
+  BlockSubSection: tw.div`flex flex-col relative pl-1`,
 };

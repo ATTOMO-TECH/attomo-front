@@ -43,7 +43,7 @@ function Cases() {
   return (
     <>
       <BgComponent />
-      <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
+      <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <FilterMenu isOpen={isOpenFilter} toggle={toggleFilter} />
         <Styles.Margin>

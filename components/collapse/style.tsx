@@ -85,6 +85,7 @@ export const Item = styled.div<Props>`
 `;
 
 export const ItemSection = styled.div`
+  z-index: 10;
   width: 40px;
   height: 8px;
   border-radius: 80% 80% 40% 40%;
@@ -102,7 +103,7 @@ export const ItemSection = styled.div`
   }
   @media screen and (min-width: 1024px) {
     left: 52%;
-    top: -4px;
+    top: -8px;
   }
   transform: rotate(-38deg);
 `;
@@ -169,13 +170,13 @@ export const Styles = {
   BlockImg: tw.div`relative overflow-hidden `,
   SectionAtom: tw(
     Item,
-  )`lg:animate-pulse transition ease-in-out delay-150 relative z-40 p-2 lg:p-0`,
+  )`lg:animate-pulse transition ease-in-out delay-150 relative z-0 p-2 lg:p-0`,
   BlockAtom: tw.div`absolute z-10`,
   Atom: tw(ItemSection)``,
   Image: tw(Imgen)``,
   BlockTextSelect: tw(
     SectionTitle,
-  )`text-2xl block  lg:absolute  bottom-2 lg:bottom-2  lg:top-7 flex lg:block lg:w-1/3 w-full h-1/3`,
+  )`text-2xl block z-100 lg:absolute  bottom-2 lg:bottom-2  lg:top-7 flex lg:block lg:w-1/3 w-full h-1/3`,
   BlockSectionTitle: tw.div`w-auto z-70 `,
   TextSelect: tw(
     SectionTitle,
