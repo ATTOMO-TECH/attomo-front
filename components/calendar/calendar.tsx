@@ -1,39 +1,23 @@
+import es from 'date-fns/locale/es';
+import DatePicker from 'react-datepicker';
 import { useState } from 'react';
-import { DatePicker } from 'react-rainbow-components';
-import Image from 'next/image';
 
-const CalendarPicker = () => {
-  const [dateValue, setState] = useState<any>();
-  const containerStyles = {
-    color: 'white',
-  };
-
+export default function CalendarPicker() {
+  const [dateRange, setDateRange] = useState([]);
+  const [startDate, endDate] = dateRange;
   return (
     <>
-      <div className="rainbow-align-content_center rainbow-m-vertical_large rainbow-p-horizontal_small rainbow-m_auto border-b border-white">
-        <DatePicker
-          style={containerStyles}
-          id="datePicker-19"
-          selectionType="range"
-          placeholder="Todas las fechas"
-          value={dateValue}
-          locale="es-ES"
-          formatStyle="medium"
-          onChange={(date) => setState(date)}
-          icon={
-            <>
-              <Image
-                src="/icon/calendar.svg"
-                width={100}
-                height={100}
-                alt="calendar"
-              />
-            </>
-          }
-        />
-      </div>
+      <DatePicker
+        placeholderText="Todas las fechas"
+        locale={es}
+        selectsRange
+        startDate={startDate}
+        endDate={endDate}
+        onChange={(update: any) => {
+          setDateRange(update);
+        }}
+        withPortal
+      />
     </>
   );
-};
-
-export default CalendarPicker;
+}

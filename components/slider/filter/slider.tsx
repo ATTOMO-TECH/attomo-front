@@ -16,6 +16,7 @@ export default function FilterScroll() {
         slidesPerView={4.5}
         direction="vertical"
         grabCursor
+        centerInsufficientSlides
         effect="coverflow"
         centeredSlides
         modules={[EffectFade, EffectCoverflow]}
@@ -29,7 +30,7 @@ export default function FilterScroll() {
         }}
         watchSlidesProgress
         pagination={false}
-        className="mySwiper h-48 w-full">
+        className="mySwiper lg:h-48 h-24 w-full">
         {DEPARTMENT.map((values, i) => (
           <SwiperSlide className="font-Primary text-Primary">
             <>

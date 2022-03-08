@@ -48,9 +48,7 @@ export default function InputNew() {
                   type="text"
                   placeholder="Escribe tu correo electrónico"
                   name="newsletter"
-                  onChange={(e: React.FormEvent<HTMLInputElement>) =>
-                    handleInput(e.currentTarget.value)
-                  }
+                  onChange={(e: any) => handleInput(e.currentTarget.value)}
                 />
                 <Navegation.Button
                   ismode={

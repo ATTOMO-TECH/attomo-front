@@ -48,10 +48,10 @@ export default function FilterMenu({ isOpen, toggle }: Props) {
                 <div className="w-full h-auto pt-24">
                   <div className="w-8/12 flex justify-around m-auto  items-center">
                     <div className="w-full flex items-center">
-                      <div className="w-3/6">
+                      <div className="lg:w-3/6">
                         <h6 className="lg:text-xl">Tématica</h6>
                       </div>
-                      <div className="w-full lg:w-4/6">
+                      <div className="w-full lg:w-4/6 ">
                         <FilterScroll />
                       </div>
                     </div>
