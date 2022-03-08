@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import * as qs from 'qs';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { fadeInUp, stagger } from '../../components/animations/animations';
@@ -21,12 +20,10 @@ import RenderLoading from '../../components/loading/loading';
 import { getLocale } from '../../public/locales/getLocale';
 
 function DetailsServices() {
+  const [isIdSubServices, SetIsIdSubServices] = useState<any>({});
   const [isOpenFilter, SetIsOpenFilter] = useState<boolean>(false);
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const router = useRouter();
-  const [query, setQuery] = useState(
-    'pagination[page]=1&pagination[pageSize]=3&populate=coverImage?populate=blog_tags',
-  );
   const [menuId, setMenuId] = useState(null);
   const { slug } = router.query;
 
@@ -35,23 +32,25 @@ function DetailsServices() {
     locale = 'es';
   }
   const { data, isLoading } = useUseAllServices(locale || 'es');
+
   useEffect(() => {
-    const queryQs = qs.stringify(
-      {
-        filters: {
-          subservices: {
-            id: {
-              $eq: slug,
+    if (!isLoading) {
+      if (data) {
+        const valueFilter = data.data.flatMap((tab: any) => {
+          const some = tab.attributes?.subservices?.data?.filter(
+            ({ attributes: { name } }: any) => {
+              const nameParse = name.replaceAll(' ', '_').toLowerCase();
+
+              return nameParse === slug;
             },
-          },
-        },
-      },
-      {
-        encodeValuesOnly: true,
-      },
-    );
-    setQuery(queryQs);
-  }, [query]);
+          );
+
+          return some;
+        });
+        SetIsIdSubServices(valueFilter);
+      }
+    }
+  }, [data, slug]);
 
   if (isLoading) {
     return (
@@ -60,6 +59,7 @@ function DetailsServices() {
       </>
     );
   }
+
   const toggleFilter = () => {
     SetIsOpenFilter(!isOpenFilter);
   };
@@ -67,6 +67,7 @@ function DetailsServices() {
     SetIsOpen(!isOpen);
   };
   const translate = getLocale();
+
   return (
     <>
       <BgComponent />
@@ -123,11 +124,9 @@ function DetailsServices() {
                 initial={{ x: 200, opacity: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ delay: 0.5 }}>
-                {data.data.map((tab: any) => (
-                  <Title size="lg:text-5xl text-2xl font-Primary font-light pb-3 capitalize">
-                    {tab.name}
-                  </Title>
-                ))}
+                <Title size="lg:text-5xl text-lg font-Primary font-light ">
+                  {isIdSubServices[0]?.attributes?.name}
+                </Title>
                 <motion.div
                   className="pt-2 w-full"
                   animate={{ y: 0, opacity: 1 }}
@@ -139,7 +138,7 @@ function DetailsServices() {
                     variants={fadeInUp}
                     transition={{ delay: 5.5 }}
                     className="pr-5 relative font-PrimarySerif font-light leading-relaxed textDegrade">
-                    {/* {innerRenderText()}  */}
+                    {isIdSubServices[0]?.attributes?.description}
                   </motion.p>
                 </motion.div>
               </motion.div>

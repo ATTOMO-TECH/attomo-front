@@ -51,7 +51,6 @@ export default function Collapse() {
       </>
     );
   }
-
   const innerRenderText = (iDx: number) =>
     data.data[iDx].attributes.description;
 
