@@ -172,4 +172,6 @@ export default {
       Subtext: 'Selecciona la fecha y consulta su disponibilidad',
     },
   ],
+  policy: 'Policy',
+  terms: 'Terms',
 };

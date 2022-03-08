@@ -10,11 +10,8 @@ import Nav from '../components/nav/nav';
 import Title from '../components/Text/title';
 import { BUTTON_ACTIVE } from '../const/const';
 import { useUseAPrivacy } from '../domain/usePolicy';
+import { getLocale } from '../public/locales/getLocale';
 import { ContainerLegal, Styles } from '../styles/styles';
-
-// interface Props {
-//   children: string;
-// }
 
 function Privacidad() {
   const router = useRouter();
@@ -27,17 +24,6 @@ function Privacidad() {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
-  // const LinkMail = ({ children }: Props) => (
-  //   <Link href={`mailto:${children}`}>
-  //     <a
-  //       href={`mailto:${children}`}
-  //       target="_blank"
-  //       className="mx-1"
-  //       rel="noreferrer">
-  //       {children}
-  //     </a>
-  //   </Link>
-  // );
   if (isLoading) {
     return (
       <>
@@ -45,6 +31,7 @@ function Privacidad() {
       </>
     );
   }
+  const translate = getLocale();
 
   return (
     <>
@@ -61,11 +48,10 @@ function Privacidad() {
             </div>
           </Link>
           <section className="pb-48">
-            <Title size="text-5xl ">Política de privacidad</Title>
+            <Title size="text-5xl ">{translate.policy}</Title>
             <ContainerLegal>{data.data[0].attributes.content}</ContainerLegal>
           </section>
         </Styles.Center>
-
         <Footer subFooter={false} />
       </Styles.Body>
     </>

@@ -23,11 +23,12 @@ function DetailsServices() {
   const [isOpenFilter, SetIsOpenFilter] = useState<boolean>(false);
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const router = useRouter();
+  const [menuId] = useState(null);
   const [query, setQuery] = useState(
     'pagination[page]=1&pagination[pageSize]=3&populate=coverImage?populate=blog_tags',
   );
-  const [menuId, setMenuId] = useState(null);
   const { slug } = router.query;
+
   let { locale } = router;
   if (locale === '/') {
     locale = 'es';
@@ -51,34 +52,6 @@ function DetailsServices() {
     setQuery(queryQs);
   }, [query]);
 
-  if (isLoading) {
-    return (
-      <>
-        <RenderLoading mode={false} />
-      </>
-    );
-  }
-  // const getMenuId = (slug: string | undefined | string[]) => {
-  //   const valuesMenu = data.data.map((subsection: any) => subsection);
-  //   const subMenuData = data.data.map(
-  //     (subsection: any) => subsection.attributes.subservices.data,
-  //   );
-  //   let itemMenu;
-  //   let subMenu: any;
-  //   subMenuData.forEach((element: any, i: any) => {
-  //     element.map((tab: any) => {
-  //       if (tab.attributes.name === slug) {
-  //         itemMenu = tab;
-  //         subMenu = valuesMenu[i];
-  //       }
-  //     });
-  //   });
-  //   return subMenu?.id;
-  // };
-  // useEffect(() => {
-  //   setMenuId(getMenuId(slug));
-  // }, []);
-
   const toggleFilter = () => {
     SetIsOpenFilter(!isOpenFilter);
   };
@@ -88,6 +61,13 @@ function DetailsServices() {
   const innerRenderText = (iDx: number) =>
     data.data[iDx].attributes.description;
 
+  if (isLoading) {
+    return (
+      <>
+        <RenderLoading mode={false} />
+      </>
+    );
+  }
   return (
     <>
       <BgComponent />
@@ -112,10 +92,17 @@ function DetailsServices() {
               <div className="lg:flex flex-col pt-10 hidden relative">
                 {data.data.map((tab: any) => (
                   <SubMenu
-                    isOpen={menuId === tab.id}
+                    isOpen={
+                      !menuId
+                        ? tab.attributes?.subservices?.data?.some(
+                            ({ attributes: { name } }: any) =>
+                              name.replaceAll(' ', '_').toLowerCase() ===
+                              router.query.slug,
+                          )
+                        : menuId === tab.id
+                    }
                     section={tab.attributes.name}
                     subsection={tab}
-                    SetIsToggle={setMenuId}
                   />
                 ))}
               </div>
@@ -130,7 +117,7 @@ function DetailsServices() {
                 initial={{ x: 200, opacity: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ delay: 0.5 }}>
-                <Title size="lg:text-5xl text-2xl font-Primary font-light pb-3">
+                <Title size="lg:text-5xl text-2xl font-Primary font-light pb-3 capitalize">
                   {slug}
                 </Title>
 

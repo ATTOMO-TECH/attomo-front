@@ -73,7 +73,6 @@ function Services() {
             />
           ))}
         </Styles.CenterFlex>
-
         <Footer subFooter={false} />
       </Styles.Body>
     </>

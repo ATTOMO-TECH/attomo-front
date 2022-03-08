@@ -65,8 +65,8 @@ export const ContainerLegal = styled(ReactMarkdown)`
     font-family: [ 'Merriweather Sans', 'sans-serif' ];
     background: linear-gradient(
       to right,
-      #cccfe8 26.04%,
-      #ffffff 69.27%,
+      #cccfe8 0.04%,
+      #ffffff 40.27%,
       #cccfe8 100%
     );
     -webkit-background-clip: text;
@@ -157,7 +157,7 @@ export const Styles = {
   SectionPrices: tw.section`grid grid-cols-1 sm:grid-cols-3 gap-6`,
   BlockImg: tw.div`w-full bg-cover bg-center py-44 bg-no-repeat `,
   // DETAILS SERVICES
-  SelectSubMenu: tw.h6<Props>`cursor-pointer font-PrimarySerif font-thin text-xs leading-loose 
+  SelectSubMenu: tw.a<Props>`cursor-pointer font-PrimarySerif font-thin text-xs leading-loose 
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : 'opacity-50'}
 `,

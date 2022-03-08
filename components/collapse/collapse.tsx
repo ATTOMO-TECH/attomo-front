@@ -67,7 +67,9 @@ export default function Collapse() {
             animate="show">
             {data.data[idx].attributes.subservices.data.map((tab: any) => (
               <Link
-                href={`/servicios/${encodeURIComponent(tab.attributes.name)}`}
+                href={`/servicios/${tab.attributes.name
+                  .replaceAll(' ', '_')
+                  .toLowerCase()}`}
                 key={`${tab.attributes.name}-services`}>
                 <Styles.SubSection>
                   <motion.div variants={item}>{tab.attributes.name}</motion.div>

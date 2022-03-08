@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Filter from '../input/filter';
 import { HeadSection } from './style';
 
@@ -11,7 +10,7 @@ export default function HeroCase({ toggle }: Props) {
     <>
       <HeadSection.SectionCase>
         <Filter toggle={toggle} />
-        <Image
+        <img
           src="/cases/header_case.jpg"
           width={1200}
           height={900}

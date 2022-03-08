@@ -47,7 +47,7 @@ function Cases() {
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <FilterMenu isOpen={isOpenFilter} toggle={toggleFilter} />
         <Styles.Margin>
-          <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
+          <Nav toggle={toggle} logo mode isOpen={isOpen} />
         </Styles.Margin>
         {!isOpenFilter && <ButtonShare />}
         {!isOpenFilter && (

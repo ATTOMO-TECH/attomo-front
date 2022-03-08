@@ -20,6 +20,10 @@ const PRIVACY = {
   FETCH_ONE: (lenguage: any) =>
     getAbsolutePath(`privacy-policies?locale=${lenguage}`),
 };
+const TERMS = {
+  FETCH_ONE: (lenguage: any) =>
+    getAbsolutePath(`privacy-policies?locale=${lenguage}`),
+};
 const SERVICES = {
   FETCH_ALL: (lenguage: string) =>
     getAbsolutePath(`services?locale=${lenguage}&populate=subservices`),
@@ -53,5 +57,6 @@ export {
   PARTNER,
   QUOTE,
   PRIVACY,
+  TERMS,
   getAbsolutePath,
 };

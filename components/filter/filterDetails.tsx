@@ -54,12 +54,7 @@ export default function FilterDetails({ isOpen, toggle }: Props) {
             <Styles.BlockFilter onClick={toggle}>Cerrar</Styles.BlockFilter>
 
             <div className="w-10/12  flex flex-col items-start">
-              <SubMenu
-                section="Estrategia"
-                subsection={array}
-                SetIsToggle={undefined}
-                isOpen={false}
-              />
+              <SubMenu section="Estrategia" subsection={array} isOpen={false} />
             </div>
           </div>
         </Filter.BlockFilter>
