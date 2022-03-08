@@ -35,7 +35,9 @@
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"],
     "import/prefer-default-export": "off",
-    "no-console": "error"
+    "no-console": "error",
+    "react/jsx-no-useless-fragment": "off",
+    "react/function-component-definition": "off"
   },
   "settings": {
     "import/resolver": {

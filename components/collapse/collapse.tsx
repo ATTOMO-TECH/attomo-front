@@ -76,7 +76,6 @@ export default function Collapse() {
             ))}
           </motion.div>
         </Styles.BlockDescription>
-
         <Styles.BlockImg>
           <Styles.SectionAtom ismode={idx}>
             <Styles.BlockAtom>

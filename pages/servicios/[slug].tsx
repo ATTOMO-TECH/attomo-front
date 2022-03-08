@@ -26,6 +26,7 @@ function DetailsServices() {
   const [query, setQuery] = useState(
     'pagination[page]=1&pagination[pageSize]=3&populate=coverImage?populate=blog_tags',
   );
+  const [menuId, setMenuId] = useState(null);
   const { slug } = router.query;
   let { locale } = router;
   if (locale === '/') {
@@ -47,7 +48,6 @@ function DetailsServices() {
         encodeValuesOnly: true,
       },
     );
-
     setQuery(queryQs);
   }, [query]);
 
@@ -58,6 +58,26 @@ function DetailsServices() {
       </>
     );
   }
+  // const getMenuId = (slug: string | undefined | string[]) => {
+  //   const valuesMenu = data.data.map((subsection: any) => subsection);
+  //   const subMenuData = data.data.map(
+  //     (subsection: any) => subsection.attributes.subservices.data,
+  //   );
+  //   let itemMenu;
+  //   let subMenu: any;
+  //   subMenuData.forEach((element: any, i: any) => {
+  //     element.map((tab: any) => {
+  //       if (tab.attributes.name === slug) {
+  //         itemMenu = tab;
+  //         subMenu = valuesMenu[i];
+  //       }
+  //     });
+  //   });
+  //   return subMenu?.id;
+  // };
+  // useEffect(() => {
+  //   setMenuId(getMenuId(slug));
+  // }, []);
 
   const toggleFilter = () => {
     SetIsOpenFilter(!isOpenFilter);
@@ -65,9 +85,8 @@ function DetailsServices() {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
-
-  const innerRenderText = (iDx: any) =>
-    data.data[iDx].attributes.subservices.data[1].attributes.description;
+  const innerRenderText = (iDx: number) =>
+    data.data[iDx].attributes.description;
 
   return (
     <>
@@ -93,9 +112,10 @@ function DetailsServices() {
               <div className="lg:flex flex-col pt-10 hidden relative">
                 {data.data.map((tab: any) => (
                   <SubMenu
+                    isOpen={menuId === tab.id}
                     section={tab.attributes.name}
                     subsection={tab}
-                    collapse={false}
+                    SetIsToggle={setMenuId}
                   />
                 ))}
               </div>
@@ -113,6 +133,7 @@ function DetailsServices() {
                 <Title size="lg:text-5xl text-2xl font-Primary font-light pb-3">
                   {slug}
                 </Title>
+
                 <motion.div
                   className="pt-2 w-full"
                   animate={{ y: 0, opacity: 1 }}
@@ -124,7 +145,7 @@ function DetailsServices() {
                     variants={fadeInUp}
                     transition={{ delay: 5.5 }}
                     className="pr-5 relative font-PrimarySerif font-light leading-relaxed textDegrade">
-                    {innerRenderText(2)}
+                    {innerRenderText(1)}
                   </motion.p>
                 </motion.div>
               </motion.div>
