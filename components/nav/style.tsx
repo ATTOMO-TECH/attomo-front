@@ -79,7 +79,7 @@ export const Navegation = {
   ItemsMenu: tw.li`flex items-center list-none z-100`,
   BlockMenu: tw.div``,
   TextMenu: tw(SectionColor)<Props>`
-  mr-5 font-Primary colorMenu
+  mr-5 mt-1 font-Primary colorMenu
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-0' : '')}
   `,
   ButtonLogo: tw(Logo)`relative w-10 h-10 menu`,

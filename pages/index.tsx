@@ -19,6 +19,7 @@ import RenderLoading from '../components/loading/loading';
 import { servicesAnimations } from '../components/animations/animations';
 import BgComponent from '../components/animations/bg';
 import { getLocale } from '../public/locales/getLocale';
+import { useUseAllQuote } from '../domain/useQuotes';
 
 function Home() {
   const router = useRouter();
@@ -26,11 +27,17 @@ function Home() {
   if (locale === '/') {
     locale = 'es';
   }
-
   const { data, isLoading } = useUseAllCases(locale || 'es');
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const [lastYPos, setLastYPos] = useState(0);
   const [shouldShowActions, setShouldShowActions] = useState(false);
+  const random = (min: number, max: number) =>
+    Math.floor(Math.random() * (max - min + 1) + min);
+
+  const { data: Quote, isLoading: QuoteIsLoading } = useUseAllQuote(
+    random(1, 2),
+    locale || 'es',
+  );
 
   useEffect(() => {
     function handleScroll() {
@@ -50,7 +57,7 @@ function Home() {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
-  if (isLoading) {
+  if (isLoading || QuoteIsLoading) {
     return (
       <>
         <RenderLoading mode={false} />
@@ -58,6 +65,7 @@ function Home() {
     );
   }
   const translate = getLocale();
+
   return (
     <>
       <BgComponent />
@@ -73,6 +81,7 @@ function Home() {
               <Styles.ScreenMid>
                 {translate.home.map((values) => (
                   <Hero
+                    key={`Hero${values.HeroText}`}
                     text={values.HeroText}
                     text2={values.HeroSubTex}
                     button={values.Button}
@@ -169,7 +178,7 @@ function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: '50%' }}>
               <Styles.CenterFull>
-                <HeroFooter text="Diseñamos, desarrollamos e implantamos proyectos a medida para nuestros socios y clientes" />
+                <HeroFooter text={Quote.data.attributes.text} />
               </Styles.CenterFull>
             </motion.div>
             <motion.div

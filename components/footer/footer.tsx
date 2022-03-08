@@ -31,12 +31,12 @@ export default function Footer({ subFooter }: Props) {
                 <Navegation.ListIcon key={`footer${values.Name}`}>
                   <Link href={values.Url}>
                     <a target="_blank" href={values.Url} rel="noreferrer">
-                      <Navegation.Image
+                      <img
                         src={values.Pic2}
                         width={25}
                         height={25}
                         alt={values.Name}
-                        className="shadow-lg shadow-cyan-500/50"
+                        className="shadow-lg shadow-cyan-500/50 hover:opacity-60 transition-all duration-150"
                       />
                     </a>
                   </Link>

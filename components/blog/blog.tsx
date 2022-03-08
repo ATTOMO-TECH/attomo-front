@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Blogstyles } from './style';
@@ -49,7 +48,7 @@ export default function BlockBlog({ dataBlog }: Props) {
               <Blogstyles.Article>
                 <Blogstyles.BlockImg>
                   {data.attributes?.coverImage?.data?.attributes?.url ? (
-                    <Image
+                    <img
                       src={data.attributes.coverImage.data.attributes?.url}
                       width={900}
                       height={700}

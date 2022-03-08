@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
@@ -51,7 +50,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
               <Navegation.ItemsMenu>
                 {logo === true ? (
                   <Link href="/">
-                    <Image
+                    <img
                       src="/icon/isoAttomo.svg"
                       width={30}
                       height={30}
@@ -60,7 +59,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                   </Link>
                 ) : (
                   <Link href="/">
-                    <Image
+                    <img
                       src="/icon/attomo.svg"
                       width={100}
                       height={100}

@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { Formik } from 'formik';
+import { motion } from 'framer-motion';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { Filter } from './style';
 import FilterScroll from '../slider/filter/slider';
@@ -21,7 +21,7 @@ export default function FilterMenu({ isOpen, toggle }: Props) {
             <Filter.AlinItems ismode={BUTTON_ACTIVE.OFF}>
               <Filter.ItemsMenu>
                 <Link href="/">
-                  <Image
+                  <img
                     src="/icon/isoAttomo.svg"
                     width={30}
                     height={30}
@@ -30,12 +30,42 @@ export default function FilterMenu({ isOpen, toggle }: Props) {
                 </Link>
               </Filter.ItemsMenu>
               <Filter.ItemsMenu onClick={toggle}>
-                <Image
-                  src="/icon/close.svg"
-                  width={30}
-                  height={30}
-                  alt="close"
-                />
+                <motion.svg
+                  width="36"
+                  height="36"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  transition={{ duration: 1, ease: 'easeInOut' }}>
+                  <motion.path
+                    d="M18 6L6 18"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    initial={{ pathLength: 0 }}
+                    animate={
+                      isOpen
+                        ? { pathLength: 1, type: 'tween' }
+                        : { pathLength: 0, type: 'spring' }
+                    }
+                    transition={{ duration: 1, ease: 'easeInOut' }}
+                  />
+                  <motion.path
+                    d="M6 6L18 18"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    initial={{ pathLength: 0 }}
+                    animate={
+                      isOpen
+                        ? { pathLength: 1, type: 'tween' }
+                        : { pathLength: 0, type: 'spring' }
+                    }
+                    transition={{ duration: 1, ease: 'easeInOut' }}
+                  />
+                </motion.svg>
               </Filter.ItemsMenu>
             </Filter.AlinItems>
             <div className="flex flex-col pt-24 justify-items-stretch h-screen  text-primary self-center  ">

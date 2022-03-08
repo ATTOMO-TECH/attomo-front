@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -41,7 +40,7 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
               <>
                 {mode ? (
                   <Link href="/">
-                    <Image
+                    <img
                       src="/icon/isoAttomo.svg"
                       width={30}
                       height={30}
@@ -50,7 +49,7 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
                   </Link>
                 ) : (
                   <Link href="/">
-                    <Image
+                    <img
                       src="/icon/darkAttomo.svg"
                       width={30}
                       height={30}
@@ -62,7 +61,7 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
             ) : (
               <>
                 <Link href="/">
-                  <Image
+                  <img
                     src="/icon/attomo.svg"
                     width={100}
                     height={100}
