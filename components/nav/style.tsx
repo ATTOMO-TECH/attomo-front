@@ -68,7 +68,7 @@ export const Navegation = {
   lg:transition ease-in-out delay-150 fixed overflow-y-scroll 
     ${(props) =>
       props.ismode === BUTTON_ACTIVE.ON
-        ? `cursor-pointer h-screen w-full overflow-hidden z-100 opacity-100 relative `
+        ? `cursor-pointer h-screen w-full overflow-hidden z-100 opacity-100  `
         : 'opacity-0 overflow-hidden h-0 '}
   `,
   Menu: tw.nav``,

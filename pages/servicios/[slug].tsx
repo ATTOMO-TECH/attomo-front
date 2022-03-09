@@ -71,20 +71,24 @@ function DetailsServices() {
   return (
     <>
       <BgComponent />
-      <FilterDetails
-        isOpen={isOpenFilter}
-        toggle={toggleFilter}
-        data={data}
-        menuId={menuId}
-        setMenuId={setMenuId}
-        router={router}
-      />
       <motion.div
         initial="initial"
         animate="animate"
         exit={{ opacity: 0 }}
         className="text-primary">
         <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
+          <FilterDetails
+            isOpen={!isOpen && isOpenFilter}
+            toggle={toggleFilter}
+            logo
+            mode
+            data={data}
+            menuId={menuId}
+            router={router}
+            setMenuId={setMenuId}
+            SetIsOpenFilter={SetIsOpenFilter}
+            isOpenFilter={isOpenFilter}
+          />
           <Menu isOpen={isOpen} toggle={toggle} logo mode />
           <Styles.Margin>
             <Nav toggle={toggle} logo mode isOpen={isOpen} />

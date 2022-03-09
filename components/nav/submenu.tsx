@@ -10,6 +10,7 @@ interface Props {
   subsection: any;
   setIsToggle: any;
   isOpen: boolean;
+  toggle?: () => void;
 }
 
 export default function SubMenu({
@@ -17,6 +18,7 @@ export default function SubMenu({
   subsection,
   isOpen,
   setIsToggle,
+  toggle,
 }: Props) {
   const router = useRouter();
 
@@ -40,6 +42,7 @@ export default function SubMenu({
                       .replaceAll(' ', '_')
                       .toLowerCase()}>
                     <Styles.SelectSubMenu
+                      onClick={toggle}
                       mode={
                         subTask.attributes.name
                           .replaceAll(' ', '_')
