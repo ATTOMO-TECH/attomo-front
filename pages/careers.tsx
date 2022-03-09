@@ -1,25 +1,42 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import BgComponent from '../components/animations/bg';
 import ButtonShare from '../components/button/BtnShare';
 import IconAnimate from '../components/button/icon';
 import Footer from '../components/footer/footer';
 import HeroFooter from '../components/hero/heroFooter';
+import RenderLoading from '../components/loading/loading';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
 import Work from '../components/section/work';
 import Subtext from '../components/Text/subText';
 import Title from '../components/Text/title';
 import { BUTTON_ACTIVE } from '../const/const';
+import { useUseAllCareer } from '../domain/useCareers';
 import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 
 function Carrers() {
+  const router = useRouter();
+  let { locale } = router;
+  if (locale === '/') {
+    locale = 'es';
+  }
   const [isOpen, SetIsOpen] = useState<boolean>(false);
+  const { data, isLoading } = useUseAllCareer(locale || 'es');
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
   const translate = getLocale();
+  if (isLoading) {
+    return (
+      <>
+        <RenderLoading mode={false} />
+      </>
+    );
+  }
+
   return (
     <>
       <BgComponent />
@@ -49,12 +66,11 @@ function Carrers() {
         </Styles.Center>
         <Styles.Center>
           <Subtext size=" text-2xl pb-8">{translate.offerWork} </Subtext>
-
-          <Work works={[]} />
+          <Work works={data.data} />
         </Styles.Center>
         {translate.contactUsWork.map((value) => (
           <Styles.Center>
-            <Subtext size=" text-2xl">{value.Text} </Subtext>
+            <Subtext size=" text-2xl pt-12">{value.Text} </Subtext>
             <Subtext size=" text-sm w-3/6 font-PrimarySerif py-5">
               {value.Text}
             </Subtext>
