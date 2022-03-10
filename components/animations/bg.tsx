@@ -21,7 +21,7 @@ export default function BgComponent() {
             events: {
               resize: true,
               onClick: {
-                mode: 'push',
+                mode: 'remove',
                 enable: true,
               },
 
@@ -50,30 +50,29 @@ export default function BgComponent() {
                 },
               },
               attract: {
-                distance: 100,
+                distance: 500,
                 duration: 1000,
-                factor: 1,
-                maxSpeed: 10,
+                factor: 1000,
+                maxSpeed: 1,
                 speed: 1,
               },
               bubble: {
-                distance: 4,
+                distance: 100,
                 duration: 200,
                 opacity: 0.8,
-                size: 100,
+                size: 6,
               },
               push: {
                 quantity: 4,
               },
               repulse: {
-                distance: 200,
                 duration: 4,
               },
             },
           },
           particles: {
             color: {
-              value: ['#ffffff', '#6d749e', '#ffffff', '#800909', '#4559c6'],
+              value: ['#ffffff'],
               animation: {
                 enable: true,
                 speed: 500,
@@ -100,12 +99,12 @@ export default function BgComponent() {
               blur: 5,
             },
             collisions: {
-              enable: true,
+              enable: false,
             },
             move: {
               direction: 'top',
               enable: true,
-              outMode: 'destroy',
+              outMode: 'bounce',
               random: true,
               speed: 1,
               straight: true,
@@ -113,12 +112,19 @@ export default function BgComponent() {
             number: {
               density: {
                 enable: true,
-                area: 800,
+                area: 8000,
               },
-              value: 220,
+              value: 2200,
             },
             opacity: {
-              value: 0.4,
+              value: 1,
+              random: true,
+              anim: {
+                enable: true,
+                speed: 0.01,
+                opacity_min: 0.65,
+                sync: true,
+              },
             },
 
             size: {
@@ -128,10 +134,11 @@ export default function BgComponent() {
                 enable: true,
                 speed: 20,
                 minimumValue: 0.1,
-                sync: false,
+                sync: true,
               },
             },
           },
+          particles_nb: 2,
           detectRetina: true,
         }}
       />

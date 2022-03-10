@@ -12,10 +12,8 @@ export default function HeroCase({ toggle }: Props) {
         <Filter toggle={toggle} />
         <img
           src="/cases/header_case.jpg"
-          width={1200}
-          height={900}
           alt="header"
-          className="sm:w-11/12 w-full"
+          className="sm:w-11/12 w-full object-contain"
         />
       </HeadSection.SectionCase>
     </>
