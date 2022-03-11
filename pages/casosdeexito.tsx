@@ -3,7 +3,7 @@ import { useState } from 'react';
 import BgComponent from '../components/animations/bg';
 import BlockSection from '../components/block/block';
 import ButtonShare from '../components/button/BtnShare';
-import FilterMenu from '../components/filter/filter';
+import ModalFilter from '../components/filter/filter';
 import Footer from '../components/footer/footer';
 import HeroCase from '../components/hero/heroCase';
 import RenderLoading from '../components/loading/loading';
@@ -23,6 +23,14 @@ function Cases() {
   const [isOpenFilter, SetIsOpenFilter] = useState<boolean>(false);
   const toggleFilter = () => {
     SetIsOpenFilter(!isOpenFilter);
+  };
+  const [date, setDate] = useState<Date[]>();
+  const [topic, setTopic] = useState('');
+  const handleDate = (dateValue: []) => {
+    setDate(dateValue);
+  };
+  const handleTopic = (topicValue: string) => {
+    setTopic(topicValue);
   };
   const router = useRouter();
   let { locale } = router;
@@ -45,14 +53,24 @@ function Cases() {
       <BgComponent />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
-        <FilterMenu isOpen={isOpenFilter} toggle={toggleFilter} />
+        <ModalFilter
+          isOpen={isOpenFilter}
+          toggle={toggleFilter}
+          setDate={handleDate}
+          setTopic={handleTopic}
+        />
         <Styles.Margin>
           <Nav toggle={toggle} logo mode isOpen={isOpen} />
         </Styles.Margin>
         {!isOpenFilter && <ButtonShare />}
         {!isOpenFilter && (
           <>
-            <HeroCase toggle={toggleFilter} />
+            <HeroCase
+              toggle={toggleFilter}
+              date={date}
+              topic={topic}
+              isOpen={isOpen}
+            />
             <Styles.BlockSections>
               <SectionProjects
                 Array={data.data}

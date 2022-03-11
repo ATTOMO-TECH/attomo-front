@@ -1,51 +1,36 @@
-// eslint-disable-next-line import/no-unresolved
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { EffectFade, EffectCoverflow, Pagination } from 'swiper';
 import { useState } from 'react';
+import Picker from 'rmc-picker';
+import 'rmc-picker/assets/index.css';
 import { DEPARTMENT } from '../../../const/constGlobal';
-import { StylesArticle } from '../style';
-import { BUTTON_ACTIVE } from '../../../const/const';
 
-export default function FilterScroll() {
-  const [iDx, handleClick] = useState(0);
-  SwiperCore.use([EffectCoverflow, EffectFade, Pagination]);
+interface Props {
+  setTopic: (value: any) => void;
+}
+
+export default function FilterScroll({ setTopic }: Props) {
+  const [value, setValue] = useState();
+
   return (
     <>
-      <Swiper
-        id="filter"
-        slidesPerView={4.5}
-        direction="vertical"
-        grabCursor
-        centerInsufficientSlides
-        effect="coverflow"
-        centeredSlides
-        modules={[EffectFade, EffectCoverflow]}
-        slideToClickedSlide
-        watchOverflow
-        coverflowEffect={{
-          stretch: 100,
-          depth: 100,
-          modifier: 0,
-          slideShadows: true,
-        }}
-        watchSlidesProgress
-        pagination={false}
-        className="mySwiper lg:h-48 h-24 w-full">
-        {DEPARTMENT.map((values, i) => (
-          <SwiperSlide className="font-Primary text-Primary">
-            <>
-              <StylesArticle.Slide
-                ismode={i === iDx ? BUTTON_ACTIVE.ON : ''}
-                key={values.label}
-                active={i === iDx}
-                onClick={() => handleClick(i)}
-                onChange={(e: any) => e.target.value}>
-                {values.label}
-              </StylesArticle.Slide>
-            </>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <div className="bg-black">
+        <Picker
+          indicatorClassName="my-picker-indicator bg-none"
+          className="bg-black"
+          selectedValue={value}
+          onScrollChange={(e: any) => {
+            setValue(e);
+            setTopic(e);
+          }}>
+          {DEPARTMENT.map((values) => (
+            <Picker.Item
+              key={values.label}
+              className="my-picker-view-item text-left bg-none text-white"
+              value={values}>
+              {values.label}
+            </Picker.Item>
+          ))}
+        </Picker>
+      </div>
     </>
   );
 }

@@ -71,11 +71,27 @@
   }
 }
 
-#filter
-  .swiper-slide:not(.swiper-slide-active):not(.swiper-slide-next):not(.swiper-slide-prev) {
-  opacity: 0.4;
+.rmc-picker-mask {
+  background-image: linear-gradient(
+      to bottom,
+      rgb(0 0 0 / 95%),
+      rgb(0 0 0 / 63%)
+    ),
+    linear-gradient(to top, rgb(0 0 0 / 95%), rgb(0 0 0 / 63%)) !important;
 }
-#filter .swiper-slide-visible {
+.rmc-picker-indicator {
+  border: none !important;
+}
+
+.rmc-picker-item {
+  color: white !important;
+  font-size: 20px !important;
+  line-height: 32px !important;
+  font-family: 'Merriweather';
+  opacity: 0.8;
+}
+
+.rmc-picker-item-selected {
   opacity: 1;
 }
 .btn {

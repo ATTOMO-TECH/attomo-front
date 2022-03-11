@@ -55,8 +55,12 @@ export const Navegation = {
       `,
 };
 export const Styles = {
-  BlockFilter: tw.div`w-1/12 h-6 text-center transform -rotate-90 z-80 sm:flex hidden relative`,
-  TextFilter: tw.h6`text-primary text-xs font-PrimarySerif font-thin opacity-40 w-full absolute left-0`,
+  BlockFilter: tw.div`w-1/12 text-center transform -rotate-90  flex absolute left-10 bottom-72 z-100 lg:z-0 `,
+  TextFilter: tw.h6`text-primary text-xs font-PrimarySerif font-thin w-24 absolute lg:right-10 right-24`,
+  FlexFilter: tw.div`flex`,
+  FirtsItem: tw.div`text-primary outline-none text-sm absolute -right-6 w-24`,
+  DateItem: tw.div`absolute -right-56 w-48 flex`,
+  ValueDate: tw.h6`text-primary outline-none text-sm flex w-48 `,
   Select: tw(
     Select,
   )`bg-black text-primary outline-none text-sm absolute -right-16`,

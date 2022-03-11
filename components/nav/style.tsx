@@ -39,7 +39,7 @@ export const Logo = styled.div`
     position: absolute;
     margin: auto;
     transition: all 1s ease-in;
-    background-color: black;
+
     border-radius: 100%;
   }
 `;
@@ -90,7 +90,7 @@ export const Navegation = {
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`
-font-Primary z-100 py-16 h-24 mb-10 cursor-pointer list-none fixed w-full duration-300 ease-in-out delay-700
+font-Primary z-100 md:py-16 md:h-24 md:mb-10 cursor-pointer list-none fixed w-full duration-300 ease-in-out delay-700
 ${(props) =>
   props.ismode === BUTTON_ACTIVE.ON ? 'duration-300 ease-in-out' : ''}
 `,

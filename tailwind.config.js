@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'hero-Space': "url('/cases/spaceHero.jpg')",
+        'hero-Case': "url('/cases/header_case.jpg')",
         'space-Attomo': "url('/cases/Espacio_Attomo.jpg')",
         'space-Attomo2': "url('/cases/Espacio_Attomo_2.jpg')",
         'space-Attomo3': "url('/cases/Espacio_Attomo_3.jpg')",

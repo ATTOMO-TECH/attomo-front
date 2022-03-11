@@ -109,7 +109,7 @@ export const Styles = {
       : ''}
   
   `,
-  Margin: tw.div`m-auto`,
+  Margin: tw.div`m-auto `,
   Center: tw.section`w-10/12 m-auto`,
   CenterCases: tw.section`w-10/12 m-auto pt-36 overflow-hidden flex justify-between`,
   BlockRenderDetails: tw.div`lg:flex flex-col pt-10 hidden relative`,
