@@ -16,7 +16,9 @@ export default function SubSection({ locale }: Props) {
         </div>
         {locale.counter.map((values: any) => (
           <SubSections.TextSubsection>
-            <Title size="text-4xl">{values.HeaderCounter}</Title>
+            <Title size="text-2xl md:text-3xl lg:text-4xl font-light">
+              {values.HeaderCounter}
+            </Title>
             <SubSections.Paragraph>{values.BodyCounter}</SubSections.Paragraph>
             <Link href="/servicios">
               <div>

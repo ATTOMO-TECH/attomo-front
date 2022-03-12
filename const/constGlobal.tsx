@@ -89,6 +89,12 @@ export const ICONNAV: {
     Pic2: '/icon/linkedin.svg',
     Url: 'https://www.linkedin.com/company/attomo-digital/',
   },
+  {
+    Name: 'TikTok',
+    UrlShare: '/icon/tiktok.svg',
+    Pic2: '/icon/tiktok.svg',
+    Url: 'https://www.tiktok.com/@attomo.digital/',
+  },
 ];
 
 export const CUSTOMERS: {

@@ -45,12 +45,17 @@ const SERVICES = {
       `services?locale=${lenguage}&populate=subservices&${query}`,
     ),
 };
+const SUBSERVICES = {
+  FETCH_ALL: (lenguage: string) =>
+    getAbsolutePath(`subservices?locale=${lenguage}`),
+};
 const RATES = {
   FETCH_ALL: (lenguage: string) =>
     getAbsolutePath(`espacio-attomo-rates?locale=${lenguage}`),
 };
 
 export {
+  SUBSERVICES,
   POST,
   CAREERS,
   CASES,

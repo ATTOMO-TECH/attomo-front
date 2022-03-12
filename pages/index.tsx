@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion';
+import { motion, AnimateSharedLayout } from 'framer-motion';
 import { useRouter } from 'next/router';
 import BlockSection from '../components/block/block';
 import Footer from '../components/footer/footer';
@@ -74,28 +74,43 @@ function Home() {
     <>
       <BgComponent />
       <AnimateSharedLayout>
-        <AnimatePresence>
-          <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
-            <Menu isOpen={isOpen} toggle={toggle} logo={false} mode />
-            <Styles.Margin>
-              <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
-            </Styles.Margin>
-            <ButtonShare />
+        <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
+          <Menu isOpen={isOpen} toggle={toggle} logo={false} mode />
+          <Styles.Margin>
+            <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
+          </Styles.Margin>
+          <ButtonShare />
+          <Styles.Center>
+            <Styles.ScreenMid>
+              {translate.home.map((values) => (
+                <Hero
+                  key={`Hero${values.HeroText}`}
+                  text={values.HeroText}
+                  text2={values.HeroSubTex}
+                  button={values.Button}
+                  link="conocenos"
+                />
+              ))}
+            </Styles.ScreenMid>
+          </Styles.Center>
+          <Styles.SectionScreen id="conocenos">
+            <Styles.CenterFlex>
+              <motion.div
+                animate={shouldShowActions}
+                variants={servicesAnimations}
+                className="actions"
+                transition={{
+                  type: 'magic',
+                  stiffness: 100,
+                  duration: 0.5,
+                }}
+                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: '50%' }}>
+                <SubSection locale={translate} />
+              </motion.div>
+            </Styles.CenterFlex>
             <Styles.Center>
-              <Styles.ScreenMid>
-                {translate.home.map((values) => (
-                  <Hero
-                    key={`Hero${values.HeroText}`}
-                    text={values.HeroText}
-                    text2={values.HeroSubTex}
-                    button={values.Button}
-                    link="conocenos"
-                  />
-                ))}
-              </Styles.ScreenMid>
-            </Styles.Center>
-            <Styles.SectionScreen id="conocenos">
-              <Styles.CenterFlex>
+              <Styles.BlockSelected>
                 <motion.div
                   animate={shouldShowActions}
                   variants={servicesAnimations}
@@ -107,113 +122,96 @@ function Home() {
                   }}
                   whileInView={{ opacity: 1, y: 0 }}
                   initial={{ opacity: 0, y: '50%' }}>
-                  <SubSection locale={translate} />
+                  {translate.selected.map((values) => (
+                    <SelectedClients
+                      textPrimary={values.Section}
+                      text={values.Title}
+                      btn={values.Button}
+                      link="/casosdeexito"
+                    />
+                  ))}
                 </motion.div>
-              </Styles.CenterFlex>
-              <Styles.Center>
-                <Styles.BlockSelected>
-                  <motion.div
-                    animate={shouldShowActions}
-                    variants={servicesAnimations}
-                    className="actions"
-                    transition={{
-                      type: 'magic',
-                      stiffness: 100,
-                      duration: 0.5,
-                    }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    initial={{ opacity: 0, y: '50%' }}>
-                    {translate.selected.map((values) => (
-                      <SelectedClients
-                        textPrimary={values.Section}
-                        text={values.Title}
-                        btn={values.Button}
-                        link="/casosdeexito"
-                      />
-                    ))}
-                  </motion.div>
-                </Styles.BlockSelected>
-              </Styles.Center>
-            </Styles.SectionScreen>
-            <Styles.BlockSlider>
-              <CompaniesScroll />
-            </Styles.BlockSlider>
-            <SectionProjects
-              Array={data.data}
-              shouldShowActions={shouldShowActions}
-              servicesAnimations={servicesAnimations}
-            />
-            <motion.div
-              animate={shouldShowActions}
-              variants={servicesAnimations}
-              className="actions"
-              transition={{
-                delay: 0.2,
-                type: 'spring',
-                stiffness: 50,
-                duration: 2,
-              }}
-              whileInView={{ opacity: 1, y: 0 }}
-              initial={{ opacity: 0, y: '50%' }}>
-              <Styles.CenterFlex>
-                {translate.seeMore.map((values) => (
-                  <BlockSection
-                    key={values.Link}
-                    text=""
-                    button=""
-                    text2={values.Text}
-                    button2={values.Link}
-                    mode
-                    link="/ATTOMOTrends"
-                  />
-                ))}
-              </Styles.CenterFlex>
-            </motion.div>
-            <motion.div
-              animate={shouldShowActions}
-              variants={servicesAnimations}
-              className="actions"
-              transition={{
-                delay: 0.2,
-                type: 'spring',
-                stiffness: 50,
-                duration: 2,
-              }}
-              whileInView={{ opacity: 1, y: 0 }}
-              initial={{ opacity: 0, y: '50%' }}>
-              <Styles.CenterFull>
-                <HeroFooter text={Quote.data.attributes.text} />
-              </Styles.CenterFull>
-            </motion.div>
-            <motion.div
-              animate={shouldShowActions}
-              variants={servicesAnimations}
-              className="actions"
-              transition={{
-                delay: 0.2,
-                type: 'spring',
-                stiffness: 50,
-                duration: 2,
-              }}
-              whileInView={{ opacity: 1, y: 0 }}
-              initial={{ opacity: 0, y: '50%' }}>
-              <Styles.CenterFlex>
-                {translate.contact.map((values) => (
-                  <BlockSection
-                    key={values.Link}
-                    text={values.Text}
-                    button={values.Link}
-                    text2=""
-                    button2=""
-                    mode
-                    link="/contacto"
-                  />
-                ))}
-              </Styles.CenterFlex>
-            </motion.div>
-            <Footer subFooter />
-          </Styles.Body>
-        </AnimatePresence>
+              </Styles.BlockSelected>
+            </Styles.Center>
+          </Styles.SectionScreen>
+          <Styles.BlockSlider>
+            <CompaniesScroll />
+          </Styles.BlockSlider>
+          <SectionProjects
+            Array={data.data}
+            shouldShowActions={shouldShowActions}
+            servicesAnimations={servicesAnimations}
+          />
+          <motion.div
+            animate={shouldShowActions}
+            variants={servicesAnimations}
+            className="actions"
+            transition={{
+              delay: 0.2,
+              type: 'spring',
+              stiffness: 50,
+              duration: 2,
+            }}
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: '50%' }}>
+            <Styles.CenterFlex>
+              {translate.seeMore.map((values) => (
+                <BlockSection
+                  key={values.Link}
+                  text=""
+                  button=""
+                  text2={values.Text}
+                  button2={values.Link}
+                  mode
+                  link="/ATTOMOTrends"
+                />
+              ))}
+            </Styles.CenterFlex>
+          </motion.div>
+          <motion.div
+            animate={shouldShowActions}
+            variants={servicesAnimations}
+            className="actions"
+            transition={{
+              delay: 0.2,
+              type: 'spring',
+              stiffness: 50,
+              duration: 2,
+            }}
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: '50%' }}>
+            <Styles.CenterFull>
+              <HeroFooter text={Quote.data.attributes.text} />
+            </Styles.CenterFull>
+          </motion.div>
+          <motion.div
+            animate={shouldShowActions}
+            variants={servicesAnimations}
+            className="actions"
+            transition={{
+              delay: 0.2,
+              type: 'spring',
+              stiffness: 50,
+              duration: 2,
+            }}
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: '50%' }}>
+            <Styles.CenterFlex>
+              {translate.contact.map((values) => (
+                <BlockSection
+                  key={values.Link}
+                  text={values.Text}
+                  button={values.Link}
+                  text2=""
+                  button2=""
+                  mode
+                  link="/contacto"
+                />
+              ))}
+            </Styles.CenterFlex>
+          </motion.div>
+          <Footer subFooter />
+        </Styles.Body>
       </AnimateSharedLayout>
     </>
   );

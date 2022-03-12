@@ -164,6 +164,6 @@ export const Styles = {
   SpaceCollapse: tw.div`lg:py-48 overflow-hidden`,
   // SUBMENU
   SubMenuBlock: tw.div`w-2/6`,
-  ButtonSubMenu: tw.button`font-Primary text-xl`,
+  ButtonSubMenu: tw.button`font-Primary text-xl uppercase`,
   BlockSubSection: tw.div`flex flex-col relative pl-1`,
 };

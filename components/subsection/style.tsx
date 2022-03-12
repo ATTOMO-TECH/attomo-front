@@ -18,6 +18,6 @@ export const SubSections = {
   TextSubsection: tw.div`text-primary lg:w-5/12 w-full`,
   Paragraph: tw(
     TextHero,
-  )`lg:text-sm text-lg lg:font-thin font-regular lg:font-PrimarySerif font-Secundary pt-5 tracking-wide leadi ng-loose`,
+  )`lg:text-sm sm:text-lg text-sm lg:font-thin font-regular lg:font-PrimarySerif font-Secundary pt-5 tracking-wide leadi ng-loose`,
   SectionCounter: tw.div`lg:w-64 p-12 lg:p-0`,
 };

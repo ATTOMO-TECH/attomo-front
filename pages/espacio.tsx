@@ -9,7 +9,7 @@ import { BUTTON_ACTIVE } from '../const/const';
 import { Styles } from '../styles/styles';
 import BlockSection from '../components/block/block';
 import SelectedClients from '../components/section/selectedclientes';
-import Prices from '../components/section/price';
+// import Prices from '../components/section/price';
 import FormReserver from '../components/form/formReserver';
 import ButtonShare from '../components/button/BtnShare';
 import MapsBlock from '../components/maps/maps';
@@ -74,14 +74,14 @@ function Space() {
             <Styles.BlockImg className="bg-space-Attomo4" />
           </Styles.SectionImg>
         </Styles.Center>
-        <Styles.Center>
+        {/*  <Styles.Center>
           <Styles.ContainerFull>
             <Title size="text-5xl lg:pt-36 pb-24 w-full text-center pt-20 ">
               {translate.prices}
             </Title>
-            <Prices locale={locale} />
+          <Prices locale={locale} />
           </Styles.ContainerFull>
-        </Styles.Center>
+        </Styles.Center> */}
         <Styles.Center id="reserva">
           {translate.formBooking.map((values) => (
             <Styles.ContainerFull>

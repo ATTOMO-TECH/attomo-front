@@ -2,21 +2,23 @@ import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 
 export const TextHero = styled.h2`
+  font-family: 'Merriweather';
+  font-weight: 300;
   will-change: transform;
   background: linear-gradient(
     90deg,
     #b4a9bc 0%,
-    #ffffff 17.79%,
-    #ffffff 63.3%,
+    #ffffff 30.79%,
+    #ffffff 50.3%,
     #b4a9bc 100%
   );
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
-  -webkit-animation: gradient 1s ease infinite;
-  animation: gradient 8s ease infinite;
+
+  -webkit-animation: gradient 5s ease infinite;
+  animation: gradient 5s ease infinite;
   @keyframes gradient {
     0% {
       background-position: 0% 50%;
@@ -40,7 +42,7 @@ export const Block = styled.section`
 `;
 
 export const HeadSection = {
-  TextHead: tw(TextHero)` lg:pr-10 lg:text-4xl font-thin text-3xl `,
+  TextHead: tw(TextHero)` lg:pr-10 lg:text-4xl text-3xl `,
   SectionHero: tw.section`font-Primary`,
   Blockbutton: tw.div`relative cursor-pointer`,
   TextButton: tw.h6`text-primary`,

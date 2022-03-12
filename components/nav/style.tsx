@@ -73,7 +73,7 @@ export const Navegation = {
   `,
   Menu: tw.nav``,
   AlinItems: tw.ul<Props>`
-  flex items-center justify-between mb-20 w-10/12 absolute lg:left-24 left-12 lg:top-10 
+  flex items-center justify-between mb-20 w-10/12 absolute lg:left-24 left-12 top-10 
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'pt-10' : '')}
   `,
   ItemsMenu: tw.li`flex items-center list-none z-100`,
@@ -90,9 +90,11 @@ export const Navegation = {
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`
-font-Primary z-100 md:py-16 md:h-24 md:mb-10 cursor-pointer list-none fixed w-full duration-300 ease-in-out delay-700
+font-Primary z-100  cursor-pointer list-none fixed w-full duration-300 ease-in-out delay-700
 ${(props) =>
-  props.ismode === BUTTON_ACTIVE.ON ? 'duration-300 ease-in-out' : ''}
+  props.ismode === BUTTON_ACTIVE.ON
+    ? 'duration-300 ease-in-out py-16 h-24 mb-10'
+    : ''}
 `,
   BlockLenguage: tw.div`flex  items-end`,
   BlokSectionLenguage: tw.div`flex font-Secundary text-primary text-sm mr-5 items-center`,
