@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import IconAnimate from '../../button/icon';
 import { Container } from './style';
 
@@ -13,23 +14,34 @@ export default function DetailsCases({ data }: Props) {
             <h5 className="font-Primary text-addictional text-xl">
               Disciplinas
             </h5>
-            <h6 className="font-PrimarySerif font-thin text-sm flex">
-              Transitional Branding
-            </h6>
+            {data.attributes.disciplines.data.map((disciplines: any) => (
+              <h6 className="font-PrimarySerif font-thin text-sm flex">
+                {disciplines.attributes.name}
+              </h6>
+            ))}
           </div>
 
           <div>
             <h5 className="font-Primary text-addictional text-xl">
-              Disciplinas
+              Entregables
             </h5>
-            <h6 className="font-PrimarySerif font-thin text-sm">
-              Transitional Branding
-            </h6>
+            {data.attributes.deliverables.data.map((disciplines: any) => (
+              <h6 className="font-PrimarySerif font-thin text-sm flex">
+                {disciplines.attributes.name}
+              </h6>
+            ))}
           </div>
         </div>
-        <div className="lg:w-5/12 py-10 lg:py-0 px-2 leading-relaxed font-PrimarySerif font-thin text-sm">
-          <Container>{data}</Container>
-          <IconAnimate text="Ver online" mode={false} />
+        <div className="lg:w-5/12 py-10 lg:py-0 lg:px-2 leading-relaxed font-PrimarySerif font-thin text-sm">
+          <Container>{data.attributes.workDescription}</Container>
+          <Link href={data.attributes.projectUrl} passHref>
+            <a
+              href={data.attributes.projectUrl}
+              target="_blank"
+              rel="noreferrer">
+              <IconAnimate text="Ver online" mode={false} />
+            </a>
+          </Link>
         </div>
       </section>
     </>

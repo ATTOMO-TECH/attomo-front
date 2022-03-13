@@ -90,14 +90,19 @@ export const Navegation = {
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`
-font-Primary z-100  cursor-pointer list-none fixed w-full duration-300 ease-in-out delay-700
+font-Primary z-100  cursor-pointer list-none fixed w-full duration-300 ease-in-out delay-700 
 ${(props) =>
   props.ismode === BUTTON_ACTIVE.ON
-    ? 'duration-300 ease-in-out py-16 h-24 mb-10'
+    ? 'duration-300 ease-in-out h-24 mb-10 '
     : ''}
 `,
   BlockLenguage: tw.div`flex  items-end`,
   BlokSectionLenguage: tw.div`flex font-Secundary text-primary text-sm mr-5 items-center`,
-  ButtonSelect: tw.button`block p-2 delay-150 duration-300 ease-in-out hover:opacity-50`,
-  LineBlock: tw.span`span`,
+  ButtonSelect: tw.button<Props>`
+  block p-2 delay-150 duration-300 ease-in-out hover:opacity-50
+  ${(props) =>
+    props.ismode === BUTTON_ACTIVE.ON ? 'text-white' : 'text-black'}`,
+  LineBlock: tw.span<Props>`
+  ${(props) =>
+    props.ismode === BUTTON_ACTIVE.ON ? 'text-white' : 'text-black'}`,
 };

@@ -51,9 +51,7 @@ function Services() {
           </Styles.SpaceCollapse>
         </Styles.Center>
         <Styles.Center>
-          <Styles.TitleSubSection>
-            Proyectos relacionados
-          </Styles.TitleSubSection>
+          <Styles.TitleSubSection>{translate.project}</Styles.TitleSubSection>
         </Styles.Center>
         <Styles.FlexEnd>
           <Styles.AlingBlock>

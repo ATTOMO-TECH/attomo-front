@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useRouter } from 'next/dist/client/router';
-import Image from 'next/image';
 import Footer from '../../components/footer/footer';
 import Menu from '../../components/nav/menu';
 import Nav from '../../components/nav/nav';
@@ -25,7 +24,12 @@ export default function Cases({ mode }: Props) {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
-  const { data, isLoading } = useaCase(Number(slug));
+
+  let { locale } = router;
+  if (locale === '/') {
+    locale = 'es';
+  }
+  const { data, isLoading } = useaCase(Number(slug), locale || 'es');
   if (isLoading) {
     return (
       <>
@@ -43,34 +47,26 @@ export default function Cases({ mode }: Props) {
         <Styles.Margin>
           <Nav toggle={toggle} logo mode={false} isOpen={isOpen} />
         </Styles.Margin>
-        <Styles.Center className="mt-44">
-          <Styles.Center>
-            <BreadCrumbs
-              Author={data.data.attributes.company}
-              Date={data.data.attributes.sumary}
-            />
-            <Styles.TitularText>
-              {data.data.attributes.title}
-            </Styles.TitularText>
-          </Styles.Center>
+        <Styles.Center className="mt-44 lg:pl-6">
+          <BreadCrumbs
+            Author={data.data.attributes.company}
+            Date={data.data.attributes.sumary}
+          />
+          <Styles.TitularText>{data.data.attributes.title}</Styles.TitularText>
         </Styles.Center>
 
         {data.data?.attributes?.mainPhoto?.data[0].attributes?.url ? (
-          <Image
+          <img
             src={data.data?.attributes?.mainPhoto?.data[0].attributes?.url}
             width={1100}
             height={600}
             alt={data.data.attributes.name}
-            objectFit="cover"
+            className="object-cover"
           />
-        ) : (
-          ''
-        )}
-
+        ) : null}
         <Styles.Center>
-          <DetailsCases data={data.data.attributes.workDescription} />
+          <DetailsCases data={data.data} />
         </Styles.Center>
-
         <Styles.FlexEnd>
           <Styles.AlingBlock>
             <ArticlesScroll mode={false} array={NEWS} />

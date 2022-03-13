@@ -7,8 +7,8 @@ const getAllCases = async (lenguage: string) => {
   return data;
 };
 
-const getCaseId = async (id: number) => {
-  const { data } = await get(CASES.FETCH_ID(id));
+const getCaseId = async (id: number, lenguage: string) => {
+  const { data } = await get(CASES.FETCH_ID(id, lenguage));
   return data;
 };
 
@@ -19,8 +19,8 @@ export function useUseAllCases(lenguage: string) {
     refetchOnWindowFocus: false,
   });
 }
-export function useaCase(id: number) {
-  return useQuery(['useACase', id], () => getCaseId(id), {
+export function useaCase(id: number, lenguage: string) {
+  return useQuery(['useACase', id], () => getCaseId(id, lenguage), {
     staleTime: 25000,
     notifyOnChangePropsExclusions: ['isStale'],
     refetchOnWindowFocus: false,

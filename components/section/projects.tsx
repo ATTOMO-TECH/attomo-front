@@ -66,7 +66,7 @@ export default function SectionProjects({
                   <Title size="text-lg font-PrimarySerif uppercase ">
                     {values.attributes.company}
                   </Title>
-                  <Title size="lg:text-5xl text-2xl py-3 leading-relaxed lg:leading-normal">
+                  <Title size="lg:text-4xl text-2xl py-3 leading-relaxed lg:leading-normal">
                     {values.attributes.title}
                   </Title>
                   <Link href={`/casos/${values.id}`}>
@@ -74,7 +74,7 @@ export default function SectionProjects({
                       <IconAnimate
                         text="Ver proyecto"
                         mode
-                        styleText=" text-sm"
+                        styleText="text-xs"
                       />
                     </Styles.BlockBtn>
                   </Link>

@@ -4,8 +4,10 @@ const getAbsolutePath = (path: string) => `${API_URL}/${path}`;
 const CASES = {
   FETCH_ALL: (lenguage: string) =>
     getAbsolutePath(`successful-cases?populate=mainPhoto&locale=${lenguage}`),
-  FETCH_ID: (id: number) =>
-    getAbsolutePath(`successful-cases/${id}?populate=mainPhoto`),
+  FETCH_ID: (id: number, lenguage: string) =>
+    getAbsolutePath(
+      `successful-cases/${id}?populate=mainPhoto&populate=disciplines&populate=deliverables&populate=subservice&locale=${lenguage}`,
+    ),
 };
 const CONTACT = {
   CREATE: () => getAbsolutePath('client-forms'),

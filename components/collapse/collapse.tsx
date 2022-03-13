@@ -78,8 +78,8 @@ export default function Collapse() {
         </Styles.BlockDescription>
         <Styles.BlockImg>
           <Styles.SectionAtom ismode={idx}>
+            <Styles.Atom />
             <Styles.BlockAtom>
-              <Styles.Atom />
               <Styles.Image
                 ismode={idx}
                 src="/icon/semiElipse.svg"

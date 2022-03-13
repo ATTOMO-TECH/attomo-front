@@ -85,16 +85,15 @@ export const Item = styled.div<Props>`
 `;
 
 export const ItemSection = styled.div`
-  z-index: 10;
   width: 40px;
   height: 8px;
   border-radius: 80% 80% 40% 40%;
   position: absolute;
-  top: -15px;
-  left: 44%;
-
+  top: -17px;
+  left: 48%;
+  z-index: 90 !important;
   -webkit-animation-duration: 4000ms;
-  &:after {
+  &:before {
     content: url('/icon/elementElipse.svg');
   }
   @media screen and (min-width: 768px) {
@@ -150,7 +149,8 @@ export const TextTitle = styled.h2`
   } ;
 `;
 export const Circle = styled.div`
-   {
+   {background-color:red
+     z-index:0!important;
     width: 98%;
     height: 100%;
     transform: rotate(-70deg);
@@ -170,8 +170,8 @@ export const Styles = {
   BlockImg: tw.div`relative lg:overflow-hidden `,
   SectionAtom: tw(
     Item,
-  )`lg:animate-pulse transition ease-in-out delay-150 relative z-0 z-100 lg:p-0`,
-  BlockAtom: tw.div`absolute z-10`,
+  )`lg:animate-pulse transition ease-in-out delay-150 relative `,
+  BlockAtom: tw.div`absolute `,
   Atom: tw(ItemSection)``,
   Image: tw(Imgen)``,
   BlockTextSelect: tw(
@@ -185,6 +185,6 @@ export const Styles = {
   TextCentral: tw(TextTitle)` w-4/6 text-center lg:text-sm `,
   Circle: tw(
     Circle,
-  )` bg-backCollaplse bg-circle bg-no-repeat absolute bg-center bg-contain -top-2 lg:top-0 right-1 rounded-full lg:-right-0 md:right-0 z-0`,
+  )`  bg-circle bg-no-repeat absolute bg-center bg-contain -top-2 lg:top-0 right-1 rounded-full lg:-right-0 md:right-0 `,
   BlockTextCenter: tw.div`z-10 border-4 border-white w-5/6 h-5/6 absolute md:top-20 md:right-20 right-6 top-6 rounded-full flex justify-center items-center animate-pulse `,
 };

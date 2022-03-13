@@ -32,14 +32,14 @@ export default function ArticlesScroll({ mode, array }: Props) {
             slidesPerView: 1,
           },
           '640': {
-            slidesPerView: 3.5,
+            slidesPerView: 1,
           },
-          '768': {
+          '1024': {
             slidesPerView: 3.5,
           },
         }}
-        slidesPerView={3.5}
-        spaceBetween={0}
+        slidesPerView={1}
+        spaceBetween={50}
         onBeforeInit={onBeforeInit}
         navigation={{
           prevEl: prevRef.current,
@@ -47,20 +47,17 @@ export default function ArticlesScroll({ mode, array }: Props) {
         }}
         className="mySwiper ">
         {array.map((values) => (
-          <SwiperSlide key={values.Tag} className="swiper">
-            <StylesArticle.BlockImg>
-              {values.Pic ? (
-                <img
-                  src={values.Pic}
-                  width={300}
-                  height={300}
-                  alt={values.Text}
-                  className={values.Pic === '/' ? 'hidden ' : 'object-fill'}
-                />
-              ) : (
-                ''
-              )}
-            </StylesArticle.BlockImg>
+          <SwiperSlide key={values.Tag} className="swiper ">
+            {values.Pic ? (
+              <StylesArticle.Img
+                src={values.Pic}
+                alt={values.Text}
+                className={values.Pic === '/' ? 'hidden ' : ''}
+              />
+            ) : (
+              ''
+            )}
+
             <StylesArticle.BlockText
               theme={mode === false ? lightTheme : darkTheme}>
               <StylesArticle.TopicText
@@ -69,7 +66,10 @@ export default function ArticlesScroll({ mode, array }: Props) {
                 }>
                 {values.Topic}
               </StylesArticle.TopicText>
-              <StylesArticle.TextBlog>{values.Text}</StylesArticle.TextBlog>
+              <StylesArticle.TextBlog
+                ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+                {values.Text}
+              </StylesArticle.TextBlog>
             </StylesArticle.BlockText>
           </SwiperSlide>
         ))}
