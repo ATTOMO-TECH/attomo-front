@@ -98,7 +98,9 @@ function Space() {
         <Styles.Center>
           <Styles.BlockAddres>
             <Styles.BreakLine />
-            <Title size="text-2xl  lg:pr-10 ">Espacio Attomo</Title>
+            <Title size="text-2xl  lg:pr-10 ">
+              {translate.spaceAttomoFooter}
+            </Title>
             <Subtext size="lg:text-sm text-sm w-full pb-10 font-PrimarySerif">
               Calle del Monte Esquinza, 8-Bajo Izquierda <br />
               28010 Madrid

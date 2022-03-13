@@ -78,7 +78,7 @@ export const CheckCheckCondition = styled.input`
     width: 1.5em;
     height: 1.5em;
     transition: 120ms transform ease-in-out;
-    border: 0.15em solid white;
+    border: 0em solid white;
     padding: 3px;
   }
 `;
@@ -141,6 +141,6 @@ ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
   AlingSelect: tw.div`w-3/6`,
   AlingSelectSecond: tw.div`w-2/6`,
   BlockCheck: tw.div`flex flex-wrap`,
-  TextChecked: tw.p``,
+  TextChecked: tw.p`mx-1`,
   LinkCheck: tw.h6`ml-1 underline cursor-pointer`,
 };

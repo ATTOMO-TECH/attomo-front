@@ -9,8 +9,10 @@ import { OPTIONDISPONIBILITY } from '../../const/constGlobal';
 import InputCheckcondition from './inputCheckcondition';
 import { createContact } from '../../domain/useContact';
 import Conditions from './conditions';
+import { getLocale } from '../../public/locales/getLocale';
 
 export default function FormReserver() {
+  const translate = getLocale();
   const [selected, setSelected] = useState('');
   const onChange = (e: any) => {
     setSelected(e.value);
@@ -84,7 +86,7 @@ export default function FormReserver() {
                     <InputSelect
                       selected={selected}
                       options={OPTIONDISPONIBILITY}
-                      valueLabel="Tiempo"
+                      valueLabel={translate.formTime}
                       name={FORMVALUES.TIME}
                       onChange={onChange}
                     />
@@ -95,7 +97,7 @@ export default function FormReserver() {
                 <div className="w-full lg:pr-7 pt-5">
                   <Styles.Input
                     ismode={BUTTON_ACTIVE.ON}
-                    placeholder="Nombre *"
+                    placeholder={translate.formName}
                     type="text"
                     name={FORMVALUES.FIRSTNAME}
                   />
@@ -106,7 +108,7 @@ export default function FormReserver() {
                 <div className="w-full lg:pr-5 lg:pt-5">
                   <Styles.Input
                     ismode={BUTTON_ACTIVE.ON}
-                    placeholder="Apellidos *"
+                    placeholder={translate.formLastName}
                     type="text"
                     name={FORMVALUES.LASTNAME}
                   />
@@ -120,7 +122,7 @@ export default function FormReserver() {
                   <div className="w-full lg:pr-5">
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
-                      placeholder="Email *"
+                      placeholder={translate.formEmail}
                       type="email"
                       name={FORMVALUES.EMAIL}
                     />
@@ -131,7 +133,7 @@ export default function FormReserver() {
                   <div className="w-full lg:pr-5">
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
-                      placeholder="Móvil *"
+                      placeholder={translate.formPhone}
                       type="tel"
                       name={FORMVALUES.PHONE}
                     />
@@ -145,7 +147,7 @@ export default function FormReserver() {
                 <div className="w-full lg:pr-5">
                   <Styles.Input
                     ismode={BUTTON_ACTIVE.OFF}
-                    placeholder="Empresa/Organización *"
+                    placeholder={translate.formCompany}
                     type="text"
                     name={FORMVALUES.COMPANY}
                   />
@@ -162,7 +164,7 @@ export default function FormReserver() {
                 <Styles.Error>{errors.check}</Styles.Error>
               )}
               <Styles.BlockBtn type="submit">
-                <IconAnimate text="Enviar" mode />
+                <IconAnimate text={translate.formRent} mode />
               </Styles.BlockBtn>
             </Styles.Form>
           </>

@@ -1,10 +1,8 @@
-import FormColaborator from '../components/form/formColaborator';
-import FormCustomer from '../components/form/formCustomer';
-
 export enum CONDITIONFORM {
   TEAM = 'team',
   PARTNER = 'partner',
 }
+
 export const PARTNERS: {
   Name: string;
   Pic: string;
@@ -383,20 +381,6 @@ export const BLOG: {
     Url: '',
     Pic: '/customers/blog/blog4.png',
     Tag: '4',
-  },
-];
-
-export const TABCONTACT: {
-  Name: string;
-  Component: any;
-}[] = [
-  {
-    Name: 'Cliente',
-    Component: <FormCustomer />,
-  },
-  {
-    Name: 'Colaborador',
-    Component: <FormColaborator />,
   },
 ];
 

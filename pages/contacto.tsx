@@ -17,6 +17,7 @@ function Contact() {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
+
   const translate = getLocale();
   return (
     <>
