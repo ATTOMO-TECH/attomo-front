@@ -65,7 +65,7 @@ export const LogoInvert = styled.div`
 `;
 export const Navegation = {
   SectionMenu: tw(SectionColor)<Props>`
-  lg:transition ease-in-out delay-150 fixed overflow-y-scroll 
+  lg:transition ease-in-out  fixed overflow-y-scroll 
     ${(props) =>
       props.ismode === BUTTON_ACTIVE.ON
         ? `cursor-pointer h-screen w-full overflow-hidden z-100 opacity-100  `
@@ -74,7 +74,7 @@ export const Navegation = {
   Menu: tw.nav``,
   AlinItems: tw.ul<Props>`
   flex items-center justify-between mb-20 w-10/12 absolute lg:left-24 left-12 top-10 
-  ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'pt-10' : '')}
+  ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : '')}
   `,
   ItemsMenu: tw.li`flex items-center list-none z-100`,
   BlockMenu: tw.div``,

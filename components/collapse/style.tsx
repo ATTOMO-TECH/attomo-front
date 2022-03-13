@@ -90,8 +90,8 @@ export const ItemSection = styled.div`
   height: 8px;
   border-radius: 80% 80% 40% 40%;
   position: absolute;
-  top: -17px;
-  left: 48%;
+  top: -15px;
+  left: 44%;
 
   -webkit-animation-duration: 4000ms;
   &:after {
@@ -167,24 +167,24 @@ export const Styles = {
   SectionCollapse: tw.section`h-screen w-full relative z-80 lg:h-auto font-PrimarySerif flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative my-24 px-1 font-light leading-loose`,
   BlockDescription: tw.div`lg:text-right text-xl lg:absolute bottom-24 lg:-right-4 w-full text-center z-10`,
   SubSection: tw(SubSection)`font-regular text-base cursor-pointer z-80`,
-  BlockImg: tw.div`relative overflow-hidden `,
+  BlockImg: tw.div`relative lg:overflow-hidden `,
   SectionAtom: tw(
     Item,
-  )`lg:animate-pulse transition ease-in-out delay-150 relative z-0 p-2 lg:p-0`,
+  )`lg:animate-pulse transition ease-in-out delay-150 relative z-0 z-100 lg:p-0`,
   BlockAtom: tw.div`absolute z-10`,
   Atom: tw(ItemSection)``,
   Image: tw(Imgen)``,
   BlockTextSelect: tw(
     SectionTitle,
-  )`text-2xl block z-100 lg:absolute  bottom-2 lg:bottom-2  lg:top-7 flex lg:block lg:w-1/3 w-full h-1/3`,
-  BlockSectionTitle: tw.div`w-auto z-70 `,
+  )`lg:text-2xl  block z-100 lg:absolute  bottom-2 lg:bottom-2  lg:top-7 flex lg:block lg:w-1/3 w-full h-1/3`,
+  BlockSectionTitle: tw.div`w-auto z-0 `,
   TextSelect: tw(
     SectionTitle,
-  )<Props>`py-7 w-full opacity-40 hover:opacity-100 px-5 order-last block transition ease-in duration-300 cursor-pointer z-70
+  )<Props>`py-7 mb-6 sm:mb-0 w-full opacity-40 hover:opacity-100 px-5 order-last block transition ease-in duration-300 cursor-pointer z-70
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : '')}`,
   TextCentral: tw(TextTitle)` w-4/6 text-center lg:text-sm `,
   Circle: tw(
     Circle,
   )` bg-backCollaplse bg-circle bg-no-repeat absolute bg-center bg-contain -top-2 lg:top-0 right-1 rounded-full lg:-right-0 md:right-0 z-0`,
-  BlockTextCenter: tw.div`z-10 border-4 border-white w-4/6 h-4/6 absolute md:top-20 md:right-20 right-16 top-16 rounded-full flex justify-center items-center animate-pulse `,
+  BlockTextCenter: tw.div`z-10 border-4 border-white w-5/6 h-5/6 absolute md:top-20 md:right-20 right-6 top-6 rounded-full flex justify-center items-center animate-pulse `,
 };

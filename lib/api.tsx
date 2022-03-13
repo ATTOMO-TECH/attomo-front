@@ -45,6 +45,9 @@ const SERVICES = {
       `services?locale=${lenguage}&populate=subservices&${query}`,
     ),
 };
+const SUBSCRIBERS = {
+  POST: () => getAbsolutePath(`subscribers`),
+};
 const SUBSERVICES = {
   FETCH_ALL: (lenguage: string) =>
     getAbsolutePath(`subservices?locale=${lenguage}`),
@@ -66,5 +69,6 @@ export {
   QUOTE,
   PRIVACY,
   TERMS,
+  SUBSCRIBERS,
   getAbsolutePath,
 };

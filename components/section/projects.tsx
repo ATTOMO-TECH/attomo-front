@@ -66,7 +66,7 @@ export default function SectionProjects({
                   <Title size="text-lg font-PrimarySerif uppercase ">
                     {values.attributes.company}
                   </Title>
-                  <Title size="text-5xl py-3 leading-relaxed lg:leading-normal">
+                  <Title size="lg:text-5xl text-2xl py-3 leading-relaxed lg:leading-normal">
                     {values.attributes.title}
                   </Title>
                   <Link href={`/casos/${values.id}`}>

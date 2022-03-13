@@ -33,11 +33,11 @@ function Services() {
           <Styles.ScreenMid>
             {translate.services.map((services) => (
               <Styles.BlockDiv>
-                <Title size="text-5xl lg:pt-24 lg:pr-0 pb-24 w-full pt-36  ">
+                <Title size="lg:text-4xl text-3xl lg:pt-24 lg:pr-0 lg:pb-24 pb-12 w-full pt-36  ">
                   {services.Text}
                 </Title>
                 <Styles.FlexEnd>
-                  <Subtext size=" text-lg lg:text-base lg:w-2/6  lg:text-left">
+                  <Subtext size=" text-lg lg:text-base lg:w-2/6  lg:text-left font-Secundary">
                     {services.Subtext}
                   </Subtext>
                 </Styles.FlexEnd>

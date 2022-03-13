@@ -1,3 +1,4 @@
+import { Field } from 'formik';
 import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -32,7 +33,9 @@ export const Navegation = {
   NavFooterFlex: tw.nav`list-none mb-10 flex cursor-pointer justify-start items-center`,
   ItemsMenu: tw.p`py-1 leading-relaxed lg:leading-none text-lg font-extralight`,
   BlockInput: tw.div`relative flex flex xl:flex-nowrap md:flex-nowrap w-11/12 lg:flex-wrap flex-wrap justify-center items-end md:justify-start`,
-  Input: tw.input`w-full flex bg-secundary text-primary bg-none focus:bg-none outline-none  py-1 px-1 lg:text-xs text-xl font-light  `,
+  Input: tw(
+    Field,
+  )`w-full flex bg-secundary text-primary bg-none focus:bg-none outline-none  py-1 px-1 lg:text-xs text-xl font-light  `,
   BlockSubText: tw.div`flex flex-col lg:flex-row justify-end text-primary text-sm font-Secundary`,
   SubText: tw.p`lg:px-10 px-5 py-3 hover:opacity-50 cursor-pointer ease-out duration-300`,
   ListIcon: tw.li`w-auto px-1 cursor-pointer `,

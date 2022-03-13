@@ -15,6 +15,6 @@ export const SectionColor = styled.div`
 export const Loading = {
   Block: tw(
     SectionColor,
-  )`text-primary w-full h-screen block pl-10 flex justify-center items-center`,
+  )`text-primary w-full h-screen block  flex justify-center items-center`,
   BlockStyle: tw(SectionColor)`h-10 w-10 rounded-full animate-pulse`,
 };
