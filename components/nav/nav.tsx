@@ -24,7 +24,7 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
   }, []);
   const router = useRouter();
   const handleBtn = (value: string) => {
-    router.push('/', '/', { locale: value });
+    router.push(router.pathname, router.pathname, { locale: value });
   };
 
   return (
@@ -71,37 +71,32 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
               </>
             )}
           </Navegation.ItemsMenu>
-          <div className="flex  items-end">
-            <div className="flex font-Secundary text-primary text-sm mr-5 items-center">
-              <button
+          <Navegation.BlockLenguage>
+            <Navegation.BlokSectionLenguage>
+              <Navegation.ButtonSelect
                 onClick={() => handleBtn('es')}
-                className="block p-2 delay-150 duration-300 ease-in-out hover:opacity-50"
                 type="button">
                 ES
-              </button>
-              <span>|</span>
-              <button
+              </Navegation.ButtonSelect>
+              <Navegation.LineBlock>|</Navegation.LineBlock>
+              <Navegation.ButtonSelect
                 onClick={() => handleBtn('en')}
-                className="block p-2 delay-150 duration-300 ease-in-out hover:opacity-50"
                 type="button">
                 EN
-              </button>
-            </div>
+              </Navegation.ButtonSelect>
+            </Navegation.BlokSectionLenguage>
             <Navegation.ItemsMenu onClick={toggle} className="colorMenu">
               <Navegation.TextMenu
                 theme={mode === true ? lightTheme : darkTheme}
-                ismode={!scroll ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-                Menú
-              </Navegation.TextMenu>
+                ismode={!scroll ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+              />
               {mode ? (
-                <>
-                  <Navegation.ButtonLogo />
-                </>
+                <Navegation.ButtonLogo />
               ) : (
                 <Navegation.ButtonLogoInvert />
               )}
             </Navegation.ItemsMenu>
-          </div>
+          </Navegation.BlockLenguage>
         </Navegation.AlinItems>
       </Navegation.SectionNav>
     </>

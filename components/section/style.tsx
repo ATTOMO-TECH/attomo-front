@@ -51,7 +51,7 @@ ${(props) =>
   BlockImg: tw.div`w-full bg-cover bg-center py-44 bg-no-repeat `,
   BlockSelect: tw(
     BlockSelected,
-  )`w-5/6 border bg-black border-primary rounded-xl overflow-hidden flex flex-col p-4 justify-center items-center text-center  duration-300 ease-in-out cursor-pointer  border-opacity-40 hover:border-opacity-100 py-12 transition delay-100 duration-500 ease-in-out`,
+  )`w-5/6 border bg-backCollaplse border-primary rounded-xl overflow-hidden flex flex-col p-4 justify-center items-center text-center  duration-300 ease-in-out cursor-pointer  border-opacity-40 hover:border-opacity-100 py-12 transition delay-100 duration-500 ease-in-out`,
 };
 
 export const StylesCases = {

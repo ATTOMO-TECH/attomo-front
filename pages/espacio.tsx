@@ -31,7 +31,7 @@ function Space() {
   return (
     <>
       <BgComponent />
-      <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
+      <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
           <Nav toggle={toggle} logo mode isOpen={isOpen} />

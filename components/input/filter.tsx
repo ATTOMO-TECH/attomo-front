@@ -1,31 +1,32 @@
+import { format } from 'date-fns';
 import { Styles } from './styles';
 
 interface Props {
   toggle: () => void;
+  date: Date[] | undefined;
+  topic: string | any;
 }
-export default function Filter({ toggle }: Props) {
+export default function Filter({ toggle, date, topic }: Props) {
   return (
     <>
       <Styles.BlockFilter onClick={toggle}>
-        <Styles.TextFilter>Filtrar por</Styles.TextFilter>
-        <div className="block">
-          <input
-            type="text"
-            name="value"
-            id=""
-            placeholder="Estrategia"
-            disabled
-            className="bg-black text-primary outline-none text-sm absolute -right-36"
-          />
-          <input
-            type="date"
-            name="date"
-            id=""
-            placeholder="Estrategia"
-            disabled
-            className="bg-black text-primary outline-none text-sm absolute -right-56"
-          />
-        </div>
+        <Styles.FlexFilter>
+          <Styles.TextFilter>Filtrar por</Styles.TextFilter>
+          <Styles.FirtsItem>
+            {topic === '' ? 'Estrategia' : topic.label}
+          </Styles.FirtsItem>
+          <Styles.DateItem>
+            {date?.length === undefined ? (
+              <Styles.ValueDate>Selecciona fecha</Styles.ValueDate>
+            ) : (
+              date?.map((dateValue: any) => (
+                <Styles.ValueDate>
+                  {format(new Date(dateValue), 'dd-MM-yyyy')}
+                </Styles.ValueDate>
+              ))
+            )}
+          </Styles.DateItem>
+        </Styles.FlexFilter>
       </Styles.BlockFilter>
     </>
   );

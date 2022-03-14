@@ -25,23 +25,10 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
     }, 1000);
   };
 
-  const variants = {
-    hidden: {
-      opacity: 0,
-    },
-    show: {
-      opacity: 1,
-      transition: {
-        straggerchildren: 1.5,
-      },
-    },
-  };
-
   return (
     <>
-      <div className="relative">
+      <div className="relative ">
         <Navegation.SectionMenu
-          variants={variants}
           ismode={isOpen ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
           theme={mode === true ? lightTheme : darkTheme}>
           <Navegation.Menu>
@@ -121,9 +108,9 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                     animate={
                       isOpen
                         ? { opacity: 1, translateY: 0 }
-                        : { opacity: 0, translateY: '50%' }
+                        : { opacity: 0, translateY: '100%' }
                     }
-                    className="list-none"
+                    className="list-none overflow-hidden"
                     transition={{ duration: 1, delay: i * 0.2 }}>
                     <Link href={values.Url}>{values.Value}</Link>
                   </motion.li>

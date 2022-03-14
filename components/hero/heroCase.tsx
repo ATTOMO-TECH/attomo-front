@@ -1,23 +1,32 @@
-import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import Filter from '../input/filter';
 import { HeadSection } from './style';
 
 interface Props {
   toggle: () => void;
+  date: Date[] | undefined;
+  topic: string;
+  isOpen: boolean;
 }
 
-export default function HeroCase({ toggle }: Props) {
+export default function HeroCase({ toggle, date, topic, isOpen }: Props) {
+  const [scroll, setScroll] = useState(true);
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 100) {
+        setScroll(false);
+      } else {
+        setScroll(true);
+      }
+    });
+  }, []);
   return (
     <>
       <HeadSection.SectionCase>
-        <Filter toggle={toggle} />
-        <Image
-          src="/cases/header_case.jpg"
-          width={1200}
-          height={900}
-          alt="header"
-          className="sm:w-11/12 w-full"
-        />
+        {scroll && !isOpen ? (
+          <Filter toggle={toggle} date={date} topic={topic} />
+        ) : null}
+        <HeadSection.SectionHeroCases />
       </HeadSection.SectionCase>
     </>
   );

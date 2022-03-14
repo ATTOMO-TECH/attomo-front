@@ -45,6 +45,7 @@ export const HeadSection = {
   Blockbutton: tw.div`relative cursor-pointer`,
   TextButton: tw.h6`text-primary`,
   BlockArrow: tw.span`absolute `,
+  SectionHeroCases: tw.div`md:w-10/12 w-full h-screen md:h-11/12 z-0 relative bg-hero-Case bg-no-repeat bg-center bg-cover `,
 
   // HeroFooter
 
@@ -52,5 +53,5 @@ export const HeadSection = {
     Block,
   )`h-auto lg:h-96 text-primary lg:rounded-3xl font-Primary lg:border border-primary my-24 bg-gradient-to-b lg:from-gray-900 from-gray-700 border-opacity-10 flex justify-center items-center`,
   TextHeroFooter: tw.h5`text-4xl lg:p-44 p-14 font-light leading-relaxed lg:leading-normal`,
-  SectionCase: tw.section`flex justify-center items-center pt-12`,
+  SectionCase: tw.section`flex justify-end items-center relative lg:pt-36 `,
 };

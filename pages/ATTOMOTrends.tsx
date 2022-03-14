@@ -18,8 +18,8 @@ import { Styles } from '../styles/styles';
 
 function News() {
   const translate = getLocale();
-  const [page, setpage] = useState(1);
-  const [filter, setFilter] = useState('Servicios');
+  const [page, setPage] = useState(1);
+  const [filter, setFilter] = useState('');
   const [query, setQuery] = useState(
     'pagination[page]=1&pagination[pageSize]=3&populate=coverImage?populate=blog_tags',
   );
@@ -34,39 +34,45 @@ function News() {
   };
 
   const handleAddBlog = (value: number) => {
-    setpage(value);
+    setPage(value);
   };
+
   useLayoutEffect(() => {
-    const queryQs = qs.stringify(
-      {
-        pagination: {
-          page,
-          pageSize: 3,
+    let queryObject: any = {
+      pagination: {
+        page,
+        pageSize: 3,
+      },
+      populate: 'coverImage',
+    };
+    if (filter) {
+      queryObject = {
+        ...queryObject,
+        filters: {
+          blog_tags: {
+            name: {
+              $eq: filter,
+            },
+          },
         },
-        populate: 'coverImage',
-        // filters: {
-        //   blog_tags: {
-        //     name: {
-        //       $eq: filter,
-        //     },
-        //   },
-        // },
-      },
-      {
-        encodeValuesOnly: true,
-      },
-    );
+      };
+    }
+    const queryQs = qs.stringify(queryObject, {
+      encodeValuesOnly: true,
+    });
     setQuery(queryQs);
   }, [page, filter]);
 
   useEffect(() => {
-    if (data) {
-      setPreData([...data.data]);
-    }
+    setPage(1);
   }, [filter]);
   useEffect(() => {
-    if (data) {
-      setPreData([...preData, ...data.data]);
+    if (data?.data) {
+      if (page === 1) {
+        setPreData([...data.data]);
+      } else {
+        setPreData([...preData, ...data.data]);
+      }
     }
   }, [data]);
 
@@ -77,10 +83,11 @@ function News() {
       </>
     );
   }
+
   return (
     <>
       <BgComponent />
-      <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
+      <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
           <Nav toggle={toggle} logo mode isOpen={isOpen} />
@@ -113,6 +120,7 @@ function News() {
           <Styles.Select
             name="select"
             onChange={(e: any) => setFilter(e.target.value)}>
+            <option value="">{'Todas las noticias '}</option>
             {Tags?.data.map((options: any) => (
               <option
                 value={options.attributes.name}
@@ -123,16 +131,14 @@ function News() {
           </Styles.Select>
         </Styles.BlockTrends>
         <BlockBlog dataBlog={preData} />
-        {preData.length !== 4 ? (
-          <Blogstyles.SectionMore>
-            <Blogstyles.BlockMore
-              onClick={() => handleAddBlog(data.meta.pagination.page + 1)}>
-              Ver más noticias
-            </Blogstyles.BlockMore>
-          </Blogstyles.SectionMore>
-        ) : (
-          ''
-        )}
+
+        <Blogstyles.SectionMore>
+          <Blogstyles.BlockMore
+            onClick={() => handleAddBlog(data.meta.pagination.page + 1)}>
+            Ver más noticias
+          </Blogstyles.BlockMore>
+        </Blogstyles.SectionMore>
+
         <Styles.CenterFlex>
           {React.Children.toArray(
             translate.contact.map((values) => (

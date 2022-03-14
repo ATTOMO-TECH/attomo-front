@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import * as qs from 'qs';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { fadeInUp, stagger } from '../../components/animations/animations';
@@ -18,38 +17,40 @@ import { ARTICLES } from '../../const/constGlobal';
 import { Styles } from '../../styles/styles';
 import { useUseAllServices } from '../../domain/useServices';
 import RenderLoading from '../../components/loading/loading';
+import { getLocale } from '../../public/locales/getLocale';
 
 function DetailsServices() {
+  const [isIdSubServices, SetIsIdSubServices] = useState<any>({});
   const [isOpenFilter, SetIsOpenFilter] = useState<boolean>(false);
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const router = useRouter();
-  const [query, setQuery] = useState(
-    'pagination[page]=1&pagination[pageSize]=3&populate=coverImage?populate=blog_tags',
-  );
   const [menuId, setMenuId] = useState(null);
   const { slug } = router.query;
+
   let { locale } = router;
   if (locale === '/') {
     locale = 'es';
   }
   const { data, isLoading } = useUseAllServices(locale || 'es');
+
   useEffect(() => {
-    const queryQs = qs.stringify(
-      {
-        filters: {
-          subservices: {
-            id: {
-              $eq: slug,
+    if (!isLoading) {
+      if (data) {
+        const valueFilter = data.data.flatMap((tab: any) => {
+          const some = tab.attributes?.subservices?.data?.filter(
+            ({ attributes: { name } }: any) => {
+              const nameParse = name.replaceAll(' ', '_').toLowerCase();
+
+              return nameParse === slug;
             },
-          },
-        },
-      },
-      {
-        encodeValuesOnly: true,
-      },
-    );
-    setQuery(queryQs);
-  }, [query]);
+          );
+
+          return some;
+        });
+        SetIsIdSubServices(valueFilter);
+      }
+    }
+  }, [data, slug]);
 
   if (isLoading) {
     return (
@@ -58,26 +59,6 @@ function DetailsServices() {
       </>
     );
   }
-  // const getMenuId = (slug: string | undefined | string[]) => {
-  //   const valuesMenu = data.data.map((subsection: any) => subsection);
-  //   const subMenuData = data.data.map(
-  //     (subsection: any) => subsection.attributes.subservices.data,
-  //   );
-  //   let itemMenu;
-  //   let subMenu: any;
-  //   subMenuData.forEach((element: any, i: any) => {
-  //     element.map((tab: any) => {
-  //       if (tab.attributes.name === slug) {
-  //         itemMenu = tab;
-  //         subMenu = valuesMenu[i];
-  //       }
-  //     });
-  //   });
-  //   return subMenu?.id;
-  // };
-  // useEffect(() => {
-  //   setMenuId(getMenuId(slug));
-  // }, []);
 
   const toggleFilter = () => {
     SetIsOpenFilter(!isOpenFilter);
@@ -85,40 +66,57 @@ function DetailsServices() {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
-  const innerRenderText = (iDx: number) =>
-    data.data[iDx].attributes.description;
+  const translate = getLocale();
 
   return (
     <>
       <BgComponent />
-      <FilterDetails isOpen={isOpenFilter} toggle={toggleFilter} />
       <motion.div
         initial="initial"
         animate="animate"
         exit={{ opacity: 0 }}
         className="text-primary">
-        <Styles.Body ismode={isOpen ? BUTTON_ACTIVE.ON : ''}>
+        <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
+          <FilterDetails
+            isOpen={!isOpen && isOpenFilter}
+            toggle={toggleFilter}
+            logo
+            mode
+            data={data}
+            menuId={menuId}
+            router={router}
+            setMenuId={setMenuId}
+            SetIsOpenFilter={SetIsOpenFilter}
+            isOpenFilter={isOpenFilter}
+          />
           <Menu isOpen={isOpen} toggle={toggle} logo mode />
           <Styles.Margin>
             <Nav toggle={toggle} logo mode isOpen={isOpen} />
           </Styles.Margin>
           <ButtonShare />
-
           <motion.div
             animate={{ opacity: 1 }}
             initial={{ opacity: 0 }}
             className="pb-36">
             <Styles.CenterCases>
-              <div className="lg:flex flex-col pt-10 hidden relative">
+              <Styles.BlockRenderDetails>
                 {data.data.map((tab: any) => (
                   <SubMenu
-                    isOpen={menuId === tab.id}
+                    isOpen={
+                      !menuId
+                        ? tab.attributes?.subservices?.data?.some(
+                            ({ attributes: { name } }: any) =>
+                              name.replaceAll(' ', '_').toLowerCase() ===
+                              router.query.slug,
+                          )
+                        : menuId === tab.id
+                    }
                     section={tab.attributes.name}
                     subsection={tab}
-                    SetIsToggle={setMenuId}
+                    setIsToggle={setMenuId}
                   />
                 ))}
-              </div>
+              </Styles.BlockRenderDetails>
               <Styles.BlockFilter onClick={toggleFilter}>
                 <Title size="lg:text-lg text-lg font-Primary font-light ">
                   Servicios
@@ -130,10 +128,9 @@ function DetailsServices() {
                 initial={{ x: 200, opacity: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ delay: 0.5 }}>
-                <Title size="lg:text-5xl text-2xl font-Primary font-light pb-3">
-                  {slug}
+                <Title size="lg:text-5xl text-lg font-Primary font-light ">
+                  {isIdSubServices[0]?.attributes?.name}
                 </Title>
-
                 <motion.div
                   className="pt-2 w-full"
                   animate={{ y: 0, opacity: 1 }}
@@ -145,7 +142,7 @@ function DetailsServices() {
                     variants={fadeInUp}
                     transition={{ delay: 5.5 }}
                     className="pr-5 relative font-PrimarySerif font-light leading-relaxed textDegrade">
-                    {innerRenderText(1)}
+                    {isIdSubServices[0]?.attributes?.description}
                   </motion.p>
                 </motion.div>
               </motion.div>
@@ -159,7 +156,7 @@ function DetailsServices() {
             variants={stagger}>
             <Styles.Center>
               <Styles.TitleSubSection>
-                Proyectos relacionados
+                {translate.project}
               </Styles.TitleSubSection>
             </Styles.Center>
             <Styles.FlexEnd>

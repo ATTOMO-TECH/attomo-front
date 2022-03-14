@@ -72,6 +72,7 @@ export default function Hero({ text, text2, button, link }: Props) {
       },
     },
   };
+
   return (
     <>
       <HeadSection.SectionHero>

@@ -39,7 +39,7 @@ export const Logo = styled.div`
     position: absolute;
     margin: auto;
     transition: all 1s ease-in;
-    background-color: black;
+
     border-radius: 100%;
   }
 `;
@@ -68,7 +68,7 @@ export const Navegation = {
   lg:transition ease-in-out delay-150 fixed overflow-y-scroll 
     ${(props) =>
       props.ismode === BUTTON_ACTIVE.ON
-        ? `cursor-pointer h-screen w-full overflow-hidden z-100 opacity-100 relative `
+        ? `cursor-pointer h-screen w-full overflow-hidden z-100 opacity-100  `
         : 'opacity-0 overflow-hidden h-0 '}
   `,
   Menu: tw.nav``,
@@ -79,7 +79,7 @@ export const Navegation = {
   ItemsMenu: tw.li`flex items-center list-none z-100`,
   BlockMenu: tw.div``,
   TextMenu: tw(SectionColor)<Props>`
-  mr-5 mt-1 font-Primary colorMenu
+ font-Primary colorMenu
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-0' : '')}
   `,
   ButtonLogo: tw(Logo)`relative w-10 h-10 menu`,
@@ -90,8 +90,12 @@ export const Navegation = {
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`
-font-Primary z-100 lg:py-16 h-24 mb-10 cursor-pointer list-none fixed w-full duration-300 ease-in-out delay-700
+font-Primary z-100 md:py-16 md:h-24 md:mb-10 cursor-pointer list-none fixed w-full duration-300 ease-in-out delay-700
 ${(props) =>
   props.ismode === BUTTON_ACTIVE.ON ? 'duration-300 ease-in-out' : ''}
 `,
+  BlockLenguage: tw.div`flex  items-end`,
+  BlokSectionLenguage: tw.div`flex font-Secundary text-primary text-sm mr-5 items-center`,
+  ButtonSelect: tw.button`block p-2 delay-150 duration-300 ease-in-out hover:opacity-50`,
+  LineBlock: tw.span`span`,
 };

@@ -9,25 +9,31 @@ interface Props {
 export default function Work({ works }: Props) {
   return (
     <>
-      <section className="flex lg:pt-4 lg:w-10/12 m-auto justify-center py-32">
-        {works.map((value) => (
-          <div className="border-primary border-opacity-25 py-10 border-b border-t flex w-full relative flex-col md:flex-row overflow-hidden">
-            <div className="md:w-8/12">
-              <Subtext size="lg:text-xl text-2xl ">{value.name}</Subtext>
-              <Subtext size="font-PrimarySerif pt-4 pb-6">{value.type}</Subtext>
+      {works.map((value) => (
+        <section className="flex lg:w-10/12 m-auto justify-center ">
+          <div className="border-primary border-opacity-25 py-10 border-b border-t flex items-center justify-between w-full relative flex-col md:flex-row overflow-hidden">
+            <div className="md:w-10/12">
+              <Subtext size="lg:text-xl text-2xl ">
+                {value.attributes.title}
+              </Subtext>
+              <Subtext size="font-PrimarySerif pt-4 pb-6">
+                {value.attributes.description}
+              </Subtext>
             </div>
-            <div className="md:w-4/12 flex md:absolute -right-32">
-              <Link href={value.link}>
-                <IconAnimate
-                  styleText="lg:text-sm sm:text-xs font-thin"
-                  text="Aplicar"
-                  mode
-                />
+            <div className="md:w-2/12 ml-24">
+              <Link href={value.attributes.url}>
+                <a
+                  href={value.attributes.url}
+                  target="_blank"
+                  className="lg:w-full"
+                  rel="noreferrer">
+                  <IconAnimate text="Aplicar" mode />
+                </a>
               </Link>
             </div>
           </div>
-        ))}
-      </section>
+        </section>
+      ))}
     </>
   );
 }

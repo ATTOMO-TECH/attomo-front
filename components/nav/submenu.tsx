@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import router from 'next/router';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { fadeInUp, stagger } from '../animations/animations';
 import { Styles } from '../../styles/styles';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -8,53 +8,57 @@ import { BUTTON_ACTIVE } from '../../const/const';
 interface Props {
   section: string;
   subsection: any;
-  SetIsToggle: any;
+  setIsToggle: any;
   isOpen: boolean;
+  toggle?: () => void;
 }
 
 export default function SubMenu({
   section,
   subsection,
   isOpen,
-  SetIsToggle,
+  setIsToggle,
+  toggle,
 }: Props) {
-  const [iDx, handleClick] = useState(0);
-  //   const [menuCollapse, setMenuCollapse] = useState<any>();
+  const router = useRouter();
 
   return (
     <>
-      <div className="w-2/6">
+      <Styles.SubMenuBlock>
         <motion.div variants={stagger} className="inner">
           <motion.div variants={fadeInUp}>
-            <button
+            <Styles.ButtonSubMenu
               type="button"
-              className="font-Primary text-xl"
-              onClick={() => SetIsToggle(subsection.id)}>
+              onClick={() => setIsToggle(subsection.id)}>
               {section}
-            </button>
+            </Styles.ButtonSubMenu>
           </motion.div>
           {isOpen && (
             <motion.div variants={fadeInUp} className="flex flex-wrap ">
-              <div className="flex flex-col relative pl-1">
-                {subsection.attributes.subservices.data.map(
-                  (tab: any, i: number) => (
+              <Styles.BlockSubSection>
+                {subsection.attributes.subservices.data.map((subTask: any) => (
+                  <Link
+                    href={subTask.attributes.name
+                      .replaceAll(' ', '_')
+                      .toLowerCase()}>
                     <Styles.SelectSubMenu
-                      ismode={i === iDx ? BUTTON_ACTIVE.ON : ''}
-                      key={tab.attributes.name}
-                      active={i === iDx}
-                      onClick={() => {
-                        handleClick(i);
-                        router.push(tab.attributes.name);
-                      }}>
-                      {tab.attributes.name}
+                      onClick={toggle}
+                      mode={
+                        subTask.attributes.name
+                          .replaceAll(' ', '_')
+                          .toLowerCase() === router.query.slug
+                          ? BUTTON_ACTIVE.ON
+                          : BUTTON_ACTIVE.OFF
+                      }>
+                      {subTask.attributes.name}
                     </Styles.SelectSubMenu>
-                  ),
-                )}
-              </div>
+                  </Link>
+                ))}
+              </Styles.BlockSubSection>
             </motion.div>
           )}
         </motion.div>
-      </div>
+      </Styles.SubMenuBlock>
     </>
   );
 }
