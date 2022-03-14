@@ -5,6 +5,7 @@ import { BUTTON_ACTIVE } from '../../const/const';
 import IconAnimate from '../button/icon';
 import Title from '../Text/title';
 import { Styles } from './style';
+import { getLocale } from '../../public/locales/getLocale';
 
 interface Props {
   Array: any[];
@@ -18,7 +19,7 @@ export default function SectionProjects({
   servicesAnimations,
 }: Props) {
   const [isData] = useState(Array);
-
+  const translate = getLocale();
   return (
     <>
       <Styles.SectionProjects>
@@ -54,6 +55,7 @@ export default function SectionProjects({
                 ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
                 <motion.div
                   animate={shouldShowActions}
+                  className="pb-2"
                   variants={servicesAnimations}
                   transition={{
                     delay: 0.5,
@@ -72,9 +74,9 @@ export default function SectionProjects({
                   <Link href={`/casos/${values.id}`}>
                     <Styles.BlockBtn>
                       <IconAnimate
-                        text="Ver proyecto"
+                        text={translate.seeMoreProject}
                         mode
-                        styleText="text-xs"
+                        styleText="text-lg"
                       />
                     </Styles.BlockBtn>
                   </Link>

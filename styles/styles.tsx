@@ -141,7 +141,7 @@ export const Styles = {
   TitleSubSection: tw(subText)`text-primary py-5`,
   AlingBlock: tw.div`w-10/12 lg:w-full overflow-x-hidden m-auto`,
   BlockInput: tw.div`flex `,
-  BlockSelected: tw.div`lg:w-8/12 m-auto flex flex-wrap py-0`,
+  BlockSelected: tw.div`lg:w-10/12 m-auto flex flex-wrap py-0`,
   TextSubSection: tw.h5`font-Primary text-xl font-extralight pb-5`,
   BreakLine: tw.div`h-0.5 opacity-40 bg-addictional w-full  m-auto lg:my-4`,
   Input: tw.input`w-full bg-secundary text-primary border-b-2 border-primary focus:outline-none focus:opacity-100 opacity-30 outline-none  py-1 px-1 lg:text-lg text-xl font-light transition-colors duration-400 ease-in-out`,

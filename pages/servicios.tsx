@@ -33,7 +33,7 @@ function Services() {
           <Styles.ScreenMid>
             {translate.services.map((services) => (
               <Styles.BlockDiv>
-                <Title size="lg:text-4xl text-3xl lg:pt-24 lg:pr-0 lg:pb-24 pb-12 w-full pt-36  ">
+                <Title size="lg:text-4xl md:text-3xl  lg:pt-24 lg:pr-0 lg:pb-24 pb-12 w-full pt-36  ">
                   {services.Text}
                 </Title>
                 <Styles.FlexEnd>

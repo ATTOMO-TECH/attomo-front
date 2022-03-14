@@ -19,16 +19,17 @@ export default function SelectedClients({
   return (
     <>
       <Styles.BlockMargin>
-        <div className="pt-10" />
         <Styles.DivideSection>
-          <Title size="text-6xl ">{textPrimary}</Title>
+          <Title size="lg:text-6xl md:text-5xl text-4xl md:ml-6 ">
+            {textPrimary}
+          </Title>
         </Styles.DivideSection>
         <Styles.DivideSection>
           <Title size="text-xl font-PrimarySerif">{text}</Title>
           <Link href={`${link}`}>
-            <div className="pt-12">
+            <Styles.BlockMarginText>
               <IconAnimate text={btn} mode />
-            </div>
+            </Styles.BlockMarginText>
           </Link>
         </Styles.DivideSection>
       </Styles.BlockMargin>

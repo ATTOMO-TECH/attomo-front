@@ -84,19 +84,17 @@ export default function Hero({ text, text2, button, link }: Props) {
           <HeadSection.TextHead>{line1}</HeadSection.TextHead>
         </motion.div>
         <motion.div
-          className="pb-24"
+          className="md:pb-24 h-auto "
           variants={variantsInvert}
           initial="initial"
           animate="animate"
           exit="exit">
           <HeadSection.TextHead>{line2}</HeadSection.TextHead>
         </motion.div>
-
         <HeadSection.Blockbutton className={button === '' ? 'hidden' : ''}>
           <Link href={`#${link}`}>
             <HeadSection.TextButton>{button}</HeadSection.TextButton>
           </Link>
-
           <HeadSection.BlockArrow>
             <motion.svg
               variants={pathVariant}

@@ -11,19 +11,17 @@ export default function SubSection({ locale }: Props) {
   return (
     <>
       <SubSections.Subsection>
-        <div className="p-6 lg:p-0">
+        <SubSections.BlockCounter>
           <Counter />
-        </div>
+        </SubSections.BlockCounter>
         {locale.counter.map((values: any) => (
           <SubSections.TextSubsection>
-            <Title size="text-2xl md:text-3xl lg:text-4xl font-light">
+            <Title size="text-xl md:text-3xl lg:text-4xl font-light">
               {values.HeaderCounter}
             </Title>
             <SubSections.Paragraph>{values.BodyCounter}</SubSections.Paragraph>
             <Link href="/servicios">
-              <div>
-                <IconAnimate text={values.Button} mode />
-              </div>
+              <IconAnimate text={values.Button} mode />
             </Link>
           </SubSections.TextSubsection>
         ))}

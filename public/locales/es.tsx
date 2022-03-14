@@ -60,6 +60,7 @@ export default {
       Button: 'Nuestros servicios',
     },
   ],
+  seeMoreProject: 'Ver proyecto ',
 
   seeMore: [
     {

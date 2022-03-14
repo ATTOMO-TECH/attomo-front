@@ -73,7 +73,7 @@ export const Navegation = {
   `,
   Menu: tw.nav``,
   AlinItems: tw.ul<Props>`
-  flex items-center justify-between mb-20 w-10/12 absolute lg:left-24 left-12 top-10 
+  flex items-center justify-between mb-20 w-11/12 m-auto mt-2 md:mt-0 md:w-10/12 md:absolute lg:left-24 md:left-12 left-6 top-10 
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : '')}
   `,
   ItemsMenu: tw.li`flex items-center list-none z-100`,
@@ -86,7 +86,7 @@ export const Navegation = {
   ButtonLogoInvert: tw(LogoInvert)`relative w-10 h-10 menuInvert`,
   SelectMenu: tw(
     itemMenu,
-  )` leading-loose tracking-wide hover:opacity-100 opacity-60 cursor-pointer transition ease-in-out delay-100 duration-100 text-4xl lg:text-5xl lg:py-5`,
+  )` leading-loose tracking-wide hover:opacity-100 opacity-60 cursor-pointer transition ease-in-out delay-100 duration-100 md:text-4xl lg:text-5xl lg:py-5`,
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`

@@ -1,21 +1,18 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { Filter } from './style';
 import FilterScroll from '../slider/filter/slider';
 import CalendarPicker from '../calendar/calendar';
-import { DEPARTMENT } from '../../const/constGlobal';
-import SelectFilter from './selectedFilter';
-import { useUseAllSubServices } from '../../domain/useServices';
-import RenderLoading from '../loading/loading';
+// import { useEffect, useState } from 'react';
+// import { useUseAllSubServices } from '../../domain/useServices';
+// import RenderLoading from '../loading/loading';
 
 interface Props {
   isOpen: boolean;
   toggle: () => void;
   setDate: any;
   setTopic: any;
-  locale: any;
 }
 
 export default function ModalFilter({
@@ -23,25 +20,27 @@ export default function ModalFilter({
   toggle,
   setDate,
   setTopic,
-  locale,
 }: Props) {
-  const [width, setWidth] = useState(window.innerWidth);
-  const { data, isLoading } = useUseAllSubServices(locale || 'es');
+  // const [width, setWidth] = useState(window.innerWidth);
+  // const { data, isLoading } = useUseAllSubServices(locale || 'es');
 
-  useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  });
-  if (isLoading || data) {
-    return (
-      <>
-        <RenderLoading mode={false} />
-      </>
-    );
-  }
+  // useEffect(() => {
+  //   const handleResize = () => setWidth(window.innerWidth);
+  //   window.addEventListener('resize', handleResize);
+  //   return () => {
+
+  //     window.removeEventListener('resize', handleResize);
+  //   };
+  // });
+  // if (isLoading) {
+  //   return (
+  //     <>
+  //       <RenderLoading mode={false} />
+  //     </>
+
+  //   );
+
+  // }
 
   return (
     <>
@@ -98,28 +97,28 @@ export default function ModalFilter({
               </motion.svg>
             </Filter.ItemsMenu>
           </Filter.AlinItems>
-          {width > 768 ? (
-            <Filter.BlockFilterItems>
-              <Filter.AlingBlock>
-                <Filter.InputSearch type="text" placeholder="Buscar" />
-                <Filter.FirtsItemFilter>
-                  <Filter.TextItemFilter>
-                    <Filter.ValueFilter>Tématica</Filter.ValueFilter>
-                  </Filter.TextItemFilter>
-                  <Filter.SecondItem>
-                    <FilterScroll setTopic={setTopic} />
-                  </Filter.SecondItem>
-                </Filter.FirtsItemFilter>
-                <Filter.BlockSecondFilter>
-                  <Filter.TextItemFilter>
-                    <Filter.ValueFilter>Fecha</Filter.ValueFilter>
-                  </Filter.TextItemFilter>
-                  <Filter.SecondItem>
-                    <CalendarPicker setDate={setDate} />
-                  </Filter.SecondItem>
-                </Filter.BlockSecondFilter>
-              </Filter.AlingBlock>
-            </Filter.BlockFilterItems>
+          <Filter.BlockFilterItems>
+            <Filter.AlingBlock>
+              <Filter.InputSearch type="text" placeholder="Buscar" />
+              <Filter.FirtsItemFilter>
+                <Filter.TextItemFilter>
+                  <Filter.ValueFilter>Tématica</Filter.ValueFilter>
+                </Filter.TextItemFilter>
+                <Filter.SecondItem>
+                  <FilterScroll setTopic={setTopic} />
+                </Filter.SecondItem>
+              </Filter.FirtsItemFilter>
+              <Filter.BlockSecondFilter>
+                <Filter.TextItemFilter>
+                  <Filter.ValueFilter>Fecha</Filter.ValueFilter>
+                </Filter.TextItemFilter>
+                <Filter.SecondItem>
+                  <CalendarPicker setDate={setDate} />
+                </Filter.SecondItem>
+              </Filter.BlockSecondFilter>
+            </Filter.AlingBlock>
+          </Filter.BlockFilterItems>
+          {/*  }
           ) : (
             <Filter.BlockFilterItems>
               <Filter.SectionMobile>
@@ -150,7 +149,7 @@ export default function ModalFilter({
                 </Filter.BlockItemMobile>
               </Filter.SectionMobile>
             </Filter.BlockFilterItems>
-          )}
+          )} */}
         </Filter.BlockFilter>
       </Filter.RelativeSection>
     </>

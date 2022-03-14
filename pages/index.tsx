@@ -94,7 +94,7 @@ function Home() {
             </Styles.ScreenMid>
           </Styles.Center>
           <Styles.SectionScreen id="conocenos">
-            <Styles.CenterFlex>
+            <Styles.BlockSelected>
               <motion.div
                 animate={shouldShowActions}
                 variants={servicesAnimations}
@@ -108,7 +108,7 @@ function Home() {
                 initial={{ opacity: 0, y: '50%' }}>
                 <SubSection locale={translate} />
               </motion.div>
-            </Styles.CenterFlex>
+            </Styles.BlockSelected>
             <Styles.Center>
               <Styles.BlockSelected>
                 <motion.div

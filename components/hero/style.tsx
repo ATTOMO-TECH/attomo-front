@@ -42,7 +42,7 @@ export const Block = styled.section`
 `;
 
 export const HeadSection = {
-  TextHead: tw(TextHero)` lg:pr-10 lg:text-4xl text-3xl `,
+  TextHead: tw(TextHero)` lg:pr-10 lg:text-4xl md:text-3xl pb-2 `,
   SectionHero: tw.section`font-Primary`,
   Blockbutton: tw.div`relative cursor-pointer`,
   TextButton: tw.h6`text-primary`,
@@ -54,6 +54,6 @@ export const HeadSection = {
   SectionHeroFooter: tw(
     Block,
   )`h-auto lg:h-96 text-primary lg:rounded-3xl font-Primary lg:border border-primary my-24 bg-gradient-to-b lg:from-gray-900 from-gray-700 border-opacity-10 flex justify-center items-center`,
-  TextHeroFooter: tw.h5`text-4xl lg:p-44 p-14 font-light leading-relaxed lg:leading-normal`,
+  TextHeroFooter: tw.h5`text-2xl md:text-4xl lg:p-44 p-14 font-light leading-relaxed lg:leading-normal`,
   SectionCase: tw.section`flex justify-end items-center relative lg:pt-36 `,
 };

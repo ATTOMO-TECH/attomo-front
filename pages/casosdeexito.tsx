@@ -58,7 +58,6 @@ function Cases() {
           toggle={toggleFilter}
           setDate={handleDate}
           setTopic={handleTopic}
-          locale={locale}
         />
         <Styles.Margin>
           <Nav toggle={toggle} logo mode isOpen={isOpen} />

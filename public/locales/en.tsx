@@ -37,7 +37,7 @@ export default {
       HeroText: 'We are a technology consulting firm with a single mission:',
       HeroSubTex:
         'To help companies and administrations to lead through digitalization.',
-      Button: 'know more',
+      Button: 'Know more',
     },
   ],
   counter: [
@@ -59,7 +59,7 @@ export default {
       Button: 'Our services',
     },
   ],
-
+  seeMoreProject: 'view project ',
   seeMore: [
     {
       Text: 'Want to see more success cases?',
