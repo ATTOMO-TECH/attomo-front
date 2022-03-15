@@ -74,10 +74,10 @@ export const Navegation = {
   `,
   Menu: tw.nav``,
   AlinItems: tw.ul<Props>`
-  flex items-center justify-between  w-11/12 m-auto mt-2 md:mt-0 md:w-10/12 md:absolute lg:left-24 md:left-12 left-6 top-10 mt-6
+  flex items-center justify-between w-11/12 m-auto md:mt-0 md:w-10/12 md:absolute lg:left-24 md:left-12 left-6 top-10 mt-3
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : '')}
   `,
-  ItemsMenu: tw.li`flex items-center list-none z-100`,
+  ItemsMenu: tw.li`flex items-center list-none z-100 `,
   BlockMenu: tw.div``,
   TextMenu: tw(SectionColor)<Props>`
  font-Primary colorMenu
@@ -85,17 +85,17 @@ export const Navegation = {
   `,
   ButtonLogo: tw(Logo)`relative w-10 h-10 menu`,
   ButtonLogoInvert: tw(LogoInvert)`relative w-10 h-10 menuInvert`,
-  AlingItemsMenu: tw.div`flex flex-col items-center justify-center text-center w-full h-screen content-around justify-center`,
+  AlingItemsMenu: tw.div`flex flex-col items-center justify-center text-center w-full pt-4 md:pt-0 md:h-screen content-around justify-center`,
   SelectMenu: tw(
     itemMenu,
-  )` leading-loose tracking-wide hover:opacity-100 opacity-60 cursor-pointer transition ease-in-out delay-100 duration-100  text-3xl md:text-3xl lg:text-5xl md:py-4`,
+  )` leading-loose tracking-wide hover:opacity-100 opacity-60 cursor-pointer transition ease-in-out delay-100 duration-100  text-2xl md:text-3xl lg:text-5xl md:py-4`,
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`
 font-Primary cursor-pointer list-none fixed w-full duration-300 ease-in-out delay-700 
 ${(props) =>
   props.ismode === BUTTON_ACTIVE.ON
-    ? 'duration-300 ease-in-out h-24  sm:mb-10 '
+    ? 'duration-300 ease-in-out h-14  sm:mb-10 '
     : ''}
 `,
   BlockLenguage: tw.div`flex  items-end `,

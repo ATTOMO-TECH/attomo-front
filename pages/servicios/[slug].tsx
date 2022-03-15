@@ -10,7 +10,6 @@ import Footer from '../../components/footer/footer';
 import Menu from '../../components/nav/menu';
 import Nav from '../../components/nav/nav';
 import SubMenu from '../../components/nav/submenu';
-import ArticlesScroll from '../../components/slider/article/slider';
 import Title from '../../components/Text/title';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { Styles } from '../../styles/styles';
@@ -160,7 +159,7 @@ function DetailsServices() {
             </Styles.Center>
             <Styles.FlexEnd>
               <Styles.AlingBlock>
-                <ArticlesScroll mode filter={data.data.attributes.sumary} />
+                {/* <ArticlesScroll mode filter={data.data.attributes.sumary} /> */}
               </Styles.AlingBlock>
             </Styles.FlexEnd>
             <Styles.CenterFlex>

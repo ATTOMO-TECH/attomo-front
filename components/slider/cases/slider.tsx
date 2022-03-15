@@ -59,6 +59,7 @@ export default function CasesScroll({ mode, filter }: Props) {
   return (
     <>
       <Swiper
+        slidesPerView={3.5}
         breakpoints={{
           '460': {
             slidesPerView: 1,
@@ -67,7 +68,7 @@ export default function CasesScroll({ mode, filter }: Props) {
             slidesPerView: 1,
           },
           '1024': {
-            slidesPerView: 3,
+            slidesPerView: 3.5,
           },
         }}
         centeredSlides
@@ -76,13 +77,11 @@ export default function CasesScroll({ mode, filter }: Props) {
           prevEl: prevRef.current,
           nextEl: nextRef.current,
         }}
-        slidesPerView={3.5}
-        spaceBetween={30}
         className="mySwiper ">
         {data.data.map((articles: any) => (
           <SwiperSlide key={articles.attributes.company} className="swiper ">
             <Link href={`/ATTOMOTrends/${articles.id}`}>
-              <div>
+              <div className="cursor-pointer">
                 <StylesArticle.Img
                   src={articles.attributes.mainPhoto.data[0].attributes.url}
                   alt={

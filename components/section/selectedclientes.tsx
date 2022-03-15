@@ -20,7 +20,7 @@ export default function SelectedClients({
     <>
       <Styles.BlockMargin>
         <Styles.DivideSection>
-          <Title size="lg:text-6xl md:text-5xl text-4xl md:ml-6 ">
+          <Title size="lg:text-6xl md:text-5xl text-4xl md:ml-6 pt-12 md:pt-0">
             {textPrimary}
           </Title>
         </Styles.DivideSection>

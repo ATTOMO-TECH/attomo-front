@@ -107,7 +107,7 @@ export const Styles = {
   SingleInput: tw.div`py-1`,
   BlockBtn: tw.button`text-primary font-thin w-7/12 flex ml-auto z-0`,
   BlockCount: tw.div`text-primary `,
-  LineBlock: tw.div`flex flex-wrap justify-between pt-5`,
+  LineBlock: tw.div`flex flex-wrap justify-between pt-5 w-full`,
   TextCount: tw.h6`font-Primary text-xl text-primary`,
   SubText: tw.h6`font-Secundary text-sm opacity-50 text-primary font-thin`,
   BlockInput: tw.div`w-full delay-150 duration-300 ease-in-out relative`,

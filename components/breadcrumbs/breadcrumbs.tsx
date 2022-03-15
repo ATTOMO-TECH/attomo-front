@@ -9,7 +9,12 @@ export default function BreadCrumbs({ Author, Date }: Props) {
   return (
     <>
       <BreadStyles.BlockBread>
-        <BreadStyles.TextBread>{Author}</BreadStyles.TextBread>
+        {Author === null ? (
+          <BreadStyles.TextBread>Author</BreadStyles.TextBread>
+        ) : (
+          <BreadStyles.TextBread>{Author}</BreadStyles.TextBread>
+        )}
+
         <BreadStyles.Circle />
         <BreadStyles.TextBread>{Date}</BreadStyles.TextBread>
       </BreadStyles.BlockBread>

@@ -32,7 +32,7 @@ export const Button = {
   ${(props) =>
     props.ismode === BUTTON_MODE.LIGHT ? 'text-primary' : 'text-secundary'}`,
   SectionBack: tw.div`z-100 lg:w-3/12 mt-12 w-full md:w-10/12 md:ml-12 lg:px-10 lg:p-14 pt-12 py-0 block cursor-pointer hover:opacity-50`,
-  BlockBack: tw.div`flex font-PrimarySerif font-extralight`,
+  BlockBack: tw.div`flex font-PrimarySerif font-extralight items-center`,
   TextBack: tw.h5``,
 };
 
@@ -51,4 +51,15 @@ w-20 h-20 lg:w-24 lg:h-24 rounded-full p-2 bottom:0 right:0  fixed hover:opacity
       ? 'bottom-5 right-2  delay-300 duration-300 ease-in-out opacity-100'
       : '-bottom-20 right-2 delay-300 duration-300 ease-in-outopacity-0 overflow-hidden h-0'}
 `,
+};
+
+export const Share = {
+  Button: tw.div<Props>`
+  ${(props) =>
+    props.ismode === BUTTON_ACTIVE.ON
+      ? 'w-4/6 hidden lg:block h-auto delay-300 duration-300 ease-in-out opacity-100 fixed top-96 left-0 z-90'
+      : 'w-0 overflow-hidden opacity-0 fixed -left-10  delay-300 duration-300 ease-in-out'}
+`,
+  Items: tw.ul`absolute w-auto z-90 top-0 bg-primary p-5 shadow-lg shadow-indigo-500/50 `,
+  ItemValue: tw.li`w-auto px-1 cursor-pointer hover:opacity-50 py-2`,
 };

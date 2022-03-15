@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { format } from 'date-fns';
 import { useRouter } from 'next/dist/client/router';
 import Footer from '../../components/footer/footer';
 import Menu from '../../components/nav/menu';
@@ -47,14 +48,19 @@ function New({ mode }: Props) {
         <Back link="/ATTOMOTrends">Volver a noticias</Back>
         <Styles.Center>
           <Styles.AlingCasesNoP>
-            <BreadCrumbs Author="Autor" Date="Fecha" />
+            <BreadCrumbs
+              Author={data?.data.attributes.author}
+              Date={format(
+                new Date(data?.data.attributes.publishedAt),
+                'dd-MM-yyyy',
+              )}
+            />
             <HeaderCases
               category={data?.data.attributes.blog_tags.data[0].attributes.name}
               title={data?.data.attributes.title}
               paragraph=""
               image={data?.data.attributes.coverImage.data.attributes?.url}
             />
-
             <BodyCases data={data?.data.attributes.content} />
           </Styles.AlingCasesNoP>
           <Styles.TextSubSection>{translate.interested}</Styles.TextSubSection>

@@ -28,7 +28,7 @@ export default {
       Url: '/contacto',
     },
     {
-      Value: 'Espacio Attomo',
+      Value: 'Espacio ATTOMO',
       Url: '/espacio',
     },
   ],
@@ -203,7 +203,7 @@ export default {
   prices: 'Tarifas',
   formBooking: [
     {
-      Text: 'Reserva el Espacio Attomo',
+      Text: 'Reserva el Espacio ATTOMO',
       Subtext: 'Selecciona la fecha y consulta su disponibilidad',
     },
   ],

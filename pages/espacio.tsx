@@ -42,11 +42,11 @@ function Space() {
             <Styles.ScreenMid>
               {translate.spaceAttomo.map((values) => (
                 <Styles.BlockDiv key={`value${values.Text}`}>
-                  <Title size="text-5xl lg:pt-24 lg:pr-0 pb-12 lg:w-3/6 pt-20 ">
+                  <Title size="leading-relaxed text-5xl lg:pt-24 lg:pr-0 pb-6 lg:w-5/6 pt-20 ">
                     {values.Text}
                   </Title>
                   <Styles.FlexEnd>
-                    <Subtext size=" text-lg lg:text-base lg:w-3/6  lg:text-left">
+                    <Subtext size=" text-md lg:text-base lg:w-3/6  lg:text-left">
                       {values.Subtext}
                     </Subtext>
                   </Styles.FlexEnd>

@@ -1,6 +1,7 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import { BUTTON_ACTIVE } from '../../const/const';
 import { ICONNAV } from '../../const/constGlobal';
+import { Share } from './style';
 
 interface Props {
   valueUrl: any;
@@ -20,32 +21,27 @@ export default function BtnShare({ valueUrl, isOpen, toggle }: Props) {
   };
   return (
     <>
-      <button
-        type="button"
-        className={
-          isOpen
-            ? 'w-4/6 hidden lg:block h-auto delay-300 duration-300 ease-in-out opacity-100 fixed top-96 left-0 z-90'
-            : 'w-0 overflow-hidden opacity-0 fixed -left-10  delay-300 duration-300 ease-in-out '
-        }
+      <Share.Button
+        ismode={isOpen ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
         onClick={handleClick}>
-        <ul className="absolute w-auto z-90 top-0 bg-primary p-5 shadow-lg shadow-indigo-500/50 ">
+        <Share.Items>
           {ICONNAV.map((values) => (
             <Link href={`${valueUrl}`}>
-              <li className="w-auto px-1 cursor-pointer hover:opacity-50 py-2">
+              <Share.ItemValue>
                 <a target="_blank" href={values.Url} rel="noreferrer">
-                  <Image
+                  <img
                     src={values.Pic2}
                     width={25}
                     height={25}
                     alt={values.Name}
-                    className="shadow-lg shadow-cyan-500/50"
+                    className="opacity-100 hover:opacity-70"
                   />
                 </a>
-              </li>
+              </Share.ItemValue>
             </Link>
           ))}
-        </ul>
-      </button>
+        </Share.Items>
+      </Share.Button>
     </>
   );
 }

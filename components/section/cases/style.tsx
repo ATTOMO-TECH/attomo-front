@@ -23,3 +23,8 @@ export const Details = {
   SectionContainer: tw.div`lg:w-5/12 py-10 lg:py-0 lg:px-2 leading-relaxed font-PrimarySerif font-thin text-sm`,
   SectionText: tw.div`lg:mt-12 md:py-10 lg:py-0  leading-relaxed font-PrimarySerif font-thin text-sm w-full`,
 };
+export const BodyTrends = {
+  Section: tw.div`flex flex-wrap justify-between`,
+  ButtonShare: tw.button`w-1/12 cursor-pointer h-12`,
+  AlingData: tw.section``,
+};
