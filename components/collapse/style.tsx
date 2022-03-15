@@ -96,6 +96,13 @@ export const ItemSection = styled.div`
   &:before {
     content: url('/icon/elementElipse.svg');
   }
+  @media screen and (max-width: 468px) {
+    top: -2px;
+    left: 48%;
+    width: 20px;
+    height: 8px;
+    transform: scale(0.6) rotate(-36deg);
+  }
   @media screen and (min-width: 768px) {
     top: -17px;
     left: 52%;
@@ -180,11 +187,11 @@ export const Styles = {
   BlockSectionTitle: tw.div`w-auto z-0 `,
   TextSelect: tw(
     SectionTitle,
-  )<Props>`py-7 mb-6 sm:mb-0 w-full opacity-40 hover:opacity-100 px-5 order-last block transition ease-in duration-300 cursor-pointer z-70
+  )<Props>`py-7 mb-6 sm:mb-0 w-full opacity-40 hover:opacity-100 sm:px-5 px-3 order-last block transition ease-in duration-300 cursor-pointer z-70
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : '')}`,
-  TextCentral: tw(TextTitle)` w-4/6 text-center lg:text-sm `,
+  TextCentral: tw(TextTitle)` w-4/6 text-center lg:text-sm text-sm `,
   Circle: tw(
     Circle,
-  )`  bg-circle bg-no-repeat absolute bg-center bg-contain -top-2 lg:top-0 right-1 rounded-full lg:-right-0 md:right-0 `,
-  BlockTextCenter: tw.div`z-10 border-4 border-white w-5/6 h-5/6 absolute md:top-20 md:right-20 right-6 top-6 rounded-full flex justify-center items-center animate-pulse `,
+  )`  bg-circle bg-no-repeat absolute bg-center bg-contain top-0 md:-top-2 lg:top-0 right-1 rounded-full lg:-right-0 md:right-0 `,
+  BlockTextCenter: tw.div`z-10 border-4 border-white w-5/6 h-5/6 absolute top-8 right-8 md:top-6 md:right-8 lg:top-10 lg:right-8 right-6 top-6 rounded-full flex justify-center items-center animate-pulse `,
 };

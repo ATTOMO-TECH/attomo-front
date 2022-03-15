@@ -95,9 +95,6 @@ export const Select = styled.select`
 export const subText = styled.h5`
   font-family: 'Merriweather';
   font-style: normal;
-  font-weight: 300;
-  font-size: 27.65px;
-  line-height: 47px;
 `;
 
 export const BtnSelect = styled.button<Props>`
@@ -118,11 +115,11 @@ export const Styles = {
   `,
   Margin: tw.div`m-auto `,
   Center: tw.section`w-10/12 m-auto`,
-  CenterCases: tw.section`w-10/12 m-auto pt-36 overflow-hidden flex justify-between`,
+  CenterCases: tw.section`w-full md:w-10/12 m-auto pt-36 overflow-hidden flex justify-between`,
   BlockRenderDetails: tw.div`lg:flex flex-col pt-10 hidden relative`,
   BlockFilter: tw.div`w-auto m-auto text-center transform -rotate-90 z-80 flex justify-center lg:hidden opacity-60 hover:opacity-90  duration-100 ease-in cursor-pointer`,
   AlingCases: tw.section`w-11/12 ml-auto py-24`,
-  AlingCasesNoP: tw.section`w-11/12 ml-auto pb-24`,
+  AlingCasesNoP: tw.section`w-11/12 ml-auto pb-24 pt-6 md:pt-0`,
   CenterFull: tw.section`w-full lg:w-10/12 m-auto`,
   CenterFlex: tw.section`lg:w-11/12 m-auto flex overflow-hidden`,
   ContainerFull: tw.div`w-full`,
@@ -138,7 +135,9 @@ export const Styles = {
   ScreenResponsive: tw.div`h-screen pt-24`,
   ScreenMid: tw.div`h-screen flex justify-center items-center justify-between`,
   FlexEnd: tw.div`flex lg:justify-end`,
-  TitleSubSection: tw(subText)`text-primary py-5`,
+  TitleSubSection: tw(
+    subText,
+  )`font-Primary text-xl font-extralight pb-5 text-primary`,
   AlingBlock: tw.div`w-10/12 lg:w-full overflow-x-hidden m-auto`,
   BlockInput: tw.div`flex `,
   BlockSelected: tw.div`lg:w-10/12 m-auto flex flex-wrap py-0`,

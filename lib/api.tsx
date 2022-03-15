@@ -23,10 +23,11 @@ const QUOTE = {
     getAbsolutePath(`quotes/${id}?locale=${lenguage}`),
 };
 const POST = {
-  FETCH_ALL: (query: any) => getAbsolutePath(`blog-posts?${query}`),
+  FETCH_ALL: (query: any) =>
+    getAbsolutePath(`blog-posts?${query}&populate=blog_tags`),
   FETCH_ALL_TAG: () => getAbsolutePath(`blog-tags`),
   FETCH_ID: (id: number) =>
-    getAbsolutePath(`blog-posts/${id}?populate=coverImage`),
+    getAbsolutePath(`blog-posts/${id}?populate=coverImage&populate=blog_tags`),
 };
 const PARTNER = {
   FETCH_ALL: (query: any) => getAbsolutePath(`partner-areas?${query}`),

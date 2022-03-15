@@ -25,7 +25,7 @@ export default function SelectedClients({
           </Title>
         </Styles.DivideSection>
         <Styles.DivideSection>
-          <Title size="text-xl font-PrimarySerif">{text}</Title>
+          <Styles.Paragraph>{text}</Styles.Paragraph>
           <Link href={`${link}`}>
             <Styles.BlockMarginText>
               <IconAnimate text={btn} mode />

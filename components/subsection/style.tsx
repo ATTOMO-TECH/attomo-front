@@ -4,8 +4,8 @@ import tw from 'tailwind-styled-components';
 export const TextHero = styled.h2`
   background: linear-gradient(
     to right,
-    #cccfe8 26.04%,
-    #ffffff 69.27%,
+    #cccfe8 0.04%,
+    #ffffff 50.27%,
     #cccfe8 100%
   );
   -webkit-background-clip: text;
@@ -19,6 +19,6 @@ export const SubSections = {
   TextSubsection: tw.div`text-primary lg:w-6/12 w-10/12 m-auto`,
   Paragraph: tw(
     TextHero,
-  )`lg:text-sm sm:text-lg text-xs lg:font-thin font-regular lg:font-PrimarySerif font-Secundary pt-5 tracking-wide leadi ng-loose`,
+  )`lg:text-sm sm:text-lg text-sm lg:font-thin font-regular lg:font-PrimarySerif font-Secundary pt-5 tracking-wide leadi ng-loose`,
   SectionCounter: tw.div`lg:w-64 p-12 lg:p-0`,
 };

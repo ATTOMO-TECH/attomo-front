@@ -14,12 +14,14 @@ import BlockSection from '../../components/block/block';
 import { NEWS } from '../../const/constGlobal';
 import { useAPost } from '../../domain/useBlogDetails';
 import RenderLoading from '../../components/loading/loading';
+import { getLocale } from '../../public/locales/getLocale';
 
 interface Props {
   mode: boolean;
 }
 
 function New({ mode }: Props) {
+  const translate = getLocale();
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const router = useRouter();
   const { slug } = router.query;
@@ -47,16 +49,17 @@ function New({ mode }: Props) {
         <Back link="/ATTOMOTrends">Volver a noticias</Back>
         <Styles.Center>
           <Styles.AlingCasesNoP>
+            <BreadCrumbs Author="Autor" Date="Fecha" />
             <HeaderCases
-              category={data?.data.attributes.title}
+              category={data?.data.attributes.blog_tags.data[0].attributes.name}
               title={data?.data.attributes.title}
               paragraph=""
               image={data?.data.attributes.coverImage.data.attributes?.url}
             />
-            <BreadCrumbs Author="Autor" Date="Fecha" />
+
             <BodyCases data={data?.data.attributes.content} />
           </Styles.AlingCasesNoP>
-          <Styles.TextSubSection>Podría interesarte</Styles.TextSubSection>
+          <Styles.TextSubSection>{translate.interested}</Styles.TextSubSection>
         </Styles.Center>
         <Styles.FlexEnd>
           <Styles.AlingBlock>

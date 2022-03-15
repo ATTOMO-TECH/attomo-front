@@ -60,7 +60,7 @@ function Cases() {
           setTopic={handleTopic}
         />
         <Styles.Margin>
-          <Nav toggle={toggle} logo mode isOpen={isOpen} />
+          <Nav toggle={toggle} logo mode bgFull isOpen={isOpen} />
         </Styles.Margin>
         {!isOpenFilter && <ButtonShare />}
         {!isOpenFilter && (

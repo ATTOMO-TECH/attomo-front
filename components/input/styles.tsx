@@ -60,7 +60,7 @@ export const Navegation = {
   Form: tw.form`flex flex-col items-baseline`,
 
   SectionInput: tw.div<Props>`
-      flex w-full items-center overflow-hidden relative border-b border-primary focus:outline-none lg:text-xs text-xl font-light  duration-200 ease-in-out 
+      flex w-full items-center overflow-hidden relative border-b border-primary focus:outline-none text-xs font-light  duration-200 ease-in-out 
       transition delay-700 duration-300 ease-in-out
       ${(props) =>
         props.ismode === BUTTON_ACTIVE.ON
@@ -76,13 +76,13 @@ export const Navegation = {
       `,
 };
 export const Styles = {
-  BlockFilter: tw.div`w-1/12 text-center transform -rotate-90  flex absolute left-10 lg:bottom-96 bottom-72 z-100 lg:z-0 `,
-  TextFilter: tw.h6`text-primary text-xs font-PrimarySerif font-thin w-24 absolute lg:right-10 right-24 opacity-50`,
+  BlockFilter: tw.div`w-1/12 text-center transform -rotate-90  flex absolute left-0 bottom-40 sm:left-10 lg:bottom-96 sm:bottom-72 z-100 lg:z-0 `,
+  TextFilter: tw.h6`text-primary text-xs font-PrimarySerif font-thin w-24 absolute lg:right-10 sm:right-24 right-12 opacity-50`,
   FlexFilter: tw.div`flex`,
   FirtsItem: tw(
     textFilter,
-  )`text-primary outline-none text-sm absolute lg:-right-12 -right-6 w-24`,
-  DateItem: tw.div`absolute -right-64 w-48 flex`,
+  )`text-primary outline-none text-sm absolute lg:-right-12 -right-6  w-24`,
+  DateItem: tw.div`absolute sm:-right-64 -right-56 w-48 flex font-xs`,
   ValueDate: tw(textFilter)`text-primary outline-none text-sm flex w-48 `,
   Select: tw(
     Select,

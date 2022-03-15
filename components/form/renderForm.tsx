@@ -13,7 +13,7 @@ export default function RenderForm() {
 
   return (
     <>
-      <div className="flex lg:justify-center justify-between">
+      <Styles.BlockButton>
         {translate.buttonsRenderForm.map((button: any, i) => (
           <Styles.BtnSelect
             key={button.Name}
@@ -22,8 +22,8 @@ export default function RenderForm() {
             {button.Name}
           </Styles.BtnSelect>
         ))}
-      </div>
-      <section className="my-12">{innerRender(iDx)}</section>
+      </Styles.BlockButton>
+      <Styles.SectionRenderForm>{innerRender(iDx)}</Styles.SectionRenderForm>
     </>
   );
 }

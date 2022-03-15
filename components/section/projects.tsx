@@ -65,9 +65,10 @@ export default function SectionProjects({
                   }}
                   whileInView={{ opacity: 1, y: 0 }}
                   initial={{ opacity: 0, y: 50 }}>
-                  <Title size="text-lg font-PrimarySerif uppercase ">
+                  <Styles.Paragraph className="text-sm  font-PrimarySerif uppercase">
                     {values.attributes.company}
-                  </Title>
+                  </Styles.Paragraph>
+
                   <Title size="lg:text-4xl text-2xl py-3 leading-relaxed lg:leading-normal">
                     {values.attributes.title}
                   </Title>
