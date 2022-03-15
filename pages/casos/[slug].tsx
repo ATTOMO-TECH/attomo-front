@@ -5,13 +5,13 @@ import Menu from '../../components/nav/menu';
 import Nav from '../../components/nav/nav';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { darkTheme, lightTheme, Styles } from '../../styles/styles';
-import ArticlesScroll from '../../components/slider/article/slider';
 import BlockSection from '../../components/block/block';
-import { NEWS } from '../../const/constGlobal';
 import DetailsCases from '../../components/section/cases/details';
 import { useaCase } from '../../domain/useCasesDetails';
 import BreadCrumbs from '../../components/breadcrumbs/breadcrumbs';
 import RenderLoading from '../../components/loading/loading';
+import CasesScroll from '../../components/slider/cases/slider';
+import { getLocale } from '../../public/locales/getLocale';
 
 interface Props {
   mode: boolean;
@@ -37,7 +37,7 @@ export default function Cases({ mode }: Props) {
       </>
     );
   }
-
+  const translate = getLocale();
   return (
     <>
       <Styles.Body
@@ -52,7 +52,7 @@ export default function Cases({ mode }: Props) {
             Author={data.data.attributes.company}
             Date={data.data.attributes.sumary}
           />
-          <Styles.TitularText>{data.data.attributes.title}</Styles.TitularText>
+          <Styles.TitularText>{data?.data.attributes.title}</Styles.TitularText>
         </Styles.Center>
 
         {data.data?.attributes?.mainPhoto?.data[0].attributes?.url ? (
@@ -67,9 +67,12 @@ export default function Cases({ mode }: Props) {
         <Styles.Center>
           <DetailsCases data={data.data} />
         </Styles.Center>
+        <Styles.Center>
+          <Styles.TextSubSection>{translate.interested}</Styles.TextSubSection>
+        </Styles.Center>
         <Styles.FlexEnd>
           <Styles.AlingBlock>
-            <ArticlesScroll mode={false} array={NEWS} />
+            <CasesScroll mode={false} filter={data.data.attributes.sumary} />
           </Styles.AlingBlock>
         </Styles.FlexEnd>
         <Styles.Center>

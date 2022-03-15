@@ -9,9 +9,7 @@ import BreadCrumbs from '../../components/breadcrumbs/breadcrumbs';
 import HeaderCases from '../../components/section/cases/header';
 import Back from '../../components/button/back';
 import BodyCases from '../../components/section/cases/bodyCase';
-import ArticlesScroll from '../../components/slider/article/slider';
 import BlockSection from '../../components/block/block';
-import { NEWS } from '../../const/constGlobal';
 import { useAPost } from '../../domain/useBlogDetails';
 import RenderLoading from '../../components/loading/loading';
 import { getLocale } from '../../public/locales/getLocale';
@@ -63,7 +61,7 @@ function New({ mode }: Props) {
         </Styles.Center>
         <Styles.FlexEnd>
           <Styles.AlingBlock>
-            <ArticlesScroll mode={false} array={NEWS} />
+            {/* <ArticlesScroll mode={false} array={NEWS} /> */}
           </Styles.AlingBlock>
         </Styles.FlexEnd>
         <Styles.Center>

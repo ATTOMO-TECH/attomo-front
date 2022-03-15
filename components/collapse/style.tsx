@@ -89,7 +89,7 @@ export const ItemSection = styled.div`
   height: 8px;
   border-radius: 80% 80% 40% 40%;
   position: absolute;
-  top: -17px;
+  top: -10px;
   left: 48%;
   z-index: 90 !important;
   -webkit-animation-duration: 4000ms;
@@ -97,19 +97,19 @@ export const ItemSection = styled.div`
     content: url('/icon/elementElipse.svg');
   }
   @media screen and (max-width: 468px) {
-    top: -2px;
+    top: -4px;
     left: 48%;
     width: 20px;
     height: 8px;
-    transform: scale(0.6) rotate(-36deg);
+    transform: scale(0.6) rotate(-38deg);
   }
   @media screen and (min-width: 768px) {
-    top: -17px;
+    top: -14px;
     left: 52%;
   }
   @media screen and (min-width: 1024px) {
-    left: 52%;
-    top: -8px;
+    left: 51%;
+    top: -10px;
   }
   transform: rotate(-38deg);
 `;
@@ -189,7 +189,7 @@ export const Styles = {
     SectionTitle,
   )<Props>`py-7 mb-6 sm:mb-0 w-full opacity-40 hover:opacity-100 sm:px-5 px-3 order-last block transition ease-in duration-300 cursor-pointer z-70
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : '')}`,
-  TextCentral: tw(TextTitle)` w-4/6 text-center lg:text-sm text-sm `,
+  TextCentral: tw(TextTitle)` w-4/6 text-center lg:text-lg text-sm `,
   Circle: tw(
     Circle,
   )`  bg-circle bg-no-repeat absolute bg-center bg-contain top-0 md:-top-2 lg:top-0 right-1 rounded-full lg:-right-0 md:right-0 `,

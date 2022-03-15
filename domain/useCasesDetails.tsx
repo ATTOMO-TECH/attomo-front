@@ -11,7 +11,18 @@ const getCaseId = async (id: number, lenguage: string) => {
   const { data } = await get(CASES.FETCH_ID(id, lenguage));
   return data;
 };
+const getFilterCases = async (lenguage: string, query: string) => {
+  const { data } = await get(CASES.FETCH_FILTER(lenguage, query));
+  return data;
+};
 
+export function useUseFilterCases(lenguage: string, query: string) {
+  return useQuery(['useAllCases'], () => getFilterCases(lenguage, query), {
+    staleTime: 2500,
+    notifyOnChangePropsExclusions: ['isStale'],
+    refetchOnWindowFocus: false,
+  });
+}
 export function useUseAllCases(lenguage: string) {
   return useQuery(['useAllCases'], () => getAllCases(lenguage), {
     staleTime: 2500,

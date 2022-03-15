@@ -1,0 +1,9 @@
+<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <style>
+      circle { stroke: #ffffff; }
+    @media (prefers-color-scheme: dark) {
+    circle { stroke: #000000; }
+    }
+  </style>
+<circle cx="12.0306" cy="12.0306" r="11.5306" stroke="black"/>
+</svg>

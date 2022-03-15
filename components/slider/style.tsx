@@ -48,7 +48,7 @@ export const titleText = styled.h4`
 `;
 export const Image = styled.img`
   height: 300px;
-  width: 900px;
+  width: 600px;
   object-fit: cover;
 `;
 export const Styles = {

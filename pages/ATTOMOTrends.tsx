@@ -102,7 +102,7 @@ function News() {
                     {value.Text}
                   </Title>
                   <Styles.BlockInputSend>
-                    <Subtext size=" md:text-lg lg:text-base lg:w-3/6  lg:text-left">
+                    <Subtext size=" md:text-lg lg:text-base md:w-3/6  lg:text-left font-Secundary">
                       {value.Subtext}
                     </Subtext>
                     <Styles.BlockFullInput>

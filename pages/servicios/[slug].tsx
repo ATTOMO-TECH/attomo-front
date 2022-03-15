@@ -13,7 +13,6 @@ import SubMenu from '../../components/nav/submenu';
 import ArticlesScroll from '../../components/slider/article/slider';
 import Title from '../../components/Text/title';
 import { BUTTON_ACTIVE } from '../../const/const';
-import { ARTICLES } from '../../const/constGlobal';
 import { Styles } from '../../styles/styles';
 import { useUseAllServices } from '../../domain/useServices';
 import RenderLoading from '../../components/loading/loading';
@@ -161,7 +160,7 @@ function DetailsServices() {
             </Styles.Center>
             <Styles.FlexEnd>
               <Styles.AlingBlock>
-                <ArticlesScroll mode array={ARTICLES} />
+                <ArticlesScroll mode filter={data.data.attributes.sumary} />
               </Styles.AlingBlock>
             </Styles.FlexEnd>
             <Styles.CenterFlex>
