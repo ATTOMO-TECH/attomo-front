@@ -30,13 +30,13 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
   return (
     <>
       <Navegation.SectionNav
-        theme={mode === true ? lightTheme : darkTheme}
+        theme={mode ? lightTheme : darkTheme}
         className={!isOpen ? '' : 'hidden'}
         ismode={!scroll ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
         <Navegation.AlinItems
           ismode={logo ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
           <Navegation.ItemsMenu>
-            {logo === true ? (
+            {logo ? (
               <>
                 {mode ? (
                   <Link href="/">
@@ -74,12 +74,17 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
           <Navegation.BlockLenguage>
             <Navegation.BlokSectionLenguage>
               <Navegation.ButtonSelect
+                ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
                 onClick={() => handleBtn('es')}
                 type="button">
                 ES
               </Navegation.ButtonSelect>
-              <Navegation.LineBlock>|</Navegation.LineBlock>
+              <Navegation.LineBlock
+                ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+                |
+              </Navegation.LineBlock>
               <Navegation.ButtonSelect
+                ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
                 onClick={() => handleBtn('en')}
                 type="button">
                 EN

@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { Navegation } from './styles';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { sendNewsletter } from '../../services/attomo.service';
+import { getLocale } from '../../public/locales/getLocale';
+import { FORMVALUES } from '../../hook/types';
 
 const registerSchema = Yup.object().shape({
   newsletter: Yup.string()
@@ -13,8 +15,9 @@ const registerSchema = Yup.object().shape({
 });
 
 export default function InputNew() {
+  const translate = getLocale();
   const initialValues = {
-    newsletter: '',
+    [FORMVALUES.EMAIL]: '',
   };
   const newsLetter = (data: any) => {
     sendNewsletter(data);
@@ -46,8 +49,8 @@ export default function InputNew() {
                 <p className="text-primary">{isActive}</p>
                 <Navegation.Input
                   type="text"
-                  placeholder="Escribe tu correo electrónico"
-                  name="newsletter"
+                  placeholder={translate.sendEmail}
+                  name={FORMVALUES.EMAIL}
                   onChange={(e: any) => handleInput(e.currentTarget.value)}
                 />
                 <Navegation.Button

@@ -1,13 +1,15 @@
 import Link from 'next/link';
-import { ICONNAV, VALUESNAV } from '../../const/constGlobal';
+import { ICONNAV } from '../../const/constGlobal';
 import SubFooter from './subfooter';
 import { Navegation } from './style';
 import InputNew from '../input/inputNews';
+import { getLocale } from '../../public/locales/getLocale';
 
 interface Props {
   subFooter: boolean;
 }
 export default function Footer({ subFooter }: Props) {
+  const translate = getLocale();
   return (
     <>
       <Navegation.SectionFooter>
@@ -15,7 +17,7 @@ export default function Footer({ subFooter }: Props) {
           <Navegation.BlockLogo>
             <Navegation.NavFooter>
               <Navegation.TitleNav>ATTOMO</Navegation.TitleNav>
-              {VALUESNAV.map((values) => (
+              {translate.menu.map((values) => (
                 <Navegation.ItemsMenu key={`footer${values.Value}`}>
                   <Link href={values.Url} passHref>
                     {values.Value}
@@ -25,7 +27,7 @@ export default function Footer({ subFooter }: Props) {
             </Navegation.NavFooter>
           </Navegation.BlockLogo>
           <Navegation.BlockNavMed className="order-1 lg:order-none pt-10 lg:pt-0">
-            <Navegation.TitleNav>SÍGUENOS</Navegation.TitleNav>
+            <Navegation.TitleNav>{translate.followFooter}</Navegation.TitleNav>
             <Navegation.NavFooterFlex>
               {ICONNAV.map((values) => (
                 <Navegation.ListIcon key={`footer${values.Name}`}>
@@ -51,14 +53,17 @@ export default function Footer({ subFooter }: Props) {
             <InputNew />
           </Navegation.BlockNav>
         </Navegation.BlockFooter>
-
         {subFooter ? <SubFooter /> : ''}
         <Navegation.BlockSubText>
           <Navegation.SubText>
-            <Link href="/privacidad">Política de privacidad </Link>
+            <Link href="/privacidad">
+              <>{translate.privacy} </>
+            </Link>
           </Navegation.SubText>
           <Navegation.SubText>
-            <Link href="/terminos">Todos los derechos reservados</Link>
+            <Link href="/terminos">
+              <>{translate.rightReserve}</>
+            </Link>
           </Navegation.SubText>
         </Navegation.BlockSubText>
       </Navegation.SectionFooter>

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { BUTTON_ACTIVE } from '../../const/const';
 import { darkTheme, lightTheme } from '../../styles/styles';
 import IconAnimate from '../button/icon';
 import { Block } from './style';
@@ -26,7 +27,9 @@ export default function BlockSection({
         <Block.Block theme={mode === true ? lightTheme : darkTheme}>
           {text ? (
             <>
-              <Block.Title>{text}</Block.Title>
+              <Block.Title ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+                {text}
+              </Block.Title>
               <Link href={`${link}`}>
                 <div>
                   <IconAnimate text={button} mode={mode} />
@@ -40,7 +43,9 @@ export default function BlockSection({
         <Block.Block theme={mode === true ? lightTheme : darkTheme}>
           {text2 ? (
             <>
-              <Block.Title>{text2}</Block.Title>
+              <Block.Title ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+                {text2}
+              </Block.Title>
               <Link href={`${link}`}>
                 <div>
                   <IconAnimate text={button2} mode={mode} />

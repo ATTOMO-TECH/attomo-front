@@ -35,6 +35,22 @@ export const darkTheme = {
 export const SectionColor = styled.div`
   color: ${(props) => props.theme.headings};
 `;
+export const titleText = styled.h4`
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 28px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+`;
+export const Image = styled.img`
+  height: 300px;
+  width: 900px;
+  object-fit: cover;
+`;
 export const Styles = {
   Body: tw.body`bg-secundary`,
   Center: tw.section`w-10/12 m-auto`,
@@ -42,9 +58,16 @@ export const Styles = {
 };
 
 export const StylesArticle = {
-  BlockImg: tw.div`w-11/12 h-auto `,
+  BlockImg: tw.div`w-full h-auto object-cover `,
+  Img: tw(Image)`max-w-full max-h-full object-cover`,
   BlockText: tw(SectionColor)``,
-  TextBlog: tw.h4`lg:w-4/6 text-xl lg:text-lg w-5/6 pt-5 lg:pt-2 font-Primary font-thin`,
+  TextBlog: tw(
+    titleText,
+  )<Props>`text-xl lg:text-lg  pt-5 lg:pt-2 font-Primary font-thin
+  ${(props) =>
+    props.ismode === BUTTON_ACTIVE.ON ? `textDegrade  ` : 'bg-black '}
+      `,
+
   TopicText: tw.h6<Props>`
   opacity-50 font-PrimarySerif font-thin text-xs py-2
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'block' : 'hidden')}

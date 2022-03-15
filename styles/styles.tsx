@@ -92,6 +92,13 @@ export const Select = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
 `;
+export const subText = styled.h5`
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 27.65px;
+  line-height: 47px;
+`;
 
 export const BtnSelect = styled.button<Props>`
   ${({ active }) =>
@@ -117,10 +124,10 @@ export const Styles = {
   AlingCases: tw.section`w-11/12 ml-auto py-24`,
   AlingCasesNoP: tw.section`w-11/12 ml-auto pb-24`,
   CenterFull: tw.section`w-full lg:w-10/12 m-auto`,
-  CenterFlex: tw.section`w-11/12 m-auto flex overflow-hidden`,
+  CenterFlex: tw.section`lg:w-11/12 m-auto flex overflow-hidden`,
   ContainerFull: tw.div`w-full`,
   BlockAddres: tw.div`lg:my-12 my-12  lg:w-5/6  m-auto overflow-hidden`,
-  SectionScreen: tw.section`pt-48 h-auto`,
+  SectionScreen: tw.section`lg:pt-48 pt-24 h-auto`,
   BlockSections: tw.div`py-10`,
   DivideSection: tw.div`lg:w-3/6 w-full pb-2`,
   BlockButton: tw.div`lg:px-24 pt-10`,
@@ -131,10 +138,10 @@ export const Styles = {
   ScreenResponsive: tw.div`h-screen pt-24`,
   ScreenMid: tw.div`h-screen flex justify-center items-center justify-between`,
   FlexEnd: tw.div`flex lg:justify-end`,
-  TitleSubSection: tw.h5`text-primary py-20 font-Primary text-lg font-light`,
-  AlingBlock: tw.div`w-11/12 lg:w-full overflow-x-hidden`,
+  TitleSubSection: tw(subText)`text-primary py-5`,
+  AlingBlock: tw.div`w-10/12 lg:w-full overflow-x-hidden m-auto`,
   BlockInput: tw.div`flex `,
-  BlockSelected: tw.div`lg:w-8/12 m-auto flex flex-wrap py-0`,
+  BlockSelected: tw.div`lg:w-10/12 m-auto flex flex-wrap py-0`,
   TextSubSection: tw.h5`font-Primary text-xl font-extralight pb-5`,
   BreakLine: tw.div`h-0.5 opacity-40 bg-addictional w-full  m-auto lg:my-4`,
   Input: tw.input`w-full bg-secundary text-primary border-b-2 border-primary focus:outline-none focus:opacity-100 opacity-30 outline-none  py-1 px-1 lg:text-lg text-xl font-light transition-colors duration-400 ease-in-out`,
@@ -164,6 +171,6 @@ export const Styles = {
   SpaceCollapse: tw.div`lg:py-48 overflow-hidden`,
   // SUBMENU
   SubMenuBlock: tw.div`w-2/6`,
-  ButtonSubMenu: tw.button`font-Primary text-xl`,
+  ButtonSubMenu: tw.button`font-Primary text-xl uppercase`,
   BlockSubSection: tw.div`flex flex-col relative pl-1`,
 };

@@ -135,7 +135,7 @@ function News() {
         <Blogstyles.SectionMore>
           <Blogstyles.BlockMore
             onClick={() => handleAddBlog(data.meta.pagination.page + 1)}>
-            Ver más noticias
+            {translate.seeMoreTrends}
           </Blogstyles.BlockMore>
         </Blogstyles.SectionMore>
 

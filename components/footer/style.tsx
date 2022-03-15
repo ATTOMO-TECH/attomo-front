@@ -14,6 +14,25 @@ export const Image = styled.img`
     -moz-filter: grayscale(100%) brightness(200%);
   }
 `;
+export const subText = styled.h5`
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    #b4a9bc 0%,
+    #ffffff 17.79%,
+    #ffffff 50.33%,
+    #b4a9bc 83.38%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+`;
 export const SubTitle = styled.h2`
   background: linear-gradient(
     90deg,
@@ -31,14 +50,18 @@ export const Navegation = {
   BlockLogo: tw.div`lg:w-6/12 md:w-1/2 w-full text-left `,
   BlockNavMed: tw.div`lg:w-2/12 md:w-1/2 w-full text-left`,
   BlockNav: tw.div`lg:w-3/12 md:w-1/2 w-full text-left`,
-  TitleNav: tw.h2`font-PrimarySerif text-primary font-thin text-regular mb-3 hidden lg:block`,
-  TitleNavResponsive: tw.h2`lg:font-PrimarySerif font-Primary text-primary lg:font-thin text-regular mb-3 `,
+  TitleNav: tw(
+    subText,
+  )`font-PrimarySerif text-primary font-thin text-regular mb-3 hidden lg:block`,
+  TitleNavResponsive: tw(
+    subText,
+  )`lg:font-PrimarySerif font-Primary text-primary text-regular mb-3 `,
   NavFooter: tw.nav`list-none mb-10 font-secundary text-primary text-sm cursor-pointer`,
   NavFooterFlex: tw.nav`list-none mb-10 flex cursor-pointer justify-start items-center`,
   ItemsMenu: tw.p`py-1 leading-relaxed lg:leading-none text-sm font-extralight hover:opacity-60 transition-all duration-150`,
   BlockInput: tw.div`relative flex flex xl:flex-nowrap md:flex-nowrap w-11/12 lg:flex-wrap flex-wrap justify-center items-end md:justify-start`,
   Input: tw.input`w-full flex bg-secundary text-primary bg-none focus:bg-none outline-none  py-1 px-1 lg:text-xs text-xl font-light  `,
-  BlockSubText: tw.div`flex flex-col lg:flex-row justify-end text-primary text-sm font-Secundary`,
+  BlockSubText: tw.div`flex flex-col lg:flex-row justify-end text-primary text-sm font-Secundary pb-6`,
   SubText: tw.p`lg:px-10 px-5 py-3 hover:opacity-100 opacity-50 cursor-pointer ease-out duration-300`,
   ListIcon: tw.li`w-auto px-1 cursor-pointer `,
   Form: tw.form`flex flex-col items-baseline`,

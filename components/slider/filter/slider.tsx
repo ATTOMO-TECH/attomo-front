@@ -12,7 +12,7 @@ export default function FilterScroll({ setTopic }: Props) {
 
   return (
     <>
-      <div className="bg-black">
+      <div className="">
         <Picker
           indicatorClassName="my-picker-indicator bg-none"
           className="bg-black"

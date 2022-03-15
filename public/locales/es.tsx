@@ -1,3 +1,6 @@
+import FormColaborator from '../../components/form/formColaborator';
+import FormCustomer from '../../components/form/formCustomer';
+
 export default {
   menu: [
     {
@@ -57,6 +60,7 @@ export default {
       Button: 'Nuestros servicios',
     },
   ],
+  seeMoreProject: 'Ver proyecto ',
 
   seeMore: [
     {
@@ -129,6 +133,7 @@ export default {
       Subtext: 'Entérate de las novedades del sector:',
     },
   ],
+  sendEmail: 'Escribe tu correo electrónico',
   trendsFilter: 'Filtrar noticias por',
   workUs: [
     {
@@ -149,14 +154,43 @@ export default {
   ],
 
   contactTitle: 'Contacta con nosotros',
+  buttonsRenderForm: [
+    {
+      Name: 'Cliente',
+      Component: <FormCustomer />,
+    },
+    {
+      Name: 'Colaborador',
+      Component: <FormColaborator />,
+    },
+  ],
+  partOfTeam:
+    '¿Quieres formar parte de nuestro equipo o colaborar como partner? *',
+  speciality: '¿Cuál es tu especialidad? *',
+  formTime: 'Tiempo',
+  formName: 'Nombre *',
+  formLastName: 'Apellidos *',
+  formEmail: 'Email *',
+  formPhone: 'Móvil *',
+  formCompany: 'Empresa/Organización *',
+  formMessage: 'Tu Mensaje *',
+  formLink: 'Enlace al portfolio o perfil de LinkedIn',
+  formRead: 'He leído y acepto los',
+  formTems: 'Términos y condiciones',
+  formAnd: 'y la',
+  formPrivacy: 'Política de Privacidad.',
+  formSend: 'Enviar',
+  formRent: 'Alquilar',
+
   whereUs: 'Dónde encontrarnos',
   spaceAttomo: [
     {
-      Text: 'Espacio Attomo',
+      Text: 'Espacio ATTOMO',
       Subtext:
         'Ofrecemos a otros profesionales la oportunidad de utilizar nuestras instalaciones para desarrollar sus proyectos o realizar sesiones fotográficas.',
     },
   ],
+  spaceAttomoFooter: 'Espacio ATTOMO',
   bookingAttomo: [
     {
       Text: 'Reservar',
@@ -172,7 +206,12 @@ export default {
       Subtext: 'Selecciona la fecha y consulta su disponibilidad',
     },
   ],
-  policy: 'Policy',
-  terms: 'Terms',
+  policy: 'Política de privacidad',
+  terms: 'Terminos y condiciones',
   project: 'Proyectos relacionados',
+  seeMoreTrends: 'Ver más noticias',
+
+  followFooter: 'SÍGUENOS',
+  privacy: 'Política de privacidad',
+  rightReserve: 'Todos los derechos reservados',
 };

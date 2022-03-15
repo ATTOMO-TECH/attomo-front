@@ -14,8 +14,10 @@ import { validationSchemaColaborator } from './validations';
 import { createContactColaborator } from '../../domain/useContact';
 import Conditions from './conditions';
 import { useUseAllPartner } from '../../domain/usePartners';
+import { getLocale } from '../../public/locales/getLocale';
 
 export default function FormColaborator() {
+  const translate = getLocale();
   const [query, setQuery] = useState('');
   const [filter, setFilter] = useState('team');
   const { data, isLoading } = useUseAllPartner(query);
@@ -97,8 +99,7 @@ export default function FormColaborator() {
           <>
             <Styles.Form onSubmit={handleSubmit}>
               <Subtext size="lg:text-sm w-full pb-10 font-PrimarySerif">
-                ¿Quieres formar parte de nuestro equipo o colaborar como
-                partner? *
+                {translate.partOfTeam}
               </Subtext>
               <Styles.BlockSelect>
                 {FORMPARTOF.map((valuesCheck) => (
@@ -115,7 +116,7 @@ export default function FormColaborator() {
                 ))}
               </Styles.BlockSelect>
               <Subtext size="lg:text-sm w-full pb-10 font-PrimarySerif pt-10">
-                ¿Cuál es tu especialidad? *
+                {translate.partOfTeam}
               </Subtext>
               <Styles.BlockSelectSecond>
                 {data.data.map((valuesCheck: any) => (
@@ -134,7 +135,7 @@ export default function FormColaborator() {
                   <Styles.BlockInput>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
-                      placeholder="Nombre *"
+                      placeholder={translate.formName}
                       type="text"
                       name={FORMVALUES.FIRSTNAME}
                     />
@@ -153,7 +154,7 @@ export default function FormColaborator() {
                   <Styles.BlockInput>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
-                      placeholder="Apellidos *"
+                      placeholder={translate.formLastName}
                       type="text"
                       name={FORMVALUES.LASTNAME}
                     />
@@ -173,7 +174,7 @@ export default function FormColaborator() {
                   <Styles.BlockInput>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
-                      placeholder="Email *"
+                      placeholder={translate.formEmail}
                       type="email"
                       name={FORMVALUES.EMAIL}
                     />
@@ -192,7 +193,7 @@ export default function FormColaborator() {
                   <Styles.BlockInput>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
-                      placeholder="Móvil *"
+                      placeholder={translate.formPhone}
                       type="phone"
                       name={FORMVALUES.PHONE}
                     />
@@ -212,7 +213,7 @@ export default function FormColaborator() {
                   <Styles.BlockSectionMarginTop>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.OFF}
-                      placeholder="Enlace al portfolio o perfil de LinkedIn"
+                      placeholder={translate.formLink}
                       type="text"
                       name={FORMVALUES.LINK}
                     />
@@ -221,7 +222,7 @@ export default function FormColaborator() {
                   <Styles.BlockSectionMarginTop>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.OFF}
-                      placeholder="Empresa/Organización"
+                      placeholder={translate.formCompany}
                       type="text"
                       name={FORMVALUES.COMPANY}
                     />
@@ -232,7 +233,7 @@ export default function FormColaborator() {
                 <Styles.BlockSectionMarginTop>
                   <Styles.Input
                     ismode={BUTTON_ACTIVE.OFF}
-                    placeholder="Tu mensaje *"
+                    placeholder={translate.formMessage}
                     type="textarea"
                     name={FORMVALUES.MESSAGE}
                   />
@@ -257,7 +258,7 @@ export default function FormColaborator() {
                 <Styles.Error>{errors.check}</Styles.Error>
               )}
               <Styles.BlockBtn type="submit">
-                <IconAnimate text="Enviar" mode />
+                <IconAnimate text={translate.formSend} mode />
               </Styles.BlockBtn>
             </Styles.Form>
           </>

@@ -4,6 +4,9 @@ import { BUTTON_ACTIVE } from '../../const/const';
 import { Filter } from './style';
 import FilterScroll from '../slider/filter/slider';
 import CalendarPicker from '../calendar/calendar';
+// import { useEffect, useState } from 'react';
+// import { useUseAllSubServices } from '../../domain/useServices';
+// import RenderLoading from '../loading/loading';
 
 interface Props {
   isOpen: boolean;
@@ -18,6 +21,27 @@ export default function ModalFilter({
   setDate,
   setTopic,
 }: Props) {
+  // const [width, setWidth] = useState(window.innerWidth);
+  // const { data, isLoading } = useUseAllSubServices(locale || 'es');
+
+  // useEffect(() => {
+  //   const handleResize = () => setWidth(window.innerWidth);
+  //   window.addEventListener('resize', handleResize);
+  //   return () => {
+
+  //     window.removeEventListener('resize', handleResize);
+  //   };
+  // });
+  // if (isLoading) {
+  //   return (
+  //     <>
+  //       <RenderLoading mode={false} />
+  //     </>
+
+  //   );
+
+  // }
+
   return (
     <>
       <Filter.RelativeSection>
@@ -94,6 +118,38 @@ export default function ModalFilter({
               </Filter.BlockSecondFilter>
             </Filter.AlingBlock>
           </Filter.BlockFilterItems>
+          {/*  }
+          ) : (
+            <Filter.BlockFilterItems>
+              <Filter.SectionMobile>
+                <Filter.TitleFilter> Filtrar por</Filter.TitleFilter>
+                <Filter.BlockItemMobile>
+                  <Filter.SubTextMobile> Servicio</Filter.SubTextMobile>
+                  <SelectFilter
+                    selected="selected"
+                    options={DEPARTMENT}
+                    valueLabel="Todos los servicios"
+                    name="FORMVALUES.TIME"
+                    onChange="onChange"
+                  />
+                </Filter.BlockItemMobile>
+                <Filter.BlockItemMed>
+                  <Filter.SubTextMobile> Temática</Filter.SubTextMobile>
+                  <SelectFilter
+                    selected="selected"
+                    options={DEPARTMENT}
+                    valueLabel="Todas las temáticas"
+                    name="FORMVALUES.TIME"
+                    onChange="onChange"
+                  />
+                </Filter.BlockItemMed>
+                <Filter.BlockItemMobile>
+                  <Filter.SubTextMobile> Fecha</Filter.SubTextMobile>
+                  <CalendarPicker setDate={setDate} />
+                </Filter.BlockItemMobile>
+              </Filter.SectionMobile>
+            </Filter.BlockFilterItems>
+          )} */}
         </Filter.BlockFilter>
       </Filter.RelativeSection>
     </>

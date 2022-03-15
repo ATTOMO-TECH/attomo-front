@@ -1,22 +1,25 @@
 import { useState } from 'react';
 import { Styles } from './style';
-import { TABCONTACT } from '../../const/constGlobal';
+import { getLocale } from '../../public/locales/getLocale';
 
 export default function RenderForm() {
   const [iDx, setidx] = useState(0);
   const handleClick = (idx: number) => {
     setidx(idx);
   };
-  const innerRender = (idx: number) => TABCONTACT[idx].Component;
+  const translate = getLocale();
+  const innerRender = (idx: number) =>
+    translate.buttonsRenderForm[idx].Component;
+
   return (
     <>
       <div className="flex lg:justify-center justify-between">
-        {TABCONTACT.map((tab, i) => (
+        {translate.buttonsRenderForm.map((button: any, i) => (
           <Styles.BtnSelect
-            key={tab.Name}
+            key={button.Name}
             active={i === iDx}
             onClick={() => handleClick(i)}>
-            {tab.Name}
+            {button.Name}
           </Styles.BtnSelect>
         ))}
       </div>

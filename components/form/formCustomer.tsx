@@ -7,8 +7,10 @@ import { validationSchemaContact } from './validations';
 import { createContact } from '../../domain/useContact';
 import Conditions from './conditions';
 import IconAnimate from '../button/icon';
+import { getLocale } from '../../public/locales/getLocale';
 
 export default function FormCustomer() {
+  const translate = getLocale();
   const valueName = FORMVALUES.FIRSTNAME;
   const valueLastName = FORMVALUES.LASTNAME;
   const valuePhone = FORMVALUES.PHONE;
@@ -66,7 +68,7 @@ export default function FormCustomer() {
                   <Styles.BlockInput>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
-                      placeholder="Nombre *"
+                      placeholder={translate.formName}
                       type="text"
                       name={FORMVALUES.FIRSTNAME}
                     />
@@ -85,7 +87,7 @@ export default function FormCustomer() {
                   <Styles.BlockInput>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
-                      placeholder="Apellidos *"
+                      placeholder={translate.formLastName}
                       type="text"
                       name={FORMVALUES.LASTNAME}
                     />
@@ -105,7 +107,7 @@ export default function FormCustomer() {
                   <Styles.BlockInput>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
-                      placeholder="Email *"
+                      placeholder={translate.formEmail}
                       type="email"
                       name={FORMVALUES.EMAIL}
                     />
@@ -124,7 +126,7 @@ export default function FormCustomer() {
                   <Styles.BlockInput>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
-                      placeholder="Móvil *"
+                      placeholder={translate.formPhone}
                       type="phone"
                       name={FORMVALUES.PHONE}
                     />
@@ -143,7 +145,7 @@ export default function FormCustomer() {
                 <Styles.BlockSectionMarginTop>
                   <Styles.Input
                     ismode={BUTTON_ACTIVE.OFF}
-                    placeholder="Empresa/Organización"
+                    placeholder={translate.formCompany}
                     type="text"
                     name={valueCompany}
                   />
@@ -153,7 +155,7 @@ export default function FormCustomer() {
                 <Styles.BlockSectionMarginTop>
                   <Styles.Input
                     ismode={BUTTON_ACTIVE.OFF}
-                    placeholder="Tu mensaje *"
+                    placeholder={translate.formMessage}
                     type="textarea"
                     name={FORMVALUES.MESSAGE}
                   />
@@ -178,7 +180,7 @@ export default function FormCustomer() {
                 <Styles.Error>{errors.check}</Styles.Error>
               )}
               <Styles.BlockBtn type="submit">
-                <IconAnimate text="Enviar" mode />
+                <IconAnimate text={translate.formSend} mode />
               </Styles.BlockBtn>
             </Styles.Form>
           </>

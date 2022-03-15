@@ -34,10 +34,10 @@ function Cases() {
   };
   const router = useRouter();
   let { locale } = router;
-  const { data, isLoading } = useUseAllCases(locale || 'es');
   if (locale === '/') {
     locale = 'es';
   }
+  const { data, isLoading } = useUseAllCases(locale || 'es');
 
   if (isLoading) {
     return (

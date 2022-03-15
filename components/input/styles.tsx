@@ -1,3 +1,4 @@
+import { Field } from 'formik';
 import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -20,6 +21,24 @@ export const Input = styled.input`
   -webkit-background-clip: text;
   background-clip: text;
 `;
+export const textFilter = styled.h6`
+  font-family: 'Merriweather Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+
+  background: linear-gradient(
+    90deg,
+    #b4a9bc 0%,
+    #ffffff 17.79%,
+    #ffffff 50.33%,
+    #b4a9bc 83.38%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+`;
 
 export const Navegation = {
   SectionFooter: tw.footer`text-gray-600 body-font border-t border-primary bg-secundary`,
@@ -32,19 +51,21 @@ export const Navegation = {
   NavFooterFlex: tw.nav`list-none mb-10 flex cursor-pointer justify-start items-center`,
   ItemsMenu: tw.p`py-1 leading-relaxed lg:leading-none text-lg font-extralight`,
   BlockInput: tw.div`relative flex flex xl:flex-nowrap md:flex-nowrap w-11/12 lg:flex-wrap flex-wrap justify-center items-end md:justify-start`,
-  Input: tw.input`w-full flex bg-secundary text-primary bg-none focus:bg-none outline-none  py-1 px-1 lg:text-xs text-xl font-light  `,
+  Input: tw(
+    Field,
+  )`w-full opacity-50 focus:opacity-100  flex bg-secundary text-primary bg-none focus:bg-none outline-none  py-1 px-1 lg:text-xs text-xl font-light  `,
   BlockSubText: tw.div`flex flex-col lg:flex-row justify-end text-primary text-sm font-Secundary`,
   SubText: tw.p`lg:px-10 px-5 py-3 hover:opacity-50 cursor-pointer ease-out duration-300`,
   ListIcon: tw.li`w-auto px-1 cursor-pointer `,
   Form: tw.form`flex flex-col items-baseline`,
 
   SectionInput: tw.div<Props>`
-      flex w-full items-center overflow-hidden relative border-b-2 border-primary focus:outline-none lg:text-xs text-xl font-light transition-colors duration-200 ease-in-out 
+      flex w-full items-center overflow-hidden relative border-b border-primary focus:outline-none lg:text-xs text-xl font-light  duration-200 ease-in-out 
       transition delay-700 duration-300 ease-in-out
       ${(props) =>
         props.ismode === BUTTON_ACTIVE.ON
-          ? 'opacity-50 duration-300'
-          : 'opacity-100 duration-300'}
+          ? 'opacity-100 duration-300'
+          : 'opacity-50 duration-300'}
       `,
   Button: tw.button<Props>`
     transition delay-300 duration-500 ease-in-out
@@ -55,12 +76,14 @@ export const Navegation = {
       `,
 };
 export const Styles = {
-  BlockFilter: tw.div`w-1/12 text-center transform -rotate-90  flex absolute left-10 bottom-72 z-100 lg:z-0 `,
-  TextFilter: tw.h6`text-primary text-xs font-PrimarySerif font-thin w-24 absolute lg:right-10 right-24`,
+  BlockFilter: tw.div`w-1/12 text-center transform -rotate-90  flex absolute left-10 lg:bottom-96 bottom-72 z-100 lg:z-0 `,
+  TextFilter: tw.h6`text-primary text-xs font-PrimarySerif font-thin w-24 absolute lg:right-10 right-24 opacity-50`,
   FlexFilter: tw.div`flex`,
-  FirtsItem: tw.div`text-primary outline-none text-sm absolute -right-6 w-24`,
-  DateItem: tw.div`absolute -right-56 w-48 flex`,
-  ValueDate: tw.h6`text-primary outline-none text-sm flex w-48 `,
+  FirtsItem: tw(
+    textFilter,
+  )`text-primary outline-none text-sm absolute lg:-right-12 -right-6 w-24`,
+  DateItem: tw.div`absolute -right-64 w-48 flex`,
+  ValueDate: tw(textFilter)`text-primary outline-none text-sm flex w-48 `,
   Select: tw(
     Select,
   )`bg-black text-primary outline-none text-sm absolute -right-16`,

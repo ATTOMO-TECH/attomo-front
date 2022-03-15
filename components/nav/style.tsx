@@ -65,7 +65,7 @@ export const LogoInvert = styled.div`
 `;
 export const Navegation = {
   SectionMenu: tw(SectionColor)<Props>`
-  lg:transition ease-in-out delay-150 fixed overflow-y-scroll 
+  lg:transition ease-in-out  fixed overflow-y-scroll 
     ${(props) =>
       props.ismode === BUTTON_ACTIVE.ON
         ? `cursor-pointer h-screen w-full overflow-hidden z-100 opacity-100  `
@@ -73,8 +73,8 @@ export const Navegation = {
   `,
   Menu: tw.nav``,
   AlinItems: tw.ul<Props>`
-  flex items-center justify-between mb-20 w-10/12 absolute lg:left-24 left-12 lg:top-10 
-  ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'pt-10' : '')}
+  flex items-center justify-between mb-20 w-11/12 m-auto mt-2 md:mt-0 md:w-10/12 md:absolute lg:left-24 md:left-12 left-6 top-10 
+  ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : '')}
   `,
   ItemsMenu: tw.li`flex items-center list-none z-100`,
   BlockMenu: tw.div``,
@@ -86,16 +86,23 @@ export const Navegation = {
   ButtonLogoInvert: tw(LogoInvert)`relative w-10 h-10 menuInvert`,
   SelectMenu: tw(
     itemMenu,
-  )` leading-loose tracking-wide hover:opacity-100 opacity-60 cursor-pointer transition ease-in-out delay-100 duration-100 text-4xl lg:text-5xl lg:py-5`,
+  )` leading-loose tracking-wide hover:opacity-100 opacity-60 cursor-pointer transition ease-in-out delay-100 duration-100 md:text-4xl lg:text-5xl lg:py-5`,
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`
-font-Primary z-100 md:py-16 md:h-24 md:mb-10 cursor-pointer list-none fixed w-full duration-300 ease-in-out delay-700
+font-Primary z-100  cursor-pointer list-none fixed w-full duration-300 ease-in-out delay-700 
 ${(props) =>
-  props.ismode === BUTTON_ACTIVE.ON ? 'duration-300 ease-in-out' : ''}
+  props.ismode === BUTTON_ACTIVE.ON
+    ? 'duration-300 ease-in-out h-24 mb-10 '
+    : ''}
 `,
   BlockLenguage: tw.div`flex  items-end`,
   BlokSectionLenguage: tw.div`flex font-Secundary text-primary text-sm mr-5 items-center`,
-  ButtonSelect: tw.button`block p-2 delay-150 duration-300 ease-in-out hover:opacity-50`,
-  LineBlock: tw.span`span`,
+  ButtonSelect: tw.button<Props>`
+  block p-2 delay-150 duration-300 ease-in-out hover:opacity-50
+  ${(props) =>
+    props.ismode === BUTTON_ACTIVE.ON ? 'text-white' : 'text-black'}`,
+  LineBlock: tw.span<Props>`
+  ${(props) =>
+    props.ismode === BUTTON_ACTIVE.ON ? 'text-white' : 'text-black'}`,
 };

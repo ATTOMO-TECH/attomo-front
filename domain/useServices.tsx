@@ -1,9 +1,14 @@
 import { useQuery } from 'react-query';
-import { SERVICES } from '../lib/api';
+import { SERVICES, SUBSERVICES } from '../lib/api';
 import { get } from '../lib/restClient';
 
 const getAllServices = async (lenguage: string) => {
   const { data } = await get(SERVICES.FETCH_ALL(lenguage));
+  return data;
+};
+
+const getAllSubServices = async (lenguage: string) => {
+  const { data } = await get(SUBSERVICES.FETCH_ALL(lenguage));
   return data;
 };
 
@@ -13,6 +18,13 @@ const getAServices = async (lenguage: string, query: any) => {
 };
 export function useUseAllServices(lenguage: string) {
   return useQuery(['useAllServices'], () => getAllServices(lenguage), {
+    staleTime: 2500,
+    notifyOnChangePropsExclusions: ['isStale'],
+    refetchOnWindowFocus: false,
+  });
+}
+export function useUseAllSubServices(lenguage: string) {
+  return useQuery(['useAllSubServices'], () => getAllSubServices(lenguage), {
     staleTime: 2500,
     notifyOnChangePropsExclusions: ['isStale'],
     refetchOnWindowFocus: false,

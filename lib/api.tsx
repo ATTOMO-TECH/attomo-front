@@ -4,8 +4,10 @@ const getAbsolutePath = (path: string) => `${API_URL}/${path}`;
 const CASES = {
   FETCH_ALL: (lenguage: string) =>
     getAbsolutePath(`successful-cases?populate=mainPhoto&locale=${lenguage}`),
-  FETCH_ID: (id: number) =>
-    getAbsolutePath(`successful-cases/${id}?populate=mainPhoto`),
+  FETCH_ID: (id: number, lenguage: string) =>
+    getAbsolutePath(
+      `successful-cases/${id}?populate=mainPhoto&populate=disciplines&populate=deliverables&populate=subservice&locale=${lenguage}`,
+    ),
 };
 const CONTACT = {
   CREATE: () => getAbsolutePath('client-forms'),
@@ -45,12 +47,20 @@ const SERVICES = {
       `services?locale=${lenguage}&populate=subservices&${query}`,
     ),
 };
+const SUBSCRIBERS = {
+  POST: () => getAbsolutePath(`subscribers`),
+};
+const SUBSERVICES = {
+  FETCH_ALL: (lenguage: string) =>
+    getAbsolutePath(`subservices?locale=${lenguage}`),
+};
 const RATES = {
   FETCH_ALL: (lenguage: string) =>
     getAbsolutePath(`espacio-attomo-rates?locale=${lenguage}`),
 };
 
 export {
+  SUBSERVICES,
   POST,
   CAREERS,
   CASES,
@@ -61,5 +71,6 @@ export {
   QUOTE,
   PRIVACY,
   TERMS,
+  SUBSCRIBERS,
   getAbsolutePath,
 };
