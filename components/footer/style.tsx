@@ -46,7 +46,7 @@ export const SubTitle = styled.h2`
 
 export const Navegation = {
   SectionFooter: tw.footer`text-gray-600 body-font border-t border-primary bg-secundary border-opacity-20`,
-  BlockFooter: tw.div` w-10/12 py-20 mx-auto flex flex-wrap justify-between md:text-left text-center order-first items-start`,
+  BlockFooter: tw.div` w-10/12 py-10 lg:py-20 mx-auto flex flex-wrap justify-between md:text-left text-center order-first items-start`,
   BlockLogo: tw.div`lg:w-6/12 md:w-1/2 w-full text-left `,
   BlockNavMed: tw.div`lg:w-2/12 md:w-1/2 w-full text-left`,
   BlockNav: tw.div`lg:w-3/12 md:w-1/2 w-full text-left`,
@@ -61,7 +61,7 @@ export const Navegation = {
   ItemsMenu: tw.p`py-1 leading-relaxed lg:leading-none text-sm font-extralight hover:opacity-60 transition-all duration-150`,
   BlockInput: tw.div`relative flex flex xl:flex-nowrap md:flex-nowrap w-11/12 lg:flex-wrap flex-wrap justify-center items-end md:justify-start`,
   Input: tw.input`w-full flex bg-secundary text-primary bg-none focus:bg-none outline-none  py-1 px-1 lg:text-xs text-xl font-light  `,
-  BlockSubText: tw.div`flex flex-col lg:flex-row justify-end text-primary text-sm font-Secundary pb-6`,
+  BlockSubText: tw.div`flex flex-col lg:flex-row justify-end text-primary text-sm font-Secundary pb-6 w-11/12 m-auto`,
   SubText: tw.p`lg:px-10 px-5 py-3 hover:opacity-100 opacity-50 cursor-pointer ease-out duration-300`,
   ListIcon: tw.li`w-auto px-1 cursor-pointer `,
   Form: tw.form`flex flex-col items-baseline`,

@@ -28,10 +28,10 @@ export const Image = styled.div`
 
 export const Button = {
   ButtonRegular: tw.h5<Props>`
-    text-Primary font-Primary py-5 text-left  pr-2
+    text-Primary font-Primary py-5 text-left text-xl pr-2
   ${(props) =>
     props.ismode === BUTTON_MODE.LIGHT ? 'text-primary' : 'text-secundary'}`,
-  SectionBack: tw.div`z-100 lg:w-3/12 mt-12 w-10/12 ml-12 lg:px-10 lg:p-14 pt-12 py0 block cursor-pointer hover:opacity-50`,
+  SectionBack: tw.div`z-100 lg:w-3/12 mt-12 w-full md:w-10/12 md:ml-12 lg:px-10 lg:p-14 pt-12 py-0 block cursor-pointer hover:opacity-50`,
   BlockBack: tw.div`flex font-PrimarySerif font-extralight`,
   TextBack: tw.h5``,
 };
@@ -45,10 +45,10 @@ export const Icon = {
 
 export const Btn = {
   Icon: tw.div<Props>`
-w-24 h-24 rounded-full p-2  fixed hover:opacity-80 cursor-pointer z-90 flex justify-center z-100  delay-300 duration-300 ease-in-out
+w-20 h-20 lg:w-24 lg:h-24 rounded-full p-2 bottom:0 right:0  fixed hover:opacity-80 cursor-pointer z-90 flex justify-center z-100  delay-300 duration-300 ease-in-out
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
-      ? 'bottom-10 right-10  delay-300 duration-300 ease-in-out opacity-100'
-      : '-bottom-20 right-10  delay-300 duration-300 ease-in-outopacity-0 overflow-hidden h-0'}
+      ? 'bottom-5 right-2  delay-300 duration-300 ease-in-out opacity-100'
+      : '-bottom-20 right-2 delay-300 duration-300 ease-in-outopacity-0 overflow-hidden h-0'}
 `,
 };

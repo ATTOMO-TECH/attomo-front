@@ -51,11 +51,11 @@ function Carrers() {
             <Styles.ScreenMid>
               {translate.workUs.map((value) => (
                 <Styles.BlockDiv>
-                  <Title size="text-5xl lg:pt-20 lg:pr-0 pb-12 lg:w-3/6 pt-20 ">
+                  <Title size="lg:text-4xl md:text-3xl text-xl lg:pt-24 lg:pr-0 lg:pb-24 md:pb-12 pb-6 w-full md:pt-36  ">
                     {value.Text}
                   </Title>
                   <Styles.FlexEnd>
-                    <Subtext size=" text-lg lg:text-base lg:w-3/6  lg:text-left">
+                    <Subtext size=" md:text-lg lg:text-base lg:w-2/6  lg:text-left font-Secundary">
                       {value.Subtext}
                     </Subtext>
                   </Styles.FlexEnd>

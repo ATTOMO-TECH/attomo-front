@@ -60,6 +60,8 @@ export default {
     },
   ],
   seeMoreProject: 'view project ',
+  close: 'Close',
+
   seeMore: [
     {
       Text: 'Want to see more success cases?',
@@ -206,6 +208,7 @@ export default {
   terms: 'Terms',
   project: 'You might be interested in',
   seeMoreTrends: 'See more news',
+  interested: 'You might be interested in',
   followFooter: 'FOLLOW US',
   privacy: 'Privacy policy',
   rightReserve: 'All rights reserved',

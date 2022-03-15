@@ -26,8 +26,8 @@ export const CheckRadio = styled.input`
   &[type='radio'] {
     appearance: none;
     margin: 0;
-    width: 1.5em;
-    height: 1.5em;
+    width: 25px;
+    height: 25px;
     border: 0.15em solid white;
     border-radius: 100%;
     margin-right: 10px;
@@ -35,8 +35,8 @@ export const CheckRadio = styled.input`
 
   &:checked {
     content: url(/icon/isoAttomo.svg);
-    width: 1.5em;
-    height: 1.5em;
+    width: 25px;
+    height: 25px;
     transition: 120ms transform ease-in-out;
     border: 0.15em solid white;
     padding: 2.8px;
@@ -46,8 +46,8 @@ export const CheckCheck = styled.input`
   &[type='checkbox'] {
     appearance: none;
     margin: 0;
-    width: 1.5em;
-    height: 1.5em;
+    width: 25px;
+    height: 25px;
     border: 0.15em solid white;
     border-radius: 100%;
     margin-right: 10px;
@@ -55,8 +55,8 @@ export const CheckCheck = styled.input`
 
   &:checked {
     content: url(/icon/isoAttomo.svg);
-    width: 1.5em;
-    height: 1.5em;
+    width: 25px;
+    height: 25px;
     transition: 120ms transform ease-in-out;
     border: 0.15em solid white;
     padding: 2.8px;
@@ -93,16 +93,16 @@ export const Styles = {
   Select: tw(
     Select,
   )`bg-black text-primary outline-none text-sm lg:py-4 font-PrimarySerif font-light ml-5 z-90`,
-
+  BlockButton: tw.div`flex lg:justify-center justify-between`,
   BtnSelect: tw(
     BtnSelect,
-  )`block ease-out duration-200 text-primary border-2 border-primary px-12 lg:text-sm py-3 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none mr-5 `,
-
+  )`block ease-out duration-200 text-primary border-2 border-primary px-6 sm:px-12 lg:text-sm py-3 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none mr-5 `,
+  SectionRenderForm: tw.section`my-12`,
   Form: tw(Form)`lg:w-4/6 m-auto`,
   SectionInput: tw.div`flex flex-col lg:flex-row `,
   BlockSections: tw.div`w-full relative lg:pr-5`,
-  BlockSectionMargin: tw.div`w-full relative pt-5 lg:pr-5`,
-  BlockSectionMarginTop: tw.div`w-full relative pt-5`,
+  BlockSectionMargin: tw.div`w-full relative lg:pt-5 lg:pr-5`,
+  BlockSectionMarginTop: tw.div`w-full relative lg:pt-5`,
   SubBlock: tw.div`w-full relative`,
   SingleInput: tw.div`py-1`,
   BlockBtn: tw.button`text-primary font-thin w-7/12 flex ml-auto z-0`,

@@ -112,8 +112,10 @@ export default function FilterDetails({
               </motion.svg>
             </Navegation.ItemsMenu>
           </Navegation.AlinItems>
-          <div className="pt-48 flex justify-center text-primary w-10/12 m-auto h-full items-start">
-            <Styles.BlockFilter onClick={toggle}>Cerrar</Styles.BlockFilter>
+          <div className="pt-24 lg:pt-48 flex justify-center text-primary w-10/12 m-auto h-full items-start">
+            <Styles.BlockFilter onClick={toggle}>
+              {translate.close}
+            </Styles.BlockFilter>
 
             <div className="w-10/12  flex flex-col items-start">
               {data.data.map((tab: any) => (

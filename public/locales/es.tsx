@@ -61,6 +61,7 @@ export default {
     },
   ],
   seeMoreProject: 'Ver proyecto ',
+  close: 'Cerrar',
 
   seeMore: [
     {
@@ -210,7 +211,7 @@ export default {
   terms: 'Terminos y condiciones',
   project: 'Proyectos relacionados',
   seeMoreTrends: 'Ver más noticias',
-
+  interested: 'Podría interesarte',
   followFooter: 'SÍGUENOS',
   privacy: 'Política de privacidad',
   rightReserve: 'Todos los derechos reservados',

@@ -35,6 +35,7 @@ export default function BlockBlog({ dataBlog }: Props) {
       },
     },
   };
+
   return (
     <>
       {React.Children.toArray(
@@ -58,9 +59,9 @@ export default function BlockBlog({ dataBlog }: Props) {
                 </Blogstyles.BlockImg>
                 <Blogstyles.BlockText>
                   <Title size="text-sm leading-relaxed font-PrimarySerif ">
-                    {data.attributes.title}
+                    {data.attributes.blog_tags.data[0].attributes.name}
                   </Title>
-                  <Title size="text-4xl leading-relaxed">
+                  <Title size="text-2xl lg:text-4xl leading-relaxed">
                     {data.attributes.title}
                   </Title>
                   <Title size="text-sm leading-relaxed font-PrimarySerif">

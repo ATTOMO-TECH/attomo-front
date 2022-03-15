@@ -13,6 +13,16 @@ export const BlockSelected = styled.div`
     opacity: 1;
   }
 `;
+export const TextHero = styled.h2`
+  background: linear-gradient(
+    to right,
+    #cccfe8 0.04%,
+    #ffffff 50.27%,
+    #cccfe8 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`;
 
 export const Styles = {
   SectionProjects: tw.div`py-14  overflow-hidden relative z-40`,
@@ -53,10 +63,13 @@ ${(props) =>
   BlockSelect: tw(
     BlockSelected,
   )`w-5/6 border bg-backCollaplse border-primary rounded-xl overflow-hidden flex flex-col p-4 justify-center items-center text-center  duration-300 ease-in-out cursor-pointer  border-opacity-40 hover:border-opacity-100 py-12 transition delay-100 duration-500 ease-in-out`,
+  Paragraph: tw(
+    TextHero,
+  )`lg:text-sm sm:text-lg text-sm lg:font-thin font-regular lg:font-PrimarySerif font-Secundary pt-5 tracking-wide leadi ng-loose`,
 };
 
 export const StylesCases = {
   CategoryText: tw.h6`font-PrimarySans text-addictional font-light`,
-  TitularText: tw.h3`font-Primary text-5xl font-light py-5 leading-relaxed`,
+  TitularText: tw.h3`font-Primary text-3xl md:text-5xl font-light py-5 leading-relaxed`,
   Paragraph: tw.p`font-PrimarySans font-extralight pb-5 leading-relaxed text-lg`,
 };

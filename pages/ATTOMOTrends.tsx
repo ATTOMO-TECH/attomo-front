@@ -15,6 +15,7 @@ import { BUTTON_ACTIVE } from '../const/const';
 import { useUseAllPost, useUseAllTags } from '../domain/useBlogDetails';
 import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
+import Subtext from '../components/Text/subText';
 
 function News() {
   const translate = getLocale();
@@ -97,13 +98,13 @@ function News() {
             {React.Children.toArray(
               translate.trends.map((value) => (
                 <Styles.BlockDiv>
-                  <Title size="text-4xl lg:pt-2 lg:pr-10 pb-24 w-full pt-20 lg:w-5/6">
+                  <Title size="md:text-5xl lg:pt-24 lg:pr-0 pb-12 lg:w-5/6 pt-20 ">
                     {value.Text}
                   </Title>
                   <Styles.BlockInputSend>
-                    <Title size="text-xl lg:py-4 lg:w-auto w-full py-6 lg:pr-5">
+                    <Subtext size=" md:text-lg lg:text-base lg:w-3/6  lg:text-left">
                       {value.Subtext}
-                    </Title>
+                    </Subtext>
                     <Styles.BlockFullInput>
                       <InputNew />
                     </Styles.BlockFullInput>

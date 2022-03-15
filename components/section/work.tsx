@@ -20,7 +20,7 @@ export default function Work({ works }: Props) {
                 {value.attributes.description}
               </Subtext>
             </div>
-            <div className="md:w-2/12 ml-24">
+            <div className="w-full md:w-2/12 lg:ml-24">
               <Link href={value.attributes.url}>
                 <a
                   href={value.attributes.url}

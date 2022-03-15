@@ -34,27 +34,6 @@ export default function Hero({ text, text2, button, link }: Props) {
       transition: { duration },
     },
   };
-  const variantsInvert = {
-    initial: {
-      opacity: 0,
-      y: -100,
-    },
-    animate: {
-      opacity: 1,
-      y: 0,
-      x: 0,
-      transition: {
-        duration,
-        delay: duration,
-        when: 'beforeChildren',
-      },
-    },
-    exit: {
-      opacity: 0,
-      x: 200,
-      transition: { duration },
-    },
-  };
 
   const pathVariant = {
     hidden: {
@@ -81,16 +60,11 @@ export default function Hero({ text, text2, button, link }: Props) {
           initial="initial"
           animate="animate"
           exit="exit">
-          <HeadSection.TextHead>{line1}</HeadSection.TextHead>
+          <HeadSection.TextHead>
+            {line1} {line2}
+          </HeadSection.TextHead>
         </motion.div>
-        <motion.div
-          className="md:pb-24 h-auto "
-          variants={variantsInvert}
-          initial="initial"
-          animate="animate"
-          exit="exit">
-          <HeadSection.TextHead>{line2}</HeadSection.TextHead>
-        </motion.div>
+
         <HeadSection.Blockbutton className={button === '' ? 'hidden' : ''}>
           <Link href={`#${link}`}>
             <HeadSection.TextButton>{button}</HeadSection.TextButton>

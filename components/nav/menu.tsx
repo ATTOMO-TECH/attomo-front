@@ -27,7 +27,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
 
   return (
     <>
-      <div className="relative ">
+      <Navegation.MenuRelative>
         <Navegation.SectionMenu
           ismode={isOpen ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
           theme={mode === true ? lightTheme : darkTheme}>
@@ -98,7 +98,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                 </motion.svg>
               </Navegation.ItemsMenu>
             </Navegation.AlinItems>
-            <div className="flex flex-col items-center justify-center h-screen text-center ">
+            <Navegation.AlingItemsMenu>
               {items.map((values, i) => (
                 <Navegation.SelectMenu
                   key={`${values.Value}`}
@@ -116,10 +116,10 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                   </motion.li>
                 </Navegation.SelectMenu>
               ))}
-            </div>
+            </Navegation.AlingItemsMenu>
           </Navegation.Menu>
         </Navegation.SectionMenu>
-      </div>
+      </Navegation.MenuRelative>
     </>
   );
 }

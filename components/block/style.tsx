@@ -27,7 +27,8 @@ export const textTitle = styled.div`
   text-fill-color: transparent;
 `;
 export const Block = {
-  SectionBlock: tw.h5`py-24 flex flex-wrap justify-between w-full`,
+  SectionBlock: tw.h5`py-12 lg:py-24 flex flex-wrap justify-between w-full`,
+
   Block: tw(SectionColor)`text-primary lg:w-3/6 w-full block lg:pl-10 pl-5 `,
   Title: tw(textTitle)<Props>`font-PrimarySerif 
   ${(props) =>
