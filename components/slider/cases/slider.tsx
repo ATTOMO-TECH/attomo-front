@@ -25,7 +25,7 @@ export default function CasesScroll({ mode, filter }: Props) {
   }
   const queryObject: any = {
     filters: {
-      blog_tags: {
+      subservice: {
         name: {
           $eq: filter,
         },
@@ -49,35 +49,32 @@ export default function CasesScroll({ mode, filter }: Props) {
   };
 
   if (isLoading) {
-    return (
-      <>
-        <RenderLoading mode={false} />
-      </>
-    );
+    return <RenderLoading mode={false} />;
   }
 
   return (
     <>
       <Swiper
-        slidesPerView={3.5}
+        spaceBetween={30}
+        centeredSlides
+        modules={[Pagination]}
+        className="mySwiper"
         breakpoints={{
           '460': {
-            slidesPerView: 1,
+            slidesPerView: 'auto',
           },
           '640': {
-            slidesPerView: 1,
+            slidesPerView: 'auto',
           },
           '1024': {
             slidesPerView: 3.5,
           },
         }}
-        centeredSlides
         onBeforeInit={onBeforeInit}
         navigation={{
           prevEl: prevRef.current,
           nextEl: nextRef.current,
-        }}
-        className="mySwiper ">
+        }}>
         {data.data.map((articles: any) => (
           <SwiperSlide key={articles.attributes.company} className="swiper ">
             <Link href={`/ATTOMOTrends/${articles.id}`}>
@@ -89,7 +86,6 @@ export default function CasesScroll({ mode, filter }: Props) {
                       .alternativeText
                   }
                 />
-
                 <StylesArticle.BlockText
                   theme={mode === false ? lightTheme : darkTheme}>
                   <StylesArticle.TopicText

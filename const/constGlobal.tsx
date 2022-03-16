@@ -64,18 +64,6 @@ export const ICONNAV: {
   Url: string;
 }[] = [
   {
-    Name: 'Whatsapp',
-    UrlShare: 'https://api.whatsapp.com/send?text',
-    Pic2: '/icon/whatsapp.svg',
-    Url: 'https://api.whatsapp.com/send/?phone=34610516285',
-  },
-  {
-    Name: 'Mail',
-    UrlShare: 'mailto:equipo@attomo.digital?subject=',
-    Pic2: '/icon/mail.svg',
-    Url: 'mailto:equipo@attomo.digital',
-  },
-  {
     Name: 'Instagram',
     UrlShare: '/icon/instagram.svg',
     Pic2: '/icon/instagram.svg',
@@ -92,6 +80,12 @@ export const ICONNAV: {
     UrlShare: '/icon/tiktok.svg',
     Pic2: '/icon/tiktok.svg',
     Url: 'https://www.tiktok.com/@attomo.digital/',
+  },
+  {
+    Name: 'Mail',
+    UrlShare: 'mailto:equipo@attomo.digital?subject=',
+    Pic2: '/icon/mail.svg',
+    Url: 'mailto:equipo@attomo.digital',
   },
 ];
 

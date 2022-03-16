@@ -74,7 +74,7 @@ export const Navegation = {
   `,
   Menu: tw.nav``,
   AlinItems: tw.ul<Props>`
-  flex items-center justify-between w-11/12 m-auto md:mt-0 md:w-10/12 md:absolute lg:left-24 md:left-12 left-6 top-10 mt-3
+  flex items-center justify-between w-11/12 m-auto md:mt-0 md:w-10/12 md:absolute lg:left-24 md:left-12 left-6 top-6 mt-3
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : '')}
   `,
   ItemsMenu: tw.li`flex items-center list-none z-100 `,
@@ -95,11 +95,13 @@ export const Navegation = {
 font-Primary cursor-pointer list-none fixed w-full duration-300 ease-in-out delay-700 
 ${(props) =>
   props.ismode === BUTTON_ACTIVE.ON
-    ? 'duration-300 ease-in-out h-14  sm:mb-10 '
+    ? 'duration-300 ease-in-out h-14 lg:h-20  sm:mb-10 '
     : ''}
 `,
   BlockLenguage: tw.div`flex  items-end `,
   BlokSectionLenguage: tw.div`sm:flex font-Secundary text-primary text-sm mr-5 items-center hidden`,
+  BlokSectionLenguageResponsive: tw.div`sm:hidden font-Secundary text-primary text-sm mr-5 items-center flex 
+  `,
   ButtonSelect: tw.button<Props>`
   block p-2 delay-150 duration-300 ease-in-out hover:opacity-50
   ${(props) =>

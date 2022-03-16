@@ -115,7 +115,7 @@ export const Styles = {
   `,
   Margin: tw.div`m-auto `,
   Center: tw.section`w-10/12 m-auto`,
-  CenterCases: tw.section`w-full md:w-10/12 m-auto pt-36 overflow-hidden flex justify-between`,
+  CenterCases: tw.section`w-full md:w-10/12 m-auto pt-24 lg:pt-36 overflow-hidden flex justify-between`,
   BlockRenderDetails: tw.div`lg:flex flex-col pt-10 hidden relative`,
   BlockFilter: tw.div`w-auto m-auto text-center transform -rotate-90 z-80 flex justify-center lg:hidden opacity-60 hover:opacity-90  duration-100 ease-in cursor-pointer`,
   AlingCases: tw.section`w-11/12 ml-auto py-24`,
@@ -164,12 +164,12 @@ export const Styles = {
   SectionPrices: tw.section`grid grid-cols-1 sm:grid-cols-3 gap-6`,
   BlockImg: tw.div`w-full bg-cover bg-center py-44 bg-no-repeat `,
   // DETAILS SERVICES
-  SelectSubMenu: tw.a<Props>`cursor-pointer font-PrimarySerif font-thin text-xs leading-loose 
+  SelectSubMenu: tw.a<Props>`cursor-pointer font-PrimarySerif font-thin md:text-sm leading-loose 
   ${(props) => (props.mode === BUTTON_ACTIVE.ON ? 'opacity-100' : 'opacity-50')}
 `,
   SpaceCollapse: tw.div`lg:py-48 overflow-hidden`,
   // SUBMENU
   SubMenuBlock: tw.div`w-2/6`,
-  ButtonSubMenu: tw.button`font-Primary text-xl uppercase`,
+  ButtonSubMenu: tw.button`font-PrimarySerif text-xl uppercase`,
   BlockSubSection: tw.div`flex flex-col relative pl-1`,
 };

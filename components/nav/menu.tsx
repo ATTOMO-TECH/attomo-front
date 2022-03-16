@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import { darkTheme, lightTheme, Navegation } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { getLocale } from '../../public/locales/getLocale';
@@ -23,6 +24,10 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
     setTimeout(() => {
       toggle();
     }, 1000);
+  };
+  const router = useRouter();
+  const handleBtn = (value: string) => {
+    router.push(router.pathname, router.pathname, { locale: value });
   };
 
   return (
@@ -117,6 +122,25 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                 </Navegation.SelectMenu>
               ))}
             </Navegation.AlingItemsMenu>
+
+            <Navegation.BlokSectionLenguageResponsive>
+              <Navegation.ButtonSelect
+                ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+                onClick={() => handleBtn('es')}
+                type="button">
+                ES
+              </Navegation.ButtonSelect>
+              <Navegation.LineBlock
+                ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+                |
+              </Navegation.LineBlock>
+              <Navegation.ButtonSelect
+                ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+                onClick={() => handleBtn('en')}
+                type="button">
+                EN
+              </Navegation.ButtonSelect>
+            </Navegation.BlokSectionLenguageResponsive>
           </Navegation.Menu>
         </Navegation.SectionMenu>
       </Navegation.MenuRelative>

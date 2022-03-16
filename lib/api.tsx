@@ -6,7 +6,7 @@ const CASES = {
     getAbsolutePath(`successful-cases?populate=mainPhoto&locale=${lenguage}`),
   FETCH_FILTER: (lenguage: string, query: string) =>
     getAbsolutePath(
-      `successful-cases?populate=mainPhoto&locale=${lenguage}&${query}`,
+      `successful-cases?populate=mainPhoto&locale=${lenguage}&populate=subservice&${query}`,
     ),
   FETCH_ID: (id: number, lenguage: string) =>
     getAbsolutePath(
