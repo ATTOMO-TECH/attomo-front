@@ -87,11 +87,12 @@ function DetailsServices() {
             SetIsOpenFilter={SetIsOpenFilter}
             isOpenFilter={isOpenFilter}
           />
+
           <Menu isOpen={isOpen} toggle={toggle} logo mode />
           <Styles.Margin>
             <Nav toggle={toggle} logo mode isOpen={isOpen} />
           </Styles.Margin>
-          <ButtonShare />
+          {!isOpenFilter && <ButtonShare />}
           <motion.div
             animate={{ opacity: 1 }}
             initial={{ opacity: 0 }}
@@ -114,19 +115,19 @@ function DetailsServices() {
                     setIsToggle={setMenuId}
                   />
                 ))}
-                <Styles.BlockFilter onClick={toggleFilter}>
-                  <Title size="lg:text-lg text-lg font-Primary font-light ">
-                    Servicios
-                  </Title>
-                </Styles.BlockFilter>
               </Styles.BlockRenderDetails>
+              <Styles.BlockFilter onClick={toggleFilter}>
+                <Title size="lg:text-lg text-lg font-Primary font-light  ">
+                  Servicios
+                </Title>
+              </Styles.BlockFilter>
               <motion.div
-                className="lg:pt-12 lg:w-10/12 w-10/12 ml-auto h-auto"
+                className="lg:pt-12 lg:w-10/12 w-10/12 ml-auto h-auto mr-2"
                 animate={{ x: 0, opacity: 1 }}
-                initial={{ x: 200, opacity: 0 }}
+                initial={{ x: 2000, opacity: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ delay: 0.5 }}>
-                <Title size="lg:text-5xl text-3xl text-lg font-Primary font-light h-16">
+                <Title size="lg:text-5xl text-3xl text-lg font-Primary font-light h-20">
                   {isIdSubServices[0]?.attributes?.name}
                 </Title>
                 <motion.div

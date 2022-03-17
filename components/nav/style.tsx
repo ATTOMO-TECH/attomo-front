@@ -109,4 +109,10 @@ ${(props) =>
   LineBlock: tw.span<Props>`
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON ? 'text-white' : 'text-black'}`,
+
+  // FILTER:
+  SectionFilter: tw(motion.div)<Props>`
+    h-screen overflow-hidden fixed bg-black overflow-y-visible z-100 w-full lg:hidden
+    ${(props) =>
+      props.ismode === BUTTON_ACTIVE.ON ? 'opacity-1' : 'opacity-0'}`,
 };

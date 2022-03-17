@@ -21,7 +21,9 @@ export default function SubSection({ locale }: Props) {
             </Title>
             <SubSections.Paragraph>{values.BodyCounter}</SubSections.Paragraph>
             <Link href="/servicios">
-              <IconAnimate text={values.Button} mode />
+              <div>
+                <IconAnimate text={values.Button} mode />
+              </div>
             </Link>
           </SubSections.TextSubsection>
         ))}

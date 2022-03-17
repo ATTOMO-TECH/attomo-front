@@ -2,8 +2,8 @@ import { useQuery } from 'react-query';
 import { CASES } from '../lib/api';
 import { get } from '../lib/restClient';
 
-const getAllCases = async (lenguage: string) => {
-  const { data } = await get(CASES.FETCH_ALL(lenguage));
+const getAllCases = async (lenguage: string, query?: string) => {
+  const { data } = await get(CASES.FETCH_ALL(lenguage, query));
   return data;
 };
 
@@ -23,8 +23,8 @@ export function useUseFilterCases(lenguage: string, query: string) {
     refetchOnWindowFocus: false,
   });
 }
-export function useUseAllCases(lenguage: string) {
-  return useQuery(['useAllCases'], () => getAllCases(lenguage), {
+export function useUseAllCases(lenguage: string, query?: string) {
+  return useQuery(['useAllCases'], () => getAllCases(lenguage, query), {
     staleTime: 2500,
     notifyOnChangePropsExclusions: ['isStale'],
     refetchOnWindowFocus: false,
