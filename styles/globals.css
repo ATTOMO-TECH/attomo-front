@@ -10,6 +10,7 @@
 @import 'swiper/css/lazy';
 @import 'react-datepicker/dist/react-datepicker.css';
 @import '@fontsource/merriweather';
+@import '@fontsource/lato';
 
 * {
   scroll-behavior: smooth;

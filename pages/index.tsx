@@ -167,7 +167,7 @@ function Home() {
             }}
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: '50%' }}>
-            <Styles.CenterFlex>
+            <Styles.Center>
               {translate.seeMore.map((values) => (
                 <BlockSection
                   key={values.Link}
@@ -179,7 +179,7 @@ function Home() {
                   link="/ATTOMOTrends"
                 />
               ))}
-            </Styles.CenterFlex>
+            </Styles.Center>
           </motion.div>
           <motion.div
             animate={shouldShowActions}
@@ -209,7 +209,7 @@ function Home() {
             }}
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: '50%' }}>
-            <Styles.CenterFlex>
+            <Styles.Center>
               {translate.contact.map((values) => (
                 <BlockSection
                   key={values.Link}
@@ -221,7 +221,7 @@ function Home() {
                   link="/contacto"
                 />
               ))}
-            </Styles.CenterFlex>
+            </Styles.Center>
           </motion.div>
           <Footer subFooter />
         </Styles.Body>

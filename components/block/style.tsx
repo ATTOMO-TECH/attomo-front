@@ -27,9 +27,9 @@ export const textTitle = styled.div`
   text-fill-color: transparent;
 `;
 export const Block = {
-  SectionBlock: tw.h5`py-12 lg:py-24 flex flex-wrap justify-between w-full`,
+  SectionBlock: tw.div`flex flex-wrap justify-between m-auto  py-16  `,
 
-  Block: tw(SectionColor)`text-primary lg:w-3/6 w-full block lg:pl-10 pl-5 `,
+  Block: tw(SectionColor)`text-primary lg:w-3/6 w-full block  `,
   Title: tw(textTitle)<Props>`font-PrimarySerif 
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON ? `textDegrade  ` : 'bg-black '}

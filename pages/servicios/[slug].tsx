@@ -16,6 +16,7 @@ import { Styles } from '../../styles/styles';
 import { useUseAllServices } from '../../domain/useServices';
 import RenderLoading from '../../components/loading/loading';
 import { getLocale } from '../../public/locales/getLocale';
+// import ArticlesScroll from '../../components/slider/article/slider';
 
 function DetailsServices() {
   const [isIdSubServices, SetIsIdSubServices] = useState<any>({});
@@ -163,16 +164,15 @@ function DetailsServices() {
                 {/* <ArticlesScroll mode filter={data.data.attributes.sumary} /> */}
               </Styles.AlingBlock>
             </Styles.FlexEnd>
-            <Styles.CenterFlex>
-              <BlockSection
-                text="¿Tienes un proyecto?"
-                button="Contacta con nosotros"
-                text2=""
-                button2=""
-                mode
-                link="/contacto"
-              />
-            </Styles.CenterFlex>
+
+            <BlockSection
+              text="¿Tienes un proyecto?"
+              button="Contacta con nosotros"
+              text2=""
+              button2=""
+              mode
+              link="/contacto"
+            />
           </motion.div>
           <Footer subFooter={false} />
         </Styles.Body>

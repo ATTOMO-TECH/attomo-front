@@ -20,5 +20,5 @@ export const SubSections = {
   Paragraph: tw(
     TextHero,
   )`lg:text-sm sm:text-lg text-sm lg:font-thin font-regular lg:font-PrimarySerif font-Secundary pt-5 tracking-wide leadi ng-loose`,
-  SectionCounter: tw.div`lg:w-64 p-12 lg:p-0`,
+  SectionCounter: tw.div`lg:w-64 p-12 lg:p-0  font-Secundary`,
 };

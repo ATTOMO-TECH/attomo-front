@@ -38,6 +38,7 @@ export default function Cases({ mode }: Props) {
     );
   }
   const translate = getLocale();
+
   return (
     <>
       <Styles.Body
@@ -72,21 +73,23 @@ export default function Cases({ mode }: Props) {
         </Styles.Center>
         <Styles.FlexEnd>
           <Styles.AlingBlock>
-            <CasesScroll mode={false} filter={data.data.attributes.sumary} />
+            <CasesScroll
+              mode={false}
+              filter={
+                data?.data?.attributes?.subservice?.data?.attributes?.name
+              }
+            />
           </Styles.AlingBlock>
         </Styles.FlexEnd>
         <Styles.Center>
-          <Styles.BreakLine />
-          <Styles.CenterFlex>
-            <BlockSection
-              text="¿Tienes un proyecto?"
-              button="Contacta con nosotros"
-              text2=""
-              button2=""
-              mode={false}
-              link="/contacto"
-            />
-          </Styles.CenterFlex>
+          <BlockSection
+            text="¿Tienes un proyecto?"
+            button="Contacta con nosotros"
+            text2=""
+            button2=""
+            mode={false}
+            link="/contacto"
+          />
         </Styles.Center>
         <Footer subFooter={false} />
       </Styles.Body>

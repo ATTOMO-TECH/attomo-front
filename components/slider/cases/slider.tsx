@@ -23,11 +23,12 @@ export default function CasesScroll({ mode, filter }: Props) {
   if (locale === '/') {
     locale = 'es';
   }
+
   const queryObject: any = {
     filters: {
       subservice: {
         name: {
-          $eq: filter,
+          $containsi: filter,
         },
       },
     },
@@ -35,7 +36,7 @@ export default function CasesScroll({ mode, filter }: Props) {
   const queryQs = qs.stringify(queryObject, {
     encodeValuesOnly: true,
   });
-  const { data, isLoading } = useUseFilterCases(queryQs, locale || 'es');
+  const { data, isLoading } = useUseFilterCases(locale || 'es', queryQs);
 
   SwiperCore.use([Pagination, Navigation]);
 
@@ -67,7 +68,7 @@ export default function CasesScroll({ mode, filter }: Props) {
             slidesPerView: 'auto',
           },
           '1024': {
-            slidesPerView: 3.5,
+            slidesPerView: 3,
           },
         }}
         onBeforeInit={onBeforeInit}

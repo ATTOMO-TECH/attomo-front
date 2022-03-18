@@ -4,7 +4,7 @@ const getAbsolutePath = (path: string) => `${API_URL}/${path}`;
 const CASES = {
   FETCH_ALL: (lenguage: string, query?: string) =>
     getAbsolutePath(
-      `successful-cases?populate=mainPhoto&locale=${lenguage}?${query}`,
+      `successful-cases?populate=mainPhoto&locale=${lenguage}&${query}`,
     ),
   FETCH_FILTER: (lenguage: string, query: string) =>
     getAbsolutePath(
