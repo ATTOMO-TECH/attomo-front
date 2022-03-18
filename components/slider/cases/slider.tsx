@@ -6,23 +6,29 @@ import * as qs from 'qs';
 // eslint-disable-next-line import/no-unresolved
 import { NavigationOptions } from 'swiper/types/modules/public-api';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { darkTheme, lightTheme, StylesArticle } from '../style';
 import { BUTTON_ACTIVE } from '../../../const/const';
-import { useUseAllPost } from '../../../domain/useBlogDetails';
 import RenderLoading from '../../loading/loading';
+import { useUseFilterCases } from '../../../domain/useCasesDetails';
 
 interface Props {
   mode: boolean;
   filter: string;
 }
 
-export default function ArticlesScroll({ mode, filter }: Props) {
+export default function CasesScroll({ mode, filter }: Props) {
+  const router = useRouter();
+  let { locale } = router;
+  if (locale === '/') {
+    locale = 'es';
+  }
+
   const queryObject: any = {
-    populate: 'coverImage',
     filters: {
-      blog_tags: {
+      subservice: {
         name: {
-          $eq: filter,
+          $containsi: filter,
         },
       },
     },
@@ -30,7 +36,7 @@ export default function ArticlesScroll({ mode, filter }: Props) {
   const queryQs = qs.stringify(queryObject, {
     encodeValuesOnly: true,
   });
-  const { data, isLoading } = useUseAllPost(queryQs);
+  const { data, isLoading } = useUseFilterCases(locale || 'es', queryQs);
 
   SwiperCore.use([Pagination, Navigation]);
 
@@ -44,53 +50,53 @@ export default function ArticlesScroll({ mode, filter }: Props) {
   };
 
   if (isLoading) {
-    return (
-      <>
-        <RenderLoading mode={false} />
-      </>
-    );
+    return <RenderLoading mode={false} />;
   }
 
   return (
     <>
       <Swiper
+        spaceBetween={30}
+        centeredSlides
+        modules={[Pagination]}
+        className="mySwiper"
         breakpoints={{
           '460': {
-            slidesPerView: 1,
+            slidesPerView: 'auto',
           },
           '640': {
-            slidesPerView: 1,
+            slidesPerView: 'auto',
           },
           '1024': {
             slidesPerView: 3,
           },
         }}
-        centeredSlides
         onBeforeInit={onBeforeInit}
         navigation={{
           prevEl: prevRef.current,
           nextEl: nextRef.current,
-        }}
-        slidesPerView={3.5}
-        spaceBetween={30}
-        className="mySwiper ">
+        }}>
         {data.data.map((articles: any) => (
-          <SwiperSlide key={articles.Tag} className="swiper ">
+          <SwiperSlide key={articles.attributes.company} className="swiper ">
             <Link href={`/ATTOMOTrends/${articles.id}`}>
-              <div>
+              <div className="cursor-pointer">
                 <StylesArticle.Img
-                  src={articles.attributes.coverImage.data.attributes.url}
-                  alt={articles.Text}
+                  src={articles.attributes.mainPhoto.data[0].attributes.url}
+                  alt={
+                    articles.attributes.mainPhoto.data[0].attributes
+                      .alternativeText
+                  }
                 />
                 <StylesArticle.BlockText
                   theme={mode === false ? lightTheme : darkTheme}>
                   <StylesArticle.TopicText
                     ismode={
-                      articles.attributes.coverImage.data.attributes.url === '/'
+                      articles.attributes.mainPhoto.data[0].attributes.url ===
+                      '/'
                         ? BUTTON_ACTIVE.OFF
                         : BUTTON_ACTIVE.ON
                     }>
-                    {articles.attributes.blog_tags.data[0].attributes.name}
+                    {articles.attributes.name}
                   </StylesArticle.TopicText>
                   <StylesArticle.TextBlog
                     ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>

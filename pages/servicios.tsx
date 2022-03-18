@@ -10,7 +10,6 @@ import ArticlesScroll from '../components/slider/article/slider';
 import Subtext from '../components/Text/subText';
 import Title from '../components/Text/title';
 import { BUTTON_ACTIVE } from '../const/const';
-import { ARTICLES } from '../const/constGlobal';
 import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 
@@ -20,6 +19,7 @@ function Services() {
     SetIsOpen(!isOpen);
   };
   const translate = getLocale();
+
   return (
     <>
       <BgComponent />
@@ -55,7 +55,7 @@ function Services() {
         </Styles.Center>
         <Styles.FlexEnd>
           <Styles.AlingBlock>
-            <ArticlesScroll mode array={ARTICLES} />
+            <ArticlesScroll mode filter="Estrategia" />
           </Styles.AlingBlock>
         </Styles.FlexEnd>
         <Styles.CenterFlex>

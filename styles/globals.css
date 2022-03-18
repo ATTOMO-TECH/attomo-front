@@ -10,6 +10,7 @@
 @import 'swiper/css/lazy';
 @import 'react-datepicker/dist/react-datepicker.css';
 @import '@fontsource/merriweather';
+@import '@fontsource/lato';
 
 * {
   scroll-behavior: smooth;
@@ -57,20 +58,6 @@
   -webkit-transition-timing-function: linear !important;
   -o-transition-timing-function: linear !important;
   transition-timing-function: linear !important;
-}
-@media (max-width: 640px) {
-  .swiper-slide-active {
-    display: none !important;
-  }
-  .swiper-container {
-    width: 640px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .swiper-container {
-    width: 768px;
-  }
 }
 
 .rmc-picker-mask {

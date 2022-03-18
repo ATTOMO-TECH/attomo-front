@@ -13,6 +13,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
   <>
     <Head>
       <title>ATTOMO - Consultora Digital </title>
+      <link rel="icon" type="image/x-icon" href="Favicon.svg" />
     </Head>
     <AuthProvider>
       <QueryClientProvider client={queryClient}>

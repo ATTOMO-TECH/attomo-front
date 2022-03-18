@@ -115,13 +115,13 @@ export const Styles = {
   `,
   Margin: tw.div`m-auto `,
   Center: tw.section`w-10/12 m-auto`,
-  CenterCases: tw.section`w-full md:w-10/12 m-auto pt-36 overflow-hidden flex justify-between`,
+  CenterCases: tw.section`w-full md:w-10/12 m-auto pt-24 lg:pt-36 overflow-hidden flex justify-between`,
   BlockRenderDetails: tw.div`lg:flex flex-col pt-10 hidden relative`,
-  BlockFilter: tw.div`w-auto m-auto text-center transform -rotate-90 z-80 flex justify-center lg:hidden opacity-60 hover:opacity-90  duration-100 ease-in cursor-pointer`,
+  BlockFilter: tw.div`w-auto m-auto text-center transform -rotate-90 z-80 -left-4 sm:left-0 md:left-4 top-56 absolute lg:hidden opacity-60 hover:opacity-90  duration-100 ease-in cursor-pointer`,
   AlingCases: tw.section`w-11/12 ml-auto py-24`,
   AlingCasesNoP: tw.section`w-11/12 ml-auto pb-24 pt-6 md:pt-0`,
   CenterFull: tw.section`w-full lg:w-10/12 m-auto`,
-  CenterFlex: tw.section`lg:w-11/12 m-auto flex overflow-hidden`,
+  CenterFlex: tw.section`lg:w-10/12 m-auto flex overflow-hidden`,
   ContainerFull: tw.div`w-full`,
   BlockAddres: tw.div`lg:my-12 my-12  lg:w-5/6  m-auto overflow-hidden`,
   SectionScreen: tw.section`lg:pt-48 pt-24 h-auto`,
@@ -138,13 +138,13 @@ export const Styles = {
   TitleSubSection: tw(
     subText,
   )`font-Primary text-xl font-extralight pb-5 text-primary`,
-  AlingBlock: tw.div`w-10/12 lg:w-full overflow-x-hidden m-auto`,
+  AlingBlock: tw.div`w-10/12 lg:w-full overflow-x-hidden m-auto pb-12`,
   BlockInput: tw.div`flex `,
   BlockSelected: tw.div`lg:w-10/12 m-auto flex flex-wrap py-0`,
   TextSubSection: tw.h5`font-Primary text-xl font-extralight pb-5`,
   BreakLine: tw.div`h-0.5 opacity-40 bg-addictional w-full  m-auto lg:my-4`,
   Input: tw.input`w-full bg-secundary text-primary border-b-2 border-primary focus:outline-none focus:opacity-100 opacity-30 outline-none  py-1 px-1 lg:text-lg text-xl font-light transition-colors duration-400 ease-in-out`,
-  BlockInputSend: tw.div`text-primary flex items-center justify-start flex-col lg:flex-row flex-wrap `,
+  BlockInputSend: tw.div`text-primary flex items-center justify-start flex-row flex-wrap `,
   SectionInput: tw.div`lg:w-3/6 justify-start`,
   AlingButton: tw.div`w-full lg:pl-24 text-primary pt-10`,
   BlockFullInput: tw.div`lg:w-5/12 w-full `,
@@ -164,12 +164,12 @@ export const Styles = {
   SectionPrices: tw.section`grid grid-cols-1 sm:grid-cols-3 gap-6`,
   BlockImg: tw.div`w-full bg-cover bg-center py-44 bg-no-repeat `,
   // DETAILS SERVICES
-  SelectSubMenu: tw.a<Props>`cursor-pointer font-PrimarySerif font-thin text-xs leading-loose 
+  SelectSubMenu: tw.a<Props>`cursor-pointer font-PrimarySerif font-thin md:text-sm leading-loose  pl-2 text-sm
   ${(props) => (props.mode === BUTTON_ACTIVE.ON ? 'opacity-100' : 'opacity-50')}
 `,
   SpaceCollapse: tw.div`lg:py-48 overflow-hidden`,
   // SUBMENU
   SubMenuBlock: tw.div`w-2/6`,
-  ButtonSubMenu: tw.button`font-Primary text-xl uppercase`,
+  ButtonSubMenu: tw.button`font-PrimarySerif text-xl uppercase py-2`,
   BlockSubSection: tw.div`flex flex-col relative pl-1`,
 };

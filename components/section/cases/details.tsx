@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import IconAnimate from '../../button/icon';
-import { Container } from './style';
+import { Container, Details } from './style';
 
 interface Props {
   data: any;
@@ -8,31 +8,27 @@ interface Props {
 export default function DetailsCases({ data }: Props) {
   return (
     <>
-      <section className="h-auto flex flex-wrap justify-between py-24 flex-col lg:flex-row">
-        <div className="lg:w-3/12 w-full leading-relaxed">
-          <div className="pb-5">
-            <h5 className="font-Primary text-addictional text-xl">
-              Disciplinas
-            </h5>
+      <Details.Section>
+        <Details.BlockItems>
+          <Details.BlockSpeciality>
+            <Details.TitleSpeciality>Disciplinas</Details.TitleSpeciality>
             {data.attributes.disciplines.data.map((disciplines: any) => (
-              <h6 className="font-PrimarySerif font-thin text-sm flex">
+              <Details.SubTextSpeciality>
                 {disciplines.attributes.name}
-              </h6>
+              </Details.SubTextSpeciality>
             ))}
-          </div>
+          </Details.BlockSpeciality>
 
-          <div>
-            <h5 className="font-Primary text-addictional text-xl">
-              Entregables
-            </h5>
+          <Details.BlockSecond>
+            <Details.TitleSpeciality>Entregables</Details.TitleSpeciality>
             {data.attributes.deliverables.data.map((disciplines: any) => (
-              <h6 className="font-PrimarySerif font-thin text-sm flex">
+              <Details.SubTextSpeciality>
                 {disciplines.attributes.name}
-              </h6>
+              </Details.SubTextSpeciality>
             ))}
-          </div>
-        </div>
-        <div className="lg:w-5/12 py-10 lg:py-0 lg:px-2 leading-relaxed font-PrimarySerif font-thin text-sm">
+          </Details.BlockSecond>
+        </Details.BlockItems>
+        <Details.SectionContainer>
           <Container>{data.attributes.workDescription}</Container>
           <Link href={data.attributes.projectUrl} passHref>
             <a
@@ -42,8 +38,11 @@ export default function DetailsCases({ data }: Props) {
               <IconAnimate text="Ver online" mode={false} />
             </a>
           </Link>
-        </div>
-      </section>
+        </Details.SectionContainer>
+        <Details.SectionText>
+          <Container>{data.attributes.content}</Container>
+        </Details.SectionText>
+      </Details.Section>
     </>
   );
 }

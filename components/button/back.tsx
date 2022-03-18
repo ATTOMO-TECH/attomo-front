@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { Button } from './style';
 
 interface Props {
@@ -13,7 +12,7 @@ export default function Back({ children, link }: Props) {
       <Link href={link}>
         <Button.SectionBack>
           <Button.BlockBack>
-            <Image src="/icon/arrowBack.svg" width={30} height={20} />
+            <img src="/icon/arrowBack.svg" width={30} height={20} alt="back" />
             <Button.TextBack>{children}</Button.TextBack>
           </Button.BlockBack>
         </Button.SectionBack>

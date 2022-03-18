@@ -28,7 +28,7 @@ export default {
       Url: '/contacto',
     },
     {
-      Value: 'Attomo Space',
+      Value: 'ATTOMO Space',
       Url: '/espacio',
     },
   ],
@@ -37,7 +37,7 @@ export default {
       HeroText: 'We are a technology consulting firm with a single mission:',
       HeroSubTex:
         'To help companies and administrations to lead through digitalization.',
-      Button: 'Know more',
+      Button: 'More info',
     },
   ],
   counter: [
@@ -183,12 +183,12 @@ export default {
   whereUs: 'Where to find us',
   spaceAttomo: [
     {
-      Text: 'The Attomo Digital Space',
+      Text: 'The ATTOMO Digital Space',
       Subtext:
         'We offer other professionals the opportunity to use our facilities to develop their projects or carry out photoshoots.',
     },
   ],
-  spaceAttomoFooter: 'The Attomo Digital Space',
+  spaceAttomoFooter: 'The ATTOMO Digital Space',
   bookingAttomo: [
     {
       Text: 'Reserve the space',

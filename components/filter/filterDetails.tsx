@@ -6,6 +6,7 @@ import { getLocale } from '../../public/locales/getLocale';
 import { Navegation, darkTheme, lightTheme } from '../nav/style';
 import SubMenu from '../nav/submenu';
 import { Styles } from '../../styles/styles';
+import Title from '../Text/title';
 
 interface Props {
   isOpen: boolean;
@@ -38,24 +39,24 @@ export default function FilterDetails({
     setItems(translate.menu);
   }, [items]);
 
-  const variants = {
-    hidden: {
-      opacity: 0,
-    },
-    show: {
-      opacity: 1,
-    },
-  };
   const toggleFilter = () => {
     SetIsOpenFilter(!isOpenFilter);
   };
 
   return (
     <>
-      <Navegation.SectionMenu
-        variants={variants}
-        ismode={isOpen ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-        theme={mode === true ? lightTheme : darkTheme}>
+      <Navegation.SectionFilter
+        ismode={isOpenFilter ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+        animate={{
+          x: isOpenFilter ? 0 : -500,
+          opacity: isOpenFilter ? 1 : 0,
+        }}
+        transition={{
+          delay: 0.5,
+          duration: 0.8,
+          ease: 'easeInOut',
+          stiffness: 50,
+        }}>
         <Navegation.Menu>
           <Navegation.AlinItems
             ismode={logo ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
@@ -112,12 +113,14 @@ export default function FilterDetails({
               </motion.svg>
             </Navegation.ItemsMenu>
           </Navegation.AlinItems>
-          <div className="pt-24 lg:pt-48 flex justify-center text-primary w-10/12 m-auto h-full items-start">
+          <div className="md:pt-24 lg:pt-48 flex  text-primary  m-auto h-full">
             <Styles.BlockFilter onClick={toggle}>
-              {translate.close}
+              <Title size="lg:text-lg text-lg font-Primary font-light pl-8 ">
+                {translate.close}
+              </Title>
             </Styles.BlockFilter>
 
-            <div className="w-10/12  flex flex-col items-start">
+            <div className="w-10/12  flex flex-col items-center place-content-center">
               {data.data.map((tab: any) => (
                 <SubMenu
                   toggle={toggleFilter}
@@ -138,7 +141,7 @@ export default function FilterDetails({
             </div>
           </div>
         </Navegation.Menu>
-      </Navegation.SectionMenu>
+      </Navegation.SectionFilter>
     </>
   );
 }

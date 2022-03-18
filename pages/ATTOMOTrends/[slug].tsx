@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { format } from 'date-fns';
 import { useRouter } from 'next/dist/client/router';
 import Footer from '../../components/footer/footer';
 import Menu from '../../components/nav/menu';
@@ -9,9 +10,7 @@ import BreadCrumbs from '../../components/breadcrumbs/breadcrumbs';
 import HeaderCases from '../../components/section/cases/header';
 import Back from '../../components/button/back';
 import BodyCases from '../../components/section/cases/bodyCase';
-import ArticlesScroll from '../../components/slider/article/slider';
 import BlockSection from '../../components/block/block';
-import { NEWS } from '../../const/constGlobal';
 import { useAPost } from '../../domain/useBlogDetails';
 import RenderLoading from '../../components/loading/loading';
 import { getLocale } from '../../public/locales/getLocale';
@@ -49,21 +48,26 @@ function New({ mode }: Props) {
         <Back link="/ATTOMOTrends">Volver a noticias</Back>
         <Styles.Center>
           <Styles.AlingCasesNoP>
-            <BreadCrumbs Author="Autor" Date="Fecha" />
+            <BreadCrumbs
+              Author={data?.data.attributes.author}
+              Date={format(
+                new Date(data?.data.attributes.publishedAt),
+                'dd-MM-yyyy',
+              )}
+            />
             <HeaderCases
               category={data?.data.attributes.blog_tags.data[0].attributes.name}
               title={data?.data.attributes.title}
               paragraph=""
               image={data?.data.attributes.coverImage.data.attributes?.url}
             />
-
             <BodyCases data={data?.data.attributes.content} />
           </Styles.AlingCasesNoP>
           <Styles.TextSubSection>{translate.interested}</Styles.TextSubSection>
         </Styles.Center>
         <Styles.FlexEnd>
           <Styles.AlingBlock>
-            <ArticlesScroll mode={false} array={NEWS} />
+            {/* <ArticlesScroll mode={false} array={NEWS} /> */}
           </Styles.AlingBlock>
         </Styles.FlexEnd>
         <Styles.Center>

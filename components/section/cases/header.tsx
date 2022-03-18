@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import BreadCrumbs from '../../breadcrumbs/breadcrumbs';
 import { StylesCases } from '../style';
 
 interface Props {
@@ -27,7 +26,6 @@ export default function HeaderCases({
         alt={title}
         objectFit="cover"
       />
-      <BreadCrumbs Author="Autor" Date="Fecha" />
     </>
   );
 }

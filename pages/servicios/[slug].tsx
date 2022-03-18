@@ -10,14 +10,13 @@ import Footer from '../../components/footer/footer';
 import Menu from '../../components/nav/menu';
 import Nav from '../../components/nav/nav';
 import SubMenu from '../../components/nav/submenu';
-import ArticlesScroll from '../../components/slider/article/slider';
 import Title from '../../components/Text/title';
 import { BUTTON_ACTIVE } from '../../const/const';
-import { ARTICLES } from '../../const/constGlobal';
 import { Styles } from '../../styles/styles';
 import { useUseAllServices } from '../../domain/useServices';
 import RenderLoading from '../../components/loading/loading';
 import { getLocale } from '../../public/locales/getLocale';
+// import ArticlesScroll from '../../components/slider/article/slider';
 
 function DetailsServices() {
   const [isIdSubServices, SetIsIdSubServices] = useState<any>({});
@@ -89,11 +88,12 @@ function DetailsServices() {
             SetIsOpenFilter={SetIsOpenFilter}
             isOpenFilter={isOpenFilter}
           />
+
           <Menu isOpen={isOpen} toggle={toggle} logo mode />
           <Styles.Margin>
             <Nav toggle={toggle} logo mode isOpen={isOpen} />
           </Styles.Margin>
-          <ButtonShare />
+          {!isOpenFilter && <ButtonShare />}
           <motion.div
             animate={{ opacity: 1 }}
             initial={{ opacity: 0 }}
@@ -118,17 +118,17 @@ function DetailsServices() {
                 ))}
               </Styles.BlockRenderDetails>
               <Styles.BlockFilter onClick={toggleFilter}>
-                <Title size="lg:text-lg text-lg font-Primary font-light ">
+                <Title size="lg:text-lg text-lg font-Primary font-light  ">
                   Servicios
                 </Title>
               </Styles.BlockFilter>
               <motion.div
-                className="lg:pt-12 lg:w-10/12 w-10/12 ml-auto"
+                className="lg:pt-12 lg:w-10/12 w-10/12 ml-auto h-auto mr-2"
                 animate={{ x: 0, opacity: 1 }}
-                initial={{ x: 200, opacity: 0 }}
+                initial={{ x: 2000, opacity: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ delay: 0.5 }}>
-                <Title size="lg:text-5xl text-lg font-Primary font-light ">
+                <Title size="lg:text-5xl text-3xl text-lg font-Primary font-light h-20">
                   {isIdSubServices[0]?.attributes?.name}
                 </Title>
                 <motion.div
@@ -161,19 +161,18 @@ function DetailsServices() {
             </Styles.Center>
             <Styles.FlexEnd>
               <Styles.AlingBlock>
-                <ArticlesScroll mode array={ARTICLES} />
+                {/* <ArticlesScroll mode filter={data.data.attributes.sumary} /> */}
               </Styles.AlingBlock>
             </Styles.FlexEnd>
-            <Styles.CenterFlex>
-              <BlockSection
-                text="¿Tienes un proyecto?"
-                button="Contacta con nosotros"
-                text2=""
-                button2=""
-                mode
-                link="/contacto"
-              />
-            </Styles.CenterFlex>
+
+            <BlockSection
+              text="¿Tienes un proyecto?"
+              button="Contacta con nosotros"
+              text2=""
+              button2=""
+              mode
+              link="/contacto"
+            />
           </motion.div>
           <Footer subFooter={false} />
         </Styles.Body>
