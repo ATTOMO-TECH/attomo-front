@@ -171,7 +171,7 @@ export const Circle = styled.div`
 `;
 
 export const Styles = {
-  SectionCollapse: tw.section`h-screen w-full relative z-80 lg:h-auto font-PrimarySerif flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative my-24 px-1 font-light leading-loose`,
+  SectionCollapse: tw.section`h-screen w-full relative z-80 lg:h-auto font-PrimarySerif flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative md:my-24 mb-24 px-1 font-light leading-loose`,
   BlockDescription: tw.div`lg:text-right text-xl lg:absolute bottom-24 lg:-right-4 w-full text-center z-10`,
   SubSection: tw(SubSection)`font-regular text-base cursor-pointer z-80`,
   BlockImg: tw.div`relative lg:overflow-hidden `,

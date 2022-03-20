@@ -5,7 +5,7 @@ export const FORMVALUES = {
   EMAIL: 'email',
   COMPANY: 'valueCompany',
   MESSAGE: 'message',
-  CONDITIONS: 'ConditionsAccepted',
+  CONDITIONS: 'conditionsAccepted',
   PARTOF: 'partOf',
   LINK: 'link',
   SPECIALITY: 'speciality',

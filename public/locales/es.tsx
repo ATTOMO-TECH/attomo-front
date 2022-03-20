@@ -183,7 +183,7 @@ export default {
   formSend: 'Enviar',
   formRent: 'Alquilar',
 
-  whereUs: 'Dónde encontrarnos',
+  whereUs: 'Nuestras oficinas',
   spaceAttomo: [
     {
       Text: 'Espacio ATTOMO',

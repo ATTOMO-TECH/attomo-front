@@ -10,7 +10,6 @@ import { Styles } from '../styles/styles';
 import BlockSection from '../components/block/block';
 import SelectedClients from '../components/section/selectedclientes';
 // import Prices from '../components/section/price';
-import FormReserver from '../components/form/formReserver';
 import ButtonShare from '../components/button/BtnShare';
 import MapsBlock from '../components/maps/maps';
 import BgComponent from '../components/animations/bg';
@@ -74,25 +73,18 @@ function Space() {
             <Styles.BlockImg className="bg-space-Attomo4" />
           </Styles.SectionImg>
         </Styles.Center>
-        {/*  <Styles.Center>
-          <Styles.ContainerFull>
-            <Title size="text-5xl lg:pt-36 pb-24 w-full text-center pt-20 ">
-              {translate.prices}
-            </Title>
-          <Prices locale={locale} />
-          </Styles.ContainerFull>
-        </Styles.Center> */}
         <Styles.Center id="reserva">
           {translate.formBooking.map((values) => (
-            <Styles.ContainerFull>
-              <Title size="lg:text-5xl text-3xl lg:pt-36 w-full text-center pt-20 leading-relaxed ">
+            <Styles.BlockDiv>
+              <Title size="lg:text-4xl md:text-3xl text-xl lg:pt-24 lg:pr-0 lg:pb-24 md:pb-12 pb-6 w-full md:pt-36  ">
                 {values.Text}
               </Title>
-              <Title size="text-regular lg:pt-3 w-full text-center leading-relaxed pb-8">
-                {values.Subtext}
-              </Title>
-              <FormReserver />
-            </Styles.ContainerFull>
+              <Styles.FlexEnd>
+                <Subtext size=" md:text-lg lg:text-base lg:w-2/6  lg:text-left font-Secundary">
+                  {values.Subtext}
+                </Subtext>
+              </Styles.FlexEnd>
+            </Styles.BlockDiv>
           ))}
         </Styles.Center>
         <Styles.Center>

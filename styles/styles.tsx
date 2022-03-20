@@ -130,7 +130,7 @@ export const Styles = {
   BlockButton: tw.div`lg:px-24 pt-10`,
   BlockSlider: tw.div` pb-12 px-7`,
   BlockTrends: tw.div`lg:pt-48 flex w-full m-auto lg:justify-center justify-start pl-8 lg:pl-0 pt-36 pb-16 `,
-  BlockUs: tw.div`lg:w-8/12 m-auto flex flex-wrap pt-24`,
+  BlockUs: tw.div`lg:w-8/12 m-auto flex flex-wrap lg:pt-24`,
   Screen: tw.div`h-screen mb-48 justify-between`,
   ScreenResponsive: tw.div`h-screen pt-24`,
   ScreenMid: tw.div`h-screen flex justify-center items-center justify-between`,
@@ -172,4 +172,8 @@ export const Styles = {
   SubMenuBlock: tw.div`w-2/6`,
   ButtonSubMenu: tw.button`font-PrimarySerif text-xl uppercase py-2`,
   BlockSubSection: tw.div`flex flex-col relative pl-1`,
+  // LEGAL
+  BlockButtonLegal: tw.div`"w-2/6 mt-5 md:mt-12 lg:mt-24`,
+  BlockBack: tw.div`w-full py-10`,
+  SectionTextLegal: tw.div`pb-48`,
 };

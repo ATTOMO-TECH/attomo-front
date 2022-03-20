@@ -58,7 +58,7 @@ function Services() {
             <ArticlesScroll mode filter="Estrategia" />
           </Styles.AlingBlock>
         </Styles.FlexEnd>
-        <Styles.CenterFlex>
+        <Styles.Center>
           {translate.contact.map((values) => (
             <BlockSection
               key={values.Link}
@@ -70,7 +70,7 @@ function Services() {
               link="/contacto"
             />
           ))}
-        </Styles.CenterFlex>
+        </Styles.Center>
         <Footer subFooter={false} />
       </Styles.Body>
     </>

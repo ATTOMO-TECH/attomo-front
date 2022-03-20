@@ -52,15 +52,17 @@ function Cases() {
     <>
       <BgComponent />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
-        <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <ModalFilter
-          isOpen={isOpenFilter}
+          isOpenFilter={isOpenFilter}
           toggle={toggleFilter}
           setDate={handleDate}
           setTopic={handleTopic}
         />
+        <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
-          <Nav toggle={toggle} logo mode bgFull isOpen={isOpen} />
+          {!isOpenFilter && (
+            <Nav toggle={toggle} logo mode bgFull isOpen={isOpen} />
+          )}
         </Styles.Margin>
         {!isOpenFilter && <ButtonShare />}
         {!isOpenFilter && (
@@ -78,7 +80,7 @@ function Cases() {
                 servicesAnimations={undefined}
               />
             </Styles.BlockSections>
-            <Styles.CenterFlex>
+            <Styles.Center>
               {translate.contact.map((values) => (
                 <BlockSection
                   key={values.Link}
@@ -90,7 +92,7 @@ function Cases() {
                   link="/contacto"
                 />
               ))}
-            </Styles.CenterFlex>
+            </Styles.Center>
             <Footer subFooter={false} />
           </>
         )}

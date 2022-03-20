@@ -4,9 +4,9 @@ import * as Yup from 'yup';
 import { useState } from 'react';
 import { Navegation } from './styles';
 import { BUTTON_ACTIVE } from '../../const/const';
-import { sendNewsletter } from '../../services/attomo.service';
 import { getLocale } from '../../public/locales/getLocale';
 import { FORMVALUES } from '../../hook/types';
+import { useCreateSubscriber } from '../../domain/useSubscriber';
 
 const registerSchema = Yup.object().shape({
   newsletter: Yup.string()
@@ -15,14 +15,6 @@ const registerSchema = Yup.object().shape({
 });
 
 export default function InputNew() {
-  const translate = getLocale();
-  const initialValues = {
-    [FORMVALUES.EMAIL]: '',
-  };
-  const newsLetter = (data: any) => {
-    sendNewsletter(data);
-  };
-
   const [inputMail, setInputMail] = useState('');
 
   const handleInput = (mail: string) => {
@@ -33,25 +25,49 @@ export default function InputNew() {
   const toggleClass = (value: boolean) => {
     setActive(value);
   };
+  const translate = getLocale();
+
+  const { mutate } = useCreateSubscriber();
+  const sendSubcriber = (values: any, action: any) => {
+    const data = {
+      [FORMVALUES.EMAIL]: values.email,
+    };
+
+    mutate(
+      { data },
+      {
+        onSuccess: () => {
+          action.resetForm();
+        },
+        onError: () => {
+          action.resetForm();
+        },
+      },
+    );
+  };
+
   return (
     <>
       <Formik
-        onSubmit={newsLetter}
-        initialValues={initialValues}
+        onSubmit={sendSubcriber}
+        initialValues={{ [FORMVALUES.EMAIL]: '' }}
         validationSchema={registerSchema}
         validateOnMount>
-        {({ touched, errors }) => (
-          <Navegation.Form>
+        {({ touched, errors, handleSubmit, setFieldValue }) => (
+          <Navegation.Form onSubmit={handleSubmit}>
             <Navegation.BlockInput>
               <Navegation.SectionInput
                 ismode={isActive ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
                 onClick={() => toggleClass(isActive)}>
                 <p className="text-primary">{isActive}</p>
                 <Navegation.Input
-                  type="text"
+                  type="email"
                   placeholder={translate.sendEmail}
                   name={FORMVALUES.EMAIL}
-                  onChange={(e: any) => handleInput(e.currentTarget.value)}
+                  onChange={(e: any) => {
+                    handleInput(e.currentTarget.value);
+                    setFieldValue(FORMVALUES.EMAIL, e.currentTarget.value);
+                  }}
                 />
                 <Navegation.Button
                   ismode={

@@ -39,7 +39,6 @@ export default function Counter() {
 
                   text: {
                     fontFamily: 'Lato',
-                    fontWeight: '300!important',
                     fill: 'white',
                     fontSize: '',
                   },

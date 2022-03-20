@@ -2,7 +2,6 @@ import { Formik } from 'formik';
 import * as qs from 'qs';
 import { useEffect, useState } from 'react';
 import { Styles } from './style';
-import IconAnimate from '../button/icon';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { FORMVALUES } from '../../hook/types';
 import Subtext from '../Text/subText';
@@ -42,7 +41,6 @@ export default function FormColaborator() {
   const valuePhone = FORMVALUES.PHONE;
   const valueEmail = FORMVALUES.EMAIL;
   const valuepartOf = FORMVALUES.PARTOF;
-  const valueSpeciality = FORMVALUES.SPECIALITY;
   const valueMessage = FORMVALUES.MESSAGE;
   const check = FORMVALUES.CONDITIONS;
 
@@ -54,7 +52,7 @@ export default function FormColaborator() {
     [FORMVALUES.LINK]: '',
     [FORMVALUES.COMPANY]: '',
     [FORMVALUES.PARTOF]: '',
-    [FORMVALUES.SPECIALITY]: '',
+    [FORMVALUES.SPECIALITY]: [],
     [FORMVALUES.MESSAGE]: '',
     [FORMVALUES.CONDITIONS]: false,
   };
@@ -70,7 +68,7 @@ export default function FormColaborator() {
       [FORMVALUES.MESSAGE]: values.message,
       [FORMVALUES.PARTOF]: values.partOf,
       [FORMVALUES.SPECIALITY]: values.speciality,
-      [FORMVALUES.CONDITIONS]: values.conditions,
+      [FORMVALUES.CONDITIONS]: values.conditionsAccepted,
     };
     mutate(
       { colaborator },
@@ -125,7 +123,12 @@ export default function FormColaborator() {
                     <InputCheck
                       text={valuesCheck.attributes.area}
                       value={FORMVALUES.SPECIALITY}
-                      onChange={(e: any) => setFieldValue(valueSpeciality, e)}
+                      onChange={() => {
+                        setFieldValue(
+                          FORMVALUES.SPECIALITY,
+                          valuesCheck.attributes.area,
+                        );
+                      }}
                     />
                   </Styles.AlingSelectSecond>
                 ))}
@@ -149,7 +152,6 @@ export default function FormColaborator() {
                     <Styles.Error>{errors.valueName}</Styles.Error>
                   )}
                 </Styles.BlockSections>
-
                 <Styles.SubBlock>
                   <Styles.BlockInput>
                     <Styles.Input
@@ -257,9 +259,11 @@ export default function FormColaborator() {
               {touched.check && errors.check && (
                 <Styles.Error>{errors.check}</Styles.Error>
               )}
-              <Styles.BlockBtn type="submit">
-                <IconAnimate text={translate.formSend} mode />
-              </Styles.BlockBtn>
+              <Styles.BlockSendButton>
+                <Styles.BtnSend type="submit">
+                  {translate.formSend}
+                </Styles.BtnSend>
+              </Styles.BlockSendButton>
             </Styles.Form>
           </>
         )}
