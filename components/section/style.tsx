@@ -25,7 +25,7 @@ export const TextHero = styled.h2`
 `;
 
 export const Styles = {
-  SectionProjects: tw.div`py-14  overflow-hidden relative z-40`,
+  SectionProjects: tw.div`md:py-14  overflow-hidden relative z-40`,
   BlockSections: tw.div<Props>`
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
@@ -51,7 +51,7 @@ ${(props) =>
   props.ismode === BUTTON_ACTIVE.OFF
     ? 'md:px-20 sm:px-5 lg:w-3/6 px-12 py-16 lg:absolute lg:-bottom-32 lg:left-0 '
     : ''}`,
-  OnlyProjectBlock: tw.div`md:px-24 sm:px-5 lg:w-3/6 px-12 py-16  lg:py-0 lg:absolute lg:-bottom-10 lg:right-0 `,
+  OnlyProjectBlock: tw.div`md:px-24 sm:px-5 lg:w-3/6 w-10/12 md:px-12 py-16  lg:py-0 lg:absolute lg:-bottom-10 lg:right-0 `,
   BlockMargin: tw.div`lg:py-48 flex flex-col lg:flex-row w-full`,
   BlockMarginText: tw.div`pt-12`,
   DivideSection: tw.div`lg:w-3/6 w-full pb-2`,

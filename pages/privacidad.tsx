@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import rehypeRaw from 'rehype-raw';
 import BgComponent from '../components/animations/bg';
 import IconAnimate from '../components/button/icon';
 import Footer from '../components/footer/footer';
@@ -42,15 +43,19 @@ function Privacidad() {
           <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
         </Styles.Margin>
         <Styles.Center>
-          <Link href="../">
-            <div className="w-full py-10">
-              <IconAnimate text="Volver" mode />
-            </div>
-          </Link>
-          <section className="pb-48">
-            <Title size="text-5xl ">{translate.policy}</Title>
-            <ContainerLegal>{data.data[0].attributes.content}</ContainerLegal>
-          </section>
+          <Styles.BlockButtonLegal>
+            <Link href="../">
+              <Styles.BlockBack>
+                <IconAnimate text="Volver" mode />
+              </Styles.BlockBack>
+            </Link>
+          </Styles.BlockButtonLegal>
+          <Styles.SectionTextLegal>
+            <Title size="text-3xl lg:text-5xl mb-12">{translate.policy}</Title>
+            <ContainerLegal rehypePlugins={[rehypeRaw]}>
+              {data.data[0].attributes.content}
+            </ContainerLegal>
+          </Styles.SectionTextLegal>
         </Styles.Center>
         <Footer subFooter={false} />
       </Styles.Body>

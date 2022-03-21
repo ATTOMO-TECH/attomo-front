@@ -22,8 +22,9 @@ export default function InputCheck({ text, value, color, onChange }: Props) {
         <Styles.InputCheck
           type="checkbox"
           name={value}
+          id={value}
           checked={check}
-          onChange={(e: any) => {
+          onClick={(e: any) => {
             setCheck(e.target.value);
             onChange && onChange(e.target.value);
           }}

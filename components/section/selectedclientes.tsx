@@ -26,11 +26,15 @@ export default function SelectedClients({
         </Styles.DivideSection>
         <Styles.DivideSection>
           <Styles.Paragraph>{text}</Styles.Paragraph>
-          <Link href={`${link}`}>
-            <Styles.BlockMarginText>
-              <IconAnimate text={btn} mode />
-            </Styles.BlockMarginText>
-          </Link>
+          {btn !== '' ? (
+            <Link href={`${link}`}>
+              <Styles.BlockMarginText>
+                <IconAnimate text={btn} mode />
+              </Styles.BlockMarginText>
+            </Link>
+          ) : (
+            ''
+          )}
         </Styles.DivideSection>
       </Styles.BlockMargin>
     </>

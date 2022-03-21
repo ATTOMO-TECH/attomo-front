@@ -1,52 +1,75 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { Filter } from './style';
 import FilterScroll from '../slider/filter/slider';
 import CalendarPicker from '../calendar/calendar';
+import SelectFilter from './selectedFilter';
+import RenderLoading from '../loading/loading';
+import { useUseAllSubServices } from '../../domain/useServices';
+import { DEPARTMENT } from '../../const/constGlobal';
 // import { useEffect, useState } from 'react';
 // import { useUseAllSubServices } from '../../domain/useServices';
 // import RenderLoading from '../loading/loading';
 
 interface Props {
-  isOpen: boolean;
+  isOpenFilter: boolean;
   toggle: () => void;
   setDate: any;
   setTopic: any;
 }
 
 export default function ModalFilter({
-  isOpen,
+  isOpenFilter,
   toggle,
   setDate,
   setTopic,
 }: Props) {
-  // const [width, setWidth] = useState(window.innerWidth);
-  // const { data, isLoading } = useUseAllSubServices(locale || 'es');
+  const router = useRouter();
+  let { locale } = router;
+  if (locale === '/') {
+    locale = 'es';
+  }
+  const [width, setWidth] = useState(window.innerWidth);
+  const { isLoading } = useUseAllSubServices(locale || 'es');
 
-  // useEffect(() => {
-  //   const handleResize = () => setWidth(window.innerWidth);
-  //   window.addEventListener('resize', handleResize);
-  //   return () => {
-
-  //     window.removeEventListener('resize', handleResize);
-  //   };
-  // });
-  // if (isLoading) {
-  //   return (
-  //     <>
-  //       <RenderLoading mode={false} />
-  //     </>
-
-  //   );
-
-  // }
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  });
+  if (isLoading) {
+    return (
+      <>
+        <RenderLoading mode={false} />
+      </>
+    );
+  }
 
   return (
     <>
-      <Filter.RelativeSection>
-        <Filter.BlockFilter
-          ismode={isOpen ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+      <Filter.SectionFilter
+        ismode={isOpenFilter ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+        animate={{
+          x: isOpenFilter ? 0 : -100,
+          opacity: isOpenFilter ? 1 : 0,
+        }}
+        transition={{
+          delay: 0,
+          duration: 0.8,
+          ease: 'easeInOut',
+          stiffness: 50,
+        }}>
+        <nav
+          className={
+            width < 468
+              ? 'flex items-end w-full justify-center '
+              : 'h-4/6 justify-center flex items-center'
+          }>
           <Filter.AlinItems ismode={BUTTON_ACTIVE.OFF}>
             <Filter.ItemsMenu>
               <Link href="/">
@@ -74,7 +97,7 @@ export default function ModalFilter({
                   stroke-linejoin="round"
                   initial={{ pathLength: 0 }}
                   animate={
-                    isOpen
+                    isOpenFilter
                       ? { pathLength: 1, type: 'tween' }
                       : { pathLength: 0, type: 'spring' }
                   }
@@ -88,7 +111,7 @@ export default function ModalFilter({
                   stroke-linejoin="round"
                   initial={{ pathLength: 0 }}
                   animate={
-                    isOpen
+                    isOpenFilter
                       ? { pathLength: 1, type: 'tween' }
                       : { pathLength: 0, type: 'spring' }
                   }
@@ -98,29 +121,27 @@ export default function ModalFilter({
             </Filter.ItemsMenu>
           </Filter.AlinItems>
           <Filter.BlockFilterItems>
-            <Filter.AlingBlock>
-              <Filter.InputSearch type="text" placeholder="Buscar" />
-              <Filter.FirtsItemFilter>
-                <Filter.TextItemFilter>
-                  <Filter.ValueFilter>Tématica</Filter.ValueFilter>
-                </Filter.TextItemFilter>
-                <Filter.SecondItem>
-                  <FilterScroll setTopic={setTopic} />
-                </Filter.SecondItem>
-              </Filter.FirtsItemFilter>
-              <Filter.BlockSecondFilter>
-                <Filter.TextItemFilter>
-                  <Filter.ValueFilter>Fecha</Filter.ValueFilter>
-                </Filter.TextItemFilter>
-                <Filter.SecondItem>
-                  <CalendarPicker setDate={setDate} />
-                </Filter.SecondItem>
-              </Filter.BlockSecondFilter>
-            </Filter.AlingBlock>
-          </Filter.BlockFilterItems>
-          {/*  }
-          ) : (
-            <Filter.BlockFilterItems>
+            {width > 468 ? (
+              <Filter.AlingBlock>
+                <Filter.InputSearch type="text" placeholder="Buscar" />
+                <Filter.FirtsItemFilter>
+                  <Filter.TextItemFilter>
+                    <Filter.ValueFilter>Tématica</Filter.ValueFilter>
+                  </Filter.TextItemFilter>
+                  <Filter.SecondItem>
+                    <FilterScroll setTopic={setTopic} />
+                  </Filter.SecondItem>
+                </Filter.FirtsItemFilter>
+                <Filter.BlockSecondFilter>
+                  <Filter.TextItemFilter>
+                    <Filter.ValueFilter>Fecha</Filter.ValueFilter>
+                  </Filter.TextItemFilter>
+                  <Filter.SecondItem>
+                    <CalendarPicker setDate={setDate} />
+                  </Filter.SecondItem>
+                </Filter.BlockSecondFilter>
+              </Filter.AlingBlock>
+            ) : (
               <Filter.SectionMobile>
                 <Filter.TitleFilter> Filtrar por</Filter.TitleFilter>
                 <Filter.BlockItemMobile>
@@ -148,10 +169,10 @@ export default function ModalFilter({
                   <CalendarPicker setDate={setDate} />
                 </Filter.BlockItemMobile>
               </Filter.SectionMobile>
-            </Filter.BlockFilterItems>
-          )} */}
-        </Filter.BlockFilter>
-      </Filter.RelativeSection>
+            )}
+          </Filter.BlockFilterItems>
+        </nav>
+      </Filter.SectionFilter>
     </>
   );
 }

@@ -35,11 +35,11 @@ function Us() {
             <Styles.ScreenMid>
               {translate.us.map((values) => (
                 <Styles.BlockDiv>
-                  <Title size="text-5xl lg:pt-24 lg:pr-0 pb-12 lg:w-5/6 pt-20 ">
+                  <Title size="lg:text-4xl md:text-3xl text-xl lg:pt-24 lg:pr-0 lg:pb-24 md:pb-12 pb-6 w-full md:pt-36  ">
                     {values.Text}
                   </Title>
                   <Styles.FlexEnd>
-                    <Subtext size=" text-lg lg:text-base lg:w-3/6  lg:text-left">
+                    <Subtext size=" md:text-lg lg:text-base lg:w-2/6  lg:text-left font-Secundary">
                       {values.Subtext}
                     </Subtext>
                   </Styles.FlexEnd>
@@ -54,13 +54,13 @@ function Us() {
             <ListUs />
             <SelectedClients
               text={translate.selectedUs[0].Subtext}
-              btn={translate.selectedUs[0].Button}
+              btn=""
               link="/contacto"
               textPrimary={translate.selectedUs[0].Text}
             />
           </Styles.BlockUs>
         </Styles.Center>
-        <Styles.CenterFlex>
+        <Styles.Center>
           {translate.contact.map((values) => (
             <BlockSection
               key={values.Link}
@@ -72,7 +72,7 @@ function Us() {
               link="/contacto"
             />
           ))}
-        </Styles.CenterFlex>
+        </Styles.Center>
         <Footer subFooter={false} />
       </Styles.Body>
     </>

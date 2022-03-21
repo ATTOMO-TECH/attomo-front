@@ -28,14 +28,12 @@ function Contact() {
           <Nav toggle={toggle} logo mode isOpen={isOpen} />
         </Styles.Margin>
         <ButtonShare />
-        <Styles.BlockContact>
-          <Styles.Center>
-            <Title size="lg:text-5xl text-4xl lg:pt-4 lg:pr-10 pb-24 w-full pt-20">
-              {translate.contactTitle}
-            </Title>
-            <RenderForm />
-          </Styles.Center>
-        </Styles.BlockContact>
+        <Styles.Center>
+          <Title size="lg:text-5xl text-4xl lg:pt-4 lg:pr-10 pb-10 lg:pb-24 w-full pt-20 lg:pt-64">
+            {translate.contactTitle}
+          </Title>
+          <RenderForm />
+        </Styles.Center>
         <Styles.Center>
           <Title size="text-2xl  lg:pr-10 "> {translate.whereUs}</Title>
           <Styles.BlockAddresMap>

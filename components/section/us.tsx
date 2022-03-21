@@ -5,8 +5,8 @@ export default function ListUs() {
   const translate = getLocale();
   return (
     <>
-      <section className="flex flex-wrap pt-24 lg:pt-4 pb-5">
-        <Subtext size="lg:text-xl text-2xl w-full pb-10">
+      <section className="flex flex-wrap  lg:pt-4 pb-5">
+        <Subtext size="lg:text-xl text-2xl w-full pb-10 font-light">
           {translate.titleValuesUr}
         </Subtext>
         {translate.valuesUs.map((values) => (
@@ -14,7 +14,7 @@ export default function ListUs() {
             <Subtext size="lg:text-3xl text-3xl w-full py-5 lg:py-10">
               {values.Text}
             </Subtext>
-            <Subtext size="text-regular w-full leading-loose">
+            <Subtext size="text-regular w-full leading-loose font-Secundary">
               {values.Subtext}
             </Subtext>
           </div>

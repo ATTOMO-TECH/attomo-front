@@ -120,7 +120,7 @@ export default function FilterDetails({
               </Title>
             </Styles.BlockFilter>
 
-            <div className="w-10/12  flex flex-col items-center place-content-center">
+            <div className="w-10/12  flex flex-col items-center place-content-center pt-5">
               {data.data.map((tab: any) => (
                 <SubMenu
                   toggle={toggleFilter}

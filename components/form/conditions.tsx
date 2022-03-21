@@ -7,14 +7,11 @@ export default function Conditions() {
   return (
     <>
       <Styles.BlockCheck>
-        <Styles.TextChecked>{translate.formRead} </Styles.TextChecked>
-        <Link href="/terminos">
-          <Styles.LinkCheck>{translate.formTems}</Styles.LinkCheck>
-        </Link>
-        <Styles.TextChecked>{translate.formAnd}</Styles.TextChecked>
-        <Link href="/privacidad">
-          <Styles.LinkCheck>{translate.formPrivacy}</Styles.LinkCheck>
-        </Link>
+        <Styles.TextChecked>
+          {translate.formRead}{' '}
+          <Link href="/terminos">{translate.formTems}</Link> {translate.formAnd}{' '}
+          <Link href="/privacidad">{translate.formPrivacy}</Link>
+        </Styles.TextChecked>
       </Styles.BlockCheck>
     </>
   );

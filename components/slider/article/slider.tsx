@@ -54,6 +54,10 @@ export default function ArticlesScroll({ mode, filter }: Props) {
   return (
     <>
       <Swiper
+        spaceBetween={30}
+        centeredSlides
+        modules={[Pagination]}
+        className="mySwiper"
         breakpoints={{
           '460': {
             slidesPerView: 1,
@@ -65,15 +69,11 @@ export default function ArticlesScroll({ mode, filter }: Props) {
             slidesPerView: 3,
           },
         }}
-        centeredSlides
         onBeforeInit={onBeforeInit}
         navigation={{
           prevEl: prevRef.current,
           nextEl: nextRef.current,
-        }}
-        slidesPerView={3.5}
-        spaceBetween={30}
-        className="mySwiper ">
+        }}>
         {data.data.map((articles: any) => (
           <SwiperSlide key={articles.Tag} className="swiper ">
             <Link href={`/ATTOMOTrends/${articles.id}`}>

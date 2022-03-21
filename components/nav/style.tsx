@@ -77,10 +77,10 @@ export const Navegation = {
   `,
   Menu: tw.nav``,
   AlinItems: tw.ul<Props>`
-  flex items-center fixed justify-between w-11/12 m-auto md:mt-0 md:w-10/12 md:absolute lg:left-24 md:left-12 left-4 top-6 
+  flex items-center fixed z-100 justify-between w-11/12 m-auto md:mt-0 md:w-10/12 md:absolute lg:left-24 md:left-12 left-4 top-2 md:top-6 
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : '')}
   `,
-  ItemsMenu: tw.li`flex items-center list-none z-100 min-h-min`,
+  ItemsMenu: tw.li`flex items-center list-none  min-h-min`,
   BlockMenu: tw.div``,
   TextMenu: tw(SectionColor)<Props>`
  font-Primary colorMenu

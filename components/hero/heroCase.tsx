@@ -26,7 +26,7 @@ export default function HeroCase({ toggle, date, topic, isOpen }: Props) {
         {scroll && !isOpen ? (
           <Filter toggle={toggle} date={date} topic={topic} />
         ) : null}
-        <HeadSection.SectionHeroCases />
+        {topic === '' && <HeadSection.SectionHeroCases />}
       </HeadSection.SectionCase>
     </>
   );

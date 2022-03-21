@@ -63,6 +63,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
               <Navegation.TextMenu
                 ismode=""
                 theme={mode === true ? lightTheme : darkTheme}
+                onClick={toggle}
               />
               <motion.svg
                 width="36"

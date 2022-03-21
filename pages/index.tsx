@@ -43,13 +43,10 @@ function Home() {
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const [lastYPos, setLastYPos] = useState(0);
   const [shouldShowActions, setShouldShowActions] = useState(false);
-  const [random, setRandom] = useState<any>();
-  useEffect(() => {
-    const randomQuote = (min: number, max: number) =>
-      Math.floor(Math.random() * (max - min + 1) + min);
-    setRandom(randomQuote(1, 2));
-  }, [random]);
 
+  const randomQuote = (min: number, max: number) =>
+    Math.floor(Math.random() * (max - min + 1) + min);
+  const [random] = useState<any>(randomQuote(1, 2));
   const { data: Quote, isLoading: QuoteIsLoading } = useUseAllQuote(
     random,
     locale || 'es',

@@ -6,7 +6,6 @@ import InputCheckcondition from './inputCheckcondition';
 import { validationSchemaContact } from './validations';
 import { createContact } from '../../domain/useContact';
 import Conditions from './conditions';
-import IconAnimate from '../button/icon';
 import { getLocale } from '../../public/locales/getLocale';
 
 export default function FormCustomer() {
@@ -37,7 +36,7 @@ export default function FormCustomer() {
       [FORMVALUES.EMAIL]: values.email,
       [FORMVALUES.COMPANY]: values.valueCompany,
       [FORMVALUES.MESSAGE]: values.message,
-      [FORMVALUES.CONDITIONS]: values.conditions,
+      [FORMVALUES.CONDITIONS]: values.conditionsAccepted,
     };
 
     mutate(
@@ -169,9 +168,8 @@ export default function FormCustomer() {
                   )}
                 </Styles.BlockSectionMarginTop>
               </Styles.SingleInput>
-
               <InputCheckcondition
-                color="text-primary text-xs pt-6"
+                color="text-primary text-xs md:pt-6 pt-4"
                 value={FORMVALUES.CONDITIONS}
                 onChange={(e: any) => setFieldValue(check, e)}>
                 <Conditions />
@@ -179,9 +177,11 @@ export default function FormCustomer() {
               {touched.check && errors.check && (
                 <Styles.Error>{errors.check}</Styles.Error>
               )}
-              <Styles.BlockBtn type="submit">
-                <IconAnimate text={translate.formSend} mode />
-              </Styles.BlockBtn>
+              <Styles.BlockSendButton>
+                <Styles.BtnSend type="submit">
+                  {translate.formSend}
+                </Styles.BtnSend>
+              </Styles.BlockSendButton>
             </Styles.Form>
           </>
         )}

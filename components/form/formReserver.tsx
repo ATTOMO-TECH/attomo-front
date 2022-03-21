@@ -81,7 +81,6 @@ export default function FormReserver() {
                     type="date"
                     name={FORMVALUES.DATE}
                   />
-
                   <div className="lg:w-full lg:mr-6">
                     <InputSelect
                       selected={selected}

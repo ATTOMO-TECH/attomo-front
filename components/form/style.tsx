@@ -41,45 +41,79 @@ export const CheckRadio = styled.input`
     border: 0.15em solid white;
     padding: 2.8px;
   }
+  @media screen and (max-width: 468px) {
+    &[type='radio'] {
+      width: 35px;
+      height: 25px;
+    }
+
+    &:checked {
+      width: 25px;
+      height: 25px;
+    }
+  }
 `;
 export const CheckCheck = styled.input`
+  border-radius: 100%;
   &[type='checkbox'] {
     appearance: none;
     margin: 0;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     border: 0.15em solid white;
-    border-radius: 100%;
     margin-right: 10px;
+    padding: 2px;
   }
 
   &:checked {
+    padding: 2px;
     content: url(/icon/isoAttomo.svg);
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     transition: 120ms transform ease-in-out;
-    border: 0.15em solid white;
-    padding: 2.8px;
+    border: 1px solid white;
+  }
+  @media screen and (max-width: 468px) {
+    &[type='checkbox'] {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:checked {
+      width: 30px;
+      height: 20px;
+    }
   }
 `;
 export const CheckCheckCondition = styled.input`
   &[type='checkbox'] {
     appearance: none;
     margin: 0;
-    width: 1.5em;
-    height: 1.5em;
+    width: 20px;
+    height: 20px;
     border: 0.15em solid white;
-
     margin-right: 10px;
+    padding: 2px;
   }
 
   &:checked {
+    padding: 2px;
     content: url(/icon/isoAttomo.svg);
-    width: 1.5em;
-    height: 1.5em;
+    width: 20px;
+    height: 20px;
     transition: 120ms transform ease-in-out;
-    border: 0em solid white;
-    padding: 3px;
+    border: 1px solid white;
+  }
+  @media screen and (max-width: 468px) {
+    &[type='checkbox'] {
+      width: 30px;
+      height: 20px;
+    }
+
+    &:checked {
+      width: 30px;
+      height: 20px;
+    }
   }
 `;
 
@@ -89,14 +123,29 @@ export const BtnSelect = styled.button<Props>`
       ? '-webkit-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9); -moz-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9); 	opacity: 1;'
       : ''}
 `;
+
+export const BtnSend = styled.button`
+  &:hover {
+    -webkit-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
+    -moz-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
+    opacity: 1;
+  }
+`;
+
 export const Styles = {
   Select: tw(
     Select,
   )`bg-black text-primary outline-none text-sm lg:py-4 font-PrimarySerif font-light ml-5 z-90`,
   BlockButton: tw.div`flex lg:justify-center justify-between`,
+  BlockSendButton: tw.div`flex justify-center pt-6`,
+
   BtnSelect: tw(
     BtnSelect,
-  )`block ease-out duration-200 text-primary border-2 border-primary px-6 sm:px-12 lg:text-sm py-3 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none mr-5 `,
+  )` ease-out inline-flex justify-center w-3/6 lg:w-2/12 duration-200 text-primary border-2 border-primary text-left lg:text-sm py-2 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none mr-5 `,
+  BtnSend: tw(
+    BtnSend,
+  )` ease-out inline-flex justify-center w-3/6 lg:w-3/12 duration-200 text-primary border-2 border-primary text-left lg:text-sm py-2 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none mr-5 `,
   SectionRenderForm: tw.section`my-12`,
   Form: tw(Form)`lg:w-4/6 m-auto`,
   SectionInput: tw.div`flex flex-col lg:flex-row `,
@@ -114,7 +163,7 @@ export const Styles = {
   BlockClose: tw(Input)``,
   Input: tw(
     Field,
-  )<Props>`pl-2 lg:pl-0 outline-none w-full bg-transparent pr-5 border-b border-primary py-2 mr-5 text-primary opacity-40 focus:opacity-100 ease-out duration-200
+  )<Props>`pl-2 lg:pl-0 outline-none w-full bg-transparent pr-5 border-b border-primary py-2 ld:mr-5 text-primary opacity-40 focus:opacity-100 ease-out duration-200
 ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
 `,
   InputDate: tw(
