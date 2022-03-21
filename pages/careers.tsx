@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -14,8 +15,10 @@ import Subtext from '../components/Text/subText';
 import Title from '../components/Text/title';
 import { BUTTON_ACTIVE } from '../const/const';
 import { useUseAllCareer } from '../domain/useCareers';
+import { useUseAllQuote } from '../domain/useQuotes';
 import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
+import { servicesAnimations } from '../components/animations/animations';
 
 function Carrers() {
   const router = useRouter();
@@ -23,13 +26,22 @@ function Carrers() {
   if (locale === '/') {
     locale = 'es';
   }
+  const [shouldShowActions] = useState(false);
+  const randomQuote = (min: number, max: number) =>
+    Math.floor(Math.random() * (max - min + 1) + min);
+  const [random] = useState<any>(randomQuote(1, 2));
+  const { data: Quote, isLoading: QuoteIsLoading } = useUseAllQuote(
+    random,
+    locale || 'es',
+  );
+
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const { data, isLoading } = useUseAllCareer(locale || 'es');
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
   const translate = getLocale();
-  if (isLoading) {
+  if (isLoading || QuoteIsLoading) {
     return (
       <>
         <RenderLoading mode={false} />
@@ -69,22 +81,35 @@ function Carrers() {
           <Work works={data.data} />
         </Styles.Center>
         {translate.contactUsWork.map((value) => (
-          <Styles.Center>
-            <Subtext size=" text-2xl pt-12">{value.Text} </Subtext>
-            <Subtext size=" text-sm w-3/6 font-PrimarySerif py-5">
-              {value.Text}
+          <Styles.CenterMargin>
+            <Subtext size=" text-2xl ">{value.Text} </Subtext>
+            <Subtext size=" text-sm lg:w-3/6 font-PrimarySerif py-5">
+              {value.Subtext}
             </Subtext>
             <Link href="/">
               <div className="lg:w-2/6">
                 <IconAnimate text={value.Button} mode />
               </div>
             </Link>
-          </Styles.Center>
+          </Styles.CenterMargin>
         ))}
 
-        <Styles.CenterFull>
-          <HeroFooter text="Construyamos juntos el futuro digital de las organizaciones" />
-        </Styles.CenterFull>
+        <motion.div
+          animate={shouldShowActions}
+          variants={servicesAnimations}
+          className="actions"
+          transition={{
+            delay: 0.2,
+            type: 'spring',
+            stiffness: 50,
+            duration: 2,
+          }}
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: '50%' }}>
+          <Styles.CenterFull>
+            <HeroFooter text={Quote.data.attributes.text} />
+          </Styles.CenterFull>
+        </motion.div>
         <Footer subFooter={false} />
       </Styles.Body>
     </>

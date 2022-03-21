@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import AnimatedProgressProvider from './animated';
 import { SubSections } from './style';
+import '@fontsource/lato/300.css';
 
 export default function Counter() {
   const [value, setValue] = useState(0);
@@ -41,6 +42,7 @@ export default function Counter() {
                     fontFamily: 'Lato',
                     fill: 'white',
                     fontSize: '',
+                    fontWeight: 300,
                   },
                 }}
                 text={`${roundedValue}º`}

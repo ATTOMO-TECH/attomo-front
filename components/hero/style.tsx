@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
+import '@fontsource/merriweather/300.css';
 
 export const TextHero = styled.h2`
   font-family: 'Merriweather';
@@ -53,7 +54,7 @@ export const HeadSection = {
 
   SectionHeroFooter: tw(
     Block,
-  )`h-auto lg:h-96 text-primary lg:rounded-3xl font-Primary lg:border border-primary lg:my-24 bg-gradient-to-b lg:from-gray-900 from-gray-700 border-opacity-10 flex justify-center items-center`,
+  )`h-auto lg:h-96 text-primary lg:rounded-3xl font-Primary lg:border border-primary  lg:my-24 bg-gradient-to-b lg:from-gray-900 from-gray-700 border-opacity-10 flex justify-center items-center`,
   TextHeroFooter: tw.h5`text-xl md:text-4xl lg:p-44 px-4 py-24 font-light leading-relaxed lg:leading-normal`,
   SectionCase: tw.section`flex justify-end items-center relative lg:pt-36 `,
 };
