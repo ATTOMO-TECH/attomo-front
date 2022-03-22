@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -36,6 +37,9 @@ function Privacidad() {
 
   return (
     <>
+      <Head>
+        <title>Politica de Privacidad - ATTOMO ESTUDIO</title>
+      </Head>
       <BgComponent />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />

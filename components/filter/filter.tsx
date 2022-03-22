@@ -6,8 +6,8 @@ import { BUTTON_ACTIVE } from '../../const/const';
 import { Filter } from './style';
 import CalendarPicker from '../calendar/calendar';
 import SelectFilter from './selectedFilter';
-// import RenderLoading from '../loading/loading';
-// import { useUseAllSubServices } from '../../domain/useServices';
+import RenderLoading from '../loading/loading';
+import { useUseAllSubServices } from '../../domain/useServices';
 import { DEPARTMENT } from '../../const/constGlobal';
 import ModulelFilter from './moduleFilter';
 // import { useEffect, useState } from 'react';
@@ -35,7 +35,7 @@ export default function ModalFilter({
     locale = 'es';
   }
   const [width, setWidth] = useState(window.innerWidth);
-  // const { data, isLoading } = useUseAllSubServices(locale || 'es');
+  const { isLoading } = useUseAllSubServices(locale || 'es');
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
@@ -44,13 +44,13 @@ export default function ModalFilter({
       window.removeEventListener('resize', handleResize);
     };
   });
-  // if (isLoading) {
-  //   return (
-  //     <>
-  //       <RenderLoading mode={false} />
-  //     </>
-  //   );
-  // }
+  if (isLoading) {
+    return (
+      <>
+        <RenderLoading mode={false} />
+      </>
+    );
+  }
 
   return (
     <>
@@ -142,7 +142,7 @@ export default function ModalFilter({
                     selected="selected"
                     options={DEPARTMENT}
                     valueLabel="Todas las temáticas"
-                    name="FORMVALUES.TIME"
+                    name=""
                     onChange="onChange"
                   />
                 </Filter.BlockItemMed>

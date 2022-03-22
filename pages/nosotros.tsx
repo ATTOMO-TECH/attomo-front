@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useState } from 'react';
 import BgComponent from '../components/animations/bg';
 import BlockSection from '../components/block/block';
@@ -23,6 +24,9 @@ function Us() {
   const translate = getLocale();
   return (
     <>
+      <Head>
+        <title>Nosotros - ATTOMO ESTUDIO</title>
+      </Head>
       <BgComponent />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />

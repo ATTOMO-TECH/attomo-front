@@ -17,10 +17,6 @@ export const SectionColor = styled.div`
 `;
 
 export const textTitle = styled.div`
-  font-style: normal;
-  font-weight: 300;
-  font-size: 12px;
-  align-items: center;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -30,7 +26,7 @@ export const Block = {
   SectionBlock: tw.div`flex flex-wrap justify-between m-auto  py-16  `,
 
   Block: tw(SectionColor)`text-primary lg:w-3/6 w-full block  `,
-  Title: tw(textTitle)<Props>`font-PrimarySerif 
+  Title: tw(textTitle)<Props>`text-regular w-full leading-loose font-Secundary
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON ? `textDegrade  ` : 'bg-black '}
       `,

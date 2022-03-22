@@ -148,7 +148,7 @@ function Home() {
             <CompaniesScroll />
           </Styles.BlockSlider>
           <SectionProjects
-            Array={data.data}
+            Array={data?.data}
             shouldShowActions={shouldShowActions}
             servicesAnimations={servicesAnimations}
           />
@@ -191,7 +191,7 @@ function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: '50%' }}>
             <Styles.CenterFull>
-              <HeroFooter text={Quote.data.attributes.text} />
+              <HeroFooter text={Quote?.data.attributes.text} />
             </Styles.CenterFull>
           </motion.div>
           <motion.div

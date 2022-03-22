@@ -44,6 +44,7 @@ export const Sticky2Styled = styled.div`
         height: 300px;
       }
     }
+
     .heading {
       position: absolute;
       height: 100%;
@@ -76,6 +77,9 @@ export const ContainerLegal = styled(ReactMarkdown)`
     padding-top: 2%;
     font-size: 2em;
     font-weight: 400;
+  }
+  li {
+    margin: 10px;
   }
   h2 {
   }

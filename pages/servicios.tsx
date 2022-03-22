@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useState } from 'react';
 import BgComponent from '../components/animations/bg';
 import BlockSection from '../components/block/block';
@@ -22,6 +23,9 @@ function Services() {
 
   return (
     <>
+      <Head>
+        <title>Servicios - ATTOMO ESTUDIO</title>
+      </Head>
       <BgComponent />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />

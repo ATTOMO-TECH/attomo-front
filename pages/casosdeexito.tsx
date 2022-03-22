@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import * as qs from 'qs';
 import BgComponent from '../components/animations/bg';
 import BlockSection from '../components/block/block';
 import ButtonShare from '../components/button/BtnShare';
@@ -34,12 +35,35 @@ function Cases() {
   const handleTopic = (topicValue: string) => {
     setTopic(topicValue);
   };
+
+  const queryObject: any = {
+    populate: 'coverImage',
+    // filters: {
+    //   blog_tags: {
+    //     name: {
+    //       $containsi: topic,
+    //     },
+    //   },
+    //   date: {
+    //     $containsi: date,
+    //   },
+    //   attributes: {
+    //     name: {
+    //       $containsi: search,
+    //     },
+    //   },
+    // },
+  };
+  const queryQs = qs.stringify(queryObject, {
+    encodeValuesOnly: true,
+  });
+
   const router = useRouter();
   let { locale } = router;
   if (locale === '/') {
     locale = 'es';
   }
-  const { data, isLoading } = useUseAllCases(locale || 'es');
+  const { data, isLoading } = useUseAllCases(locale || 'es', queryQs);
 
   if (isLoading) {
     return (
@@ -49,7 +73,6 @@ function Cases() {
     );
   }
   const translate = getLocale();
-
   return (
     <>
       <BgComponent />
@@ -62,7 +85,6 @@ function Cases() {
           setSearch={setSearch}
         />
         {!isOpenFilter && <Menu isOpen={isOpen} toggle={toggle} logo mode />}
-
         <Styles.Margin>
           {!isOpenFilter && (
             <Nav toggle={toggle} logo mode bgFull isOpen={isOpen} />
@@ -71,25 +93,26 @@ function Cases() {
         {!isOpenFilter && <ButtonShare />}
         {!isOpenFilter && (
           <>
-            {date?.length !== undefined ? (
+            {date?.length === undefined ? (
               <HeroCase
                 toggle={toggleFilter}
                 date={date}
                 topic={topic}
                 isOpen={isOpen}
               />
-            ) : null}
-            <div className="w-full text-white m-auto  relative">
-              <FilterCases
-                toggle={toggleFilter}
-                date={date}
-                topic={topic}
-                search={search}
-              />
-            </div>
+            ) : (
+              <div className="w-full text-white m-auto z-0  relative h-48">
+                <FilterCases
+                  toggle={toggleFilter}
+                  date={date}
+                  topic={topic}
+                  search={search}
+                />
+              </div>
+            )}
             <Styles.BlockSections>
               <SectionProjects
-                Array={data.data}
+                Array={data?.data}
                 shouldShowActions={undefined}
                 servicesAnimations={undefined}
               />

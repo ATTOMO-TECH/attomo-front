@@ -60,10 +60,10 @@ export default function ArticlesScroll({ mode, filter }: Props) {
         className="mySwiper"
         breakpoints={{
           '460': {
-            slidesPerView: 1,
+            slidesPerView: 'auto',
           },
           '640': {
-            slidesPerView: 1,
+            slidesPerView: 'auto',
           },
           '1024': {
             slidesPerView: 3.5,

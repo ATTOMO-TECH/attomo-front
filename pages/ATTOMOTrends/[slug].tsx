@@ -16,6 +16,7 @@ import { useAPost } from '../../domain/useBlogDetails';
 import RenderLoading from '../../components/loading/loading';
 import { getLocale } from '../../public/locales/getLocale';
 import { servicesAnimations } from '../../components/animations/animations';
+import ArticlesScroll from '../../components/slider/article/slider';
 
 interface Props {
   mode: boolean;
@@ -46,7 +47,7 @@ function New({ mode }: Props) {
         theme={mode === true ? lightTheme : darkTheme}>
         <Menu isOpen={isOpen} toggle={toggle} logo={false} mode />
         <Styles.Margin>
-          <Nav toggle={toggle} logo mode={false} isOpen={isOpen} />
+          <Nav toggle={toggle} logo mode={false} bgFull isOpen={isOpen} />
         </Styles.Margin>
         <Back link="/ATTOMOTrends">Volver a noticias</Back>
         <Styles.Center>
@@ -66,11 +67,13 @@ function New({ mode }: Props) {
             />
             <BodyCases data={data?.data.attributes.content} />
           </Styles.AlingCasesNoP>
+        </Styles.Center>
+        <Styles.Center>
           <Styles.TextSubSection>{translate.interested}</Styles.TextSubSection>
         </Styles.Center>
         <Styles.FlexEnd>
           <Styles.AlingBlock>
-            {/* <ArticlesScroll mode={false} array={NEWS} /> */}
+            <ArticlesScroll mode={false} filter="" />
           </Styles.AlingBlock>
         </Styles.FlexEnd>
         <motion.div
@@ -93,7 +96,7 @@ function New({ mode }: Props) {
                 button={values.Link}
                 text2=""
                 button2=""
-                mode
+                mode={false}
                 link="/contacto"
               />
             ))}

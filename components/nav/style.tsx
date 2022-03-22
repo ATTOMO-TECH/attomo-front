@@ -19,6 +19,12 @@ export const SectionColor = styled(motion.nav)`
   color: ${(props) => props.theme.headings};
   background-color: ${(props) => props.theme.bodyBg};
   top: -2px;
+  z-index: 100 !important;
+`;
+export const Section = styled(motion.nav)`
+  color: ${(props) => props.theme.headings};
+  background-color: ${(props) => props.theme.bodyBg};
+  z-index: 100 !important;
 `;
 export const itemMenu = styled.h6`
   font-family: 'Merriweather', 'serif';
@@ -99,13 +105,13 @@ export const IconStyled = styled(motion.svg)`
     filter: invert(1);
     border-radius: 100%;
   }
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   overflow: visible;
   fill: none;
   stroke: #fff;
   position: relative;
-  stroke-width: 2px;
+  stroke-width: 10px;
   border-radius: 100%;
 `;
 
@@ -116,9 +122,9 @@ export const IconPathStyled = styled(motion.path).attrs(() => ({
 }))``;
 
 export const Navegation = {
-  MenuRelative: tw.div`relative`,
-  SectionMenu: tw(SectionColor)<Props>`
-  lg:transition ease-in-out  fixed overflow-y-scroll 
+  MenuRelative: tw.div`relative `,
+  SectionMenu: tw(Section)<Props>`
+  lg:transition ease-in-out   fixed overflow-y-scroll 
     ${(props) =>
       props.ismode === BUTTON_ACTIVE.ON
         ? `cursor-pointer h-screen w-full overflow-hidden z-100 opacity-100  `
@@ -144,7 +150,7 @@ export const Navegation = {
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`
-font-Primary cursor-pointer list-none fixed w-full duration-300 ease-in-out delay-700 top-0  h-14
+font-Primary cursor-pointer list-none fixed w-full duration-300 ease-in-out  top-0  h-14 
 ${(props) =>
   props.ismode === BUTTON_ACTIVE.ON
     ? 'duration-300 ease-in-out lg:h-20 sm:mb-10 '

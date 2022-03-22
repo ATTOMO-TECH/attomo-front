@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
+import Head from 'next/head';
 import Footer from '../components/footer/footer';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
@@ -33,6 +34,9 @@ function Space() {
   const translate = getLocale();
   return (
     <>
+      <Head>
+        <title>Espacio - ATTOMO ESTUDIO</title>
+      </Head>
       <BgComponent />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
@@ -49,7 +53,7 @@ function Space() {
                     {values.Text}
                   </Title>
                   <Styles.FlexEnd>
-                    <Subtext size=" text-md lg:text-base lg:w-3/6  lg:text-left">
+                    <Subtext size="text-regular w-full leading-loose font-Secundary lg:w-3/6  ">
                       {values.Subtext}
                     </Subtext>
                   </Styles.FlexEnd>
@@ -83,7 +87,7 @@ function Space() {
               <Title size="lg:text-5xl text-3xl lg:pt-36 w-full text-center pt-20 leading-relaxed ">
                 {values.Text}
               </Title>
-              <Title size="text-regular lg:pt-3 w-full text-center leading-relaxed pb-8">
+              <Title size="text-regular lg:pt-3 w-full text-center text-regular w-full leading-loose font-Secundary  pb-8">
                 {values.Subtext}
               </Title>
               <FormReserver />
@@ -96,8 +100,10 @@ function Space() {
             <Title size="text-2xl  lg:pr-10 ">
               {translate.spaceAttomoFooter}
             </Title>
-            <Subtext size="lg:text-sm text-sm w-full pb-10 font-PrimarySerif">
-              Calle del Monte Esquinza, 8-Bajo Izquierda <br />
+
+            <Subtext size="text-regular w-full leading-loose font-Secundary w-full pb-10 ">
+              Calle del Monte Esquinza, 8-Bajo Izquierda
+              <br />
               28010 Madrid
             </Subtext>
             <MapsBlock />

@@ -94,10 +94,9 @@ function DetailsServices() {
             SetIsOpenFilter={SetIsOpenFilter}
             isOpenFilter={isOpenFilter}
           />
-
           <Menu isOpen={isOpen} toggle={toggle} logo mode />
           <Styles.Margin>
-            <Nav toggle={toggle} logo mode isOpen={isOpen} />
+            <Nav toggle={toggle} logo mode isOpen={isOpen} bgFull />
           </Styles.Margin>
           {!isOpenFilter && <ButtonShare />}
           <motion.div

@@ -12,9 +12,11 @@ export default function FilterCases({ toggle, date, topic, search }: Props) {
     <>
       <Styles.BlockFilterAling onClick={toggle}>
         <Styles.FlexFilter>
-          <span>Filtado por</span>
-          <div>{topic === '' ? 'Estrategia' : topic.label}</div>
-          <div>
+          <Styles.TexItem className="w-3/12 ">Filtado por</Styles.TexItem>
+          <Styles.TexItem className="w-3/12">
+            {topic === '' ? 'Estrategia' : topic.label}
+          </Styles.TexItem>
+          <Styles.TexItem className="w-3/12">
             {date?.length === undefined ? (
               <div>Selecciona fecha</div>
             ) : (
@@ -22,8 +24,8 @@ export default function FilterCases({ toggle, date, topic, search }: Props) {
                 <div>{format(new Date(dateValue), 'dd-MM-yyyy')}</div>
               ))
             )}
-          </div>
-          <span>{search}</span>
+          </Styles.TexItem>
+          <Styles.TexItem className="w-3/12">{search}</Styles.TexItem>
         </Styles.FlexFilter>
       </Styles.BlockFilterAling>
     </>

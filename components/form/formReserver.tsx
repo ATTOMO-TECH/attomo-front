@@ -24,7 +24,6 @@ export default function FormReserver() {
   const valuePhone = FORMVALUES.PHONE;
   const valueEmail = FORMVALUES.EMAIL;
   const valueCompany = FORMVALUES.COMPANY;
-  const valueMessage = FORMVALUES.MESSAGE;
   const check = FORMVALUES.CONDITIONS;
 
   const initialValues = {
@@ -35,24 +34,22 @@ export default function FormReserver() {
     [valueEmail]: '',
     [valueDate]: '',
     [valueTime]: selected,
-    [valueMessage]: '',
     [FORMVALUES.CONDITIONS]: false,
   };
 
   const { mutate } = createContact();
   const handleSubmitReserve = (dataValues: any, action: any) => {
-    const data = [
-      {
-        [FORMVALUES.FIRSTNAME]: dataValues.firstname,
-        [FORMVALUES.LASTNAME]: dataValues.lastname,
-        [FORMVALUES.PHONE]: dataValues.mobile,
-        [FORMVALUES.EMAIL]: dataValues.email,
-        [FORMVALUES.COMPANY]: dataValues.valueCompany,
-        [FORMVALUES.CONDITIONS]: dataValues.conditionsAccepted,
-        [FORMVALUES.DATE]: dataValues.date,
-        [FORMVALUES.TIME]: selected,
-      },
-    ];
+    const data = {
+      [FORMVALUES.FIRSTNAME]: dataValues.firstname,
+      [FORMVALUES.LASTNAME]: dataValues.lastname,
+      [FORMVALUES.PHONE]: dataValues.mobile,
+      [FORMVALUES.EMAIL]: dataValues.email,
+      [FORMVALUES.COMPANY]: dataValues.company,
+      [FORMVALUES.CONDITIONS]: dataValues.conditionsAccepted,
+      [FORMVALUES.DATE]: dataValues.date,
+      [FORMVALUES.TIME]: selected,
+    };
+
     mutate(
       { data },
       {
