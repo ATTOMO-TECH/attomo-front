@@ -14,6 +14,7 @@ import { BUTTON_ACTIVE } from '../const/const';
 import { useUseAllCases } from '../domain/useCasesDetails';
 import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
+import FilterCases from '../components/input/filterCases';
 
 function Cases() {
   const [isOpen, SetIsOpen] = useState<boolean>(false);
@@ -26,6 +27,7 @@ function Cases() {
   };
   const [date, setDate] = useState<Date[]>();
   const [topic, setTopic] = useState('');
+  const [search, setSearch] = useState('');
   const handleDate = (dateValue: []) => {
     setDate(dateValue);
   };
@@ -57,8 +59,10 @@ function Cases() {
           toggle={toggleFilter}
           setDate={handleDate}
           setTopic={handleTopic}
+          setSearch={setSearch}
         />
-        <Menu isOpen={isOpen} toggle={toggle} logo mode />
+        {!isOpenFilter && <Menu isOpen={isOpen} toggle={toggle} logo mode />}
+
         <Styles.Margin>
           {!isOpenFilter && (
             <Nav toggle={toggle} logo mode bgFull isOpen={isOpen} />
@@ -67,12 +71,22 @@ function Cases() {
         {!isOpenFilter && <ButtonShare />}
         {!isOpenFilter && (
           <>
-            <HeroCase
-              toggle={toggleFilter}
-              date={date}
-              topic={topic}
-              isOpen={isOpen}
-            />
+            {date?.length !== undefined ? (
+              <HeroCase
+                toggle={toggleFilter}
+                date={date}
+                topic={topic}
+                isOpen={isOpen}
+              />
+            ) : null}
+            <div className="w-full text-white m-auto  relative">
+              <FilterCases
+                toggle={toggleFilter}
+                date={date}
+                topic={topic}
+                search={search}
+              />
+            </div>
             <Styles.BlockSections>
               <SectionProjects
                 Array={data.data}

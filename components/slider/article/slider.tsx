@@ -66,7 +66,7 @@ export default function ArticlesScroll({ mode, filter }: Props) {
             slidesPerView: 1,
           },
           '1024': {
-            slidesPerView: 3,
+            slidesPerView: 3.5,
           },
         }}
         onBeforeInit={onBeforeInit}

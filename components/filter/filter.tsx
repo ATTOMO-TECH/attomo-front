@@ -4,12 +4,12 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { Filter } from './style';
-import FilterScroll from '../slider/filter/slider';
 import CalendarPicker from '../calendar/calendar';
 import SelectFilter from './selectedFilter';
-import RenderLoading from '../loading/loading';
-import { useUseAllSubServices } from '../../domain/useServices';
+// import RenderLoading from '../loading/loading';
+// import { useUseAllSubServices } from '../../domain/useServices';
 import { DEPARTMENT } from '../../const/constGlobal';
+import ModulelFilter from './moduleFilter';
 // import { useEffect, useState } from 'react';
 // import { useUseAllSubServices } from '../../domain/useServices';
 // import RenderLoading from '../loading/loading';
@@ -19,6 +19,7 @@ interface Props {
   toggle: () => void;
   setDate: any;
   setTopic: any;
+  setSearch: any;
 }
 
 export default function ModalFilter({
@@ -26,6 +27,7 @@ export default function ModalFilter({
   toggle,
   setDate,
   setTopic,
+  setSearch,
 }: Props) {
   const router = useRouter();
   let { locale } = router;
@@ -33,7 +35,7 @@ export default function ModalFilter({
     locale = 'es';
   }
   const [width, setWidth] = useState(window.innerWidth);
-  const { isLoading } = useUseAllSubServices(locale || 'es');
+  // const { data, isLoading } = useUseAllSubServices(locale || 'es');
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
@@ -42,13 +44,13 @@ export default function ModalFilter({
       window.removeEventListener('resize', handleResize);
     };
   });
-  if (isLoading) {
-    return (
-      <>
-        <RenderLoading mode={false} />
-      </>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <>
+  //       <RenderLoading mode={false} />
+  //     </>
+  //   );
+  // }
 
   return (
     <>
@@ -64,7 +66,7 @@ export default function ModalFilter({
           ease: 'easeInOut',
           stiffness: 50,
         }}>
-        <nav
+        <div
           className={
             width < 468
               ? 'flex items-end w-full justify-center '
@@ -121,27 +123,7 @@ export default function ModalFilter({
             </Filter.ItemsMenu>
           </Filter.AlinItems>
           <Filter.BlockFilterItems>
-            {width > 468 ? (
-              <Filter.AlingBlock>
-                <Filter.InputSearch type="text" placeholder="Buscar" />
-                <Filter.FirtsItemFilter>
-                  <Filter.TextItemFilter>
-                    <Filter.ValueFilter>Tématica</Filter.ValueFilter>
-                  </Filter.TextItemFilter>
-                  <Filter.SecondItem>
-                    <FilterScroll setTopic={setTopic} />
-                  </Filter.SecondItem>
-                </Filter.FirtsItemFilter>
-                <Filter.BlockSecondFilter>
-                  <Filter.TextItemFilter>
-                    <Filter.ValueFilter>Fecha</Filter.ValueFilter>
-                  </Filter.TextItemFilter>
-                  <Filter.SecondItem>
-                    <CalendarPicker setDate={setDate} />
-                  </Filter.SecondItem>
-                </Filter.BlockSecondFilter>
-              </Filter.AlingBlock>
-            ) : (
+            {width < 570 ? (
               <Filter.SectionMobile>
                 <Filter.TitleFilter> Filtrar por</Filter.TitleFilter>
                 <Filter.BlockItemMobile>
@@ -169,9 +151,20 @@ export default function ModalFilter({
                   <CalendarPicker setDate={setDate} />
                 </Filter.BlockItemMobile>
               </Filter.SectionMobile>
+            ) : (
+              <ModulelFilter
+                setDate={setDate}
+                setTopic={setTopic}
+                setSearch={setSearch}
+              />
             )}
           </Filter.BlockFilterItems>
-        </nav>
+        </div>
+        <Filter.BlockSendButton>
+          <Filter.BtnSend type="submit" onClick={toggle}>
+            Buscar
+          </Filter.BtnSend>
+        </Filter.BlockSendButton>
       </Filter.SectionFilter>
     </>
   );

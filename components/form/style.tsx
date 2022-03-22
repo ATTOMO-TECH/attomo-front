@@ -43,7 +43,7 @@ export const CheckRadio = styled.input`
   }
   @media screen and (max-width: 468px) {
     &[type='radio'] {
-      width: 35px;
+      width: 25px;
       height: 25px;
     }
 
@@ -55,6 +55,38 @@ export const CheckRadio = styled.input`
 `;
 export const CheckCheck = styled.input`
   border-radius: 100%;
+  &[type='checkbox'] {
+    transition: 120ms transform ease-in-out;
+    appearance: none;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    border: 0.15em solid white;
+    margin-right: 10px;
+    padding: 2.8px;
+  }
+
+  &:checked {
+    padding: 2.8px;
+    content: url(/icon/isoAttomo.svg);
+    width: 25px;
+    height: 25px;
+    transition: 120ms transform ease-in-out;
+    border: 1px solid white;
+  }
+  @media screen and (max-width: 468px) {
+    &[type='checkbox'] {
+      width: 25px;
+      height: 25px;
+    }
+
+    &:checked {
+      width: 25px;
+      height: 25px;
+    }
+  }
+`;
+export const CheckCheckCondition = styled.input`
   &[type='checkbox'] {
     appearance: none;
     margin: 0;
@@ -80,38 +112,7 @@ export const CheckCheck = styled.input`
     }
 
     &:checked {
-      width: 30px;
-      height: 20px;
-    }
-  }
-`;
-export const CheckCheckCondition = styled.input`
-  &[type='checkbox'] {
-    appearance: none;
-    margin: 0;
-    width: 20px;
-    height: 20px;
-    border: 0.15em solid white;
-    margin-right: 10px;
-    padding: 2px;
-  }
-
-  &:checked {
-    padding: 2px;
-    content: url(/icon/isoAttomo.svg);
-    width: 20px;
-    height: 20px;
-    transition: 120ms transform ease-in-out;
-    border: 1px solid white;
-  }
-  @media screen and (max-width: 468px) {
-    &[type='checkbox'] {
-      width: 30px;
-      height: 20px;
-    }
-
-    &:checked {
-      width: 30px;
+      width: 20px;
       height: 20px;
     }
   }

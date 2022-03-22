@@ -140,7 +140,7 @@ function News() {
           </Blogstyles.BlockMore>
         </Blogstyles.SectionMore>
 
-        <Styles.CenterFlex>
+        <Styles.Center>
           {React.Children.toArray(
             translate.contact.map((values) => (
               <BlockSection
@@ -154,7 +154,7 @@ function News() {
               />
             )),
           )}
-        </Styles.CenterFlex>
+        </Styles.Center>
         <Footer subFooter={false} />
       </Styles.Body>
     </>

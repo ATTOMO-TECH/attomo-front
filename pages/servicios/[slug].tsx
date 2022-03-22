@@ -1,7 +1,11 @@
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { fadeInUp, stagger } from '../../components/animations/animations';
+import {
+  fadeInUp,
+  servicesAnimations,
+  stagger,
+} from '../../components/animations/animations';
 import BgComponent from '../../components/animations/bg';
 import BlockSection from '../../components/block/block';
 import ButtonShare from '../../components/button/BtnShare';
@@ -16,11 +20,13 @@ import { Styles } from '../../styles/styles';
 import { useUseAllServices } from '../../domain/useServices';
 import RenderLoading from '../../components/loading/loading';
 import { getLocale } from '../../public/locales/getLocale';
+import ArticlesScroll from '../../components/slider/article/slider';
 // import ArticlesScroll from '../../components/slider/article/slider';
 
 function DetailsServices() {
   const [isIdSubServices, SetIsIdSubServices] = useState<any>({});
   const [isOpenFilter, SetIsOpenFilter] = useState<boolean>(false);
+  const [shouldShowActions] = useState(false);
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const router = useRouter();
   const [menuId, setMenuId] = useState(null);
@@ -161,18 +167,35 @@ function DetailsServices() {
             </Styles.Center>
             <Styles.FlexEnd>
               <Styles.AlingBlock>
-                {/* <ArticlesScroll mode filter={data.data.attributes.sumary} /> */}
+                <ArticlesScroll mode filter={data.data?.attributes?.sumary} />
               </Styles.AlingBlock>
             </Styles.FlexEnd>
-
-            <BlockSection
-              text="¿Tienes un proyecto?"
-              button="Contacta con nosotros"
-              text2=""
-              button2=""
-              mode
-              link="/contacto"
-            />
+          </motion.div>
+          <motion.div
+            animate={shouldShowActions}
+            variants={servicesAnimations}
+            className="actions "
+            transition={{
+              delay: 0.2,
+              type: 'spring',
+              stiffness: 50,
+              duration: 2,
+            }}
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: '50%' }}>
+            <Styles.Center>
+              {translate.contact.map((values) => (
+                <BlockSection
+                  key={values.Link}
+                  text={values.Text}
+                  button={values.Link}
+                  text2=""
+                  button2=""
+                  mode
+                  link="/contacto"
+                />
+              ))}
+            </Styles.Center>
           </motion.div>
           <Footer subFooter={false} />
         </Styles.Body>

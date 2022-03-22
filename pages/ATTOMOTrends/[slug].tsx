@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { format } from 'date-fns';
 import { useRouter } from 'next/dist/client/router';
+import { motion } from 'framer-motion';
 import Footer from '../../components/footer/footer';
 import Menu from '../../components/nav/menu';
 import Nav from '../../components/nav/nav';
@@ -14,6 +15,7 @@ import BlockSection from '../../components/block/block';
 import { useAPost } from '../../domain/useBlogDetails';
 import RenderLoading from '../../components/loading/loading';
 import { getLocale } from '../../public/locales/getLocale';
+import { servicesAnimations } from '../../components/animations/animations';
 
 interface Props {
   mode: boolean;
@@ -21,6 +23,7 @@ interface Props {
 
 function New({ mode }: Props) {
   const translate = getLocale();
+  const [shouldShowActions] = useState(false);
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const router = useRouter();
   const { slug } = router.query;
@@ -70,19 +73,32 @@ function New({ mode }: Props) {
             {/* <ArticlesScroll mode={false} array={NEWS} /> */}
           </Styles.AlingBlock>
         </Styles.FlexEnd>
-        <Styles.Center>
-          <Styles.BreakLine />
-          <Styles.CenterFlex>
-            <BlockSection
-              text="¿Tienes un proyecto?"
-              button="Contacta con nosotros"
-              text2=""
-              button2=""
-              mode={false}
-              link="/contacto"
-            />
-          </Styles.CenterFlex>
-        </Styles.Center>
+        <motion.div
+          animate={shouldShowActions}
+          variants={servicesAnimations}
+          className="actions "
+          transition={{
+            delay: 0.2,
+            type: 'spring',
+            stiffness: 50,
+            duration: 2,
+          }}
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: '50%' }}>
+          <Styles.Center>
+            {translate.contact.map((values) => (
+              <BlockSection
+                key={values.Link}
+                text={values.Text}
+                button={values.Link}
+                text2=""
+                button2=""
+                mode
+                link="/contacto"
+              />
+            ))}
+          </Styles.Center>
+        </motion.div>
         <Footer subFooter={false} />
       </Styles.Body>
     </>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 import Footer from '../components/footer/footer';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
@@ -10,12 +11,15 @@ import { Styles } from '../styles/styles';
 import BlockSection from '../components/block/block';
 import SelectedClients from '../components/section/selectedclientes';
 // import Prices from '../components/section/price';
+import FormReserver from '../components/form/formReserver';
 import ButtonShare from '../components/button/BtnShare';
 import MapsBlock from '../components/maps/maps';
 import BgComponent from '../components/animations/bg';
 import { getLocale } from '../public/locales/getLocale';
+import { servicesAnimations } from '../components/animations/animations';
 
 function Space() {
+  const [shouldShowActions] = useState(false);
   const router = useRouter();
   let { locale } = router;
   if (locale === '/') {
@@ -75,16 +79,15 @@ function Space() {
         </Styles.Center>
         <Styles.Center id="reserva">
           {translate.formBooking.map((values) => (
-            <Styles.BlockDiv>
-              <Title size="lg:text-4xl md:text-3xl text-xl lg:pt-24 lg:pr-0 lg:pb-24 md:pb-12 pb-6 w-full md:pt-36  ">
+            <Styles.ContainerFull>
+              <Title size="lg:text-5xl text-3xl lg:pt-36 w-full text-center pt-20 leading-relaxed ">
                 {values.Text}
               </Title>
-              <Styles.FlexEnd>
-                <Subtext size=" md:text-lg lg:text-base lg:w-2/6  lg:text-left font-Secundary">
-                  {values.Subtext}
-                </Subtext>
-              </Styles.FlexEnd>
-            </Styles.BlockDiv>
+              <Title size="text-regular lg:pt-3 w-full text-center leading-relaxed pb-8">
+                {values.Subtext}
+              </Title>
+              <FormReserver />
+            </Styles.ContainerFull>
           ))}
         </Styles.Center>
         <Styles.Center>
@@ -100,19 +103,32 @@ function Space() {
             <MapsBlock />
           </Styles.BlockAddres>
         </Styles.Center>
-        <Styles.CenterFlex>
-          {translate.contact.map((values) => (
-            <BlockSection
-              key={values.Link}
-              text={values.Text}
-              button={values.Link}
-              text2=""
-              button2=""
-              mode
-              link="/contacto"
-            />
-          ))}
-        </Styles.CenterFlex>
+        <motion.div
+          animate={shouldShowActions}
+          variants={servicesAnimations}
+          className="actions"
+          transition={{
+            delay: 0.2,
+            type: 'spring',
+            stiffness: 50,
+            duration: 2,
+          }}
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: '50%' }}>
+          <Styles.Center>
+            {translate.contact.map((values) => (
+              <BlockSection
+                key={values.Link}
+                text={values.Text}
+                button={values.Link}
+                text2=""
+                button2=""
+                mode
+                link="/contacto"
+              />
+            ))}
+          </Styles.Center>
+        </motion.div>
         <Footer subFooter={false} />
       </Styles.Body>
     </>

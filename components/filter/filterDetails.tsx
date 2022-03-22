@@ -91,7 +91,7 @@ export default function FilterDetails({
                   initial={{ pathLength: 0 }}
                   animate={
                     isOpen
-                      ? { pathLength: 1, type: 'tween' }
+                      ? { pathLength: 1, type: 'spring' }
                       : { pathLength: 0, type: 'spring' }
                   }
                   transition={{ duration: 1, ease: 'easeInOut' }}
@@ -105,7 +105,7 @@ export default function FilterDetails({
                   initial={{ pathLength: 0 }}
                   animate={
                     isOpen
-                      ? { pathLength: 1, type: 'tween' }
+                      ? { pathLength: 1, type: 'spring' }
                       : { pathLength: 0, type: 'spring' }
                   }
                   transition={{ duration: 1, ease: 'easeInOut' }}
@@ -115,12 +115,12 @@ export default function FilterDetails({
           </Navegation.AlinItems>
           <div className="md:pt-24 lg:pt-48 flex  text-primary  m-auto h-full">
             <Styles.BlockFilter onClick={toggle}>
-              <Title size="lg:text-lg text-lg font-Primary font-light pl-8 ">
+              <Title size="lg:text-lg text-lg font-Primary font-light pl-8 z-1 ">
                 {translate.close}
               </Title>
             </Styles.BlockFilter>
 
-            <div className="w-10/12  flex flex-col items-center place-content-center pt-5">
+            <div className="w-9/12 m-auto flex flex-col items-center place-content-center pt-10 relative z-90">
               {data.data.map((tab: any) => (
                 <SubMenu
                   toggle={toggleFilter}

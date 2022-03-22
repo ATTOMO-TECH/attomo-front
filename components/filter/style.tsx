@@ -1,12 +1,20 @@
 import { Field } from 'formik';
 import { motion } from 'framer-motion';
+import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 import { BUTTON_ACTIVE } from '../../const/const';
 
 type Props = {
   ismode: string;
 };
-
+export const BtnSend = styled.button`
+  &:hover {
+    -webkit-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
+    -moz-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
+    opacity: 1;
+  }
+`;
 export const Filter = {
   RelativeSection: tw.section`relative`,
   SectionFilter: tw(motion.div)<Props>`
@@ -41,4 +49,8 @@ export const Filter = {
   BlockItemMobile: tw.div`py-10`,
   BlockItemMed: tw.div``,
   SubTextMobile: tw.h6`text-white text-left`,
+  BlockSendButton: tw.div`flex justify-center pt-6`,
+  BtnSend: tw(
+    BtnSend,
+  )` ease-out inline-flex justify-center w-3/6 lg:w-3/12 duration-200 text-primary border-2 border-primary text-left lg:text-sm py-2 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none mr-5 `,
 };

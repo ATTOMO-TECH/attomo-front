@@ -77,6 +77,7 @@ export const Navegation = {
 };
 export const Styles = {
   BlockFilter: tw.div`w-1/12 text-center transform -rotate-90  flex absolute left-0 bottom-40 sm:left-10 lg:bottom-96 sm:bottom-72 z-100 lg:z-0 `,
+  BlockFilterAling: tw.div`w-full text-center flex justify-center absolute -bottom-48 z-100`,
   TextFilter: tw.h6`text-primary text-xs font-PrimarySerif font-thin w-24 absolute lg:right-10 sm:right-24 right-12 opacity-50`,
   FlexFilter: tw.div`flex`,
   FirtsItem: tw(
