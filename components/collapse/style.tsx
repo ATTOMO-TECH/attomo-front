@@ -5,6 +5,7 @@ import { BUTTON_ACTIVE } from '../../const/const';
 type Props = {
   ismode: any;
 };
+// TITLE TEXT
 export const SectionTitle = styled.div`
   &:nth-child(1) {
     padding-top: 0%;
@@ -18,44 +19,79 @@ export const SectionTitle = styled.div`
   @media screen and (min-width: 1024px) {
      {
       &:nth-child(1) {
-        padding-left: 20%;
+        padding-left: 25%;
       }
       &:nth-child(2) {
-        padding-left: 45%;
+        padding-left: 55%;
       }
       &:nth-child(3) {
-        padding-left: 55%;
+        padding-left: 75%;
       }
     }
   }
 `;
+// SUBTEXT
 export const SubSection = styled.div`
+background-color:black; 
 @media screen and (min-width: 1024px) {
 
    {
     &:nth-child(1) {
-      padding-right: 74%;
+      padding:3px;
+      margin-right: 74%;
     
     }
     &:nth-child(2) {
-      padding-right: 73%;
+      padding:3px;
+      margin-right: 73%;
     }
     &:nth-child(3) {
-      padding-right: 72%;
+      padding:3px;
+      margin-right: 72%;
     }
     &:nth-child(4) {
-      padding-right: 71%;
+      padding:3px;
+      margin-right: 71%;
     }
     &:nth-child(5) {
-      padding-right: 70%;
+      padding:3px;
+      margin-right: 70%;
     }
     &:nth-child(6) {
-      padding-right: 69%;
+      padding:3px;
+      margin-right: 69%;
     }
   }
 `;
-
+// ATTOMO MOVE
 export const Item = styled.div<Props>`
+  &:after {
+    content: url('/icon/elips.svg');
+    transform: scale(1) rotate(8deg);
+    position: fixed;
+    top: -2%;
+    left: 42%;
+    z-index: 100 !important;
+    -webkit-animation-duration: 4000ms;
+
+    @media screen and (max-width: 420px) {
+      top: -4%;
+      left: 36%;
+      transform: scale(0.6) rotate(16deg);
+    }
+    @media screen and (min-width: 780px) {
+      top: -1%;
+      left: 50%;
+      transform: scale(0.8) rotate(18deg);
+    }
+    @media screen and (min-width: 1024px) {
+      left: 51%;
+      top: -16%;
+    }
+  }
+
+  border-radius: 100%;
+  background-color: black;
   transition-duration: 0.4s;
   transition-property: transform;
   ${(props) =>
@@ -64,34 +100,52 @@ export const Item = styled.div<Props>`
 @media screen and (min-width: 1024px) 
 {
   {transform: rotate(40deg)}
-}; transform: rotate(-50deg)`
+};
+@media screen and (min-width: 468px) 
+{
+  transform: rotate(-55deg);
+  top: -0%;
+    left: %;
+
+};
+transform: rotate(-56deg)`
       : ''}
   ${(props) =>
     props.ismode === 1
       ? `
+
   @media screen and (min-width: 1024px) 
   {
     {transform: rotate(55deg)}
-  }; transform: rotate(-12deg)`
+  };
+  @media screen and (min-width: 468px) 
+  {
+    {transform: rotate(-12deg)}
+  };
+  transform: rotate(-15deg)`
       : ''}
     ${(props) =>
     props.ismode === 2
       ? `
     @media screen and (min-width: 1024px) 
     {
-      {transform: rotate(72deg)}
-    }; transform: rotate(26deg)`
+      
+    }
+      @media screen and (min-width: 468px) 
+  {
+    {transform: rotate(30deg)}
+  }; transform: rotate(26deg)`
       : ''}
 `;
 
 export const ItemSection = styled.div`
-  width: 40px;
+  width: 4px;
   height: 8px;
   border-radius: 80% 80% 40% 40%;
   position: absolute;
-  top: -10px;
+  top: 0px;
   left: 48%;
-  z-index: 90 !important;
+  z-index: 100 !important;
   -webkit-animation-duration: 4000ms;
   &:before {
     content: url('/icon/elementElipse.svg');
@@ -101,45 +155,20 @@ export const ItemSection = styled.div`
     left: 48%;
     width: 20px;
     height: 8px;
-    transform: scale(0.6) rotate(-38deg);
+    transform: scale(1) rotate(-38deg);
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (max-width: 768px) {
     top: -14px;
     left: 52%;
+    transform: scale(0.6) rotate(-38deg);
   }
   @media screen and (min-width: 1024px) {
-    left: 51%;
-    top: -10px;
+    left: 50%;
+    top: -8px;
   }
-  transform: rotate(-38deg);
+  transform: rotate(-39deg);
 `;
 
-export const Imgen = styled.img<Props>`
-  ${(props) =>
-    props.ismode === 0
-      ? `
-@media screen and (min-width: 1024px) 
-{
-  {transform: rotate(-30deg)}
-}; transform: rotate(-15deg);`
-      : ''}
-  ${(props) =>
-    props.ismode === 1
-      ? `
-  @media screen and (min-width: 1024px) 
-  {
-    {transform: rotate(-60deg)}
-  }; transform: rotate(-50deg);`
-      : ''}
-  ${(props) =>
-    props.ismode === 2
-      ? `
-  @media screen and (min-width: 1024px) 
-  {
-    {transform: rotate(-75deg)}
-  }; transform: rotate(-80deg);`
-      : ''}
-`;
 export const TextTitle = styled.h2`
   background: linear-gradient(
     to right,
@@ -158,8 +187,7 @@ export const TextTitle = styled.h2`
 export const Circle = styled.div`
   &:before {
     content: '';
-    border: 1px solid white;
- 
+    border: 2px solid rgba(255, 255, 255, 0.2);
     width: 100%;
     height: 100%;
     position: absolute;
@@ -180,29 +208,43 @@ export const Circle = styled.div`
     }
   }
 `;
-
+export const CircleInter = styled.div`
+  border: 6px solid white;
+  width: 70%;
+  height: 70%;
+  @media screen and (min-width: 1024px) {
+    transform: rotate(0);
+  }
+  transform: rotate(70deg);
+`;
+export const AlingBlock = styled.div`
+  @media screen and (max-width: 320px) {
+    bottom: -2%;
+  }
+`;
 export const Styles = {
-  SectionCollapse: tw.section`h-screen w-full relative z-80 lg:h-auto font-PrimarySerif flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative md:my-24 mb-24 px-1 font-light leading-loose`,
-  BlockDescription: tw.div`lg:text-right text-xl lg:absolute bottom-24 lg:-right-4 w-full text-center z-10`,
+  SectionCollapse: tw.section`h-screen w-full relative z-80 lg:h-auto font-PrimarySerif flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative md:my-24 mb-24  font-light leading-loose`,
+  BlockDescription: tw(
+    AlingBlock,
+  )`lg:text-right text-xl absolute bottom-20 lg:bottom-24 lg:-right-4 w-full text-center z-10`,
   SubSection: tw(SubSection)`font-regular text-base cursor-pointer z-80`,
-  BlockImg: tw.div`relative lg:overflow-hidden `,
-  SectionAtom: tw(
-    Item,
-  )`lg:animate-pulse transition ease-in-out delay-150 relative `,
+  BlockImg: tw.div`relative flex justify-center items-center `,
+  SectionAtom: tw(Item)` transition ease-in-out delay-150 relative `,
   BlockAtom: tw.div`absolute `,
   Atom: tw(ItemSection)``,
-  Image: tw(Imgen)``,
   BlockTextSelect: tw(
     SectionTitle,
-  )`lg:text-2xl  block z-100 lg:absolute  bottom-2 lg:bottom-2  lg:top-7 flex lg:block lg:w-1/3 w-full h-1/3`,
-  BlockSectionTitle: tw.div`w-auto z-0 `,
+  )`lg:text-2xl text-sm block z-100 lg:absolute  bottom-2 lg:bottom-2 lg:top-7 flex lg:block lg:w-1/3 w-full h-1/3`,
+  BlockSectionTitle: tw.div`w-full lg:w-auto z-0 `,
   TextSelect: tw(
     SectionTitle,
-  )<Props>`py-7 md:mb-6 sm:mb-0 w-full opacity-40 hover:opacity-100 sm:px-5 px-3 order-last block transition ease-in duration-300 cursor-pointer z-70
+  )<Props>`py-7 md:mb-6 sm:mb-0 w-full opacity-40 hover:opacity-100 sm:px-5 px-3 order-last block text-center transition ease-in duration-300 cursor-pointer z-70  font-Primary
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : '')}`,
-  TextCentral: tw(TextTitle)` w-4/6 text-center lg:text-lg text-sm `,
+  TextCentral: tw(TextTitle)` w-4/6 text-center lg:text-lg text-xs `,
   Circle: tw(
     Circle,
-  )`  bg-circle bg-no-repeat absolute bg-center bg-contain m-auto -top-2 md:-top-2 lg:top-0 right-0 rounded-full lg:-right-0 md:right-0 `,
-  BlockTextCenter: tw.div`z-10 border-4 border-white w-5/6 h-5/6 absolute  md:top-6 md:right-8 lg:top-10 lg:right-8 right-6 top-6 rounded-full flex justify-center items-center animate-pulse `,
+  )`  absolute  m-auto  -top-2 md:-top-2 lg:top-0 right-0 rounded-full lg:-right-0 md:right-0 flex items-center justify-center`,
+  BlockTextCenter: tw(
+    CircleInter,
+  )`z-10 rounded-full flex items-center justify-center items-center animate-pulse `,
 };
