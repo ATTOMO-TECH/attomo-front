@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import IconAnimate from '../button/icon';
-import Subtext from '../Text/subText';
+import { SubSections } from '../subsection/style';
 import Title from '../Text/title';
 import { Styles } from './style';
 
@@ -20,8 +20,8 @@ export default function SelectedClients({
   return (
     <>
       <Styles.BlockMargin>
-        <Styles.DivideSection>
-          <Title size="lg:text-6xl md:text-5xl text-4xl md:ml-6 pt-12 md:pt-0">
+        {/* < <Styles.DivideSection>
+          <Title size="text-2xl md:text-3xl lg:text-4xl font-light md:ml-6 pt-12 md:pt-0 text-center ">
             {textPrimary}
           </Title>
         </Styles.DivideSection>
@@ -39,6 +39,25 @@ export default function SelectedClients({
           ) : (
             ''
           )}
+        </Styles.DivideSection> */}
+
+        <Styles.DivideSection>
+          <SubSections.BlockCounter>
+            <Title size="text-2xl md:text-3xl lg:text-4xl font-light lg:w-3/6">
+              {textPrimary}
+            </Title>
+          </SubSections.BlockCounter>
+
+          <SubSections.TextSubsectionSelected>
+            <div className="lg:w-4/6  w-full">
+              <SubSections.Paragraph> {text}</SubSections.Paragraph>
+              <Link href={`${link}`}>
+                <div>
+                  <IconAnimate text={btn} mode />
+                </div>
+              </Link>
+            </div>
+          </SubSections.TextSubsectionSelected>
         </Styles.DivideSection>
       </Styles.BlockMargin>
     </>

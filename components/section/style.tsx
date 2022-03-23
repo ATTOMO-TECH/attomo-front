@@ -52,9 +52,9 @@ ${(props) =>
     ? 'md:px-20 sm:px-5 lg:w-3/6 px-12 py-16 lg:absolute lg:-bottom-32 lg:left-0 '
     : ''}`,
   OnlyProjectBlock: tw.div`md:px-24 sm:px-5 lg:w-3/6 w-10/12 md:px-12 py-16  lg:py-0 lg:absolute lg:-bottom-10 lg:right-0 `,
-  BlockMargin: tw.div`lg:py-48 flex flex-col lg:flex-row w-full`,
-  BlockMarginText: tw.div`pt-12`,
-  DivideSection: tw.div`lg:w-3/6 w-full pb-2`,
+  BlockMargin: tw.div`lg:py-48 flex flex-col lg:flex-row w-full justify-justify-around`,
+  BlockMarginText: tw.div`lg:pt-12`,
+  DivideSection: tw.div`h-full flex items-start lg:justify-around flex-col lg:flex-row justify-center w-full`,
   BlockBtn: tw.div`text-primary z-100`,
 
   SectionImg: tw.section`grid grid-cols-1 sm:grid-cols-2 lg:gap-6 `,

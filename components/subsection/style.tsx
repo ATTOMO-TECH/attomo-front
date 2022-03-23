@@ -14,11 +14,12 @@ export const TextHero = styled.h2`
 
 export const SubSections = {
   TextHead: tw(TextHero)`lg:py-48 lg:pr-72 text-4xl font-thin`,
-  Subsection: tw.section`h-full flex justify-center flex-col-reverse lg:flex-row`,
-  BlockCounter: tw.div`lg:w-3/6 w-full flex justify-center`,
+  Subsection: tw.section`h-full flex justify-around flex-col-reverse lg:flex-row`,
+  BlockCounter: tw.div`lg:w-3/6 w-full flex lg:justify-center`,
   TextSubsection: tw.div`text-primary lg:w-6/12 w-10/12 m-auto`,
+  TextSubsectionSelected: tw.div`text-primary lg:w-6/12 w-10/12 lg:m-auto`,
   Paragraph: tw(
     TextHero,
-  )`lg:text-sm sm:text-lg text-sm lg:font-thin font-regular lg:font-PrimarySerif font-Secundary pt-5 tracking-wide leadi ng-loose`,
+  )`lg:text-sm sm:text-lg text-sm lg:font-thin font-regular lg:font-PrimarySerif font-Secundary  tracking-wide leadiang-loose`,
   SectionCounter: tw.div`lg:w-64 p-12 lg:p-0  font-Secundary flex justify-center items-center`,
 };

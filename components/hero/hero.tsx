@@ -64,7 +64,6 @@ export default function Hero({ text, text2, button, link }: Props) {
             {line1} {line2}
           </HeadSection.TextHead>
         </motion.div>
-
         <HeadSection.Blockbutton className={button === '' ? 'hidden' : ''}>
           <Link href={`#${link}`}>
             <HeadSection.TextButton>{button}</HeadSection.TextButton>

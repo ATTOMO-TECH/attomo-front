@@ -74,11 +74,7 @@ export default function SectionProjects({
                   </Title>
                   <Link href={`/casos/${values.id}`}>
                     <Styles.BlockBtn>
-                      <IconAnimate
-                        text={translate.seeMoreProject}
-                        mode
-                        styleText="text-lg"
-                      />
+                      <IconAnimate text={translate.seeMoreProject} mode />
                     </Styles.BlockBtn>
                   </Link>
                 </motion.div>

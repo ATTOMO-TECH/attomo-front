@@ -9,8 +9,8 @@ export const TextHero = styled.h2`
   background: linear-gradient(
     90deg,
     #b4a9bc 0%,
-    #ffffff 30.79%,
-    #ffffff 50.3%,
+    #ffffff 10.79%,
+    #ffffff 70.3%,
     #b4a9bc 100%
   );
   -webkit-text-fill-color: transparent;
@@ -40,10 +40,17 @@ export const Select = styled.select`
 export const Block = styled.section`
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    240deg,
+    rgba(2, 0, 36, 0) 0%,
+    rgba(17, 24, 39, 0.7441570378151261) 50%,
+    rgba(17, 24, 39, 1) 100%
+  );
 `;
 
 export const HeadSection = {
-  TextHead: tw(TextHero)` lg:pr-10 lg:text-4xl md:text-3xl pb-2 `,
+  TextHead: tw(TextHero)` lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl`,
   SectionHero: tw.section`font-Primary`,
   Blockbutton: tw.div`relative cursor-pointer`,
   TextButton: tw.h6`text-primary text-xs sm:text-lg lg:text-lg pt-10`,
@@ -54,7 +61,7 @@ export const HeadSection = {
 
   SectionHeroFooter: tw(
     Block,
-  )`h-auto lg:h-96 text-primary lg:rounded-3xl font-Primary lg:border border-primary  lg:my-24 bg-gradient-to-b lg:from-gray-900 from-gray-700 border-opacity-10 flex justify-center items-center`,
-  TextHeroFooter: tw.h5`text-xl md:text-4xl lg:p-44 px-4 py-24 font-light leading-relaxed lg:leading-normal`,
+  )`h-auto lg:h-96 text-primary lg:rounded-3xl font-Primary lg:border border-primary  lg:my-24  lg:from-gray-900 from-gray-700 border-opacity-10 flex justify-center items-center`,
+  TextHeroFooter: tw.h5`text-2xl md:text-4xl lg:p-44 px-4 py-24 font-light leading-relaxed lg:leading-normal`,
   SectionCase: tw.section`flex justify-end items-center relative lg:pt-36 `,
 };

@@ -87,7 +87,7 @@ function Home() {
         <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
           <Menu isOpen={isOpen} toggle={toggle} logo={false} mode />
           <Styles.Margin>
-            <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
+            <Nav toggle={toggle} logo={false} bgFull mode isOpen={isOpen} />
           </Styles.Margin>
           <ButtonShare />
           <Styles.Center>
@@ -120,28 +120,26 @@ function Home() {
               </motion.div>
             </Styles.BlockSelected>
             <Styles.Center>
-              <Styles.BlockSelected>
-                <motion.div
-                  animate={shouldShowActions}
-                  variants={servicesAnimations}
-                  className="actions"
-                  transition={{
-                    type: 'magic',
-                    stiffness: 100,
-                    duration: 0.5,
-                  }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  initial={{ opacity: 0, y: '50%' }}>
-                  {translate.selected.map((values) => (
-                    <SelectedClients
-                      textPrimary={values.Section}
-                      text={values.Title}
-                      btn={values.Button}
-                      link="/casosdeexito"
-                    />
-                  ))}
-                </motion.div>
-              </Styles.BlockSelected>
+              <motion.div
+                animate={shouldShowActions}
+                variants={servicesAnimations}
+                className="actions"
+                transition={{
+                  type: 'magic',
+                  stiffness: 100,
+                  duration: 0.5,
+                }}
+                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: '50%' }}>
+                {translate.selected.map((values) => (
+                  <SelectedClients
+                    textPrimary={values.Section}
+                    text={values.Title}
+                    btn={values.Button}
+                    link="/casosdeexito"
+                  />
+                ))}
+              </motion.div>
             </Styles.Center>
           </Styles.SectionScreen>
           <Styles.BlockSlider>
