@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
 import * as qs from 'qs';
+import { equals } from 'ramda';
 import { useEffect, useState } from 'react';
 import { Styles } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -18,6 +19,7 @@ import { getLocale } from '../../public/locales/getLocale';
 export default function FormColaborator() {
   const translate = getLocale();
   const [query, setQuery] = useState('');
+  const [area, setArea] = useState<any>([]);
   const [filter, setFilter] = useState('team');
   const { data, isLoading } = useUseAllPartner(query);
   const queryQs = qs.stringify(
@@ -67,7 +69,7 @@ export default function FormColaborator() {
       [FORMVALUES.COMPANY]: values.valueCompany,
       [FORMVALUES.MESSAGE]: values.message,
       [FORMVALUES.PARTOF]: values.partOf,
-      [FORMVALUES.SPECIALITY]: values.speciality,
+      [FORMVALUES.SPECIALITY]: area,
       [FORMVALUES.CONDITIONS]: values.conditionsAccepted,
     };
     mutate(
@@ -82,6 +84,13 @@ export default function FormColaborator() {
       },
     );
   };
+  const addLocation = (newArea: any) => {
+    const areaFind = area.find((areas: any) => equals(area, areas));
+    if (!areaFind) {
+      setArea([...area, newArea]);
+    }
+  };
+
   if (isLoading) {
     return <></>;
   }
@@ -106,7 +115,7 @@ export default function FormColaborator() {
                       text={valuesCheck.text}
                       value={valuesCheck.value}
                       onChange={(e: any) => {
-                        setFieldValue(valuepartOf, e);
+                        setFieldValue(FORMVALUES.PARTOF, e);
                         setFilter(e);
                       }}
                     />
@@ -122,12 +131,9 @@ export default function FormColaborator() {
                     key={`check-${valuesCheck.attributes.area}`}>
                     <InputCheck
                       text={valuesCheck.attributes.area}
-                      value={FORMVALUES.SPECIALITY}
+                      value={valuesCheck.attributes.area}
                       onChange={() => {
-                        setFieldValue(
-                          FORMVALUES.SPECIALITY,
-                          valuesCheck.attributes.area,
-                        );
+                        addLocation(valuesCheck.attributes.area);
                       }}
                     />
                   </Styles.AlingSelectSecond>
@@ -249,7 +255,6 @@ export default function FormColaborator() {
                   )}
                 </Styles.BlockSectionMarginTop>
               </Styles.SingleInput>
-
               <InputCheckcondition
                 color="text-primary text-xs pt-6"
                 value={FORMVALUES.CONDITIONS}

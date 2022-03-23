@@ -20,10 +20,11 @@ export default function SectionProjects({
 }: Props) {
   const [isData] = useState(Array);
   const translate = getLocale();
+
   return (
     <>
       <Styles.SectionProjects>
-        {isData.map((values: any, i) => (
+        {isData?.map((values: any, i) => (
           <motion.div
             animate={shouldShowActions}
             variants={servicesAnimations}
@@ -31,7 +32,6 @@ export default function SectionProjects({
             transition={{
               delay: 0.2,
               type: 'tween',
-
               duration: 1,
             }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -43,7 +43,7 @@ export default function SectionProjects({
                 ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
                 {values?.attributes?.mainPhoto?.data[0].attributes?.url && (
                   <img
-                    src={values.attributes.mainPhoto.data[0].attributes.url}
+                    src={values?.attributes.mainPhoto.data[0].attributes.url}
                     width={800}
                     height={600}
                     alt={values.attributes.name}

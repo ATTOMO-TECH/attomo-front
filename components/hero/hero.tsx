@@ -43,7 +43,7 @@ export default function Hero({ text, text2, button, link }: Props) {
     },
     visible: {
       opacity: 1,
-      height: 100,
+      height: 60,
       pathLength: 100,
       transition: {
         duration: 2,

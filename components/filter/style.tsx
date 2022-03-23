@@ -1,20 +1,28 @@
 import { Field } from 'formik';
 import { motion } from 'framer-motion';
+import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 import { BUTTON_ACTIVE } from '../../const/const';
 
 type Props = {
   ismode: string;
 };
-
+export const BtnSend = styled.button`
+  &:hover {
+    -webkit-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
+    -moz-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
+    opacity: 1;
+  }
+`;
 export const Filter = {
   RelativeSection: tw.section`relative`,
   SectionFilter: tw(motion.div)<Props>`
-  h-screen overflow-hidden  bg-black overflow-y-visible w-full 
+  bg-black
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
-      ? 'opacity-1 z-100 '
-      : 'opacity-0  hidden'}`,
+      ? 'opacity-1 z-100 h-screen flex flex-col    w-full'
+      : 'opacity-0 hidden'}`,
 
   AlinItems: tw.ul<Props>`
   flex items-center fixed z-100 justify-between w-11/12 m-auto md:mt-0 md:w-10/12 md:absolute lg:left-24 md:left-12 left-4 top-2 md:top-6
@@ -41,4 +49,8 @@ export const Filter = {
   BlockItemMobile: tw.div`py-10`,
   BlockItemMed: tw.div``,
   SubTextMobile: tw.h6`text-white text-left`,
+  BlockSendButton: tw.div`flex justify-center pt-6`,
+  BtnSend: tw(
+    BtnSend,
+  )` ease-out inline-flex justify-center w-3/6 lg:w-3/12 duration-200 text-primary border-2 border-primary text-left lg:text-sm py-2 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none mr-5 `,
 };

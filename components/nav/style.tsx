@@ -18,6 +18,12 @@ export const darkTheme = {
 export const SectionColor = styled(motion.nav)`
   color: ${(props) => props.theme.headings};
   background-color: ${(props) => props.theme.bodyBg};
+  top: -2px;
+  z-index: 100 !important;
+`;
+export const Section = styled(motion.nav)`
+  color: ${(props) => props.theme.headings};
+  background-color: ${(props) => props.theme.bodyBg};
   z-index: 100 !important;
 `;
 export const itemMenu = styled.h6`
@@ -30,7 +36,7 @@ export const itemMenu = styled.h6`
 `;
 export const Logo = styled.div`
   &:after {
-    content: url('/icon/after.svg');
+    // content: url('/icon/after.svg');
     position: absolute;
     margin: auto;
     right: 1em;
@@ -42,7 +48,6 @@ export const Logo = styled.div`
     position: absolute;
     margin: auto;
     transition: all 1s ease-in;
-
     border-radius: 100%;
   }
 `;
@@ -66,10 +71,60 @@ export const LogoInvert = styled.div`
     border-radius: 100%;
   }
 `;
+
+const pathVariants = {
+  hidden: {
+    opacity: 0,
+    pathLength: 0,
+  },
+  visible: {
+    opacity: 1,
+    pathLength: 1,
+  },
+};
+
+export const IconStyled = styled(motion.svg)`
+  transition: all 0.5s ease-in;
+  &:hover {
+    transform: scale(1.2);
+    opacity: 0.4;
+    background-color: white;
+    border-radius: 100%;
+
+    transition: all 1s ease-in-out;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+  }
+  &:after {
+    content: url('/icon/after.svg');
+    position: absolute;
+    margin: auto;
+    right: 1em;
+    top: 0.4em;
+    transition: all 1s ease-in-out;
+    filter: invert(1);
+    border-radius: 100%;
+  }
+  width: 30px;
+  height: 30px;
+  overflow: visible;
+  fill: none;
+  stroke: #fff;
+  position: relative;
+  stroke-width: 10px;
+  border-radius: 100%;
+`;
+
+export const IconPathStyled = styled(motion.path).attrs(() => ({
+  initial: 'hidden',
+  variants: pathVariants,
+  animate: 'visible',
+}))``;
+
 export const Navegation = {
-  MenuRelative: tw.div`relative`,
-  SectionMenu: tw(SectionColor)<Props>`
-  lg:transition ease-in-out  fixed overflow-y-scroll 
+  MenuRelative: tw.div`relative `,
+  SectionMenu: tw(Section)<Props>`
+  lg:transition ease-in-out   fixed overflow-y-scroll 
     ${(props) =>
       props.ismode === BUTTON_ACTIVE.ON
         ? `cursor-pointer h-screen w-full overflow-hidden z-100 opacity-100  `
@@ -95,10 +150,10 @@ export const Navegation = {
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`
-font-Primary cursor-pointer list-none fixed w-full duration-300 ease-in-out delay-700 
+font-Primary cursor-pointer list-none fixed w-full duration-300 ease-in-out  top-0 h-14 md:h-20 lg:14
 ${(props) =>
   props.ismode === BUTTON_ACTIVE.ON
-    ? 'duration-300 ease-in-out h-14 lg:h-20  sm:mb-10 '
+    ? 'duration-300 ease-in-out lg:h-20 sm:mb-10 '
     : ''}
 `,
   BlockLenguage: tw.div`flex  items-end `,

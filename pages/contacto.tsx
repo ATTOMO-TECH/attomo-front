@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Head from 'next/head';
 import Footer from '../components/footer/footer';
 import RenderForm from '../components/form/renderForm';
 import Menu from '../components/nav/menu';
@@ -21,6 +22,9 @@ function Contact() {
   const translate = getLocale();
   return (
     <>
+      <Head>
+        <title>Contacto - ATTOMO ESTUDIO</title>
+      </Head>
       <BgComponent />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
@@ -37,10 +41,11 @@ function Contact() {
         <Styles.Center>
           <Title size="text-2xl  lg:pr-10 "> {translate.whereUs}</Title>
           <Styles.BlockAddresMap>
-            <Subtext size="lg:text-sm text-sm w-full pb-10 font-PrimarySerif">
+            <Subtext size="text-regular w-full leading-loose font-Secundary w-full pb-10 ">
               Calle del Monte Esquinza, 8-Bajo Izquierda <br />
               28010 Madrid
             </Subtext>
+
             <MapsBlock />
           </Styles.BlockAddresMap>
         </Styles.Center>

@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
@@ -9,7 +8,7 @@ import { FORMVALUES } from '../../hook/types';
 import { useCreateSubscriber } from '../../domain/useSubscriber';
 
 const registerSchema = Yup.object().shape({
-  newsletter: Yup.string()
+  [FORMVALUES.EMAIL]: Yup.string()
     .email('Email no valido')
     .required('Email es requerido'),
 });
@@ -74,7 +73,7 @@ export default function InputNew() {
                     inputMail.length > 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF
                   }
                   type="submit">
-                  <Image
+                  <img
                     src="/icon/send_.svg"
                     width={30}
                     height={10}

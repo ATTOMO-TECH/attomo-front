@@ -44,6 +44,7 @@ export const Sticky2Styled = styled.div`
         height: 300px;
       }
     }
+
     .heading {
       position: absolute;
       height: 100%;
@@ -76,6 +77,9 @@ export const ContainerLegal = styled(ReactMarkdown)`
     padding-top: 2%;
     font-size: 2em;
     font-weight: 400;
+  }
+  li {
+    margin: 10px;
   }
   h2 {
   }
@@ -120,7 +124,7 @@ export const Styles = {
   BlockRenderDetails: tw.div`lg:flex flex-col pt-10 hidden relative`,
   BlockFilter: tw.div`w-auto m-auto text-center transform -rotate-90 z-80 -left-4 sm:left-0 md:left-4 top-56 absolute lg:hidden opacity-60 hover:opacity-90  duration-100 ease-in cursor-pointer`,
   AlingCases: tw.section`w-11/12 ml-auto py-24`,
-  AlingCasesNoP: tw.section`w-11/12 ml-auto pb-24 pt-6 md:pt-0`,
+  AlingCasesNoP: tw.section`lg:w-11/12 ml-auto pb-24 pt-6 md:pt-0`,
   CenterFull: tw.section`w-full  lg:w-10/12 m-auto`,
   CenterFlex: tw.section`lg:w-10/12 m-auto flex overflow-hidden`,
   ContainerFull: tw.div`w-full`,

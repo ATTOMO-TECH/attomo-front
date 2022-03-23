@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import IconAnimate from '../button/icon';
+import Subtext from '../Text/subText';
 import Title from '../Text/title';
 import { Styles } from './style';
 
@@ -25,7 +26,10 @@ export default function SelectedClients({
           </Title>
         </Styles.DivideSection>
         <Styles.DivideSection>
-          <Styles.Paragraph>{text}</Styles.Paragraph>
+          <Subtext size="text-regular w-full leading-loose font-Secundary ">
+            {text}
+          </Subtext>
+
           {btn !== '' ? (
             <Link href={`${link}`}>
               <Styles.BlockMarginText>

@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-use-before-define
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as qs from 'qs';
+import Head from 'next/head';
 import BgComponent from '../components/animations/bg';
 import BlockSection from '../components/block/block';
 import BlockBlog from '../components/blog/blog';
@@ -38,7 +39,7 @@ function News() {
     setPage(value);
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     let queryObject: any = {
       pagination: {
         page,
@@ -87,6 +88,9 @@ function News() {
 
   return (
     <>
+      <Head>
+        <title>ATTOMO TRENDS - ATTOMO ESTUDIO</title>
+      </Head>
       <BgComponent />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
@@ -140,7 +144,7 @@ function News() {
           </Blogstyles.BlockMore>
         </Blogstyles.SectionMore>
 
-        <Styles.CenterFlex>
+        <Styles.Center>
           {React.Children.toArray(
             translate.contact.map((values) => (
               <BlockSection
@@ -154,7 +158,7 @@ function News() {
               />
             )),
           )}
-        </Styles.CenterFlex>
+        </Styles.Center>
         <Footer subFooter={false} />
       </Styles.Body>
     </>

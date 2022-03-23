@@ -67,7 +67,7 @@ function Carrers() {
                     {value.Text}
                   </Title>
                   <Styles.FlexEnd>
-                    <Subtext size=" md:text-lg lg:text-base lg:w-2/6  lg:text-left font-Secundary">
+                    <Subtext size="text-regular w-full leading-loose font-Secundary lg:w-2/6  ">
                       {value.Subtext}
                     </Subtext>
                   </Styles.FlexEnd>
@@ -93,7 +93,6 @@ function Carrers() {
             </Link>
           </Styles.CenterMargin>
         ))}
-
         <motion.div
           animate={shouldShowActions}
           variants={servicesAnimations}

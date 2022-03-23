@@ -1,7 +1,6 @@
 import { Formik } from 'formik';
 import { useState } from 'react';
 import { Styles } from './style';
-import IconAnimate from '../button/icon';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { FORMVALUES } from '../../hook/types';
 import InputSelect from './select';
@@ -25,7 +24,6 @@ export default function FormReserver() {
   const valuePhone = FORMVALUES.PHONE;
   const valueEmail = FORMVALUES.EMAIL;
   const valueCompany = FORMVALUES.COMPANY;
-  const valueMessage = FORMVALUES.MESSAGE;
   const check = FORMVALUES.CONDITIONS;
 
   const initialValues = {
@@ -36,31 +34,33 @@ export default function FormReserver() {
     [valueEmail]: '',
     [valueDate]: '',
     [valueTime]: selected,
-    [valueMessage]: '',
     [FORMVALUES.CONDITIONS]: false,
   };
 
   const { mutate } = createContact();
-  const handleSubmitReserve = (data: any, action: any) => {
-    const contact = {
-      [FORMVALUES.FIRSTNAME]: data.valueName,
-      [FORMVALUES.LASTNAME]: data.valueLastName,
-      [FORMVALUES.PHONE]: data.valuePhone,
-      [FORMVALUES.EMAIL]: data.valueEmail,
-      [FORMVALUES.COMPANY]: data.valueCompany,
-      [FORMVALUES.MESSAGE]: data.valueMessage,
-      [FORMVALUES.CONDITIONS]: data.conditions,
-      [FORMVALUES.DATE]: data.date,
+  const handleSubmitReserve = (dataValues: any, action: any) => {
+    const data = {
+      [FORMVALUES.FIRSTNAME]: dataValues.firstname,
+      [FORMVALUES.LASTNAME]: dataValues.lastname,
+      [FORMVALUES.PHONE]: dataValues.mobile,
+      [FORMVALUES.EMAIL]: dataValues.email,
+      [FORMVALUES.COMPANY]: dataValues.company,
+      [FORMVALUES.CONDITIONS]: dataValues.conditionsAccepted,
+      [FORMVALUES.DATE]: dataValues.date,
       [FORMVALUES.TIME]: selected,
     };
-    mutate(contact, {
-      onSuccess: () => {
-        action.resetForm();
+
+    mutate(
+      { data },
+      {
+        onSuccess: () => {
+          action.resetForm();
+        },
+        onError: () => {
+          action.resetForm();
+        },
       },
-      onError: () => {
-        action.resetForm();
-      },
-    });
+    );
   };
 
   return (
@@ -162,9 +162,11 @@ export default function FormReserver() {
               {touched.check && errors.check && (
                 <Styles.Error>{errors.check}</Styles.Error>
               )}
-              <Styles.BlockBtn type="submit">
-                <IconAnimate text={translate.formRent} mode />
-              </Styles.BlockBtn>
+              <Styles.BlockSendButton>
+                <Styles.BtnSend type="submit">
+                  {translate.formSend}
+                </Styles.BtnSend>
+              </Styles.BlockSendButton>
             </Styles.Form>
           </>
         )}

@@ -65,11 +65,16 @@ ${(props) =>
   )`w-5/6 border bg-backCollaplse border-primary rounded-xl overflow-hidden flex flex-col p-4 justify-center items-center text-center  duration-300 ease-in-out cursor-pointer  border-opacity-40 hover:border-opacity-100 py-12 transition delay-100 duration-500 ease-in-out`,
   Paragraph: tw(
     TextHero,
-  )`lg:text-sm sm:text-lg text-sm lg:font-thin font-regular lg:font-PrimarySerif font-Secundary pt-5 tracking-wide leadi ng-loose`,
+  )`lg:text-sm sm:text-lg fo text-sm lg:font-thin font-regular lg:font-PrimarySerif font-Secundary pt-5 tracking-wide leadi ng-loose`,
 };
 
 export const StylesCases = {
   CategoryText: tw.h6`font-PrimarySans text-addictional font-light`,
   TitularText: tw.h3`font-Primary text-3xl md:text-5xl font-light py-5 leading-relaxed`,
   Paragraph: tw.p`font-PrimarySans font-extralight pb-5 leading-relaxed text-lg`,
+};
+
+export const UsStyles = {
+  SectionUs: tw.section`flex flex-wrap  lg:pt-4 pb-5`,
+  BlockSubsection: tw.div`lg:w-6/12 pr-10 w-full`,
 };

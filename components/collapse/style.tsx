@@ -63,7 +63,7 @@ export const Item = styled.div<Props>`
       ? `
 @media screen and (min-width: 1024px) 
 {
-  {transform: rotate(30deg)}
+  {transform: rotate(40deg)}
 }; transform: rotate(-50deg)`
       : ''}
   ${(props) =>
@@ -71,7 +71,7 @@ export const Item = styled.div<Props>`
       ? `
   @media screen and (min-width: 1024px) 
   {
-    {transform: rotate(45deg)}
+    {transform: rotate(55deg)}
   }; transform: rotate(-12deg)`
       : ''}
     ${(props) =>
@@ -79,7 +79,7 @@ export const Item = styled.div<Props>`
       ? `
     @media screen and (min-width: 1024px) 
     {
-      {transform: rotate(60deg)}
+      {transform: rotate(72deg)}
     }; transform: rotate(26deg)`
       : ''}
 `;
@@ -156,11 +156,22 @@ export const TextTitle = styled.h2`
   } ;
 `;
 export const Circle = styled.div`
-   {background-color:red
-     z-index:0!important;
-    width: 98%;
+  &:before {
+    content: '';
+    border: 1px solid white;
+ 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 100%;
+
+  }
+   {
+    z-index: 0 !important;
+    width: 100%;
     height: 100%;
     transform: rotate(-70deg);
+    background
   }
 
   @media screen and (min-width: 1024px) {
@@ -192,6 +203,6 @@ export const Styles = {
   TextCentral: tw(TextTitle)` w-4/6 text-center lg:text-lg text-sm `,
   Circle: tw(
     Circle,
-  )`  bg-circle bg-no-repeat absolute bg-center bg-contain top-0 md:-top-2 lg:top-0 right-1 rounded-full lg:-right-0 md:right-0 `,
+  )`  bg-circle bg-no-repeat absolute bg-center bg-contain m-auto -top-2 md:-top-2 lg:top-0 right-0 rounded-full lg:-right-0 md:right-0 `,
   BlockTextCenter: tw.div`z-10 border-4 border-white w-5/6 h-5/6 absolute  md:top-6 md:right-8 lg:top-10 lg:right-8 right-6 top-6 rounded-full flex justify-center items-center animate-pulse `,
 };

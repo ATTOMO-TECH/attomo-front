@@ -62,13 +62,13 @@ export default function CasesScroll({ mode, filter }: Props) {
         className="mySwiper"
         breakpoints={{
           '460': {
-            slidesPerView: 'auto',
+            slidesPerView: 1,
           },
           '640': {
-            slidesPerView: 'auto',
+            slidesPerView: 1,
           },
           '1024': {
-            slidesPerView: 3,
+            slidesPerView: 3.5,
           },
         }}
         onBeforeInit={onBeforeInit}

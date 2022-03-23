@@ -57,12 +57,12 @@ export default function Footer({ subFooter }: Props) {
         <Navegation.BlockSubText>
           <Navegation.SubText>
             <Link href="/privacidad">
-              <>{translate.privacy} </>
+              <span>{translate.privacy}</span>
             </Link>
           </Navegation.SubText>
           <Navegation.SubText>
             <Link href="/terminos">
-              <>{translate.rightReserve}</>
+              <span>{translate.rightReserve}</span>
             </Link>
           </Navegation.SubText>
         </Navegation.BlockSubText>
