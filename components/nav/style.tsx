@@ -150,7 +150,7 @@ export const Navegation = {
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`
-font-Primary cursor-pointer list-none fixed w-full duration-300 ease-in-out  top-0  h-14 
+font-Primary cursor-pointer list-none fixed w-full duration-300 ease-in-out  top-0 h-14 md:h-20 lg:14
 ${(props) =>
   props.ismode === BUTTON_ACTIVE.ON
     ? 'duration-300 ease-in-out lg:h-20 sm:mb-10 '

@@ -18,11 +18,11 @@ export const BtnSend = styled.button`
 export const Filter = {
   RelativeSection: tw.section`relative`,
   SectionFilter: tw(motion.div)<Props>`
-  h-screen overflow-hidden  bg-black overflow-y-visible w-full 
+  bg-black
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
-      ? 'opacity-1 z-100 '
-      : 'opacity-0  hidden'}`,
+      ? 'opacity-1 z-100 h-screen flex flex-col    w-full'
+      : 'opacity-0 hidden'}`,
 
   AlinItems: tw.ul<Props>`
   flex items-center fixed z-100 justify-between w-11/12 m-auto md:mt-0 md:w-10/12 md:absolute lg:left-24 md:left-12 left-4 top-2 md:top-6

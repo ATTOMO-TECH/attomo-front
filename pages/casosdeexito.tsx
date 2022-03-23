@@ -15,7 +15,6 @@ import { BUTTON_ACTIVE } from '../const/const';
 import { useUseAllCases } from '../domain/useCasesDetails';
 import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
-import FilterCases from '../components/input/filterCases';
 
 function Cases() {
   const [isOpen, SetIsOpen] = useState<boolean>(false);
@@ -28,7 +27,7 @@ function Cases() {
   };
   const [date, setDate] = useState<Date[]>();
   const [topic, setTopic] = useState('');
-  const [search, setSearch] = useState('');
+  const [setSearch] = useState('');
   const handleDate = (dateValue: []) => {
     setDate(dateValue);
   };
@@ -93,14 +92,14 @@ function Cases() {
         {!isOpenFilter && <ButtonShare />}
         {!isOpenFilter && (
           <>
-            {date?.length === undefined ? (
-              <HeroCase
-                toggle={toggleFilter}
-                date={date}
-                topic={topic}
-                isOpen={isOpen}
-              />
-            ) : (
+            {/* {date?.length === undefined ? ( */}
+            <HeroCase
+              toggle={toggleFilter}
+              date={date}
+              topic={topic}
+              isOpen={isOpen}
+            />
+            {/* ) : (
               <div className="w-full text-white m-auto z-0  relative h-48">
                 <FilterCases
                   toggle={toggleFilter}
@@ -109,7 +108,7 @@ function Cases() {
                   search={search}
                 />
               </div>
-            )}
+            )} */}
             <Styles.BlockSections>
               <SectionProjects
                 Array={data?.data}

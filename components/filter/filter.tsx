@@ -34,8 +34,8 @@ export default function ModalFilter({
   if (locale === '/') {
     locale = 'es';
   }
-  const [width, setWidth] = useState(window.innerWidth);
   const { isLoading } = useUseAllSubServices(locale || 'es');
+  const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
@@ -62,7 +62,7 @@ export default function ModalFilter({
         }}
         transition={{
           delay: 0,
-          duration: 0.8,
+          duration: 0.5,
           ease: 'easeInOut',
           stiffness: 50,
         }}>
