@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import * as qs from 'qs';
+import Head from 'next/head';
 import BgComponent from '../components/animations/bg';
 import BlockSection from '../components/block/block';
 import ButtonShare from '../components/button/BtnShare';
@@ -74,6 +75,10 @@ function Cases() {
   const translate = getLocale();
   return (
     <>
+      <Head>
+        <title>Casos de éxito ATTOMO - Clientes</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <BgComponent />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <ModalFilter

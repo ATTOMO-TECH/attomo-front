@@ -24,7 +24,8 @@ function Services() {
   return (
     <>
       <Head>
-        <title>Servicios - ATTOMO ESTUDIO</title>
+        <title>Servicios ATTOMO - Nuestros servicios</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <BgComponent />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>

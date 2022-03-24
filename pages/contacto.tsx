@@ -23,7 +23,8 @@ function Contact() {
   return (
     <>
       <Head>
-        <title>Contacto - ATTOMO ESTUDIO</title>
+        <title>Contacto - ATTOMO DIGITAL</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <BgComponent />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>

@@ -39,7 +39,8 @@ function Space() {
   return (
     <>
       <Head>
-        <title>Espacio - ATTOMO ESTUDIO</title>
+        <title>Espacio ATTOMO - Alquila nuestro espacio</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <BgComponent />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
