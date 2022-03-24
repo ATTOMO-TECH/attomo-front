@@ -1,6 +1,6 @@
 export enum CONDITIONFORM {
-  TEAM = 'team',
-  PARTNER = 'partner',
+  TEAM = 'teamMember',
+  PARTNER = 'outsidePartner',
 }
 
 export const PARTNERS: {
@@ -517,6 +517,27 @@ export const PRICES: {
     Time: '(8 horas)',
     Price: 180,
     Url: '/espacio#reserva',
+  },
+];
+export const BGSPACE: {
+  id: number;
+  img: string;
+}[] = [
+  {
+    id: 1,
+    img: 'bg-space-Attomo',
+  },
+  {
+    id: 2,
+    img: 'bg-space-Attomo2',
+  },
+  {
+    id: 3,
+    img: 'bg-space-Attomo3',
+  },
+  {
+    id: 4,
+    img: 'bg-space-Attomo4',
   },
 ];
 

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimateSharedLayout } from 'framer-motion';
 import * as qs from 'qs';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import BlockSection from '../components/block/block';
 import Footer from '../components/footer/footer';
 import Hero from '../components/hero/hero';
@@ -82,6 +83,10 @@ function Home() {
 
   return (
     <>
+      <Head>
+        <title>Attomo Digital - Consultoría tecnológica</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <BgComponent />
       <AnimateSharedLayout>
         <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>

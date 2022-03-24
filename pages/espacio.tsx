@@ -18,6 +18,9 @@ import MapsBlock from '../components/maps/maps';
 import BgComponent from '../components/animations/bg';
 import { getLocale } from '../public/locales/getLocale';
 import { servicesAnimations } from '../components/animations/animations';
+import { BGSPACE } from '../const/constGlobal';
+import EspacioArticle from '../components/slider/espacio/slider';
+import useDeviceSize from '../hook/size';
 
 function Space() {
   const [shouldShowActions] = useState(false);
@@ -32,6 +35,7 @@ function Space() {
     SetIsOpen(!isOpen);
   };
   const translate = getLocale();
+  const [width] = useDeviceSize();
   return (
     <>
       <Head>
@@ -41,7 +45,7 @@ function Space() {
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
-          <Nav toggle={toggle} logo mode isOpen={isOpen} />
+          <Nav toggle={toggle} logo mode bgFull isOpen={isOpen} />
         </Styles.Margin>
         <ButtonShare />
         <Styles.Center>
@@ -74,12 +78,18 @@ function Space() {
               />
             ))}
           </Styles.BlockSelected>
-          <Styles.SectionImg>
-            <Styles.BlockImg className="bg-space-Attomo" />
-            <Styles.BlockImg className="bg-space-Attomo2" />
-            <Styles.BlockImg className="bg-space-Attomo3" />
-            <Styles.BlockImg className="bg-space-Attomo4" />
-          </Styles.SectionImg>
+          {width > 768 ? (
+            <Styles.SectionImg>
+              {BGSPACE.map((imageSpace: any) => (
+                <Styles.BlockImg
+                  className={imageSpace.img}
+                  key={imageSpace.id}
+                />
+              ))}
+            </Styles.SectionImg>
+          ) : (
+            <EspacioArticle />
+          )}
         </Styles.Center>
         <Styles.Center id="reserva">
           {translate.formBooking.map((values) => (

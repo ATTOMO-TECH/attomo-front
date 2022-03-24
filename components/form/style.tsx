@@ -26,7 +26,7 @@ export const CheckRadio = styled.input`
   &[type='radio'] {
     appearance: none;
     margin: 0;
-    width: 25px;
+    min-width: 25px;
     height: 25px;
     border: 0.15em solid white;
     border-radius: 100%;
@@ -41,17 +41,6 @@ export const CheckRadio = styled.input`
     border: 0.15em solid white;
     padding: 2.8px;
   }
-  @media screen and (max-width: 468px) {
-    &[type='radio'] {
-      width: 25px;
-      height: 25px;
-    }
-
-    &:checked {
-      width: 25px;
-      height: 25px;
-    }
-  }
 `;
 export const CheckCheck = styled.input`
   border-radius: 100%;
@@ -59,7 +48,7 @@ export const CheckCheck = styled.input`
     transition: 120ms transform ease-in-out;
     appearance: none;
     margin: 0;
-    width: 20px;
+    min-width: 20px;
     height: 20px;
     border: 0.15em solid white;
     margin-right: 10px;
@@ -69,32 +58,22 @@ export const CheckCheck = styled.input`
   &:checked {
     padding: 2.8px;
     content: url(/icon/isoAttomo.svg);
-    width: 25px;
+    min-width: 25px;
     height: 25px;
     transition: 120ms transform ease-in-out;
     border: 1px solid white;
-  }
-  @media screen and (max-width: 468px) {
-    &[type='checkbox'] {
-      width: 25px;
-      height: 25px;
-    }
-
-    &:checked {
-      width: 25px;
-      height: 25px;
-    }
   }
 `;
 export const CheckCheckCondition = styled.input`
   &[type='checkbox'] {
     appearance: none;
     margin: 0;
-    width: 20px;
+    min-width: 20px;
     height: 20px;
     border: 0.15em solid white;
     margin-right: 10px;
     padding: 2px;
+    border-radius: 100%;
   }
 
   &:checked {
@@ -104,17 +83,6 @@ export const CheckCheckCondition = styled.input`
     height: 20px;
     transition: 120ms transform ease-in-out;
     border: 1px solid white;
-  }
-  @media screen and (max-width: 468px) {
-    &[type='checkbox'] {
-      width: 20px;
-      height: 20px;
-    }
-
-    &:checked {
-      width: 20px;
-      height: 20px;
-    }
   }
 `;
 
@@ -181,7 +149,7 @@ ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
     props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : 'opacity-50'}
   ${(props) => (props.ismode === BUTTON_ACTIVE.OFF ? 'opacity-50' : '')}`,
   LabelCheckBox: tw.label<Props>`
-  flex ease-out duration-200 py-2 text-sm 
+  flex ease-out duration-200 py-2 text-sm flex-nowrap
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : '')}
   ${(props) => (props.ismode === BUTTON_ACTIVE.OFF ? 'opacity-50' : '')}`,
   // FORM

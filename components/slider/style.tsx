@@ -58,7 +58,7 @@ export const Styles = {
 };
 
 export const StylesArticle = {
-  BlockImg: tw.div`w-full h-auto object-cover `,
+  BlockImg: tw.div`w-full h-96 object-cover `,
   Img: tw(Image)`max-w-full max-h-full object-cover`,
   BlockText: tw(SectionColor)``,
   TextBlog: tw(
@@ -77,4 +77,8 @@ export const StylesArticle = {
   ArrowNext: tw.div`cursor-pointer lg:py-20 py-10`,
   Slide: tw(SelectedSlide)<Props>`
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'w-4/6 ' : 'w-4/6 ')}`,
+  // ESPACIO
+  BlockImgEspace: tw.div`w-full bg-cover bg-center py-44 bg-no-repeat `,
+  BlockArrowSpace: tw.div`flex w-full text-xl justify-between`,
+  ArrowSpace: tw.div`ursor-pointer py-12 mr-12 opacity-50 hover:opacity-100 transition duration-150 ease-out`,
 };

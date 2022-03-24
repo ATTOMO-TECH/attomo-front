@@ -20,8 +20,8 @@ export default function FormColaborator() {
   const translate = getLocale();
   const [query, setQuery] = useState('');
   const [area, setArea] = useState<any>([]);
-  const [filter, setFilter] = useState('team');
-  const { data, isLoading } = useUseAllPartner(query);
+  const [filter, setFilter] = useState('teamMember');
+
   const queryQs = qs.stringify(
     {
       filters: {
@@ -37,7 +37,7 @@ export default function FormColaborator() {
   useEffect(() => {
     setQuery(queryQs);
   }, [filter]);
-
+  const { data: Partner } = useUseAllPartner(query);
   const valueName = FORMVALUES.FIRSTNAME;
   const valueLastName = FORMVALUES.LASTNAME;
   const valuePhone = FORMVALUES.PHONE;
@@ -61,19 +61,19 @@ export default function FormColaborator() {
 
   const { mutate } = createContactColaborator();
   const handleSubmitContact = (values: any, action: any) => {
-    const colaborator = {
+    const data = {
       [FORMVALUES.FIRSTNAME]: values.firstname,
       [FORMVALUES.LASTNAME]: values.lastname,
       [FORMVALUES.PHONE]: values.mobile,
       [FORMVALUES.EMAIL]: values.email,
       [FORMVALUES.COMPANY]: values.valueCompany,
       [FORMVALUES.MESSAGE]: values.message,
-      [FORMVALUES.PARTOF]: values.partOf,
+      [FORMVALUES.PARTOF]: values.teamOrPartner,
       [FORMVALUES.SPECIALITY]: area,
       [FORMVALUES.CONDITIONS]: values.conditionsAccepted,
     };
     mutate(
-      { colaborator },
+      { data },
       {
         onSuccess: () => {
           action.resetForm();
@@ -90,10 +90,6 @@ export default function FormColaborator() {
       setArea([...area, newArea]);
     }
   };
-
-  if (isLoading) {
-    return <></>;
-  }
 
   return (
     <>
@@ -126,7 +122,7 @@ export default function FormColaborator() {
                 {translate.partOfTeam}
               </Subtext>
               <Styles.BlockSelectSecond>
-                {data.data.map((valuesCheck: any) => (
+                {Partner.data.map((valuesCheck: any) => (
                   <Styles.AlingSelectSecond
                     key={`check-${valuesCheck.attributes.area}`}>
                     <InputCheck

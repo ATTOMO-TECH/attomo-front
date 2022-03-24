@@ -128,6 +128,9 @@ input[type='date']::-webkit-calendar-picker-indicator {
   margin: 0px;
   margin-right: 5px !important;
 }
+.SwiperSpace .swiper-button-disabled {
+  opacity: 0 !important;
+}
 input#input-4 {
   background-color: black;
   border: 0 !important;
