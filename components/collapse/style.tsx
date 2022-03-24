@@ -65,76 +65,85 @@ background-color:black;
 `;
 // ATTOMO MOVE
 export const Item = styled.div<Props>`
-  &:after {
-    content: url('/icon/elips.svg');
-    transform: scale(1) rotate(8deg);
-    position: fixed;
-    top: -2%;
-    left: 42%;
-    z-index: 100 !important;
-    -webkit-animation-duration: 4000ms;
-
-    @media screen and (max-width: 420px) {
-      top: -4%;
-      left: 36%;
-      transform: scale(0.6) rotate(16deg);
-    }
-    @media screen and (min-width: 780px) {
-      top: -1%;
-      left: 50%;
-      transform: scale(0.8) rotate(18deg);
-    }
-    @media screen and (min-width: 1024px) {
-      left: 51%;
-      top: -16%;
-    }
-  }
-
   border-radius: 100%;
-  background-color: black;
   transition-duration: 0.4s;
   transition-property: transform;
+  &:after {
+    content: url('/icon/elips.svg');
+    position: fixed;
+    z-index: 100 !important;
+    -webkit-animation-duration: 4000ms;
+    top: -2%;
+    left: 42%;
+    transform: scale(0.6) rotate(22deg);
+    @media screen and (min-width: 468px) {
+      top: -2.2%;
+      left: 42%;
+      transform: scale(0.9) rotate(12deg);
+    }
+    @media screen and (min-width: 640px) {
+      top: -2.5%;
+      left: 43%;
+      transform: scale(0.9) rotate(8deg);
+    }
+    @media screen and (min-width: 1024px) {
+      top: -1%;
+      left: 43%;
+      transform: scale(0.9) rotate(8deg);
+    }
+  }
   ${(props) =>
     props.ismode === 0
       ? `
+    
+    transform:rotate(-65deg);
+    @media screen and (min-width: 468px) 
+    {
+      transform: rotate(-55deg);
+    
+    };
+    @media screen and (min-width: 640px) 
+    {
+      transform: rotate(-55deg);
+    
+    };
 @media screen and (min-width: 1024px) 
 {
-  {transform: rotate(40deg)}
-};
-@media screen and (min-width: 468px) 
-{
-  transform: rotate(-55deg);
-  top: -0%;
-    left: %;
+  transform: rotate(40deg);
 
 };
-transform: rotate(-56deg)`
+`
       : ''}
   ${(props) =>
     props.ismode === 1
       ? `
+      transform: rotate(-23deg);
+      @media screen and (min-width: 468px) {
+        transform: rotate(-11deg);
 
-  @media screen and (min-width: 1024px) 
-  {
-    {transform: rotate(55deg)}
-  };
-  @media screen and (min-width: 468px) 
-  {
-    {transform: rotate(-12deg)}
-  };
-  transform: rotate(-15deg)`
+      };
+      @media screen and (min-width: 640px) {
+        transform: rotate(-8deg);
+        
+      };
+      @media screen and (min-width: 1024px) 
+      {
+        {transform: rotate(55deg)}
+      };
+`
       : ''}
     ${(props) =>
     props.ismode === 2
       ? `
-    @media screen and (min-width: 1024px) 
-    {
-      
-    }
+      transform: rotate(26deg);
       @media screen and (min-width: 468px) 
-  {
-    {transform: rotate(30deg)}
-  }; transform: rotate(26deg)`
+      {
+        {transform: rotate(30deg)}
+      };
+      @media screen and (min-width: 1024px) 
+      {
+        transform: rotate(70deg)
+      }`
       : ''}
 `;
 
@@ -221,15 +230,20 @@ export const AlingBlock = styled.div`
   @media screen and (max-width: 320px) {
     bottom: -2%;
   }
+  @media screen (max-width: 320px) and (min-width: 468px) {
+    bottom: 100%;
+  }
 `;
 export const Styles = {
   SectionCollapse: tw.section`h-screen w-full relative z-80 lg:h-auto font-PrimarySerif flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative md:my-24 mb-24  font-light leading-loose`,
   BlockDescription: tw(
     AlingBlock,
-  )`lg:text-right text-xl absolute bottom-20 lg:bottom-24 lg:-right-4 w-full text-center z-10`,
+  )`lg:text-right text-xl absolute bottom-1 md:bottom-0 lg:bottom-24 lg:-right-4 w-full text-center z-10`,
   SubSection: tw(SubSection)`font-regular text-base cursor-pointer z-80`,
   BlockImg: tw.div`relative flex justify-center items-center `,
-  SectionAtom: tw(Item)` transition ease-in-out delay-150 relative `,
+  SectionAtom: tw(
+    Item,
+  )` transition ease-in-out delay-150  flex justify-center items-center`,
   BlockAtom: tw.div`absolute `,
   Atom: tw(ItemSection)``,
   BlockTextSelect: tw(
@@ -238,7 +252,7 @@ export const Styles = {
   BlockSectionTitle: tw.div`w-full lg:w-auto z-0 `,
   TextSelect: tw(
     SectionTitle,
-  )<Props>`py-7 md:mb-6 sm:mb-0 w-full opacity-40 hover:opacity-100 sm:px-5 px-3 order-last block text-center transition ease-in duration-300 cursor-pointer z-70  font-Primary
+  )<Props>`py-7 md:mb-6 sm:mb-0 w-full opacity-40 hover:opacity-100 sm:px-5 px-3 order-last block text-center transition ease-in duration-300 cursor-pointer z-70 md:text-xl  font-Primary
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : '')}`,
   TextCentral: tw(TextTitle)` w-4/6 text-center lg:text-lg text-xs `,
   Circle: tw(

@@ -78,13 +78,15 @@ export default function Collapse() {
         </Styles.BlockDescription>
         <Styles.BlockImg>
           <Styles.SectionAtom ismode={idx}>
-            <img
-              src="/icon/Ellipse.svg"
-              width={500}
-              height={500}
-              alt="Elipse"
-              className="opacity-0 overflow-hidden z-0 relative  "
-            />
+            <div className="flex items-center justify-center bg-black m-1  rounded-full">
+              <img
+                src="/icon/Ellipse.svg"
+                width={500}
+                height={500}
+                alt="Elipse"
+                className="opacity-0 overflow-hidden z-0 relative  "
+              />
+            </div>
           </Styles.SectionAtom>
           <Styles.Circle>
             <Styles.BlockTextCenter>
