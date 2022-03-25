@@ -135,7 +135,7 @@ ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
 `,
   InputRadio: tw(CheckRadio)`cursor-pointer`,
   InputCheck: tw(CheckCheck)`cursor-pointer `,
-  TextCheck: tw.p`truncate text-ellipsis overflow-hidden w-24 lg:w-auto`,
+  TextCheck: tw.p`truncate text-ellipsis overflow-hidden lg:w-24 lg:w-auto`,
   InputCheckCondition: tw(CheckCheckCondition)`cursor-pointer `,
   LabelCheck: tw.label<Props>`flex ease-out 
   ${(props) =>
@@ -148,9 +148,9 @@ ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
   // FORM
   Error: tw.div`text-red-500 absolute text-PrimarySerif text-sm`,
   BlockSelect: tw.div`w-full flex flex-wrap pt-5 text-white font-PrimarySerif font-thin text-sm`,
-  BlockSelectSecond: tw.div`w-full flex flex-wrap  text-white font-PrimarySerif font-thin text-sm pb-10`,
+  BlockSelectSecond: tw.div`w-full flex flex-wrap  text-white font-PrimarySerif font-thin text-sm lg:pb-10 pb-4`,
   AlingSelect: tw.div`w-3/6`,
-  AlingSelectSecond: tw.div`w-2/6`,
+  AlingSelectSecond: tw.div`w-full lg:w-2/6 `,
   BlockCheck: tw.div`flex flex-wrap`,
   TextChecked: tw.p`mx-1`,
   LinkCheck: tw.h6`ml-1 underline cursor-pointer`,

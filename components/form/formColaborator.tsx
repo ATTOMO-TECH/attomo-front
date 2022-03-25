@@ -122,7 +122,7 @@ export default function FormColaborator() {
                   </Styles.AlingSelect>
                 ))}
               </Styles.BlockSelect>
-              <Subtext size="lg:text-sm w-full pb-10 font-PrimarySerif pt-10">
+              <Subtext size="lg:text-sm w-full lg:pb-10 pb-4 font-PrimarySerif pt-10">
                 {translate.partOfTeam}
               </Subtext>
               <Styles.BlockSelectSecond>
