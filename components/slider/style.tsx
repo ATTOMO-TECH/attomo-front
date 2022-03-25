@@ -80,5 +80,5 @@ export const StylesArticle = {
   // ESPACIO
   BlockImgEspace: tw.div`w-full bg-cover bg-center py-44 bg-no-repeat `,
   BlockArrowSpace: tw.div`flex w-full text-xl justify-between`,
-  ArrowSpace: tw.div`ursor-pointer py-12 mr-12 opacity-50 hover:opacity-100 transition duration-150 ease-out`,
+  ArrowSpace: tw.div`cursor-pointer py-12  opacity-50 hover:opacity-100 transition duration-150 ease-out`,
 };

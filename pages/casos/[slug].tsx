@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/dist/client/router';
 import { motion } from 'framer-motion';
+import Head from 'next/head';
 import Footer from '../../components/footer/footer';
 import Menu from '../../components/nav/menu';
 import Nav from '../../components/nav/nav';
@@ -44,6 +45,12 @@ export default function Cases({ mode }: Props) {
 
   return (
     <>
+      <Head>
+        <title>
+          Casos de éxito ATTOMO - Clientes - {data.data.attributes.company}
+        </title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Styles.Body
         mode={isOpen ? BUTTON_ACTIVE.ON : ''}
         theme={mode === true ? lightTheme : darkTheme}>
@@ -61,7 +68,9 @@ export default function Cases({ mode }: Props) {
 
         {data.data?.attributes?.mainPhoto?.data[0].attributes?.url ? (
           <img
-            src={data.data?.attributes?.mainPhoto?.data[0].attributes?.url}
+            src={
+              data.data?.attributes?.mainPhoto?.data[0].attributes?.url || '/'
+            }
             width={1100}
             height={600}
             alt={data.data.attributes.name}
@@ -76,12 +85,7 @@ export default function Cases({ mode }: Props) {
         </Styles.Center>
         <Styles.FlexEnd>
           <Styles.AlingBlock>
-            <CasesScroll
-              mode={false}
-              filter={
-                data?.data?.attributes?.subservice?.data?.attributes?.name
-              }
-            />
+            <CasesScroll mode={false} filter={data.data.attributes.sumary} />
           </Styles.AlingBlock>
         </Styles.FlexEnd>
         <motion.div

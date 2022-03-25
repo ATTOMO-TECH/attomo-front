@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import Head from 'next/head';
 import {
   fadeInUp,
   servicesAnimations,
@@ -75,6 +76,10 @@ function DetailsServices() {
 
   return (
     <>
+      <Head>
+        <title>Servicios ATTOMO - Nuestros servicios - {slug}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <BgComponent />
       <motion.div
         initial="initial"

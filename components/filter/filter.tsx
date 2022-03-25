@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { Filter } from './style';
@@ -10,6 +9,7 @@ import RenderLoading from '../loading/loading';
 import { useUseAllSubServices } from '../../domain/useServices';
 import { DEPARTMENT } from '../../const/constGlobal';
 import ModulelFilter from './moduleFilter';
+import useDeviceSize from '../../hook/size';
 // import { useEffect, useState } from 'react';
 // import { useUseAllSubServices } from '../../domain/useServices';
 // import RenderLoading from '../loading/loading';
@@ -30,20 +30,12 @@ export default function ModalFilter({
   setSearch,
 }: Props) {
   const router = useRouter();
+  const [width] = useDeviceSize();
   let { locale } = router;
   if (locale === '/') {
     locale = 'es';
   }
   const { isLoading } = useUseAllSubServices(locale || 'es');
-  const [width, setWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  });
   if (isLoading) {
     return (
       <>
@@ -69,7 +61,7 @@ export default function ModalFilter({
         <div
           className={
             width < 468
-              ? 'flex items-end w-full justify-center '
+              ? '  w-full justify-center   overscroll-contain'
               : 'h-4/6 justify-center flex items-center'
           }>
           <Filter.AlinItems ismode={BUTTON_ACTIVE.OFF}>

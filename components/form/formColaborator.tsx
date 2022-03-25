@@ -26,7 +26,8 @@ export default function FormColaborator() {
     {
       filters: {
         partnerOrTeam: {
-          $eq: filter,
+          $eq: 'partner',
+          // 'filter',
         },
       },
     },
@@ -59,6 +60,15 @@ export default function FormColaborator() {
     [FORMVALUES.CONDITIONS]: false,
   };
 
+  const addArea = (newArea: any) => {
+    const areaFind = area.find((areas: any) => equals(areas, newArea));
+    const removeArea = area.filter((areas: any) => !equals(areas, newArea));
+    if (!areaFind) {
+      setArea([...area, newArea]);
+    } else {
+      setArea(removeArea);
+    }
+  };
   const { mutate } = createContactColaborator();
   const handleSubmitContact = (values: any, action: any) => {
     const data = {
@@ -68,7 +78,7 @@ export default function FormColaborator() {
       [FORMVALUES.EMAIL]: values.email,
       [FORMVALUES.COMPANY]: values.valueCompany,
       [FORMVALUES.MESSAGE]: values.message,
-      [FORMVALUES.PARTOF]: values.teamOrPartner,
+      [FORMVALUES.PARTOF]: 'teamMember',
       [FORMVALUES.SPECIALITY]: area,
       [FORMVALUES.CONDITIONS]: values.conditionsAccepted,
     };
@@ -83,12 +93,6 @@ export default function FormColaborator() {
         },
       },
     );
-  };
-  const addLocation = (newArea: any) => {
-    const areaFind = area.find((areas: any) => equals(area, areas));
-    if (!areaFind) {
-      setArea([...area, newArea]);
-    }
   };
 
   return (
@@ -122,119 +126,115 @@ export default function FormColaborator() {
                 {translate.partOfTeam}
               </Subtext>
               <Styles.BlockSelectSecond>
-                {Partner.data.map((valuesCheck: any) => (
+                {Partner?.data.map((valuesCheck: any) => (
                   <Styles.AlingSelectSecond
                     key={`check-${valuesCheck.attributes.area}`}>
                     <InputCheck
                       text={valuesCheck.attributes.area}
                       value={valuesCheck.attributes.area}
                       onChange={() => {
-                        addLocation(valuesCheck.attributes.area);
+                        addArea(valuesCheck.attributes.area);
                       }}
                     />
                   </Styles.AlingSelectSecond>
                 ))}
               </Styles.BlockSelectSecond>
-              <Styles.SectionInput>
-                <Styles.BlockSections>
-                  <Styles.BlockInput>
-                    <Styles.Input
-                      ismode={BUTTON_ACTIVE.ON}
-                      placeholder={translate.formName}
-                      type="text"
-                      name={FORMVALUES.FIRSTNAME}
-                    />
-                    {touched.valueName && errors.valueName && (
-                      <Styles.BlockClose
-                        onClick={() => setFieldValue(valueName, '')}
-                      />
-                    )}
-                  </Styles.BlockInput>
+              <Styles.BlockInputsCenter>
+                <Styles.BlockInput>
+                  <Styles.Input
+                    ismode={BUTTON_ACTIVE.ON}
+                    placeholder={translate.formName}
+                    type="text"
+                    name={FORMVALUES.FIRSTNAME}
+                  />
                   {touched.valueName && errors.valueName && (
-                    <Styles.Error>{errors.valueName}</Styles.Error>
-                  )}
-                </Styles.BlockSections>
-                <Styles.SubBlock>
-                  <Styles.BlockInput>
-                    <Styles.Input
-                      ismode={BUTTON_ACTIVE.ON}
-                      placeholder={translate.formLastName}
-                      type="text"
-                      name={FORMVALUES.LASTNAME}
+                    <Styles.BlockClose
+                      onClick={() => setFieldValue(valueName, '')}
                     />
-                    {touched.valueLastName && errors.valueLastName && (
-                      <Styles.BlockClose
-                        onClick={() => setFieldValue(valueLastName, '')}
-                      />
-                    )}
-                  </Styles.BlockInput>
-                  {touched.valueName && errors.valueName && (
-                    <Styles.Error>{errors.valueName}</Styles.Error>
                   )}
-                </Styles.SubBlock>
-              </Styles.SectionInput>
-              <Styles.SectionInput>
-                <Styles.BlockSectionMargin>
-                  <Styles.BlockInput>
-                    <Styles.Input
-                      ismode={BUTTON_ACTIVE.ON}
-                      placeholder={translate.formEmail}
-                      type="email"
-                      name={FORMVALUES.EMAIL}
-                    />
-                    {touched.valueEmail && errors.valueEmail && (
-                      <Styles.BlockClose
-                        onClick={() => setFieldValue(valueEmail, '')}
-                      />
-                    )}
-                  </Styles.BlockInput>
-                  {touched.valueEmail && errors.valueEmail && (
-                    <Styles.Error>{errors.valueEmail}</Styles.Error>
-                  )}
-                </Styles.BlockSectionMargin>
+                </Styles.BlockInput>
+                {touched.valueName && errors.valueName && (
+                  <Styles.Error>{errors.valueName}</Styles.Error>
+                )}
 
-                <Styles.BlockSectionMarginTop>
-                  <Styles.BlockInput>
-                    <Styles.Input
-                      ismode={BUTTON_ACTIVE.ON}
-                      placeholder={translate.formPhone}
-                      type="phone"
-                      name={FORMVALUES.PHONE}
+                <Styles.BlockInput>
+                  <Styles.Input
+                    ismode={BUTTON_ACTIVE.ON}
+                    placeholder={translate.formLastName}
+                    type="text"
+                    name={FORMVALUES.LASTNAME}
+                  />
+                  {touched.valueLastName && errors.valueLastName && (
+                    <Styles.BlockClose
+                      onClick={() => setFieldValue(valueLastName, '')}
                     />
-                    {touched.valuePhone && errors.valuePhone && (
-                      <Styles.BlockClose
-                        onClick={() => setFieldValue(valuePhone, '')}
-                      />
-                    )}
-                  </Styles.BlockInput>
-                  {touched.valuePhone && errors.valuePhone && (
-                    <Styles.Error>{errors.valuePhone}</Styles.Error>
                   )}
-                </Styles.BlockSectionMarginTop>
-              </Styles.SectionInput>
-              <Styles.SingleInput>
-                {values[valuepartOf] === CONDITIONFORM.TEAM ? (
-                  <Styles.BlockSectionMarginTop>
+                </Styles.BlockInput>
+                {touched.valueName && errors.valueName && (
+                  <Styles.Error>{errors.valueName}</Styles.Error>
+                )}
+              </Styles.BlockInputsCenter>
+              <Styles.BlockInputsCenter>
+                <Styles.BlockInput>
+                  <Styles.Input
+                    ismode={BUTTON_ACTIVE.ON}
+                    placeholder={translate.formEmail}
+                    type="email"
+                    name={FORMVALUES.EMAIL}
+                  />
+                  {touched.valueEmail && errors.valueEmail && (
+                    <Styles.BlockClose
+                      onClick={() => setFieldValue(valueEmail, '')}
+                    />
+                  )}
+                </Styles.BlockInput>
+                {touched.valueEmail && errors.valueEmail && (
+                  <Styles.Error>{errors.valueEmail}</Styles.Error>
+                )}
+                <Styles.BlockInput>
+                  <Styles.Input
+                    ismode={BUTTON_ACTIVE.OFF}
+                    placeholder={translate.formPhone}
+                    type="number"
+                    name={FORMVALUES.PHONE}
+                  />
+                  {touched.valuePhone && errors.valuePhone && (
+                    <Styles.BlockClose
+                      onClick={() => setFieldValue(valuePhone, '')}
+                    />
+                  )}
+                </Styles.BlockInput>
+                {touched.valuePhone && errors.valuePhone && (
+                  <Styles.Error>{errors.valuePhone}</Styles.Error>
+                )}
+              </Styles.BlockInputsCenter>
+
+              {values[valuepartOf] === CONDITIONFORM.TEAM ? (
+                <Styles.BlockInputEnd>
+                  <Styles.BlockInputOnly>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.OFF}
                       placeholder={translate.formLink}
                       type="text"
                       name={FORMVALUES.LINK}
                     />
-                  </Styles.BlockSectionMarginTop>
-                ) : (
-                  <Styles.BlockSectionMarginTop>
+                  </Styles.BlockInputOnly>
+                </Styles.BlockInputEnd>
+              ) : (
+                <Styles.BlockInputEnd>
+                  <Styles.BlockInputOnly>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.OFF}
                       placeholder={translate.formCompany}
                       type="text"
                       name={FORMVALUES.COMPANY}
                     />
-                  </Styles.BlockSectionMarginTop>
-                )}
-              </Styles.SingleInput>
-              <Styles.SingleInput>
-                <Styles.BlockSectionMarginTop>
+                  </Styles.BlockInputOnly>
+                </Styles.BlockInputEnd>
+              )}
+
+              <Styles.BlockInputEnd>
+                <Styles.BlockInputOnly>
                   <Styles.Input
                     ismode={BUTTON_ACTIVE.OFF}
                     placeholder={translate.formMessage}
@@ -249,12 +249,12 @@ export default function FormColaborator() {
                   {touched.valueMessage && errors.valueMessage && (
                     <Styles.Error>{errors.valueMessage}</Styles.Error>
                   )}
-                </Styles.BlockSectionMarginTop>
-              </Styles.SingleInput>
+                </Styles.BlockInputOnly>
+              </Styles.BlockInputEnd>
               <InputCheckcondition
                 color="text-primary text-xs pt-6"
                 value={FORMVALUES.CONDITIONS}
-                onChange={(e: any) => setFieldValue(check, e)}>
+                onClick={(e: any) => setFieldValue(check, e)}>
                 <Conditions />
               </InputCheckcondition>
               {touched.check && errors.check && (

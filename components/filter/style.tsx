@@ -21,7 +21,7 @@ export const Filter = {
   bg-black
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
-      ? 'opacity-1 z-100 h-screen flex flex-col    w-full'
+      ? 'opacity-1 z-100 h-screen flex flex-col overflow-auto w-full'
       : 'opacity-0 hidden'}`,
 
   AlinItems: tw.ul<Props>`

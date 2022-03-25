@@ -54,11 +54,11 @@ function Space() {
             <Styles.ScreenMid>
               {translate.spaceAttomo.map((values) => (
                 <Styles.BlockDiv key={`value${values.Text}`}>
-                  <Title size="leading-relaxed text-5xl lg:pt-24 lg:pr-0 pb-6 lg:w-5/6 pt-20 ">
+                  <Title size="leading-relaxed lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl  ">
                     {values.Text}
                   </Title>
                   <Styles.FlexEnd>
-                    <Subtext size="text-regular w-full leading-loose font-Secundary lg:w-3/6  ">
+                    <Subtext size="lg:text-sm sm:text-lg text-sm lg:font-thin font-regular lg:font-PrimarySerif font-Secundary  tracking-wide leadiang-loose lg:w-3/6  ">
                       {values.Subtext}
                     </Subtext>
                   </Styles.FlexEnd>
@@ -95,7 +95,7 @@ function Space() {
         <Styles.Center id="reserva">
           {translate.formBooking.map((values) => (
             <Styles.ContainerFull>
-              <Title size="lg:text-5xl text-3xl lg:pt-36 w-full text-center pt-20 leading-relaxed ">
+              <Title size=" lg:pt-36 w-full text-center pt-10 leading-relaxed lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl ">
                 {values.Text}
               </Title>
               <Title size="text-regular lg:pt-3 w-full text-center text-regular w-full leading-loose font-Secundary  pb-8">
@@ -108,7 +108,7 @@ function Space() {
         <Styles.Center>
           <Styles.BlockAddres>
             <Styles.BreakLine />
-            <Title size="text-2xl  lg:pr-10 ">
+            <Title size="text-2xl  lg:pr-10 pt-12">
               {translate.spaceAttomoFooter}
             </Title>
 

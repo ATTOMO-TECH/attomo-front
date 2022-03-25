@@ -82,7 +82,7 @@ export default function InputSelect({
         styles={customStyles(selected)}
         onChange={onChange}
         value={displayItem(selected)}
-        className="w-full  text-gray-300 lg:py-1 py-4  font-PrimarySerif font-thin top-1"
+        className="w-full   lg:py-1 py-4  font-PrimarySerif font-thin text-gray-300"
         placeholder="30M"
         defaultValue={{ value: '30M', label: '30 min' }}
       />
