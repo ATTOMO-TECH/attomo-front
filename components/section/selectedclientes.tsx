@@ -20,37 +20,16 @@ export default function SelectedClients({
   return (
     <>
       <Styles.BlockMargin>
-        {/* < <Styles.DivideSection>
-          <Title size="text-2xl md:text-3xl lg:text-4xl font-light md:ml-6 pt-12 md:pt-0 text-center ">
-            {textPrimary}
-          </Title>
-        </Styles.DivideSection>
-        <Styles.DivideSection>
-          <Subtext size="text-regular w-full leading-loose font-Secundary ">
-            {text}
-          </Subtext>
-
-          {btn !== '' ? (
-            <Link href={`${link}`}>
-              <Styles.BlockMarginText>
-                <IconAnimate text={btn} mode />
-              </Styles.BlockMarginText>
-            </Link>
-          ) : (
-            ''
-          )}
-        </Styles.DivideSection> */}
-
         <Styles.DivideSection>
           <SubSections.BlockCounter>
-            <Title size="text-2xl md:text-3xl lg:text-4xl font-light lg:w-3/6">
+            <Title size="text-2xl md:text-3xl lg:text-4xl font-light lg:w-3/6 lg:pl-12 ">
               {textPrimary}
             </Title>
           </SubSections.BlockCounter>
 
           <SubSections.TextSubsectionSelected>
             <div className="lg:w-4/6  w-full">
-              <SubSections.Paragraph> {text}</SubSections.Paragraph>
+              <SubSections.Title> {text}</SubSections.Title>
               <Link href={`${link}`}>
                 <div>
                   <IconAnimate text={btn} mode />

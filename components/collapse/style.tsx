@@ -227,18 +227,19 @@ export const CircleInter = styled.div`
   transform: rotate(70deg);
 `;
 export const AlingBlock = styled.div`
-  @media screen and (max-width: 320px) {
+  bottom: 10%;
+  @media screen and (max-width: 468px) {
     bottom: -2%;
   }
-  @media screen (max-width: 320px) and (min-width: 468px) {
-    bottom: 100%;
+  @media screen and (min-width: 1024px) {
+    bottom: 18%;
   }
 `;
 export const Styles = {
   SectionCollapse: tw.section`h-screen w-full relative z-80 lg:h-auto font-PrimarySerif flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative md:my-24 mb-24  font-light leading-loose`,
   BlockDescription: tw(
     AlingBlock,
-  )`lg:text-right text-xl absolute bottom-1 md:bottom-0 lg:bottom-24 lg:-right-4 w-full text-center z-10`,
+  )`lg:text-right text-xl absolute sm:bottom-12 bottom-0 lg:bottom-24 lg:-right-4 w-full text-center z-10`,
   SubSection: tw(SubSection)`font-regular text-base cursor-pointer z-80`,
   BlockImg: tw.div`relative flex justify-center items-center `,
   SectionAtom: tw(

@@ -124,7 +124,7 @@ export default {
       Text: 'Selected clients',
       Subtext:
         'Buscamos ser un partner de primer nivel, centrado en desarrollar productos y proyectos a medida, donde la calidad prima siempre por encima de la cantidad.',
-      Button: 'Quiero ser cliente',
+      Button: 'Contáctanos',
     },
   ],
   trends: [

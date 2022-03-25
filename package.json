@@ -12,6 +12,7 @@
   "dependencies": {
     "@fontsource/lato": "^4.5.3",
     "@fontsource/merriweather": "^4.5.6",
+    "@fontsource/merriweather-sans": "^4.5.5",
     "@types/qs": "^6.9.7",
     "@types/ramda": "^0.28.1",
     "@types/react-datepicker": "^4.3.4",

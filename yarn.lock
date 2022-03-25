@@ -258,6 +258,11 @@
   resolved "https://registry.yarnpkg.com/@fontsource/lato/-/lato-4.5.3.tgz#55b2eb1123ddb2475680dabbe64fc4c7988db276"
   integrity sha512-EnzxRcmBVxTPSF2cAbp/2J23J+N9BbxwKLEP2ZgGAAE9Mw+Sjzjsh2SK1gtRzaWbAn+Uj62OjIzx4ShfL69sIg==
 
+"@fontsource/merriweather-sans@^4.5.5":
+  version "4.5.5"
+  resolved "https://registry.yarnpkg.com/@fontsource/merriweather-sans/-/merriweather-sans-4.5.5.tgz#3f7bf788cd3cf42942f64f1e34d09e4b6c73af0a"
+  integrity sha512-1kB84+Yo0+RAQuV1sJGbKBmofTEV0JDuBHSS0sbN2Qg91+9O5zmmTfspj9aGXFr786lE4pxYcIBeMrDq8lTWnw==
+
 "@fontsource/merriweather@^4.5.6":
   version "4.5.6"
   resolved "https://registry.yarnpkg.com/@fontsource/merriweather/-/merriweather-4.5.6.tgz#66d7b11aab5d0d545ea8f4c151fdbbe8ba233f5f"

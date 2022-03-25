@@ -19,7 +19,7 @@ export default function SubSection({ locale }: Props) {
             <Title size="text-2xl md:text-3xl lg:text-4xl font-light pb-5">
               {values.HeaderCounter}
             </Title>
-            <SubSections.Paragraph>{values.BodyCounter}</SubSections.Paragraph>
+            <SubSections.Title>{values.BodyCounter}</SubSections.Title>
             <Link href="/servicios">
               <div>
                 <IconAnimate text={values.Button} mode />

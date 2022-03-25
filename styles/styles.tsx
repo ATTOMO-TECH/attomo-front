@@ -119,6 +119,7 @@ export const Styles = {
   `,
   Margin: tw.div`m-auto `,
   Center: tw.section`w-10/12 m-auto`,
+  CenterUs: tw.section`lg:w-8/12 w-10/12 m-auto`,
   CenterMargin: tw.section`w-10/12 m-auto lg:pt-36  py-16`,
   CenterCases: tw.section`w-full md:w-10/12 m-auto pt-24 lg:pt-36 overflow-hidden flex justify-between`,
   BlockRenderDetails: tw.div`lg:flex flex-col pt-10 hidden relative`,
@@ -139,6 +140,7 @@ export const Styles = {
   Screen: tw.div`h-screen mb-48 justify-between`,
   ScreenResponsive: tw.div`h-screen pt-24`,
   ScreenMid: tw.div`h-screen flex justify-center items-center justify-between`,
+  ScreenWS: tw.div`h-96 sm:h-64 lg:h-screen flex justify-center items-center justify-between pt-24 lg:pt-0`,
   FlexEnd: tw.div`flex lg:justify-end`,
   TitleSubSection: tw(
     subText,

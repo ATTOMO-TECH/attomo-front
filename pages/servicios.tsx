@@ -35,20 +35,18 @@ function Services() {
         </Styles.Margin>
         <ButtonShare />
         <Styles.Center>
-          <Styles.ScreenMid>
+          <Styles.ScreenWS>
             {translate.services.map((services) => (
               <Styles.BlockDiv>
-                <Title size="lg:text-4xl md:text-3xl text-xl lg:pt-24 lg:pr-0 lg:pb-24 md:pb-12 pb-6 w-full md:pt-36  ">
+                <Title size="lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl">
                   {services.Text}
                 </Title>
                 <Styles.FlexEnd>
-                  <Subtext size=" md:text-lg lg:text-base lg:w-2/6  lg:text-left font-Secundary">
-                    {services.Subtext}
-                  </Subtext>
+                  <Subtext size="lg:w-2/6 pt-10">{services.Subtext}</Subtext>
                 </Styles.FlexEnd>
               </Styles.BlockDiv>
             ))}
-          </Styles.ScreenMid>
+          </Styles.ScreenWS>
         </Styles.Center>
         <Styles.Center>
           <Styles.SpaceCollapse>

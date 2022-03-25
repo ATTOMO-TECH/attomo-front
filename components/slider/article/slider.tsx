@@ -89,9 +89,8 @@ export default function ArticlesScroll({ mode, filter }: Props) {
                       articles.attributes.coverImage.data.attributes.url === '/'
                         ? BUTTON_ACTIVE.OFF
                         : BUTTON_ACTIVE.ON
-                    }>
-                    {articles.attributes.blog_tags.data[0].attributes.name}
-                  </StylesArticle.TopicText>
+                    }
+                  />
                   <StylesArticle.TextBlog
                     ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
                     {articles.attributes.title}

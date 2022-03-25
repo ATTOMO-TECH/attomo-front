@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { darkTheme, lightTheme, Navegation } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { getLocale } from '../../public/locales/getLocale';
+import useDeviceSize from '../../hook/size';
 
 interface Props {
   isOpen: boolean;
@@ -29,7 +30,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
   const handleBtn = (value: string) => {
     router.push(router.pathname, router.pathname, { locale: value });
   };
-
+  const [width] = useDeviceSize();
   return (
     <>
       <Navegation.MenuRelative>
@@ -65,42 +66,81 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                 theme={mode === true ? lightTheme : darkTheme}
                 onClick={toggle}
               />
-              <motion.svg
-                width="36"
-                height="36"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                transition={{ duration: 1, ease: 'easeInOut' }}>
-                <motion.path
-                  d="M18 6L6 18"
-                  stroke="white"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  initial={{ pathLength: 0 }}
-                  animate={
-                    isOpen
-                      ? { pathLength: 1, type: 'tween' }
-                      : { pathLength: 0, type: 'spring' }
-                  }
-                  transition={{ duration: 1, ease: 'easeInOut' }}
-                />
-                <motion.path
-                  d="M6 6L18 18"
-                  stroke="white"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  initial={{ pathLength: 0 }}
-                  animate={
-                    isOpen
-                      ? { pathLength: 1, type: 'tween' }
-                      : { pathLength: 0, type: 'spring' }
-                  }
-                  transition={{ duration: 1, ease: 'easeInOut' }}
-                />
-              </motion.svg>
+              {width > 570 ? (
+                <motion.svg
+                  width="36"
+                  height="36"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  transition={{ duration: 1, ease: 'easeInOut' }}>
+                  <motion.path
+                    d="M18 6L6 18"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    initial={{ pathLength: 0 }}
+                    animate={
+                      isOpen
+                        ? { pathLength: 1, type: 'tween' }
+                        : { pathLength: 0, type: 'spring' }
+                    }
+                    transition={{ duration: 1, ease: 'easeInOut' }}
+                  />
+                  <motion.path
+                    d="M6 6L18 18"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    initial={{ pathLength: 0 }}
+                    animate={
+                      isOpen
+                        ? { pathLength: 1, type: 'tween' }
+                        : { pathLength: 0, type: 'spring' }
+                    }
+                    transition={{ duration: 1, ease: 'easeInOut' }}
+                  />
+                </motion.svg>
+              ) : (
+                <motion.svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  transition={{ duration: 1, ease: 'easeInOut' }}>
+                  <motion.path
+                    d="M18 6L6 18"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    initial={{ pathLength: 0 }}
+                    animate={
+                      isOpen
+                        ? { pathLength: 1, type: 'tween' }
+                        : { pathLength: 0, type: 'spring' }
+                    }
+                    transition={{ duration: 1, ease: 'easeInOut' }}
+                  />
+                  <motion.path
+                    d="M6 6L18 18"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    initial={{ pathLength: 0 }}
+                    animate={
+                      isOpen
+                        ? { pathLength: 1, type: 'tween' }
+                        : { pathLength: 0, type: 'spring' }
+                    }
+                    transition={{ duration: 1, ease: 'easeInOut' }}
+                  />
+                </motion.svg>
+              )}
             </Navegation.ItemsMenu>
           </Navegation.AlinItems>
           <Navegation.AlingItemsMenu>
