@@ -16,7 +16,7 @@ export const SubSections = {
   TextSubsectionSelected: tw.div`text-primary lg:w-6/12 w-10/12 lg:m-auto`,
   Title: tw(
     textTitle,
-  )`lg:text-sm sm:text-lg textDegrade  text-sm lg:font-thin font-regular lg:font-PrimarySerif font-Secundary pt-5 tracking-wide leading-relaxed`,
+  )`lg:text-sm sm:text-lg textDegrade  text-sm lg:font-thin font-regular lg:font-PrimarySerif font-Secundary tracking-wide leading-relaxed`,
 
   SectionCounter: tw.div`lg:w-64 p-12 lg:p-0  font-Secundary flex justify-center items-center`,
 };

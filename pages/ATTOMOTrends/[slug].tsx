@@ -72,7 +72,7 @@ function New({ mode }: Props) {
             />
             <BodyCases
               data={data?.data.attributes.content}
-              title={data?.data.attributes.blog_tags.data[0].attributes.name}
+              title={data?.data.attributes.title}
             />
           </Styles.AlingCasesNoP>
         </Styles.Center>

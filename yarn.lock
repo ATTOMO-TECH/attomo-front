@@ -4026,6 +4026,7 @@ react-tsparticles@^1.41.2:
     tsparticles "^1.41.2"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 react-web-share@^1.1.5:
   version "1.1.5"
@@ -4033,6 +4034,8 @@ react-web-share@^1.1.5:
   integrity sha512-muMgWiBd3lEnbsxSt0KHbOOf9ErwybXDX5QLCNWNaMfQG2x4NJ1d2LxJq6+au7VlznN2pX6M9QHwZAhXGlRHjg==
 
 >>>>>>> a6c88f0... fixed/bugs
+=======
+>>>>>>> ff18b68... fixed/navigatorShare
 react@^17.0.1, react@^17.0.2:
   version "17.0.2"
   resolved "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
