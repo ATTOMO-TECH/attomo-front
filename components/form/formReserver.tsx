@@ -6,9 +6,11 @@ import { FORMVALUES } from '../../hook/types';
 import InputSelect from './select';
 import { OPTIONDISPONIBILITY } from '../../const/constGlobal';
 import InputCheckcondition from './inputCheckcondition';
-import { createContact } from '../../domain/useContact';
+import { createReserve } from '../../domain/useContact';
 import Conditions from './conditions';
 import { getLocale } from '../../public/locales/getLocale';
+import CalendarPickerInput from '../calendar/input/calendar';
+import { validationSchemaBooking } from './validations';
 
 export default function FormReserver() {
   const translate = getLocale();
@@ -37,7 +39,8 @@ export default function FormReserver() {
     [FORMVALUES.CONDITIONS]: false,
   };
 
-  const { mutate } = createContact();
+  const { mutate } = createReserve();
+
   const handleSubmitReserve = (dataValues: any, action: any) => {
     const data = {
       [FORMVALUES.FIRSTNAME]: dataValues.firstname,
@@ -68,32 +71,34 @@ export default function FormReserver() {
       <Formik
         onSubmit={handleSubmitReserve}
         initialValues={initialValues}
-        // validationSchema={validationSchemaBooking}
+        validationSchema={validationSchemaBooking}
         validateOnMount>
         {({ touched, errors, handleSubmit, setFieldValue }) => (
           <>
             <Styles.Form onSubmit={handleSubmit}>
-              <Styles.SingleInput>
-                <Styles.SectionInput>
-                  <Styles.InputDate
-                    ismode={BUTTON_ACTIVE.ON}
-                    placeholder="Fecha"
-                    type="date"
-                    name={FORMVALUES.DATE}
-                  />
-                  <div className="lg:w-full lg:mr-6">
-                    <InputSelect
-                      selected={selected}
-                      options={OPTIONDISPONIBILITY}
-                      valueLabel={translate.formTime}
-                      name={FORMVALUES.TIME}
-                      onChange={onChange}
+              <Styles.SectionInputs>
+                <Styles.BlockInput>
+                  <Styles.MessageError>
+                    <CalendarPickerInput
+                      handleValue={(e: any) => {
+                        setFieldValue(FORMVALUES.DATE, e);
+                      }}
                     />
-                  </div>
-                </Styles.SectionInput>
-              </Styles.SingleInput>
-              <Styles.SectionInput>
-                <div className="w-full lg:pr-7 pt-5">
+                  </Styles.MessageError>
+                </Styles.BlockInput>
+                <Styles.BlockInput>
+                  <InputSelect
+                    selected={selected}
+                    options={OPTIONDISPONIBILITY}
+                    valueLabel={translate.formTime}
+                    name={FORMVALUES.TIME}
+                    onChange={onChange}
+                  />
+                </Styles.BlockInput>
+              </Styles.SectionInputs>
+
+              <Styles.BlockInputs>
+                <Styles.BlockInput>
                   <Styles.Input
                     ismode={BUTTON_ACTIVE.ON}
                     placeholder={translate.formName}
@@ -101,67 +106,86 @@ export default function FormReserver() {
                     name={FORMVALUES.FIRSTNAME}
                   />
                   {touched.valueName && errors.valueName && (
-                    <div>{errors.valueName}</div>
+                    <Styles.BlockClose
+                      onClick={() => setFieldValue(valueName, '')}
+                    />
                   )}
-                </div>
-                <div className="w-full lg:pr-5 lg:pt-5">
+                </Styles.BlockInput>
+                {touched.valueName && errors.valueName && (
+                  <Styles.Error>{errors.valueName}</Styles.Error>
+                )}
+                <Styles.BlockInput>
                   <Styles.Input
                     ismode={BUTTON_ACTIVE.ON}
                     placeholder={translate.formLastName}
                     type="text"
                     name={FORMVALUES.LASTNAME}
                   />
-                  {touched.valueName && errors.valueName && (
-                    <div>{errors.valueName}</div>
+                  {touched.valueLastName && errors.valueLastName && (
+                    <Styles.BlockClose
+                      onClick={() => setFieldValue(valueLastName, '')}
+                    />
                   )}
-                </div>
-              </Styles.SectionInput>
-              <Styles.SingleInput>
-                <Styles.SectionInput>
-                  <div className="w-full lg:pr-5">
-                    <Styles.Input
-                      ismode={BUTTON_ACTIVE.ON}
-                      placeholder={translate.formEmail}
-                      type="email"
-                      name={FORMVALUES.EMAIL}
+                </Styles.BlockInput>
+                {touched.valueLastName && errors.valueLastName && (
+                  <Styles.Error>{errors.valueLastName}</Styles.Error>
+                )}
+              </Styles.BlockInputs>
+              <Styles.BlockInputsCenter>
+                <Styles.BlockInput>
+                  <Styles.Input
+                    ismode={BUTTON_ACTIVE.ON}
+                    placeholder={translate.formEmail}
+                    type="email"
+                    name={FORMVALUES.EMAIL}
+                  />
+                  {touched.valueEmail && errors.valueEmail && (
+                    <Styles.BlockClose
+                      onClick={() => setFieldValue(valueEmail, '')}
                     />
-                    {touched.valueName && errors.valueName && (
-                      <div>{errors.valueName}</div>
-                    )}
-                  </div>
-                  <div className="w-full lg:pr-5">
-                    <Styles.Input
-                      ismode={BUTTON_ACTIVE.ON}
-                      placeholder={translate.formPhone}
-                      type="tel"
-                      name={FORMVALUES.PHONE}
+                  )}
+                </Styles.BlockInput>
+                {touched.valueEmail && errors.valueEmail && (
+                  <Styles.Error>{errors.valueEmail}</Styles.Error>
+                )}
+
+                <Styles.BlockInput>
+                  <Styles.Input
+                    ismode={BUTTON_ACTIVE.ON}
+                    placeholder={translate.formPhone}
+                    type="number"
+                    name={FORMVALUES.PHONE}
+                  />
+                  {touched.valuePhone && errors.valuePhone && (
+                    <Styles.BlockClose
+                      onClick={() => setFieldValue(valuePhone, '')}
                     />
-                    {touched.valueName && errors.valueName && (
-                      <div>{errors.valueName}</div>
-                    )}
-                  </div>
-                </Styles.SectionInput>
-              </Styles.SingleInput>
-              <Styles.SingleInput>
-                <div className="w-full lg:pr-5">
+                  )}
+                </Styles.BlockInput>
+                {touched.valuePhone && errors.valuePhone && (
+                  <Styles.Error>{errors.valuePhone}</Styles.Error>
+                )}
+              </Styles.BlockInputsCenter>
+              <Styles.BlockInputEnd>
+                <Styles.BlockInputOnly>
                   <Styles.Input
                     ismode={BUTTON_ACTIVE.OFF}
                     placeholder={translate.formCompany}
                     type="text"
                     name={FORMVALUES.COMPANY}
                   />
-                </div>
-              </Styles.SingleInput>
-
+                </Styles.BlockInputOnly>
+              </Styles.BlockInputEnd>
               <InputCheckcondition
                 color="text-primary text-xs pt-6"
                 value={FORMVALUES.CONDITIONS}
-                onChange={(e: any) => setFieldValue(check, e)}>
+                onClick={(e: any) => setFieldValue(check, e)}>
                 <Conditions />
               </InputCheckcondition>
               {touched.check && errors.check && (
                 <Styles.Error>{errors.check}</Styles.Error>
               )}
+
               <Styles.BlockSendButton>
                 <Styles.BtnSend type="submit">
                   {translate.formSend}

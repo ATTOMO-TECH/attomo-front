@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { format } from 'date-fns';
 import { useRouter } from 'next/dist/client/router';
 import { motion } from 'framer-motion';
+import Head from 'next/head';
 import Footer from '../../components/footer/footer';
 import Menu from '../../components/nav/menu';
 import Nav from '../../components/nav/nav';
@@ -42,6 +43,10 @@ function New({ mode }: Props) {
 
   return (
     <>
+      <Head>
+        <title>#ATTOMOtrends - {data?.data.attributes.title}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Styles.Body
         mode={isOpen ? BUTTON_ACTIVE.ON : ''}
         theme={mode === true ? lightTheme : darkTheme}>

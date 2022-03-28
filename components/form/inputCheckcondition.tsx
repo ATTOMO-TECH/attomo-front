@@ -7,14 +7,14 @@ interface Props {
   children: any;
   value: any;
   color?: string;
-  onChange?: any;
+  onClick?: any;
 }
 
 export default function InputCheckcondition({
   children,
   value,
   color,
-  onChange,
+  onClick,
 }: Props) {
   const [check, setCheck] = useState<boolean>(false);
 
@@ -26,9 +26,9 @@ export default function InputCheckcondition({
         htmlFor={value}>
         <Styles.InputCheckCondition
           type="checkbox"
-          onChange={(e: any) => {
+          onClick={(e: any) => {
             setCheck(e.target.checked);
-            onChange && onChange(e.target.checked);
+            onClick && onClick(e.target.checked);
           }}
           name={value}
         />

@@ -11,6 +11,7 @@
 @import 'react-datepicker/dist/react-datepicker.css';
 @import '@fontsource/merriweather';
 @import '@fontsource/lato';
+@import '@fontsource/merriweather-sans';
 @import 'rmc-picker/assets/index.css';
 
 * {
@@ -128,6 +129,13 @@ input[type='date']::-webkit-calendar-picker-indicator {
   margin: 0px;
   margin-right: 5px !important;
 }
+.swiper-button-disabled {
+  transition: all ease 0.5s;
+  opacity: 0 !important;
+}
+#reserve .react-datepicker__input-container {
+  background: none !important;
+}
 input#input-4 {
   background-color: black;
   border: 0 !important;
@@ -189,4 +197,13 @@ input[type='text'] {
 
 .css-319lph-ValueContainer {
   padding: 0 !important;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
 }

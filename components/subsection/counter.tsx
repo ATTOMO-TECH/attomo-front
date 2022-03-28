@@ -28,7 +28,7 @@ export default function Counter() {
             const roundedValue = Math.round(valueCount);
             return (
               <CircularProgressbar
-                className="animate-pulse "
+                className=" "
                 strokeWidth={1}
                 styles={{
                   background: {

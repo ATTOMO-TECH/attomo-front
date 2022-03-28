@@ -54,10 +54,9 @@ export default {
     {
       Section: 'Selected clients',
       Title:
-        'Acompañamos a nuestros clientes en todo el proceso de transformación digital',
-      SubText:
-        'Desarrollamos e implantamos tecnologías, productos y servicios a medida de nuestros clientes.',
-      Button: 'Nuestros servicios',
+        'Trabajamos de la mano con nuestros clientes para impulsar y transformar sus áreas de operación.',
+      SubText: '',
+      Button: 'Casos de éxito',
     },
   ],
   seeMoreProject: 'Ver proyecto ',
@@ -125,7 +124,7 @@ export default {
       Text: 'Selected clients',
       Subtext:
         'Buscamos ser un partner de primer nivel, centrado en desarrollar productos y proyectos a medida, donde la calidad prima siempre por encima de la cantidad.',
-      Button: 'Quiero ser cliente',
+      Button: 'Contáctanos',
     },
   ],
   trends: [

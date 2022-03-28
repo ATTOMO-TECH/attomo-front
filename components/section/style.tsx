@@ -20,10 +20,18 @@ export const TextHero = styled.h2`
     #ffffff 50.27%,
     #cccfe8 100%
   );
+  line-height: 1.5em;
+  font-size: 300;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
 
+export const textTitle = styled.div`
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+`;
 export const Styles = {
   SectionProjects: tw.div`md:py-14  overflow-hidden relative z-40`,
   BlockSections: tw.div<Props>`
@@ -52,9 +60,9 @@ ${(props) =>
     ? 'md:px-20 sm:px-5 lg:w-3/6 px-12 py-16 lg:absolute lg:-bottom-32 lg:left-0 '
     : ''}`,
   OnlyProjectBlock: tw.div`md:px-24 sm:px-5 lg:w-3/6 w-10/12 md:px-12 py-16  lg:py-0 lg:absolute lg:-bottom-10 lg:right-0 `,
-  BlockMargin: tw.div`lg:py-48 flex flex-col lg:flex-row w-full`,
-  BlockMarginText: tw.div`pt-12`,
-  DivideSection: tw.div`lg:w-3/6 w-full pb-2`,
+  BlockMargin: tw.div`lg:py-48 flex flex-col lg:flex-row w-full justify-justify-around`,
+  BlockMarginText: tw.div`lg:pt-12`,
+  DivideSection: tw.div`h-full flex items-start lg:justify-around flex-col lg:flex-row justify-center w-full`,
   BlockBtn: tw.div`text-primary z-100`,
 
   SectionImg: tw.section`grid grid-cols-1 sm:grid-cols-2 lg:gap-6 `,
@@ -65,7 +73,7 @@ ${(props) =>
   )`w-5/6 border bg-backCollaplse border-primary rounded-xl overflow-hidden flex flex-col p-4 justify-center items-center text-center  duration-300 ease-in-out cursor-pointer  border-opacity-40 hover:border-opacity-100 py-12 transition delay-100 duration-500 ease-in-out`,
   Paragraph: tw(
     TextHero,
-  )`lg:text-sm sm:text-lg fo text-sm lg:font-thin font-regular lg:font-PrimarySerif font-Secundary pt-5 tracking-wide leadi ng-loose`,
+  )`lg:text-md text-xl  text-sm font-light lg:font-PrimarySerif font-Secundary pt-5 tracking-wide leading-relaxed`,
 };
 
 export const StylesCases = {
@@ -75,6 +83,15 @@ export const StylesCases = {
 };
 
 export const UsStyles = {
-  SectionUs: tw.section`flex flex-wrap  lg:pt-4 pb-5`,
-  BlockSubsection: tw.div`lg:w-6/12 pr-10 w-full`,
+  SectionUs: tw.section`flex flex-wrap justify-between lg:pt-4 pb-5`,
+  BlockSubsection: tw.div`lg:w-5/12 pr-10 w-full`,
+  Paragraph: tw(
+    TextHero,
+  )`lg:text-sm sm:text-lg fo text-sm lg:font-thin font-regular lg:font-PrimarySerif font-Secundary pt-5 tracking-wide leading-relaxed`,
+  Title: tw(
+    textTitle,
+  )<Props>`lg:text-sm sm:text-lg  text-sm lg:font-thin font-regular lg:font-PrimarySerif font-Secundary lg:pt-5 tracking-wide leading-relaxed
+  ${(props) =>
+    props.ismode === BUTTON_ACTIVE.ON ? `textDegrade  ` : 'bg-black '}
+      `,
 };

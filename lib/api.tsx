@@ -18,7 +18,7 @@ const CASES = {
 const CONTACT = {
   CREATE: () => getAbsolutePath('client-forms'),
   CREATECOLABORATOR: () => getAbsolutePath('partner-forms'),
-  CREATERESERVE: () => getAbsolutePath('client-forms'),
+  CREATERESERVE: () => getAbsolutePath('space-forms'),
 };
 const CAREERS = {
   FETCH_ALL: (lenguage: any) => getAbsolutePath(`careers?locale=${lenguage}`),

@@ -54,8 +54,7 @@ export default {
       Section: 'Selected clients',
       Title:
         'We work hand-in-hand with our clients to boost and transform their areas of operation',
-      SubText:
-        'Desarrollamos e implantamos tecnologías, productos y servicios a medida de nuestros clientes.',
+      SubText: '',
       Button: 'Our services',
     },
   ],

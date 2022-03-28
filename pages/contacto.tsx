@@ -23,13 +23,14 @@ function Contact() {
   return (
     <>
       <Head>
-        <title>Contacto - ATTOMO ESTUDIO</title>
+        <title>Contacto - ATTOMO DIGITAL</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <BgComponent />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
-          <Nav toggle={toggle} logo mode isOpen={isOpen} />
+          <Nav toggle={toggle} logo mode isOpen={isOpen} bgFull />
         </Styles.Margin>
         <ButtonShare />
         <Styles.Center>

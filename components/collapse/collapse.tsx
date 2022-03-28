@@ -59,7 +59,7 @@ export default function Collapse() {
       <Styles.SectionCollapse>
         <Styles.BlockDescription>
           <motion.div
-            className="children"
+            className="children "
             variants={variants}
             initial="hidden"
             animate="show">
@@ -78,29 +78,21 @@ export default function Collapse() {
         </Styles.BlockDescription>
         <Styles.BlockImg>
           <Styles.SectionAtom ismode={idx}>
-            <Styles.Atom />
-            <Styles.BlockAtom>
-              <Styles.Image
-                ismode={idx}
-                src="/icon/semiElipse.svg"
+            <div className="flex items-center justify-center bg-black m-1  rounded-full">
+              <img
+                src="/icon/Ellipse.svg"
                 width={500}
                 height={500}
                 alt="Elipse"
-                className="z-0 overflow-hidden opacity-0 relative  "
+                className="opacity-0 overflow-hidden z-0 relative  "
               />
-            </Styles.BlockAtom>
-            <img
-              src="/icon/Ellipse.svg"
-              width={500}
-              height={500}
-              alt="Elipse"
-              className="opacity-0 overflow-hidden z-0 relative  "
-            />
+            </div>
           </Styles.SectionAtom>
-          <Styles.BlockTextCenter>
-            <Styles.TextCentral>{innerRenderText(idx)}</Styles.TextCentral>
-          </Styles.BlockTextCenter>
-          <Styles.Circle />
+          <Styles.Circle>
+            <Styles.BlockTextCenter>
+              <Styles.TextCentral>{innerRenderText(idx)}</Styles.TextCentral>
+            </Styles.BlockTextCenter>
+          </Styles.Circle>
         </Styles.BlockImg>
         <Styles.BlockSectionTitle>
           <Styles.BlockTextSelect>

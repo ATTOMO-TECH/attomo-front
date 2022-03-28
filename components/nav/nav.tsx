@@ -38,7 +38,9 @@ export default function Nav({ toggle, logo, mode, isOpen, bgFull }: Props) {
   return (
     <>
       <Navegation.SectionNav
-        theme={bgFull ? (mode ? lightTheme : darkTheme) : null}
+        theme={
+          !scroll ? (bgFull ? (mode ? lightTheme : darkTheme) : null) : null
+        }
         className={!isOpen ? '' : 'hidden'}
         ismode={!scroll ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
         <Navegation.AlinItems

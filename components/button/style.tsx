@@ -28,7 +28,7 @@ export const Image = styled.div`
 
 export const Button = {
   ButtonRegular: tw.h5<Props>`
-    text-Primary font-Primary py-5 text-left text-xl pr-2
+    text-Primary font-Primary py-5 text-left text-lg pr-2
   ${(props) =>
     props.ismode === BUTTON_MODE.LIGHT ? 'text-primary' : 'text-secundary'}`,
   SectionBack: tw.div`z-100 lg:w-3/12 mt-12 w-full md:w-10/12 md:ml-12 lg:px-10 lg:p-14 pt-12 py-0 block cursor-pointer hover:opacity-50`,

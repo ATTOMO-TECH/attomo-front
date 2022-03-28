@@ -30,7 +30,7 @@ export default function DetailsCases({ data }: Props) {
         </Details.BlockItems>
         <Details.SectionContainer>
           <Container>{data.attributes.workDescription}</Container>
-          <Link href={data.attributes.projectUrl} passHref>
+          <Link href={data.attributes.projectUrl || '/'} passHref>
             <a
               href={data.attributes.projectUrl}
               target="_blank"

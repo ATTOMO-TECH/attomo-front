@@ -27,6 +27,7 @@ export default function InputCheck({ text, value, color, onChange }: Props) {
           onClick={(e: any) => {
             setCheck(e.target.value);
             onChange && onChange(e.target.value);
+            setCheck(!check);
           }}
         />
         <Styles.TextCheck> {text}</Styles.TextCheck>

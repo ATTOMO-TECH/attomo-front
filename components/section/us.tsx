@@ -1,6 +1,7 @@
 import Subtext from '../Text/title';
 import { getLocale } from '../../public/locales/getLocale';
 import { UsStyles } from './style';
+import { BUTTON_ACTIVE } from '../../const/const';
 
 export default function ListUs() {
   const translate = getLocale();
@@ -12,12 +13,12 @@ export default function ListUs() {
         </Subtext>
         {translate.valuesUs.map((values) => (
           <UsStyles.BlockSubsection>
-            <Subtext size="lg:text-3xl text-3xl w-full py-5 lg:py-10">
+            <Subtext size="lg:text-3xl text-2xl w-full py-5 lg:py-10 pt-12 ">
               {values.Text}
             </Subtext>
-            <Subtext size="text-regular w-full leading-loose font-Secundary ">
+            <UsStyles.Title ismode={BUTTON_ACTIVE.ON}>
               {values.Subtext}
-            </Subtext>
+            </UsStyles.Title>
           </UsStyles.BlockSubsection>
         ))}
       </UsStyles.SectionUs>

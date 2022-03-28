@@ -9,7 +9,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { darkTheme, lightTheme, StylesArticle } from '../style';
 import { BUTTON_ACTIVE } from '../../../const/const';
-import RenderLoading from '../../loading/loading';
 import { useUseFilterCases } from '../../../domain/useCasesDetails';
 
 interface Props {
@@ -26,10 +25,8 @@ export default function CasesScroll({ mode, filter }: Props) {
 
   const queryObject: any = {
     filters: {
-      subservice: {
-        name: {
-          $containsi: filter,
-        },
+      sumary: {
+        $containsi: filter,
       },
     },
   };
@@ -50,7 +47,7 @@ export default function CasesScroll({ mode, filter }: Props) {
   };
 
   if (isLoading) {
-    return <RenderLoading mode={false} />;
+    return <></>;
   }
 
   return (
@@ -62,10 +59,10 @@ export default function CasesScroll({ mode, filter }: Props) {
         className="mySwiper"
         breakpoints={{
           '460': {
-            slidesPerView: 1,
+            slidesPerView: 'auto',
           },
           '640': {
-            slidesPerView: 1,
+            slidesPerView: 'auto',
           },
           '1024': {
             slidesPerView: 3.5,
@@ -78,7 +75,7 @@ export default function CasesScroll({ mode, filter }: Props) {
         }}>
         {data.data.map((articles: any) => (
           <SwiperSlide key={articles.attributes.company} className="swiper ">
-            <Link href={`/ATTOMOTrends/${articles.id}`}>
+            <Link href={`/casos/${articles.id}`}>
               <div className="cursor-pointer">
                 <StylesArticle.Img
                   src={articles.attributes.mainPhoto.data[0].attributes.url}

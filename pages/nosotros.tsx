@@ -7,13 +7,12 @@ import Footer from '../components/footer/footer';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
 import OneProject from '../components/section/onlyProject';
-import SelectedClients from '../components/section/selectedclientes';
+import SelectedUs from '../components/section/selectedUs';
 import ListUs from '../components/section/us';
 import Subtext from '../components/Text/subText';
 import Title from '../components/Text/title';
 import { BUTTON_ACTIVE } from '../const/const';
 import { getLocale } from '../public/locales/getLocale';
-
 import { Styles } from '../styles/styles';
 
 function Us() {
@@ -25,40 +24,39 @@ function Us() {
   return (
     <>
       <Head>
-        <title>Nosotros - ATTOMO ESTUDIO</title>
+        <title>About us- ATTOMO DIGITAL</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <BgComponent />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
-          <Nav toggle={toggle} logo mode isOpen={isOpen} />
+          <Nav toggle={toggle} logo mode bgFull isOpen={isOpen} />
         </Styles.Margin>
         <ButtonShare />
-        <Styles.Center>
-          <Styles.Center>
-            <Styles.ScreenMid>
-              {translate.us.map((values) => (
-                <Styles.BlockDiv>
-                  <Title size="lg:text-4xl md:text-3xl text-xl lg:pt-24 lg:pr-0 lg:pb-24 md:pb-12 pb-6 w-full md:pt-36  ">
-                    {values.Text}
-                  </Title>
-                  <Styles.FlexEnd>
-                    <Subtext size=" md:text-lg lg:text-base lg:w-2/6  lg:text-left font-Secundary">
-                      {values.Subtext}
-                    </Subtext>
-                  </Styles.FlexEnd>
-                </Styles.BlockDiv>
-              ))}
-            </Styles.ScreenMid>
-          </Styles.Center>
-        </Styles.Center>
+        <Styles.CenterUs>
+          <Styles.ScreenWS>
+            {translate.us.map((values) => (
+              <Styles.BlockDiv>
+                <Title size="lg:text-4xl md:text-3xl text-xl lg:pt-24 lg:pr-0 lg:pb-24 md:pb-12 pb-6 w-full md:pt-36  ">
+                  {values.Text}
+                </Title>
+                <Styles.FlexEnd>
+                  <Subtext size=" lg:w-2/6  lg:text-left pt-3 md:pt-0 tracking-wide leading-relaxed pb-24">
+                    {values.Subtext}
+                  </Subtext>
+                </Styles.FlexEnd>
+              </Styles.BlockDiv>
+            ))}
+          </Styles.ScreenWS>
+        </Styles.CenterUs>
         <OneProject data={translate.projectUs[0]} />
         <Styles.Center>
           <Styles.BlockUs>
             <ListUs />
-            <SelectedClients
+            <SelectedUs
               text={translate.selectedUs[0].Subtext}
-              btn=""
+              btn={translate.selectedUs[0].Button}
               link="/contacto"
               textPrimary={translate.selectedUs[0].Text}
             />

@@ -1,6 +1,6 @@
 export enum CONDITIONFORM {
-  TEAM = 'team',
-  PARTNER = 'partner',
+  TEAM = 'teamMember',
+  PARTNER = 'outsidePartner',
 }
 
 export const PARTNERS: {
@@ -519,6 +519,27 @@ export const PRICES: {
     Url: '/espacio#reserva',
   },
 ];
+export const BGSPACE: {
+  id: number;
+  img: string;
+}[] = [
+  {
+    id: 1,
+    img: 'bg-space-Attomo',
+  },
+  {
+    id: 2,
+    img: 'bg-space-Attomo2',
+  },
+  {
+    id: 3,
+    img: 'bg-space-Attomo3',
+  },
+  {
+    id: 4,
+    img: 'bg-space-Attomo4',
+  },
+];
 
 export const OPTIONSTIME = [
   { value: '0:00', label: '0:00' },
@@ -571,13 +592,13 @@ export const OPTIONSTIME = [
   { value: '23:30', label: '23:30' },
 ];
 export const OPTIONDISPONIBILITY = [
-  { value: '30M', label: '30 min' },
-  { value: '1', label: '1 Hora' },
-  { value: '2', label: '2 Horas' },
-  { value: '3', label: '3 Horas' },
-  { value: '4', label: '4 Horas' },
-  { value: '5', label: '5 Horas' },
-  { value: '6', label: '6 Horas' },
-  { value: '7', label: '7 Horas' },
-  { value: '8', label: '8 Horas' },
+  { value: 30, label: '30 min' },
+  { value: 1, label: '1 Hora' },
+  { value: 2, label: '2 Horas' },
+  { value: 3, label: '3 Horas' },
+  { value: 4, label: '4 Horas' },
+  { value: 5, label: '5 Horas' },
+  { value: 6, label: '6 Horas' },
+  { value: 7, label: '7 Horas' },
+  { value: 8, label: '8 Horas' },
 ];

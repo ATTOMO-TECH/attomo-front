@@ -14,7 +14,6 @@ export default function FormCustomer() {
   const valueLastName = FORMVALUES.LASTNAME;
   const valuePhone = FORMVALUES.PHONE;
   const valueEmail = FORMVALUES.EMAIL;
-  const valueCompany = FORMVALUES.COMPANY;
   const valueMessage = FORMVALUES.MESSAGE;
   const check = FORMVALUES.CONDITIONS;
 
@@ -28,13 +27,13 @@ export default function FormCustomer() {
     [FORMVALUES.CONDITIONS]: false,
   };
   const { mutate } = createContact();
-  const handleSubmit = (values: any, action: any) => {
+  const handleSumitCustomer = (values: any, action: any) => {
     const data = {
       [FORMVALUES.FIRSTNAME]: values.firstname,
       [FORMVALUES.LASTNAME]: values.lastname,
       [FORMVALUES.PHONE]: values.mobile,
       [FORMVALUES.EMAIL]: values.email,
-      [FORMVALUES.COMPANY]: values.valueCompany,
+      [FORMVALUES.COMPANY]: values.company,
       [FORMVALUES.MESSAGE]: values.message,
       [FORMVALUES.CONDITIONS]: values.conditionsAccepted,
     };
@@ -55,103 +54,93 @@ export default function FormCustomer() {
   return (
     <>
       <Formik
-        onSubmit={handleSubmit}
+        onSubmit={handleSumitCustomer}
         initialValues={initialValues}
         validationSchema={validationSchemaContact}
         validateOnMount>
-        {({ touched, errors, setFieldValue }) => (
+        {({ touched, errors, setFieldValue, handleSubmit }) => (
           <>
-            <Styles.Form>
-              <Styles.SectionInput>
-                <Styles.BlockSections>
-                  <Styles.BlockInput>
-                    <Styles.Input
-                      ismode={BUTTON_ACTIVE.ON}
-                      placeholder={translate.formName}
-                      type="text"
-                      name={FORMVALUES.FIRSTNAME}
-                    />
-                    {touched.valueName && errors.valueName && (
-                      <Styles.BlockClose
-                        onClick={() => setFieldValue(valueName, '')}
-                      />
-                    )}
-                  </Styles.BlockInput>
+            <Styles.Form onSubmit={handleSubmit}>
+              <Styles.BlockInputsCenter>
+                <Styles.BlockInput>
+                  <Styles.Input
+                    ismode={BUTTON_ACTIVE.ON}
+                    placeholder={translate.formName}
+                    type="text"
+                    name={FORMVALUES.FIRSTNAME}
+                  />
                   {touched.valueName && errors.valueName && (
-                    <Styles.Error>{errors.valueName}</Styles.Error>
-                  )}
-                </Styles.BlockSections>
-
-                <Styles.SubBlock>
-                  <Styles.BlockInput>
-                    <Styles.Input
-                      ismode={BUTTON_ACTIVE.ON}
-                      placeholder={translate.formLastName}
-                      type="text"
-                      name={FORMVALUES.LASTNAME}
+                    <Styles.BlockClose
+                      onClick={() => setFieldValue(valueName, '')}
                     />
-                    {touched.valueLastName && errors.valueLastName && (
-                      <Styles.BlockClose
-                        onClick={() => setFieldValue(valueLastName, '')}
-                      />
-                    )}
-                  </Styles.BlockInput>
+                  )}
+                </Styles.BlockInput>
+                {touched.valueName && errors.valueName && (
+                  <Styles.Error>{errors.valueName}</Styles.Error>
+                )}
+                <Styles.BlockInput>
+                  <Styles.Input
+                    ismode={BUTTON_ACTIVE.ON}
+                    placeholder={translate.formLastName}
+                    type="text"
+                    name={FORMVALUES.LASTNAME}
+                  />
                   {touched.valueLastName && errors.valueLastName && (
-                    <Styles.Error>{errors.valueLastName}</Styles.Error>
-                  )}
-                </Styles.SubBlock>
-              </Styles.SectionInput>
-              <Styles.SectionInput>
-                <Styles.BlockSectionMargin>
-                  <Styles.BlockInput>
-                    <Styles.Input
-                      ismode={BUTTON_ACTIVE.ON}
-                      placeholder={translate.formEmail}
-                      type="email"
-                      name={FORMVALUES.EMAIL}
+                    <Styles.BlockClose
+                      onClick={() => setFieldValue(valueLastName, '')}
                     />
-                    {touched.valueEmail && errors.valueEmail && (
-                      <Styles.BlockClose
-                        onClick={() => setFieldValue(valueEmail, '')}
-                      />
-                    )}
-                  </Styles.BlockInput>
+                  )}
+                </Styles.BlockInput>
+                {touched.valueLastName && errors.valueLastName && (
+                  <Styles.Error>{errors.valueLastName}</Styles.Error>
+                )}
+              </Styles.BlockInputsCenter>
+              <Styles.BlockInputsCenter>
+                <Styles.BlockInput>
+                  <Styles.Input
+                    ismode={BUTTON_ACTIVE.ON}
+                    placeholder={translate.formEmail}
+                    type="email"
+                    name={FORMVALUES.EMAIL}
+                  />
                   {touched.valueEmail && errors.valueEmail && (
-                    <Styles.Error>{errors.valueEmail}</Styles.Error>
-                  )}
-                </Styles.BlockSectionMargin>
-
-                <Styles.BlockSectionMarginTop>
-                  <Styles.BlockInput>
-                    <Styles.Input
-                      ismode={BUTTON_ACTIVE.ON}
-                      placeholder={translate.formPhone}
-                      type="phone"
-                      name={FORMVALUES.PHONE}
+                    <Styles.BlockClose
+                      onClick={() => setFieldValue(valueEmail, '')}
                     />
-                    {touched.valuePhone && errors.valuePhone && (
-                      <Styles.BlockClose
-                        onClick={() => setFieldValue(valuePhone, '')}
-                      />
-                    )}
-                  </Styles.BlockInput>
-                  {touched.valuePhone && errors.valuePhone && (
-                    <Styles.Error>{errors.valuePhone}</Styles.Error>
                   )}
-                </Styles.BlockSectionMarginTop>
-              </Styles.SectionInput>
-              <Styles.SingleInput>
-                <Styles.BlockSectionMarginTop>
+                </Styles.BlockInput>
+                {touched.valueEmail && errors.valueEmail && (
+                  <Styles.Error>{errors.valueEmail}</Styles.Error>
+                )}
+                <Styles.BlockInput>
+                  <Styles.Input
+                    ismode={BUTTON_ACTIVE.OFF}
+                    placeholder={translate.formPhone}
+                    type="number"
+                    name={FORMVALUES.PHONE}
+                  />
+                  {touched.valuePhone && errors.valuePhone && (
+                    <Styles.BlockClose
+                      onClick={() => setFieldValue(valuePhone, '')}
+                    />
+                  )}
+                </Styles.BlockInput>
+                {touched.valuePhone && errors.valuePhone && (
+                  <Styles.Error>{errors.valuePhone}</Styles.Error>
+                )}
+              </Styles.BlockInputsCenter>
+              <Styles.BlockInputEnd>
+                <Styles.BlockInputOnly>
                   <Styles.Input
                     ismode={BUTTON_ACTIVE.OFF}
                     placeholder={translate.formCompany}
                     type="text"
-                    name={valueCompany}
+                    name={FORMVALUES.COMPANY}
                   />
-                </Styles.BlockSectionMarginTop>
-              </Styles.SingleInput>
-              <Styles.SingleInput>
-                <Styles.BlockSectionMarginTop>
+                </Styles.BlockInputOnly>
+              </Styles.BlockInputEnd>
+              <Styles.BlockInputEnd>
+                <Styles.BlockInputOnly>
                   <Styles.Input
                     ismode={BUTTON_ACTIVE.OFF}
                     placeholder={translate.formMessage}
@@ -163,20 +152,21 @@ export default function FormCustomer() {
                       onClick={() => setFieldValue(valueMessage, '')}
                     />
                   )}
-                  {touched.valueMessage && errors.valueMessage && (
-                    <Styles.Error>{errors.valueMessage}</Styles.Error>
-                  )}
-                </Styles.BlockSectionMarginTop>
-              </Styles.SingleInput>
+                </Styles.BlockInputOnly>
+                {touched.valueMessage && errors.valueMessage && (
+                  <Styles.Error>{errors.valueMessage}</Styles.Error>
+                )}
+              </Styles.BlockInputEnd>
               <InputCheckcondition
-                color="text-primary text-xs md:pt-6 pt-4"
+                color="text-primary text-xs pt-6"
                 value={FORMVALUES.CONDITIONS}
-                onChange={(e: any) => setFieldValue(check, e)}>
+                onClick={(e: any) => setFieldValue(check, e)}>
                 <Conditions />
               </InputCheckcondition>
               {touched.check && errors.check && (
                 <Styles.Error>{errors.check}</Styles.Error>
               )}
+
               <Styles.BlockSendButton>
                 <Styles.BtnSend type="submit">
                   {translate.formSend}
