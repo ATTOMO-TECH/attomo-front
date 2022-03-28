@@ -96,10 +96,10 @@ function News() {
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
-          <Nav toggle={toggle} logo mode isOpen={isOpen} />
+          <Nav toggle={toggle} logo mode bgFull isOpen={isOpen} />
         </Styles.Margin>
         <Styles.Center>
-          <Styles.ScreenMid>
+          <Styles.ScreenWS>
             {React.Children.toArray(
               translate.trends.map((value) => (
                 <Styles.BlockDiv>
@@ -117,7 +117,7 @@ function News() {
                 </Styles.BlockDiv>
               )),
             )}
-          </Styles.ScreenMid>
+          </Styles.ScreenWS>
         </Styles.Center>
         <Styles.BlockTrends>
           <Title size="text-lg lg:py-4 font-PrimarySerif">

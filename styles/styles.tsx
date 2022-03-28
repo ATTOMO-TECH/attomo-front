@@ -141,7 +141,7 @@ export const Styles = {
   ScreenResponsive: tw.div`h-screen pt-24`,
   ScreenMid: tw.div`h-screen flex justify-center items-center justify-between`,
   ScreenWS: tw.div`h-96 sm:h-64 lg:h-screen flex justify-center items-center justify-between pt-24 lg:pt-0`,
-  FlexEnd: tw.div`flex lg:justify-end`,
+  FlexEnd: tw.div`flex lg:justify-end w-full m-auto`,
   TitleSubSection: tw(
     subText,
   )`font-Primary text-xl font-extralight pb-5 text-primary`,

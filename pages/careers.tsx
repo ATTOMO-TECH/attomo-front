@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { Head } from 'next/document';
+import Head from 'next/head';
 import BgComponent from '../components/animations/bg';
 import ButtonShare from '../components/button/BtnShare';
 import IconAnimate from '../components/button/icon';
@@ -60,29 +60,28 @@ function Carrers() {
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
-          <Nav toggle={toggle} logo mode isOpen={isOpen} />
+          <Nav bgFull toggle={toggle} logo mode isOpen={isOpen} />
         </Styles.Margin>
         <ButtonShare />
+        <Styles.CenterUs>
+          <Styles.ScreenWS>
+            {translate.workUs.map((value) => (
+              <Styles.BlockDiv>
+                <Title size="lg:text-5xl md:text-3xl text-2xl lg:pr-0 lg:pb-4 md:pb-12 pb-6 w-4/6 lg:w-3/6  ">
+                  {value.Text}
+                </Title>
+                <Styles.FlexEnd>
+                  <Subtext size="lg:w-3/6 lg:text-left pt-3 md:pt-0  pb-24 ">
+                    {value.Subtext}
+                  </Subtext>
+                </Styles.FlexEnd>
+              </Styles.BlockDiv>
+            ))}
+          </Styles.ScreenWS>
+        </Styles.CenterUs>
         <Styles.Center>
-          <Styles.Center>
-            <Styles.ScreenMid>
-              {translate.workUs.map((value) => (
-                <Styles.BlockDiv>
-                  <Title size="lg:text-4xl md:text-3xl text-xl lg:pt-24 lg:pr-0 lg:pb-24 md:pb-12 pb-6 w-full md:pt-36  ">
-                    {value.Text}
-                  </Title>
-                  <Styles.FlexEnd>
-                    <Subtext size="text-regular w-full leading-loose font-Secundary lg:w-2/6  ">
-                      {value.Subtext}
-                    </Subtext>
-                  </Styles.FlexEnd>
-                </Styles.BlockDiv>
-              ))}
-            </Styles.ScreenMid>
-          </Styles.Center>
-        </Styles.Center>
-        <Styles.Center>
-          <Subtext size=" text-2xl pb-8">{translate.offerWork} </Subtext>
+          <Title size="text-xl  pb-8">{translate.offerWork}</Title>
+
           <Work works={data.data} />
         </Styles.Center>
         {translate.contactUsWork.map((value) => (

@@ -87,10 +87,10 @@ export const UsStyles = {
   BlockSubsection: tw.div`lg:w-5/12 pr-10 w-full`,
   Paragraph: tw(
     TextHero,
-  )`lg:text-sm sm:text-lg fo text-sm lg:font-thin font-regular lg:font-PrimarySerif font-Secundary pt-5 tracking-wide leading-relaxed`,
+  )`lg:text-sm sm:text-lg fo text-sm lg:font-thin font-regular font-PrimarySerif pt-5 tracking-wide leading-8`,
   Title: tw(
     textTitle,
-  )<Props>`lg:text-sm sm:text-lg  text-sm lg:font-thin font-regular lg:font-PrimarySerif font-Secundary lg:pt-5 tracking-wide leading-relaxed
+  )<Props>`lg:text-sm sm:text-lg  text-sm lg:font-thin font-regularm font-PrimarySerif lg:pt-5 tracking-wide leading-8
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON ? `textDegrade  ` : 'bg-black '}
       `,

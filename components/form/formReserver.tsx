@@ -11,10 +11,12 @@ import Conditions from './conditions';
 import { getLocale } from '../../public/locales/getLocale';
 import CalendarPickerInput from '../calendar/input/calendar';
 import { validationSchemaBooking } from './validations';
+import Sucesfull from './succesfull';
 
 export default function FormReserver() {
   const translate = getLocale();
   const [selected, setSelected] = useState('');
+  const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
   const onChange = (e: any) => {
     setSelected(e.value);
   };
@@ -58,6 +60,7 @@ export default function FormReserver() {
       {
         onSuccess: () => {
           action.resetForm();
+          setSuccesfull(true);
         },
         onError: () => {
           action.resetForm();
@@ -68,133 +71,138 @@ export default function FormReserver() {
 
   return (
     <>
-      <Formik
-        onSubmit={handleSubmitReserve}
-        initialValues={initialValues}
-        validationSchema={validationSchemaBooking}
-        validateOnMount>
-        {({ touched, errors, handleSubmit, setFieldValue }) => (
-          <>
-            <Styles.Form onSubmit={handleSubmit}>
-              <Styles.SectionInputs>
-                <Styles.BlockInput>
-                  <Styles.MessageError>
-                    <CalendarPickerInput
-                      handleValue={(e: any) => {
-                        setFieldValue(FORMVALUES.DATE, e);
-                      }}
+      {!sendSuccesfull ? (
+        <Formik
+          onSubmit={handleSubmitReserve}
+          initialValues={initialValues}
+          validationSchema={validationSchemaBooking}
+          validateOnMount>
+          {({ touched, errors, handleSubmit, setFieldValue }) => (
+            <>
+              <Styles.Form onSubmit={handleSubmit}>
+                <Styles.SectionInputs>
+                  <Styles.BlockInput>
+                    <Styles.MessageError>
+                      <CalendarPickerInput
+                        handleValue={(e: any) => {
+                          setFieldValue(FORMVALUES.DATE, e);
+                        }}
+                      />
+                    </Styles.MessageError>
+                  </Styles.BlockInput>
+                  <Styles.BlockInput>
+                    <InputSelect
+                      selected={selected}
+                      options={OPTIONDISPONIBILITY}
+                      valueLabel={translate.formTime}
+                      name={FORMVALUES.TIME}
+                      onChange={onChange}
                     />
-                  </Styles.MessageError>
-                </Styles.BlockInput>
-                <Styles.BlockInput>
-                  <InputSelect
-                    selected={selected}
-                    options={OPTIONDISPONIBILITY}
-                    valueLabel={translate.formTime}
-                    name={FORMVALUES.TIME}
-                    onChange={onChange}
-                  />
-                </Styles.BlockInput>
-              </Styles.SectionInputs>
+                  </Styles.BlockInput>
+                </Styles.SectionInputs>
+                <Styles.BlockInputsCenter>
+                  <Styles.BlockInput>
+                    <Styles.Input
+                      ismode={BUTTON_ACTIVE.OFF}
+                      placeholder={translate.formName}
+                      type="text"
+                      name={FORMVALUES.FIRSTNAME}
+                    />
+                    {touched.firstname && errors.firstname && (
+                      <Styles.BlockClose
+                        onClick={() => setFieldValue(valueName, '')}
+                      />
+                    )}
+                    {touched.firstname && errors.firstname && (
+                      <Styles.Error>{errors.firstname}</Styles.Error>
+                    )}
+                  </Styles.BlockInput>
+                  <Styles.BlockInput>
+                    <Styles.Input
+                      ismode={BUTTON_ACTIVE.ON}
+                      placeholder={translate.formLastName}
+                      type="text"
+                      name={FORMVALUES.LASTNAME}
+                    />
+                    {touched.lastname && errors.lastname && (
+                      <Styles.BlockClose
+                        onClick={() => setFieldValue(valueLastName, '')}
+                      />
+                    )}
+                    {touched.lastname && errors.lastname && (
+                      <Styles.Error>{errors.lastname}</Styles.Error>
+                    )}
+                  </Styles.BlockInput>
+                </Styles.BlockInputsCenter>
+                <Styles.BlockInputsCenter>
+                  <Styles.BlockInput>
+                    <Styles.Input
+                      ismode={BUTTON_ACTIVE.ON}
+                      placeholder={translate.formEmail}
+                      type="email"
+                      name={FORMVALUES.EMAIL}
+                    />
+                    {touched.email && errors.email && (
+                      <Styles.BlockClose
+                        onClick={() => setFieldValue(valueEmail, '')}
+                      />
+                    )}
+                    {touched.email && errors.email && (
+                      <Styles.Error>{errors.email}</Styles.Error>
+                    )}
+                  </Styles.BlockInput>
 
-              <Styles.BlockInputs>
-                <Styles.BlockInput>
-                  <Styles.Input
-                    ismode={BUTTON_ACTIVE.ON}
-                    placeholder={translate.formName}
-                    type="text"
-                    name={FORMVALUES.FIRSTNAME}
-                  />
-                  {touched.valueName && errors.valueName && (
-                    <Styles.BlockClose
-                      onClick={() => setFieldValue(valueName, '')}
+                  <Styles.BlockInput>
+                    <Styles.Input
+                      ismode={BUTTON_ACTIVE.OFF}
+                      placeholder={translate.formPhone}
+                      type="number"
+                      name={FORMVALUES.PHONE}
                     />
-                  )}
-                </Styles.BlockInput>
-                {touched.valueName && errors.valueName && (
-                  <Styles.Error>{errors.valueName}</Styles.Error>
-                )}
-                <Styles.BlockInput>
-                  <Styles.Input
-                    ismode={BUTTON_ACTIVE.ON}
-                    placeholder={translate.formLastName}
-                    type="text"
-                    name={FORMVALUES.LASTNAME}
-                  />
-                  {touched.valueLastName && errors.valueLastName && (
-                    <Styles.BlockClose
-                      onClick={() => setFieldValue(valueLastName, '')}
+                    {touched.mobile && errors.mobile && (
+                      <Styles.BlockClose
+                        onClick={() => setFieldValue(valuePhone, '')}
+                      />
+                    )}
+                    {touched.mobile && errors.mobile && (
+                      <Styles.Error>{errors.mobile}</Styles.Error>
+                    )}
+                  </Styles.BlockInput>
+                </Styles.BlockInputsCenter>
+                <Styles.BlockInputEnd>
+                  <Styles.BlockInputOnly>
+                    <Styles.Input
+                      ismode={BUTTON_ACTIVE.OFF}
+                      placeholder={translate.formCompany}
+                      type="text"
+                      name={FORMVALUES.COMPANY}
                     />
+                  </Styles.BlockInputOnly>
+                </Styles.BlockInputEnd>
+                <InputCheckcondition
+                  color="text-primary text-xs pt-6"
+                  value={FORMVALUES.CONDITIONS}
+                  onClick={(e: any) => setFieldValue(check, e)}>
+                  <Conditions />
+                </InputCheckcondition>
+                <span className="absolute w-2/6">
+                  {touched.conditionsAccepted && errors.conditionsAccepted && (
+                    <Styles.Error>{errors.conditionsAccepted}</Styles.Error>
                   )}
-                </Styles.BlockInput>
-                {touched.valueLastName && errors.valueLastName && (
-                  <Styles.Error>{errors.valueLastName}</Styles.Error>
-                )}
-              </Styles.BlockInputs>
-              <Styles.BlockInputsCenter>
-                <Styles.BlockInput>
-                  <Styles.Input
-                    ismode={BUTTON_ACTIVE.ON}
-                    placeholder={translate.formEmail}
-                    type="email"
-                    name={FORMVALUES.EMAIL}
-                  />
-                  {touched.valueEmail && errors.valueEmail && (
-                    <Styles.BlockClose
-                      onClick={() => setFieldValue(valueEmail, '')}
-                    />
-                  )}
-                </Styles.BlockInput>
-                {touched.valueEmail && errors.valueEmail && (
-                  <Styles.Error>{errors.valueEmail}</Styles.Error>
-                )}
+                </span>
 
-                <Styles.BlockInput>
-                  <Styles.Input
-                    ismode={BUTTON_ACTIVE.ON}
-                    placeholder={translate.formPhone}
-                    type="number"
-                    name={FORMVALUES.PHONE}
-                  />
-                  {touched.valuePhone && errors.valuePhone && (
-                    <Styles.BlockClose
-                      onClick={() => setFieldValue(valuePhone, '')}
-                    />
-                  )}
-                </Styles.BlockInput>
-                {touched.valuePhone && errors.valuePhone && (
-                  <Styles.Error>{errors.valuePhone}</Styles.Error>
-                )}
-              </Styles.BlockInputsCenter>
-              <Styles.BlockInputEnd>
-                <Styles.BlockInputOnly>
-                  <Styles.Input
-                    ismode={BUTTON_ACTIVE.OFF}
-                    placeholder={translate.formCompany}
-                    type="text"
-                    name={FORMVALUES.COMPANY}
-                  />
-                </Styles.BlockInputOnly>
-              </Styles.BlockInputEnd>
-              <InputCheckcondition
-                color="text-primary text-xs pt-6"
-                value={FORMVALUES.CONDITIONS}
-                onClick={(e: any) => setFieldValue(check, e)}>
-                <Conditions />
-              </InputCheckcondition>
-              {touched.check && errors.check && (
-                <Styles.Error>{errors.check}</Styles.Error>
-              )}
-
-              <Styles.BlockSendButton>
-                <Styles.BtnSend type="submit">
-                  {translate.formSend}
-                </Styles.BtnSend>
-              </Styles.BlockSendButton>
-            </Styles.Form>
-          </>
-        )}
-      </Formik>
+                <Styles.BlockSendButton>
+                  <Styles.BtnSend type="submit">
+                    {translate.formRent}
+                  </Styles.BtnSend>
+                </Styles.BlockSendButton>
+              </Styles.Form>
+            </>
+          )}
+        </Formik>
+      ) : (
+        <Sucesfull />
+      )}
     </>
   );
 }
