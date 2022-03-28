@@ -3,11 +3,18 @@ import { Styles } from './styles';
 
 interface Props {
   toggle: () => void;
-  date: Date[] | undefined;
   topic: string | any;
   search: string;
+  endDate: any;
+  statDate: any;
 }
-export default function FilterCases({ toggle, date, topic, search }: Props) {
+export default function FilterCases({
+  toggle,
+  endDate,
+  statDate,
+  topic,
+  search,
+}: Props) {
   return (
     <>
       <Styles.BlockFilterAling onClick={toggle}>
@@ -17,12 +24,13 @@ export default function FilterCases({ toggle, date, topic, search }: Props) {
             {topic === '' ? 'Estrategia' : topic.label}
           </Styles.TexItem>
           <Styles.TexItem className="w-3/12">
-            {date?.length === undefined ? (
+            {endDate?.length === undefined ? (
               <div>Selecciona fecha</div>
             ) : (
-              date?.map((dateValue: any) => (
-                <div>{format(new Date(dateValue), 'dd-MM-yyyy')}</div>
-              ))
+              <>
+                <div>{format(new Date(endDate), 'dd-MM-yyyy')}</div>
+                <div>{format(new Date(statDate), 'dd-MM-yyyy')}</div>
+              </>
             )}
           </Styles.TexItem>
           <Styles.TexItem className="w-3/12">{search}</Styles.TexItem>

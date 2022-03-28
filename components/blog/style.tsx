@@ -1,7 +1,7 @@
 import tw from 'tailwind-styled-components';
 
 export const Blogstyles = {
-  Article: tw.article`flex flex-col items-end py-6 mx-auto md:flex-row justify-end px-8 lg:px-0 `,
+  Article: tw.article`flex flex-col items-end py-6 mx-auto md:flex-row justify-end px-8 lg:px-0 items-end `,
   BlockImg: tw.div`w-full lg:w-1/3 lg:max-w-lg md:w-1/2`,
   BlockText: tw.div`flex flex-col text-left lg:flex-grow md:w-1/2 lg:pl-12 md:pr-16 pt-5`,
   Text: tw.h2`text-sm font-thin tracking-widest text-primary  title-font`,

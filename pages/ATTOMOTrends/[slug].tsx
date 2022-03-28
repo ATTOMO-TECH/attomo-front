@@ -70,7 +70,10 @@ function New({ mode }: Props) {
               paragraph=""
               image={data?.data.attributes.coverImage.data.attributes?.url}
             />
-            <BodyCases data={data?.data.attributes.content} />
+            <BodyCases
+              data={data?.data.attributes.content}
+              title={data?.data.attributes.blog_tags.data[0].attributes.name}
+            />
           </Styles.AlingCasesNoP>
         </Styles.Center>
         <Styles.Center>

@@ -16,13 +16,13 @@ export const BtnSend = styled.button`
   }
 `;
 export const Filter = {
-  RelativeSection: tw.section`relative`,
+  RelativeSection: tw.section``,
   SectionFilter: tw(motion.div)<Props>`
-  bg-black
+  fixed
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
-      ? 'opacity-1 z-100 h-screen flex flex-col overflow-auto w-full'
-      : 'opacity-0 hidden'}`,
+      ? 'block h-screen z-100 flex flex-col w-full bg-black opacity-1'
+      : 'opacity-0'}`,
 
   AlinItems: tw.ul<Props>`
   flex items-center fixed z-100 justify-between w-11/12 m-auto md:mt-0 md:w-10/12 md:absolute lg:left-24 md:left-12 left-4 top-2 md:top-6

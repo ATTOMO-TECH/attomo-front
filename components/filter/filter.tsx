@@ -49,19 +49,18 @@ export default function ModalFilter({
       <Filter.SectionFilter
         ismode={isOpenFilter ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
         animate={{
-          x: isOpenFilter ? 0 : -100,
-          opacity: isOpenFilter ? 1 : 0,
+          x: isOpenFilter ? 0 : '-100%',
         }}
         transition={{
           delay: 0,
-          duration: 0.5,
+          duration: 0.8,
           ease: 'easeInOut',
           stiffness: 50,
         }}>
         <div
           className={
-            width < 468
-              ? '  w-full justify-center   overscroll-contain'
+            width < 768
+              ? 'w-full justify-center overscroll-contain'
               : 'h-4/6 justify-center flex items-center'
           }>
           <Filter.AlinItems ismode={BUTTON_ACTIVE.OFF}>
@@ -115,7 +114,7 @@ export default function ModalFilter({
             </Filter.ItemsMenu>
           </Filter.AlinItems>
           <Filter.BlockFilterItems>
-            {width < 570 ? (
+            {width < 768 ? (
               <Filter.SectionMobile>
                 <Filter.TitleFilter> Filtrar por</Filter.TitleFilter>
                 <Filter.BlockItemMobile>
