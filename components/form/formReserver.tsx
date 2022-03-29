@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Styles } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { FORMVALUES } from '../../hook/types';
@@ -12,9 +13,11 @@ import { getLocale } from '../../public/locales/getLocale';
 import CalendarPickerInput from '../calendar/input/calendar';
 import { validationSchemaBooking } from './validations';
 import Sucesfull from './succesfull';
+import { servicesAnimations } from '../animations/animations';
 
 export default function FormReserver() {
   const translate = getLocale();
+  const [shouldShowActions] = useState(false);
   const [selected, setSelected] = useState('');
   const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
   const onChange = (e: any) => {
@@ -201,7 +204,19 @@ export default function FormReserver() {
           )}
         </Formik>
       ) : (
-        <Sucesfull />
+        <motion.div
+          animate={shouldShowActions}
+          variants={servicesAnimations}
+          className="actions"
+          transition={{
+            type: 'magic',
+            stiffness: 100,
+            duration: 0.5,
+          }}
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: '50%' }}>
+          <Sucesfull />
+        </motion.div>
       )}
     </>
   );

@@ -20,8 +20,8 @@ import ButtonShare from '../components/button/BtnShare';
 import RenderLoading from '../components/loading/loading';
 import { servicesAnimations } from '../components/animations/animations';
 import BgComponent from '../components/animations/bg';
-import { getLocale } from '../public/locales/getLocale';
 import { useUseAllQuote } from '../domain/useQuotes';
+import { getLocale } from '../public/locales/getLocale';
 
 function Home() {
   const router = useRouter();
