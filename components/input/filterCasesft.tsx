@@ -8,7 +8,7 @@ interface Props {
   endDate: any;
   startDate: any;
 }
-export default function FilterCases({
+export default function FilterCasesft({
   toggle,
   endDate,
   startDate,

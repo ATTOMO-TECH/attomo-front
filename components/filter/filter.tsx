@@ -3,13 +3,14 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { Filter } from './style';
-import CalendarPicker from '../calendar/calendar';
 import SelectFilter from './selectedFilter';
 import RenderLoading from '../loading/loading';
 import { useUseAllSubServices } from '../../domain/useServices';
 import { DEPARTMENT } from '../../const/constGlobal';
 import ModulelFilter from './moduleFilter';
 import useDeviceSize from '../../hook/size';
+import Subtext from '../Text/subText';
+import Title from '../Text/title';
 // import { useEffect, useState } from 'react';
 // import { useUseAllSubServices } from '../../domain/useServices';
 // import RenderLoading from '../loading/loading';
@@ -43,25 +44,23 @@ export default function ModalFilter({
       </>
     );
   }
-
   return (
     <>
       <Filter.SectionFilter
         ismode={isOpenFilter ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
         animate={{
-          x: isOpenFilter ? 0 : -100,
-          opacity: isOpenFilter ? 1 : 0,
+          x: isOpenFilter ? 0 : '-100%',
         }}
         transition={{
           delay: 0,
-          duration: 0.5,
+          duration: 0.8,
           ease: 'easeInOut',
           stiffness: 50,
         }}>
         <div
           className={
-            width < 468
-              ? '  w-full justify-center   overscroll-contain'
+            width < 768
+              ? 'w-full justify-center overflow-y-auto'
               : 'h-4/6 justify-center flex items-center'
           }>
           <Filter.AlinItems ismode={BUTTON_ACTIVE.OFF}>
@@ -115,11 +114,14 @@ export default function ModalFilter({
             </Filter.ItemsMenu>
           </Filter.AlinItems>
           <Filter.BlockFilterItems>
-            {width < 570 ? (
+            {width < 768 ? (
               <Filter.SectionMobile>
-                <Filter.TitleFilter> Filtrar por</Filter.TitleFilter>
+                <Title size="text-md text-left pb-0 ">Filtrar por</Title>
                 <Filter.BlockItemMobile>
-                  <Filter.SubTextMobile> Servicio</Filter.SubTextMobile>
+                  <Subtext size=" text-xs font-Primary text-left font-light">
+                    {' '}
+                    Servicios
+                  </Subtext>
                   <SelectFilter
                     selected="selected"
                     options={DEPARTMENT}
@@ -129,7 +131,10 @@ export default function ModalFilter({
                   />
                 </Filter.BlockItemMobile>
                 <Filter.BlockItemMed>
-                  <Filter.SubTextMobile> Temática</Filter.SubTextMobile>
+                  <Subtext size=" text-xs font-Primary text-left font-light">
+                    {' '}
+                    Temática
+                  </Subtext>
                   <SelectFilter
                     selected="selected"
                     options={DEPARTMENT}
@@ -139,8 +144,16 @@ export default function ModalFilter({
                   />
                 </Filter.BlockItemMed>
                 <Filter.BlockItemMobile>
-                  <Filter.SubTextMobile> Fecha</Filter.SubTextMobile>
-                  <CalendarPicker setDate={setDate} />
+                  <Subtext size=" text-xs font-Primary text-left font-light">
+                    Fecha
+                  </Subtext>
+                  {/* <SelectFilter
+                    selected="selected"
+                    options={DATE}
+                    valueLabel="Fecha específica"
+                    name=""
+                    onChange={'onChange'}
+                  /> */}
                 </Filter.BlockItemMobile>
               </Filter.SectionMobile>
             ) : (

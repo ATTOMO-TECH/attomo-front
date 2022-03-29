@@ -24,9 +24,6 @@ export const Input = styled.input`
 export const textFilter = styled.h6`
   font-family: 'Merriweather Sans';
   font-style: normal;
-  font-weight: 300;
-  font-size: 16px;
-
   background: linear-gradient(
     90deg,
     #b4a9bc 0%,
@@ -50,10 +47,10 @@ export const Navegation = {
   NavFooter: tw.nav`list-none mb-10 font-secundary text-primary text-sm cursor-pointer`,
   NavFooterFlex: tw.nav`list-none mb-10 flex cursor-pointer justify-start items-center`,
   ItemsMenu: tw.p`py-1 leading-relaxed lg:leading-none text-lg font-extralight`,
-  BlockInput: tw.div`relative flex flex xl:flex-nowrap md:flex-nowrap w-11/12 lg:flex-wrap flex-wrap justify-center items-end md:justify-start`,
+  BlockInput: tw.div`relative flex flex xl:flex-nowrap md:flex-nowrap w-full lg:flex-wrap flex-wrap justify-center items-end md:justify-start`,
   Input: tw(
     Field,
-  )`w-full opacity-50 focus:opacity-100  flex bg-secundary text-primary bg-none focus:bg-none outline-none  py-1 px-1 lg:text-xs text-xl font-light  `,
+  )`w-full opacity-50 focus:opacity-100  flex bg-secundary text-primary bg-none focus:bg-none outline-none  py-1 px-1 lg:text-xs  text-lg font-light  `,
   BlockSubText: tw.div`flex flex-col lg:flex-row justify-end text-primary text-sm font-Secundary`,
   SubText: tw.p`lg:px-10 px-5 py-3 hover:opacity-50 cursor-pointer ease-out duration-300`,
   ListIcon: tw.li`w-auto px-1 cursor-pointer `,
@@ -76,16 +73,19 @@ export const Navegation = {
       `,
 };
 export const Styles = {
-  BlockFilter: tw.div`w-1/12 text-center transform -rotate-90  flex fixed lg:absolute left-0 bottom-32 sm:left-10 lg:bottom-96 sm:bottom-72 z-100 lg:z-0  `,
+  BlockFilter: tw.div`w-1/12 text-center transform -rotate-90  flex fixed lg:absolute left-3 bottom-36 sm:left-10 lg:bottom-96 sm:bottom-72 z-100 lg:z-0  `,
   BlockFilterAling: tw.div`w-full text-center flex justify-center absolute bottom-0 z-100`,
-  TextFilter: tw.h6`text-primary text-xs font-PrimarySerif font-thin w-24 absolute lg:right-10 sm:right-24 right-12 opacity-50`,
+  TextFilter: tw.h6`text-primary font-light text-xs font-PrimarySerif font-thin w-24 absolute lg:right-10 sm:right-24 right-12 opacity-50`,
   FlexFilter: tw.div`flex flex-wrap w-full items-center`,
   TexItem: tw(textFilter)``,
   FirtsItem: tw(
     textFilter,
   )`text-primary outline-none text-sm absolute lg:-right-12 -right-6  w-24`,
   DateItem: tw.div`absolute sm:-right-64 -right-56 w-48 flex font-xs`,
-  ValueDate: tw(textFilter)`text-primary outline-none text-sm flex w-48 `,
+  ValueDate: tw(
+    textFilter,
+  )`text-primary outline-none text-sm flex w-48 text-xs font-light`,
+  LineValue: tw(textFilter)`text-primary outline-none text-sm flex text-xs px-`,
   Select: tw(
     Select,
   )`bg-black text-primary outline-none text-sm absolute -right-16`,

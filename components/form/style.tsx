@@ -100,6 +100,154 @@ export const BtnSend = styled.button`
   }
 `;
 
+export const Succes = styled.div`
+  body {
+    background: black;
+  }
+  .success-checkmark {
+    width: 80px;
+    height: 115px;
+    margin: 0 auto;
+  }
+  .success-checkmark .check-icon {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    border-radius: 50%;
+    box-sizing: content-box;
+    border: 4px solid #4caf50;
+  }
+  .success-checkmark .check-icon::before {
+    top: 3px;
+    left: -2px;
+    width: 30px;
+    transform-origin: 100% 50%;
+    border-radius: 100px 0 0 100px;
+  }
+  .success-checkmark .check-icon::after {
+    top: 0;
+    left: 30px;
+    width: 60px;
+    transform-origin: 0 50%;
+    border-radius: 0 100px 100px 0;
+    animation: rotate-circle 4.25s ease-in;
+  }
+  .success-checkmark .check-icon::before,
+  .success-checkmark .check-icon::after {
+    content: '';
+    height: 100px;
+    position: absolute;
+    background: transparent;
+    transform: rotate(-45deg);
+  }
+  .success-checkmark .check-icon .icon-line {
+    height: 5px;
+    background-color: #4caf50;
+    display: block;
+    border-radius: 2px;
+    position: absolute;
+    z-index: 10;
+  }
+  .success-checkmark .check-icon .icon-line.line-tip {
+    top: 46px;
+    left: 14px;
+    width: 25px;
+    transform: rotate(45deg);
+    animation: icon-line-tip 0.75s;
+  }
+  .success-checkmark .check-icon .icon-line.line-long {
+    top: 38px;
+    right: 8px;
+    width: 47px;
+    transform: rotate(-45deg);
+    animation: icon-line-long 0.75s;
+  }
+  .success-checkmark .check-icon .icon-circle {
+    top: -4px;
+    left: -4px;
+    z-index: 10;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    box-sizing: content-box;
+    border: 4px solid rgba(76, 175, 80, 0.5);
+  }
+  .success-checkmark .check-icon .icon-fix {
+    top: 8px;
+    width: 5px;
+    left: 26px;
+    z-index: 1;
+    height: 85px;
+    position: absolute;
+    transform: rotate(-45deg);
+    background-color: transparent;
+  }
+  @keyframes rotate-circle {
+    0% {
+      transform: rotate(-45deg);
+    }
+    5% {
+      transform: rotate(-45deg);
+    }
+    12% {
+      transform: rotate(-405deg);
+    }
+    100% {
+      transform: rotate(-405deg);
+    }
+  }
+  @keyframes icon-line-tip {
+    0% {
+      width: 0;
+      left: 1px;
+      top: 19px;
+    }
+    54% {
+      width: 0;
+      left: 1px;
+      top: 19px;
+    }
+    70% {
+      width: 50px;
+      left: -8px;
+      top: 37px;
+    }
+    84% {
+      width: 17px;
+      left: 21px;
+      top: 48px;
+    }
+    100% {
+      width: 25px;
+      left: 14px;
+      top: 45px;
+    }
+  }
+  @keyframes icon-line-long {
+    0% {
+      width: 0;
+      right: 46px;
+      top: 54px;
+    }
+    65% {
+      width: 0;
+      right: 46px;
+      top: 54px;
+    }
+    84% {
+      width: 55px;
+      right: 0px;
+      top: 35px;
+    }
+    100% {
+      width: 47px;
+      right: 8px;
+      top: 38px;
+    }
+  }
+`;
+
 export const Styles = {
   Select: tw(
     Select,
@@ -116,7 +264,7 @@ export const Styles = {
   SectionRenderForm: tw.section`my-12`,
   Form: tw(Form)`lg:w-4/6 m-auto`,
   SectionInputs: tw.div`grid grid-cols-2 gap-6  m-auto`,
-  BlockInput: tw.div`col-span-2 lg:col-span-1`,
+  BlockInput: tw.div`col-span-2 lg:col-span-1 relative`,
   BlockInputOnly: tw.div`col-span-2 lg:col-span-2`,
   BlockInputs: tw.div`grid grid-cols-2 gap-6  m-auto  lg:pt-5`,
   BlockInputsCenter: tw.div`grid grid-cols-2 lg:gap-6 -gap-4   m-auto  lg:pt-5`,
@@ -125,7 +273,7 @@ export const Styles = {
   BlockClose: tw(Input)``,
   Input: tw(
     Field,
-  )<Props>`pl-1 outline-none w-full bg-transparent border-b border-primary py-2 font-PrimarySerif font-thin text-gray-300 opacity-40 focus:opacity-100 hover:opacity-100 ease-out duration-200
+  )<Props>`pl-1 outline-none w-full bg-transparent border-b border-primary py-2 font-PrimarySerif font-light text-gray-300 opacity-40 focus:opacity-100 hover:opacity-100 ease-out duration-200
 ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
 `,
   InputDate: tw(
@@ -146,7 +294,7 @@ ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : '')}
   ${(props) => (props.ismode === BUTTON_ACTIVE.OFF ? 'opacity-50' : '')}`,
   // FORM
-  Error: tw.div`text-red-500 absolute text-PrimarySerif text-sm`,
+  Error: tw.div`text-red-500 absolute text-PrimarySerif text-sm pt-0.5`,
   BlockSelect: tw.div`w-full flex flex-wrap pt-5 text-white font-PrimarySerif font-thin text-sm`,
   BlockSelectSecond: tw.div`w-full flex flex-wrap  text-white font-PrimarySerif font-thin text-sm lg:pb-10 pb-4`,
   AlingSelect: tw.div`w-3/6`,
@@ -154,4 +302,5 @@ ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
   BlockCheck: tw.div`flex flex-wrap`,
   TextChecked: tw.p`mx-1`,
   LinkCheck: tw.h6`ml-1 underline cursor-pointer`,
+  SuccesButton: tw(Succes)``,
 };

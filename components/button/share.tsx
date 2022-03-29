@@ -1,47 +1,37 @@
 import Link from 'next/link';
-import { BUTTON_ACTIVE } from '../../const/const';
-import { ICONNAV } from '../../const/constGlobal';
-import { Share } from './style';
 
-interface Props {
-  valueUrl: any;
-  isOpen: boolean;
-  toggle: () => void;
-}
-export default function BtnShare({ valueUrl, isOpen, toggle }: Props) {
-  const handleClick = () => {
-    toggle();
-    if (navigator.share) {
-      navigator.share({
-        title: 'Attomo ',
-        text: 'Attomo Estudio',
-        url: 'https://www.google.com/',
-      });
-    }
-  };
+import { useEffect, useState } from 'react';
+import { Btn } from './style';
+import { BUTTON_ACTIVE } from '../../const/const';
+
+export default function ButtonShare() {
+  const [scroll, setScroll] = useState(true);
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 20) {
+        setScroll(false);
+      } else {
+        setScroll(true);
+      }
+    });
+  }, []);
   return (
     <>
-      <Share.Button
-        ismode={isOpen ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-        onClick={handleClick}>
-        <Share.Items>
-          {ICONNAV.map((values) => (
-            <Link href={`${valueUrl}`}>
-              <Share.ItemValue>
-                <a target="_blank" href={values.Url} rel="noreferrer">
-                  <img
-                    src={values.Pic2}
-                    width={25}
-                    height={25}
-                    alt={values.Name}
-                    className="opacity-100 hover:opacity-70"
-                  />
-                </a>
-              </Share.ItemValue>
-            </Link>
-          ))}
-        </Share.Items>
-      </Share.Button>
+      <Link href="https://api.whatsapp.com/send/?phone=34610516285">
+        <a
+          target="_blank"
+          href="https://api.whatsapp.com/send/?phone=34610516285"
+          rel="noreferrer">
+          <Btn.Icon ismode={!scroll ? BUTTON_ACTIVE.ON : ''}>
+            <img
+              src="/icon/WhatsApp.png"
+              width={100}
+              height={100}
+              alt="WhatsApp"
+            />
+          </Btn.Icon>
+        </a>
+      </Link>
     </>
   );
 }

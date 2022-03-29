@@ -3,10 +3,11 @@ import { Styles } from './styles';
 
 interface Props {
   toggle: () => void;
-  date: Date[] | undefined;
+  date: string;
+  endDate: string;
   topic: string | any;
 }
-export default function Filter({ toggle, date, topic }: Props) {
+export default function Filter({ toggle, date, endDate, topic }: Props) {
   return (
     <>
       <Styles.BlockFilter onClick={toggle}>
@@ -19,11 +20,14 @@ export default function Filter({ toggle, date, topic }: Props) {
             {date?.length === undefined ? (
               <Styles.ValueDate>Selecciona fecha</Styles.ValueDate>
             ) : (
-              date?.map((dateValue: any) => (
+              <>
                 <Styles.ValueDate>
-                  {format(new Date(dateValue), 'dd-MM-yyyy')}
+                  {format(new Date(date), 'dd-MM-yyyy')}
                 </Styles.ValueDate>
-              ))
+                <Styles.ValueDate>
+                  {format(new Date(endDate), 'dd-MM-yyyy')}
+                </Styles.ValueDate>
+              </>
             )}
           </Styles.DateItem>
         </Styles.FlexFilter>

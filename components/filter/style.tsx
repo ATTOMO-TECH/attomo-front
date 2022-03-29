@@ -16,13 +16,13 @@ export const BtnSend = styled.button`
   }
 `;
 export const Filter = {
-  RelativeSection: tw.section`relative`,
+  RelativeSection: tw.section``,
   SectionFilter: tw(motion.div)<Props>`
-  bg-black
+  fixed
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
-      ? 'opacity-1 z-100 h-screen flex flex-col overflow-auto w-full'
-      : 'opacity-0 hidden'}`,
+      ? 'block h-screen z-100 flex flex-col w-full bg-black opacity-1'
+      : 'opacity-0'}`,
 
   AlinItems: tw.ul<Props>`
   flex items-center fixed z-100 justify-between w-11/12 m-auto md:mt-0 md:w-10/12 md:absolute lg:left-24 md:left-12 left-4 top-2 md:top-6
@@ -44,11 +44,11 @@ export const Filter = {
   SecondItem: tw.div`w-3/6`,
   BlockSecondFilter: tw.div`w-8/12 pt-12 flex items-center justify-between m-auto`,
   // MOBILE
-  SectionMobile: tw.div`w-9/12 m-auto`,
+  SectionMobile: tw.div`w-8/12 m-auto`,
   TitleFilter: tw.h5`text-white text-left font-Primary`,
   BlockItemMobile: tw.div`py-10`,
   BlockItemMed: tw.div``,
-  SubTextMobile: tw.h6`text-white text-left`,
+  SubTextMobile: tw.h6`text-white text-left font-light text-sm`,
   BlockSendButton: tw.div`flex justify-center pt-6`,
   BtnSend: tw(
     BtnSend,

@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import Subtext from '../Text/title';
+import Subtext from '../Text/subText';
 import IconAnimate from '../button/icon';
+import Title from '../Text/title';
 
 interface Props {
   works: any[];
@@ -13,10 +14,11 @@ export default function Work({ works }: Props) {
         <section className="flex lg:w-10/12 m-auto justify-center ">
           <div className="border-primary border-opacity-25 py-10 border-b border-t flex items-center justify-between w-full relative flex-col md:flex-row overflow-hidden">
             <div className="md:w-10/12">
-              <Subtext size="lg:text-xl text-2xl ">
+              <Title size="lg:text-xl text-2xl ">
                 {value.attributes.title}
-              </Subtext>
-              <Subtext size="font-PrimarySerif pt-4 pb-6">
+              </Title>
+
+              <Subtext size=" pt-4 pb-6">
                 {value.attributes.description}
               </Subtext>
             </div>

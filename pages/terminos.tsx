@@ -42,7 +42,7 @@ function Conditions() {
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
-          <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
+          <Nav bgFull toggle={toggle} logo={false} mode isOpen={isOpen} />
         </Styles.Margin>
         <Styles.Center>
           <Styles.BlockButtonLegal>
@@ -53,7 +53,7 @@ function Conditions() {
             </Link>
           </Styles.BlockButtonLegal>
           <Styles.SectionTextLegal>
-            <Title size="text-3xl lg:text-5xl mb-12 ">{translate.policy}</Title>
+            <Title size="text-3xl lg:text-5xl mb-12 ">{translate.terms}</Title>
             <ContainerLegal>{data.data[0].attributes.content}</ContainerLegal>
           </Styles.SectionTextLegal>
         </Styles.Center>

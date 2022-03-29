@@ -82,7 +82,7 @@ export default function SelectFilter({
         styles={customStyles(selected)}
         onChange={onChange}
         value={displayItem(selected)}
-        className="w-full  text-gray-300 py-4 text-left font-PrimarySerif font-thin  "
+        className="w-full  py-4 text-left font-PrimarySerif font-thin"
         placeholder="30M"
         defaultValue={{ value: '30M', label: '30 min' }}
       />

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Blogstyles } from './style';
 import Title from '../Text/title';
 import IconAnimate from '../button/icon';
+import Subtext from '../Text/subText';
 
 interface Props {
   dataBlog: any;
@@ -61,15 +62,16 @@ export default function BlockBlog({ dataBlog }: Props) {
                   <Title size="text-sm leading-relaxed font-PrimarySerif ">
                     {data.attributes.blog_tags.data[0].attributes.name}
                   </Title>
-                  <Title size="text-2xl lg:text-4xl leading-relaxed">
+                  <Title size="text-xl lg:text-3xl pr-12 leading-loose pt-4">
                     {data.attributes.title}
                   </Title>
-                  <Title size="text-sm leading-relaxed font-PrimarySerif">
+                  <Subtext size=" md:text-lg lg:text-base pr-12 pt-4 leading-relaxed lg:text-left font-Secundary">
                     {data.attributes.title}
-                  </Title>
+                  </Subtext>
+
                   <Blogstyles.SubText />
                   <Link href={`/ATTOMOTrends/${data.id}`}>
-                    <div>
+                    <div className="h-12">
                       <IconAnimate text="Leer" mode />
                     </div>
                   </Link>

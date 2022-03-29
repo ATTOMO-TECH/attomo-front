@@ -240,7 +240,7 @@ export const Styles = {
   BlockDescription: tw(
     AlingBlock,
   )`lg:text-right text-xl absolute sm:bottom-12 bottom-0 lg:bottom-24 lg:-right-4 w-full text-center z-10`,
-  SubSection: tw(SubSection)`font-regular text-base cursor-pointer z-80`,
+  SubSection: tw(SubSection)`font-light text-base cursor-pointer z-80`,
   BlockImg: tw.div`relative flex justify-center items-center `,
   SectionAtom: tw(
     Item,

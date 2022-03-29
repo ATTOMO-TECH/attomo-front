@@ -33,7 +33,7 @@ export const Button = {
     props.ismode === BUTTON_MODE.LIGHT ? 'text-primary' : 'text-secundary'}`,
   SectionBack: tw.div`z-100 lg:w-3/12 mt-12 w-full md:w-10/12 md:ml-12 lg:px-10 lg:p-14 pt-12 py-0 block cursor-pointer hover:opacity-50`,
   BlockBack: tw.div`flex font-PrimarySerif font-extralight items-center`,
-  TextBack: tw.h5``,
+  TextBack: tw.h6`font-PrimarySans text-addictional font-light`,
 };
 
 export const Icon = {

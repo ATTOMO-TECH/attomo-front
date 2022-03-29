@@ -54,7 +54,7 @@ function Space() {
             <Styles.ScreenMid>
               {translate.spaceAttomo.map((values) => (
                 <Styles.BlockDiv key={`value${values.Text}`}>
-                  <Title size="leading-relaxed lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl  ">
+                  <Title size="leading-relaxed lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl w-3/6 md:w-full ">
                     {values.Text}
                   </Title>
                   <Styles.FlexEnd>
@@ -108,16 +108,19 @@ function Space() {
         <Styles.Center>
           <Styles.BlockAddres>
             <Styles.BreakLine />
-            <Title size="text-2xl  lg:pr-10 pt-12">
+            <Title size="text-2xl  lg:pr-10 pt-12 ">
+              {' '}
               {translate.spaceAttomoFooter}
             </Title>
 
-            <Subtext size="text-regular w-full leading-loose font-Secundary w-full pb-10 ">
-              Calle del Monte Esquinza, 8-Bajo Izquierda
-              <br />
-              28010 Madrid
-            </Subtext>
-            <MapsBlock />
+            <Styles.BlockAddresMap>
+              <Subtext size="text-regular w-full leading-loose font-Secundary w-full pb-10 ">
+                Calle del Monte Esquinza, 8-Bajo Izquierda <br />
+                28010 Madrid
+              </Subtext>
+
+              <MapsBlock />
+            </Styles.BlockAddresMap>
           </Styles.BlockAddres>
         </Styles.Center>
         <motion.div

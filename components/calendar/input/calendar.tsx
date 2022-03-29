@@ -7,8 +7,7 @@ interface Props {
 }
 
 export default function CalendarPickerInput({ handleValue }: Props) {
-  const [startDate, setStartDate] = useState(new Date());
-
+  const [startDate, setStartDate] = useState<Date>();
   return (
     <>
       <DatePicker

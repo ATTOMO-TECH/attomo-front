@@ -2,6 +2,7 @@ import { Formik } from 'formik';
 import * as qs from 'qs';
 import { equals } from 'ramda';
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import { Styles } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { FORMVALUES } from '../../hook/types';
@@ -10,13 +11,16 @@ import InputRadio from './inputRadio';
 import { CONDITIONFORM, FORMPARTOF } from '../../const/constGlobal';
 import InputCheck from './inputCheck';
 import InputCheckcondition from './inputCheckcondition';
-import { validationSchemaColaborator } from './validations';
 import { createContactColaborator } from '../../domain/useContact';
 import Conditions from './conditions';
 import { useUseAllPartner } from '../../domain/usePartners';
 import { getLocale } from '../../public/locales/getLocale';
+import { servicesAnimations } from '../animations/animations';
+import Sucesfull from './succesfull';
 
 export default function FormColaborator() {
+  const [shouldShowActions] = useState(false);
+  const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
   const translate = getLocale();
   const [query, setQuery] = useState('');
   const [area, setArea] = useState<any>([]);
@@ -87,6 +91,7 @@ export default function FormColaborator() {
       {
         onSuccess: () => {
           action.resetForm();
+          setSuccesfull(true);
         },
         onError: () => {
           action.resetForm();
@@ -97,178 +102,194 @@ export default function FormColaborator() {
 
   return (
     <>
-      <Formik
-        onSubmit={handleSubmitContact}
-        initialValues={initialValues}
-        validationSchema={validationSchemaColaborator}
-        validateOnMount>
-        {({ touched, errors, handleSubmit, values, setFieldValue }) => (
-          <>
-            <Styles.Form onSubmit={handleSubmit}>
-              <Subtext size="lg:text-sm w-full pb-10 font-PrimarySerif">
-                {translate.partOfTeam}
-              </Subtext>
-              <Styles.BlockSelect>
-                {FORMPARTOF.map((valuesCheck) => (
-                  <Styles.AlingSelect key={`Radio-${valuesCheck.value}`}>
-                    <InputRadio
-                      text={valuesCheck.text}
-                      value={valuesCheck.value}
-                      onChange={(e: any) => {
-                        setFieldValue(FORMVALUES.PARTOF, e);
-                        setFilter(e);
-                      }}
+      {!sendSuccesfull ? (
+        <Formik
+          onSubmit={handleSubmitContact}
+          initialValues={initialValues}
+          // validationSchema={validationSchemaColaborator}
+          validateOnMount>
+          {({ touched, errors, handleSubmit, values, setFieldValue }) => (
+            <>
+              <Styles.Form onSubmit={handleSubmit}>
+                <Subtext size="lg:text-sm w-full pb-10 font-PrimarySerif">
+                  {translate.partOfTeam}
+                </Subtext>
+                <Styles.BlockSelect>
+                  {FORMPARTOF.map((valuesCheck) => (
+                    <Styles.AlingSelect key={`Radio-${valuesCheck.value}`}>
+                      <InputRadio
+                        text={valuesCheck.text}
+                        value={valuesCheck.value}
+                        onChange={(e: any) => {
+                          setFieldValue(FORMVALUES.PARTOF, e);
+                          setFilter(e);
+                        }}
+                      />
+                    </Styles.AlingSelect>
+                  ))}
+                </Styles.BlockSelect>
+                <Subtext size="lg:text-sm w-full lg:pb-10 pb-4 font-PrimarySerif pt-10">
+                  {translate.partOfTeam}
+                </Subtext>
+                <Styles.BlockSelectSecond>
+                  {Partner?.data.map((valuesCheck: any) => (
+                    <Styles.AlingSelectSecond
+                      key={`check-${valuesCheck.attributes.area}`}>
+                      <InputCheck
+                        text={valuesCheck.attributes.area}
+                        value={valuesCheck.attributes.area}
+                        onChange={() => {
+                          addArea(valuesCheck.attributes.area);
+                        }}
+                      />
+                    </Styles.AlingSelectSecond>
+                  ))}
+                </Styles.BlockSelectSecond>
+                <Styles.BlockInputsCenter>
+                  <Styles.BlockInput>
+                    <Styles.Input
+                      ismode={BUTTON_ACTIVE.ON}
+                      placeholder={translate.formName}
+                      type="text"
+                      name={FORMVALUES.FIRSTNAME}
                     />
-                  </Styles.AlingSelect>
-                ))}
-              </Styles.BlockSelect>
-              <Subtext size="lg:text-sm w-full lg:pb-10 pb-4 font-PrimarySerif pt-10">
-                {translate.partOfTeam}
-              </Subtext>
-              <Styles.BlockSelectSecond>
-                {Partner?.data.map((valuesCheck: any) => (
-                  <Styles.AlingSelectSecond
-                    key={`check-${valuesCheck.attributes.area}`}>
-                    <InputCheck
-                      text={valuesCheck.attributes.area}
-                      value={valuesCheck.attributes.area}
-                      onChange={() => {
-                        addArea(valuesCheck.attributes.area);
-                      }}
-                    />
-                  </Styles.AlingSelectSecond>
-                ))}
-              </Styles.BlockSelectSecond>
-              <Styles.BlockInputsCenter>
-                <Styles.BlockInput>
-                  <Styles.Input
-                    ismode={BUTTON_ACTIVE.ON}
-                    placeholder={translate.formName}
-                    type="text"
-                    name={FORMVALUES.FIRSTNAME}
-                  />
+                    {touched.valueName && errors.valueName && (
+                      <Styles.BlockClose
+                        onClick={() => setFieldValue(valueName, '')}
+                      />
+                    )}
+                  </Styles.BlockInput>
                   {touched.valueName && errors.valueName && (
-                    <Styles.BlockClose
-                      onClick={() => setFieldValue(valueName, '')}
-                    />
+                    <Styles.Error>{errors.valueName}</Styles.Error>
                   )}
-                </Styles.BlockInput>
-                {touched.valueName && errors.valueName && (
-                  <Styles.Error>{errors.valueName}</Styles.Error>
-                )}
 
-                <Styles.BlockInput>
-                  <Styles.Input
-                    ismode={BUTTON_ACTIVE.ON}
-                    placeholder={translate.formLastName}
-                    type="text"
-                    name={FORMVALUES.LASTNAME}
-                  />
-                  {touched.valueLastName && errors.valueLastName && (
-                    <Styles.BlockClose
-                      onClick={() => setFieldValue(valueLastName, '')}
+                  <Styles.BlockInput>
+                    <Styles.Input
+                      ismode={BUTTON_ACTIVE.ON}
+                      placeholder={translate.formLastName}
+                      type="text"
+                      name={FORMVALUES.LASTNAME}
                     />
+                    {touched.valueLastName && errors.valueLastName && (
+                      <Styles.BlockClose
+                        onClick={() => setFieldValue(valueLastName, '')}
+                      />
+                    )}
+                  </Styles.BlockInput>
+                  {touched.valueName && errors.valueName && (
+                    <Styles.Error>{errors.valueName}</Styles.Error>
                   )}
-                </Styles.BlockInput>
-                {touched.valueName && errors.valueName && (
-                  <Styles.Error>{errors.valueName}</Styles.Error>
-                )}
-              </Styles.BlockInputsCenter>
-              <Styles.BlockInputsCenter>
-                <Styles.BlockInput>
-                  <Styles.Input
-                    ismode={BUTTON_ACTIVE.ON}
-                    placeholder={translate.formEmail}
-                    type="email"
-                    name={FORMVALUES.EMAIL}
-                  />
+                </Styles.BlockInputsCenter>
+                <Styles.BlockInputsCenter>
+                  <Styles.BlockInput>
+                    <Styles.Input
+                      ismode={BUTTON_ACTIVE.ON}
+                      placeholder={translate.formEmail}
+                      type="email"
+                      name={FORMVALUES.EMAIL}
+                    />
+                    {touched.valueEmail && errors.valueEmail && (
+                      <Styles.BlockClose
+                        onClick={() => setFieldValue(valueEmail, '')}
+                      />
+                    )}
+                  </Styles.BlockInput>
                   {touched.valueEmail && errors.valueEmail && (
-                    <Styles.BlockClose
-                      onClick={() => setFieldValue(valueEmail, '')}
-                    />
+                    <Styles.Error>{errors.valueEmail}</Styles.Error>
                   )}
-                </Styles.BlockInput>
-                {touched.valueEmail && errors.valueEmail && (
-                  <Styles.Error>{errors.valueEmail}</Styles.Error>
-                )}
-                <Styles.BlockInput>
-                  <Styles.Input
-                    ismode={BUTTON_ACTIVE.OFF}
-                    placeholder={translate.formPhone}
-                    type="number"
-                    name={FORMVALUES.PHONE}
-                  />
+                  <Styles.BlockInput>
+                    <Styles.Input
+                      ismode={BUTTON_ACTIVE.OFF}
+                      placeholder={translate.formPhone}
+                      type="number"
+                      name={FORMVALUES.PHONE}
+                    />
+                    {touched.valuePhone && errors.valuePhone && (
+                      <Styles.BlockClose
+                        onClick={() => setFieldValue(valuePhone, '')}
+                      />
+                    )}
+                  </Styles.BlockInput>
                   {touched.valuePhone && errors.valuePhone && (
-                    <Styles.BlockClose
-                      onClick={() => setFieldValue(valuePhone, '')}
-                    />
+                    <Styles.Error>{errors.valuePhone}</Styles.Error>
                   )}
-                </Styles.BlockInput>
-                {touched.valuePhone && errors.valuePhone && (
-                  <Styles.Error>{errors.valuePhone}</Styles.Error>
+                </Styles.BlockInputsCenter>
+
+                {values[valuepartOf] === CONDITIONFORM.TEAM ? (
+                  <Styles.BlockInputEnd>
+                    <Styles.BlockInputOnly>
+                      <Styles.Input
+                        ismode={BUTTON_ACTIVE.OFF}
+                        placeholder={translate.formLink}
+                        type="text"
+                        name={FORMVALUES.LINK}
+                      />
+                    </Styles.BlockInputOnly>
+                  </Styles.BlockInputEnd>
+                ) : (
+                  <Styles.BlockInputEnd>
+                    <Styles.BlockInputOnly>
+                      <Styles.Input
+                        ismode={BUTTON_ACTIVE.OFF}
+                        placeholder={translate.formCompany}
+                        type="text"
+                        name={FORMVALUES.COMPANY}
+                      />
+                    </Styles.BlockInputOnly>
+                  </Styles.BlockInputEnd>
                 )}
-              </Styles.BlockInputsCenter>
 
-              {values[valuepartOf] === CONDITIONFORM.TEAM ? (
                 <Styles.BlockInputEnd>
                   <Styles.BlockInputOnly>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.OFF}
-                      placeholder={translate.formLink}
-                      type="text"
-                      name={FORMVALUES.LINK}
+                      placeholder={translate.formMessage}
+                      type="textarea"
+                      name={FORMVALUES.MESSAGE}
                     />
+                    {touched.valueMessage && errors.valueMessage && (
+                      <Styles.BlockClose
+                        onClick={() => setFieldValue(valueMessage, '')}
+                      />
+                    )}
+                    {touched.valueMessage && errors.valueMessage && (
+                      <Styles.Error>{errors.valueMessage}</Styles.Error>
+                    )}
                   </Styles.BlockInputOnly>
                 </Styles.BlockInputEnd>
-              ) : (
-                <Styles.BlockInputEnd>
-                  <Styles.BlockInputOnly>
-                    <Styles.Input
-                      ismode={BUTTON_ACTIVE.OFF}
-                      placeholder={translate.formCompany}
-                      type="text"
-                      name={FORMVALUES.COMPANY}
-                    />
-                  </Styles.BlockInputOnly>
-                </Styles.BlockInputEnd>
-              )}
-
-              <Styles.BlockInputEnd>
-                <Styles.BlockInputOnly>
-                  <Styles.Input
-                    ismode={BUTTON_ACTIVE.OFF}
-                    placeholder={translate.formMessage}
-                    type="textarea"
-                    name={FORMVALUES.MESSAGE}
-                  />
-                  {touched.valueMessage && errors.valueMessage && (
-                    <Styles.BlockClose
-                      onClick={() => setFieldValue(valueMessage, '')}
-                    />
-                  )}
-                  {touched.valueMessage && errors.valueMessage && (
-                    <Styles.Error>{errors.valueMessage}</Styles.Error>
-                  )}
-                </Styles.BlockInputOnly>
-              </Styles.BlockInputEnd>
-              <InputCheckcondition
-                color="text-primary text-xs pt-6"
-                value={FORMVALUES.CONDITIONS}
-                onClick={(e: any) => setFieldValue(check, e)}>
-                <Conditions />
-              </InputCheckcondition>
-              {touched.check && errors.check && (
-                <Styles.Error>{errors.check}</Styles.Error>
-              )}
-              <Styles.BlockSendButton>
-                <Styles.BtnSend type="submit">
-                  {translate.formSend}
-                </Styles.BtnSend>
-              </Styles.BlockSendButton>
-            </Styles.Form>
-          </>
-        )}
-      </Formik>
+                <InputCheckcondition
+                  color="text-primary text-xs pt-6"
+                  value={FORMVALUES.CONDITIONS}
+                  onClick={(e: any) => setFieldValue(check, e)}>
+                  <Conditions />
+                </InputCheckcondition>
+                {touched.check && errors.check && (
+                  <Styles.Error>{errors.check}</Styles.Error>
+                )}
+                <Styles.BlockSendButton>
+                  <Styles.BtnSend type="submit">
+                    {translate.formSend}
+                  </Styles.BtnSend>
+                </Styles.BlockSendButton>
+              </Styles.Form>
+            </>
+          )}
+        </Formik>
+      ) : (
+        <motion.div
+          animate={shouldShowActions}
+          variants={servicesAnimations}
+          className="actions"
+          transition={{
+            type: 'magic',
+            stiffness: 100,
+            duration: 0.5,
+          }}
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: '50%' }}>
+          <Sucesfull>Datos enviados correctamente</Sucesfull>
+        </motion.div>
+      )}
     </>
   );
 }

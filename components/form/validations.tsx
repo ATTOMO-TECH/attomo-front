@@ -37,7 +37,6 @@ export const validationSchemaBooking = Yup.object().shape({
   [FORMVALUES.EMAIL]: Yup.string()
     .email('Email no valido')
     .required('Campo obligatorio'),
-  [FORMVALUES.MESSAGE]: Yup.string().required('Campo obligatorio'),
   [FORMVALUES.CONDITIONS]: Yup.boolean().oneOf(
     [true],
     'Debes aceptar las condiciones',

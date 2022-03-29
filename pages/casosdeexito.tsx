@@ -16,6 +16,7 @@ import { BUTTON_ACTIVE } from '../const/const';
 import { useUseAllCases } from '../domain/useCasesDetails';
 import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
+import FilterCasesft from '../components/input/filterCasesft';
 
 function Cases() {
   const [isOpen, SetIsOpen] = useState<boolean>(false);
@@ -26,11 +27,14 @@ function Cases() {
   const toggleFilter = () => {
     SetIsOpenFilter(!isOpenFilter);
   };
-  const [date, setDate] = useState<Date[]>();
+  const [startDate, setStartDate] = useState<any>();
+  const [endDate, setEndDate] = useState<any>();
   const [topic, setTopic] = useState('');
-  const [setSearch] = useState('');
-  const handleDate = (dateValue: []) => {
-    setDate(dateValue);
+  const [search, setSearch] = useState('');
+
+  const handleDate = (dateValue: any) => {
+    setStartDate(dateValue[0]);
+    setEndDate(dateValue[1]);
   };
   const handleTopic = (topicValue: string) => {
     setTopic(topicValue);
@@ -38,22 +42,32 @@ function Cases() {
 
   const queryObject: any = {
     populate: 'coverImage',
-    // filters: {
-    //   blog_tags: {
-    //     name: {
-    //       $containsi: topic,
-    //     },
-    //   },
-    //   date: {
-    //     $containsi: date,
-    //   },
-    //   attributes: {
-    //     name: {
-    //       $containsi: search,
-    //     },
-    //   },
-    // },
   };
+  //   filters: {
+  //     // $or: [
+  //     //   {
+  //     //     date: {
+  //     //       $eq: startDate,
+  //     //     },
+  //     //   },
+  //     //   {
+  //     //     date: {
+  //     //       $eq: endDate,
+  //     //     },
+  //     //   },
+  //     // ],
+  //     // blog_tags: {
+  //     //   name: {
+  //     //     $containsi: topic,
+  //     //   },
+  //     // },
+  //     // attributes: {
+  //     //   name: {
+  //     //     $containsi: search,
+  //     //   },
+  //     },
+  //   },
+  // };
   const queryQs = qs.stringify(queryObject, {
     encodeValuesOnly: true,
   });
@@ -97,23 +111,25 @@ function Cases() {
         {!isOpenFilter && <ButtonShare />}
         {!isOpenFilter && (
           <>
-            {/* {date?.length === undefined ? ( */}
-            <HeroCase
-              toggle={toggleFilter}
-              date={date}
-              topic={topic}
-              isOpen={isOpen}
-            />
-            {/* ) : (
-              <div className="w-full text-white m-auto z-0  relative h-48">
-                <FilterCases
+            {topic === '' ? (
+              <HeroCase
+                toggle={toggleFilter}
+                date={startDate}
+                endDate={endDate}
+                topic={topic}
+                isOpen={isOpen}
+              />
+            ) : (
+              <div className="w-full text-white m-auto z-0 relative  pt-36">
+                <FilterCasesft
                   toggle={toggleFilter}
-                  date={date}
+                  startDate={startDate}
+                  endDate={endDate}
                   topic={topic}
                   search={search}
                 />
               </div>
-            )} */}
+            )}
             <Styles.BlockSections>
               <SectionProjects
                 Array={data?.data}

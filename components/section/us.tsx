@@ -13,7 +13,7 @@ export default function ListUs() {
         </Subtext>
         {translate.valuesUs.map((values) => (
           <UsStyles.BlockSubsection>
-            <Subtext size="lg:text-3xl text-2xl w-full py-5 lg:py-10 pt-12 ">
+            <Subtext size="lg:text-3xl text-2xl w-full py-5 lg:py-10 pt-12  ">
               {values.Text}
             </Subtext>
             <UsStyles.Title ismode={BUTTON_ACTIVE.ON}>
