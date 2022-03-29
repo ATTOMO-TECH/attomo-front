@@ -50,6 +50,7 @@ export default function Cases({ mode }: Props) {
           Casos de éxito ATTOMO - Clientes - {data.data.attributes.company}
         </title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <link rel="icon" href="/FaviconLight.svg" type="image/x-icon" />
       </Head>
       <Styles.Body
         mode={isOpen ? BUTTON_ACTIVE.ON : ''}

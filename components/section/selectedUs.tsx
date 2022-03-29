@@ -6,29 +6,34 @@ import IconAnimate from '../button/icon';
 
 interface Props {
   text: string;
-  btn: string;
+  btn?: string;
   link: string;
-  textPrimary: any;
+  textPrimary?: any;
 }
 
 export default function SelectedUs({ text, btn, link, textPrimary }: Props) {
   return (
     <>
-      <div className="flex lg:pt-12 md:pt-20 pt-12  items-center flex-wrap">
+      <div className="flex lg:pt-16 md:pt-20 pt-12  items-center flex-wrap">
         <div className="lg:w-2/6 md:w-3/6  ">
           <Subtext size="text-4xl text-2xl w-full py-5 pr-12">
             {textPrimary}
           </Subtext>
         </div>
-        <div className="lg:w-4/6 pr-12 lg:pt-16">
+        <div
+          className={
+            btn === '' ? 'lg:w-4/6 pr-12 lg:pt-16' : 'lg:w-4/6 pr-12 '
+          }>
           <div>
             <UsStyles.Title ismode={BUTTON_ACTIVE.ON}>{text}</UsStyles.Title>
           </div>
-          <Link href={`${link}`}>
-            <div className="pt-4">
-              <IconAnimate text={btn} mode />
-            </div>
-          </Link>
+          {btn === '' ? (
+            <Link href={`${link}`}>
+              <div className="pt-4">
+                <IconAnimate text={btn} mode />
+              </div>
+            </Link>
+          ) : null}
         </div>
       </div>
     </>

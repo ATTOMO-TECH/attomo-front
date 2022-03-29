@@ -17,6 +17,8 @@ import { useUseAllPost, useUseAllTags } from '../domain/useBlogDetails';
 import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 import Subtext from '../components/Text/subText';
+import CalendarPickerInputRange from '../components/calendar/input/calendarRange';
+import { formatDateFilter } from '../hook/date';
 
 function News() {
   const translate = getLocale();
@@ -27,7 +29,8 @@ function News() {
   );
   const { data, isLoading } = useUseAllPost(query);
   const { data: Tags, isLoading: LoadingTags } = useUseAllTags();
-
+  const [startDate, setStartDateFilter] = useState<Date[]>();
+  const [endDate, setEndDateFilter] = useState<Date[]>();
   const [preData, setPreData] = useState<any[]>([]);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -56,6 +59,18 @@ function News() {
               $eq: filter,
             },
           },
+          $and: [
+            {
+              publishedAt: {
+                $eq: formatDateFilter(startDate),
+              },
+            },
+            {
+              publishedAt: {
+                $eq: formatDateFilter(endDate),
+              },
+            },
+          ],
         },
       };
     }
@@ -63,7 +78,7 @@ function News() {
       encodeValuesOnly: true,
     });
     setQuery(queryQs);
-  }, [page, filter]);
+  }, [page, filter, startDate, endDate]);
 
   useEffect(() => {
     setPage(1);
@@ -103,11 +118,11 @@ function News() {
             {React.Children.toArray(
               translate.trends.map((value) => (
                 <Styles.BlockDiv>
-                  <Title size="md:text-5xl lg:pt-24 lg:pr-0 pb-12 lg:w-5/6 pt-20 ">
+                  <Title size="lg:text-4xl md:text-3xl text-2xl text-xl lg:pr-0  lg:pr-0 pb-12 lg:w-5/6 ">
                     {value.Text}
                   </Title>
                   <Styles.BlockInputSend>
-                    <Subtext size=" md:text-lg lg:text-base md:w-3/6  lg:text-left font-Secundary">
+                    <Subtext size=" md:text-lg lg:text-base md:w-2/6  lg:text-left font-Secundary">
                       {value.Subtext}
                     </Subtext>
                     <Styles.BlockFullInput>
@@ -120,31 +135,40 @@ function News() {
           </Styles.ScreenWS>
         </Styles.Center>
         <Styles.BlockTrends>
-          <Title size="text-lg lg:py-4 font-PrimarySerif">
-            {translate.trendsFilter}
-          </Title>
-          <Styles.Select
-            name="select"
-            onChange={(e: any) => setFilter(e.target.value)}>
-            <option value="">{'Todas las noticias '}</option>
-            {Tags?.data.map((options: any) => (
-              <option
-                value={options.attributes.name}
-                key={options.attributes.name}>
-                {options.attributes.name}
-              </option>
-            ))}
-          </Styles.Select>
+          <Styles.SectionFilter>
+            <Title size="text-lg lg:py-4 font-PrimarySerif">
+              {translate.trendsFilter}
+            </Title>
+          </Styles.SectionFilter>
+          <Styles.SelectFilter>
+            <Styles.Select
+              className="lg:w-11/12 w-full "
+              name="select"
+              onChange={(e: any) => setFilter(e.target.value)}>
+              <option value="">{'Todas las noticias '}</option>
+              {Tags?.data.map((options: any) => (
+                <option
+                  value={options.attributes.name}
+                  key={options.attributes.name}>
+                  {options.attributes.name}
+                </option>
+              ))}
+            </Styles.Select>
+          </Styles.SelectFilter>
+          <Styles.SelectFilterNM>
+            <CalendarPickerInputRange
+              setStartDateFilter={setStartDateFilter}
+              setEndDateFilter={setEndDateFilter}
+            />
+          </Styles.SelectFilterNM>
         </Styles.BlockTrends>
         <BlockBlog dataBlog={preData} />
-
         <Blogstyles.SectionMore>
           <Blogstyles.BlockMore
             onClick={() => handleAddBlog(data.meta.pagination.page + 1)}>
             {translate.seeMoreTrends}
           </Blogstyles.BlockMore>
         </Blogstyles.SectionMore>
-
         <Styles.Center>
           {React.Children.toArray(
             translate.contact.map((values) => (

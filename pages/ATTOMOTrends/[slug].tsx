@@ -46,6 +46,7 @@ function New({ mode }: Props) {
       <Head>
         <title>#ATTOMOtrends - {data?.data.attributes.title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <link rel="icon" href="/FaviconLight.svg" type="image/x-icon" />
       </Head>
       <Styles.Body
         mode={isOpen ? BUTTON_ACTIVE.ON : ''}
@@ -57,18 +58,18 @@ function New({ mode }: Props) {
         <Back link="/ATTOMOTrends">Volver a noticias</Back>
         <Styles.Center>
           <Styles.AlingCasesNoP>
+            <HeaderCases
+              category={data?.data.attributes.blog_tags.data[0].attributes.name}
+              title={data?.data.attributes.title}
+              paragraph=""
+              image={data?.data.attributes.coverImage.data.attributes?.url}
+            />
             <BreadCrumbs
               Author={data?.data.attributes.author}
               Date={format(
                 new Date(data?.data.attributes.publishedAt),
                 'dd-MM-yyyy',
               )}
-            />
-            <HeaderCases
-              category={data?.data.attributes.blog_tags.data[0].attributes.name}
-              title={data?.data.attributes.title}
-              paragraph=""
-              image={data?.data.attributes.coverImage.data.attributes?.url}
             />
             <BodyCases
               data={data?.data.attributes.content}
@@ -81,7 +82,10 @@ function New({ mode }: Props) {
         </Styles.Center>
         <Styles.FlexEnd>
           <Styles.AlingBlock>
-            <ArticlesScroll mode={false} filter="" />
+            <ArticlesScroll
+              mode={false}
+              filter={data?.data.attributes.blog_tags.data[0].attributes.name}
+            />
           </Styles.AlingBlock>
         </Styles.FlexEnd>
         <motion.div

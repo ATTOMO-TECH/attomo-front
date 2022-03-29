@@ -86,7 +86,8 @@ function Carrers() {
         </Styles.Center>
         {translate.contactUsWork.map((value) => (
           <Styles.CenterMargin>
-            <Subtext size=" text-2xl ">{value.Text} </Subtext>
+            <Title size="lg:text-xl w-4/6 lg:w-3/6  ">{value.Text}</Title>
+            <Subtext size=" text-2xl font-Primary"> </Subtext>
             <Subtext size=" text-sm lg:w-3/6 font-PrimarySerif py-5">
               {value.Subtext}
             </Subtext>

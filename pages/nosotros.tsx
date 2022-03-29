@@ -24,7 +24,7 @@ function Us() {
   return (
     <>
       <Head>
-        <title>About us- ATTOMO DIGITAL</title>
+        <title>About us - ATTOMO DIGITAL</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <BgComponent />
@@ -56,7 +56,7 @@ function Us() {
             <ListUs />
             <SelectedUs
               text={translate.selectedUs[0].Subtext}
-              btn={translate.selectedUs[0].Button}
+              // btn={translate.selectedUs[0].Button}
               link="/contacto"
               textPrimary={translate.selectedUs[0].Text}
             />

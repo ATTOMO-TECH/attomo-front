@@ -440,6 +440,27 @@ export const DEPARTMENT: {
     value: 'Cloud',
   },
 ];
+export const DATE: {
+  label: string;
+  value: string;
+}[] = [
+  {
+    label: 'Última semana',
+    value: 'PM',
+  },
+  {
+    label: 'Último mes',
+    value: 'UXUI',
+  },
+  {
+    label: 'Último año',
+    value: 'GraphicDesing',
+  },
+  {
+    label: 'Fecha específica',
+    value: 'GraphicDesing',
+  },
+];
 
 export const DEPARTMENTS: {
   label: string;

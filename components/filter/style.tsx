@@ -44,11 +44,11 @@ export const Filter = {
   SecondItem: tw.div`w-3/6`,
   BlockSecondFilter: tw.div`w-8/12 pt-12 flex items-center justify-between m-auto`,
   // MOBILE
-  SectionMobile: tw.div`w-9/12 m-auto`,
+  SectionMobile: tw.div`w-8/12 m-auto`,
   TitleFilter: tw.h5`text-white text-left font-Primary`,
   BlockItemMobile: tw.div`py-10`,
   BlockItemMed: tw.div``,
-  SubTextMobile: tw.h6`text-white text-left`,
+  SubTextMobile: tw.h6`text-white text-left font-light text-sm`,
   BlockSendButton: tw.div`flex justify-center pt-6`,
   BtnSend: tw(
     BtnSend,

@@ -1,8 +1,12 @@
-export default function Sucesfull() {
+interface Props {
+  children: string;
+}
+
+export default function Sucesfull({ children }: Props) {
   return (
     <>
       <div>
-        <p className="text-white text-center">Reserva enviada</p>
+        <p className="text-white text-center">{children}</p>
       </div>
     </>
   );

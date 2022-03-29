@@ -24,9 +24,6 @@ export const Input = styled.input`
 export const textFilter = styled.h6`
   font-family: 'Merriweather Sans';
   font-style: normal;
-  font-weight: 300;
-  font-size: 16px;
-
   background: linear-gradient(
     90deg,
     #b4a9bc 0%,
@@ -76,16 +73,19 @@ export const Navegation = {
       `,
 };
 export const Styles = {
-  BlockFilter: tw.div`w-1/12 text-center transform -rotate-90  flex fixed lg:absolute left-0 bottom-32 sm:left-10 lg:bottom-96 sm:bottom-72 z-100 lg:z-0  `,
+  BlockFilter: tw.div`w-1/12 text-center transform -rotate-90  flex fixed lg:absolute left-3 bottom-36 sm:left-10 lg:bottom-96 sm:bottom-72 z-100 lg:z-0  `,
   BlockFilterAling: tw.div`w-full text-center flex justify-center absolute bottom-0 z-100`,
-  TextFilter: tw.h6`text-primary text-xs font-PrimarySerif font-thin w-24 absolute lg:right-10 sm:right-24 right-12 opacity-50`,
+  TextFilter: tw.h6`text-primary font-light text-xs font-PrimarySerif font-thin w-24 absolute lg:right-10 sm:right-24 right-12 opacity-50`,
   FlexFilter: tw.div`flex flex-wrap w-full items-center`,
   TexItem: tw(textFilter)``,
   FirtsItem: tw(
     textFilter,
   )`text-primary outline-none text-sm absolute lg:-right-12 -right-6  w-24`,
   DateItem: tw.div`absolute sm:-right-64 -right-56 w-48 flex font-xs`,
-  ValueDate: tw(textFilter)`text-primary outline-none text-sm flex w-48 `,
+  ValueDate: tw(
+    textFilter,
+  )`text-primary outline-none text-sm flex w-48 text-xs font-light`,
+  LineValue: tw(textFilter)`text-primary outline-none text-sm flex text-xs px-`,
   Select: tw(
     Select,
   )`bg-black text-primary outline-none text-sm absolute -right-16`,
