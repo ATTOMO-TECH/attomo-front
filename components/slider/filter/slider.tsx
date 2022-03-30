@@ -22,7 +22,7 @@ export default function FilterScroll({ setTopic }: Props) {
           }}>
           {DEPARTMENT.map((values) => (
             <Picker.Item
-              key={values.label}
+              key={`${values.label}+${values.value}`}
               className="my-picker-view-item text-left  text-white"
               value={values}>
               {values.label}

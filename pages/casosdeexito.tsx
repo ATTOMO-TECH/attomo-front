@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import * as qs from 'qs';
 import Head from 'next/head';
+import { format } from 'date-fns';
 import BgComponent from '../components/animations/bg';
 import BlockSection from '../components/block/block';
 import ButtonShare from '../components/button/BtnShare';
@@ -29,7 +30,7 @@ function Cases() {
   };
   const [startDate, setStartDate] = useState<any>();
   const [endDate, setEndDate] = useState<any>();
-  const [topic, setTopic] = useState('');
+  const [topic, setTopic] = useState<any>({});
   const [search, setSearch] = useState('');
 
   const handleDate = (dateValue: any) => {
@@ -40,34 +41,56 @@ function Cases() {
     setTopic(topicValue);
   };
 
-  const queryObject: any = {
-    populate: 'coverImage',
+  const getFilters = () => {
+    let filters = {};
+    if (topic?.label) {
+      filters = {
+        ...filters,
+        disciplines: {
+          name: {
+            $containsi: topic?.label,
+          },
+        },
+      };
+    }
+    if (startDate && endDate) {
+      filters = {
+        ...filters,
+        $and: [
+          {
+            createdAt: {
+              $gte: format(startDate, 'yyyy-MM-dd'),
+            },
+          },
+          {
+            createdAt: {
+              $lte: format(endDate, 'yyyy-MM-dd'),
+            },
+          },
+        ],
+      };
+    } else if (startDate) {
+      filters = {
+        ...filters,
+        createdAt: {
+          $gte: format(startDate, 'yyyy-MM-dd'),
+        },
+      };
+    } else if (endDate) {
+      filters = {
+        ...filters,
+        createdAt: {
+          $lte: format(endDate, 'yyyy-MM-dd'),
+        },
+      };
+    }
+    return filters;
   };
-  //   filters: {
-  //     // $or: [
-  //     //   {
-  //     //     date: {
-  //     //       $eq: startDate,
-  //     //     },
-  //     //   },
-  //     //   {
-  //     //     date: {
-  //     //       $eq: endDate,
-  //     //     },
-  //     //   },
-  //     // ],
-  //     // blog_tags: {
-  //     //   name: {
-  //     //     $containsi: topic,
-  //     //   },
-  //     // },
-  //     // attributes: {
-  //     //   name: {
-  //     //     $containsi: search,
-  //     //   },
-  //     },
-  //   },
-  // };
+  const queryObject: any = {
+    populate: ['coverImage', 'disciplines'],
+
+    filters: getFilters(),
+  };
   const queryQs = qs.stringify(queryObject, {
     encodeValuesOnly: true,
   });

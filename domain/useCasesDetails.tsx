@@ -24,11 +24,15 @@ export function useUseFilterCases(lenguage: string, query: string) {
   });
 }
 export function useUseAllCases(lenguage: string, query?: string) {
-  return useQuery(['useAllCases'], () => getAllCases(lenguage, query), {
-    staleTime: 2500,
-    notifyOnChangePropsExclusions: ['isStale'],
-    refetchOnWindowFocus: false,
-  });
+  return useQuery(
+    ['useAllCases', lenguage, query],
+    () => getAllCases(lenguage, query),
+    {
+      staleTime: 2500,
+      notifyOnChangePropsExclusions: ['isStale'],
+      refetchOnWindowFocus: false,
+    },
+  );
 }
 export function useaCase(id: number, lenguage: string) {
   return useQuery(['useACase', id], () => getCaseId(id, lenguage), {

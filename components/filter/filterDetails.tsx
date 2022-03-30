@@ -5,8 +5,6 @@ import { BUTTON_ACTIVE } from '../../const/const';
 import { getLocale } from '../../public/locales/getLocale';
 import { Navegation, darkTheme, lightTheme } from '../nav/style';
 import SubMenu from '../nav/submenu';
-import { Styles } from '../../styles/styles';
-import Title from '../Text/title';
 
 interface Props {
   isOpen: boolean;
@@ -113,32 +111,25 @@ export default function FilterDetails({
               </motion.svg>
             </Navegation.ItemsMenu>
           </Navegation.AlinItems>
-          <div className="md:pt-24 lg:pt-48 flex  text-primary  m-auto h-full">
-            <Styles.BlockFilter onClick={toggle}>
-              <Title size="lg:text-lg text-lg font-Primary font-light pl-8 z-1 ">
-                {translate.close}
-              </Title>
-            </Styles.BlockFilter>
 
-            <div className="w-9/12 m-auto flex flex-col items-center place-content-center pt-10 relative z-90">
-              {data.data.map((tab: any) => (
-                <SubMenu
-                  toggle={toggleFilter}
-                  isOpen={
-                    !menuId
-                      ? tab.attributes?.subservices?.data?.some(
-                          ({ attributes: { name } }: any) =>
-                            name.replaceAll(' ', '_').toLowerCase() ===
-                            router.query.slug,
-                        )
-                      : menuId === tab.id
-                  }
-                  section={tab.attributes.name}
-                  subsection={tab}
-                  setIsToggle={setMenuId}
-                />
-              ))}
-            </div>
+          <div className="w-9/12 m-auto flex flex-col items-center place-content-center pt-16 relative z-90">
+            {data.data.map((tab: any) => (
+              <SubMenu
+                toggle={toggleFilter}
+                isOpen={
+                  !menuId
+                    ? tab.attributes?.subservices?.data?.some(
+                        ({ attributes: { name } }: any) =>
+                          name.replaceAll(' ', '_').toLowerCase() ===
+                          router.query.slug,
+                      )
+                    : menuId === tab.id
+                }
+                section={tab.attributes.name}
+                subsection={tab}
+                setIsToggle={setMenuId}
+              />
+            ))}
           </div>
         </Navegation.Menu>
       </Navegation.SectionFilter>

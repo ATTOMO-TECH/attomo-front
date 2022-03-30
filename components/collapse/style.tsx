@@ -208,11 +208,13 @@ export const CircleInter = styled.div`
   transform: rotate(70deg);
 `;
 export const AlingBlock = styled.div`
+  bottom: 4%;
   @media screen and (max-width: 468px) {
     bottom: -3.3%;
   }
-  bottom: 4%;
-
+  @media screen and (min-width: 768px) {
+    bottom: -3%;
+  }
   @media screen and (min-width: 1024px) {
     bottom: 18%;
   }

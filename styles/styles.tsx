@@ -2,6 +2,7 @@ import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 import { BUTTON_ACTIVE } from '../const/const';
+import '@fontsource/merriweather-sans';
 
 type Props = {
   mode?: string;
@@ -100,7 +101,10 @@ export const subText = styled.h5`
   font-family: 'Merriweather';
   font-style: normal;
 `;
-
+export const linkSubmenu = styled.a`
+  font-family: 'Merriweather Sans';
+  font-weight: 900;
+`;
 export const BtnSelect = styled.button<Props>`
   ${({ active }) =>
     active
@@ -175,14 +179,16 @@ export const Styles = {
   SectionPrices: tw.section`grid grid-cols-1 sm:grid-cols-3 gap-6`,
   BlockImg: tw.div`w-full bg-cover bg-center py-44 bg-no-repeat `,
   // DETAILS SERVICES
-  SelectSubMenu: tw.a<Props>`cursor-pointer font-PrimarySerif font-thin md:text-sm leading-loose  pl-2 text-sm
+  SelectSubMenu: tw(
+    linkSubmenu,
+  )<Props>`cursor-pointer font-PrimarySerif md:text-sm leading-loose text-sm py-3 lg:p-2
   ${(props) => (props.mode === BUTTON_ACTIVE.ON ? 'opacity-100' : 'opacity-50')}
 `,
   SpaceCollapse: tw.div`lg:py-48 overflow-hidden`,
   // SUBMENU
-  SubMenuBlock: tw.div`w-2/6`,
+  SubMenuBlock: tw.div`w-full`,
   ButtonSubMenu: tw.button`font-PrimarySerif text-xl uppercase py-2`,
-  BlockSubSection: tw.div`flex flex-col relative pl-1`,
+  BlockSubSection: tw.div`flex flex-col relative pl-1 w-full`,
   // LEGAL
   BlockButtonLegal: tw.div`"w-2/6 mt-5 md:mt-12 lg:mt-24`,
   BlockBack: tw.div`w-full py-10`,

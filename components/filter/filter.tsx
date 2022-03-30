@@ -119,7 +119,6 @@ export default function ModalFilter({
                 <Title size="text-md text-left pb-0 ">Filtrar por</Title>
                 <Filter.BlockItemMobile>
                   <Subtext size=" text-xs font-Primary text-left font-light">
-                    {' '}
                     Servicios
                   </Subtext>
                   <SelectFilter

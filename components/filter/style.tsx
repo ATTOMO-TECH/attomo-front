@@ -36,7 +36,7 @@ export const Filter = {
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-10' : '')}
   `,
   BlockFilterItems: tw.div`flex flex-col justify-center text-center w-full pt-24`,
-  AlingBlock: tw.div`w-full flex flex-col justify-items-stretch items-center w-2/12`,
+  AlingBlock: tw.div`w-full flex flex-col justify-items-stretch items-center w-full`,
   InputSearch: tw.input`border-b border-primary bg-secundary text-primary w-4/6 font-Primary text-xl outline-none focus:opacity-100 opacity-50 ease-in-out duration-300 font-light`,
   FirtsItemFilter: tw.div`w-8/12 flex items-center justify-between m-auto `,
   TextItemFilter: tw.div`lg:w-3/6 text-left`,

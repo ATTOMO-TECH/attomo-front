@@ -86,19 +86,20 @@ function DetailsServices() {
         animate="animate"
         exit={{ opacity: 0 }}
         className="text-primary">
+        <FilterDetails
+          isOpen={!isOpen && isOpenFilter}
+          toggle={toggleFilter}
+          logo
+          mode
+          data={data}
+          menuId={menuId}
+          router={router}
+          setMenuId={setMenuId}
+          SetIsOpenFilter={SetIsOpenFilter}
+          isOpenFilter={isOpenFilter}
+        />
+
         <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
-          <FilterDetails
-            isOpen={!isOpen && isOpenFilter}
-            toggle={toggleFilter}
-            logo
-            mode
-            data={data}
-            menuId={menuId}
-            router={router}
-            setMenuId={setMenuId}
-            SetIsOpenFilter={SetIsOpenFilter}
-            isOpenFilter={isOpenFilter}
-          />
           <Menu isOpen={isOpen} toggle={toggle} logo mode />
           <Styles.Margin>
             <Nav toggle={toggle} logo mode isOpen={isOpen} bgFull />
@@ -133,7 +134,7 @@ function DetailsServices() {
                 </Title>
               </Styles.BlockFilter>
               <motion.div
-                className="lg:pt-12 lg:w-10/12 w-10/12 ml-auto h-auto mr-2"
+                className="lg:pt-12 lg:w-9/12 w-10/12 ml-auto h-auto mr-2"
                 animate={{ x: 0, opacity: 1 }}
                 initial={{ x: 2000, opacity: 0 }}
                 exit={{ opacity: 0 }}
@@ -201,7 +202,7 @@ function DetailsServices() {
               ))}
             </Styles.Center>
           </motion.div>
-          <Footer subFooter={false} />
+          {!isOpenFilter ? <Footer subFooter={false} /> : null}
         </Styles.Body>
       </motion.div>
     </>
