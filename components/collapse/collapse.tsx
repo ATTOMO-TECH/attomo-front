@@ -58,11 +58,7 @@ export default function Collapse() {
     <>
       <Styles.SectionCollapse>
         <Styles.BlockDescription>
-          <motion.div
-            className="children "
-            variants={variants}
-            initial="hidden"
-            animate="show">
+          <motion.div variants={variants} initial="hidden" animate="show">
             {data.data[idx].attributes.subservices.data.map((tab: any) => (
               <Link
                 href={`/servicios/${tab.attributes.name
@@ -70,7 +66,11 @@ export default function Collapse() {
                   .toLowerCase()}`}
                 key={`${tab.attributes.name}-services`}>
                 <Styles.SubSection>
-                  <motion.div variants={item}>{tab.attributes.name}</motion.div>
+                  <motion.p
+                    variants={item}
+                    className="font-light font-Secundary">
+                    {tab.attributes.name}
+                  </motion.p>
                 </Styles.SubSection>
               </Link>
             ))}
