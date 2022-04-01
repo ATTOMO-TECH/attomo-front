@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Picker from 'rmc-picker';
-import { DEPARTMENT } from '../../../const/constGlobal';
+import { useUseAllPartner } from '../../../domain/usePartners';
+import RenderLoading from '../../loading/loading';
 
 interface Props {
   setTopic: (value: any) => void;
@@ -8,6 +9,20 @@ interface Props {
 
 export default function FilterScroll({ setTopic }: Props) {
   const [value, setValue] = useState();
+  const [query] = useState('');
+
+  const { data: Partner, isLoading } = useUseAllPartner(query);
+
+  useEffect(() => {
+    setTopic(value);
+  }, [value]);
+  if (isLoading) {
+    return (
+      <>
+        <RenderLoading mode={false} />
+      </>
+    );
+  }
 
   return (
     <>
@@ -18,14 +33,13 @@ export default function FilterScroll({ setTopic }: Props) {
           selectedValue={value}
           onScrollChange={(e: any) => {
             setValue(e);
-            setTopic(e);
           }}>
-          {DEPARTMENT.map((values) => (
+          {Partner.data.map((values: any) => (
             <Picker.Item
-              key={`${values.label}+${values.value}`}
+              key={`${values.attributes.area}+${values.attributes.area}`}
               className="my-picker-view-item text-left  text-white"
-              value={values}>
-              {values.label}
+              value={values.attributes.area}>
+              {values.attributes.area}
             </Picker.Item>
           ))}
         </Picker>

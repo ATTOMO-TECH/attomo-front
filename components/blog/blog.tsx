@@ -59,13 +59,13 @@ export default function BlockBlog({ dataBlog }: Props) {
                   ) : null}
                 </Blogstyles.BlockImg>
                 <Blogstyles.BlockText>
-                  <Title size="text-sm leading-relaxed font-PrimarySerif ">
+                  <Subtext size="text-sm leading-relaxed  ">
                     {data.attributes.blog_tags.data[0].attributes.name}
-                  </Title>
+                  </Subtext>
                   <Title size="text-xl lg:text-3xl pr-12 leading-loose pt-4">
                     {data.attributes.title}
                   </Title>
-                  <Subtext size=" md:text-lg lg:text-base pr-12 pt-4 leading-relaxed lg:text-left font-Secundary">
+                  <Subtext size="pr-12 pt-4 text-sm leading-relaxed ">
                     {data.attributes.title}
                   </Subtext>
 

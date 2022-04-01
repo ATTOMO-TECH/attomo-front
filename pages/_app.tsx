@@ -14,6 +14,12 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
     <Head>
       <title>ATTOMO - Consultora Digital </title>
       <link rel="icon" type="image/x-icon" href="Favicon.svg" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&family=Merriweather+Sans:wght@300;500;600;700;800&family=Merriweather:wght@300;400;700;900&display=swap"
+        rel="stylesheet"
+      />
     </Head>
     <AuthProvider>
       <QueryClientProvider client={queryClient}>

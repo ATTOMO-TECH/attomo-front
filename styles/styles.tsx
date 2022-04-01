@@ -2,7 +2,6 @@ import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 import { BUTTON_ACTIVE } from '../const/const';
-import '@fontsource/merriweather-sans';
 
 type Props = {
   mode?: string;
@@ -101,10 +100,11 @@ export const subText = styled.h5`
   font-family: 'Merriweather';
   font-style: normal;
 `;
-export const linkSubmenu = styled.a`
-  font-family: 'Merriweather Sans';
-  font-weight: 900;
+export const linkSubmenu = styled.p`
+  font-weight: 300;
+  line-height: 36px;
 `;
+
 export const BtnSelect = styled.button<Props>`
   ${({ active }) =>
     active
@@ -139,7 +139,7 @@ export const Styles = {
   DivideSection: tw.div`lg:w-3/6 w-full pb-2`,
   BlockButton: tw.div`lg:px-24 pt-10`,
   BlockSlider: tw.div` pb-12 px-7`,
-  BlockTrends: tw.div`lg:pt-48 flex w-full m-auto lg:justify-center items-end pl-8 lg:pl-0 pt-36 pb-16 flex-wrap `,
+  BlockTrends: tw.div`lg:pt-48 flex w-full m-auto lg:justify-center items-center pl-8 lg:pl-0 pt-36 pb-16 flex-wrap `,
   // FilterAT
   SectionFilter: tw.div`w-full lg:w-2/12 `,
   SelectFilter: tw.div`w-8/12 lg:w-2/12 mr-12 `,
@@ -148,7 +148,7 @@ export const Styles = {
   Screen: tw.div`h-screen mb-48 justify-between`,
   ScreenResponsive: tw.div`h-screen pt-24`,
   ScreenMid: tw.div`h-screen flex justify-center items-center justify-between`,
-  ScreenWS: tw.div`h-96 sm:h-64 lg:h-screen flex justify-center items-center justify-between pt-24 lg:pt-0`,
+  ScreenWS: tw.div`h-96 sm:h-64 lg:h-4/6 flex justify-center items-center justify-between pt-24 lg:pt-36`,
   FlexEnd: tw.div`flex lg:justify-end w-full m-auto`,
   TitleSubSection: tw(
     subText,
@@ -181,14 +181,14 @@ export const Styles = {
   // DETAILS SERVICES
   SelectSubMenu: tw(
     linkSubmenu,
-  )<Props>`cursor-pointer font-PrimarySerif md:text-sm leading-loose text-sm py-3 lg:p-2
+  )<Props>`w-full cursor-pointer font-PrimarySerif font-thin md:text-sm leading-loose  pl-2 text-sm hover:opacity-90 transition-colors duration-300 ease-in-out
   ${(props) => (props.mode === BUTTON_ACTIVE.ON ? 'opacity-100' : 'opacity-50')}
 `,
   SpaceCollapse: tw.div`lg:py-48 overflow-hidden`,
   // SUBMENU
-  SubMenuBlock: tw.div`w-full`,
-  ButtonSubMenu: tw.button`font-PrimarySerif text-xl uppercase py-2`,
-  BlockSubSection: tw.div`flex flex-col relative pl-1 w-full`,
+  SubMenuBlock: tw.div`w-full lg:w-10/12 m-auto flex flex-wrap`,
+  ButtonSubMenu: tw.button`font-PrimarySerif text-md uppercase py-1 font-light`,
+  BlockSubSection: tw.div`flex flex-col relative pl-1`,
   // LEGAL
   BlockButtonLegal: tw.div`"w-2/6 mt-5 md:mt-12 lg:mt-24`,
   BlockBack: tw.div`w-full py-10`,

@@ -134,7 +134,7 @@ export default {
     },
   ],
   sendEmail: 'Escribe tu correo electrónico',
-  trendsFilter: 'Filtrar noticias por',
+  trendsFilter: 'Filtrar noticias por:',
   workUs: [
     {
       Text: 'Trabaja con nosotros',

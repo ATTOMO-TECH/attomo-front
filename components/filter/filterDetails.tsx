@@ -56,7 +56,7 @@ export default function FilterDetails({
           stiffness: 50,
         }}>
         <Navegation.Menu>
-          <Navegation.AlinItems
+          <Navegation.AlinItemsServices
             ismode={logo ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
             <Navegation.ItemsMenu>
               <Link href="/">
@@ -110,11 +110,12 @@ export default function FilterDetails({
                 />
               </motion.svg>
             </Navegation.ItemsMenu>
-          </Navegation.AlinItems>
+          </Navegation.AlinItemsServices>
 
-          <div className="w-9/12 m-auto flex flex-col items-center place-content-center pt-16 relative z-90">
+          <div className="pl-8  flex flex-col items-center place-content-center pt-16 relative z-90">
             {data.data.map((tab: any) => (
               <SubMenu
+                key={tab.id}
                 toggle={toggleFilter}
                 isOpen={
                   !menuId

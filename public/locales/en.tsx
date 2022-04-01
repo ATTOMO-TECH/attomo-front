@@ -132,7 +132,7 @@ export default {
     },
   ],
   sendEmail: 'Write your e-mail.',
-  trendsFilter: 'Filtrar noticias por',
+  trendsFilter: 'Filter by:',
   workUs: [
     {
       Text: 'Work with us',

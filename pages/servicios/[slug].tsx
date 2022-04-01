@@ -98,7 +98,6 @@ function DetailsServices() {
           SetIsOpenFilter={SetIsOpenFilter}
           isOpenFilter={isOpenFilter}
         />
-
         <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
           <Menu isOpen={isOpen} toggle={toggle} logo mode />
           <Styles.Margin>
@@ -152,7 +151,7 @@ function DetailsServices() {
                   <motion.p
                     variants={fadeInUp}
                     transition={{ delay: 5.5 }}
-                    className="pr-5 relative font-PrimarySerif font-light leading-relaxed textDegrade">
+                    className="pr-5 relative font-PrimarySerif font-light leading-loose textDegrade">
                     {isIdSubServices[0]?.attributes?.description}
                   </motion.p>
                 </motion.div>

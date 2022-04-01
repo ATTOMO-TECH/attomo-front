@@ -4,7 +4,10 @@ import tw from 'tailwind-styled-components';
 
 export const Container = styled(ReactMarkdown)`
   * {
-    font-family: [ 'Merriweather Sans', 'sans-serif' ];
+    font-family: 'Merriweather Sans';
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 36px;
   }
   h1 {
   }

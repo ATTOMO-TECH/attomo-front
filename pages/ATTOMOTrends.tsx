@@ -122,7 +122,7 @@ function News() {
                     {value.Text}
                   </Title>
                   <Styles.BlockInputSend>
-                    <Subtext size=" md:text-lg lg:text-base md:w-2/6  lg:text-left font-Secundary">
+                    <Subtext size=" md:text-lg lg:text-base md:w-2/6  lg:text-left font-Primary">
                       {value.Subtext}
                     </Subtext>
                     <Styles.BlockFullInput>
@@ -136,9 +136,7 @@ function News() {
         </Styles.Center>
         <Styles.BlockTrends>
           <Styles.SectionFilter>
-            <Title size="text-lg lg:py-4 font-PrimarySerif">
-              {translate.trendsFilter}
-            </Title>
+            <Subtext size="text-lg lg:py-4 ">{translate.trendsFilter}</Subtext>
           </Styles.SectionFilter>
           <Styles.SelectFilter>
             <Styles.Select

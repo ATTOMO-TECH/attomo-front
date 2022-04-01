@@ -6,6 +6,7 @@ import {
   darkTheme,
   IconPathStyled,
   IconStyled,
+  IconStyledDark,
   lightTheme,
   Navegation,
 } from './style';
@@ -121,7 +122,19 @@ export default function Nav({ toggle, logo, mode, isOpen, bgFull }: Props) {
                   </IconStyled>
                 </div>
               ) : (
-                <Navegation.ButtonLogoInvert />
+                <div className="container dark">
+                  <IconStyledDark
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 86.49 86.49">
+                    <IconPathStyled
+                      d="M43.25.25a43,43,0,1,1-43,43,43,43,0,0,1,43-43m0-.25A43.25,43.25,0,1,0,86.49,43.25,43.25,43.25,0,0,0,43.25,0Z"
+                      transition={{
+                        default: { duration: 3, ease: 'easeInOut' },
+                        fill: { duration: 3, ease: [1, 0, 0.8, 1] },
+                      }}
+                    />
+                  </IconStyledDark>
+                </div>
               )}
             </Navegation.ItemsMenu>
           </Navegation.BlockLenguage>

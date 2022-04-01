@@ -53,7 +53,7 @@ export const HeadSection = {
   TextHead: tw(TextHero)` lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl`,
   SectionHero: tw.section`font-Primary`,
   Blockbutton: tw.div`relative cursor-pointer`,
-  TextButton: tw.h6`text-primary text-xs sm:text-lg lg:text-lg pt-10`,
+  TextButton: tw.h6`text-primary font-PrimarySerif font-light text-xs sm:text-lg lg:text-lg pt-10 `,
   BlockArrow: tw.span`absolute `,
   SectionHeroCases: tw.div`md:w-10/12 w-full h-screen md:h-11/12 z-0 relative bg-hero-Case bg-no-repeat bg-center bg-cover `,
 

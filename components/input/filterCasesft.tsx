@@ -21,7 +21,7 @@ export default function FilterCasesft({
         <Styles.FlexFilter>
           <Styles.TexItem className="w-3/12 ">Filtado por</Styles.TexItem>
           <Styles.TexItem className="w-3/12">
-            {topic === '' ? 'Estrategia' : topic.label}
+            {topic === '' ? 'Estrategia' : topic}
           </Styles.TexItem>
           <Styles.TexItem className="w-3/12">
             {startDate === undefined || endDate === undefined ? (

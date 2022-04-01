@@ -63,13 +63,13 @@ export const StylesArticle = {
   BlockText: tw(SectionColor)``,
   TextBlog: tw(
     titleText,
-  )<Props>`text-xl lg:text-lg  pt-5 lg:pt-2 font-Primary font-thin
+  )<Props>`text-xl lg:text-lg  pt-2 lg:pt-2 font-Primary font-thin
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON ? `textDegrade  ` : 'bg-black '}
       `,
 
   TopicText: tw.h6<Props>`
-  opacity-50 font-PrimarySerif font-thin text-xs py-2
+  opacity-50 font-PrimarySerif font-light text-xs py-2
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'block' : 'hidden')}
   `,
   BlockArrow: tw.div`flex w-full text-xl justify-end lg:pr-44 lg:pr-10`,

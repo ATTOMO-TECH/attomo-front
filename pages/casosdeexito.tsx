@@ -30,7 +30,7 @@ function Cases() {
   };
   const [startDate, setStartDate] = useState<any>();
   const [endDate, setEndDate] = useState<any>();
-  const [topic, setTopic] = useState<any>({});
+  const [topic, setTopic] = useState<any>('');
   const [search, setSearch] = useState('');
 
   const handleDate = (dateValue: any) => {
@@ -110,6 +110,7 @@ function Cases() {
     );
   }
   const translate = getLocale();
+
   return (
     <>
       <Head>
@@ -117,14 +118,14 @@ function Cases() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <BgComponent />
+      <ModalFilter
+        isOpenFilter={isOpenFilter}
+        toggle={toggleFilter}
+        setDate={handleDate}
+        setTopic={handleTopic}
+        setSearch={setSearch}
+      />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
-        <ModalFilter
-          isOpenFilter={isOpenFilter}
-          toggle={toggleFilter}
-          setDate={handleDate}
-          setTopic={handleTopic}
-          setSearch={setSearch}
-        />
         {!isOpenFilter && <Menu isOpen={isOpen} toggle={toggle} logo mode />}
         <Styles.Margin>
           {!isOpenFilter && (
@@ -134,7 +135,7 @@ function Cases() {
         {!isOpenFilter && <ButtonShare />}
         {!isOpenFilter && (
           <>
-            {topic === '' ? (
+            {topic !== {} ? (
               <HeroCase
                 toggle={toggleFilter}
                 date={startDate}

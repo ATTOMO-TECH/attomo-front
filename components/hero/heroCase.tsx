@@ -22,7 +22,7 @@ export default function HeroCase({
         {!isOpen ? (
           <Filter toggle={toggle} date={date} topic={topic} endDate={endDate} />
         ) : null}
-        {topic === '' && <HeadSection.SectionHeroCases />}
+        {topic !== '' && <HeadSection.SectionHeroCases />}
       </HeadSection.SectionCase>
     </>
   );

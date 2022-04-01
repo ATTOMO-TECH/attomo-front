@@ -208,7 +208,7 @@ export const CircleInter = styled.div`
   transform: rotate(70deg);
 `;
 export const AlingBlock = styled.div`
-  bottom: 4%;
+  bottom: 0%;
   @media screen and (max-width: 468px) {
     bottom: -3.3%;
   }
