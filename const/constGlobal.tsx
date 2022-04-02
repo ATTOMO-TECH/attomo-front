@@ -1,6 +1,6 @@
 export enum CONDITIONFORM {
-  TEAM = 'teamMember',
-  PARTNER = 'outsidePartner',
+  TEAM = 'team',
+  PARTNER = 'partner',
 }
 
 export const PARTNERS: {

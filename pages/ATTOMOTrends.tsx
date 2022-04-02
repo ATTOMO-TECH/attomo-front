@@ -1,5 +1,7 @@
 // eslint-disable-next-line no-use-before-define
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { format } from 'date-fns';
 import * as qs from 'qs';
 import Head from 'next/head';
 import BgComponent from '../components/animations/bg';
@@ -18,9 +20,10 @@ import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 import Subtext from '../components/Text/subText';
 import CalendarPickerInputRange from '../components/calendar/input/calendarRange';
-import { formatDateFilter } from '../hook/date';
+import { servicesAnimations } from '../components/animations/animations';
 
 function News() {
+  const [shouldShowActions] = useState(false);
   const translate = getLocale();
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState('');
@@ -29,8 +32,8 @@ function News() {
   );
   const { data, isLoading } = useUseAllPost(query);
   const { data: Tags, isLoading: LoadingTags } = useUseAllTags();
-  const [startDate, setStartDateFilter] = useState<Date[]>();
-  const [endDate, setEndDateFilter] = useState<Date[]>();
+  const [startDate, setStartDateFilter] = useState<any>();
+  const [endDate, setEndDateFilter] = useState<any>();
   const [preData, setPreData] = useState<any[]>([]);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -61,13 +64,13 @@ function News() {
           },
           $and: [
             {
-              publishedAt: {
-                $eq: formatDateFilter(startDate),
+              createdAt: {
+                $gte: startDate ? format(startDate, 'yyyy-MM-dd') : null,
               },
             },
             {
-              publishedAt: {
-                $eq: formatDateFilter(endDate),
+              createdAt: {
+                $lte: endDate ? format(endDate, 'yyyy-MM-dd') : null,
               },
             },
           ],
@@ -161,26 +164,43 @@ function News() {
           </Styles.SelectFilterNM>
         </Styles.BlockTrends>
         <BlockBlog dataBlog={preData} />
-        <Blogstyles.SectionMore>
-          <Blogstyles.BlockMore
-            onClick={() => handleAddBlog(data.meta.pagination.page + 1)}>
-            {translate.seeMoreTrends}
-          </Blogstyles.BlockMore>
-        </Blogstyles.SectionMore>
+        {preData.length >= 4 ? (
+          <Blogstyles.SectionMore>
+            <Blogstyles.BlockMore
+              onClick={() => handleAddBlog(data.meta.pagination.page + 1)}>
+              {translate.seeMoreTrends}
+            </Blogstyles.BlockMore>
+          </Blogstyles.SectionMore>
+        ) : null}
         <Styles.Center>
-          {React.Children.toArray(
-            translate.contact.map((values) => (
-              <BlockSection
-                key={values.Link}
-                text={values.Text}
-                button={values.Link}
-                text2=""
-                button2=""
-                mode
-                link="/contacto"
-              />
-            )),
-          )}
+          <motion.div
+            animate={shouldShowActions}
+            variants={servicesAnimations}
+            className="actions"
+            transition={{
+              delay: 0.2,
+              type: 'spring',
+              stiffness: 50,
+              duration: 2,
+            }}
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: '50%' }}>
+            <Styles.Center>
+              {React.Children.toArray(
+                translate.contact.map((values) => (
+                  <BlockSection
+                    key={values.Link}
+                    text={values.Text}
+                    button={values.Link}
+                    text2=""
+                    button2=""
+                    mode
+                    link="/contacto"
+                  />
+                )),
+              )}
+            </Styles.Center>
+          </motion.div>
         </Styles.Center>
         <Footer subFooter={false} />
       </Styles.Body>

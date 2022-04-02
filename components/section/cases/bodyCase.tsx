@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
 import { useState } from 'react';
+import ShareNav from '../../button/share';
+
 import { BodyTrends, Container } from './style';
 
 interface Props {
@@ -25,7 +27,7 @@ export default function BodyCases({ data, title }: Props) {
 
   return (
     <>
-      {/* <BtnShare valueUrl="undefined" isOpen={isOpen} toggle={toggle} /> */}
+      <ShareNav valueUrl="undefined" isOpen={isOpen} toggle={toggle} />
       <BodyTrends.Section>
         <BodyTrends.ButtonShare onClick={handleOnClick}>
           <img src="/icon/share.svg" width={20} height={20} alt="share" />

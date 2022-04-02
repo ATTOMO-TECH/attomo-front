@@ -10,7 +10,7 @@ import { darkTheme, lightTheme, Styles } from '../../styles/styles';
 import BlockSection from '../../components/block/block';
 import DetailsCases from '../../components/section/cases/details';
 import { useaCase } from '../../domain/useCasesDetails';
-import BreadCrumbs from '../../components/breadcrumbs/breadcrumbs';
+import BreadCrumbsCases from '../../components/breadcrumbs/breadcrumbsCases';
 import RenderLoading from '../../components/loading/loading';
 import CasesScroll from '../../components/slider/cases/slider';
 import { getLocale } from '../../public/locales/getLocale';
@@ -59,10 +59,10 @@ export default function Cases({ mode }: Props) {
         <Styles.Margin>
           <Nav toggle={toggle} logo mode={false} bgFull isOpen={isOpen} />
         </Styles.Margin>
-        <Styles.Center className="mt-44 lg:pl-6">
-          <BreadCrumbs
-            Author={data.data.attributes.company}
-            Date={data.data.attributes.sumary}
+        <Styles.Center className="lg:mt-44 mt-20 lg:pl-6">
+          <BreadCrumbsCases
+            customer={data.data.attributes.company}
+            sumary={data.data.attributes.sumary}
           />
           <Styles.TitularText>{data?.data.attributes.title}</Styles.TitularText>
         </Styles.Center>
@@ -82,7 +82,7 @@ export default function Cases({ mode }: Props) {
           <DetailsCases data={data.data} />
         </Styles.Center>
         <Styles.Center>
-          <Styles.TextSubSection>{translate.interested}</Styles.TextSubSection>
+          <Styles.TextSubSection>{translate.moreCases}</Styles.TextSubSection>
         </Styles.Center>
         <Styles.FlexEnd>
           <Styles.AlingBlock>

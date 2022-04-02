@@ -133,13 +133,16 @@ export const Styles = {
   CenterFull: tw.section`w-full  lg:w-10/12 m-auto`,
   CenterFlex: tw.section`lg:w-10/12 m-auto flex overflow-hidden`,
   ContainerFull: tw.div`w-full`,
-  BlockAddres: tw.div`lg:my-12 py-12  lg:w-5/6  m-auto overflow-hidden`,
+  BlockAddres: tw.div`lg:my-12   lg:w-5/6  m-auto overflow-hidden`,
   SectionScreen: tw.section`lg:pt-48 pt-24 h-auto`,
   BlockSections: tw.div`py-10 relative z-0`,
   DivideSection: tw.div`lg:w-3/6 w-full pb-2`,
   BlockButton: tw.div`lg:px-24 pt-10`,
   BlockSlider: tw.div` pb-12 px-7`,
   BlockTrends: tw.div`lg:pt-48 flex w-full m-auto lg:justify-center items-center pl-8 lg:pl-0 pt-36 pb-16 flex-wrap `,
+  // FilterCases
+  SelectFilterCases: tw.div`flex w-full m-auto lg:justify-center items-center pl-8 lg:pl-0 pt-10 lg:pt-0 flex-wrap  `,
+
   // FilterAT
   SectionFilter: tw.div`w-full lg:w-2/12 `,
   SelectFilter: tw.div`w-8/12 lg:w-2/12 mr-12 `,
@@ -172,7 +175,7 @@ export const Styles = {
   BtnSelect: tw(
     BtnSelect,
   )`text-primary border-2 border-primary px-14 py-3 rounded-full opacity-80 font-PrimarySerif font-thin shadow-none`,
-  TitularText: tw.h3`font-PrimarySerif  lg:text-4xl text-3xl font-light py-5 leading-relaxed`,
+  TitularText: tw.h3`font-Primary  lg:text-4xl text-2xl font-light py-5 leading-relaxed`,
   // SPACE
   HeroEspace: tw.section`h-auto bg-hero-Space bg-cover bg-center py-72 bg-no-repeat`,
   SectionImg: tw.section`grid grid-cols-1 sm:grid-cols-2 gap-6`,

@@ -1,8 +1,9 @@
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import * as qs from 'qs';
 import Head from 'next/head';
 import { format } from 'date-fns';
+import { motion } from 'framer-motion';
 import BgComponent from '../components/animations/bg';
 import BlockSection from '../components/block/block';
 import ButtonShare from '../components/button/BtnShare';
@@ -17,9 +18,21 @@ import { BUTTON_ACTIVE } from '../const/const';
 import { useUseAllCases } from '../domain/useCasesDetails';
 import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
-import FilterCasesft from '../components/input/filterCasesft';
+import Subtext from '../components/Text/subText';
+import { servicesAnimations } from '../components/animations/animations';
 
 function Cases() {
+  const [shouldShowActions] = useState(false);
+  const [scroll, setScroll] = useState(true);
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 20) {
+        setScroll(false);
+      } else {
+        setScroll(true);
+      }
+    });
+  }, []);
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const toggle = () => {
     SetIsOpen(!isOpen);
@@ -84,6 +97,14 @@ function Cases() {
         },
       };
     }
+    if (search !== '') {
+      filters = {
+        ...filters,
+        disciplines: {
+          $containsi: search,
+        },
+      };
+    }
     return filters;
   };
   const queryObject: any = {
@@ -133,50 +154,104 @@ function Cases() {
           )}
         </Styles.Margin>
         {!isOpenFilter && <ButtonShare />}
-        {!isOpenFilter && (
-          <>
-            {topic !== {} ? (
-              <HeroCase
-                toggle={toggleFilter}
-                date={startDate}
-                endDate={endDate}
-                topic={topic}
-                isOpen={isOpen}
-              />
-            ) : (
-              <div className="w-full text-white m-auto z-0 relative  pt-36">
-                <FilterCasesft
-                  toggle={toggleFilter}
-                  startDate={startDate}
-                  endDate={endDate}
-                  topic={topic}
-                  search={search}
-                />
-              </div>
-            )}
-            <Styles.BlockSections>
-              <SectionProjects
-                Array={data?.data}
-                shouldShowActions={undefined}
-                servicesAnimations={undefined}
-              />
-            </Styles.BlockSections>
-            <Styles.Center>
-              {translate.contact.map((values) => (
-                <BlockSection
-                  key={values.Link}
-                  text={values.Text}
-                  button={values.Link}
-                  text2=""
-                  button2=""
-                  mode
-                  link="/contacto"
-                />
-              ))}
-            </Styles.Center>
-            <Footer subFooter={false} />
-          </>
+
+        <HeroCase
+          toggle={toggleFilter}
+          date={startDate}
+          endDate={endDate}
+          topic={topic}
+          isOpen={isOpenFilter}
+          scroll={scroll}
+        />
+        {!scroll ? (
+          <motion.div
+            animate={shouldShowActions}
+            variants={servicesAnimations}
+            className="actions cursor-pointer -pb-36 lg:-mb-6 lg:pt-12"
+            transition={{
+              delay: 0.2,
+              type: 'spring',
+              stiffness: 50,
+              duration: 2,
+            }}
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: '50%' }}
+            onClick={toggleFilter}>
+            <Styles.SelectFilterCases>
+              <Styles.SectionFilter>
+                <Subtext size="text-lg lg:py-4 ">
+                  {translate.CasesFilter}
+                </Subtext>
+              </Styles.SectionFilter>
+              <Styles.SelectFilter>
+                <Styles.Select className="lg:w-11/12 w-full " disabled>
+                  {topic === undefined ? (
+                    <option value="">Tématica</option>
+                  ) : (
+                    <option value="">{topic}</option>
+                  )}
+                </Styles.Select>
+              </Styles.SelectFilter>
+              <Styles.SelectFilter>
+                <Styles.Select className="lg:w-11/12 w-full " disabled>
+                  {startDate === '' ||
+                  undefined ||
+                  null ||
+                  endDate === '' ||
+                  undefined ||
+                  null ? (
+                    <option value="">Selecciona fecha</option>
+                  ) : (
+                    <option value="">{`${
+                      startDate
+                        ? format(startDate, 'dd-MM-yyyy')
+                        : 'Seleccionar fecha'
+                    } 
+                    ${
+                      endDate ? format(endDate, '-  dd-MM-yyyy') : ''
+                    }`}</option>
+                  )}
+                </Styles.Select>
+              </Styles.SelectFilter>
+            </Styles.SelectFilterCases>
+          </motion.div>
+        ) : (
+          <></>
         )}
+        <Styles.BlockSections>
+          <SectionProjects
+            Array={data?.data}
+            shouldShowActions={undefined}
+            servicesAnimations={undefined}
+          />
+        </Styles.BlockSections>
+        <motion.div
+          animate={shouldShowActions}
+          variants={servicesAnimations}
+          className="actions"
+          transition={{
+            delay: 0.2,
+            type: 'spring',
+            stiffness: 50,
+            duration: 2,
+          }}
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: '50%' }}>
+          <Styles.Center>
+            {translate.contact.map((values) => (
+              <BlockSection
+                key={values.Link}
+                text={values.Text}
+                button={values.Link}
+                text2=""
+                button2=""
+                mode
+                link="/contacto"
+              />
+            ))}
+          </Styles.Center>
+        </motion.div>
+        {!isOpenFilter ? <Footer subFooter={false} /> : <></>}
       </Styles.Body>
     </>
   );

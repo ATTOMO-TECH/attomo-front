@@ -46,11 +46,9 @@ function Contact() {
               Calle del Monte Esquinza, 8-Bajo Izquierda <br />
               28010 Madrid
             </Subtext>
-
             <MapsBlock />
           </Styles.BlockAddresMap>
         </Styles.Center>
-
         <Footer subFooter={false} />
       </Styles.Body>
     </>
