@@ -8,7 +8,7 @@ type Props = {
   selected: any;
 };
 
-export default function SelectFilter({
+export default function SelectFilterMenu({
   options,
   valueLabel,
   name,
@@ -83,7 +83,7 @@ export default function SelectFilter({
         onChange={onChange}
         value={displayItem(selected)}
         className="w-full  py-4 text-left font-PrimarySerif font-thin"
-        placeholder="30M"
+        placeholder="Selecciona una opción"
         defaultValue={{ value: '30M', label: '30 min' }}
       />
     </>

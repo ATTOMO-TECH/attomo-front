@@ -68,14 +68,14 @@ export const Item = styled.div<Props>`
   border-radius: 100%;
   transition-duration: 0.4s;
   transition-property: transform;
-  &:after {
+  &:before {
     content: url('/icon/elips.svg');
     position: fixed;
     z-index: 100 !important;
     -webkit-animation-duration: 4000ms;
-    top: -1.5%;
+    top: -2.3%;
     left: 43%;
-    transform: scale(0.6) rotate(24deg);
+    transform: scale(0.6) rotate(22deg);
     @media screen and (min-width: 468px) {
       top: -2.5%;
       left: 42%;
@@ -95,20 +95,34 @@ export const Item = styled.div<Props>`
   ${(props) =>
     props.ismode === 0
       ? `
+      &:before {
 
-    transform:rotate(-65deg);
+        transform: scale(0.6) rotate(22deg);
+      };
+      transform:rotate(-65deg);
     @media screen and (min-width: 468px) 
-    {
+    {      
+      &:before {
+
+        transform: scale(0.9) rotate(10deg);
+      };
       transform: rotate(-55deg);
     
     };
     @media screen and (min-width: 640px) 
     {
+      &:before {
+        transform: scale(0.9) rotate(8deg);
+      };
       transform: rotate(-55deg);
     
     };
     @media screen and (min-width: 1024px) 
     {
+      &:before {
+
+        transform: scale(0.9) rotate(8deg);
+      };
       transform: rotate(40deg);
 
     };
@@ -117,31 +131,71 @@ export const Item = styled.div<Props>`
   ${(props) =>
     props.ismode === 1
       ? `
-      transform: rotate(-23deg);
-      @media screen and (min-width: 468px) {
-        transform: rotate(-11deg);
+      &:before {
 
+        transform: scale(0.6) rotate(24deg);
+      };
+      transform:rotate(-24deg);
+      @media screen and (min-width: 468px) 
+      {      
+        &:before {
+  
+          transform: scale(0.9) rotate(10deg);
+        };
+        transform: rotate(-11deg);
+      
       };
       @media screen and (min-width: 640px) {
+        @media screen and (min-width: 640px) 
+        {
+          &:before {
+            transform: scale(0.9) rotate(8deg);
+          };
         transform: rotate(-8deg);
         
       };
       @media screen and (min-width: 1024px) 
       {
-        {transform: rotate(55deg)}
+        {
+          &:before {
+    
+            transform: scale(0.9) rotate(8deg);
+          };
+        transform: rotate(55deg)
       };
 `
       : ''}
     ${(props) =>
     props.ismode === 2
       ? `
-      transform: rotate(26deg);
+      &:before {
+
+        transform: scale(0.6) rotate(24deg);
+      };
+      transform:scale(.99) rotate(22deg);
       @media screen and (min-width: 468px) 
       {
+        &:before {
+          transform: scale(0.9) rotate(10deg);
+        };
         {transform: rotate(30deg)}
+      };
+      @media screen and (min-width: 640px) {
+        @media screen and (min-width: 640px) 
+        {
+          &:before {
+            transform: scale(0.9) rotate(8deg);
+          };
+        transform: rotate(45deg);
+        
       };
       @media screen and (min-width: 1024px) 
       {
+        
+          &:before {
+    
+            transform: scale(0.9) rotate(8deg);
+          };
         transform: rotate(70deg)
       }`
       : ''}
@@ -225,7 +279,7 @@ export const Styles = {
     AlingBlock,
   )`lg:text-right text-xl absolute sm:bottom-12 bottom-0 lg:bottom-24 lg:-right-4 w-full text-center z-10`,
   SubSection: tw(SubSection)`font-light text-base cursor-pointer z-80`,
-  BlockImg: tw.div`relative flex justify-center items-center `,
+  BlockImg: tw.div`relative flex justify-center items-center m-0.5 `,
   SectionAtom: tw(
     Item,
   )` transition ease-in-out delay-150  flex justify-center items-center`,

@@ -19,8 +19,8 @@ import Subtext from '../Text/subText';
 export default function FormReserver() {
   const translate = getLocale();
   const [shouldShowActions] = useState(false);
-  const [selected, setSelected] = useState('');
   const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
+  const [selected, setSelected] = useState('');
   const onChange = (e: any) => {
     setSelected(e.value);
   };

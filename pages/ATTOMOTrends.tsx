@@ -23,6 +23,7 @@ import CalendarPickerInputRange from '../components/calendar/input/calendarRange
 import { servicesAnimations } from '../components/animations/animations';
 
 function News() {
+  const [change, setChange] = useState(false);
   const [shouldShowActions] = useState(false);
   const translate = getLocale();
   const [page, setPage] = useState(1);
@@ -40,9 +41,17 @@ function News() {
   const toggle = () => {
     setIsOpen(!isOpen);
   };
+  const handleChangeReset = () => {
+    setChange(true);
+  };
 
   const handleAddBlog = (value: number) => {
     setPage(value);
+  };
+  const handleReset = () => {
+    setStartDateFilter(null);
+    setEndDateFilter(null);
+    setFilter('');
   };
 
   useEffect(() => {
@@ -145,7 +154,10 @@ function News() {
             <Styles.Select
               className="lg:w-11/12 w-full "
               name="select"
-              onChange={(e: any) => setFilter(e.target.value)}>
+              onChange={(e: any) => {
+                setFilter(e.target.value);
+                handleChangeReset();
+              }}>
               <option value="">{'Todas las noticias '}</option>
               {Tags?.data.map((options: any) => (
                 <option
@@ -162,6 +174,44 @@ function News() {
               setEndDateFilter={setEndDateFilter}
             />
           </Styles.SelectFilterNM>
+          <motion.svg
+            className="cursor-pointer"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            transition={{ duration: 1, ease: 'easeInOut' }}
+            onClick={handleReset}>
+            <motion.path
+              d="M18 6L6 18"
+              stroke="white"
+              stroke-width={change ? '2' : 0}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              initial={{ pathLength: 0 }}
+              animate={
+                change
+                  ? { pathLength: 1, type: 'tween' }
+                  : { pathLength: 0, type: 'spring' }
+              }
+              transition={{ duration: 1, ease: 'easeInOut' }}
+            />
+            <motion.path
+              d="M6 6L18 18"
+              stroke="white"
+              stroke-width={change ? '2' : 0}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              initial={{ pathLength: 0 }}
+              animate={
+                change
+                  ? { pathLength: 1, type: 'tween' }
+                  : { pathLength: 0, type: 'spring' }
+              }
+              transition={{ duration: 1, ease: 'easeInOut' }}
+            />
+          </motion.svg>
         </Styles.BlockTrends>
         <BlockBlog dataBlog={preData} />
         {preData.length >= 4 ? (

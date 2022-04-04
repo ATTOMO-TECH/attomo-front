@@ -2,10 +2,6 @@ import FilterScroll from '../slider/filter/slider';
 import { Filter } from './style';
 import CalendarPicker from '../calendar/calendar';
 
-// import { useEffect, useState } from 'react';
-// import { useUseAllSubServices } from '../../domain/useServices';
-// import RenderLoading from '../loading/loading';
-
 interface Props {
   setDate: any;
   setTopic: any;

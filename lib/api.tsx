@@ -15,6 +15,10 @@ const CASES = {
       `successful-cases/${id}?populate=mainPhoto&populate=disciplines&populate=deliverables&populate=subservice&locale=${lenguage}`,
     ),
 };
+const DISCIPLINES = {
+  FETCH_ALL: (lenguage: string) =>
+    getAbsolutePath(`disciplines?locale=${lenguage}`),
+};
 const CONTACT = {
   CREATE: () => getAbsolutePath('client-forms'),
   CREATECOLABORATOR: () => getAbsolutePath('partner-forms'),
@@ -79,5 +83,6 @@ export {
   PRIVACY,
   TERMS,
   SUBSCRIBERS,
+  DISCIPLINES,
   getAbsolutePath,
 };

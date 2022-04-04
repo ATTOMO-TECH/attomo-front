@@ -22,17 +22,21 @@ export const Input = styled.input`
   background-clip: text;
 `;
 export const textFilter = styled.h6`
+@media screen and (max-width: 768px) {
   background: linear-gradient(
     90deg,
     #b4a9bc 0%,
     #ffffff 17.79%,
     #ffffff 50.33%,
     #b4a9bc 83.38%
-  );
+  }
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
+);
+  
+color:gray;
 `;
 
 export const Navegation = {
@@ -71,18 +75,18 @@ export const Navegation = {
       `,
 };
 export const Styles = {
-  BlockFilter: tw.div`w-1/12 text-center transform -rotate-90  flex  absolute left-3 bottom-36 sm:left-10 lg:bottom-44 sm:bottom-72 z-100 lg:z-0 cursor-pointer `,
+  BlockFilter: tw.div`w-1/12 text-center transform -rotate-90  flex  absolute left-3 sm:left-10 lg:bottom-44 sm:bottom-72 z-100 lg:z-0 cursor-pointer `,
   BlockFilterAling: tw.div`w-full text-center flex justify-center absolute bottom-0 z-100`,
-  TextFilter: tw.h6`text-primary font-light text-xs font-PrimarySerif font-thin w-24 absolute lg:right-10 sm:right-24 right-12 opacity-50`,
+  TextFilter: tw.h6`text-gray-700 md:text-primary font-light text-xs font-PrimarySerif font-thin w-24 absolute lg:right-10 sm:right-24 right-12 opacity-100 sm:opacity-50`,
   FlexFilter: tw.div`flex flex-wrap w-full items-center`,
   TexItem: tw(textFilter)``,
   FirtsItem: tw(
     textFilter,
-  )`text-primary outline-none text-sm absolute lg:-right-12 -right-6 font-light w-24`,
+  )`sm:text-primary outline-none text-sm absolute lg:-right-12 -right-6 font-light w-24`,
   DateItem: tw.div`absolute sm:-right-64 -right-56 w-48 flex `,
   ValueDate: tw(
     textFilter,
-  )`text-primary outline-none text-sm flex w-48 text-sm font-light`,
+  )`sm:text-primary outline-none text-sm flex w-48 text-sm font-light`,
   LineValue: tw(textFilter)`text-primary outline-none text-sm flex text-xs px-`,
   Select: tw(
     Select,

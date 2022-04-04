@@ -9,7 +9,7 @@ export default function Conditions() {
       <Styles.BlockCheck>
         <Styles.TextChecked>
           {translate.formRead}{' '}
-          <Link href="/terminos">{translate.formTems}</Link> {translate.formAnd}{' '}
+          <Link href="/terminos">{translate.formTems}</Link> {translate.formAnd}
           <Link href="/privacidad">{translate.formPrivacy}</Link>
         </Styles.TextChecked>
       </Styles.BlockCheck>

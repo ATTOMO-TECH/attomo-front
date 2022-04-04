@@ -74,16 +74,78 @@ export const ContainerLegal = styled(ReactMarkdown)`
     -webkit-text-fill-color: transparent;
   }
   h1 {
+    font-family: [ 'Merriweather', 'serif' ];
     padding-top: 2%;
     font-size: 2em;
     font-weight: 400;
   }
-  li {
-    margin: 10px;
-  }
   h2 {
+    font-family: [ 'Merriweather', 'serif' ];
+    padding-top: 2%;
+    font-size: 1.6em;
+    font-weight: 400;
+  }
+  h3 {
+    font-family: [ 'Merriweather', 'serif' ];
+    padding-top: 2%;
+    font-size: 1.2em;
+    font-weight: 400;
+  }
+  h4 {
+    font-family: [ 'Merriweather Sans', 'sans-serif' ];
+    background: linear-gradient(
+      to right,
+      #cccfe8 0.04%,
+      #ffffff 40.27%,
+      #cccfe8 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.5em;
+  }
+  h5 {
+    font-family: [ 'Merriweather Sans', 'sans-serif' ];
+    background: linear-gradient(
+      to right,
+      #cccfe8 0.04%,
+      #ffffff 40.27%,
+      #cccfe8 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.2em;
+  }
+  h6 {
+    font-family: [ 'Merriweather Sans', 'sans-serif' ];
+    background: linear-gradient(
+      to right,
+      #cccfe8 0.04%,
+      #ffffff 40.27%,
+      #cccfe8 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.5em;
+    font-size: 1em;
   }
   p {
+    font-family: [ 'Merriweather Sans', 'sans-serif' ];
+    background: linear-gradient(
+      to right,
+      #cccfe8 0.04%,
+      #ffffff 40.27%,
+      #cccfe8 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1em;
+  }
+  ol {
+    list-style: decimal;
+    padding-left: 2%;
+  }
+  li {
+    margin: 10px;
   }
 `;
 

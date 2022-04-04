@@ -4,6 +4,7 @@ import * as qs from 'qs';
 import Head from 'next/head';
 import { format } from 'date-fns';
 import { motion } from 'framer-motion';
+import { useQueryClient } from 'react-query';
 import BgComponent from '../components/animations/bg';
 import BlockSection from '../components/block/block';
 import ButtonShare from '../components/button/BtnShare';
@@ -22,6 +23,14 @@ import Subtext from '../components/Text/subText';
 import { servicesAnimations } from '../components/animations/animations';
 
 function Cases() {
+  const queryClient = useQueryClient();
+
+  const router = useRouter();
+  let { locale } = router;
+  if (locale === '/') {
+    locale = 'es';
+  }
+  const translate = getLocale();
   const [shouldShowActions] = useState(false);
   const [scroll, setScroll] = useState(true);
   useEffect(() => {
@@ -56,12 +65,12 @@ function Cases() {
 
   const getFilters = () => {
     let filters = {};
-    if (topic?.label) {
+    if (topic !== undefined) {
       filters = {
         ...filters,
-        disciplines: {
+        subservice: {
           name: {
-            $containsi: topic?.label,
+            $containsi: topic,
           },
         },
       };
@@ -72,12 +81,12 @@ function Cases() {
         $and: [
           {
             createdAt: {
-              $gte: format(startDate, 'yyyy-MM-dd'),
+              $gte: startDate !== null ? format(startDate, 'yyyy-MM-dd') : null,
             },
           },
           {
             createdAt: {
-              $lte: format(endDate, 'yyyy-MM-dd'),
+              $lte: endDate !== null ? format(endDate, 'yyyy-MM-dd') : null,
             },
           },
         ],
@@ -86,14 +95,14 @@ function Cases() {
       filters = {
         ...filters,
         createdAt: {
-          $gte: format(startDate, 'yyyy-MM-dd'),
+          $gte: startDate !== null ? format(startDate, 'yyyy-MM-dd') : null,
         },
       };
     } else if (endDate) {
       filters = {
         ...filters,
         createdAt: {
-          $lte: format(endDate, 'yyyy-MM-dd'),
+          $lte: endDate !== null ? format(endDate, 'yyyy-MM-dd') : null,
         },
       };
     }
@@ -108,21 +117,28 @@ function Cases() {
     return filters;
   };
   const queryObject: any = {
-    populate: ['coverImage', 'disciplines'],
+    populate: ['coverImage', 'disciplines', 'subservice'],
 
     filters: getFilters(),
   };
   const queryQs = qs.stringify(queryObject, {
     encodeValuesOnly: true,
   });
+  const handleReset = () => {
+    setStartDate('');
+    setEndDate('');
+    setTopic('');
+    setSearch('');
+    queryClient.refetchQueries(['useAllCases']);
+  };
 
-  const router = useRouter();
-  let { locale } = router;
-  if (locale === '/') {
-    locale = 'es';
-  }
   const { data, isLoading } = useUseAllCases(locale || 'es', queryQs);
-
+  const [preData, setPredata] = useState<any>();
+  useEffect(() => {
+    if (data) {
+      setPredata(data);
+    }
+  }, [data]);
   if (isLoading) {
     return (
       <>
@@ -130,7 +146,6 @@ function Cases() {
       </>
     );
   }
-  const translate = getLocale();
 
   return (
     <>
@@ -145,6 +160,7 @@ function Cases() {
         setDate={handleDate}
         setTopic={handleTopic}
         setSearch={setSearch}
+        locale={locale}
       />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         {!isOpenFilter && <Menu isOpen={isOpen} toggle={toggle} logo mode />}
@@ -154,7 +170,6 @@ function Cases() {
           )}
         </Styles.Margin>
         {!isOpenFilter && <ButtonShare />}
-
         <HeroCase
           toggle={toggleFilter}
           date={startDate}
@@ -175,24 +190,23 @@ function Cases() {
               duration: 2,
             }}
             whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: '50%' }}
-            onClick={toggleFilter}>
+            initial={{ opacity: 0, y: '50%' }}>
             <Styles.SelectFilterCases>
-              <Styles.SectionFilter>
+              <Styles.SectionFilter onClick={toggleFilter}>
                 <Subtext size="text-lg lg:py-4 ">
                   {translate.CasesFilter}
                 </Subtext>
               </Styles.SectionFilter>
-              <Styles.SelectFilter>
+              <Styles.SelectFilter onClick={toggleFilter}>
                 <Styles.Select className="lg:w-11/12 w-full " disabled>
-                  {topic === undefined ? (
+                  {topic === '' || topic === undefined ? (
                     <option value="">Tématica</option>
                   ) : (
                     <option value="">{topic}</option>
                   )}
                 </Styles.Select>
               </Styles.SelectFilter>
-              <Styles.SelectFilter>
+              <Styles.SelectFilter onClick={toggleFilter}>
                 <Styles.Select className="lg:w-11/12 w-full " disabled>
                   {startDate === '' ||
                   undefined ||
@@ -213,6 +227,44 @@ function Cases() {
                   )}
                 </Styles.Select>
               </Styles.SelectFilter>
+              <motion.svg
+                className="cursor-pointer w-1/6 lg:w-auto"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                transition={{ duration: 1, ease: 'easeInOut' }}
+                onClick={handleReset}>
+                <motion.path
+                  d="M18 6L6 18"
+                  stroke="white"
+                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  initial={{ pathLength: 0 }}
+                  animate={
+                    !scroll
+                      ? { pathLength: 1, type: 'tween' }
+                      : { pathLength: 0, type: 'spring' }
+                  }
+                  transition={{ duration: 1, ease: 'easeInOut' }}
+                />
+                <motion.path
+                  d="M6 6L18 18"
+                  stroke="white"
+                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  initial={{ pathLength: 0 }}
+                  animate={
+                    !scroll
+                      ? { pathLength: 1, type: 'tween' }
+                      : { pathLength: 0, type: 'spring' }
+                  }
+                  transition={{ duration: 1, ease: 'easeInOut' }}
+                />
+              </motion.svg>
             </Styles.SelectFilterCases>
           </motion.div>
         ) : (
@@ -220,7 +272,7 @@ function Cases() {
         )}
         <Styles.BlockSections>
           <SectionProjects
-            Array={data?.data}
+            Array={preData?.data}
             shouldShowActions={undefined}
             servicesAnimations={undefined}
           />

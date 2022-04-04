@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import gfm from 'remark-gfm';
 import BgComponent from '../components/animations/bg';
 import IconAnimate from '../components/button/icon';
 import Footer from '../components/footer/footer';
@@ -54,7 +55,9 @@ function Conditions() {
           </Styles.BlockButtonLegal>
           <Styles.SectionTextLegal>
             <Title size="text-3xl lg:text-5xl mb-12 ">{translate.terms}</Title>
-            <ContainerLegal>{data.data[0].attributes.content}</ContainerLegal>
+            <ContainerLegal remarkPlugins={[gfm]}>
+              {data.data[0].attributes.content}
+            </ContainerLegal>
           </Styles.SectionTextLegal>
         </Styles.Center>
         <Footer subFooter={false} />

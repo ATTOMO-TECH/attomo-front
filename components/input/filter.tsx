@@ -28,7 +28,7 @@ export default function Filter({ toggle, date, endDate, topic }: Props) {
           <Styles.FlexFilter>
             <Styles.TextFilter>Filtrar por</Styles.TextFilter>
             <Styles.FirtsItem>
-              {topic === undefined || '' ? 'Estrategia' : topic}
+              {topic === '' || topic === undefined ? 'Estrategia' : topic}
             </Styles.FirtsItem>
             <Styles.DateItem>
               {date === undefined ? (

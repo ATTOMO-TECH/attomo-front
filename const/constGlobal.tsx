@@ -83,7 +83,8 @@ export const ICONNAV: {
   },
   {
     Name: 'Mail',
-    UrlShare: 'mailto:equipo@attomo.digital?subject=',
+    // UrlShare: 'mailto:equipo@attomo.digital?subject=',
+    UrlShare: `mailto:equipo@attomo.digital`,
     Pic2: '/icon/mail.svg',
     Url: 'mailto:equipo@attomo.digital',
   },

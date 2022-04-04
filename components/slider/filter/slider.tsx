@@ -1,6 +1,7 @@
+import router from 'next/router';
 import { useEffect, useState } from 'react';
 import Picker from 'rmc-picker';
-import { useUseAllPartner } from '../../../domain/usePartners';
+import { useUseAllSubServices } from '../../../domain/useServices';
 import RenderLoading from '../../loading/loading';
 
 interface Props {
@@ -9,9 +10,12 @@ interface Props {
 
 export default function FilterScroll({ setTopic }: Props) {
   const [value, setValue] = useState();
-  const [query] = useState('');
+  let { locale } = router;
+  if (locale === '/') {
+    locale = 'es';
+  }
 
-  const { data: Partner, isLoading } = useUseAllPartner(query);
+  const { data: Subservice, isLoading } = useUseAllSubServices(locale || 'es');
 
   useEffect(() => {
     setTopic(value);
@@ -23,7 +27,6 @@ export default function FilterScroll({ setTopic }: Props) {
       </>
     );
   }
-
   return (
     <>
       <div className="">
@@ -34,12 +37,12 @@ export default function FilterScroll({ setTopic }: Props) {
           onScrollChange={(e: any) => {
             setValue(e);
           }}>
-          {Partner.data.map((values: any) => (
+          {Subservice.data.map((values: any) => (
             <Picker.Item
-              key={`${values.attributes.area}+${values.attributes.area}`}
+              key={`${values.attributes.name}+${values.attributes.name}`}
               className="my-picker-view-item text-left  text-white"
-              value={values.attributes.area}>
-              {values.attributes.area}
+              value={values.attributes.name}>
+              {values.attributes.name}
             </Picker.Item>
           ))}
         </Picker>
