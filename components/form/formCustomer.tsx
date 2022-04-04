@@ -8,8 +8,9 @@ import InputCheckcondition from './inputCheckcondition';
 import { createContact } from '../../domain/useContact';
 import Conditions from './conditions';
 import { getLocale } from '../../public/locales/getLocale';
-import Sucesfull from './succesfull';
 import { servicesAnimations } from '../animations/animations';
+import Title from '../Text/title';
+import { validationSchemaColaborator } from './validations';
 
 export default function FormCustomer() {
   const [shouldShowActions] = useState(false);
@@ -63,6 +64,7 @@ export default function FormCustomer() {
         <Formik
           onSubmit={handleSumitCustomer}
           initialValues={initialValues}
+          validationSchema={validationSchemaColaborator}
           validateOnMount>
           {({ touched, errors, setFieldValue, handleSubmit }) => (
             <>
@@ -75,15 +77,15 @@ export default function FormCustomer() {
                       type="text"
                       name={FORMVALUES.FIRSTNAME}
                     />
-                    {touched.valueName && errors.valueName && (
+                    {touched.firstname && errors.firstname && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueName, '')}
                       />
                     )}
+                    {touched.firstname && errors.firstname && (
+                      <Styles.Error>{errors.firstname}</Styles.Error>
+                    )}
                   </Styles.BlockInput>
-                  {touched.valueName && errors.valueName && (
-                    <Styles.Error>{errors.valueName}</Styles.Error>
-                  )}
                   <Styles.BlockInput>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
@@ -91,15 +93,15 @@ export default function FormCustomer() {
                       type="text"
                       name={FORMVALUES.LASTNAME}
                     />
-                    {touched.valueLastName && errors.valueLastName && (
+                    {touched.lastname && errors.lastname && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueLastName, '')}
                       />
                     )}
+                    {touched.lastname && errors.lastname && (
+                      <Styles.Error>{errors.lastname}</Styles.Error>
+                    )}
                   </Styles.BlockInput>
-                  {touched.valueLastName && errors.valueLastName && (
-                    <Styles.Error>{errors.valueLastName}</Styles.Error>
-                  )}
                 </Styles.BlockInputsCenter>
                 <Styles.BlockInputsCenter>
                   <Styles.BlockInput>
@@ -109,15 +111,17 @@ export default function FormCustomer() {
                       type="email"
                       name={FORMVALUES.EMAIL}
                     />
-                    {touched.valueEmail && errors.valueEmail && (
+                    {touched.email && errors.email && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueEmail, '')}
                       />
                     )}
+                    {touched.email && errors.email && (
+                      <Styles.Error className="-mt-4 lg:mt-0">
+                        {errors.email}
+                      </Styles.Error>
+                    )}
                   </Styles.BlockInput>
-                  {touched.valueEmail && errors.valueEmail && (
-                    <Styles.Error>{errors.valueEmail}</Styles.Error>
-                  )}
                   <Styles.BlockInput>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.OFF}
@@ -125,15 +129,15 @@ export default function FormCustomer() {
                       type="number"
                       name={FORMVALUES.PHONE}
                     />
-                    {touched.valuePhone && errors.valuePhone && (
+                    {touched.mobile && errors.mobile && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valuePhone, '')}
                       />
                     )}
+                    {touched.mobile && errors.mobile && (
+                      <Styles.Error>{errors.mobile}</Styles.Error>
+                    )}
                   </Styles.BlockInput>
-                  {touched.valuePhone && errors.valuePhone && (
-                    <Styles.Error>{errors.valuePhone}</Styles.Error>
-                  )}
                 </Styles.BlockInputsCenter>
                 <Styles.BlockInputEnd>
                   <Styles.BlockInputOnly>
@@ -153,15 +157,15 @@ export default function FormCustomer() {
                       type="textarea"
                       name={FORMVALUES.MESSAGE}
                     />
-                    {touched.valueMessage && errors.valueMessage && (
+                    {touched.message && errors.message && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueMessage, '')}
                       />
                     )}
+                    {touched.message && errors.message && (
+                      <Styles.Error>{errors.message}</Styles.Error>
+                    )}
                   </Styles.BlockInputOnly>
-                  {touched.valueMessage && errors.valueMessage && (
-                    <Styles.Error>{errors.valueMessage}</Styles.Error>
-                  )}
                 </Styles.BlockInputEnd>
                 <InputCheckcondition
                   color="text-primary text-xs pt-6"
@@ -169,8 +173,8 @@ export default function FormCustomer() {
                   onClick={(e: any) => setFieldValue(check, e)}>
                   <Conditions />
                 </InputCheckcondition>
-                {touched.check && errors.check && (
-                  <Styles.Error>{errors.check}</Styles.Error>
+                {touched.conditionsAccepted && errors.conditionsAccepted && (
+                  <Styles.Error>{errors.conditionsAccepted}</Styles.Error>
                 )}
 
                 <Styles.BlockSendButton>
@@ -194,7 +198,9 @@ export default function FormCustomer() {
           }}
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: '50%' }}>
-          <Sucesfull>Datos enviados correctamente</Sucesfull>
+          <Title size=" lg:py-32 w-full text-center pt-10 leading-relaxed lg:pr-10 lg:text-4xl pb-2 text-3xl w-2/6 m-auto">
+            Datos enviados correctamente
+          </Title>
         </motion.div>
       )}
     </>

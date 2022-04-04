@@ -1,5 +1,7 @@
 // eslint-disable-next-line no-use-before-define
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { format } from 'date-fns';
 import * as qs from 'qs';
 import Head from 'next/head';
 import BgComponent from '../components/animations/bg';
@@ -18,9 +20,11 @@ import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 import Subtext from '../components/Text/subText';
 import CalendarPickerInputRange from '../components/calendar/input/calendarRange';
-import { formatDateFilter } from '../hook/date';
+import { servicesAnimations } from '../components/animations/animations';
 
 function News() {
+  const [change, setChange] = useState(false);
+  const [shouldShowActions] = useState(false);
   const translate = getLocale();
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState('');
@@ -29,17 +33,25 @@ function News() {
   );
   const { data, isLoading } = useUseAllPost(query);
   const { data: Tags, isLoading: LoadingTags } = useUseAllTags();
-  const [startDate, setStartDateFilter] = useState<Date[]>();
-  const [endDate, setEndDateFilter] = useState<Date[]>();
+  const [startDate, setStartDateFilter] = useState<any>();
+  const [endDate, setEndDateFilter] = useState<any>();
   const [preData, setPreData] = useState<any[]>([]);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggle = () => {
     setIsOpen(!isOpen);
   };
+  const handleChangeReset = () => {
+    setChange(true);
+  };
 
   const handleAddBlog = (value: number) => {
     setPage(value);
+  };
+  const handleReset = () => {
+    setStartDateFilter(null);
+    setEndDateFilter(null);
+    setFilter('');
   };
 
   useEffect(() => {
@@ -61,13 +73,13 @@ function News() {
           },
           $and: [
             {
-              publishedAt: {
-                $eq: formatDateFilter(startDate),
+              createdAt: {
+                $gte: startDate ? format(startDate, 'yyyy-MM-dd') : null,
               },
             },
             {
-              publishedAt: {
-                $eq: formatDateFilter(endDate),
+              createdAt: {
+                $lte: endDate ? format(endDate, 'yyyy-MM-dd') : null,
               },
             },
           ],
@@ -122,7 +134,7 @@ function News() {
                     {value.Text}
                   </Title>
                   <Styles.BlockInputSend>
-                    <Subtext size=" md:text-lg lg:text-base md:w-2/6  lg:text-left font-Secundary">
+                    <Subtext size=" md:text-lg lg:text-base md:w-2/6  lg:text-left font-Primary">
                       {value.Subtext}
                     </Subtext>
                     <Styles.BlockFullInput>
@@ -136,15 +148,16 @@ function News() {
         </Styles.Center>
         <Styles.BlockTrends>
           <Styles.SectionFilter>
-            <Title size="text-lg lg:py-4 font-PrimarySerif">
-              {translate.trendsFilter}
-            </Title>
+            <Subtext size="text-lg lg:py-4 ">{translate.trendsFilter}</Subtext>
           </Styles.SectionFilter>
           <Styles.SelectFilter>
             <Styles.Select
               className="lg:w-11/12 w-full "
               name="select"
-              onChange={(e: any) => setFilter(e.target.value)}>
+              onChange={(e: any) => {
+                setFilter(e.target.value);
+                handleChangeReset();
+              }}>
               <option value="">{'Todas las noticias '}</option>
               {Tags?.data.map((options: any) => (
                 <option
@@ -161,28 +174,83 @@ function News() {
               setEndDateFilter={setEndDateFilter}
             />
           </Styles.SelectFilterNM>
+          <motion.svg
+            className="cursor-pointer"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            transition={{ duration: 1, ease: 'easeInOut' }}
+            onClick={handleReset}>
+            <motion.path
+              d="M18 6L6 18"
+              stroke="white"
+              stroke-width={change ? '2' : 0}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              initial={{ pathLength: 0 }}
+              animate={
+                change
+                  ? { pathLength: 1, type: 'tween' }
+                  : { pathLength: 0, type: 'spring' }
+              }
+              transition={{ duration: 1, ease: 'easeInOut' }}
+            />
+            <motion.path
+              d="M6 6L18 18"
+              stroke="white"
+              stroke-width={change ? '2' : 0}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              initial={{ pathLength: 0 }}
+              animate={
+                change
+                  ? { pathLength: 1, type: 'tween' }
+                  : { pathLength: 0, type: 'spring' }
+              }
+              transition={{ duration: 1, ease: 'easeInOut' }}
+            />
+          </motion.svg>
         </Styles.BlockTrends>
         <BlockBlog dataBlog={preData} />
-        <Blogstyles.SectionMore>
-          <Blogstyles.BlockMore
-            onClick={() => handleAddBlog(data.meta.pagination.page + 1)}>
-            {translate.seeMoreTrends}
-          </Blogstyles.BlockMore>
-        </Blogstyles.SectionMore>
+        {preData.length >= 4 ? (
+          <Blogstyles.SectionMore>
+            <Blogstyles.BlockMore
+              onClick={() => handleAddBlog(data.meta.pagination.page + 1)}>
+              {translate.seeMoreTrends}
+            </Blogstyles.BlockMore>
+          </Blogstyles.SectionMore>
+        ) : null}
         <Styles.Center>
-          {React.Children.toArray(
-            translate.contact.map((values) => (
-              <BlockSection
-                key={values.Link}
-                text={values.Text}
-                button={values.Link}
-                text2=""
-                button2=""
-                mode
-                link="/contacto"
-              />
-            )),
-          )}
+          <motion.div
+            animate={shouldShowActions}
+            variants={servicesAnimations}
+            className="actions"
+            transition={{
+              delay: 0.2,
+              type: 'spring',
+              stiffness: 50,
+              duration: 2,
+            }}
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: '50%' }}>
+            <Styles.Center>
+              {React.Children.toArray(
+                translate.contact.map((values) => (
+                  <BlockSection
+                    key={values.Link}
+                    text={values.Text}
+                    button={values.Link}
+                    text2=""
+                    button2=""
+                    mode
+                    link="/contacto"
+                  />
+                )),
+              )}
+            </Styles.Center>
+          </motion.div>
         </Styles.Center>
         <Footer subFooter={false} />
       </Styles.Body>

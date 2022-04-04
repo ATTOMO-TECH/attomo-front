@@ -134,7 +134,8 @@ export default {
     },
   ],
   sendEmail: 'Escribe tu correo electrónico',
-  trendsFilter: 'Filtrar noticias por',
+  CasesFilter: 'Filtrar por:',
+  trendsFilter: 'Filtrar noticias por:',
   workUs: [
     {
       Text: 'Trabaja con nosotros',
@@ -172,7 +173,7 @@ export default {
   formLastName: 'Apellidos *',
   formEmail: 'Email *',
   formPhone: 'Móvil *',
-  formCompany: 'Empresa/Organización *',
+  formCompany: 'Empresa/Organización',
   formMessage: 'Tu Mensaje *',
   formLink: 'Enlace al portfolio o perfil de LinkedIn',
   formRead: 'He leído y acepto los',
@@ -211,6 +212,7 @@ export default {
   project: 'Proyectos relacionados',
   seeMoreTrends: 'Ver más noticias',
   interested: 'Podría interesarte',
+  moreCases: 'Más casos de éxito',
   followFooter: 'SÍGUENOS',
   privacy: 'Política de privacidad',
   rightReserve: 'Todos los derechos reservados',

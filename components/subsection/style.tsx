@@ -11,6 +11,7 @@ export const textTitle = styled.div`
 export const SubSections = {
   TextHead: tw(textTitle)`lg:py-48 lg:pr-72 text-4xl font-thin`,
   Subsection: tw.section`h-full flex justify-around flex-col-reverse lg:flex-row`,
+  BlockCounterCircle: tw.div`lg:w-3/6 w-full flex justify-center itemx-center`,
   BlockCounter: tw.div`lg:w-3/6 w-full flex lg:justify-center itemx-center`,
   TextSubsection: tw.div`text-primary lg:w-6/12 w-10/12 m-auto`,
   TextSubsectionSelected: tw.div`text-primary lg:w-6/12 w-10/12 lg:m-auto`,

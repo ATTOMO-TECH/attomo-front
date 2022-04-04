@@ -26,7 +26,7 @@ export default function Footer({ subFooter }: Props) {
               ))}
             </Navegation.NavFooter>
           </Navegation.BlockLogo>
-          <Navegation.BlockNavMed className="order-1 lg:order-none pt-10 lg:pt-0">
+          <Navegation.BlockNavMed className="order-1 lg:order-none lg:pt-0">
             <Navegation.TitleNav>{translate.followFooter}</Navegation.TitleNav>
             <Navegation.NavFooterFlex>
               {ICONNAV.map((values) => (
@@ -55,16 +55,12 @@ export default function Footer({ subFooter }: Props) {
         </Navegation.BlockFooter>
         {subFooter ? <SubFooter /> : ''}
         <Navegation.BlockSubText>
-          <Navegation.SubText>
-            <Link href="/privacidad">
-              <span>{translate.privacy}</span>
-            </Link>
-          </Navegation.SubText>
-          <Navegation.SubText>
-            <Link href="/terminos">
-              <span>{translate.rightReserve}</span>
-            </Link>
-          </Navegation.SubText>
+          <Link href="/privacidad">
+            <Navegation.SubText>{translate.privacy}</Navegation.SubText>
+          </Link>
+          <Link href="/terminos">
+            <Navegation.SubText>{translate.rightReserve}</Navegation.SubText>
+          </Link>
         </Navegation.BlockSubText>
       </Navegation.SectionFooter>
     </>

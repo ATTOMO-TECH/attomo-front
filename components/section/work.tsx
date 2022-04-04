@@ -23,9 +23,9 @@ export default function Work({ works }: Props) {
               </Subtext>
             </div>
             <div className="w-full md:w-2/12 lg:ml-24">
-              <Link href={value.attributes.url}>
+              <Link href={`https://${value.attributes.url}`} passHref>
                 <a
-                  href={value.attributes.url}
+                  href={`https://${value.attributes.url}`}
                   target="_blank"
                   className="lg:w-full"
                   rel="noreferrer">

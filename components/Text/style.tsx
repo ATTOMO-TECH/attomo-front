@@ -63,5 +63,5 @@ export const Text = {
   TextTitle: tw(TextHero)` font-Primary font-thin`,
   SubTextTitle: tw(
     SubTitle,
-  )`lg:text-sm sm:text-lg text-sm font-thin font-PrimarySerif tracking-wide leading-8`,
+  )`lg:text-sm  text-sm font-light font-PrimarySerif tracking-wide leading-8`,
 };

@@ -81,8 +81,7 @@ function Carrers() {
         </Styles.CenterUs>
         <Styles.Center>
           <Title size="text-xl  pb-8">{translate.offerWork}</Title>
-
-          <Work works={data.data} />
+          <Work works={data?.data} />
         </Styles.Center>
         {translate.contactUsWork.map((value) => (
           <Styles.CenterMargin>

@@ -74,16 +74,78 @@ export const ContainerLegal = styled(ReactMarkdown)`
     -webkit-text-fill-color: transparent;
   }
   h1 {
+    font-family: [ 'Merriweather', 'serif' ];
     padding-top: 2%;
     font-size: 2em;
     font-weight: 400;
   }
-  li {
-    margin: 10px;
-  }
   h2 {
+    font-family: [ 'Merriweather', 'serif' ];
+    padding-top: 2%;
+    font-size: 1.6em;
+    font-weight: 400;
+  }
+  h3 {
+    font-family: [ 'Merriweather', 'serif' ];
+    padding-top: 2%;
+    font-size: 1.2em;
+    font-weight: 400;
+  }
+  h4 {
+    font-family: [ 'Merriweather Sans', 'sans-serif' ];
+    background: linear-gradient(
+      to right,
+      #cccfe8 0.04%,
+      #ffffff 40.27%,
+      #cccfe8 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.5em;
+  }
+  h5 {
+    font-family: [ 'Merriweather Sans', 'sans-serif' ];
+    background: linear-gradient(
+      to right,
+      #cccfe8 0.04%,
+      #ffffff 40.27%,
+      #cccfe8 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.2em;
+  }
+  h6 {
+    font-family: [ 'Merriweather Sans', 'sans-serif' ];
+    background: linear-gradient(
+      to right,
+      #cccfe8 0.04%,
+      #ffffff 40.27%,
+      #cccfe8 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.5em;
+    font-size: 1em;
   }
   p {
+    font-family: [ 'Merriweather Sans', 'sans-serif' ];
+    background: linear-gradient(
+      to right,
+      #cccfe8 0.04%,
+      #ffffff 40.27%,
+      #cccfe8 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1em;
+  }
+  ol {
+    list-style: decimal;
+    padding-left: 2%;
+  }
+  li {
+    margin: 10px;
   }
 `;
 
@@ -99,6 +161,10 @@ export const Select = styled.select`
 export const subText = styled.h5`
   font-family: 'Merriweather';
   font-style: normal;
+`;
+export const linkSubmenu = styled.p`
+  font-weight: 300;
+  line-height: 36px;
 `;
 
 export const BtnSelect = styled.button<Props>`
@@ -129,13 +195,16 @@ export const Styles = {
   CenterFull: tw.section`w-full  lg:w-10/12 m-auto`,
   CenterFlex: tw.section`lg:w-10/12 m-auto flex overflow-hidden`,
   ContainerFull: tw.div`w-full`,
-  BlockAddres: tw.div`lg:my-12 py-12  lg:w-5/6  m-auto overflow-hidden`,
+  BlockAddres: tw.div`lg:my-12   lg:w-5/6  m-auto overflow-hidden`,
   SectionScreen: tw.section`lg:pt-48 pt-24 h-auto`,
   BlockSections: tw.div`py-10 relative z-0`,
   DivideSection: tw.div`lg:w-3/6 w-full pb-2`,
   BlockButton: tw.div`lg:px-24 pt-10`,
   BlockSlider: tw.div` pb-12 px-7`,
-  BlockTrends: tw.div`lg:pt-48 flex w-full m-auto lg:justify-center items-end pl-8 lg:pl-0 pt-36 pb-16 flex-wrap `,
+  BlockTrends: tw.div`lg:pt-48 flex w-full m-auto lg:justify-center items-center pl-8 lg:pl-0 pt-36 pb-16 flex-wrap `,
+  // FilterCases
+  SelectFilterCases: tw.div`flex w-full m-auto lg:justify-center items-center pl-8 lg:pl-0 pt-10 lg:pt-0 flex-wrap  `,
+
   // FilterAT
   SectionFilter: tw.div`w-full lg:w-2/12 `,
   SelectFilter: tw.div`w-8/12 lg:w-2/12 mr-12 `,
@@ -144,7 +213,7 @@ export const Styles = {
   Screen: tw.div`h-screen mb-48 justify-between`,
   ScreenResponsive: tw.div`h-screen pt-24`,
   ScreenMid: tw.div`h-screen flex justify-center items-center justify-between`,
-  ScreenWS: tw.div`h-96 sm:h-64 lg:h-screen flex justify-center items-center justify-between pt-24 lg:pt-0`,
+  ScreenWS: tw.div`h-96 sm:h-64 lg:h-4/6 flex justify-center items-center justify-between pt-24 lg:pt-36`,
   FlexEnd: tw.div`flex lg:justify-end w-full m-auto`,
   TitleSubSection: tw(
     subText,
@@ -168,20 +237,22 @@ export const Styles = {
   BtnSelect: tw(
     BtnSelect,
   )`text-primary border-2 border-primary px-14 py-3 rounded-full opacity-80 font-PrimarySerif font-thin shadow-none`,
-  TitularText: tw.h3`font-PrimarySerif  lg:text-4xl text-3xl font-light py-5 leading-relaxed`,
+  TitularText: tw.h3`font-Primary  lg:text-4xl text-2xl font-light py-5 leading-relaxed`,
   // SPACE
   HeroEspace: tw.section`h-auto bg-hero-Space bg-cover bg-center py-72 bg-no-repeat`,
   SectionImg: tw.section`grid grid-cols-1 sm:grid-cols-2 gap-6`,
   SectionPrices: tw.section`grid grid-cols-1 sm:grid-cols-3 gap-6`,
   BlockImg: tw.div`w-full bg-cover bg-center py-44 bg-no-repeat `,
   // DETAILS SERVICES
-  SelectSubMenu: tw.a<Props>`cursor-pointer font-PrimarySerif font-thin md:text-sm leading-loose  pl-2 text-sm
+  SelectSubMenu: tw(
+    linkSubmenu,
+  )<Props>`w-full cursor-pointer font-PrimarySerif font-thin md:text-sm leading-loose  pl-2 text-sm hover:opacity-90 transition-colors duration-300 ease-in-out
   ${(props) => (props.mode === BUTTON_ACTIVE.ON ? 'opacity-100' : 'opacity-50')}
 `,
   SpaceCollapse: tw.div`lg:py-48 overflow-hidden`,
   // SUBMENU
-  SubMenuBlock: tw.div`w-2/6`,
-  ButtonSubMenu: tw.button`font-PrimarySerif text-xl uppercase py-2`,
+  SubMenuBlock: tw.div`w-full lg:w-10/12 m-auto flex flex-wrap`,
+  ButtonSubMenu: tw.button`font-PrimarySerif text-md uppercase py-1 font-light`,
   BlockSubSection: tw.div`flex flex-col relative pl-1`,
   // LEGAL
   BlockButtonLegal: tw.div`"w-2/6 mt-5 md:mt-12 lg:mt-24`,

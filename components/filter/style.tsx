@@ -15,6 +15,26 @@ export const BtnSend = styled.button`
     opacity: 1;
   }
 `;
+export const Select = styled.select`
+  option,
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  background: none;
+  color: white;
+`;
+export const Options = styled.option`
+  option,
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  background: none;
+  color: white;
+`;
 export const Filter = {
   RelativeSection: tw.section``,
   SectionFilter: tw(motion.div)<Props>`
@@ -36,7 +56,7 @@ export const Filter = {
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-10' : '')}
   `,
   BlockFilterItems: tw.div`flex flex-col justify-center text-center w-full pt-24`,
-  AlingBlock: tw.div`w-full flex flex-col justify-items-stretch items-center w-2/12`,
+  AlingBlock: tw.div`w-full flex flex-col justify-items-stretch items-center w-full`,
   InputSearch: tw.input`border-b border-primary bg-secundary text-primary w-4/6 font-Primary text-xl outline-none focus:opacity-100 opacity-50 ease-in-out duration-300 font-light`,
   FirtsItemFilter: tw.div`w-8/12 flex items-center justify-between m-auto `,
   TextItemFilter: tw.div`lg:w-3/6 text-left`,
@@ -47,6 +67,8 @@ export const Filter = {
   SectionMobile: tw.div`w-8/12 m-auto`,
   TitleFilter: tw.h5`text-white text-left font-Primary`,
   BlockItemMobile: tw.div`py-10`,
+  SelectResponsive: tw(Select)`appearance-none w-full`,
+  OptionsResponsive: tw(Options)`appearance-none w-full outline-none`,
   BlockItemMed: tw.div``,
   SubTextMobile: tw.h6`text-white text-left font-light text-sm`,
   BlockSendButton: tw.div`flex justify-center pt-6`,

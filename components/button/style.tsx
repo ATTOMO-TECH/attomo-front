@@ -28,10 +28,10 @@ export const Image = styled.div`
 
 export const Button = {
   ButtonRegular: tw.h5<Props>`
-    text-Primary font-Primary py-5 text-left text-lg pr-2
+    text-Primary font-Primary font-light py-5 text-left text-lg pr-2
   ${(props) =>
     props.ismode === BUTTON_MODE.LIGHT ? 'text-primary' : 'text-secundary'}`,
-  SectionBack: tw.div`z-100 lg:w-3/12 mt-12 w-full md:w-10/12 md:ml-12 lg:px-10 lg:p-14 pt-12 py-0 block cursor-pointer hover:opacity-50`,
+  SectionBack: tw.div`z-100 lg:w-3/12 lg:mt-12 mt-16 w-full md:w-10/12 md:ml-12 lg:px-10 lg:p-11 px-3 py-0 block cursor-pointer hover:opacity-50`,
   BlockBack: tw.div`flex font-PrimarySerif font-extralight items-center`,
   TextBack: tw.h6`font-PrimarySans text-addictional font-light`,
 };
@@ -57,7 +57,7 @@ export const Share = {
   Button: tw.div<Props>`
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
-      ? 'w-4/6 hidden lg:block h-auto delay-300 duration-300 ease-in-out opacity-100 fixed top-96 left-0 z-90'
+      ? 'w-4/6 h-auto delay-300 duration-300 ease-in-out opacity-100 fixed top-96 left-0 z-90'
       : 'w-0 overflow-hidden opacity-0 fixed -left-10  delay-300 duration-300 ease-in-out'}
 `,
   Items: tw.ul`absolute w-auto z-90 top-0 bg-primary p-5 shadow-lg shadow-indigo-500/50 `,

@@ -7,6 +7,7 @@ interface Props {
   endDate: string;
   topic: string;
   isOpen: boolean;
+  scroll: boolean;
 }
 
 export default function HeroCase({
@@ -15,14 +16,15 @@ export default function HeroCase({
   endDate,
   topic,
   isOpen,
+  scroll,
 }: Props) {
   return (
     <>
       <HeadSection.SectionCase>
-        {!isOpen ? (
+        {!isOpen && scroll ? (
           <Filter toggle={toggle} date={date} topic={topic} endDate={endDate} />
         ) : null}
-        {topic === '' && <HeadSection.SectionHeroCases />}
+        <HeadSection.SectionHeroCases />
       </HeadSection.SectionCase>
     </>
   );

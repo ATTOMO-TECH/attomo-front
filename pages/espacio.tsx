@@ -51,20 +51,20 @@ function Space() {
         <ButtonShare />
         <Styles.Center>
           <Styles.Center>
-            <Styles.ScreenMid>
+            <Styles.ScreenWS>
               {translate.spaceAttomo.map((values) => (
-                <Styles.BlockDiv key={`value${values.Text}`}>
+                <Styles.BlockDiv>
                   <Title size="leading-relaxed lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl w-3/6 md:w-full ">
                     {values.Text}
                   </Title>
                   <Styles.FlexEnd>
-                    <Subtext size="lg:text-sm sm:text-lg text-sm lg:font-thin font-regular lg:font-PrimarySerif font-Secundary  tracking-wide leadiang-loose lg:w-3/6  ">
+                    <Subtext size="lg:text-sm sm:text-lg text-sm font-regular lg:font-PrimarySerif font-Secundary  tracking-wide leadiang-loose lg:w-3/6 pb-48">
                       {values.Subtext}
                     </Subtext>
                   </Styles.FlexEnd>
                 </Styles.BlockDiv>
               ))}
-            </Styles.ScreenMid>
+            </Styles.ScreenWS>
           </Styles.Center>
         </Styles.Center>
         <Styles.HeroEspace />
@@ -93,32 +93,19 @@ function Space() {
           )}
         </Styles.Center>
         <Styles.Center id="reserva">
-          {translate.formBooking.map((values) => (
-            <Styles.ContainerFull>
-              <Title size=" lg:pt-36 w-full text-center pt-10 leading-relaxed lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl ">
-                {values.Text}
-              </Title>
-              <Title size="text-regular lg:pt-3 w-full text-center text-regular w-full leading-loose font-Secundary  pb-8">
-                {values.Subtext}
-              </Title>
-              <FormReserver />
-            </Styles.ContainerFull>
-          ))}
+          <FormReserver />
         </Styles.Center>
         <Styles.Center>
           <Styles.BlockAddres>
             <Styles.BreakLine />
             <Title size="text-2xl  lg:pr-10 pt-12 ">
-              {' '}
               {translate.spaceAttomoFooter}
             </Title>
-
             <Styles.BlockAddresMap>
               <Subtext size="text-regular w-full leading-loose font-Secundary w-full pb-10 ">
                 Calle del Monte Esquinza, 8-Bajo Izquierda <br />
                 28010 Madrid
               </Subtext>
-
               <MapsBlock />
             </Styles.BlockAddresMap>
           </Styles.BlockAddres>

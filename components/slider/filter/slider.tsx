@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import router from 'next/router';
+import { useEffect, useState } from 'react';
 import Picker from 'rmc-picker';
-import { DEPARTMENT } from '../../../const/constGlobal';
+import { useUseAllSubServices } from '../../../domain/useServices';
+import RenderLoading from '../../loading/loading';
 
 interface Props {
   setTopic: (value: any) => void;
@@ -8,7 +10,23 @@ interface Props {
 
 export default function FilterScroll({ setTopic }: Props) {
   const [value, setValue] = useState();
+  let { locale } = router;
+  if (locale === '/') {
+    locale = 'es';
+  }
 
+  const { data: Subservice, isLoading } = useUseAllSubServices(locale || 'es');
+
+  useEffect(() => {
+    setTopic(value);
+  }, [value]);
+  if (isLoading) {
+    return (
+      <>
+        <RenderLoading mode={false} />
+      </>
+    );
+  }
   return (
     <>
       <div className="">
@@ -18,14 +36,13 @@ export default function FilterScroll({ setTopic }: Props) {
           selectedValue={value}
           onScrollChange={(e: any) => {
             setValue(e);
-            setTopic(e);
           }}>
-          {DEPARTMENT.map((values) => (
+          {Subservice.data.map((values: any) => (
             <Picker.Item
-              key={values.label}
+              key={`${values.attributes.name}+${values.attributes.name}`}
               className="my-picker-view-item text-left  text-white"
-              value={values}>
-              {values.label}
+              value={values.attributes.name}>
+              {values.attributes.name}
             </Picker.Item>
           ))}
         </Picker>

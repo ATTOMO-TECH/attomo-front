@@ -34,7 +34,7 @@ export default function SubMenu({
             </Styles.ButtonSubMenu>
           </motion.div>
           {isOpen && (
-            <motion.div variants={fadeInUp} className="flex flex-wrap ">
+            <motion.div variants={fadeInUp} className="flex flex-wrap w-full ">
               <Styles.BlockSubSection>
                 {subsection.attributes.subservices.data.map((subTask: any) => (
                   <Link

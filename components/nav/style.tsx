@@ -96,6 +96,40 @@ export const IconStyled = styled(motion.svg)`
     -webkit-filter: blur(8px);
   }
   &:after {
+    filter: black;
+    content: url('/icon/after.svg');
+    position: absolute;
+    margin: auto;
+    right: 1em;
+    top: 0.4em;
+    transition: all 1s ease-in-out;
+    filter: invert(1);
+    border-radius: 100%;
+  }
+  width: 30px;
+  height: 30px;
+  overflow: visible;
+  fill: none;
+  stroke: #fff;
+  position: relative;
+  stroke-width: 10px;
+  border-radius: 100%;
+`;
+export const IconStyledDark = styled(motion.svg)`
+  filter: invert(100%);
+  transition: all 0.5s ease-in;
+  &:hover {
+    transform: scale(1.1);
+
+    background-color: black;
+    border-radius: 100%;
+
+    transition: all 1s ease-in-out;
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+  }
+  &:after {
+    filter: black;
     content: url('/icon/after.svg');
     position: absolute;
     margin: auto;
@@ -132,6 +166,10 @@ export const Navegation = {
   `,
   Menu: tw.nav``,
   AlinItems: tw.ul<Props>`
+  flex items-center fixed z-100 justify-between w-11/12 m-auto md:mt-0 md:w-10/12 md:absolute lg:left-24 md:left-12 left-4 top-2 md:top-6 
+  ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : '')}
+  `,
+  AlinItemsServices: tw.ul<Props>`
   flex items-center fixed z-100 justify-between w-11/12 m-auto md:mt-0 md:w-10/12 md:absolute lg:left-24 md:left-12 left-4 top-2 md:top-6 
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : '')}
   `,

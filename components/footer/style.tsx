@@ -62,7 +62,7 @@ export const Navegation = {
   BlockInput: tw.div`relative flex flex xl:flex-nowrap md:flex-nowrap w-11/12 lg:flex-wrap flex-wrap justify-center items-end md:justify-start`,
   Input: tw.input`w-full flex bg-secundary text-primary bg-none focus:bg-none outline-none  py-1 px-1 lg:text-xs text-xl font-light  `,
   BlockSubText: tw.div`flex flex-col lg:flex-row justify-end text-primary text-sm font-Secundary pb-6 w-11/12 m-auto`,
-  SubText: tw.p`lg:px-10 px-5 py-3 hover:opacity-100 opacity-50 cursor-pointer ease-out duration-300`,
+  SubText: tw.p`lg:px-10 px-5 py-3 hover:opacity-100 opacity-50 cursor-pointer ease-out duration-300 font-light`,
   ListIcon: tw.li`w-auto px-1 cursor-pointer `,
   Form: tw.form`flex flex-col items-baseline`,
   Image: tw.img``,

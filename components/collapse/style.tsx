@@ -68,18 +68,18 @@ export const Item = styled.div<Props>`
   border-radius: 100%;
   transition-duration: 0.4s;
   transition-property: transform;
-  &:after {
+  &:before {
     content: url('/icon/elips.svg');
     position: fixed;
     z-index: 100 !important;
     -webkit-animation-duration: 4000ms;
-    top: -2%;
-    left: 42%;
+    top: -2.3%;
+    left: 43%;
     transform: scale(0.6) rotate(22deg);
     @media screen and (min-width: 468px) {
-      top: -2.2%;
+      top: -2.5%;
       left: 42%;
-      transform: scale(0.9) rotate(12deg);
+      transform: scale(0.9) rotate(10deg);
     }
     @media screen and (min-width: 640px) {
       top: -2.5%;
@@ -95,90 +95,117 @@ export const Item = styled.div<Props>`
   ${(props) =>
     props.ismode === 0
       ? `
-    
-    transform:rotate(-65deg);
+      &:before {
+
+        transform: scale(0.6) rotate(22deg);
+      };
+      transform:rotate(-65deg);
     @media screen and (min-width: 468px) 
-    {
+    {      
+      &:before {
+
+        transform: scale(0.9) rotate(10deg);
+      };
       transform: rotate(-55deg);
     
     };
     @media screen and (min-width: 640px) 
     {
+      &:before {
+        transform: scale(0.9) rotate(8deg);
+      };
       transform: rotate(-55deg);
     
     };
-@media screen and (min-width: 1024px) 
-{
-  transform: rotate(40deg);
+    @media screen and (min-width: 1024px) 
+    {
+      &:before {
 
-};
+        transform: scale(0.9) rotate(8deg);
+      };
+      transform: rotate(40deg);
+
+    };
 `
       : ''}
   ${(props) =>
     props.ismode === 1
       ? `
-      transform: rotate(-23deg);
-      @media screen and (min-width: 468px) {
-        transform: rotate(-11deg);
+      &:before {
 
+        transform: scale(0.6) rotate(24deg);
+      };
+      transform:rotate(-24deg);
+      @media screen and (min-width: 468px) 
+      {      
+        &:before {
+  
+          transform: scale(0.9) rotate(10deg);
+        };
+        transform: rotate(-11deg);
+      
       };
       @media screen and (min-width: 640px) {
+        @media screen and (min-width: 640px) 
+        {
+          &:before {
+            transform: scale(0.9) rotate(8deg);
+          };
         transform: rotate(-8deg);
         
       };
       @media screen and (min-width: 1024px) 
       {
-        {transform: rotate(55deg)}
+        {
+          &:before {
+    
+            transform: scale(0.9) rotate(8deg);
+          };
+        transform: rotate(55deg)
       };
 `
       : ''}
     ${(props) =>
     props.ismode === 2
       ? `
-      transform: rotate(26deg);
+      &:before {
+
+        transform: scale(0.6) rotate(24deg);
+      };
+      transform:scale(.99) rotate(22deg);
       @media screen and (min-width: 468px) 
       {
+        &:before {
+          transform: scale(0.9) rotate(10deg);
+        };
         {transform: rotate(30deg)}
+      };
+      @media screen and (min-width: 640px) {
+        @media screen and (min-width: 640px) 
+        {
+          &:before {
+            transform: scale(0.9) rotate(8deg);
+          };
+        transform: rotate(45deg);
+        
       };
       @media screen and (min-width: 1024px) 
       {
+        
+          &:before {
+    
+            transform: scale(0.9) rotate(8deg);
+          };
         transform: rotate(70deg)
       }`
       : ''}
 `;
 
-export const ItemSection = styled.div`
-  width: 4px;
-  height: 8px;
-  border-radius: 80% 80% 40% 40%;
-  position: absolute;
-  top: 0px;
-  left: 48%;
-  z-index: 100 !important;
-  -webkit-animation-duration: 4000ms;
-  &:before {
-    content: url('/icon/elementElipse.svg');
-  }
-  @media screen and (max-width: 468px) {
-    top: -4px;
-    left: 48%;
-    width: 20px;
-    height: 8px;
-    transform: scale(1) rotate(-38deg);
-  }
-  @media screen and (max-width: 768px) {
-    top: -14px;
-    left: 52%;
-    transform: scale(0.6) rotate(-38deg);
-  }
-  @media screen and (min-width: 1024px) {
-    left: 50%;
-    top: -8px;
-  }
-  transform: rotate(-39deg);
-`;
-
 export const TextTitle = styled.h2`
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 32px;
   background: linear-gradient(
     to right,
     #cccfe8 26.04%,
@@ -187,6 +214,12 @@ export const TextTitle = styled.h2`
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  @media screen and (min-width: 468px) {
+    font-size: 16px;
+  }
+  @media screen and (min-width: 640px) {
+    font-size: 16px;
+  }
   @media screen and (min-width: 1024px) {
     &:nth-child(2) {
       margin-bottom: 5%;
@@ -218,18 +251,23 @@ export const Circle = styled.div`
   }
 `;
 export const CircleInter = styled.div`
-  border: 6px solid white;
-  width: 70%;
-  height: 70%;
+  border: 5px solid white;
+  width: 85%;
+  height: 85%;
   @media screen and (min-width: 1024px) {
     transform: rotate(0);
+    width: 70%;
+    height: 70%;
   }
   transform: rotate(70deg);
 `;
 export const AlingBlock = styled.div`
-  bottom: 10%;
+  bottom: 0%;
   @media screen and (max-width: 468px) {
-    bottom: -2%;
+    bottom: -3.3%;
+  }
+  @media screen and (min-width: 768px) {
+    bottom: -3%;
   }
   @media screen and (min-width: 1024px) {
     bottom: 18%;
@@ -241,12 +279,12 @@ export const Styles = {
     AlingBlock,
   )`lg:text-right text-xl absolute sm:bottom-12 bottom-0 lg:bottom-24 lg:-right-4 w-full text-center z-10`,
   SubSection: tw(SubSection)`font-light text-base cursor-pointer z-80`,
-  BlockImg: tw.div`relative flex justify-center items-center `,
+  BlockImg: tw.div`relative flex justify-center items-center m-0.5 `,
   SectionAtom: tw(
     Item,
   )` transition ease-in-out delay-150  flex justify-center items-center`,
   BlockAtom: tw.div`absolute `,
-  Atom: tw(ItemSection)``,
+
   BlockTextSelect: tw(
     SectionTitle,
   )`lg:text-2xl text-sm block z-100 lg:absolute  bottom-2 lg:bottom-2 lg:top-7 flex lg:block lg:w-1/3 w-full h-1/3`,
@@ -255,7 +293,7 @@ export const Styles = {
     SectionTitle,
   )<Props>`py-7 md:mb-6 sm:mb-0 w-full opacity-40 hover:opacity-100 sm:px-5 px-3 order-last block text-center transition ease-in duration-300 cursor-pointer z-70 md:text-xl  font-Primary
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : '')}`,
-  TextCentral: tw(TextTitle)` w-4/6 text-center lg:text-lg text-xs `,
+  TextCentral: tw(TextTitle)` w-4/6 text-center `,
   Circle: tw(
     Circle,
   )`  absolute  m-auto  -top-2 md:-top-2 lg:top-0 right-0 rounded-full lg:-right-0 md:right-0 flex items-center justify-center`,

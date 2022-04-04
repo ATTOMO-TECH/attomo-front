@@ -16,7 +16,8 @@ import Conditions from './conditions';
 import { useUseAllPartner } from '../../domain/usePartners';
 import { getLocale } from '../../public/locales/getLocale';
 import { servicesAnimations } from '../animations/animations';
-import Sucesfull from './succesfull';
+import Title from '../Text/title';
+import { validationSchemaColaborator } from './validations';
 
 export default function FormColaborator() {
   const [shouldShowActions] = useState(false);
@@ -24,14 +25,13 @@ export default function FormColaborator() {
   const translate = getLocale();
   const [query, setQuery] = useState('');
   const [area, setArea] = useState<any>([]);
-  const [filter, setFilter] = useState('teamMember');
+  const [filter, setFilter] = useState('team');
 
   const queryQs = qs.stringify(
     {
       filters: {
         partnerOrTeam: {
-          $eq: 'partner',
-          // 'filter',
+          $eq: filter,
         },
       },
     },
@@ -106,7 +106,7 @@ export default function FormColaborator() {
         <Formik
           onSubmit={handleSubmitContact}
           initialValues={initialValues}
-          // validationSchema={validationSchemaColaborator}
+          validationSchema={validationSchemaColaborator}
           validateOnMount>
           {({ touched, errors, handleSubmit, values, setFieldValue }) => (
             <>
@@ -129,7 +129,7 @@ export default function FormColaborator() {
                   ))}
                 </Styles.BlockSelect>
                 <Subtext size="lg:text-sm w-full lg:pb-10 pb-4 font-PrimarySerif pt-10">
-                  {translate.partOfTeam}
+                  {translate.speciality}
                 </Subtext>
                 <Styles.BlockSelectSecond>
                   {Partner?.data.map((valuesCheck: any) => (
@@ -153,16 +153,15 @@ export default function FormColaborator() {
                       type="text"
                       name={FORMVALUES.FIRSTNAME}
                     />
-                    {touched.valueName && errors.valueName && (
+                    {touched.firstname && errors.firstname && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueName, '')}
                       />
                     )}
+                    {touched.firstname && errors.firstname && (
+                      <Styles.Error>{errors.firstname}</Styles.Error>
+                    )}
                   </Styles.BlockInput>
-                  {touched.valueName && errors.valueName && (
-                    <Styles.Error>{errors.valueName}</Styles.Error>
-                  )}
-
                   <Styles.BlockInput>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
@@ -170,15 +169,15 @@ export default function FormColaborator() {
                       type="text"
                       name={FORMVALUES.LASTNAME}
                     />
-                    {touched.valueLastName && errors.valueLastName && (
+                    {touched.lastname && errors.lastname && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueLastName, '')}
                       />
                     )}
+                    {touched.lastname && errors.lastname && (
+                      <Styles.Error>{errors.lastname}</Styles.Error>
+                    )}
                   </Styles.BlockInput>
-                  {touched.valueName && errors.valueName && (
-                    <Styles.Error>{errors.valueName}</Styles.Error>
-                  )}
                 </Styles.BlockInputsCenter>
                 <Styles.BlockInputsCenter>
                   <Styles.BlockInput>
@@ -188,15 +187,15 @@ export default function FormColaborator() {
                       type="email"
                       name={FORMVALUES.EMAIL}
                     />
-                    {touched.valueEmail && errors.valueEmail && (
+                    {touched.email && errors.email && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueEmail, '')}
                       />
                     )}
+                    {touched.email && errors.email && (
+                      <Styles.Error>{errors.email}</Styles.Error>
+                    )}
                   </Styles.BlockInput>
-                  {touched.valueEmail && errors.valueEmail && (
-                    <Styles.Error>{errors.valueEmail}</Styles.Error>
-                  )}
                   <Styles.BlockInput>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.OFF}
@@ -204,15 +203,15 @@ export default function FormColaborator() {
                       type="number"
                       name={FORMVALUES.PHONE}
                     />
-                    {touched.valuePhone && errors.valuePhone && (
+                    {touched.mobile && errors.mobile && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valuePhone, '')}
                       />
                     )}
+                    {touched.mobile && errors.mobile && (
+                      <Styles.Error>{errors.mobile}</Styles.Error>
+                    )}
                   </Styles.BlockInput>
-                  {touched.valuePhone && errors.valuePhone && (
-                    <Styles.Error>{errors.valuePhone}</Styles.Error>
-                  )}
                 </Styles.BlockInputsCenter>
 
                 {values[valuepartOf] === CONDITIONFORM.TEAM ? (
@@ -247,13 +246,13 @@ export default function FormColaborator() {
                       type="textarea"
                       name={FORMVALUES.MESSAGE}
                     />
-                    {touched.valueMessage && errors.valueMessage && (
+                    {touched.message && errors.message && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueMessage, '')}
                       />
                     )}
-                    {touched.valueMessage && errors.valueMessage && (
-                      <Styles.Error>{errors.valueMessage}</Styles.Error>
+                    {touched.message && errors.message && (
+                      <Styles.Error>{errors.message}</Styles.Error>
                     )}
                   </Styles.BlockInputOnly>
                 </Styles.BlockInputEnd>
@@ -263,9 +262,11 @@ export default function FormColaborator() {
                   onClick={(e: any) => setFieldValue(check, e)}>
                   <Conditions />
                 </InputCheckcondition>
-                {touched.check && errors.check && (
-                  <Styles.Error>{errors.check}</Styles.Error>
-                )}
+                <span className="absolute w-2/6">
+                  {touched.conditionsAccepted && errors.conditionsAccepted && (
+                    <Styles.Error>{errors.conditionsAccepted}</Styles.Error>
+                  )}
+                </span>
                 <Styles.BlockSendButton>
                   <Styles.BtnSend type="submit">
                     {translate.formSend}
@@ -287,7 +288,9 @@ export default function FormColaborator() {
           }}
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: '50%' }}>
-          <Sucesfull>Datos enviados correctamente</Sucesfull>
+          <Title size=" lg:py-36 w-full text-center pt-10 leading-relaxed lg:pr-10 lg:text-4xl pb-2 text-3xl w-2/6 m-auto ">
+            Datos enviados correctamente
+          </Title>
         </motion.div>
       )}
     </>

@@ -26,6 +26,7 @@ export default function SectionProjects({
       <Styles.SectionProjects>
         {isData?.map((values: any, i) => (
           <motion.div
+            key={values.id}
             animate={shouldShowActions}
             variants={servicesAnimations}
             className="actions"

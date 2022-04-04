@@ -132,7 +132,8 @@ export default {
     },
   ],
   sendEmail: 'Write your e-mail.',
-  trendsFilter: 'Filtrar noticias por',
+  CasesFilter: 'Filter by:',
+  trendsFilter: 'Filter by:',
   workUs: [
     {
       Text: 'Work with us',
@@ -207,6 +208,7 @@ export default {
   terms: 'Terms',
   project: 'You might be interested in',
   seeMoreTrends: 'See more news',
+  moreCases: 'See more cases',
   interested: 'You might be interested in',
   followFooter: 'FOLLOW US',
   privacy: 'Privacy policy',

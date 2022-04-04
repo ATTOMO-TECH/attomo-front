@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
 import { useState } from 'react';
+import useDeviceSize from '../../../hook/size';
+import ShareNav from '../../button/share';
 import { BodyTrends, Container } from './style';
 
 interface Props {
@@ -7,6 +9,7 @@ interface Props {
   title: string;
 }
 export default function BodyCases({ data, title }: Props) {
+  const [width] = useDeviceSize();
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const toggle = () => {
     SetIsOpen(!isOpen);
@@ -25,12 +28,15 @@ export default function BodyCases({ data, title }: Props) {
 
   return (
     <>
-      {/* <BtnShare valueUrl="undefined" isOpen={isOpen} toggle={toggle} /> */}
+      {width > 468 ? (
+        <ShareNav title={title} isOpen={isOpen} toggle={toggle} />
+      ) : (
+        <></>
+      )}
       <BodyTrends.Section>
         <BodyTrends.ButtonShare onClick={handleOnClick}>
           <img src="/icon/share.svg" width={20} height={20} alt="share" />
         </BodyTrends.ButtonShare>
-
         <BodyTrends.AlingData>
           <Container>{data}</Container>
         </BodyTrends.AlingData>

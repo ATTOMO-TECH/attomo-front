@@ -1,19 +1,10 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { Filter } from './style';
-import SelectFilter from './selectedFilter';
-import RenderLoading from '../loading/loading';
-import { useUseAllSubServices } from '../../domain/useServices';
-import { DEPARTMENT } from '../../const/constGlobal';
+import ModulelFilterResponsive from './moduleFilterResponsive';
 import ModulelFilter from './moduleFilter';
 import useDeviceSize from '../../hook/size';
-import Subtext from '../Text/subText';
-import Title from '../Text/title';
-// import { useEffect, useState } from 'react';
-// import { useUseAllSubServices } from '../../domain/useServices';
-// import RenderLoading from '../loading/loading';
 
 interface Props {
   isOpenFilter: boolean;
@@ -21,6 +12,7 @@ interface Props {
   setDate: any;
   setTopic: any;
   setSearch: any;
+  locale: any;
 }
 
 export default function ModalFilter({
@@ -29,21 +21,10 @@ export default function ModalFilter({
   setDate,
   setTopic,
   setSearch,
+  locale,
 }: Props) {
-  const router = useRouter();
   const [width] = useDeviceSize();
-  let { locale } = router;
-  if (locale === '/') {
-    locale = 'es';
-  }
-  const { isLoading } = useUseAllSubServices(locale || 'es');
-  if (isLoading) {
-    return (
-      <>
-        <RenderLoading mode={false} />
-      </>
-    );
-  }
+
   return (
     <>
       <Filter.SectionFilter
@@ -86,8 +67,8 @@ export default function ModalFilter({
                   d="M18 6L6 18"
                   stroke="white"
                   stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   initial={{ pathLength: 0 }}
                   animate={
                     isOpenFilter
@@ -100,8 +81,8 @@ export default function ModalFilter({
                   d="M6 6L18 18"
                   stroke="white"
                   stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   initial={{ pathLength: 0 }}
                   animate={
                     isOpenFilter
@@ -115,47 +96,12 @@ export default function ModalFilter({
           </Filter.AlinItems>
           <Filter.BlockFilterItems>
             {width < 768 ? (
-              <Filter.SectionMobile>
-                <Title size="text-md text-left pb-0 ">Filtrar por</Title>
-                <Filter.BlockItemMobile>
-                  <Subtext size=" text-xs font-Primary text-left font-light">
-                    {' '}
-                    Servicios
-                  </Subtext>
-                  <SelectFilter
-                    selected="selected"
-                    options={DEPARTMENT}
-                    valueLabel="Todos los servicios"
-                    name="FORMVALUES.TIME"
-                    onChange="onChange"
-                  />
-                </Filter.BlockItemMobile>
-                <Filter.BlockItemMed>
-                  <Subtext size=" text-xs font-Primary text-left font-light">
-                    {' '}
-                    Temática
-                  </Subtext>
-                  <SelectFilter
-                    selected="selected"
-                    options={DEPARTMENT}
-                    valueLabel="Todas las temáticas"
-                    name=""
-                    onChange="onChange"
-                  />
-                </Filter.BlockItemMed>
-                <Filter.BlockItemMobile>
-                  <Subtext size=" text-xs font-Primary text-left font-light">
-                    Fecha
-                  </Subtext>
-                  {/* <SelectFilter
-                    selected="selected"
-                    options={DATE}
-                    valueLabel="Fecha específica"
-                    name=""
-                    onChange={'onChange'}
-                  /> */}
-                </Filter.BlockItemMobile>
-              </Filter.SectionMobile>
+              <ModulelFilterResponsive
+                setDate={setDate}
+                setTopic={setTopic}
+                setSearch={setSearch}
+                locale={locale}
+              />
             ) : (
               <ModulelFilter
                 setDate={setDate}

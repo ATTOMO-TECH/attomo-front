@@ -28,7 +28,7 @@ export const Block = {
   Block: tw(SectionColor)`text-primary lg:w-3/6 w-full block  `,
   Title: tw(
     textTitle,
-  )<Props>`text-regular w-full leading-loose   text-sm  font-PrimarySerif 
+  )<Props>`text-regular w-full leading-loose font-light   text-sm  font-PrimarySerif 
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON ? `textDegrade  ` : 'bg-black '}
       `,

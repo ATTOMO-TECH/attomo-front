@@ -1,37 +1,87 @@
 import Link from 'next/link';
-
-import { useEffect, useState } from 'react';
-import { Btn } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
+import { Share } from './style';
 
-export default function ButtonShare() {
-  const [scroll, setScroll] = useState(true);
-  useEffect(() => {
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 20) {
-        setScroll(false);
-      } else {
-        setScroll(true);
-      }
-    });
-  }, []);
+interface Props {
+  isOpen: boolean;
+  toggle: () => void;
+  title: string;
+}
+
+export default function ShareNav({ title, isOpen, toggle }: Props) {
   return (
     <>
-      <Link href="https://api.whatsapp.com/send/?phone=34610516285">
-        <a
-          target="_blank"
-          href="https://api.whatsapp.com/send/?phone=34610516285"
-          rel="noreferrer">
-          <Btn.Icon ismode={!scroll ? BUTTON_ACTIVE.ON : ''}>
-            <img
-              src="/icon/WhatsApp.png"
-              width={100}
-              height={100}
-              alt="WhatsApp"
-            />
-          </Btn.Icon>
-        </a>
-      </Link>
+      <Share.Button
+        ismode={isOpen ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+        onClick={toggle}>
+        <Share.Items>
+          <Share.ItemValue>
+            <Link href="https://www.instagram.com/attomo.digital/">
+              <a
+                target="_blank"
+                href="https://www.instagram.com/attomo.digital/"
+                rel="noreferrer">
+                <img
+                  src="/icon/instagram.svg"
+                  width={25}
+                  height={25}
+                  alt="Instagram"
+                  className="opacity-100 hover:opacity-70"
+                />
+              </a>
+            </Link>
+          </Share.ItemValue>
+          <Share.ItemValue>
+            <Link href="https://www.linkedin.com/company/attomo-digital/">
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/company/attomo-digital/"
+                rel="noreferrer">
+                <img
+                  src="/icon/Linkedin.svg"
+                  width={25}
+                  height={25}
+                  alt="Linkedin"
+                  className="opacity-100 hover:opacity-70"
+                />
+              </a>
+            </Link>
+          </Share.ItemValue>
+          <Share.ItemValue>
+            <Link href="https://www.tiktok.com/@attomo.digital/">
+              <a
+                target="_blank"
+                href="https://www.tiktok.com/@attomo.digital/"
+                rel="noreferrer">
+                <img
+                  src="/icon/TikTok.svg"
+                  width={25}
+                  height={25}
+                  alt="TikTok"
+                  className="opacity-100 hover:opacity-70"
+                />
+              </a>
+            </Link>
+          </Share.ItemValue>
+          <Share.ItemValue>
+            <Link
+              href={`mailto:equipo@attomo.digital?subject=#ATTOMOtrends | ${title}`}>
+              <a
+                target="_blank"
+                href={`mailto:equipo@attomo.digital?subject=#ATTOMOtrends | ${title}&body=Echa un vistazo a esta publicación ${document.location.href}`}
+                rel="noreferrer">
+                <img
+                  src="/icon/mail.svg"
+                  width={25}
+                  height={25}
+                  alt="Mail"
+                  className="opacity-100 hover:opacity-70"
+                />
+              </a>
+            </Link>
+          </Share.ItemValue>
+        </Share.Items>
+      </Share.Button>
     </>
   );
 }

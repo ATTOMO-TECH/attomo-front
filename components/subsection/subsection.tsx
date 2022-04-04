@@ -11,9 +11,9 @@ export default function SubSection({ locale }: Props) {
   return (
     <>
       <SubSections.Subsection>
-        <SubSections.BlockCounter>
+        <SubSections.BlockCounterCircle>
           <Counter />
-        </SubSections.BlockCounter>
+        </SubSections.BlockCounterCircle>
         {locale.counter.map((values: any) => (
           <SubSections.TextSubsection>
             <Title size="text-2xl md:text-3xl lg:text-4xl font-light pb-5">
