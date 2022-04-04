@@ -36,7 +36,7 @@ export const itemMenu = styled.h6`
 `;
 export const Logo = styled.div`
   &:after {
-    // content: url('/icon/after.svg');
+    content: url('/icon/after.svg');
     position: absolute;
     margin: auto;
     right: 1em;

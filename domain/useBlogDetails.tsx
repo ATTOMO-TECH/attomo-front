@@ -6,8 +6,8 @@ const getAllPost = async (query: any) => {
   const { data } = await get(POST.FETCH_ALL(query));
   return data;
 };
-const getAllTags = async () => {
-  const { data } = await get(POST.FETCH_ALL_TAG());
+const getAllTags = async (lenguage: string) => {
+  const { data } = await get(POST.FETCH_ALL_TAG(lenguage));
   return data;
 };
 
@@ -23,8 +23,8 @@ export function useUseAllPost(query: any) {
     refetchOnWindowFocus: false,
   });
 }
-export function useUseAllTags() {
-  return useQuery(['useAllPost'], () => getAllTags(), {
+export function useUseAllTags(lenguage: string) {
+  return useQuery(['useAllPost'], () => getAllTags(lenguage), {
     staleTime: 2500,
     notifyOnChangePropsExclusions: ['isStale'],
     refetchOnWindowFocus: false,

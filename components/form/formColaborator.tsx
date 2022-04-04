@@ -30,7 +30,7 @@ export default function FormColaborator() {
   const queryQs = qs.stringify(
     {
       filters: {
-        partnerOrTeam: {
+        teamOrPartner: {
           $eq: filter,
         },
       },
@@ -82,10 +82,11 @@ export default function FormColaborator() {
       [FORMVALUES.EMAIL]: values.email,
       [FORMVALUES.COMPANY]: values.valueCompany,
       [FORMVALUES.MESSAGE]: values.message,
-      [FORMVALUES.PARTOF]: 'teamMember',
-      [FORMVALUES.SPECIALITY]: area,
+      [FORMVALUES.PARTOF]: 'team',
+      [FORMVALUES.SPECIALITY]: [area],
       [FORMVALUES.CONDITIONS]: values.conditionsAccepted,
     };
+
     mutate(
       { data },
       {

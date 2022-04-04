@@ -1,9 +1,9 @@
 // eslint-disable-next-line no-use-before-define
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { format } from 'date-fns';
 import * as qs from 'qs';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import BgComponent from '../components/animations/bg';
 import BlockSection from '../components/block/block';
 import BlockBlog from '../components/blog/blog';
@@ -21,8 +21,14 @@ import { Styles } from '../styles/styles';
 import Subtext from '../components/Text/subText';
 import CalendarPickerInputRange from '../components/calendar/input/calendarRange';
 import { servicesAnimations } from '../components/animations/animations';
+import SelectFilterMenu from '../components/filter/selectedFilterMenu';
 
 function News() {
+  const router = useRouter();
+  let { locale } = router;
+  if (locale === '/') {
+    locale = 'es';
+  }
   const [change, setChange] = useState(false);
   const [shouldShowActions] = useState(false);
   const translate = getLocale();
@@ -32,7 +38,9 @@ function News() {
     'pagination[page]=1&pagination[pageSize]=3&populate=coverImage?populate=blog_tags',
   );
   const { data, isLoading } = useUseAllPost(query);
-  const { data: Tags, isLoading: LoadingTags } = useUseAllTags();
+  const { data: Tags, isLoading: isLoadingTags } = useUseAllTags(
+    locale || 'es',
+  );
   const [startDate, setStartDateFilter] = useState<any>();
   const [endDate, setEndDateFilter] = useState<any>();
   const [preData, setPreData] = useState<any[]>([]);
@@ -41,17 +49,15 @@ function News() {
   const toggle = () => {
     setIsOpen(!isOpen);
   };
-  const handleChangeReset = () => {
+
+  const [selectedTopic, setSelectedTopic] = useState('');
+  const onChangeTopic = (e: any) => {
+    setSelectedTopic(e.value);
+    setFilter(e.value);
     setChange(true);
   };
-
   const handleAddBlog = (value: number) => {
     setPage(value);
-  };
-  const handleReset = () => {
-    setStartDateFilter(null);
-    setEndDateFilter(null);
-    setFilter('');
   };
 
   useEffect(() => {
@@ -71,18 +77,19 @@ function News() {
               $eq: filter,
             },
           },
-          $and: [
-            {
-              createdAt: {
-                $gte: startDate ? format(startDate, 'yyyy-MM-dd') : null,
-              },
-            },
-            {
-              createdAt: {
-                $lte: endDate ? format(endDate, 'yyyy-MM-dd') : null,
-              },
-            },
-          ],
+
+          // $and: [
+          //   {
+          //     createdAt: {
+          //       $gte: startDate !== null ? format(startDate, 'yyyy-MM-dd') : null,
+          //     },
+          //   },
+          //   {
+          //     createdAt: {
+          //       $lte: endDate !== null ? format(endDate, 'yyyy-MM-dd') : null,
+          //     },
+          //   },
+          // ],
         },
       };
     }
@@ -91,7 +98,6 @@ function News() {
     });
     setQuery(queryQs);
   }, [page, filter, startDate, endDate]);
-
   useEffect(() => {
     setPage(1);
   }, [filter]);
@@ -105,14 +111,23 @@ function News() {
     }
   }, [data]);
 
-  if (isLoading && !preData && LoadingTags) {
+  if ((isLoading && !preData) || isLoadingTags) {
     return (
       <>
         <RenderLoading mode={false} />
       </>
     );
   }
-
+  const DEPARTMENT = Tags?.data.map((values: any) => ({
+    label: values.attributes.name,
+    value: values.attributes.name,
+  }));
+  const handleChangeReset = () => {
+    setSelectedTopic('');
+    setStartDateFilter(null);
+    setEndDateFilter(null);
+    setChange(false);
+  };
   return (
     <>
       <Head>
@@ -151,38 +166,33 @@ function News() {
             <Subtext size="text-lg lg:py-4 ">{translate.trendsFilter}</Subtext>
           </Styles.SectionFilter>
           <Styles.SelectFilter>
-            <Styles.Select
-              className="lg:w-11/12 w-full "
-              name="select"
-              onChange={(e: any) => {
-                setFilter(e.target.value);
-                handleChangeReset();
-              }}>
-              <option value="">{'Todas las noticias '}</option>
-              {Tags?.data.map((options: any) => (
-                <option
-                  value={options.attributes.name}
-                  key={options.attributes.name}>
-                  {options.attributes.name}
-                </option>
-              ))}
-            </Styles.Select>
+            <SelectFilterMenu
+              selected={selectedTopic}
+              options={DEPARTMENT}
+              valueLabel={
+                selectedTopic === '' ? 'Todos los servicios' : selectedTopic
+              }
+              name={selectedTopic}
+              onChange={onChangeTopic}
+            />
           </Styles.SelectFilter>
           <Styles.SelectFilterNM>
             <CalendarPickerInputRange
               setStartDateFilter={setStartDateFilter}
               setEndDateFilter={setEndDateFilter}
+              startDate={startDate}
+              endDate={endDate}
             />
           </Styles.SelectFilterNM>
           <motion.svg
-            className="cursor-pointer"
+            className="cursor-pointer w-10 h-6"
             width="24"
             height="24"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             transition={{ duration: 1, ease: 'easeInOut' }}
-            onClick={handleReset}>
+            onClick={handleChangeReset}>
             <motion.path
               d="M18 6L6 18"
               stroke="white"
@@ -235,21 +245,19 @@ function News() {
             }}
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: '50%' }}>
-            <Styles.Center>
-              {React.Children.toArray(
-                translate.contact.map((values) => (
-                  <BlockSection
-                    key={values.Link}
-                    text={values.Text}
-                    button={values.Link}
-                    text2=""
-                    button2=""
-                    mode
-                    link="/contacto"
-                  />
-                )),
-              )}
-            </Styles.Center>
+            {React.Children.toArray(
+              translate.contact.map((values) => (
+                <BlockSection
+                  key={values.Link}
+                  text={values.Text}
+                  button={values.Link}
+                  text2=""
+                  button2=""
+                  mode
+                  link="/contacto"
+                />
+              )),
+            )}
           </motion.div>
         </Styles.Center>
         <Footer subFooter={false} />
