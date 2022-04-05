@@ -182,6 +182,11 @@ export default {
   formPrivacy: 'Política de Privacidad.',
   formSend: 'Enviar',
   formRent: 'Alquilar',
+  Services: 'Servicios',
+  Topic: 'Tématica',
+  SelectDate: 'Selecciona fecha',
+  Disciplines: 'Disciplinas',
+  Deliverables: ' Entregables',
 
   whereUs: 'Nuestras oficinas',
   spaceAttomo: [
@@ -211,8 +216,10 @@ export default {
   terms: 'Terminos y condiciones',
   project: 'Proyectos relacionados',
   seeMoreTrends: 'Ver más noticias',
+  seeOnline: 'Ver online',
   interested: 'Podría interesarte',
   moreCases: 'Más casos de éxito',
+  allServices: 'Todos los servicios',
   followFooter: 'SÍGUENOS',
   privacy: 'Política de privacidad',
   rightReserve: 'Todos los derechos reservados',

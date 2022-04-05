@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { Filter } from './style';
@@ -13,6 +14,10 @@ interface Props {
   setTopic: any;
   setSearch: any;
   locale: any;
+  startDate: any;
+  endDate: any;
+  topic: any;
+  search: any;
 }
 
 export default function ModalFilter({
@@ -22,8 +27,26 @@ export default function ModalFilter({
   setTopic,
   setSearch,
   locale,
+  startDate,
+  endDate,
+  topic,
+  search,
 }: Props) {
   const [width] = useDeviceSize();
+  const [startDateModal, setStartDateModal] = useState<any>(startDate);
+  const [endDateModal, setEndDateModal] = useState<any>(endDate);
+  const [topicModal, setTopicModal] = useState<any>(topic);
+  const [searchModal, setSearchModal] = useState(search);
+  const handleDateModal = (dateValue: any) => {
+    setStartDateModal(dateValue[0]);
+    setEndDateModal(dateValue[1]);
+  };
+  const handleSearch = () => {
+    setDate([startDateModal, endDateModal]);
+    setTopic(topicModal);
+    setSearch(searchModal);
+    toggle();
+  };
 
   return (
     <>
@@ -97,22 +120,30 @@ export default function ModalFilter({
           <Filter.BlockFilterItems>
             {width < 768 ? (
               <ModulelFilterResponsive
-                setDate={setDate}
-                setTopic={setTopic}
-                setSearch={setSearch}
+                setDate={handleDateModal}
+                setTopic={setTopicModal}
+                setSearch={setSearchModal}
                 locale={locale}
+                startDateModal={startDateModal}
+                endDateModal={endDateModal}
+                topicModal={topicModal}
+                searchModal={searchModal}
               />
             ) : (
               <ModulelFilter
-                setDate={setDate}
-                setTopic={setTopic}
-                setSearch={setSearch}
+                setDate={handleDateModal}
+                setTopic={setTopicModal}
+                setSearch={setSearchModal}
+                startDateModal={startDateModal}
+                endDateModal={endDateModal}
+                topicModal={topicModal}
+                searchModal={searchModal}
               />
             )}
           </Filter.BlockFilterItems>
         </div>
         <Filter.BlockSendButton>
-          <Filter.BtnSend type="submit" onClick={toggle}>
+          <Filter.BtnSend type="submit" onClick={handleSearch}>
             Buscar
           </Filter.BtnSend>
         </Filter.BlockSendButton>

@@ -1,9 +1,10 @@
 // eslint-disable-next-line no-use-before-define
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { format } from 'date-fns';
 import * as qs from 'qs';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { format } from 'date-fns';
 import BgComponent from '../components/animations/bg';
 import BlockSection from '../components/block/block';
 import BlockBlog from '../components/blog/blog';
@@ -21,9 +22,14 @@ import { Styles } from '../styles/styles';
 import Subtext from '../components/Text/subText';
 import CalendarPickerInputRange from '../components/calendar/input/calendarRange';
 import { servicesAnimations } from '../components/animations/animations';
+import SelectFilterMenu from '../components/filter/selectedFilterMenu';
 
 function News() {
-  const [change, setChange] = useState(false);
+  const router = useRouter();
+  let { locale } = router;
+  if (locale === '/') {
+    locale = 'es';
+  }
   const [shouldShowActions] = useState(false);
   const translate = getLocale();
   const [page, setPage] = useState(1);
@@ -32,7 +38,9 @@ function News() {
     'pagination[page]=1&pagination[pageSize]=3&populate=coverImage?populate=blog_tags',
   );
   const { data, isLoading } = useUseAllPost(query);
-  const { data: Tags, isLoading: LoadingTags } = useUseAllTags();
+  const { data: Tags, isLoading: isLoadingTags } = useUseAllTags(
+    locale || 'es',
+  );
   const [startDate, setStartDateFilter] = useState<any>();
   const [endDate, setEndDateFilter] = useState<any>();
   const [preData, setPreData] = useState<any[]>([]);
@@ -41,17 +49,12 @@ function News() {
   const toggle = () => {
     setIsOpen(!isOpen);
   };
-  const handleChangeReset = () => {
-    setChange(true);
-  };
 
+  const onChangeTopic = (e: any) => {
+    setFilter(e.value);
+  };
   const handleAddBlog = (value: number) => {
     setPage(value);
-  };
-  const handleReset = () => {
-    setStartDateFilter(null);
-    setEndDateFilter(null);
-    setFilter('');
   };
 
   useEffect(() => {
@@ -61,28 +64,60 @@ function News() {
         pageSize: 3,
       },
       populate: 'coverImage',
+      locale: locale || 'es',
+      filter: {},
     };
     if (filter) {
       queryObject = {
         ...queryObject,
         filters: {
+          ...queryObject.filters,
           blog_tags: {
             name: {
               $eq: filter,
             },
           },
+        },
+      };
+    }
+    if (startDate && endDate) {
+      queryObject = {
+        ...queryObject,
+        filters: {
+          ...queryObject.filters,
           $and: [
             {
               createdAt: {
-                $gte: startDate ? format(startDate, 'yyyy-MM-dd') : null,
+                $gte:
+                  startDate !== null ? format(startDate, 'yyyy-MM-dd') : null,
               },
             },
             {
               createdAt: {
-                $lte: endDate ? format(endDate, 'yyyy-MM-dd') : null,
+                $lte: endDate !== null ? format(endDate, 'yyyy-MM-dd') : null,
               },
             },
           ],
+        },
+      };
+    } else if (startDate) {
+      queryObject = {
+        ...queryObject,
+        filters: {
+          ...queryObject.filters,
+          createdAt: {
+            $gte: startDate !== null ? format(startDate, 'yyyy-MM-dd') : null,
+          },
+        },
+      };
+    } else if (endDate) {
+      queryObject = {
+        ...queryObject,
+        filters: {
+          ...queryObject.filters,
+          createdAt: {
+            $lte: endDate !== null ? format(endDate, 'yyyy-MM-dd') : null,
+          },
         },
       };
     }
@@ -90,8 +125,7 @@ function News() {
       encodeValuesOnly: true,
     });
     setQuery(queryQs);
-  }, [page, filter, startDate, endDate]);
-
+  }, [page, filter, startDate, endDate, locale]);
   useEffect(() => {
     setPage(1);
   }, [filter]);
@@ -105,13 +139,23 @@ function News() {
     }
   }, [data]);
 
-  if (isLoading && !preData && LoadingTags) {
+  if ((isLoading && !preData) || isLoadingTags) {
     return (
       <>
         <RenderLoading mode={false} />
       </>
     );
   }
+  const DEPARTMENT = Tags?.data.map((values: any) => ({
+    label: values.attributes.name,
+    value: values.attributes.name,
+  }));
+  const handleChangeReset = () => {
+    setFilter('');
+    setStartDateFilter(null);
+    setEndDateFilter(null);
+  };
+  const change: boolean = !!startDate || !!endDate || !!filter;
 
   return (
     <>
@@ -151,38 +195,31 @@ function News() {
             <Subtext size="text-lg lg:py-4 ">{translate.trendsFilter}</Subtext>
           </Styles.SectionFilter>
           <Styles.SelectFilter>
-            <Styles.Select
-              className="lg:w-11/12 w-full "
-              name="select"
-              onChange={(e: any) => {
-                setFilter(e.target.value);
-                handleChangeReset();
-              }}>
-              <option value="">{'Todas las noticias '}</option>
-              {Tags?.data.map((options: any) => (
-                <option
-                  value={options.attributes.name}
-                  key={options.attributes.name}>
-                  {options.attributes.name}
-                </option>
-              ))}
-            </Styles.Select>
+            <SelectFilterMenu
+              selected={filter}
+              options={DEPARTMENT}
+              valueLabel={filter === '' ? `${translate.allServices}` : filter}
+              name={filter}
+              onChange={onChangeTopic}
+            />
           </Styles.SelectFilter>
           <Styles.SelectFilterNM>
             <CalendarPickerInputRange
               setStartDateFilter={setStartDateFilter}
               setEndDateFilter={setEndDateFilter}
+              startDate={startDate}
+              endDate={endDate}
             />
           </Styles.SelectFilterNM>
           <motion.svg
-            className="cursor-pointer"
+            className="cursor-pointer w-10 h-6"
             width="24"
             height="24"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             transition={{ duration: 1, ease: 'easeInOut' }}
-            onClick={handleReset}>
+            onClick={handleChangeReset}>
             <motion.path
               d="M18 6L6 18"
               stroke="white"
@@ -235,21 +272,19 @@ function News() {
             }}
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: '50%' }}>
-            <Styles.Center>
-              {React.Children.toArray(
-                translate.contact.map((values) => (
-                  <BlockSection
-                    key={values.Link}
-                    text={values.Text}
-                    button={values.Link}
-                    text2=""
-                    button2=""
-                    mode
-                    link="/contacto"
-                  />
-                )),
-              )}
-            </Styles.Center>
+            {React.Children.toArray(
+              translate.contact.map((values) => (
+                <BlockSection
+                  key={values.Link}
+                  text={values.Text}
+                  button={values.Link}
+                  text2=""
+                  button2=""
+                  mode
+                  link="/contacto"
+                />
+              )),
+            )}
           </motion.div>
         </Styles.Center>
         <Footer subFooter={false} />

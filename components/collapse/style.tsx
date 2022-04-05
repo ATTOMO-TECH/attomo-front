@@ -19,7 +19,7 @@ export const SectionTitle = styled.div`
   @media screen and (min-width: 1024px) {
      {
       &:nth-child(1) {
-        padding-left: 25%;
+        padding-left: 20%;
       }
       &:nth-child(2) {
         padding-left: 55%;
@@ -32,34 +32,35 @@ export const SectionTitle = styled.div`
 `;
 // SUBTEXT
 export const SubSection = styled.div`
-background-color:black; 
+background-color:#0F0B11; 
+
 @media screen and (min-width: 1024px) {
 
    {
     &:nth-child(1) {
       padding:3px;
-      margin-right: 74%;
+      margin-right: 73%;
     
     }
     &:nth-child(2) {
       padding:3px;
-      margin-right: 73%;
+      margin-right: 72%;
     }
     &:nth-child(3) {
       padding:3px;
-      margin-right: 72%;
+      margin-right: 71%;
     }
     &:nth-child(4) {
       padding:3px;
-      margin-right: 71%;
+      margin-right: 70%;
     }
     &:nth-child(5) {
       padding:3px;
-      margin-right: 70%;
+      margin-right: 69%;
     }
     &:nth-child(6) {
       padding:3px;
-      margin-right: 69%;
+      margin-right: 68%;
     }
   }
 `;
@@ -76,6 +77,11 @@ export const Item = styled.div<Props>`
     top: -2.3%;
     left: 43%;
     transform: scale(0.6) rotate(22deg);
+    @media screen and (min-width: 370px) {
+      top: -2.5%;
+      left: 42%;
+      transform: scale(0.9) rotate(10deg);
+    }
     @media screen and (min-width: 468px) {
       top: -2.5%;
       left: 42%;
@@ -95,11 +101,19 @@ export const Item = styled.div<Props>`
   ${(props) =>
     props.ismode === 0
       ? `
-      &:before {
-
-        transform: scale(0.6) rotate(22deg);
-      };
+  
       transform:rotate(-65deg);
+      @media screen and (min-width: 370px) 
+      {      
+        &:before {
+  
+          transform: scale(0.6) rotate(18deg);
+        };
+        transform: rotate(-55deg);
+  
+
+      };
+
     @media screen and (min-width: 468px) 
     {      
       &:before {
@@ -136,6 +150,16 @@ export const Item = styled.div<Props>`
         transform: scale(0.6) rotate(24deg);
       };
       transform:rotate(-24deg);
+      @media screen and (min-width: 370px) 
+      {      
+        &:before {
+  
+          transform: scale(0.6) rotate(18deg);
+        };
+        transform: rotate(-18deg);
+  
+
+      };
       @media screen and (min-width: 468px) 
       {      
         &:before {
@@ -173,6 +197,16 @@ export const Item = styled.div<Props>`
         transform: scale(0.6) rotate(24deg);
       };
       transform:scale(.99) rotate(22deg);
+      @media screen and (min-width: 370px) 
+      {      
+        &:before {
+  
+          transform: scale(0.6) rotate(18deg);
+        };
+        transform: rotate(27deg);
+  
+
+      };
       @media screen and (min-width: 468px) 
       {
         &:before {
@@ -234,14 +268,12 @@ export const Circle = styled.div`
     height: 100%;
     position: absolute;
     border-radius: 100%;
-
   }
    {
     z-index: 0 !important;
     width: 100%;
     height: 100%;
     transform: rotate(-70deg);
-    background
   }
 
   @media screen and (min-width: 1024px) {
@@ -262,9 +294,14 @@ export const CircleInter = styled.div`
   transform: rotate(70deg);
 `;
 export const AlingBlock = styled.div`
-  bottom: 0%;
-  @media screen and (max-width: 468px) {
-    bottom: -3.3%;
+  bottom: 10%;
+
+  @media screen and (max-width: 350px) {
+    bottom: -2%;
+  }
+
+  @media screen and (min-width: 468px) {
+    bottom: -8%;
   }
   @media screen and (min-width: 768px) {
     bottom: -3%;
@@ -273,16 +310,23 @@ export const AlingBlock = styled.div`
     bottom: 18%;
   }
 `;
+export const CircleBgSmall = styled.div`
+  background-color: #0f0b11;
+`;
+
 export const Styles = {
   SectionCollapse: tw.section`h-screen w-full relative z-80 lg:h-auto font-PrimarySerif flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative md:my-24 mb-24  font-light leading-loose`,
   BlockDescription: tw(
     AlingBlock,
-  )`lg:text-right text-xl absolute sm:bottom-12 bottom-0 lg:bottom-24 lg:-right-4 w-full text-center z-10`,
+  )`lg:text-right text-xl absolute h-auto lg:-right-4  w-full text-center z-10`,
   SubSection: tw(SubSection)`font-light text-base cursor-pointer z-80`,
   BlockImg: tw.div`relative flex justify-center items-center m-0.5 `,
   SectionAtom: tw(
     Item,
   )` transition ease-in-out delay-150  flex justify-center items-center`,
+  CircleBg: tw(
+    CircleBgSmall,
+  )`flex items-center justify-center  m-1  rounded-full`,
   BlockAtom: tw.div`absolute `,
 
   BlockTextSelect: tw(

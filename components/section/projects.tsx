@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { BUTTON_ACTIVE } from '../../const/const';
 import IconAnimate from '../button/icon';
@@ -8,23 +7,22 @@ import { Styles } from './style';
 import { getLocale } from '../../public/locales/getLocale';
 
 interface Props {
-  Array: any[];
+  data: any;
   shouldShowActions: any;
   servicesAnimations: any;
 }
 
 export default function SectionProjects({
-  Array,
+  data,
   shouldShowActions,
   servicesAnimations,
 }: Props) {
-  const [isData] = useState(Array);
   const translate = getLocale();
 
   return (
     <>
       <Styles.SectionProjects>
-        {isData?.map((values: any, i) => (
+        {data?.map((values: any, i: any) => (
           <motion.div
             key={values.id}
             animate={shouldShowActions}

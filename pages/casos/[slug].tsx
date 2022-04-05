@@ -79,7 +79,7 @@ export default function Cases({ mode }: Props) {
           />
         ) : null}
         <Styles.Center>
-          <DetailsCases data={data.data} />
+          <DetailsCases data={data.data} translate={translate} />
         </Styles.Center>
         <Styles.Center>
           <Styles.TextSubSection>{translate.moreCases}</Styles.TextSubSection>

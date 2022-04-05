@@ -41,18 +41,38 @@ export const Block = styled.section`
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   background: rgb(2, 0, 36);
-  background: linear-gradient(
-    240deg,
-    rgba(2, 0, 36, 0) 0%,
-    rgba(17, 24, 39, 0.7441570378151261) 50%,
-    rgba(17, 24, 39, 1) 100%
+  background: -moz-linear-gradient(
+    180deg,
+    rgba(2, 0, 36, 0.26094187675070024) 0%,
+    rgba(156, 156, 156, 0.24693627450980393) 50%,
+    rgba(17, 24, 39, 0.1741071428571429) 100%
   );
+  background: -webkit-linear-gradient(
+    180deg,
+    rgba(2, 0, 36, 0.26094187675070024) 0%,
+    rgba(156, 156, 156, 0.24693627450980393) 50%,
+    rgba(17, 24, 39, 0.1741071428571429) 100%
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(2, 0, 36, 0.26094187675070024) 0%,
+    rgba(156, 156, 156, 0.24693627450980393) 50%,
+    rgba(17, 24, 39, 0.1741071428571429) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#111827",GradientType=1);
 `;
 export const BlockHeroSection = styled.section`
   @media screen and (min-width: 1024px) {
     height: 70vh;
   }
   height: 100vh;
+`;
+export const textSubText = styled.h6`
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 47.78px;
+  line-height: 72px;
 `;
 
 export const HeadSection = {
@@ -69,7 +89,7 @@ export const HeadSection = {
 
   SectionHeroFooter: tw(
     Block,
-  )`h-auto lg:h-96 text-primary lg:rounded-3xl font-Primary lg:border border-primary  lg:my-24  lg:from-gray-900 from-gray-700 border-opacity-10 flex justify-center items-center`,
-  TextHeroFooter: tw.h5`text-2xl md:text-4xl lg:p-44 px-4 py-24 font-light leading-relaxed lg:leading-normal`,
+  )`h-auto lg:h-96 text-primary lg:rounded-3xl font-Primary   lg:my-24  lg:from-gray-900 from-gray-700 border-opacity-10 flex justify-center items-center`,
+  TextHeroFooter: tw.h5`text-2xl md:text-4xl lg:p-44 px-4 py-24 font-light leading-relaxed lg:leading-normal tracking-wide`,
   SectionCase: tw.section`flex justify-end items-center relative lg:pt-24 `,
 };

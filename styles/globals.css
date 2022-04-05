@@ -105,24 +105,25 @@
   border-radius: 100%;
   transition: all 0.5s ease-in;
 }
+.colorMenu:hover {
+  transition: all 1s ease-in-out;
+  opacity: 0.6;
+}
+
+.colorMenu:hover .menuInvert::after {
+  opacity: 0;
+}
 .colorMenu:hover .menuInvert::before {
   transform: scale(0.2);
   background-color: white;
   border-radius: 100%;
   transition: all 0.5s ease-in;
 }
-.dark .colorMenu:hover .menu::before {
-  transform: scale(0.2);
-  background-color: rgb(0, 0, 0);
-  border-radius: 100%;
-  transition: all 0.5s ease-in;
+.colorMenu:hover {
+  transition: all 1s ease-in-out;
+  opacity: 0.6;
 }
-.dark .colorMenu:hover .menuInvert::before {
-  transform: scale(0.2);
-  background-color: rgb(0, 0, 0);
-  border-radius: 100%;
-  transition: all 0.5s ease-in;
-}
+
 input[type='date']::-webkit-calendar-picker-indicator {
   filter: invert(1);
   margin: 0px;
@@ -151,8 +152,11 @@ input#input-4 {
   color: white !important;
 }
 input[type='text'] {
-  background: none;
+  background-color: #0f0b1100 !important;
   margin-bottom: 1%;
+}
+.react-datepicker__input-container {
+  background: none;
 }
 .react-datepicker__input-container:hover {
   opacity: 1;
@@ -182,6 +186,10 @@ input[type='text'] {
 
 .react-datepicker__input-container,
 .borderInput {
+  border-bottom: 0.8px solid #6f6d70;
+}
+.react-datepicker__input-container:hover,
+.borderInput:hover {
   border-bottom: 0.8px solid white;
 }
 .react-datepicker__day:hover {

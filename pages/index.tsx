@@ -80,7 +80,6 @@ function Home() {
   }
 
   const translate = getLocale();
-
   return (
     <>
       <Head>
@@ -96,7 +95,7 @@ function Home() {
           </Styles.Margin>
           <ButtonShare />
           <Styles.Center>
-            <Styles.ScreenMid>
+            <Styles.ScreenMidResponsiv>
               {translate.home.map((values) => (
                 <Hero
                   key={`Hero${values.HeroText}`}
@@ -106,7 +105,7 @@ function Home() {
                   link="conocenos"
                 />
               ))}
-            </Styles.ScreenMid>
+            </Styles.ScreenMidResponsiv>
           </Styles.Center>
           <Styles.SectionScreen id="conocenos">
             <Styles.BlockSelected>
@@ -151,7 +150,7 @@ function Home() {
             <CompaniesScroll />
           </Styles.BlockSlider>
           <SectionProjects
-            Array={data?.data}
+            data={data.data}
             shouldShowActions={shouldShowActions}
             servicesAnimations={servicesAnimations}
           />

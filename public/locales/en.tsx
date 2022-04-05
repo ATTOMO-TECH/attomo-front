@@ -180,7 +180,12 @@ export default {
   formPrivacy: 'Privacy Policy.',
   formSend: 'Send',
   formRent: 'Rent',
+  Services: 'Services',
+  Topic: 'Topic',
   whereUs: 'Where to find us',
+  SelectDate: 'Choose date',
+  Disciplines: 'Disciplinas',
+  Deliverables: ' Deliverables',
   spaceAttomo: [
     {
       Text: 'The ATTOMO Digital Space',
@@ -209,7 +214,9 @@ export default {
   project: 'You might be interested in',
   seeMoreTrends: 'See more news',
   moreCases: 'See more cases',
+  seeOnline: 'See online',
   interested: 'You might be interested in',
+  allServices: 'All services',
   followFooter: 'FOLLOW US',
   privacy: 'Privacy policy',
   rightReserve: 'All rights reserved',

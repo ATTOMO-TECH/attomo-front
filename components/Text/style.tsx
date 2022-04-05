@@ -32,6 +32,7 @@ export const TextHero = styled.h2`
   }
 `;
 export const SubTitle = styled.h2`
+  line-height: 2em;
   background: linear-gradient(
     90deg,
     #b4a9bc 0%,
@@ -63,5 +64,5 @@ export const Text = {
   TextTitle: tw(TextHero)` font-Primary font-thin`,
   SubTextTitle: tw(
     SubTitle,
-  )`lg:text-sm  text-sm font-light font-PrimarySerif tracking-wide leading-8`,
+  )`lg:text-sm  text-sm font-light font-PrimarySerif tracking-wide leading-loose`,
 };

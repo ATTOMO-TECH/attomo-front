@@ -72,8 +72,8 @@ export const StylesArticle = {
   opacity-50 font-PrimarySerif font-light text-xs py-2
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'block' : 'hidden')}
   `,
-  BlockArrow: tw.div`flex w-full text-xl justify-end lg:pr-44 lg:pr-10`,
-  ArrowPrev: tw.div`cursor-pointer py-20 pr-5 hidden lg:block `,
+  BlockArrow: tw.div`flex w-full text-xl  justify-center lg:justify-end lg:pr-44 lg:pr-10`,
+  ArrowPrev: tw.div`cursor-pointer  lg:py-20 py-10 mr-5 `,
   ArrowNext: tw.div`cursor-pointer lg:py-20 py-10`,
   Slide: tw(SelectedSlide)<Props>`
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'w-4/6 ' : 'w-4/6 ')}`,

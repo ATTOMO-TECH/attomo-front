@@ -1,6 +1,7 @@
 import { format } from 'date-fns';
 import { useEffect, useState } from 'react';
 import useDeviceSize from '../../hook/size';
+import { getLocale } from '../../public/locales/getLocale';
 import { Styles } from './styles';
 
 interface Props {
@@ -21,18 +22,19 @@ export default function Filter({ toggle, date, endDate, topic }: Props) {
     });
   }, []);
   const [width] = useDeviceSize();
+  const translate = getLocale();
   return (
     <>
       {(scroll && width < 768) || scroll ? (
         <Styles.BlockFilter onClick={toggle}>
           <Styles.FlexFilter>
-            <Styles.TextFilter>Filtrar por</Styles.TextFilter>
+            <Styles.TextFilter>{translate.CasesFilter}</Styles.TextFilter>
             <Styles.FirtsItem>
               {topic === '' || topic === undefined ? 'Estrategia' : topic}
             </Styles.FirtsItem>
             <Styles.DateItem>
-              {date === undefined ? (
-                <Styles.ValueDate>Selecciona fecha</Styles.ValueDate>
+              {date === undefined || date === null ? (
+                <Styles.ValueDate>{translate.SelectDate}</Styles.ValueDate>
               ) : (
                 <>
                   <Styles.ValueDate>
