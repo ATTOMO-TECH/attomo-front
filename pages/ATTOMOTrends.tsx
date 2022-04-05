@@ -64,6 +64,7 @@ function News() {
         pageSize: 3,
       },
       populate: 'coverImage',
+      locale: locale || 'es',
       filter: {},
     };
     if (filter) {
@@ -124,7 +125,7 @@ function News() {
       encodeValuesOnly: true,
     });
     setQuery(queryQs);
-  }, [page, filter, startDate, endDate]);
+  }, [page, filter, startDate, endDate, locale]);
   useEffect(() => {
     setPage(1);
   }, [filter]);
@@ -197,7 +198,7 @@ function News() {
             <SelectFilterMenu
               selected={filter}
               options={DEPARTMENT}
-              valueLabel={filter === '' ? 'Todos los servicios' : filter}
+              valueLabel={filter === '' ? `${translate.allServices}` : filter}
               name={filter}
               onChange={onChangeTopic}
             />

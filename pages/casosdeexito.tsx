@@ -212,7 +212,7 @@ function Cases() {
               <Styles.SelectFilter onClick={toggleFilter}>
                 <Styles.Select className="lg:w-11/12 w-full " disabled>
                   {topic === '' || topic === undefined ? (
-                    <option value="">Tématica</option>
+                    <option value="">{translate.Topic}</option>
                   ) : (
                     <option value="">{topic}</option>
                   )}
@@ -226,12 +226,12 @@ function Cases() {
                   endDate === '' ||
                   undefined ||
                   null ? (
-                    <option value="">Selecciona fecha</option>
+                    <option value="">{translate.SelectDate}</option>
                   ) : (
                     <option value="">{`${
                       startDate
                         ? format(startDate, 'dd-MM-yyyy')
-                        : 'Seleccionar fecha'
+                        : `${translate.SelectDate}`
                     } 
                     ${
                       endDate ? format(endDate, '-  dd-MM-yyyy') : ''

@@ -80,7 +80,6 @@ function Home() {
   }
 
   const translate = getLocale();
-
   return (
     <>
       <Head>
@@ -151,7 +150,7 @@ function Home() {
             <CompaniesScroll />
           </Styles.BlockSlider>
           <SectionProjects
-            data={data?.data}
+            data={data.data}
             shouldShowActions={shouldShowActions}
             servicesAnimations={servicesAnimations}
           />

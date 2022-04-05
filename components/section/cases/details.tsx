@@ -4,14 +4,17 @@ import { Container, Details } from './style';
 
 interface Props {
   data: any;
+  translate: any;
 }
-export default function DetailsCases({ data }: Props) {
+export default function DetailsCases({ data, translate }: Props) {
   return (
     <>
       <Details.Section>
         <Details.BlockItems>
           <Details.BlockSpeciality>
-            <Details.TitleSpeciality>Disciplinas</Details.TitleSpeciality>
+            <Details.TitleSpeciality>
+              {translate.Disciplines}
+            </Details.TitleSpeciality>
             {data.attributes.disciplines.data.map((disciplines: any) => (
               <Details.SubTextSpeciality>
                 {disciplines.attributes.name}
@@ -20,7 +23,9 @@ export default function DetailsCases({ data }: Props) {
           </Details.BlockSpeciality>
 
           <Details.BlockSecond>
-            <Details.TitleSpeciality>Entregables</Details.TitleSpeciality>
+            <Details.TitleSpeciality>
+              {translate.Deliverables}
+            </Details.TitleSpeciality>
             {data.attributes.deliverables.data.map((disciplines: any) => (
               <Details.SubTextSpeciality>
                 {disciplines.attributes.name}
@@ -35,7 +40,7 @@ export default function DetailsCases({ data }: Props) {
               href={data.attributes.projectUrl}
               target="_blank"
               rel="noreferrer">
-              <IconAnimate text="Ver online" mode={false} />
+              <IconAnimate text={translate.seeOnline} mode={false} />
             </a>
           </Link>
         </Details.SectionContainer>

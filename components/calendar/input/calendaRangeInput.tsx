@@ -1,6 +1,7 @@
 import es from 'date-fns/locale/es';
 import DatePicker from 'react-datepicker';
 import { useState } from 'react';
+import { getLocale } from '../../../public/locales/getLocale';
 
 interface Props {
   setDate: (value: any) => void;
@@ -15,11 +16,12 @@ export default function CalendarPickerRangeInput({
   const handleDateChangeRaw = (e: any) => {
     e.preventDefault();
   };
+  const translate = getLocale();
   return (
     <>
       <DatePicker
         id="reserve"
-        placeholderText="Fecha"
+        placeholderText={translate.SelectDate}
         dateFormat="dd/MM/yyyy"
         locale={es}
         selectsRange
@@ -30,7 +32,7 @@ export default function CalendarPickerRangeInput({
           setDate(update);
         }}
         onChangeRaw={handleDateChangeRaw}
-        className="outline-none font-PrimarySerif font-thin text-gray-300 h-full w-full py-2.5 "
+        className="outline-none font-PrimarySerif font-light text-gray-300 h-full w-full py-2.5 "
       />
     </>
   );
