@@ -19,7 +19,7 @@ export const SectionTitle = styled.div`
   @media screen and (min-width: 1024px) {
      {
       &:nth-child(1) {
-        padding-left: 25%;
+        padding-left: 20%;
       }
       &:nth-child(2) {
         padding-left: 55%;
@@ -39,28 +39,28 @@ background-color:#0F0B11;
    {
     &:nth-child(1) {
       padding:3px;
-      margin-right: 71%;
+      margin-right: 73%;
     
     }
     &:nth-child(2) {
       padding:3px;
-      margin-right: 70%;
+      margin-right: 72%;
     }
     &:nth-child(3) {
       padding:3px;
-      margin-right: 69%;
+      margin-right: 71%;
     }
     &:nth-child(4) {
       padding:3px;
-      margin-right: 68%;
+      margin-right: 70%;
     }
     &:nth-child(5) {
       padding:3px;
-      margin-right: 67%;
+      margin-right: 69%;
     }
     &:nth-child(6) {
       padding:3px;
-      margin-right: 66%;
+      margin-right: 68%;
     }
   }
 `;
@@ -268,14 +268,12 @@ export const Circle = styled.div`
     height: 100%;
     position: absolute;
     border-radius: 100%;
-
   }
    {
     z-index: 0 !important;
     width: 100%;
     height: 100%;
     transform: rotate(-70deg);
-    background
   }
 
   @media screen and (min-width: 1024px) {

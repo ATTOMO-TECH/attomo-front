@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import * as qs from 'qs';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { format } from 'date-fns';
 import BgComponent from '../components/animations/bg';
 import BlockSection from '../components/block/block';
 import BlockBlog from '../components/blog/blog';
@@ -50,9 +51,7 @@ function News() {
     setIsOpen(!isOpen);
   };
 
-  const [selectedTopic, setSelectedTopic] = useState('');
   const onChangeTopic = (e: any) => {
-    setSelectedTopic(e.value);
     setFilter(e.value);
     setChange(true);
   };
@@ -67,29 +66,59 @@ function News() {
         pageSize: 3,
       },
       populate: 'coverImage',
+      filter: {},
     };
     if (filter) {
       queryObject = {
         ...queryObject,
         filters: {
+          ...queryObject.filters,
           blog_tags: {
             name: {
               $eq: filter,
             },
           },
-
-          // $and: [
-          //   {
-          //     createdAt: {
-          //       $gte: startDate !== null ? format(startDate, 'yyyy-MM-dd') : null,
-          //     },
-          //   },
-          //   {
-          //     createdAt: {
-          //       $lte: endDate !== null ? format(endDate, 'yyyy-MM-dd') : null,
-          //     },
-          //   },
-          // ],
+        },
+      };
+    }
+    if (startDate && endDate) {
+      queryObject = {
+        ...queryObject,
+        filters: {
+          ...queryObject.filters,
+          $and: [
+            {
+              createdAt: {
+                $gte:
+                  startDate !== null ? format(startDate, 'yyyy-MM-dd') : null,
+              },
+            },
+            {
+              createdAt: {
+                $lte: endDate !== null ? format(endDate, 'yyyy-MM-dd') : null,
+              },
+            },
+          ],
+        },
+      };
+    } else if (startDate) {
+      queryObject = {
+        ...queryObject,
+        filters: {
+          ...queryObject.filters,
+          createdAt: {
+            $gte: startDate !== null ? format(startDate, 'yyyy-MM-dd') : null,
+          },
+        },
+      };
+    } else if (endDate) {
+      queryObject = {
+        ...queryObject,
+        filters: {
+          ...queryObject.filters,
+          createdAt: {
+            $lte: endDate !== null ? format(endDate, 'yyyy-MM-dd') : null,
+          },
         },
       };
     }
@@ -123,7 +152,7 @@ function News() {
     value: values.attributes.name,
   }));
   const handleChangeReset = () => {
-    setSelectedTopic('');
+    setFilter('');
     setStartDateFilter(null);
     setEndDateFilter(null);
     setChange(false);
@@ -167,12 +196,10 @@ function News() {
           </Styles.SectionFilter>
           <Styles.SelectFilter>
             <SelectFilterMenu
-              selected={selectedTopic}
+              selected={filter}
               options={DEPARTMENT}
-              valueLabel={
-                selectedTopic === '' ? 'Todos los servicios' : selectedTopic
-              }
-              name={selectedTopic}
+              valueLabel={filter === '' ? 'Todos los servicios' : filter}
+              name={filter}
               onChange={onChangeTopic}
             />
           </Styles.SelectFilter>

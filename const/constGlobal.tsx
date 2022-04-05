@@ -107,7 +107,7 @@ export const CUSTOMERS: {
   },
   {
     Name: 'ChiandSu',
-    Pic: '/customers/Chiandsu.png',
+    Pic: '/customers/chiandsu.png',
     Url: '',
   },
   {

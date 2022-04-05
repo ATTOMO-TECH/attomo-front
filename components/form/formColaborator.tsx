@@ -82,8 +82,9 @@ export default function FormColaborator() {
       [FORMVALUES.EMAIL]: values.email,
       [FORMVALUES.COMPANY]: values.valueCompany,
       [FORMVALUES.MESSAGE]: values.message,
-      [FORMVALUES.PARTOF]: 'team',
-      [FORMVALUES.SPECIALITY]: [area],
+      [FORMVALUES.LINK]: values.portfolio,
+      [FORMVALUES.PARTOF]: values.teamOrPartner,
+      [FORMVALUES.SPECIALITY]: { relations: [area] },
       [FORMVALUES.CONDITIONS]: values.conditionsAccepted,
     };
 
@@ -289,7 +290,7 @@ export default function FormColaborator() {
           }}
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: '50%' }}>
-          <Title size=" lg:py-36 w-full text-center pt-10 leading-relaxed lg:pr-10 lg:text-4xl pb-2 text-3xl w-2/6 m-auto ">
+          <Title size=" lg:py-36 w-full text-center pt-10 leading-relaxed lg:pr-10 lg:text-4xl pb-2 text-3xl lg:w-2/6  m-auto ">
             Datos enviados correctamente
           </Title>
         </motion.div>

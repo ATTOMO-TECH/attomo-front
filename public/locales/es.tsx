@@ -182,6 +182,7 @@ export default {
   formPrivacy: 'Política de Privacidad.',
   formSend: 'Enviar',
   formRent: 'Alquilar',
+  Services: 'Servicios',
 
   whereUs: 'Nuestras oficinas',
   spaceAttomo: [

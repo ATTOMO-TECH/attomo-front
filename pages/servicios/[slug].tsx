@@ -129,7 +129,7 @@ function DetailsServices() {
               </Styles.BlockRenderDetails>
               <Styles.BlockFilter onClick={toggleFilter}>
                 <Title size="lg:text-lg text-lg font-Primary font-light  fixed right-12 top-8">
-                  Servicios
+                  {translate.Services}
                 </Title>
               </Styles.BlockFilter>
               <motion.div

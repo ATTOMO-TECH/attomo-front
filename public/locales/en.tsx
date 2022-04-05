@@ -180,6 +180,7 @@ export default {
   formPrivacy: 'Privacy Policy.',
   formSend: 'Send',
   formRent: 'Rent',
+  Services: 'Services',
   whereUs: 'Where to find us',
   spaceAttomo: [
     {
