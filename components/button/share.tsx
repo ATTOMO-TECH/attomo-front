@@ -38,7 +38,7 @@ export default function ShareNav({ title, isOpen, toggle }: Props) {
                 href="https://www.linkedin.com/company/attomo-digital/"
                 rel="noreferrer">
                 <img
-                  src="/icon/Linkedin.svg"
+                  src="/icon/linkedin.svg"
                   width={25}
                   height={25}
                   alt="Linkedin"
@@ -54,7 +54,7 @@ export default function ShareNav({ title, isOpen, toggle }: Props) {
                 href="https://www.tiktok.com/@attomo.digital/"
                 rel="noreferrer">
                 <img
-                  src="/icon/TikTok.svg"
+                  src="/icon/tiktok.svg"
                   width={25}
                   height={25}
                   alt="TikTok"
