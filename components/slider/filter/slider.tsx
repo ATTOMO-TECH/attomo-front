@@ -6,10 +6,11 @@ import RenderLoading from '../../loading/loading';
 
 interface Props {
   setTopic: (value: any) => void;
+  initialValue?: any;
 }
 
-export default function FilterScroll({ setTopic }: Props) {
-  const [value, setValue] = useState();
+export default function FilterScroll({ setTopic, initialValue = '' }: Props) {
+  const [value, setValue] = useState(initialValue);
   let { locale } = router;
   if (locale === '/') {
     locale = 'es';

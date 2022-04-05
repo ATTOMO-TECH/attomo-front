@@ -13,19 +13,27 @@ interface Props {
   setTopic: any;
   setSearch: any;
   locale: any;
+  startDateModal: any;
+  endDateModal: any;
+  topicModal: any;
+  searchModal: any;
 }
 
 export default function ModulelFilterResponsive({
   setDate,
   setTopic,
   setSearch,
+  startDateModal,
+  endDateModal,
+  topicModal,
+  searchModal,
   locale,
 }: Props) {
   const { data: Subservice, isLoading } = useUseAllSubServices(locale || 'es');
   const { data: Discipline, isLoading: isLoadingDiscipline } =
     useUseDisciplines(locale || 'es');
-  const [selectedTopic, setSelectedTopic] = useState('');
-  const [selectedDiscipline, setSelectedDiscipline] = useState('');
+  const [selectedTopic, setSelectedTopic] = useState(topicModal);
+  const [selectedDiscipline, setSelectedDiscipline] = useState(searchModal);
 
   if (isLoading || isLoadingDiscipline) {
     return (
@@ -92,7 +100,10 @@ export default function ModulelFilterResponsive({
           <Subtext size=" text-xs font-Primary text-left font-light">
             Fecha
           </Subtext>
-          <CalendarPickerRangeInput setDate={setDate} />
+          <CalendarPickerRangeInput
+            setDate={setDate}
+            dateRangeProp={[startDateModal, endDateModal]}
+          />
         </Filter.BlockItemMobile>
       </Filter.SectionMobile>
     </>

@@ -6,15 +6,28 @@ interface Props {
   setDate: any;
   setTopic: any;
   setSearch: any;
+  startDateModal: any;
+  endDateModal: any;
+  topicModal: any;
+  searchModal: any;
 }
 
-export default function ModulelFilter({ setDate, setTopic, setSearch }: Props) {
+export default function ModulelFilter({
+  setDate,
+  setTopic,
+  setSearch,
+  startDateModal,
+  endDateModal,
+  topicModal,
+  searchModal,
+}: Props) {
   return (
     <>
       <Filter.AlingBlock>
         <Filter.InputSearch
           type="text"
           placeholder="Buscar"
+          value={searchModal}
           onChange={(e: any) => {
             setSearch(e.target.value);
           }}
@@ -24,7 +37,7 @@ export default function ModulelFilter({ setDate, setTopic, setSearch }: Props) {
             <Filter.ValueFilter>Tématica</Filter.ValueFilter>
           </Filter.TextItemFilter>
           <Filter.SecondItem>
-            <FilterScroll setTopic={setTopic} />
+            <FilterScroll setTopic={setTopic} initialValue={topicModal} />
           </Filter.SecondItem>
         </Filter.FirtsItemFilter>
         <Filter.BlockSecondFilter>
@@ -32,7 +45,10 @@ export default function ModulelFilter({ setDate, setTopic, setSearch }: Props) {
             <Filter.ValueFilter>Fecha</Filter.ValueFilter>
           </Filter.TextItemFilter>
           <Filter.SecondItem>
-            <CalendarPicker setDate={setDate} />
+            <CalendarPicker
+              setDate={setDate}
+              dateRangeProp={[startDateModal, endDateModal]}
+            />
           </Filter.SecondItem>
         </Filter.BlockSecondFilter>
       </Filter.AlingBlock>

@@ -151,7 +151,7 @@ function Home() {
             <CompaniesScroll />
           </Styles.BlockSlider>
           <SectionProjects
-            Array={data?.data}
+            data={data?.data}
             shouldShowActions={shouldShowActions}
             servicesAnimations={servicesAnimations}
           />

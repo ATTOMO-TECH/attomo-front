@@ -110,7 +110,9 @@ function Cases() {
       filters = {
         ...filters,
         disciplines: {
-          $containsi: search,
+          name: {
+            $containsi: search,
+          },
         },
       };
     }
@@ -124,28 +126,30 @@ function Cases() {
   const queryQs = qs.stringify(queryObject, {
     encodeValuesOnly: true,
   });
-  const handleReset = () => {
-    setStartDate('');
-    setEndDate('');
-    setTopic('');
-    setSearch('');
-    queryClient.refetchQueries(['useAllCases']);
-  };
-
   const { data, isLoading } = useUseAllCases(locale || 'es', queryQs);
-  const [preData, setPredata] = useState<any>();
+
+  const [isLoadingFirst, setIsLoading] = useState<boolean>(true);
   useEffect(() => {
     if (data) {
-      setPredata(data);
+      setIsLoading(false);
     }
   }, [data]);
-  if (isLoading) {
+
+  if (isLoadingFirst) {
     return (
       <>
         <RenderLoading mode={false} />
       </>
     );
   }
+  const handleChangeReset = () => {
+    setTopic('');
+    setSearch('');
+    setStartDate(null);
+    setEndDate(null);
+    queryClient.refetchQueries(['useAllCases']);
+  };
+  const change: boolean = !!startDate || !!endDate || !!topic || !!search;
 
   return (
     <>
@@ -154,14 +158,20 @@ function Cases() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <BgComponent />
-      <ModalFilter
-        isOpenFilter={isOpenFilter}
-        toggle={toggleFilter}
-        setDate={handleDate}
-        setTopic={handleTopic}
-        setSearch={setSearch}
-        locale={locale}
-      />
+      {isOpenFilter && (
+        <ModalFilter
+          isOpenFilter={isOpenFilter}
+          toggle={toggleFilter}
+          setDate={handleDate}
+          setTopic={handleTopic}
+          setSearch={setSearch}
+          startDate={startDate}
+          endDate={endDate}
+          topic={topic}
+          search={search}
+          locale={locale}
+        />
+      )}
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         {!isOpenFilter && <Menu isOpen={isOpen} toggle={toggle} logo mode />}
         <Styles.Margin>
@@ -171,12 +181,14 @@ function Cases() {
         </Styles.Margin>
         {!isOpenFilter && <ButtonShare />}
         <HeroCase
+          OpenMenu={isOpen}
           toggle={toggleFilter}
           date={startDate}
           endDate={endDate}
           topic={topic}
           isOpen={isOpenFilter}
           scroll={scroll}
+          handleChangeReset={handleChangeReset}
         />
         {!scroll ? (
           <motion.div
@@ -235,11 +247,11 @@ function Cases() {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 transition={{ duration: 1, ease: 'easeInOut' }}
-                onClick={handleReset}>
+                onClick={handleChangeReset}>
                 <motion.path
                   d="M18 6L6 18"
                   stroke="white"
-                  stroke-width="2"
+                  stroke-width={change ? '2' : 0}
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   initial={{ pathLength: 0 }}
@@ -253,7 +265,7 @@ function Cases() {
                 <motion.path
                   d="M6 6L18 18"
                   stroke="white"
-                  stroke-width="2"
+                  stroke-width={change ? '2' : 0}
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   initial={{ pathLength: 0 }}
@@ -271,11 +283,15 @@ function Cases() {
           <></>
         )}
         <Styles.BlockSections>
-          <SectionProjects
-            Array={preData?.data}
-            shouldShowActions={undefined}
-            servicesAnimations={undefined}
-          />
+          {!isLoading ? (
+            <SectionProjects
+              data={data?.data}
+              shouldShowActions={undefined}
+              servicesAnimations={undefined}
+            />
+          ) : (
+            <RenderLoading mode={false} />
+          )}
         </Styles.BlockSections>
         <motion.div
           animate={shouldShowActions}

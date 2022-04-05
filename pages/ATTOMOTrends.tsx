@@ -30,7 +30,6 @@ function News() {
   if (locale === '/') {
     locale = 'es';
   }
-  const [change, setChange] = useState(false);
   const [shouldShowActions] = useState(false);
   const translate = getLocale();
   const [page, setPage] = useState(1);
@@ -53,7 +52,6 @@ function News() {
 
   const onChangeTopic = (e: any) => {
     setFilter(e.value);
-    setChange(true);
   };
   const handleAddBlog = (value: number) => {
     setPage(value);
@@ -155,8 +153,9 @@ function News() {
     setFilter('');
     setStartDateFilter(null);
     setEndDateFilter(null);
-    setChange(false);
   };
+  const change: boolean = !!startDate || !!endDate || !!filter;
+
   return (
     <>
       <Head>

@@ -82,7 +82,7 @@ export default function SelectFilterMenu({
         styles={customStyles(selected)}
         onChange={onChange}
         value={displayItem(selected)}
-        className="outline-none font-PrimarySerif font-thin text-gray-300 h-full w-full py-2 trend text-sm bg-none "
+        className="outline-none font-PrimarySerif font-thin text-gray-300 h-full w-full py-2  text-sm bg-none text-left"
         placeholder="Selecciona una opción"
         defaultValue={{ value: '30M', label: '30 min' }}
       />

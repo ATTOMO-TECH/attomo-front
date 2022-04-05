@@ -4,10 +4,11 @@ import { useState } from 'react';
 
 interface Props {
   setDate: (value: any) => void;
+  dateRangeProp?: any;
 }
 
-export default function CalendarPicker({ setDate }: Props) {
-  const [dateRange, setDateRange] = useState([]);
+export default function CalendarPicker({ setDate, dateRangeProp = [] }: Props) {
+  const [dateRange, setDateRange] = useState(dateRangeProp);
   const [startDate, endDate] = dateRange;
 
   return (

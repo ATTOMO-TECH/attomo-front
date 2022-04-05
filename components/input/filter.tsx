@@ -31,7 +31,7 @@ export default function Filter({ toggle, date, endDate, topic }: Props) {
               {topic === '' || topic === undefined ? 'Estrategia' : topic}
             </Styles.FirtsItem>
             <Styles.DateItem>
-              {date === undefined ? (
+              {date === undefined || date === null ? (
                 <Styles.ValueDate>Selecciona fecha</Styles.ValueDate>
               ) : (
                 <>
