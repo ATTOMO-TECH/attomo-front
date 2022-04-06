@@ -294,17 +294,23 @@ export const CircleInter = styled.div`
   transform: rotate(70deg);
 `;
 export const AlingBlock = styled.div`
-  bottom: 10%;
-
-  @media screen and (max-width: 350px) {
-    bottom: -2%;
+  bottom: -0.5em;
+  position: absolute;
+  @media screen and (min-width: 350px) {
+    bottom: 4.2em;
+    position: absolute;
   }
-
+  @media screen and (min-width: 428px) {
+    bottom: 5em;
+  }
   @media screen and (min-width: 468px) {
-    bottom: -8%;
+    bottom: 4.5em;
+  }
+  @media screen and (min-width: 550px) {
+    bottom: 2.5em;
   }
   @media screen and (min-width: 768px) {
-    bottom: -3%;
+    bottom: 2%;
   }
   @media screen and (min-width: 1024px) {
     bottom: 18%;
@@ -315,7 +321,7 @@ export const CircleBgSmall = styled.div`
 `;
 
 export const Styles = {
-  SectionCollapse: tw.section`h-screen w-full relative z-80 lg:h-auto font-PrimarySerif flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative md:my-24 mb-24  font-light leading-loose`,
+  SectionCollapse: tw.section`h-screen w-full relative z-80 lg:h-auto font-PrimarySerif flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative md:my-24 mb-24  font-light leading-loose relative`,
   BlockDescription: tw(
     AlingBlock,
   )`lg:text-right text-xl absolute h-auto lg:-right-4  w-full text-center z-10`,
