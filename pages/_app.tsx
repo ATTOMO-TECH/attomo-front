@@ -20,6 +20,10 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
         href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&family=Merriweather+Sans:wght@300;500;600;700;800&family=Merriweather:wght@300;400;700;900&display=swap"
         rel="stylesheet"
       />
+      <script
+        data-who="💎 Made with naker.io 💎"
+        src="https://d23jutsnau9x47.cloudfront.net/back/v1.0.9/viewer.js"
+      />
     </Head>
     <AuthProvider>
       <QueryClientProvider client={queryClient}>
