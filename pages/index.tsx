@@ -20,9 +20,9 @@ import { useUseAllCases } from '../domain/useCasesDetails';
 import ButtonShare from '../components/button/BtnShare';
 import RenderLoading from '../components/loading/loading';
 import { servicesAnimations } from '../components/animations/animations';
-import BgComponent from '../components/animations/bg';
 import { useUseAllQuote } from '../domain/useQuotes';
 import { getLocale } from '../public/locales/getLocale';
+import Background from '../components/animations/background';
 
 function Home() {
   const router = useRouter();
@@ -88,15 +88,14 @@ function Home() {
         <title>Attomo Digital - Consultoría tecnológica</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <Script
-          strategy="beforeInteractive"
           data-who="💎 Made with naker.io 💎"
           src="https://d23jutsnau9x47.cloudfront.net/back/v1.0.9/viewer.js"
           data-option="{|environment|:{|gradient|:|horizontal|,|sensitivity|:0.8,|colorStart|:[50,22,103,1],|colorEnd|:[20,86,205,1]},|particle|:{|life|:5,|power|:0.01,|texture|:|https://res.cloudinary.com/naker-io/image/upload/v1566560053/circle_05.png|,|number|:20,|colorStart|:[116,129,92,0.13],|colorEnd|:[198,188,107,0.52],|sizeStart|:1.57,|sizeEnd|:3.14,|direction1|:{|x|:0,|y|:100,|z|:100},|direction2|:{|x|:0,|y|:0,|z|:0}}}"
           data-container="bg"
         />
       </Head>
-      <BgComponent />
 
+      <Background />
       <AnimateSharedLayout>
         <Styles.Body
           mode={isOpen ? BUTTON_ACTIVE.ON : ''}

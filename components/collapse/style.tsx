@@ -35,34 +35,32 @@ export const SubSection = styled.div`
 background-color:#0F0B11; 
 
 @media screen and (min-width: 1024px) {
-
-   {
     &:nth-child(1) {
-      padding:3px;
-      margin-right: 73%;
+      padding:20% 0% 2% 0%;
+      margin-left: -5%;
     
     }
     &:nth-child(2) {
-      padding:3px;
-      margin-right: 72%;
+       padding:2% 0% 2% 0%;
+      margin-left: 0%;
     }
     &:nth-child(3) {
-      padding:3px;
-      margin-right: 71%;
+      padding:2% 0% 2% 0%;
+      margin-left: 5%;
     }
     &:nth-child(4) {
-      padding:3px;
-      margin-right: 70%;
+      padding:2% 0% 2% 0%;
+      margin-left: 10%;
     }
     &:nth-child(5) {
-      padding:3px;
-      margin-right: 69%;
+      padding:2% 0% 2% 0%;
+      margin-left: 15%;
     }
     &:nth-child(6) {
-      padding:3px;
-      margin-right: 68%;
+      padding:2% 0% 30% 0%;
+      margin-left: 20%;
     }
-  }
+  
 `;
 // ATTOMO MOVE
 export const Item = styled.div<Props>`
@@ -294,26 +292,23 @@ export const CircleInter = styled.div`
   transform: rotate(70deg);
 `;
 export const AlingBlock = styled.div`
-  bottom: -0.5em;
-  position: absolute;
-  @media screen and (min-width: 350px) {
-    bottom: 4.2em;
-    position: absolute;
-  }
-  @media screen and (min-width: 428px) {
-    bottom: 5em;
-  }
-  @media screen and (min-width: 468px) {
-    bottom: 4.5em;
-  }
-  @media screen and (min-width: 550px) {
-    bottom: 2.5em;
-  }
-  @media screen and (min-width: 768px) {
-    bottom: 2%;
-  }
+  // bottom: -44%;
+  // @media screen and (min-width: 350px) {
+  //   bottom: -37%;
+  // }
+  // @media screen and (min-width: 428px) {
+  //   bottom: -27%;
+  // }
+  // @media screen and (min-width: 468px) {
+  //   bottom: -27%;
+  // }
+  // @media screen and (min-width: 550px) {
+  //   bottom: -23%;
+  // }
+
   @media screen and (min-width: 1024px) {
-    bottom: 18%;
+    bottom: 10%;
+    left: -29%;
   }
 `;
 export const CircleBgSmall = styled.div`
@@ -321,15 +316,17 @@ export const CircleBgSmall = styled.div`
 `;
 
 export const Styles = {
-  SectionCollapse: tw.section`h-screen w-full relative z-80 lg:h-auto font-PrimarySerif flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative md:my-24 mb-24  font-light leading-loose relative`,
+  SectionCollapse: tw.section`h-screen w-full relative z-80  lg:h-auto font-PrimarySerif flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative md:my-24 mb-24  font-light leading-loose relative`,
   BlockDescription: tw(
     AlingBlock,
-  )`lg:text-right text-xl absolute h-auto lg:-right-4  w-full text-center z-10`,
-  SubSection: tw(SubSection)`font-light text-base cursor-pointer z-80`,
+  )`lg:text-right text-xl  lg:h-64 lg:w-48 flex justify-center  w-full text-center  z-10 m-auto absolute -bottom-28`,
+  SubSection: tw(
+    SubSection,
+  )`font-light text-base cursor-pointer z-80 w-full font-light font-Secundary relative `,
   BlockImg: tw.div`relative flex justify-center items-center m-0.5 `,
   SectionAtom: tw(
     Item,
-  )` transition ease-in-out delay-150  flex justify-center items-center`,
+  )` transition ease-in-out delay-150  flex justify-center lg:justify-start items-center`,
   CircleBg: tw(
     CircleBgSmall,
   )`flex items-center justify-center  m-1  rounded-full`,
