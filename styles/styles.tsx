@@ -157,6 +157,7 @@ export const SectionColor = styled.div`
 export const Select = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
+  background: none;
 `;
 export const subText = styled.h5`
   font-family: 'Merriweather';
@@ -207,7 +208,7 @@ export const Styles = {
 
   // FilterAT
   SectionFilter: tw.div`w-full lg:w-2/12 `,
-  SelectFilter: tw.div`w-8/12 lg:w-2/12 mr-12 `,
+  SelectFilter: tw.div`w-8/12 lg:w-2/12  `,
   SelectFilterNM: tw.div`w-8/12 lg:w-2/12  `,
   BlockUs: tw.div`lg:w-8/12 m-auto flex flex-wrap lg:pt-24`,
   Screen: tw.div`h-screen mb-48 justify-between`,
@@ -233,7 +234,7 @@ export const Styles = {
   BlockAddresMap: tw.div`lg:my-12 my-12  lg:w-4/6  m-auto overflow-hidden`,
   Select: tw(
     Select,
-  )`bg-backCollaplse text-gray-300 outline-none text-sm py-5 font-PrimarySerif font-light lg:ml-5 outline-none font-PrimarySerif font-thin text-gray-300 borderInput w-1/6 trend text-sm opacity-50 hover:opacity-90 transition ease-in-out duration-300`,
+  )`bg-none text-gray-300 outline-none text-sm py-5 font-PrimarySerif font-light lg:ml-5 outline-none font-PrimarySerif font-thin text-gray-300 borderInput w-1/6 trend text-sm opacity-50 hover:opacity-90 transition ease-in-out duration-300`,
   BlockDiv: tw.div`flex flex-col w-full `,
   BtnSelect: tw(
     BtnSelect,

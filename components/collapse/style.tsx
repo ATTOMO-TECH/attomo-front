@@ -32,7 +32,8 @@ export const SectionTitle = styled.div`
 `;
 // SUBTEXT
 export const SubSection = styled.div`
-background-color:#0F0B11; 
+// background-color:#0F0B11; 
+
 
 @media screen and (min-width: 1024px) {
     &:nth-child(1) {
@@ -68,6 +69,13 @@ export const Item = styled.div<Props>`
   transition-duration: 0.4s;
   transition-property: transform;
   position: relative;
+  // &:after {
+  //   position: absolute;
+  //   content:  url('/icon/elips.svg');
+  //   transform: scale(1) rotate(180deg);
+  //   bottom: -2%;
+  //   right: 70%;
+  // }
   &:before {
     content: url('/icon/elips.svg');
     position: absolute;
@@ -257,7 +265,16 @@ export const Circle = styled.div`
   &:before {
     content: '';
     border: 2px solid rgba(255, 255, 255, 0.2);
+    border-left: 2px solid transparent;
     width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 100%;
+    transform: rotate(-20deg);
+  }
+  &:after {
+    content: '';
+    border-left: 2px solid transparent;
     height: 100%;
     position: absolute;
     border-radius: 100%;
@@ -330,6 +347,7 @@ export const CircleBgSmall = styled.div`
     height: 500px;
   }
   background-color: #0f0b11;
+  filter: blur(6em);
 `;
 
 export const Styles = {
