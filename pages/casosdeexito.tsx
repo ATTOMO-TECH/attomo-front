@@ -5,7 +5,7 @@ import Head from 'next/head';
 import { format } from 'date-fns';
 import { motion } from 'framer-motion';
 import { useQueryClient } from 'react-query';
-import BgComponent from '../components/animations/bg';
+import Background from '../components/animations/background';
 import BlockSection from '../components/block/block';
 import ButtonShare from '../components/button/BtnShare';
 import ModalFilter from '../components/filter/filter';
@@ -157,7 +157,7 @@ function Cases() {
         <title>Casos de éxito ATTOMO - Clientes</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <BgComponent />
+      <Background />
       {isOpenFilter && (
         <ModalFilter
           isOpenFilter={isOpenFilter}

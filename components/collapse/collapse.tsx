@@ -78,15 +78,7 @@ export default function Collapse() {
             </motion.div>
           </Styles.BlockDescription>
           <Styles.SectionAtom ismode={idx}>
-            <Styles.CircleBg>
-              <img
-                src="/icon/Ellipse.svg"
-                width={500}
-                height={500}
-                alt="Elipse"
-                className="opacity-0 overflow-hidden z-0 relative"
-              />
-            </Styles.CircleBg>
+            <Styles.CircleBg />
           </Styles.SectionAtom>
           <Styles.Circle>
             <Styles.BlockTextCenter>

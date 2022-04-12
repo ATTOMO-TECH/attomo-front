@@ -1,22 +1,20 @@
-import Link from 'next/link';
+import { useRouter } from 'next/dist/client/router';
 import { Button } from './style';
 
 interface Props {
   children: string;
-  link: string;
 }
 
-export default function Back({ children, link }: Props) {
+export default function Back({ children }: Props) {
+  const router = useRouter();
   return (
     <>
-      <Link href={link}>
-        <Button.SectionBack>
-          <Button.BlockBack>
-            <img src="/icon/arrowBack.svg" width={30} height={20} alt="back" />
-            <Button.TextBack>{children}</Button.TextBack>
-          </Button.BlockBack>
-        </Button.SectionBack>
-      </Link>
+      <Button.SectionBack onClick={() => router.back()}>
+        <Button.BlockBack>
+          <img src="/icon/arrowBack.svg" width={30} height={20} alt="back" />
+          <Button.TextBack>{children}</Button.TextBack>
+        </Button.BlockBack>
+      </Button.SectionBack>
     </>
   );
 }

@@ -7,7 +7,7 @@ import {
   servicesAnimations,
   stagger,
 } from '../../components/animations/animations';
-import BgComponent from '../../components/animations/bg';
+import Background from '../../components/animations/background';
 import BlockSection from '../../components/block/block';
 import ButtonShare from '../../components/button/BtnShare';
 import FilterDetails from '../../components/filter/filterDetails';
@@ -81,7 +81,7 @@ function DetailsServices() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="icon" href="/FaviconLight.svg" type="image/x-icon" />
       </Head>
-      <BgComponent />
+      <Background />
       <motion.div
         initial="initial"
         animate="animate"

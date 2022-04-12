@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Styles } from './styles';
 
 declare global {
@@ -61,8 +60,8 @@ const stripeLoad = () => {
   }
 };
 export default function Background() {
-  useEffect(() => {
-    stripeLoad();
-  }, []);
+  stripeLoad();
+  // useEffect(() => {
+  // }, []);
   return <Styles.Bg id="back-container" />;
 }

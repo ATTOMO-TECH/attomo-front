@@ -1,9 +1,8 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import gfm from 'remark-gfm';
-import BgComponent from '../components/animations/bg';
+import Background from '../components/animations/background';
 import IconAnimate from '../components/button/icon';
 import Footer from '../components/footer/footer';
 import RenderLoading from '../components/loading/loading';
@@ -39,7 +38,7 @@ function Conditions() {
       <Head>
         <title>ATTOMO - Terminos y condicciones </title>
       </Head>
-      <BgComponent />
+      <Background />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
@@ -47,11 +46,9 @@ function Conditions() {
         </Styles.Margin>
         <Styles.Center>
           <Styles.BlockButtonLegal>
-            <Link href="../">
-              <Styles.BlockBack>
-                <IconAnimate text="Volver" mode />
-              </Styles.BlockBack>
-            </Link>
+            <Styles.BlockBack onClick={() => router.back()}>
+              <IconAnimate text={translate.back} mode />
+            </Styles.BlockBack>
           </Styles.BlockButtonLegal>
           <Styles.SectionTextLegal>
             <Title size="text-3xl lg:text-5xl mb-12 ">{translate.terms}</Title>
