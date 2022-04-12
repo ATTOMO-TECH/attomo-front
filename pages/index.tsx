@@ -3,7 +3,6 @@ import { motion, AnimateSharedLayout } from 'framer-motion';
 import * as qs from 'qs';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import Script from 'next/script';
 import BlockSection from '../components/block/block';
 import Footer from '../components/footer/footer';
 import Hero from '../components/hero/hero';
@@ -87,12 +86,6 @@ function Home() {
       <Head>
         <title>Attomo Digital - Consultoría tecnológica</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <Script
-          data-who="💎 Made with naker.io 💎"
-          src="https://d23jutsnau9x47.cloudfront.net/back/v1.0.9/viewer.js"
-          data-option="{|environment|:{|gradient|:|horizontal|,|sensitivity|:0.8,|colorStart|:[50,22,103,1],|colorEnd|:[20,86,205,1]},|particle|:{|life|:5,|power|:0.01,|texture|:|https://res.cloudinary.com/naker-io/image/upload/v1566560053/circle_05.png|,|number|:20,|colorStart|:[116,129,92,0.13],|colorEnd|:[198,188,107,0.52],|sizeStart|:1.57,|sizeEnd|:3.14,|direction1|:{|x|:0,|y|:100,|z|:100},|direction2|:{|x|:0,|y|:0,|z|:0}}}"
-          data-container="bg"
-        />
       </Head>
 
       <Background />
