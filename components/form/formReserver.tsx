@@ -95,28 +95,8 @@ export default function FormReserver() {
                 <Styles.Form onSubmit={handleSubmit}>
                   <Styles.SectionInputs>
                     <Styles.BlockInput>
-                      <Styles.MessageError>
-                        <CalendarPickerInput
-                          handleValue={(e: any) => {
-                            setFieldValue(FORMVALUES.DATE, e);
-                          }}
-                        />
-                      </Styles.MessageError>
-                    </Styles.BlockInput>
-                    <Styles.BlockInput>
-                      <InputSelect
-                        selected={selected}
-                        options={OPTIONDISPONIBILITY}
-                        valueLabel={translate.formTime}
-                        name={FORMVALUES.TIME}
-                        onChange={onChange}
-                      />
-                    </Styles.BlockInput>
-                  </Styles.SectionInputs>
-                  <Styles.BlockInputsCenter>
-                    <Styles.BlockInput>
                       <Styles.Input
-                        ismode={BUTTON_ACTIVE.OFF}
+                        ismode={BUTTON_ACTIVE.ON}
                         placeholder={translate.formName}
                         type="text"
                         name={FORMVALUES.FIRSTNAME}
@@ -132,7 +112,7 @@ export default function FormReserver() {
                     </Styles.BlockInput>
                     <Styles.BlockInput>
                       <Styles.Input
-                        ismode={BUTTON_ACTIVE.ON}
+                        ismode={BUTTON_ACTIVE.OFF}
                         placeholder={translate.formLastName}
                         type="text"
                         name={FORMVALUES.LASTNAME}
@@ -146,11 +126,29 @@ export default function FormReserver() {
                         <Styles.Error>{errors.lastname}</Styles.Error>
                       )}
                     </Styles.BlockInput>
+                  </Styles.SectionInputs>
+                  <Styles.BlockInputsCenter>
+                    <Styles.BlockInput>
+                      <CalendarPickerInput
+                        handleValue={(e: any) => {
+                          setFieldValue(FORMVALUES.DATE, e);
+                        }}
+                      />
+                    </Styles.BlockInput>
+                    <Styles.BlockInput>
+                      <InputSelect
+                        selected={selected}
+                        options={OPTIONDISPONIBILITY}
+                        valueLabel={translate.formTime}
+                        name={FORMVALUES.TIME}
+                        onChange={onChange}
+                      />
+                    </Styles.BlockInput>
                   </Styles.BlockInputsCenter>
                   <Styles.BlockInputsCenter>
                     <Styles.BlockInput>
                       <Styles.Input
-                        ismode={BUTTON_ACTIVE.ON}
+                        ismode={BUTTON_ACTIVE.OFF}
                         placeholder={translate.formEmail}
                         type="email"
                         name={FORMVALUES.EMAIL}
@@ -167,7 +165,7 @@ export default function FormReserver() {
 
                     <Styles.BlockInput>
                       <Styles.Input
-                        ismode={BUTTON_ACTIVE.OFF}
+                        ismode={BUTTON_ACTIVE.ON}
                         placeholder={translate.formPhone}
                         type="number"
                         name={FORMVALUES.PHONE}
