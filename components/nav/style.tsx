@@ -7,7 +7,6 @@ type Props = {
   ismode: string;
 };
 export const lightTheme = {
-  bodyBg: '#0F0C11',
   headings: 'white',
 };
 export const darkTheme = {
@@ -188,6 +187,7 @@ export const Navegation = {
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`
+  
 font-Primary cursor-pointer list-none fixed w-full duration-300 ease-in-out  -top-10 h-14 md:h-20 lg:14
 ${(props) =>
   props.ismode === BUTTON_ACTIVE.ON

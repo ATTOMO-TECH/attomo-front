@@ -13,6 +13,7 @@ export default function Footer({ subFooter }: Props) {
   return (
     <>
       <Navegation.SectionFooter>
+        <Navegation.Footer />
         <Navegation.BlockFooter>
           <Navegation.BlockLogo>
             <Navegation.NavFooter>
@@ -53,7 +54,7 @@ export default function Footer({ subFooter }: Props) {
             <InputNew />
           </Navegation.BlockNav>
         </Navegation.BlockFooter>
-        {subFooter ? <SubFooter /> : ''}
+        <div className="relative ">{subFooter ? <SubFooter /> : ''}</div>
         <Navegation.BlockSubText>
           <Link href="/privacidad">
             <Navegation.SubText>{translate.privacy}</Navegation.SubText>
