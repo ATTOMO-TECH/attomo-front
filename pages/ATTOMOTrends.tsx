@@ -5,7 +5,7 @@ import * as qs from 'qs';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { format } from 'date-fns';
-import BgComponent from '../components/animations/bg';
+import Background from '../components/animations/background';
 import BlockSection from '../components/block/block';
 import BlockBlog from '../components/blog/blog';
 import { Blogstyles } from '../components/blog/style';
@@ -163,7 +163,7 @@ function News() {
         <title>#ATTOMOtrends</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <BgComponent />
+      <Background />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>

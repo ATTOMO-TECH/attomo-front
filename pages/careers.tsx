@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Head from 'next/head';
-import BgComponent from '../components/animations/bg';
+import Background from '../components/animations/background';
 import ButtonShare from '../components/button/BtnShare';
 import IconAnimate from '../components/button/icon';
 import Footer from '../components/footer/footer';
@@ -56,7 +56,7 @@ function Carrers() {
         <title>Careers ATTOMO: Trabaja con nosotros</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <BgComponent />
+      <Background />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>

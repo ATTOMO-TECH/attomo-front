@@ -220,4 +220,6 @@ export default {
   followFooter: 'FOLLOW US',
   privacy: 'Privacy policy',
   rightReserve: 'All rights reserved',
+  back: 'Back',
+  backToNews: 'Back to news',
 };

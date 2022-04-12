@@ -35,56 +35,55 @@ export const SubSection = styled.div`
 background-color:#0F0B11; 
 
 @media screen and (min-width: 1024px) {
-
-   {
     &:nth-child(1) {
-      padding:3px;
-      margin-right: 73%;
+      padding:20% 0% 2% 0%;
+      margin-left: -5%;
     
     }
     &:nth-child(2) {
-      padding:3px;
-      margin-right: 72%;
+       padding:2% 0% 2% 0%;
+      margin-left: 0%;
     }
     &:nth-child(3) {
-      padding:3px;
-      margin-right: 71%;
+      padding:2% 0% 2% 0%;
+      margin-left: 5%;
     }
     &:nth-child(4) {
-      padding:3px;
-      margin-right: 70%;
+      padding:2% 0% 2% 0%;
+      margin-left: 10%;
     }
     &:nth-child(5) {
-      padding:3px;
-      margin-right: 69%;
+      padding:2% 0% 2% 0%;
+      margin-left: 15%;
     }
     &:nth-child(6) {
-      padding:3px;
-      margin-right: 68%;
+      padding:2% 0% 30% 0%;
+      margin-left: 20%;
     }
-  }
+  
 `;
 // ATTOMO MOVE
 export const Item = styled.div<Props>`
   border-radius: 100%;
   transition-duration: 0.4s;
   transition-property: transform;
+  position: relative;
   &:before {
     content: url('/icon/elips.svg');
-    position: fixed;
+    position: absolute;
     z-index: 100 !important;
     -webkit-animation-duration: 4000ms;
-    top: -2.3%;
-    left: 43%;
-    transform: scale(0.6) rotate(22deg);
+    top: -3%;
+    left: 40%;
+    transform: scale(0.6) rotate(20deg);
     @media screen and (min-width: 370px) {
-      top: -2.5%;
+      top: -3%;
       left: 42%;
-      transform: scale(0.9) rotate(10deg);
+      transform: scale(0.9) rotate(12deg);
     }
     @media screen and (min-width: 468px) {
       top: -2.5%;
-      left: 42%;
+      left: 40%;
       transform: scale(0.9) rotate(10deg);
     }
     @media screen and (min-width: 640px) {
@@ -102,7 +101,7 @@ export const Item = styled.div<Props>`
     props.ismode === 0
       ? `
   
-      transform:rotate(-65deg);
+      transform:rotate(-60deg);
       @media screen and (min-width: 370px) 
       {      
         &:before {
@@ -145,11 +144,8 @@ export const Item = styled.div<Props>`
   ${(props) =>
     props.ismode === 1
       ? `
-      &:before {
 
-        transform: scale(0.6) rotate(24deg);
-      };
-      transform:rotate(-24deg);
+      transform:rotate(-18deg);
       @media screen and (min-width: 370px) 
       {      
         &:before {
@@ -192,10 +188,7 @@ export const Item = styled.div<Props>`
     ${(props) =>
     props.ismode === 2
       ? `
-      &:before {
 
-        transform: scale(0.6) rotate(24deg);
-      };
       transform:scale(.99) rotate(22deg);
       @media screen and (min-width: 370px) 
       {      
@@ -294,39 +287,66 @@ export const CircleInter = styled.div`
   transform: rotate(70deg);
 `;
 export const AlingBlock = styled.div`
-  bottom: 10%;
-
-  @media screen and (max-width: 350px) {
-    bottom: -2%;
+  bottom: -45%;
+  @media screen and (min-width: 350px) {
+    bottom: -39%;
   }
-
   @media screen and (min-width: 468px) {
-    bottom: -8%;
+    bottom: -28%;
   }
+  @media screen and (min-width: 550px) {
+    bottom: -22%;
+  }
+  @media screen and (min-width: 640px) {
+    bottom: -28%;
+  }
+
   @media screen and (min-width: 768px) {
-    bottom: -3%;
+    bottom: -22%;
   }
+
   @media screen and (min-width: 1024px) {
-    bottom: 18%;
+    bottom: 10%;
+    left: -29%;
   }
 `;
 export const CircleBgSmall = styled.div`
+  width: 16em;
+  height: 16em;
+  @media screen and (min-width: 350px) {
+    width: 18em;
+    height: 18em;
+  }
+  @media screen and (min-width: 468px) {
+    width: 24em;
+    height: 24em;
+  }
+  @media screen and (min-width: 768px) {
+    width: 32em;
+    height: 32em;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 500px;
+    height: 500px;
+  }
   background-color: #0f0b11;
 `;
 
 export const Styles = {
-  SectionCollapse: tw.section`h-screen w-full relative z-80 lg:h-auto font-PrimarySerif flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative md:my-24 mb-24  font-light leading-loose`,
+  SectionCollapse: tw.section`h-screen w-full relative z-80  lg:h-auto font-PrimarySerif flex flex-col-reverse justify-center items-center text-primary m-auto lg:relative md:my-24 mb-24  font-light leading-loose relative`,
   BlockDescription: tw(
     AlingBlock,
-  )`lg:text-right text-xl absolute h-auto lg:-right-4  w-full text-center z-10`,
-  SubSection: tw(SubSection)`font-light text-base cursor-pointer z-80`,
+  )`lg:text-right text-xl  lg:h-64 lg:w-48 flex justify-center  w-full text-center  z-10 m-auto absolute`,
+  SubSection: tw(
+    SubSection,
+  )`font-light text-base cursor-pointer z-80 w-full font-light font-Secundary relative `,
   BlockImg: tw.div`relative flex justify-center items-center m-0.5 `,
   SectionAtom: tw(
     Item,
-  )` transition ease-in-out delay-150  flex justify-center items-center`,
+  )` transition ease-in-out delay-150  flex justify-center lg:justify-start items-center`,
   CircleBg: tw(
     CircleBgSmall,
-  )`flex items-center justify-center  m-1  rounded-full`,
+  )`flex items-center justify-center  m-1  rounded-full  `,
   BlockAtom: tw.div`absolute `,
 
   BlockTextSelect: tw(

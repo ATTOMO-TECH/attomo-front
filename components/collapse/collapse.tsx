@@ -57,36 +57,28 @@ export default function Collapse() {
   return (
     <>
       <Styles.SectionCollapse>
-        <Styles.BlockDescription>
-          <motion.div variants={variants} initial="hidden" animate="show">
-            {data.data[idx].attributes.subservices.data.map((tab: any) => (
-              <Link
-                href={`/servicios/${tab.attributes.name
-                  .replaceAll(' ', '_')
-                  .toLowerCase()}`}
-                key={`${tab.attributes.name}-services`}>
-                <Styles.SubSection>
-                  <motion.p
-                    variants={item}
-                    className="font-light font-Secundary">
-                    {tab.attributes.name}
-                  </motion.p>
-                </Styles.SubSection>
-              </Link>
-            ))}
-          </motion.div>
-        </Styles.BlockDescription>
         <Styles.BlockImg>
+          <Styles.BlockDescription>
+            <motion.div
+              variants={variants}
+              initial="hidden"
+              animate="show"
+              className="w-auto">
+              {data.data[idx].attributes.subservices.data.map((tab: any) => (
+                <Link
+                  href={`/servicios/${tab.attributes.name
+                    .replaceAll(' ', '_')
+                    .toLowerCase()}`}
+                  key={`${tab.attributes.name}-services`}>
+                  <Styles.SubSection>
+                    <motion.p variants={item}>{tab.attributes.name}</motion.p>
+                  </Styles.SubSection>
+                </Link>
+              ))}
+            </motion.div>
+          </Styles.BlockDescription>
           <Styles.SectionAtom ismode={idx}>
-            <Styles.CircleBg>
-              <img
-                src="/icon/Ellipse.svg"
-                width={500}
-                height={500}
-                alt="Elipse"
-                className="opacity-0 overflow-hidden z-0 relative"
-              />
-            </Styles.CircleBg>
+            <Styles.CircleBg />
           </Styles.SectionAtom>
           <Styles.Circle>
             <Styles.BlockTextCenter>

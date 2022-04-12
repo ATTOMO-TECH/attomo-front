@@ -15,7 +15,7 @@ import SelectedClients from '../components/section/selectedclientes';
 import FormReserver from '../components/form/formReserver';
 import ButtonShare from '../components/button/BtnShare';
 import MapsBlock from '../components/maps/maps';
-import BgComponent from '../components/animations/bg';
+import Background from '../components/animations/background';
 import { getLocale } from '../public/locales/getLocale';
 import { servicesAnimations } from '../components/animations/animations';
 import { BGSPACE } from '../const/constGlobal';
@@ -42,7 +42,7 @@ function Space() {
         <title>Espacio ATTOMO - Alquila nuestro espacio</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <BgComponent />
+      <Background />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>

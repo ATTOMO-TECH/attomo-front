@@ -223,4 +223,6 @@ export default {
   followFooter: 'SÍGUENOS',
   privacy: 'Política de privacidad',
   rightReserve: 'Todos los derechos reservados',
+  back: 'Volver',
+  backToNews: 'Volver a noticias',
 };

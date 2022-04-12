@@ -73,6 +73,7 @@ export default function FormColaborator() {
       setArea(removeArea);
     }
   };
+
   const { mutate } = createContactColaborator();
   const handleSubmitContact = (values: any, action: any) => {
     const data = {
@@ -84,7 +85,7 @@ export default function FormColaborator() {
       [FORMVALUES.MESSAGE]: values.message,
       [FORMVALUES.LINK]: values.portfolio,
       [FORMVALUES.PARTOF]: values.teamOrPartner,
-      [FORMVALUES.SPECIALITY]: { relations: [area] },
+      [FORMVALUES.SPECIALITY]: area,
       [FORMVALUES.CONDITIONS]: values.conditionsAccepted,
     };
 
@@ -141,7 +142,7 @@ export default function FormColaborator() {
                         text={valuesCheck.attributes.area}
                         value={valuesCheck.attributes.area}
                         onChange={() => {
-                          addArea(valuesCheck.attributes.area);
+                          addArea(valuesCheck.id);
                         }}
                       />
                     </Styles.AlingSelectSecond>

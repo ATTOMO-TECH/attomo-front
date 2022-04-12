@@ -10,7 +10,7 @@ import { BUTTON_ACTIVE } from '../const/const';
 import { Styles } from '../styles/styles';
 import ButtonShare from '../components/button/BtnShare';
 import MapsBlock from '../components/maps/maps';
-import BgComponent from '../components/animations/bg';
+import Background from '../components/animations/background';
 import { getLocale } from '../public/locales/getLocale';
 
 function Contact() {
@@ -26,7 +26,7 @@ function Contact() {
         <title>Contacto - ATTOMO DIGITAL</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <BgComponent />
+      <Background />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>

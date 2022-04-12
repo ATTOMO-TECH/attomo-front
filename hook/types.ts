@@ -8,7 +8,7 @@ export const FORMVALUES = {
   CONDITIONS: 'conditionsAccepted',
   PARTOF: 'teamOrPartner',
   LINK: 'portfolio',
-  SPECIALITY: 'speciality',
+  SPECIALITY: 'areas',
   DATE: 'date',
   TIME: 'numberOfHours',
 };

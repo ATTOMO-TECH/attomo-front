@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useState } from 'react';
-import BgComponent from '../components/animations/bg';
+import Background from '../components/animations/background';
 import BlockSection from '../components/block/block';
 import ButtonShare from '../components/button/BtnShare';
 import Footer from '../components/footer/footer';
@@ -27,7 +27,7 @@ function Us() {
         <title>About us - ATTOMO DIGITAL</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <BgComponent />
+      <Background />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>

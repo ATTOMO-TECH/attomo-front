@@ -55,7 +55,7 @@ function New({ mode }: Props) {
         <Styles.Margin>
           <Nav toggle={toggle} logo mode={false} bgFull isOpen={isOpen} />
         </Styles.Margin>
-        <Back link="/ATTOMOTrends">Volver a noticias</Back>
+        <Back>{translate.backToNews}</Back>
         <Styles.Center>
           <Styles.AlingCasesNoP>
             <HeaderCases
