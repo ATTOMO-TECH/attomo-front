@@ -345,9 +345,9 @@ export const CircleBgSmall = styled.div`
   @media screen and (min-width: 1024px) {
     width: 500px;
     height: 500px;
+    background-color: #0f0b11;
+    filter: blur(6em);
   }
-  background-color: #0f0b11;
-  filter: blur(6em);
 `;
 
 export const Styles = {
