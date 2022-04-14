@@ -15,7 +15,7 @@ interface Props {
   menuId: any;
   router: any;
   setMenuId: any;
-  SetIsOpenFilter: any;
+
   isOpenFilter: any;
 }
 
@@ -28,7 +28,6 @@ export default function FilterDetails({
   menuId,
   router,
   setMenuId,
-  SetIsOpenFilter,
   isOpenFilter,
 }: Props) {
   const translate = getLocale();
@@ -36,10 +35,6 @@ export default function FilterDetails({
   useEffect(() => {
     setItems(translate.menu);
   }, [items]);
-
-  const toggleFilter = () => {
-    SetIsOpenFilter(!isOpenFilter);
-  };
 
   return (
     <>
@@ -116,7 +111,7 @@ export default function FilterDetails({
             {data.data.map((tab: any) => (
               <SubMenu
                 key={tab.id}
-                toggle={toggleFilter}
+                toggle={toggle}
                 isOpen={
                   !menuId
                     ? tab.attributes?.subservices?.data?.some(

@@ -96,7 +96,7 @@ function Home() {
           className="z-100">
           <Menu isOpen={isOpen} toggle={toggle} logo={false} mode />
           <Styles.Margin>
-            <Nav toggle={toggle} logo={false} bgFull mode isOpen={isOpen} />
+            <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
           </Styles.Margin>
           <ButtonShare />
           <Styles.Center>

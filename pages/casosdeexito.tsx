@@ -173,9 +173,7 @@ function Cases() {
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         {!isOpenFilter && <Menu isOpen={isOpen} toggle={toggle} logo mode />}
         <Styles.Margin>
-          {!isOpenFilter && (
-            <Nav toggle={toggle} logo mode bgFull isOpen={isOpen} />
-          )}
+          {!isOpenFilter && <Nav toggle={toggle} logo mode isOpen={isOpen} />}
         </Styles.Margin>
         {!isOpenFilter && <ButtonShare />}
         <HeroCase

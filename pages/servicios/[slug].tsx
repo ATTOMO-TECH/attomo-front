@@ -96,13 +96,14 @@ function DetailsServices() {
           menuId={menuId}
           router={router}
           setMenuId={setMenuId}
-          SetIsOpenFilter={SetIsOpenFilter}
           isOpenFilter={isOpenFilter}
         />
         <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
-          <Menu isOpen={isOpen} toggle={toggle} logo mode />
+          {isOpenFilter ? null : (
+            <Menu isOpen={isOpen} toggle={toggle} logo mode />
+          )}
           <Styles.Margin>
-            <Nav toggle={toggle} logo mode isOpen={isOpen} bgFull />
+            <Nav toggle={toggle} logo mode isOpen={isOpen} />
           </Styles.Margin>
           {!isOpenFilter && <ButtonShare />}
           <motion.div
