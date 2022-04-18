@@ -55,11 +55,11 @@ export default function ModulelFilterResponsive({
         <Title size="text-md text-left pb-0 ">Filtrar por</Title>
         <Filter.BlockItemMobile>
           <Subtext size=" text-xs font-Primary text-left font-light">
-            Servicios
+            Buscar
           </Subtext>
           <Filter.InputSearch
             type="text"
-            placeholder="Buscar"
+            placeholder="Añadir texto"
             value={searchModal}
             onChange={(e: any) => {
               setSearch(e.target.value);

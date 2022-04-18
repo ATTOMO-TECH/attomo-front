@@ -7,7 +7,6 @@ import Footer from '../components/footer/footer';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
 import OneProject from '../components/section/onlyProject';
-import SelectedUs from '../components/section/selectedUs';
 import ListUs from '../components/section/us';
 import Title from '../components/Text/title';
 import { BUTTON_ACTIVE } from '../const/const';
@@ -48,12 +47,6 @@ function Us() {
         <Styles.Center>
           <Styles.BlockUs>
             <ListUs />
-            <SelectedUs
-              text={translate.selectedUs[0].Subtext}
-              // btn={translate.selectedUs[0].Button}
-              link="/contacto"
-              textPrimary={translate.selectedUs[0].Text}
-            />
           </Styles.BlockUs>
         </Styles.Center>
         <Styles.Center>
