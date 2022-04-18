@@ -80,6 +80,13 @@ function DetailsServices() {
         <title>Servicios ATTOMO - Nuestros servicios - {slug}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="icon" href="/FaviconLight.svg" type="image/x-icon" />
+
+        <meta property="og:title" content={data?.data?.attributes.title} />
+        <meta property="og:image" content="/FaviconLight.svg" />
+        <meta
+          property="og:description"
+          content={data?.data?.attributes.metadata}
+        />
       </Head>
       <Background />
       <motion.div

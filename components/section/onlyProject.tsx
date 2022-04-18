@@ -11,12 +11,7 @@ export default function OneProject({ data }: Props) {
       <Styles.SectionProjects>
         <Styles.BlockSections ismode={BUTTON_ACTIVE.ON}>
           <Styles.BlockSection ismode={BUTTON_ACTIVE.ON}>
-            <img
-              src="/customers/US.png"
-              width={800}
-              height={600}
-              alt="Nosotros"
-            />
+            <img src="/team.jpg" width={800} height={600} alt="us" />
           </Styles.BlockSection>
           <Styles.OnlyProjectBlock>
             <UsStyles.Title ismode={BUTTON_ACTIVE.ON}>

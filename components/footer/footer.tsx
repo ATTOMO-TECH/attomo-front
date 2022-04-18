@@ -19,10 +19,8 @@ export default function Footer({ subFooter }: Props) {
             <Navegation.NavFooter>
               <Navegation.TitleNav>ATTOMO</Navegation.TitleNav>
               {translate.menu.map((values) => (
-                <Link href={values.Url} passHref>
-                  <Navegation.ItemsMenu key={`footer${values.Value}`}>
-                    {values.Value}
-                  </Navegation.ItemsMenu>
+                <Link href={values.Url} passHref key={`footer${values.Value}`}>
+                  <Navegation.ItemsMenu>{values.Value}</Navegation.ItemsMenu>
                 </Link>
               ))}
             </Navegation.NavFooter>

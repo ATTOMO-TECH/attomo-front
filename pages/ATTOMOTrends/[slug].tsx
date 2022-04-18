@@ -43,9 +43,15 @@ function New({ mode }: Props) {
       <Head>
         <title>#ATTOMOtrends - {data?.data?.attributes.title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta property="og:image" content="" />
-        <meta property="og:description" content="" />
-        <meta property="og:title" content="" />
+        <meta property="og:title" content={data?.data?.attributes.title} />
+        <meta
+          property="og:image"
+          content={data?.data.attributes.coverImage.data.attributes?.url}
+        />
+        <meta
+          property="og:description"
+          content={data?.data?.attributes.metadata}
+        />
         <link rel="icon" href="/FaviconLight.svg" type="image/x-icon" />
       </Head>
       <Styles.Body

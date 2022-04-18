@@ -207,7 +207,7 @@ function Cases() {
               </Styles.SectionFilter>
               <Styles.SelectFilter onClick={toggleFilter}>
                 <Styles.Select
-                  className="lg:w-8/12 w-full cursor-pointer "
+                  className="lg:w-8/12  w-full cursor-pointer "
                   disabled>
                   {topic === '' || topic === undefined ? (
                     <option value="">{translate.Topic}</option>
