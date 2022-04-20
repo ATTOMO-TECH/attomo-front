@@ -1,30 +1,46 @@
-import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Background from '../components/animations/background';
 import BlockSection from '../components/block/block';
 import ButtonShare from '../components/button/BtnShare';
 import Footer from '../components/footer/footer';
+import { Metadata } from '../components/head/metadata';
+import RenderLoading from '../components/loading/loading';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
 import OneProject from '../components/section/onlyProject';
 import ListUs from '../components/section/us';
 import Title from '../components/Text/title';
-import { BUTTON_ACTIVE } from '../const/const';
+import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
+import { useAScreen } from '../domain/useScreensMetadata';
 import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 
 function Us() {
+  const router = useRouter();
+  let { locale } = router;
+  if (locale === '/') {
+    locale = 'es';
+  }
+  const { data: screen, isLoading: screenIsLoading } = useAScreen(
+    MENU_SCREENS.ABOUT,
+    locale || 'es',
+  );
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
   const translate = getLocale();
+  if (screenIsLoading) {
+    return (
+      <>
+        <RenderLoading mode={false} />
+      </>
+    );
+  }
   return (
     <>
-      <Head>
-        <title>About us - ATTOMO DIGITAL</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
+      <Metadata screen={screen} />
       <Background />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />

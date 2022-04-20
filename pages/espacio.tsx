@@ -1,17 +1,15 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
-import Head from 'next/head';
 import Footer from '../components/footer/footer';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
 import Subtext from '../components/Text/subText';
 import Title from '../components/Text/title';
-import { BUTTON_ACTIVE } from '../const/const';
+import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
 import { Styles } from '../styles/styles';
 import BlockSection from '../components/block/block';
 import SelectedClients from '../components/section/selectedclientes';
-// import Prices from '../components/section/price';
 import FormReserver from '../components/form/formReserver';
 import ButtonShare from '../components/button/BtnShare';
 import MapsBlock from '../components/maps/maps';
@@ -21,6 +19,9 @@ import { servicesAnimations } from '../components/animations/animations';
 import { BGSPACE } from '../const/constGlobal';
 import EspacioArticle from '../components/slider/espacio/slider';
 import useDeviceSize from '../hook/size';
+import { useAScreen } from '../domain/useScreensMetadata';
+import { Metadata } from '../components/head/metadata';
+import RenderLoading from '../components/loading/loading';
 
 function Space() {
   const [shouldShowActions] = useState(false);
@@ -29,6 +30,10 @@ function Space() {
   if (locale === '/') {
     locale = 'es';
   }
+  const { data: screen, isLoading: screenIsLoading } = useAScreen(
+    MENU_SCREENS.SPACE,
+    locale || 'es',
+  );
 
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const toggle = () => {
@@ -36,12 +41,16 @@ function Space() {
   };
   const translate = getLocale();
   const [width] = useDeviceSize();
+  if (screenIsLoading) {
+    return (
+      <>
+        <RenderLoading mode={false} />
+      </>
+    );
+  }
   return (
     <>
-      <Head>
-        <title>Espacio ATTOMO - Alquila nuestro espacio</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
+      <Metadata screen={screen} />
       <Background />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />

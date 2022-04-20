@@ -1,31 +1,48 @@
 import { useState } from 'react';
-import Head from 'next/head';
+import { useRouter } from 'next/router';
 import Footer from '../components/footer/footer';
 import RenderForm from '../components/form/renderForm';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
 import Subtext from '../components/Text/subText';
 import Title from '../components/Text/title';
-import { BUTTON_ACTIVE } from '../const/const';
+import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
 import { Styles } from '../styles/styles';
 import ButtonShare from '../components/button/BtnShare';
 import MapsBlock from '../components/maps/maps';
 import Background from '../components/animations/background';
 import { getLocale } from '../public/locales/getLocale';
+import { useAScreen } from '../domain/useScreensMetadata';
+import { Metadata } from '../components/head/metadata';
+import RenderLoading from '../components/loading/loading';
 
 function Contact() {
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
+  const router = useRouter();
+  let { locale } = router;
+  if (locale === '/') {
+    locale = 'es';
+  }
+  const { data: screen, isLoading: screenIsLoading } = useAScreen(
+    MENU_SCREENS.CONTACT,
+    locale || 'es',
+  );
 
   const translate = getLocale();
+  if (screenIsLoading) {
+    return (
+      <>
+        <RenderLoading mode={false} />
+      </>
+    );
+  }
+
   return (
     <>
-      <Head>
-        <title>Contacto - ATTOMO DIGITAL</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
+      <Metadata screen={screen} />
       <Background />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />

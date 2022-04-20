@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import * as qs from 'qs';
-import Head from 'next/head';
 import { format } from 'date-fns';
 import { motion } from 'framer-motion';
 import { useQueryClient } from 'react-query';
@@ -15,12 +14,14 @@ import RenderLoading from '../components/loading/loading';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
 import SectionProjects from '../components/section/projects';
-import { BUTTON_ACTIVE } from '../const/const';
+import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
 import { useUseAllCases } from '../domain/useCasesDetails';
 import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 import Subtext from '../components/Text/subText';
 import { servicesAnimations } from '../components/animations/animations';
+import { useAScreen } from '../domain/useScreensMetadata';
+import { Metadata } from '../components/head/metadata';
 
 function Cases() {
   const queryClient = useQueryClient();
@@ -30,6 +31,10 @@ function Cases() {
   if (locale === '/') {
     locale = 'es';
   }
+  const { data: screen, isLoading: screenIsLoading } = useAScreen(
+    MENU_SCREENS.CASES,
+    locale || 'es',
+  );
   const translate = getLocale();
   const [shouldShowActions] = useState(false);
   const [scroll, setScroll] = useState(true);
@@ -133,7 +138,7 @@ function Cases() {
     }
   }, [data]);
 
-  if (isLoadingFirst) {
+  if (isLoadingFirst || screenIsLoading) {
     return (
       <>
         <RenderLoading mode={false} />
@@ -148,13 +153,17 @@ function Cases() {
     queryClient.refetchQueries(['useAllCases']);
   };
   const change: boolean = !!startDate || !!endDate || !!topic || !!search;
+  if (screenIsLoading) {
+    return (
+      <>
+        <RenderLoading mode={false} />
+      </>
+    );
+  }
 
   return (
     <>
-      <Head>
-        <title>Casos de éxito ATTOMO - Clientes</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
+      <Metadata screen={screen} />
       <Background />
       {isOpenFilter && (
         <ModalFilter
