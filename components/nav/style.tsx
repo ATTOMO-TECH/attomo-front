@@ -156,8 +156,17 @@ export const IconPathStyled = styled(motion.path).attrs(() => ({
 }))``;
 
 export const Navegation = {
-  MenuRelative: tw.div`relative `,
+  MenuRelative: tw.div<Props>`relative z-100
+  ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? `content  ` : 'hidden')}
+`,
   SectionMenu: tw(Section)<Props>`
+  lg:transition ease-in-out   fixed overflow-y-scroll 
+    ${(props) =>
+      props.ismode === BUTTON_ACTIVE.ON
+        ? `cursor-pointer h-screen w-full overflow-hidden z-100 opacity-100  `
+        : 'opacity-0 overflow-hidden h-0 '}
+  `,
+  SectionMenuFW: tw(Section)<Props>`
   lg:transition ease-in-out   fixed overflow-y-scroll 
     ${(props) =>
       props.ismode === BUTTON_ACTIVE.ON
@@ -173,7 +182,7 @@ export const Navegation = {
   flex items-center fixed z-100 justify-between w-11/12 m-auto md:mt-0 md:w-10/12 md:absolute lg:left-24 md:left-12 left-4 top-2 md:top-6 
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : '')}
   `,
-  ItemsMenu: tw.li`flex items-center list-none  min-h-min`,
+  ItemsMenu: tw.li`flex items-center list-none  min-h-min cursor-pointer`,
   BlockMenu: tw.div``,
   TextMenu: tw(SectionColor)<Props>`
  font-Primary colorMenu
@@ -188,7 +197,7 @@ export const Navegation = {
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`
-font-Primary cursor-pointer list-none fixed w-full duration-300 ease-in-out  -top-10 h-14 md:h-20 lg:14
+font-Primary cursor-pointer list-none fixed w-full duration-300 ease-in-out  -top-10 h-14 md:h-20 lg:14 z-100
 ${(props) =>
   props.ismode === BUTTON_ACTIVE.ON
     ? 'duration-300 ease-in-out lg:h-20 sm:mb-10 '
@@ -210,5 +219,5 @@ ${(props) =>
   SectionFilter: tw(motion.div)<Props>`
     h-screen overflow-hidden fixed bg-black overflow-y-visible z-100 w-full lg:hidden
     ${(props) =>
-      props.ismode === BUTTON_ACTIVE.ON ? 'opacity-1' : 'opacity-0'}`,
+      props.ismode === BUTTON_ACTIVE.ON ? 'opacity-1' : 'opacity-0 hidden'}`,
 };

@@ -6,7 +6,6 @@ import Title from '../Text/title';
 import { useUseAllSubServices } from '../../domain/useServices';
 import SelectFilterMenu from './selectedFilterMenu';
 import RenderLoading from '../loading/loading';
-import { useUseDisciplines } from '../../domain/useCasesDetails';
 
 interface Props {
   setDate: any;
@@ -22,20 +21,17 @@ interface Props {
 export default function ModulelFilterResponsive({
   setDate,
   setTopic,
-  setSearch,
   startDateModal,
   endDateModal,
   topicModal,
   searchModal,
   locale,
+  setSearch,
 }: Props) {
   const { data: Subservice, isLoading } = useUseAllSubServices(locale || 'es');
-  const { data: Discipline, isLoading: isLoadingDiscipline } =
-    useUseDisciplines(locale || 'es');
   const [selectedTopic, setSelectedTopic] = useState(topicModal);
-  const [selectedDiscipline, setSelectedDiscipline] = useState(searchModal);
 
-  if (isLoading || isLoadingDiscipline) {
+  if (isLoading) {
     return (
       <>
         <RenderLoading mode={false} />
@@ -48,18 +44,9 @@ export default function ModulelFilterResponsive({
     value: values.attributes.name,
   }));
 
-  const DISCIPLINE = Discipline.data.map((values: any) => ({
-    label: values.attributes.name,
-    value: values.attributes.name,
-  }));
-
   const onChangeTopic = (e: any) => {
     setSelectedTopic(e.value);
     setTopic(e.value);
-  };
-  const onChangeSearch = (e: any) => {
-    setSelectedDiscipline(e.value);
-    setSearch(e.value);
   };
 
   return (
@@ -67,6 +54,19 @@ export default function ModulelFilterResponsive({
       <Filter.SectionMobile>
         <Title size="text-md text-left pb-0 ">Filtrar por</Title>
         <Filter.BlockItemMobile>
+          <Subtext size=" text-xs font-Primary text-left font-light">
+            Buscar
+          </Subtext>
+          <Filter.InputSearch
+            type="text"
+            placeholder="Añadir texto"
+            value={searchModal}
+            onChange={(e: any) => {
+              setSearch(e.target.value);
+            }}
+          />
+        </Filter.BlockItemMobile>
+        <Filter.BlockItemMed>
           <Subtext size=" text-xs font-Primary text-left font-light">
             Servicios
           </Subtext>
@@ -79,27 +79,12 @@ export default function ModulelFilterResponsive({
             name={selectedTopic}
             onChange={onChangeTopic}
           />
-        </Filter.BlockItemMobile>
-        <Filter.BlockItemMed>
-          <Subtext size=" text-xs font-Primary text-left font-light">
-            Temática
-          </Subtext>
-          <SelectFilterMenu
-            selected={selectedDiscipline}
-            options={DISCIPLINE}
-            valueLabel={
-              selectedDiscipline === ''
-                ? 'Todas las disciplinas'
-                : selectedDiscipline
-            }
-            name={selectedDiscipline}
-            onChange={onChangeSearch}
-          />
         </Filter.BlockItemMed>
         <Filter.BlockItemMobile>
           <Subtext size=" text-xs font-Primary text-left font-light">
             Fecha
           </Subtext>
+
           <CalendarPickerRangeInput
             setDate={setDate}
             dateRangeProp={[startDateModal, endDateModal]}

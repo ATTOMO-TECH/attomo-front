@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { useRouter } from 'next/dist/client/router';
 import { motion } from 'framer-motion';
 import Head from 'next/head';
-import Footer from '../../components/footer/footer';
+import Footer from '../../components/footer/footerWhite';
 import Menu from '../../components/nav/menu';
-import Nav from '../../components/nav/nav';
+import Nav from '../../components/nav/navWhite';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { darkTheme, lightTheme, Styles } from '../../styles/styles';
 import BlockSection from '../../components/block/block';
@@ -47,9 +47,18 @@ export default function Cases({ mode }: Props) {
     <>
       <Head>
         <title>
-          Casos de éxito ATTOMO - Clientes - {data.data.attributes.company}
+          Casos de éxito ATTOMO - Clientes - {data?.data?.attributes.company}
         </title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta property="og:title" content={data?.data?.attributes.title} />
+        <meta
+          property="og:image"
+          content={data?.data.attributes.coverImage.data.attributes?.url}
+        />
+        <meta
+          property="og:description"
+          content={data?.data?.attributes.metadata}
+        />
         <link rel="icon" href="/FaviconLight.svg" type="image/x-icon" />
       </Head>
       <Styles.Body

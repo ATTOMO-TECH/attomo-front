@@ -42,7 +42,7 @@ function Conditions() {
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
-          <Nav bgFull toggle={toggle} logo={false} mode isOpen={isOpen} />
+          <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
         </Styles.Margin>
         <Styles.Center>
           <Styles.BlockButtonLegal>

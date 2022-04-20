@@ -43,10 +43,16 @@ export const SubTitle = styled.h2`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
+export const Footer = styled.footer`
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+`;
 
 export const Navegation = {
-  SectionFooter: tw.footer`text-gray-600 body-font border-t border-primary bg-secundary border-opacity-20 relative z-100`,
-  BlockFooter: tw.div` w-10/12 py-10 lg:py-20 mx-auto flex flex-wrap justify-between md:text-left text-center order-first items-start`,
+  Footer: tw(Footer)`absolute w-full h-full bg-secundary opacity-60 z-0 `,
+  SectionFooterW: tw.footer`text-gray-600 body-font border-t border-primary bg-secundary border-opacity-20 relative z-100`,
+  SectionFooter: tw.footer`text-gray-600  border-opacity-20 relative z-90 relative`,
+  BlockFooter: tw.div` w-10/12 py-10 lg:py-20 mx-auto flex flex-wrap justify-between md:text-left text-center order-first items-start relative`,
   BlockLogo: tw.div`lg:w-6/12 md:w-1/2 w-full text-left `,
   BlockNavMed: tw.div`lg:w-2/12 md:w-1/2 w-full text-left`,
   BlockNav: tw.div`lg:w-3/12 md:w-1/2 w-full text-left`,
@@ -56,9 +62,9 @@ export const Navegation = {
   TitleNavResponsive: tw(
     subText,
   )`lg:font-PrimarySerif font-Primary text-primary text-regular mb-3 `,
-  NavFooter: tw.nav`list-none mb-10 font-secundary text-primary text-sm cursor-pointer`,
+  NavFooter: tw.nav`list-none mb-10 font-secundary text-primary text-sm `,
   NavFooterFlex: tw.nav`list-none mb-10 flex cursor-pointer justify-start items-center`,
-  ItemsMenu: tw.p`py-1 leading-relaxed lg:leading-none text-sm font-extralight hover:opacity-60 transition-all duration-150`,
+  ItemsMenu: tw.p`cursor-pointer py-1 leading-relaxed lg:leading-none text-sm font-extralight hover:opacity-60 transition-all duration-150 w-3/12`,
   BlockInput: tw.div`relative flex flex xl:flex-nowrap md:flex-nowrap w-11/12 lg:flex-wrap flex-wrap justify-center items-end md:justify-start`,
   Input: tw.input`w-full flex bg-secundary text-primary bg-none focus:bg-none outline-none  py-1 px-1 lg:text-xs text-xl font-light  `,
   BlockSubText: tw.div`flex flex-col lg:flex-row justify-end text-primary text-sm font-Secundary pb-6 w-11/12 m-auto`,

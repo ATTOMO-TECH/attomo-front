@@ -173,9 +173,7 @@ function Cases() {
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         {!isOpenFilter && <Menu isOpen={isOpen} toggle={toggle} logo mode />}
         <Styles.Margin>
-          {!isOpenFilter && (
-            <Nav toggle={toggle} logo mode bgFull isOpen={isOpen} />
-          )}
+          {!isOpenFilter && <Nav toggle={toggle} logo mode isOpen={isOpen} />}
         </Styles.Margin>
         {!isOpenFilter && <ButtonShare />}
         <HeroCase
@@ -209,7 +207,7 @@ function Cases() {
               </Styles.SectionFilter>
               <Styles.SelectFilter onClick={toggleFilter}>
                 <Styles.Select
-                  className="lg:w-8/12 w-full cursor-pointer "
+                  className="lg:w-8/12  w-full cursor-pointer "
                   disabled>
                   {topic === '' || topic === undefined ? (
                     <option value="">{translate.Topic}</option>

@@ -13,16 +13,15 @@ export default function Footer({ subFooter }: Props) {
   return (
     <>
       <Navegation.SectionFooter>
+        <Navegation.Footer />
         <Navegation.BlockFooter>
           <Navegation.BlockLogo>
             <Navegation.NavFooter>
               <Navegation.TitleNav>ATTOMO</Navegation.TitleNav>
               {translate.menu.map((values) => (
-                <Navegation.ItemsMenu key={`footer${values.Value}`}>
-                  <Link href={values.Url} passHref>
-                    {values.Value}
-                  </Link>
-                </Navegation.ItemsMenu>
+                <Link href={values.Url} passHref key={`footer${values.Value}`}>
+                  <Navegation.ItemsMenu>{values.Value}</Navegation.ItemsMenu>
+                </Link>
               ))}
             </Navegation.NavFooter>
           </Navegation.BlockLogo>
@@ -53,7 +52,7 @@ export default function Footer({ subFooter }: Props) {
             <InputNew />
           </Navegation.BlockNav>
         </Navegation.BlockFooter>
-        {subFooter ? <SubFooter /> : ''}
+        <div className="relative ">{subFooter ? <SubFooter /> : ''}</div>
         <Navegation.BlockSubText>
           <Link href="/privacidad">
             <Navegation.SubText>{translate.privacy}</Navegation.SubText>

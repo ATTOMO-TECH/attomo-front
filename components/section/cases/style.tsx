@@ -63,6 +63,7 @@ export const Details = {
 };
 export const BodyTrends = {
   Section: tw.div`flex flex-wrap justify-between`,
-  ButtonShare: tw.button`w-1/12 cursor-pointer h-12`,
+  ButtonShare: tw.button`w-1/12 cursor-pointer h-12 mr-5`,
+  BlockShare: tw.div`flex lg:w-2/6`,
   AlingData: tw.section``,
 };

@@ -10,10 +10,9 @@ interface Props {
   logo: boolean;
   mode: boolean;
   isOpen: boolean;
-  bgFull?: boolean;
 }
 
-export default function Nav({ toggle, logo, mode, isOpen, bgFull }: Props) {
+export default function Nav({ toggle, logo, mode, isOpen }: Props) {
   const [scroll, setScroll] = useState(true);
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -33,7 +32,8 @@ export default function Nav({ toggle, logo, mode, isOpen, bgFull }: Props) {
     <>
       <Navegation.SectionNav
         theme={
-          !scroll ? (bgFull ? (mode ? lightTheme : darkTheme) : null) : null
+          // scroll ? (bgFull ? (mode ? lightTheme : darkTheme) : null) :
+          null
         }
         className={!isOpen ? '' : 'hidden'}
         ismode={!scroll ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>

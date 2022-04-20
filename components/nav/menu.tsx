@@ -33,8 +33,9 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
   const [width] = useDeviceSize();
   return (
     <>
-      <Navegation.MenuRelative>
-        <Navegation.SectionMenu
+      <Navegation.MenuRelative
+        ismode={isOpen ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+        <Navegation.SectionMenuFW
           ismode={isOpen ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
           theme={mode === true ? lightTheme : darkTheme}>
           <Navegation.AlinItems
@@ -184,7 +185,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
               </Navegation.ButtonSelect>
             </Navegation.BlokSectionLenguageResponsive>
           </Navegation.AlingItemsMenu>
-        </Navegation.SectionMenu>
+        </Navegation.SectionMenuFW>
       </Navegation.MenuRelative>
     </>
   );

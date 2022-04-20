@@ -1,14 +1,12 @@
 import { useState } from 'react';
-import { format } from 'date-fns';
 import { useRouter } from 'next/dist/client/router';
 import { motion } from 'framer-motion';
 import Head from 'next/head';
-import Footer from '../../components/footer/footer';
+import Footer from '../../components/footer/footerWhite';
 import Menu from '../../components/nav/menu';
-import Nav from '../../components/nav/nav';
+import Nav from '../../components/nav/navWhite';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { darkTheme, lightTheme, Styles } from '../../styles/styles';
-import BreadCrumbs from '../../components/breadcrumbs/breadcrumbs';
 import HeaderCases from '../../components/section/cases/header';
 import Back from '../../components/button/back';
 import BodyCases from '../../components/section/cases/bodyCase';
@@ -40,12 +38,20 @@ function New({ mode }: Props) {
       </>
     );
   }
-
   return (
     <>
       <Head>
-        <title>#ATTOMOtrends - {data?.data.attributes.title}</title>
+        <title>#ATTOMOtrends - {data?.data?.attributes.title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta property="og:title" content={data?.data?.attributes.title} />
+        <meta
+          property="og:image"
+          content={data?.data.attributes.coverImage.data.attributes?.url}
+        />
+        <meta
+          property="og:description"
+          content={data?.data?.attributes.metadata}
+        />
         <link rel="icon" href="/FaviconLight.svg" type="image/x-icon" />
       </Head>
       <Styles.Body
@@ -64,17 +70,7 @@ function New({ mode }: Props) {
               paragraph=""
               image={data?.data.attributes.coverImage.data.attributes?.url}
             />
-            <BreadCrumbs
-              Author={data?.data.attributes.author}
-              Date={format(
-                new Date(data?.data.attributes.publishedAt),
-                'dd-MM-yyyy',
-              )}
-            />
-            <BodyCases
-              data={data?.data.attributes.content}
-              title={data?.data.attributes.title}
-            />
+            <BodyCases data={data} />
           </Styles.AlingCasesNoP>
         </Styles.Center>
         <Styles.Center>

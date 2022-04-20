@@ -1,14 +1,15 @@
 /* eslint-disable no-console */
 import { useState } from 'react';
+import { format } from 'date-fns';
+import BreadCrumbs from '../../breadcrumbs/breadcrumbs';
 import useDeviceSize from '../../../hook/size';
 import ShareNav from '../../button/share';
 import { BodyTrends, Container } from './style';
 
 interface Props {
   data: any;
-  title: string;
 }
-export default function BodyCases({ data, title }: Props) {
+export default function BodyCases({ data }: Props) {
   const [width] = useDeviceSize();
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const toggle = () => {
@@ -19,7 +20,7 @@ export default function BodyCases({ data, title }: Props) {
     if (navigator.share) {
       navigator
         .share({
-          title: `#ATTOMOtrends | ${title}`,
+          title: `#ATTOMOtrends | ${data?.data.attributes.title}`,
           url: document.location.href,
         })
         .catch((error) => console.log(error));
@@ -29,16 +30,29 @@ export default function BodyCases({ data, title }: Props) {
   return (
     <>
       {width > 468 ? (
-        <ShareNav title={title} isOpen={isOpen} toggle={toggle} />
+        <ShareNav
+          title={data?.data.attributes.title}
+          isOpen={isOpen}
+          toggle={toggle}
+        />
       ) : (
         <></>
       )}
       <BodyTrends.Section>
-        <BodyTrends.ButtonShare onClick={handleOnClick}>
-          <img src="/icon/share.svg" width={20} height={20} alt="share" />
-        </BodyTrends.ButtonShare>
+        <BodyTrends.BlockShare>
+          <BodyTrends.ButtonShare onClick={handleOnClick}>
+            <img src="/icon/share.svg" width={20} height={20} alt="share" />
+          </BodyTrends.ButtonShare>
+          <BreadCrumbs
+            Author={data?.data.attributes.author}
+            Date={format(
+              new Date(data?.data.attributes.publishedAt),
+              'dd-MM-yyyy',
+            )}
+          />
+        </BodyTrends.BlockShare>
         <BodyTrends.AlingData>
-          <Container>{data}</Container>
+          <Container>{data.data.attributes.content}</Container>
         </BodyTrends.AlingData>
       </BodyTrends.Section>
     </>

@@ -80,6 +80,13 @@ function DetailsServices() {
         <title>Servicios ATTOMO - Nuestros servicios - {slug}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="icon" href="/FaviconLight.svg" type="image/x-icon" />
+
+        <meta property="og:title" content={data?.data?.attributes.title} />
+        <meta property="og:image" content="/FaviconLight.svg" />
+        <meta
+          property="og:description"
+          content={data?.data?.attributes.metadata}
+        />
       </Head>
       <Background />
       <motion.div
@@ -96,13 +103,14 @@ function DetailsServices() {
           menuId={menuId}
           router={router}
           setMenuId={setMenuId}
-          SetIsOpenFilter={SetIsOpenFilter}
           isOpenFilter={isOpenFilter}
         />
         <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
-          <Menu isOpen={isOpen} toggle={toggle} logo mode />
+          {isOpenFilter ? null : (
+            <Menu isOpen={isOpen} toggle={toggle} logo mode />
+          )}
           <Styles.Margin>
-            <Nav toggle={toggle} logo mode isOpen={isOpen} bgFull />
+            <Nav toggle={toggle} logo mode isOpen={isOpen} />
           </Styles.Margin>
           {!isOpenFilter && <ButtonShare />}
           <motion.div

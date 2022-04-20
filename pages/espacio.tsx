@@ -46,7 +46,7 @@ function Space() {
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
-          <Nav toggle={toggle} logo mode bgFull isOpen={isOpen} />
+          <Nav toggle={toggle} logo mode isOpen={isOpen} />
         </Styles.Margin>
         <ButtonShare />
         <Styles.Center>

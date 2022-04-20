@@ -52,15 +52,16 @@ export const Navegation = {
   BlockInput: tw.div`relative flex flex xl:flex-nowrap md:flex-nowrap w-full lg:flex-wrap flex-wrap justify-center items-end md:justify-start`,
   Input: tw(
     Field,
-  )`w-full opacity-50 focus:opacity-100  flex bg-secundary text-primary bg-none focus:bg-none outline-none  py-1 px-1 lg:text-xs  text-lg font-light  `,
+  )`w-full opacity-50 focus:opacity-100  flex bg-transparent text-primary bg-none focus:bg-none outline-none  py-1 px-1 lg:text-xs  text-lg font-light  `,
   BlockSubText: tw.div`flex flex-col lg:flex-row justify-end text-primary text-sm font-Secundary`,
   SubText: tw.p`lg:px-10 px-5 py-3 hover:opacity-50 cursor-pointer ease-out duration-300`,
   ListIcon: tw.li`w-auto px-1 cursor-pointer `,
   Form: tw.form`flex flex-col items-baseline`,
 
   SectionInput: tw.div<Props>`
+  
       flex w-full items-center overflow-hidden relative border-b border-primary focus:outline-none text-xs font-light  duration-200 ease-in-out 
-      transition delay-700 duration-300 ease-in-out
+      transition delay-700 duration-300 ease-in-out bg-none
       ${(props) =>
         props.ismode === BUTTON_ACTIVE.ON
           ? 'opacity-100 duration-300'

@@ -32,7 +32,7 @@ export default function CalendarPickerRangeInput({
           setDate(update);
         }}
         onChangeRaw={handleDateChangeRaw}
-        className="outline-none font-PrimarySerif font-light text-gray-300 h-full w-full py-2.5 "
+        className="outline-none font-PrimarySerif text-sm font-thin text-gray-300 h-full w-full py-2.5 "
       />
     </>
   );
