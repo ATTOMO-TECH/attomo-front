@@ -16,7 +16,7 @@ interface Props {
 }
 
 export default function ArticlesScroll({ children }: Props) {
-  const mode = true;
+  const mode = false;
   const queryObject: any = {
     populate: 'coverImage',
     filters: {

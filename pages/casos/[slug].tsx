@@ -42,7 +42,6 @@ export default function Cases({ mode }: Props) {
     );
   }
   const translate = getLocale();
-
   return (
     <>
       <Head>
@@ -53,7 +52,7 @@ export default function Cases({ mode }: Props) {
         <meta property="og:title" content={data?.data?.attributes.title} />
         <meta
           property="og:image"
-          content={data?.data.attributes.coverImage.data.attributes?.url}
+          content={data?.data.attributes.coverImage?.data.attributes?.url || ''}
         />
         <meta
           property="og:description"

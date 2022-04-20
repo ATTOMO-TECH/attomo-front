@@ -203,32 +203,19 @@ function Home() {
               <HeroFooter text={Quote?.data.attributes.text} />
             </Styles.CenterFull>
           </motion.div>
-          <motion.div
-            animate={shouldShowActions}
-            variants={servicesAnimations}
-            className="actions"
-            transition={{
-              delay: 0.2,
-              type: 'spring',
-              stiffness: 50,
-              duration: 2,
-            }}
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: '50%' }}>
-            <Styles.Center>
-              {translate.contact.map((values) => (
-                <BlockSection
-                  key={values.Link}
-                  text={values.Text}
-                  button={values.Link}
-                  text2=""
-                  button2=""
-                  mode
-                  link="/contacto"
-                />
-              ))}
-            </Styles.Center>
-          </motion.div>
+          <Styles.Center>
+            {translate.contact.map((values) => (
+              <BlockSection
+                key={values.Link}
+                text={values.Text}
+                button={values.Link}
+                text2=""
+                button2=""
+                mode
+                link="/contacto"
+              />
+            ))}
+          </Styles.Center>
           <Footer subFooter />
         </Styles.Body>
       </AnimateSharedLayout>

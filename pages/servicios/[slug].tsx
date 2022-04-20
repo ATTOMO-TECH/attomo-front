@@ -1,12 +1,9 @@
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import {
-  fadeInUp,
-  servicesAnimations,
-  stagger,
-} from '../../components/animations/animations';
+import { fadeInUp, stagger } from '../../components/animations/animations';
 import Background from '../../components/animations/background';
 import BlockSection from '../../components/block/block';
 import ButtonShare from '../../components/button/BtnShare';
@@ -21,18 +18,21 @@ import { Styles } from '../../styles/styles';
 import { useUseAllServices } from '../../domain/useServices';
 import RenderLoading from '../../components/loading/loading';
 import { getLocale } from '../../public/locales/getLocale';
-import ArticlesScroll from '../../components/slider/article/slider';
-// import ArticlesScroll from '../../components/slider/article/slider';
 
 function DetailsServices() {
   const [isIdSubServices, SetIsIdSubServices] = useState<any>({});
   const [isOpenFilter, SetIsOpenFilter] = useState<boolean>(false);
-  const [shouldShowActions] = useState(false);
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const router = useRouter();
   const [menuId, setMenuId] = useState(null);
   const { slug } = router.query;
-
+  const SliderSSR = dynamic(
+    () =>
+      import('../../components/slider/article/slider').then(
+        (module: any) => module.default,
+      ),
+    { ssr: false },
+  );
   let { locale } = router;
   if (locale === '/') {
     locale = 'es';
@@ -78,15 +78,16 @@ function DetailsServices() {
     <>
       <Head>
         <title>Servicios ATTOMO - Nuestros servicios - {slug}</title>
+
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="icon" href="/FaviconLight.svg" type="image/x-icon" />
 
-        <meta property="og:title" content={data?.data?.attributes.title} />
-        <meta property="og:image" content="/FaviconLight.svg" />
         <meta
-          property="og:description"
-          content={data?.data?.attributes.metadata}
+          property="og:title"
+          content={`Servicios ATTOMO - Nuestros servicios - ${slug}`}
         />
+
+        <meta property="og:image" content="/FaviconLight.svg" />
       </Head>
       <Background />
       <motion.div
@@ -180,36 +181,23 @@ function DetailsServices() {
             </Styles.Center>
             <Styles.FlexEnd>
               <Styles.AlingBlock>
-                <ArticlesScroll mode filter={data.data?.attributes?.sumary} />
+                <SliderSSR>{data.data?.attributes?.sumary}</SliderSSR>
               </Styles.AlingBlock>
             </Styles.FlexEnd>
           </motion.div>
-          <motion.div
-            animate={shouldShowActions}
-            variants={servicesAnimations}
-            className="actions "
-            transition={{
-              delay: 0.2,
-              type: 'spring',
-              stiffness: 50,
-              duration: 2,
-            }}
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: '50%' }}>
-            <Styles.Center>
-              {translate.contact.map((values) => (
-                <BlockSection
-                  key={values.Link}
-                  text={values.Text}
-                  button={values.Link}
-                  text2=""
-                  button2=""
-                  mode
-                  link="/contacto"
-                />
-              ))}
-            </Styles.Center>
-          </motion.div>
+          <Styles.Center>
+            {translate.contact.map((values) => (
+              <BlockSection
+                key={values.Link}
+                text={values.Text}
+                button={values.Link}
+                text2=""
+                button2=""
+                mode
+                link="/contacto"
+              />
+            ))}
+          </Styles.Center>
           {!isOpenFilter ? <Footer subFooter={false} /> : null}
         </Styles.Body>
       </motion.div>

@@ -41,7 +41,7 @@ export const Styles = {
       : ''}
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.OFF
-      ? 'sm:flex flex-row-reverse items-center relative lg:mt-48 '
+      ? 'flex flex-col lg:flex-row-reverse items-center relative lg:mt-48 '
       : ''}`,
   BlockSection: tw.div<Props>`
   ${(props) =>

@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Background from '../components/animations/background';
@@ -9,7 +10,6 @@ import { Metadata } from '../components/head/metadata';
 import RenderLoading from '../components/loading/loading';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
-import ArticlesScroll from '../components/slider/article/slider';
 import Subtext from '../components/Text/subText';
 import Title from '../components/Text/title';
 import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
@@ -18,6 +18,13 @@ import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 
 function Services() {
+  const SliderSSR = dynamic(
+    () =>
+      import('../components/slider/article/slider').then(
+        (module: any) => module.default,
+      ),
+    { ssr: false },
+  );
   const router = useRouter();
   let { locale } = router;
   if (locale === '/') {
@@ -73,7 +80,7 @@ function Services() {
         </Styles.Center>
         <Styles.FlexEnd>
           <Styles.AlingBlock>
-            <ArticlesScroll mode filter="Estrategia" />
+            <SliderSSR>Estrategia</SliderSSR>
           </Styles.AlingBlock>
         </Styles.FlexEnd>
         <Styles.Center>

@@ -20,7 +20,6 @@ import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 import Subtext from '../components/Text/subText';
 import CalendarPickerInputRange from '../components/calendar/input/calendarRange';
-import { servicesAnimations } from '../components/animations/animations';
 import SelectFilterMenu from '../components/filter/selectedFilterMenu';
 import { Metadata } from '../components/head/metadata';
 import { useAScreen } from '../domain/useScreensMetadata';
@@ -31,7 +30,6 @@ function News() {
   if (locale === '/') {
     locale = 'es';
   }
-  const [shouldShowActions] = useState(false);
   const translate = getLocale();
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState('');
@@ -262,32 +260,19 @@ function News() {
           </Blogstyles.SectionMore>
         ) : null}
         <Styles.Center>
-          <motion.div
-            animate={shouldShowActions}
-            variants={servicesAnimations}
-            className="actions"
-            transition={{
-              delay: 0.2,
-              type: 'spring',
-              stiffness: 50,
-              duration: 2,
-            }}
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: '50%' }}>
-            {React.Children.toArray(
-              translate.contact.map((values) => (
-                <BlockSection
-                  key={values.Link}
-                  text={values.Text}
-                  button={values.Link}
-                  text2=""
-                  button2=""
-                  mode
-                  link="/contacto"
-                />
-              )),
-            )}
-          </motion.div>
+          {React.Children.toArray(
+            translate.contact.map((values) => (
+              <BlockSection
+                key={values.Link}
+                text={values.Text}
+                button={values.Link}
+                text2=""
+                button2=""
+                mode
+                link="/contacto"
+              />
+            )),
+          )}
         </Styles.Center>
         <Footer subFooter={false} />
       </Styles.Body>

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { motion } from 'framer-motion';
 import Footer from '../components/footer/footer';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
@@ -15,7 +14,6 @@ import ButtonShare from '../components/button/BtnShare';
 import MapsBlock from '../components/maps/maps';
 import Background from '../components/animations/background';
 import { getLocale } from '../public/locales/getLocale';
-import { servicesAnimations } from '../components/animations/animations';
 import { BGSPACE } from '../const/constGlobal';
 import EspacioArticle from '../components/slider/espacio/slider';
 import useDeviceSize from '../hook/size';
@@ -24,7 +22,6 @@ import { Metadata } from '../components/head/metadata';
 import RenderLoading from '../components/loading/loading';
 
 function Space() {
-  const [shouldShowActions] = useState(false);
   const router = useRouter();
   let { locale } = router;
   if (locale === '/') {
@@ -119,32 +116,21 @@ function Space() {
             </Styles.BlockAddresMap>
           </Styles.BlockAddres>
         </Styles.Center>
-        <motion.div
-          animate={shouldShowActions}
-          variants={servicesAnimations}
-          className="actions"
-          transition={{
-            delay: 0.2,
-            type: 'spring',
-            stiffness: 50,
-            duration: 2,
-          }}
-          whileInView={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: '50%' }}>
-          <Styles.Center>
-            {translate.contact.map((values) => (
-              <BlockSection
-                key={values.Link}
-                text={values.Text}
-                button={values.Link}
-                text2=""
-                button2=""
-                mode
-                link="/contacto"
-              />
-            ))}
-          </Styles.Center>
-        </motion.div>
+
+        <Styles.Center>
+          {translate.contact.map((values) => (
+            <BlockSection
+              key={values.Link}
+              text={values.Text}
+              button={values.Link}
+              text2=""
+              button2=""
+              mode
+              link="/contacto"
+            />
+          ))}
+        </Styles.Center>
+
         <Footer subFooter={false} />
       </Styles.Body>
     </>

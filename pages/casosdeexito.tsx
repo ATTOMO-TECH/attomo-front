@@ -164,22 +164,22 @@ function Cases() {
   return (
     <>
       <Metadata screen={screen} />
-      <Background />
-      {isOpenFilter && (
-        <ModalFilter
-          isOpenFilter={isOpenFilter}
-          toggle={toggleFilter}
-          setDate={handleDate}
-          setTopic={handleTopic}
-          setSearch={setSearch}
-          startDate={startDate}
-          endDate={endDate}
-          topic={topic}
-          search={search}
-          locale={locale}
-        />
-      )}
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
+        <Background />
+        {isOpenFilter && (
+          <ModalFilter
+            isOpenFilter={isOpenFilter}
+            toggle={toggleFilter}
+            setDate={handleDate}
+            setTopic={handleTopic}
+            setSearch={setSearch}
+            startDate={startDate}
+            endDate={endDate}
+            topic={topic}
+            search={search}
+            locale={locale}
+          />
+        )}
         {!isOpenFilter && <Menu isOpen={isOpen} toggle={toggle} logo mode />}
         <Styles.Margin>
           {!isOpenFilter && <Nav toggle={toggle} logo mode isOpen={isOpen} />}
@@ -313,32 +313,19 @@ function Cases() {
             <RenderLoading mode={false} />
           )}
         </Styles.BlockSections>
-        <motion.div
-          animate={shouldShowActions}
-          variants={servicesAnimations}
-          className="actions"
-          transition={{
-            delay: 0.2,
-            type: 'spring',
-            stiffness: 50,
-            duration: 2,
-          }}
-          whileInView={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: '50%' }}>
-          <Styles.Center>
-            {translate.contact.map((values) => (
-              <BlockSection
-                key={values.Link}
-                text={values.Text}
-                button={values.Link}
-                text2=""
-                button2=""
-                mode
-                link="/contacto"
-              />
-            ))}
-          </Styles.Center>
-        </motion.div>
+        <Styles.Center>
+          {translate.contact.map((values) => (
+            <BlockSection
+              key={values.Link}
+              text={values.Text}
+              button={values.Link}
+              text2=""
+              button2=""
+              mode
+              link="/contacto"
+            />
+          ))}
+        </Styles.Center>
         {!isOpenFilter ? <Footer subFooter={false} /> : <></>}
       </Styles.Body>
     </>
