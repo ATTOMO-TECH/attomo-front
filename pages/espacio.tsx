@@ -48,8 +48,8 @@ function Space() {
   return (
     <>
       <Metadata screen={screen} />
-      <Background />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
+        <Background />
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
           <Nav toggle={toggle} logo mode isOpen={isOpen} />
@@ -103,7 +103,6 @@ function Space() {
         </Styles.Center>
         <Styles.Center>
           <Styles.BlockAddres>
-            <Styles.BreakLine />
             <Title size="text-2xl  lg:pr-10 pt-12 ">
               {translate.spaceAttomoFooter}
             </Title>

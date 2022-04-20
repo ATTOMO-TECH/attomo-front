@@ -90,7 +90,8 @@ export default function ArticlesScroll({ children }: Props) {
                         : BUTTON_ACTIVE.ON
                     }
                   />
-                  <StylesArticle.TopicText ismode={BUTTON_ACTIVE.ON}>
+                  <StylesArticle.TopicText
+                    ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
                     {articles.attributes.blog_tags.data[0].attributes.name}
                   </StylesArticle.TopicText>
                   <StylesArticle.TextBlog

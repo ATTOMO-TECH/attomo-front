@@ -90,12 +90,12 @@ function Home() {
   return (
     <>
       <Metadata screen={screen} />
-      <Background />
       <AnimateSharedLayout>
         <Styles.Body
           mode={isOpen ? BUTTON_ACTIVE.ON : ''}
           id="bg"
           className="z-100">
+          <Background />
           <Menu isOpen={isOpen} toggle={toggle} logo={false} mode />
           <Styles.Margin>
             <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />

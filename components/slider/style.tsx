@@ -69,7 +69,7 @@ export const StylesArticle = {
       `,
 
   TopicText: tw.h6<Props>`
-  opacity-50 font-PrimarySerif font-light text-xs py-2
+  opacity-50 font-PrimarySerif font-light text-xs py-2 text-primary
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'block' : 'hidden')}
   `,
   BlockArrow: tw.div`flex w-full text-xl  justify-center lg:justify-end lg:pr-44 lg:pr-10`,

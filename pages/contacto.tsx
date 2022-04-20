@@ -43,8 +43,8 @@ function Contact() {
   return (
     <>
       <Metadata screen={screen} />
-      <Background />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
+        <Background />
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
           <Nav toggle={toggle} logo mode isOpen={isOpen} />

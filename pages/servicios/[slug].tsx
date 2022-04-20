@@ -89,7 +89,6 @@ function DetailsServices() {
 
         <meta property="og:image" content="/FaviconLight.svg" />
       </Head>
-      <Background />
       <motion.div
         initial="initial"
         animate="animate"
@@ -107,6 +106,7 @@ function DetailsServices() {
           isOpenFilter={isOpenFilter}
         />
         <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
+          <Background />
           {isOpenFilter ? null : (
             <Menu isOpen={isOpen} toggle={toggle} logo mode />
           )}
