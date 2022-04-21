@@ -51,52 +51,54 @@ function Services() {
       <Metadata screen={screen} />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Background />
-        <Menu isOpen={isOpen} toggle={toggle} logo mode />
-        <Styles.Margin>
-          <Nav toggle={toggle} logo mode isOpen={isOpen} />
-        </Styles.Margin>
-        <ButtonShare />
-        <Styles.Center>
-          <Styles.ScreenWS>
-            {translate.services.map((services) => (
-              <Styles.BlockDiv>
-                <Title size="lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl">
-                  {services.Text}
-                </Title>
-                <Styles.FlexEnd>
-                  <Subtext size="lg:w-2/6 pt-10">{services.Subtext}</Subtext>
-                </Styles.FlexEnd>
-              </Styles.BlockDiv>
+        <div className="z-100">
+          <Menu isOpen={isOpen} toggle={toggle} logo mode />
+          <Styles.Margin>
+            <Nav toggle={toggle} logo mode isOpen={isOpen} />
+          </Styles.Margin>
+          <ButtonShare />
+          <Styles.Center>
+            <Styles.ScreenWS>
+              {translate.services.map((services) => (
+                <Styles.BlockDiv>
+                  <Title size="lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl">
+                    {services.Text}
+                  </Title>
+                  <Styles.FlexEnd>
+                    <Subtext size="lg:w-2/6 pt-10">{services.Subtext}</Subtext>
+                  </Styles.FlexEnd>
+                </Styles.BlockDiv>
+              ))}
+            </Styles.ScreenWS>
+          </Styles.Center>
+          <Styles.Center>
+            <Styles.SpaceCollapse>
+              <Collapse />
+            </Styles.SpaceCollapse>
+          </Styles.Center>
+          <Styles.Center>
+            <Styles.TitleSubSection>{translate.project}</Styles.TitleSubSection>
+          </Styles.Center>
+          <Styles.FlexEnd>
+            <Styles.AlingBlock>
+              <SliderSSR>Estrategia</SliderSSR>
+            </Styles.AlingBlock>
+          </Styles.FlexEnd>
+          <Styles.Center>
+            {translate.contact.map((values) => (
+              <BlockSection
+                key={values.Link}
+                text={values.Text}
+                button={values.Link}
+                text2=""
+                button2=""
+                mode
+                link="/contacto"
+              />
             ))}
-          </Styles.ScreenWS>
-        </Styles.Center>
-        <Styles.Center>
-          <Styles.SpaceCollapse>
-            <Collapse />
-          </Styles.SpaceCollapse>
-        </Styles.Center>
-        <Styles.Center>
-          <Styles.TitleSubSection>{translate.project}</Styles.TitleSubSection>
-        </Styles.Center>
-        <Styles.FlexEnd>
-          <Styles.AlingBlock>
-            <SliderSSR>Estrategia</SliderSSR>
-          </Styles.AlingBlock>
-        </Styles.FlexEnd>
-        <Styles.Center>
-          {translate.contact.map((values) => (
-            <BlockSection
-              key={values.Link}
-              text={values.Text}
-              button={values.Link}
-              text2=""
-              button2=""
-              mode
-              link="/contacto"
-            />
-          ))}
-        </Styles.Center>
-        <Footer subFooter={false} />
+          </Styles.Center>
+          <Footer subFooter={false} />
+        </div>
       </Styles.Body>
     </>
   );

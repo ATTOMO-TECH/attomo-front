@@ -28,14 +28,17 @@ export default function InputSelect({
       border: 0,
       boxShadow: 0,
       outline: 0,
+      autoComplete: 'off',
     }),
     control: (base: any, state: any) => ({
       ...base,
       boxShadow: 'none',
       background: 'none',
       border: 0,
+      borderBottom: state.isSelected ? '1px solid white' : '1px solid black',
       borderRadius: '0%',
       color: 'white',
+      opacity: state.isSelected ? '0.7' : '1',
 
       '&': {
         borderBottom: state.isFocused ? '1px solid white' : '1px solid #6F6D70',
@@ -63,7 +66,8 @@ export default function InputSelect({
     }),
     singleValue: (base: any, state: any) => ({
       ...base,
-      color: state.isFocused ? 'white' : 'gray',
+      color: 'white',
+      opacity: state.isSelected ? '1' : '0.4',
     }),
     value,
   });
@@ -76,13 +80,14 @@ export default function InputSelect({
   return (
     <>
       <Select
+        // isSearchable={false}
         components={{ IndicatorSeparator: () => null }}
         name={name}
         options={options}
         styles={customStyles(selected)}
         onChange={onChange}
         value={displayItem(selected)}
-        className="w-full   lg:py-1 py-4  font-PrimarySerif font-thin text-gray-300"
+        className="w-full  lg:py-2.5 py-4  font-PrimarySerif font-thin text-regular text-gray-300 cursor-pointer"
         placeholder="30M"
         defaultValue={{ value: '30M', label: '30 min' }}
       />

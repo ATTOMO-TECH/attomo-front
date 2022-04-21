@@ -78,7 +78,4 @@ export const StylesArticle = {
   Slide: tw(SelectedSlide)<Props>`
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'w-4/6 ' : 'w-4/6 ')}`,
   // ESPACIO
-  BlockImgEspace: tw.div`w-full bg-cover bg-center py-44 bg-no-repeat `,
-  BlockArrowSpace: tw.div`flex w-full text-xl justify-between`,
-  ArrowSpace: tw.div`cursor-pointer py-12  opacity-50 hover:opacity-100 transition duration-150 ease-out`,
 };

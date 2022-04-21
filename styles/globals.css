@@ -163,7 +163,7 @@ input[type='text'] {
   transition: all ease 0.5s;
 }
 .react-datepicker__input-container {
-  opacity: 0.6;
+  opacity: 0.8;
 }
 .react-datepicker__input-container {
   position: relative;
@@ -184,14 +184,14 @@ input[type='text'] {
   width: 100%;
 }
 
-.react-datepicker__input-container,
+/* .react-datepicker__input-container,
 .borderInput {
   border-bottom: 0.8px solid #6f6d70;
 }
 .react-datepicker__input-container:hover,
 .borderInput:hover {
   border-bottom: 0.8px solid white;
-}
+} */
 .react-datepicker__day:hover {
   border-radius: 100%;
   background-color: rgba(255, 255, 255, 0.356) !important;

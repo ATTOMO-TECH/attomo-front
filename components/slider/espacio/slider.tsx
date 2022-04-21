@@ -39,14 +39,14 @@ export default function EspacioArticle() {
             />
           </SwiperSlide>
         ))}
-        <StylesArticle.BlockArrowSpace>
-          <StylesArticle.ArrowSpace ref={prevRef}>
+        <StylesArticle.BlockArrow>
+          <StylesArticle.ArrowPrev ref={prevRef}>
             <img src="/icon/prev.svg" width={100} height={100} alt="prev" />
-          </StylesArticle.ArrowSpace>
-          <StylesArticle.ArrowSpace ref={nextRef}>
+          </StylesArticle.ArrowPrev>
+          <StylesArticle.ArrowNext ref={nextRef}>
             <img src="/icon/next.svg" width={100} height={100} alt="next" />
-          </StylesArticle.ArrowSpace>
-        </StylesArticle.BlockArrowSpace>
+          </StylesArticle.ArrowNext>
+        </StylesArticle.BlockArrow>
       </Swiper>
     </>
   );

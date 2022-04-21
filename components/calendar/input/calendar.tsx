@@ -10,19 +10,29 @@ interface Props {
 export default function CalendarPickerInput({ handleValue }: Props) {
   const [startDate, setStartDate] = useState<Date>();
   const translate = getLocale();
+  const handleDateChangeRaw = (e: any) => {
+    e.preventDefault();
+  };
+
   return (
     <>
       <DatePicker
         id="reserve"
+        onChangeRaw={() => handleDateChangeRaw}
         placeholderText={translate.SelectDate}
         dateFormat="dd/MM/yyyy"
         locale={es}
+        autoComplete="off"
         selected={startDate}
         onChange={(date: Date) => {
           setStartDate(date);
           handleValue(date);
         }}
-        className="outline-none font-PrimarySerif font-light text-gray-300 h-full w-full py-2.5 "
+        className={
+          startDate === undefined
+            ? 'outline-none font-PrimarySerif font-thin text-regular text-gray-300 opacity-50 hover:opacity-70 h-full w-full py-3.5 border-b border-gray-300 '
+            : 'outline-none font-PrimarySerif font-thin text-regular text-gray-300 opacity-100 h-full w-full py-3.5 border-b border-gray-300'
+        }
       />
     </>
   );

@@ -166,167 +166,169 @@ function Cases() {
       <Metadata screen={screen} />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Background />
-        {isOpenFilter && (
-          <ModalFilter
-            isOpenFilter={isOpenFilter}
+        <div className="z-100">
+          {isOpenFilter && (
+            <ModalFilter
+              isOpenFilter={isOpenFilter}
+              toggle={toggleFilter}
+              setDate={handleDate}
+              setTopic={handleTopic}
+              setSearch={setSearch}
+              startDate={startDate}
+              endDate={endDate}
+              topic={topic}
+              search={search}
+              locale={locale}
+            />
+          )}
+          {!isOpenFilter && <Menu isOpen={isOpen} toggle={toggle} logo mode />}
+          <Styles.Margin>
+            {!isOpenFilter && <Nav toggle={toggle} logo mode isOpen={isOpen} />}
+          </Styles.Margin>
+          {!isOpenFilter && <ButtonShare />}
+          <HeroCase
+            OpenMenu={isOpen}
             toggle={toggleFilter}
-            setDate={handleDate}
-            setTopic={handleTopic}
-            setSearch={setSearch}
-            startDate={startDate}
+            date={startDate}
             endDate={endDate}
             topic={topic}
-            search={search}
-            locale={locale}
+            isOpen={isOpenFilter}
+            scroll={scroll}
+            handleChangeReset={handleChangeReset}
           />
-        )}
-        {!isOpenFilter && <Menu isOpen={isOpen} toggle={toggle} logo mode />}
-        <Styles.Margin>
-          {!isOpenFilter && <Nav toggle={toggle} logo mode isOpen={isOpen} />}
-        </Styles.Margin>
-        {!isOpenFilter && <ButtonShare />}
-        <HeroCase
-          OpenMenu={isOpen}
-          toggle={toggleFilter}
-          date={startDate}
-          endDate={endDate}
-          topic={topic}
-          isOpen={isOpenFilter}
-          scroll={scroll}
-          handleChangeReset={handleChangeReset}
-        />
-        {!scroll ? (
-          <motion.div
-            animate={shouldShowActions}
-            variants={servicesAnimations}
-            className="actions cursor-pointer -pb-36 lg:-mb-6 lg:pt-12"
-            transition={{
-              delay: 0.2,
-              type: 'spring',
-              stiffness: 50,
-              duration: 2,
-            }}
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: '50%' }}>
-            <Styles.SelectFilterCases>
-              <Styles.SectionFilter onClick={toggleFilter}>
-                <Subtext size="text-lg lg:py-4 ">
-                  {translate.CasesFilter}
-                </Subtext>
-              </Styles.SectionFilter>
-              <Styles.SelectFilter onClick={toggleFilter}>
-                <Styles.Select
-                  className="lg:w-8/12  w-full cursor-pointer "
-                  disabled>
-                  {topic === '' || topic === undefined ? (
-                    <option value="">{translate.Topic}</option>
-                  ) : (
-                    <option value="">{topic}</option>
-                  )}
-                </Styles.Select>
-              </Styles.SelectFilter>
-              <Styles.SelectFilter onClick={toggleFilter}>
-                <Styles.Select
-                  className="lg:w-8/12 w-full cursor-pointer "
-                  disabled>
-                  {search === '' || search === undefined ? (
-                    <option value="">{translate.Services}</option>
-                  ) : (
-                    <option value="">{search}</option>
-                  )}
-                </Styles.Select>
-              </Styles.SelectFilter>
-              <Styles.SelectFilter onClick={toggleFilter}>
-                <Styles.Select
-                  className="lg:w-10/12 w-full cursor-pointer "
-                  disabled>
-                  {startDate === '' ||
-                  undefined ||
-                  null ||
-                  endDate === '' ||
-                  undefined ||
-                  null ? (
-                    <option value="">{translate.SelectDate}</option>
-                  ) : (
-                    <option value="">{`${
-                      startDate
-                        ? format(startDate, 'dd-MM-yyyy')
-                        : `${translate.SelectDate}`
-                    } 
+          {!scroll ? (
+            <motion.div
+              animate={shouldShowActions}
+              variants={servicesAnimations}
+              className="actions cursor-pointer -pb-36 lg:-mb-6 lg:pt-12"
+              transition={{
+                delay: 0.2,
+                type: 'spring',
+                stiffness: 50,
+                duration: 2,
+              }}
+              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: '50%' }}>
+              <Styles.SelectFilterCases>
+                <Styles.SectionFilter onClick={toggleFilter}>
+                  <Subtext size="text-lg lg:py-4 ">
+                    {translate.CasesFilter}
+                  </Subtext>
+                </Styles.SectionFilter>
+                <Styles.SelectFilter onClick={toggleFilter}>
+                  <Styles.Select
+                    className="lg:w-8/12  w-full cursor-pointer "
+                    disabled>
+                    {topic === '' || topic === undefined ? (
+                      <option value="">{translate.Topic}</option>
+                    ) : (
+                      <option value="">{topic}</option>
+                    )}
+                  </Styles.Select>
+                </Styles.SelectFilter>
+                <Styles.SelectFilter onClick={toggleFilter}>
+                  <Styles.Select
+                    className="lg:w-8/12 w-full cursor-pointer "
+                    disabled>
+                    {search === '' || search === undefined ? (
+                      <option value="">{translate.Services}</option>
+                    ) : (
+                      <option value="">{search}</option>
+                    )}
+                  </Styles.Select>
+                </Styles.SelectFilter>
+                <Styles.SelectFilter onClick={toggleFilter}>
+                  <Styles.Select
+                    className="lg:w-10/12 w-full cursor-pointer "
+                    disabled>
+                    {startDate === '' ||
+                    undefined ||
+                    null ||
+                    endDate === '' ||
+                    undefined ||
+                    null ? (
+                      <option value="">{translate.SelectDate}</option>
+                    ) : (
+                      <option value="">{`${
+                        startDate
+                          ? format(startDate, 'dd-MM-yyyy')
+                          : `${translate.SelectDate}`
+                      } 
                     ${
                       endDate ? format(endDate, '-  dd-MM-yyyy') : ''
                     }`}</option>
-                  )}
-                </Styles.Select>
-              </Styles.SelectFilter>
-              <motion.svg
-                className="cursor-pointer w-1/6 lg:w-auto"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                transition={{ duration: 1, ease: 'easeInOut' }}
-                onClick={handleChangeReset}>
-                <motion.path
-                  d="M18 6L6 18"
-                  stroke="white"
-                  stroke-width={change ? '2' : 0}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  initial={{ pathLength: 0 }}
-                  animate={
-                    !scroll
-                      ? { pathLength: 1, type: 'tween' }
-                      : { pathLength: 0, type: 'spring' }
-                  }
+                    )}
+                  </Styles.Select>
+                </Styles.SelectFilter>
+                <motion.svg
+                  className="cursor-pointer w-1/6 lg:w-auto"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
                   transition={{ duration: 1, ease: 'easeInOut' }}
-                />
-                <motion.path
-                  d="M6 6L18 18"
-                  stroke="white"
-                  stroke-width={change ? '2' : 0}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  initial={{ pathLength: 0 }}
-                  animate={
-                    !scroll
-                      ? { pathLength: 1, type: 'tween' }
-                      : { pathLength: 0, type: 'spring' }
-                  }
-                  transition={{ duration: 1, ease: 'easeInOut' }}
-                />
-              </motion.svg>
-            </Styles.SelectFilterCases>
-          </motion.div>
-        ) : (
-          <></>
-        )}
-        <Styles.BlockSections>
-          {!isLoading ? (
-            <SectionProjects
-              data={data?.data}
-              shouldShowActions={undefined}
-              servicesAnimations={undefined}
-            />
+                  onClick={handleChangeReset}>
+                  <motion.path
+                    d="M18 6L6 18"
+                    stroke="white"
+                    stroke-width={change ? '2' : 0}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    initial={{ pathLength: 0 }}
+                    animate={
+                      !scroll
+                        ? { pathLength: 1, type: 'tween' }
+                        : { pathLength: 0, type: 'spring' }
+                    }
+                    transition={{ duration: 1, ease: 'easeInOut' }}
+                  />
+                  <motion.path
+                    d="M6 6L18 18"
+                    stroke="white"
+                    stroke-width={change ? '2' : 0}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    initial={{ pathLength: 0 }}
+                    animate={
+                      !scroll
+                        ? { pathLength: 1, type: 'tween' }
+                        : { pathLength: 0, type: 'spring' }
+                    }
+                    transition={{ duration: 1, ease: 'easeInOut' }}
+                  />
+                </motion.svg>
+              </Styles.SelectFilterCases>
+            </motion.div>
           ) : (
-            <RenderLoading mode={false} />
+            <></>
           )}
-        </Styles.BlockSections>
-        <Styles.Center>
-          {translate.contact.map((values) => (
-            <BlockSection
-              key={values.Link}
-              text={values.Text}
-              button={values.Link}
-              text2=""
-              button2=""
-              mode
-              link="/contacto"
-            />
-          ))}
-        </Styles.Center>
-        {!isOpenFilter ? <Footer subFooter={false} /> : <></>}
+          <Styles.BlockSections>
+            {!isLoading ? (
+              <SectionProjects
+                data={data?.data}
+                shouldShowActions={undefined}
+                servicesAnimations={undefined}
+              />
+            ) : (
+              <RenderLoading mode={false} />
+            )}
+          </Styles.BlockSections>
+          <Styles.Center>
+            {translate.contact.map((values) => (
+              <BlockSection
+                key={values.Link}
+                text={values.Text}
+                button={values.Link}
+                text2=""
+                button2=""
+                mode
+                link="/contacto"
+              />
+            ))}
+          </Styles.Center>
+          {!isOpenFilter ? <Footer subFooter={false} /> : <></>}
+        </div>
       </Styles.Body>
     </>
   );

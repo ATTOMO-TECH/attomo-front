@@ -23,6 +23,7 @@ export default function CalendarPickerRangeInput({
         id="reserve"
         placeholderText={translate.SelectDate}
         dateFormat="dd/MM/yyyy"
+        autoComplete="off"
         locale={es}
         selectsRange
         startDate={startDate}

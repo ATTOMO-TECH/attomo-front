@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Footer from '../components/footer/footer';
@@ -15,13 +16,19 @@ import MapsBlock from '../components/maps/maps';
 import Background from '../components/animations/background';
 import { getLocale } from '../public/locales/getLocale';
 import { BGSPACE } from '../const/constGlobal';
-import EspacioArticle from '../components/slider/espacio/slider';
 import useDeviceSize from '../hook/size';
 import { useAScreen } from '../domain/useScreensMetadata';
 import { Metadata } from '../components/head/metadata';
 import RenderLoading from '../components/loading/loading';
 
 function Space() {
+  const SliderSSR = dynamic(
+    () =>
+      import('../components/slider/espacio/slider').then(
+        (module: any) => module.default,
+      ),
+    { ssr: false },
+  );
   const router = useRouter();
   let { locale } = router;
   if (locale === '/') {
@@ -45,6 +52,7 @@ function Space() {
       </>
     );
   }
+
   return (
     <>
       <Metadata screen={screen} />
@@ -64,7 +72,7 @@ function Space() {
                     {values.Text}
                   </Title>
                   <Styles.FlexEnd>
-                    <Subtext size="lg:text-sm sm:text-lg text-sm font-regular lg:font-PrimarySerif font-Secundary  tracking-wide leadiang-loose lg:w-3/6 pb-48">
+                    <Subtext size="lg:text-sm sm:text-lg text-sm font-light lg:font-PrimarySerif font-PrimarySerif  tracking-wide leadiang-loose lg:w-3/6 pb-48">
                       {values.Subtext}
                     </Subtext>
                   </Styles.FlexEnd>
@@ -95,7 +103,7 @@ function Space() {
               ))}
             </Styles.SectionImg>
           ) : (
-            <EspacioArticle />
+            <SliderSSR />
           )}
         </Styles.Center>
         <Styles.Center id="reserva">

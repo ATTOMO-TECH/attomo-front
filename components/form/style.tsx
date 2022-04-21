@@ -91,15 +91,9 @@ export const ErrorText = styled.div<Props>`
   color: red;
 `;
 export const BtnSend = styled.button`
-  &:hover {
-    -webkit-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
-    -moz-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
-    box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
-    opacity: 1;
-  };
-  &[disabled]{
-    opacity-20 
-  }
+  -webkit-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
+  -moz-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
 `;
 
 export const Succes = styled.div`
@@ -262,7 +256,11 @@ export const Styles = {
   )` ease-out inline-flex justify-center  w-5/12  lg:w-2/12 duration-200 text-primary border-2 border-primary text-left lg:text-sm py-2 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none lg:mr-5 `,
   BtnSend: tw(
     BtnSend,
-  )` ease-out inline-flex justify-center w-3/6 lg:w-3/12 duration-200 text-primary border-2 border-primary text-left lg:text-sm py-2 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none mr-5 `,
+  )<Props>` ease-out inline-flex justify-center w-3/6 lg:w-3/12 duration-200 text-primary border-2 border-primary text-left lg:text-sm py-2 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none mr-5
+  ${(props) =>
+    props.ismode === BUTTON_ACTIVE.ON
+      ? 'opacity-20 cursor-auto'
+      : 'opacity-90 cursor-pointer'} `,
   SectionRenderForm: tw.section`my-12`,
   Form: tw(Form)`lg:w-4/6 m-auto`,
   SectionInputs: tw.div`grid grid-cols-2 gap-6  m-auto`,

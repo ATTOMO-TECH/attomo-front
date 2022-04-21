@@ -26,6 +26,7 @@ export default function CalendarPickerInputRange({
       <div id="trend">
         <DatePicker
           selected={startDate}
+          autoComplete="off"
           onChange={onChange}
           startDate={startDate}
           endDate={endDate}

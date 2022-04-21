@@ -66,7 +66,14 @@ export default function FormCustomer() {
           initialValues={initialValues}
           validationSchema={validationSchemaColaborator}
           validateOnMount>
-          {({ touched, errors, setFieldValue, handleSubmit }) => (
+          {({
+            touched,
+            errors,
+            setFieldValue,
+            handleSubmit,
+            isValid,
+            dirty,
+          }) => (
             <>
               <Styles.Form onSubmit={handleSubmit}>
                 <Styles.BlockInputsCenter>
@@ -178,7 +185,11 @@ export default function FormCustomer() {
                 )}
 
                 <Styles.BlockSendButton>
-                  <Styles.BtnSend type="submit">
+                  <Styles.BtnSend
+                    type="submit"
+                    ismode={
+                      !isValid && dirty ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF
+                    }>
                     {translate.formSend}
                   </Styles.BtnSend>
                 </Styles.BlockSendButton>
