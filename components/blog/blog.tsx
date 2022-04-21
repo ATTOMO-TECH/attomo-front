@@ -48,16 +48,18 @@ export default function BlockBlog({ dataBlog }: Props) {
             animate="show">
             <motion.div variants={item}>
               <Blogstyles.Article>
-                <Blogstyles.BlockImg>
-                  {data.attributes?.coverImage?.data?.attributes?.url ? (
-                    <img
-                      src={data.attributes.coverImage.data.attributes?.url}
-                      width={900}
-                      height={700}
-                      alt={data.attributes.name}
-                    />
-                  ) : null}
-                </Blogstyles.BlockImg>
+                <Link href={`/ATTOMOTrends/${data.id}`}>
+                  <Blogstyles.BlockImg>
+                    {data.attributes?.coverImage?.data?.attributes?.url ? (
+                      <img
+                        src={data.attributes.coverImage.data.attributes?.url}
+                        width={900}
+                        height={700}
+                        alt={data.attributes.name}
+                      />
+                    ) : null}
+                  </Blogstyles.BlockImg>
+                </Link>
                 <Blogstyles.BlockText>
                   <Subtext size="text-sm leading-relaxed  ">
                     {data.attributes.blog_tags.data[0].attributes.name}
@@ -71,7 +73,7 @@ export default function BlockBlog({ dataBlog }: Props) {
 
                   <Blogstyles.SubText />
                   <Link href={`/ATTOMOTrends/${data.id}`}>
-                    <div className="h-12">
+                    <div className="h-12 w-2/6 relative">
                       <IconAnimate text="Leer" mode />
                     </div>
                   </Link>

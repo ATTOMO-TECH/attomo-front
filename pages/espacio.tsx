@@ -123,7 +123,6 @@ function Space() {
             </Styles.BlockAddresMap>
           </Styles.BlockAddres>
         </Styles.Center>
-
         <Styles.Center>
           {translate.contact.map((values) => (
             <BlockSection

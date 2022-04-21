@@ -30,8 +30,8 @@ export default function CalendarPickerInput({ handleValue }: Props) {
         }}
         className={
           startDate === undefined
-            ? 'outline-none font-PrimarySerif font-thin text-regular text-gray-300 opacity-50 hover:opacity-70 h-full w-full py-3.5 border-b border-gray-300 '
-            : 'outline-none font-PrimarySerif font-thin text-regular text-gray-300 opacity-100 h-full w-full py-3.5 border-b border-gray-300'
+            ? 'outline-none font-PrimarySerif font-thin text-regular text-gray-300 opacity-50 hover:opacity-70 h-full w-full py-3  '
+            : 'outline-none font-PrimarySerif font-thin text-regular text-gray-300 opacity-100 h-full w-full py-3 '
         }
       />
     </>

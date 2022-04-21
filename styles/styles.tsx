@@ -202,7 +202,7 @@ export const Styles = {
   DivideSection: tw.div`lg:w-3/6 w-full pb-2`,
   BlockButton: tw.div`lg:px-24 pt-10`,
   BlockSlider: tw.div` pb-12 px-7`,
-  BlockTrends: tw.div`lg:pt-48 flex w-full m-auto lg:justify-center items-center pl-8 lg:pl-0 pt-36 pb-16 flex-wrap `,
+  BlockTrends: tw.div`lg:pt-48 flex w-full m-auto lg:justify-center items-center pl-8 lg:pl-0 pt-10 pb-16 flex-wrap `,
   // FilterCases
   SelectFilterCases: tw.div`flex w-full m-auto lg:justify-center items-center pl-8 lg:pl-0 pt-10 lg:pt-0 flex-wrap  `,
 

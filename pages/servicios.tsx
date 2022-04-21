@@ -18,13 +18,6 @@ import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 
 function Services() {
-  const SliderSSR = dynamic(
-    () =>
-      import('../components/slider/article/slider').then(
-        (module: any) => module.default,
-      ),
-    { ssr: false },
-  );
   const router = useRouter();
   let { locale } = router;
   if (locale === '/') {
@@ -39,6 +32,14 @@ function Services() {
     SetIsOpen(!isOpen);
   };
   const translate = getLocale();
+  const SliderSSR = dynamic(
+    () =>
+      import('../components/slider/article/slider').then(
+        (module: any) => module.default,
+      ),
+    { ssr: false },
+  );
+
   if (screenIsLoading) {
     return (
       <>
@@ -46,6 +47,7 @@ function Services() {
       </>
     );
   }
+
   return (
     <>
       <Metadata screen={screen} />

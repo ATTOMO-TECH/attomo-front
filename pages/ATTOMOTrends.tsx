@@ -251,14 +251,15 @@ function News() {
           </motion.svg>
         </Styles.BlockTrends>
         <BlockBlog dataBlog={preData} />
-        {preData.length >= 4 ? (
-          <Blogstyles.SectionMore>
-            <Blogstyles.BlockMore
-              onClick={() => handleAddBlog(data.meta.pagination.page + 1)}>
-              {translate.seeMoreTrends}
-            </Blogstyles.BlockMore>
-          </Blogstyles.SectionMore>
-        ) : null}
+        {data &&
+          (data.meta.pagination.page !== data.meta.pagination.pageCount ? (
+            <Blogstyles.SectionMore>
+              <Blogstyles.BlockMore
+                onClick={() => handleAddBlog(data.meta.pagination.page + 1)}>
+                {translate.seeMoreTrends}
+              </Blogstyles.BlockMore>
+            </Blogstyles.SectionMore>
+          ) : null)}
         <Styles.Center>
           {React.Children.toArray(
             translate.contact.map((values) => (
