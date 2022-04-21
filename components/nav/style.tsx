@@ -19,7 +19,7 @@ export const SectionColor = styled(motion.nav)`
   color: ${(props) => props.theme.headings};
   background-color: ${(props) => props.theme.bodyBg};
   top: -2px;
-  z-index: 100 !important;
+  z-index: 10000 !important;
 `;
 export const Section = styled(motion.nav)`
   color: ${(props) => props.theme.headings};

@@ -72,6 +72,7 @@ export default function FormReserver() {
       },
     );
   };
+
   return (
     <>
       {!sendSuccesfull ? (
@@ -87,15 +88,9 @@ export default function FormReserver() {
           <Formik
             onSubmit={handleSubmitReserve}
             initialValues={initialValues}
-            validationSchema={validationSchemaBooking}>
-            {({
-              touched,
-              errors,
-              handleSubmit,
-              setFieldValue,
-              isValid,
-              dirty,
-            }) => (
+            validationSchema={validationSchemaBooking}
+            validateOnMount>
+            {({ touched, errors, handleSubmit, setFieldValue }) => (
               <>
                 <Styles.Form onSubmit={handleSubmit}>
                   <Styles.SectionInputs>
@@ -213,11 +208,7 @@ export default function FormReserver() {
                   </span>
 
                   <Styles.BlockSendButton>
-                    <Styles.BtnSend
-                      type="submit"
-                      ismode={
-                        !isValid && dirty ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF
-                      }>
+                    <Styles.BtnSend type="submit">
                       {translate.formRent}
                     </Styles.BtnSend>
                   </Styles.BlockSendButton>

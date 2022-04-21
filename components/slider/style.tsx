@@ -69,7 +69,7 @@ export const StylesArticle = {
       `,
 
   TopicText: tw.h6<Props>`
-  opacity-50 font-PrimarySerif font-light text-xs py-2
+  opacity-50 font-PrimarySerif font-light text-xs py-2 text-primary
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'block' : 'hidden')}
   `,
   BlockArrow: tw.div`flex w-full text-xl  justify-center lg:justify-end lg:pr-44 lg:pr-10`,
@@ -78,7 +78,4 @@ export const StylesArticle = {
   Slide: tw(SelectedSlide)<Props>`
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'w-4/6 ' : 'w-4/6 ')}`,
   // ESPACIO
-  BlockImgEspace: tw.div`w-full bg-cover bg-center py-44 bg-no-repeat `,
-  BlockArrowSpace: tw.div`flex w-full text-xl justify-between`,
-  ArrowSpace: tw.div`cursor-pointer py-12  opacity-50 hover:opacity-100 transition duration-150 ease-out`,
 };

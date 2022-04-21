@@ -111,7 +111,15 @@ export default function FormColaborator() {
           initialValues={initialValues}
           validationSchema={validationSchemaColaborator}
           validateOnMount>
-          {({ touched, errors, handleSubmit, values, setFieldValue }) => (
+          {({
+            touched,
+            errors,
+            handleSubmit,
+            values,
+            setFieldValue,
+            isValid,
+            dirty,
+          }) => (
             <>
               <Styles.Form onSubmit={handleSubmit}>
                 <Subtext size="lg:text-sm w-full pb-10 font-PrimarySerif">
@@ -271,7 +279,11 @@ export default function FormColaborator() {
                   )}
                 </span>
                 <Styles.BlockSendButton>
-                  <Styles.BtnSend type="submit">
+                  <Styles.BtnSend
+                    type="submit"
+                    ismode={
+                      !isValid && dirty ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF
+                    }>
                     {translate.formSend}
                   </Styles.BtnSend>
                 </Styles.BlockSendButton>

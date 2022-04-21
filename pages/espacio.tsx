@@ -1,34 +1,43 @@
+import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { motion } from 'framer-motion';
-import Head from 'next/head';
 import Footer from '../components/footer/footer';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
 import Subtext from '../components/Text/subText';
 import Title from '../components/Text/title';
-import { BUTTON_ACTIVE } from '../const/const';
+import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
 import { Styles } from '../styles/styles';
 import BlockSection from '../components/block/block';
 import SelectedClients from '../components/section/selectedclientes';
-// import Prices from '../components/section/price';
 import FormReserver from '../components/form/formReserver';
 import ButtonShare from '../components/button/BtnShare';
 import MapsBlock from '../components/maps/maps';
 import Background from '../components/animations/background';
 import { getLocale } from '../public/locales/getLocale';
-import { servicesAnimations } from '../components/animations/animations';
 import { BGSPACE } from '../const/constGlobal';
-import EspacioArticle from '../components/slider/espacio/slider';
 import useDeviceSize from '../hook/size';
+import { useAScreen } from '../domain/useScreensMetadata';
+import { Metadata } from '../components/head/metadata';
+import RenderLoading from '../components/loading/loading';
 
 function Space() {
-  const [shouldShowActions] = useState(false);
+  const SliderSSR = dynamic(
+    () =>
+      import('../components/slider/espacio/slider').then(
+        (module: any) => module.default,
+      ),
+    { ssr: false },
+  );
   const router = useRouter();
   let { locale } = router;
   if (locale === '/') {
     locale = 'es';
   }
+  const { data: screen, isLoading: screenIsLoading } = useAScreen(
+    MENU_SCREENS.SPACE,
+    locale || 'es',
+  );
 
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const toggle = () => {
@@ -36,14 +45,19 @@ function Space() {
   };
   const translate = getLocale();
   const [width] = useDeviceSize();
+  if (screenIsLoading) {
+    return (
+      <>
+        <RenderLoading mode={false} />
+      </>
+    );
+  }
+
   return (
     <>
-      <Head>
-        <title>Espacio ATTOMO - Alquila nuestro espacio</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-      <Background />
+      <Metadata screen={screen} />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
+        <Background />
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
           <Nav toggle={toggle} logo mode isOpen={isOpen} />
@@ -58,7 +72,7 @@ function Space() {
                     {values.Text}
                   </Title>
                   <Styles.FlexEnd>
-                    <Subtext size="lg:text-sm sm:text-lg text-sm font-regular lg:font-PrimarySerif font-Secundary  tracking-wide leadiang-loose lg:w-3/6 pb-48">
+                    <Subtext size="lg:text-sm sm:text-lg text-sm font-light lg:font-PrimarySerif font-PrimarySerif  tracking-wide leadiang-loose lg:w-3/6 pb-48">
                       {values.Subtext}
                     </Subtext>
                   </Styles.FlexEnd>
@@ -89,7 +103,7 @@ function Space() {
               ))}
             </Styles.SectionImg>
           ) : (
-            <EspacioArticle />
+            <SliderSSR />
           )}
         </Styles.Center>
         <Styles.Center id="reserva">
@@ -97,7 +111,6 @@ function Space() {
         </Styles.Center>
         <Styles.Center>
           <Styles.BlockAddres>
-            <Styles.BreakLine />
             <Title size="text-2xl  lg:pr-10 pt-12 ">
               {translate.spaceAttomoFooter}
             </Title>
@@ -110,32 +123,21 @@ function Space() {
             </Styles.BlockAddresMap>
           </Styles.BlockAddres>
         </Styles.Center>
-        <motion.div
-          animate={shouldShowActions}
-          variants={servicesAnimations}
-          className="actions"
-          transition={{
-            delay: 0.2,
-            type: 'spring',
-            stiffness: 50,
-            duration: 2,
-          }}
-          whileInView={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: '50%' }}>
-          <Styles.Center>
-            {translate.contact.map((values) => (
-              <BlockSection
-                key={values.Link}
-                text={values.Text}
-                button={values.Link}
-                text2=""
-                button2=""
-                mode
-                link="/contacto"
-              />
-            ))}
-          </Styles.Center>
-        </motion.div>
+
+        <Styles.Center>
+          {translate.contact.map((values) => (
+            <BlockSection
+              key={values.Link}
+              text={values.Text}
+              button={values.Link}
+              text2=""
+              button2=""
+              mode
+              link="/contacto"
+            />
+          ))}
+        </Styles.Center>
+
         <Footer subFooter={false} />
       </Styles.Body>
     </>

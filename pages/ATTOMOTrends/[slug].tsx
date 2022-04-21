@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import { useRouter } from 'next/dist/client/router';
 import { motion } from 'framer-motion';
@@ -15,13 +16,19 @@ import { useAPost } from '../../domain/useBlogDetails';
 import RenderLoading from '../../components/loading/loading';
 import { getLocale } from '../../public/locales/getLocale';
 import { servicesAnimations } from '../../components/animations/animations';
-import ArticlesScroll from '../../components/slider/article/slider';
 
 interface Props {
   mode: boolean;
 }
 
 function New({ mode }: Props) {
+  const SliderSSR = dynamic(
+    () =>
+      import('../../components/slider/article/sliderInvert').then(
+        (module: any) => module.default,
+      ),
+    { ssr: false },
+  );
   const translate = getLocale();
   const [shouldShowActions] = useState(false);
   const [isOpen, SetIsOpen] = useState<boolean>(false);
@@ -78,10 +85,9 @@ function New({ mode }: Props) {
         </Styles.Center>
         <Styles.FlexEnd>
           <Styles.AlingBlock>
-            <ArticlesScroll
-              mode={false}
-              filter={data?.data.attributes.blog_tags.data[0].attributes.name}
-            />
+            <SliderSSR>
+              {data?.data.attributes.blog_tags.data[0].attributes.name}
+            </SliderSSR>
           </Styles.AlingBlock>
         </Styles.FlexEnd>
         <motion.div

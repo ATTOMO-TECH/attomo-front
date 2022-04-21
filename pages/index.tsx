@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { motion, AnimateSharedLayout } from 'framer-motion';
 import * as qs from 'qs';
 import { useRouter } from 'next/router';
-import Head from 'next/head';
 import BlockSection from '../components/block/block';
 import Footer from '../components/footer/footer';
 import Hero from '../components/hero/hero';
@@ -12,7 +11,7 @@ import Nav from '../components/nav/nav';
 import SectionProjects from '../components/section/projects';
 import CompaniesScroll from '../components/slider/companys/slider';
 import SubSection from '../components/subsection/subsection';
-import { BUTTON_ACTIVE } from '../const/const';
+import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
 import { Styles } from '../styles/styles';
 import SelectedClients from '../components/section/selectedclientes';
 import { useUseAllCases } from '../domain/useCasesDetails';
@@ -22,6 +21,8 @@ import { servicesAnimations } from '../components/animations/animations';
 import { useUseAllQuote } from '../domain/useQuotes';
 import { getLocale } from '../public/locales/getLocale';
 import Background from '../components/animations/background';
+import { useAScreen } from '../domain/useScreensMetadata';
+import { Metadata } from '../components/head/metadata';
 
 function Home() {
   const router = useRouter();
@@ -29,6 +30,10 @@ function Home() {
   if (locale === '/') {
     locale = 'es';
   }
+  const { data: screen, isLoading: screenIsLoading } = useAScreen(
+    MENU_SCREENS.HOME,
+    locale || 'es',
+  );
   const queryObject: any = {
     filters: {
       featuredInHome: {
@@ -71,7 +76,8 @@ function Home() {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
-  if (isLoading || QuoteIsLoading) {
+
+  if (isLoading || QuoteIsLoading || screenIsLoading) {
     return (
       <>
         <RenderLoading mode={false} />
@@ -83,17 +89,13 @@ function Home() {
 
   return (
     <>
-      <Head>
-        <title>Attomo Digital - Consultoría tecnológica</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-
-      <Background />
+      <Metadata screen={screen} />
       <AnimateSharedLayout>
         <Styles.Body
           mode={isOpen ? BUTTON_ACTIVE.ON : ''}
           id="bg"
           className="z-100">
+          <Background />
           <Menu isOpen={isOpen} toggle={toggle} logo={false} mode />
           <Styles.Margin>
             <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
@@ -201,32 +203,19 @@ function Home() {
               <HeroFooter text={Quote?.data.attributes.text} />
             </Styles.CenterFull>
           </motion.div>
-          <motion.div
-            animate={shouldShowActions}
-            variants={servicesAnimations}
-            className="actions"
-            transition={{
-              delay: 0.2,
-              type: 'spring',
-              stiffness: 50,
-              duration: 2,
-            }}
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: '50%' }}>
-            <Styles.Center>
-              {translate.contact.map((values) => (
-                <BlockSection
-                  key={values.Link}
-                  text={values.Text}
-                  button={values.Link}
-                  text2=""
-                  button2=""
-                  mode
-                  link="/contacto"
-                />
-              ))}
-            </Styles.Center>
-          </motion.div>
+          <Styles.Center>
+            {translate.contact.map((values) => (
+              <BlockSection
+                key={values.Link}
+                text={values.Text}
+                button={values.Link}
+                text2=""
+                button2=""
+                mode
+                link="/contacto"
+              />
+            ))}
+          </Styles.Center>
           <Footer subFooter />
         </Styles.Body>
       </AnimateSharedLayout>

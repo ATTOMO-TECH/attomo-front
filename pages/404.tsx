@@ -1,13 +1,15 @@
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Background from '../components/animations/background';
 import IconAnimate from '../components/button/icon';
 import Footer from '../components/footer/footer';
+import { Metadata } from '../components/head/metadata';
+import RenderLoading from '../components/loading/loading';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
 import Title from '../components/Text/title';
-import { BUTTON_ACTIVE } from '../const/const';
+import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
+import { useAScreen } from '../domain/useScreensMetadata';
 import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 
@@ -21,16 +23,26 @@ function Error() {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
-
+  if (locale === '/') {
+    locale = 'es';
+  }
+  const { data: screen, isLoading: screenIsLoading } = useAScreen(
+    MENU_SCREENS.HOME,
+    locale || 'es',
+  );
   const translate = getLocale();
-
+  if (screenIsLoading) {
+    return (
+      <>
+        <RenderLoading mode={false} />
+      </>
+    );
+  }
   return (
     <>
-      <Head>
-        <title>ATTOMO ESTUDIO</title>
-      </Head>
-      <Background />
+      <Metadata screen={screen} />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
+        <Background />
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
           <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />

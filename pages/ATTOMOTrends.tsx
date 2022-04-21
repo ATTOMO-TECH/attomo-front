@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import * as qs from 'qs';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { format } from 'date-fns';
 import Background from '../components/animations/background';
@@ -15,14 +14,15 @@ import RenderLoading from '../components/loading/loading';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
 import Title from '../components/Text/title';
-import { BUTTON_ACTIVE } from '../const/const';
+import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
 import { useUseAllPost, useUseAllTags } from '../domain/useBlogDetails';
 import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 import Subtext from '../components/Text/subText';
 import CalendarPickerInputRange from '../components/calendar/input/calendarRange';
-import { servicesAnimations } from '../components/animations/animations';
 import SelectFilterMenu from '../components/filter/selectedFilterMenu';
+import { Metadata } from '../components/head/metadata';
+import { useAScreen } from '../domain/useScreensMetadata';
 
 function News() {
   const router = useRouter();
@@ -30,7 +30,6 @@ function News() {
   if (locale === '/') {
     locale = 'es';
   }
-  const [shouldShowActions] = useState(false);
   const translate = getLocale();
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState('');
@@ -39,6 +38,10 @@ function News() {
   );
   const { data, isLoading } = useUseAllPost(query);
   const { data: Tags, isLoading: isLoadingTags } = useUseAllTags(
+    locale || 'es',
+  );
+  const { data: screen, isLoading: screenIsLoading } = useAScreen(
+    MENU_SCREENS.TRENDS,
     locale || 'es',
   );
   const [startDate, setStartDateFilter] = useState<any>();
@@ -139,7 +142,7 @@ function News() {
     }
   }, [data]);
 
-  if ((isLoading && !preData) || isLoadingTags) {
+  if ((isLoading && !preData) || isLoadingTags || screenIsLoading) {
     return (
       <>
         <RenderLoading mode={false} />
@@ -159,12 +162,9 @@ function News() {
 
   return (
     <>
-      <Head>
-        <title>#ATTOMOtrends</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-      <Background />
+      <Metadata screen={screen} />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
+        <Background />
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
           <Nav toggle={toggle} logo mode isOpen={isOpen} />
@@ -260,32 +260,19 @@ function News() {
           </Blogstyles.SectionMore>
         ) : null}
         <Styles.Center>
-          <motion.div
-            animate={shouldShowActions}
-            variants={servicesAnimations}
-            className="actions"
-            transition={{
-              delay: 0.2,
-              type: 'spring',
-              stiffness: 50,
-              duration: 2,
-            }}
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: '50%' }}>
-            {React.Children.toArray(
-              translate.contact.map((values) => (
-                <BlockSection
-                  key={values.Link}
-                  text={values.Text}
-                  button={values.Link}
-                  text2=""
-                  button2=""
-                  mode
-                  link="/contacto"
-                />
-              )),
-            )}
-          </motion.div>
+          {React.Children.toArray(
+            translate.contact.map((values) => (
+              <BlockSection
+                key={values.Link}
+                text={values.Text}
+                button={values.Link}
+                text2=""
+                button2=""
+                mode
+                link="/contacto"
+              />
+            )),
+          )}
         </Styles.Center>
         <Footer subFooter={false} />
       </Styles.Body>

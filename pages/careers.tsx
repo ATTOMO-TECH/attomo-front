@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import Head from 'next/head';
 import Background from '../components/animations/background';
 import ButtonShare from '../components/button/BtnShare';
 import IconAnimate from '../components/button/icon';
@@ -14,12 +13,14 @@ import Nav from '../components/nav/nav';
 import Work from '../components/section/work';
 import Subtext from '../components/Text/subText';
 import Title from '../components/Text/title';
-import { BUTTON_ACTIVE } from '../const/const';
+import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
 import { useUseAllCareer } from '../domain/useCareers';
 import { useUseAllQuote } from '../domain/useQuotes';
 import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 import { servicesAnimations } from '../components/animations/animations';
+import { Metadata } from '../components/head/metadata';
+import { useAScreen } from '../domain/useScreensMetadata';
 
 function Carrers() {
   const router = useRouter();
@@ -27,6 +28,10 @@ function Carrers() {
   if (locale === '/') {
     locale = 'es';
   }
+  const { data: screen, isLoading: screenIsLoading } = useAScreen(
+    MENU_SCREENS.CAREERS,
+    locale || 'es',
+  );
   const [shouldShowActions] = useState(false);
   const randomQuote = (min: number, max: number) =>
     Math.floor(Math.random() * (max - min + 1) + min);
@@ -42,7 +47,7 @@ function Carrers() {
     SetIsOpen(!isOpen);
   };
   const translate = getLocale();
-  if (isLoading || QuoteIsLoading) {
+  if (isLoading || QuoteIsLoading || screenIsLoading) {
     return (
       <>
         <RenderLoading mode={false} />
@@ -52,12 +57,9 @@ function Carrers() {
 
   return (
     <>
-      <Head>
-        <title>Careers ATTOMO: Trabaja con nosotros</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-      <Background />
+      <Metadata screen={screen} />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
+        <Background />
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
           <Nav toggle={toggle} logo mode isOpen={isOpen} />

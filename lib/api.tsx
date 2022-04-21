@@ -71,6 +71,13 @@ const RATES = {
     getAbsolutePath(`espacio-attomo-rates?locale=${lenguage}`),
 };
 
+const SCREENS = {
+  FETCH_ALL: (lenguage: string) =>
+    getAbsolutePath(`espacio-attomo-rates?locale=${lenguage}`),
+  FETCH_ID: (id: number, lenguage: string) =>
+    getAbsolutePath(`screens-metadata/${id}?locale=${lenguage}`),
+};
+
 export {
   SUBSERVICES,
   POST,
@@ -85,5 +92,6 @@ export {
   TERMS,
   SUBSCRIBERS,
   DISCIPLINES,
+  SCREENS,
   getAbsolutePath,
 };

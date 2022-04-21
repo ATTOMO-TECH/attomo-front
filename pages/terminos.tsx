@@ -38,8 +38,8 @@ function Conditions() {
       <Head>
         <title>ATTOMO - Terminos y condicciones </title>
       </Head>
-      <Background />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
+        <Background />
         <Menu isOpen={isOpen} toggle={toggle} logo mode />
         <Styles.Margin>
           <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
