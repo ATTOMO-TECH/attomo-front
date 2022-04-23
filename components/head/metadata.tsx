@@ -9,7 +9,7 @@ export function Metadata({ screen }: Props) {
     <Head>
       <title>{screen.data.attributes.screenTitle}</title>
       <meta name="title" content={screen.data.attributes.screenTitle} />
-      <meta name="image" content="/Favicon.svg" />
+      <link rel="icon" href="/FaviconLight.svg" type="image/x-icon" />
       {screen.data.attributes.metadata && (
         <meta name="description" content={screen.data.attributes.metadata} />
       )}

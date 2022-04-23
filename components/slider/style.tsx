@@ -59,7 +59,7 @@ export const Styles = {
 
 export const StylesArticle = {
   BlockImg: tw.div`w-full h-96 object-cover `,
-  Img: tw(Image)`max-w-full max-h-full object-cover`,
+  Img: tw(Image)`max-w-full max-h-full object-cover cursor-pointer`,
   BlockText: tw(SectionColor)``,
   TextBlog: tw(
     titleText,

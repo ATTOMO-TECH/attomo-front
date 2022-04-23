@@ -21,11 +21,13 @@ export default function SelectedClients({
     <>
       <Styles.BlockMargin>
         <Styles.DivideSection>
-          <SubSections.BlockCounter>
-            <Title size="text-2xl md:text-3xl lg:text-4xl font-light lg:w-3/6 lg:pl-12 ">
-              {textPrimary}
-            </Title>
-          </SubSections.BlockCounter>
+          <Link href={`${link}`}>
+            <SubSections.BlockCounter>
+              <Title size="text-2xl md:text-3xl lg:text-4xl font-light lg:w-3/6 lg:pl-12 cursor-pointer ">
+                {textPrimary}
+              </Title>
+            </SubSections.BlockCounter>
+          </Link>
 
           <SubSections.TextSubsectionSelected>
             <div className="lg:w-4/6  w-full">

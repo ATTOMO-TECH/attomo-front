@@ -157,7 +157,7 @@ export const IconPathStyled = styled(motion.path).attrs(() => ({
 
 export const Navegation = {
   MenuRelative: tw.div<Props>`relative z-100
-  ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? `content  ` : 'hidden')}
+  ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'content' : 'hidden')}
 `,
   SectionMenu: tw(Section)<Props>`
   lg:transition ease-in-out   fixed overflow-y-scroll 
@@ -175,11 +175,11 @@ export const Navegation = {
   `,
   Menu: tw.nav``,
   AlinItems: tw.ul<Props>`
-  flex items-center fixed z-100 justify-between w-11/12 m-auto md:mt-0 md:w-10/12 md:absolute lg:left-24 md:left-12 left-4 top-2 md:top-6 
+  flex items-center fixed z-100 justify-between w-11/12 m-auto md:w-10/12 md:absolute lg:left-24 md:left-12 left-5 top-4 md:top-6 
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : '')}
   `,
   AlinItemsServices: tw.ul<Props>`
-  flex items-center fixed z-100 justify-between w-11/12 m-auto md:mt-0 md:w-10/12 md:absolute lg:left-24 md:left-12 left-4 top-2 md:top-6 
+  flex items-center fixed z-100 justify-between w-11/12 m-auto md:w-10/12 md:absolute lg:left-24 md:left-12 left-5 top-4 md:top-6 
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : '')}
   `,
   ItemsMenu: tw.li`flex items-center list-none  min-h-min cursor-pointer`,
@@ -193,7 +193,7 @@ export const Navegation = {
   AlingItemsMenu: tw.div`flex flex-col items-center justify-center text-center w-full  md:pt-0 md:pt-0 justify-center h-screen absolute content-around justify-center`,
   SelectMenu: tw(
     itemMenu,
-  )` leading-loose tracking-wide hover:opacity-100 opacity-60 cursor-pointer transition ease-in-out delay-100 duration-100  text-2xl md:text-3xl lg:text-5xl md:py-4`,
+  )` leading-loose tracking-wide hover:opacity-100 opacity-60 mb-2 lg:mb-1 cursor-pointer transition ease-in-out delay-100 duration-100  text-2xl md:text-3xl lg:text-5xl md:py-4`,
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`

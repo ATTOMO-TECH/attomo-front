@@ -22,13 +22,12 @@ interface Props {
 
 export default function Cases({ mode }: Props) {
   const router = useRouter();
-  const [shouldShowActions] = useState(false);
   const { slug } = router.query;
+  const [shouldShowActions] = useState(false);
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
-
   let { locale } = router;
   if (locale === '/') {
     locale = 'es';
@@ -94,7 +93,11 @@ export default function Cases({ mode }: Props) {
         </Styles.Center>
         <Styles.FlexEnd>
           <Styles.AlingBlock>
-            <CasesScroll mode={false} filter={data.data.attributes.sumary} />
+            <CasesScroll
+              mode={false}
+              filter={data.data.attributes.sumary}
+              id={slug}
+            />
           </Styles.AlingBlock>
         </Styles.FlexEnd>
         <motion.div

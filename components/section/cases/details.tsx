@@ -35,14 +35,16 @@ export default function DetailsCases({ data, translate }: Props) {
         </Details.BlockItems>
         <Details.SectionContainer>
           <Container>{data.attributes.workDescription}</Container>
-          <Link href={data.attributes.projectUrl || '/'} passHref>
-            <a
-              href={data.attributes.projectUrl}
-              target="_blank"
-              rel="noreferrer">
-              <IconAnimate text={translate.seeOnline} mode={false} />
-            </a>
-          </Link>
+          {data.attributes.projectUrl !== '' && (
+            <Link href={data.attributes.projectUrl || '/'} passHref>
+              <a
+                href={data.attributes.projectUrl}
+                target="_blank"
+                rel="noreferrer">
+                <IconAnimate text={translate.seeOnline} mode={false} />
+              </a>
+            </Link>
+          )}
         </Details.SectionContainer>
         <Details.SectionText>
           <Container>{data.attributes.content}</Container>

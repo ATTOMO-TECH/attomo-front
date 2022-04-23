@@ -304,22 +304,22 @@ export const CircleInter = styled.div`
   transform: rotate(70deg);
 `;
 export const AlingBlock = styled.div`
-  bottom: -47%;
+  bottom: -49%;
   @media screen and (min-width: 350px) {
-    bottom: -41%;
+    bottom: -43%;
   }
   @media screen and (min-width: 468px) {
-    bottom: -32%;
+    bottom: -35%;
   }
   @media screen and (min-width: 550px) {
-    bottom: -22%;
+    bottom: -25%;
   }
   @media screen and (min-width: 640px) {
-    bottom: -28%;
+    bottom: -31%;
   }
 
   @media screen and (min-width: 768px) {
-    bottom: -22%;
+    bottom: -25%;
   }
 
   @media screen and (min-width: 1024px) {

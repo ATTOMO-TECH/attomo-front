@@ -43,12 +43,6 @@ export default function FilterDetails({
         animate={{
           x: isOpenFilter ? 0 : -500,
           opacity: isOpenFilter ? 1 : 0,
-        }}
-        transition={{
-          delay: 0.5,
-          duration: 0.8,
-          ease: 'easeInOut',
-          stiffness: 50,
         }}>
         <Navegation.Menu>
           <Navegation.AlinItemsServices
@@ -107,7 +101,7 @@ export default function FilterDetails({
             </Navegation.ItemsMenu>
           </Navegation.AlinItemsServices>
 
-          <div className="pl-8  flex flex-col items-center place-content-center pt-16 relative z-90">
+          <div className="pl-8  w-full  flex flex-col items-center justify-center pt-24 relative z-90">
             {data.data.map((tab: any) => (
               <SubMenu
                 key={tab.id}

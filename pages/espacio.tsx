@@ -63,7 +63,7 @@ function Space() {
           <Nav toggle={toggle} logo mode isOpen={isOpen} />
         </Styles.Margin>
         <ButtonShare />
-        <Styles.Center>
+        {/* <Styles.Center>
           <Styles.Center>
             <Styles.ScreenWS>
               {translate.spaceAttomo.map((values) => (
@@ -80,6 +80,20 @@ function Space() {
               ))}
             </Styles.ScreenWS>
           </Styles.Center>
+        </Styles.Center> */}
+        <Styles.Center>
+          <Styles.ScreenWS>
+            {translate.spaceAttomo.map((services) => (
+              <Styles.BlockDiv>
+                <Title size="lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl">
+                  {services.Text}
+                </Title>
+                <Styles.FlexEnd>
+                  <Subtext size="lg:w-2/6 pt-10">{services.Subtext}</Subtext>
+                </Styles.FlexEnd>
+              </Styles.BlockDiv>
+            ))}
+          </Styles.ScreenWS>
         </Styles.Center>
         <Styles.HeroEspace />
         <Styles.Center>
@@ -109,20 +123,16 @@ function Space() {
         <Styles.Center id="reserva">
           <FormReserver />
         </Styles.Center>
-        <Styles.Center>
-          <Styles.BlockAddres>
-            <Title size="text-2xl  lg:pr-10 pt-12 ">
-              {translate.spaceAttomoFooter}
-            </Title>
-            <Styles.BlockAddresMap>
-              <Subtext size="text-regular w-full leading-loose font-Secundary w-full pb-10 ">
-                Calle del Monte Esquinza, 8-Bajo Izquierda <br />
-                28010 Madrid
-              </Subtext>
-              <MapsBlock />
-            </Styles.BlockAddresMap>
-          </Styles.BlockAddres>
-        </Styles.Center>
+        <Styles.CenterMargin>
+          <Title size="text-2xl  lg:pr-10 "> {translate.whereUs}</Title>
+          <Styles.BlockAddresMap>
+            <Subtext size="text-regular w-full leading-loose font-Secundary w-full pb-10 ">
+              Calle del Monte Esquinza, 8-Bajo Izquierda <br />
+              28010 Madrid
+            </Subtext>
+            <MapsBlock />
+          </Styles.BlockAddresMap>
+        </Styles.CenterMargin>
         <Styles.Center>
           {translate.contact.map((values) => (
             <BlockSection

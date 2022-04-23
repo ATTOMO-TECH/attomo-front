@@ -45,18 +45,22 @@ export const CheckRadio = styled.input`
 export const CheckCheck = styled.input`
   border-radius: 100%;
   &[type='checkbox'] {
-    content: url(/icon/isoAttomo.svg);
-    transition: 120ms transform ease-in-out;
     appearance: none;
     margin: 0;
-    min-width: 20px;
-    height: 20px;
+    min-width: 25px;
+    height: 25px;
+    border: 0.15em solid white;
+    border-radius: 100%;
     margin-right: 10px;
-    opacity: 0.5;
   }
 
   &:checked {
-    opacity: 1;
+    content: url(/icon/isoAttomo.svg);
+    width: 25px;
+    height: 25px;
+    transition: 120ms transform ease-in-out;
+    border: 0.15em solid white;
+    padding: 5px;
   }
 `;
 export const CheckCheckCondition = styled.input`
@@ -72,7 +76,7 @@ export const CheckCheckCondition = styled.input`
   }
 
   &:checked {
-    padding: 2px;
+    padding: 5px;
     content: url(/icon/isoAttomo.svg);
     width: 20px;
     height: 20px;
@@ -88,7 +92,8 @@ export const BtnSelect = styled.button<Props>`
       : ''}
 `;
 export const ErrorText = styled.div<Props>`
-  color: red;
+  color: #ee3e54;
+  opacity: 0.8;
 `;
 export const BtnSend = styled.button`
   -webkit-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);

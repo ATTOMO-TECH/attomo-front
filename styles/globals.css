@@ -29,6 +29,34 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+/*RESET INPUTS*/
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+input {
+  -webkit-appearance: none;
+  font-size: 16px !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  box-shadow: 0 0 0px 1000px #ffffff00 inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff00 inset !important;
+  transition: 50000s ease-in-out 0s, color 5000s ease-in-out 0s;
+  color: white;
+}
+input[data-autocompleted] {
+  background-color: transparent !important;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
   height: 10px;
@@ -208,26 +236,4 @@ input[type='text'] {
 
 .css-319lph-ValueContainer {
   padding: 0 !important;
-}
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input[type='number'] {
-  -moz-appearance: textfield;
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  box-shadow: 0 0 0px 1000px #ffffff00 inset !important;
-  -webkit-box-shadow: 0 0 0px 1000px #ffffff00 inset !important;
-  transition: 50000s ease-in-out 0s, color 5000s ease-in-out 0s;
-  color: white;
-}
-input[data-autocompleted] {
-  background-color: transparent !important;
 }

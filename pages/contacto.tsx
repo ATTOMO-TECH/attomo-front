@@ -56,7 +56,7 @@ function Contact() {
           </Title>
           <RenderForm />
         </Styles.Center>
-        <Styles.Center>
+        <Styles.CenterMargin>
           <Title size="text-2xl  lg:pr-10 "> {translate.whereUs}</Title>
           <Styles.BlockAddresMap>
             <Subtext size="text-regular w-full leading-loose font-Secundary w-full pb-10 ">
@@ -65,7 +65,7 @@ function Contact() {
             </Subtext>
             <MapsBlock />
           </Styles.BlockAddresMap>
-        </Styles.Center>
+        </Styles.CenterMargin>
         <Footer subFooter={false} />
       </Styles.Body>
     </>

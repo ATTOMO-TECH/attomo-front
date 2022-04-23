@@ -14,9 +14,10 @@ import { useUseFilterCases } from '../../../domain/useCasesDetails';
 interface Props {
   mode: boolean;
   filter: string;
+  id: string | string[] | undefined;
 }
 
-export default function CasesScroll({ mode, filter }: Props) {
+export default function CasesScroll({ mode, filter, id }: Props) {
   const router = useRouter();
   let { locale } = router;
   if (locale === '/') {
@@ -25,6 +26,9 @@ export default function CasesScroll({ mode, filter }: Props) {
 
   const queryObject: any = {
     filters: {
+      id: {
+        $ne: id,
+      },
       sumary: {
         $containsi: filter,
       },

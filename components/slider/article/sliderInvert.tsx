@@ -6,6 +6,7 @@ import * as qs from 'qs';
 // eslint-disable-next-line import/no-unresolved
 import { NavigationOptions } from 'swiper/types/modules/public-api';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { darkTheme, lightTheme, StylesArticle } from '../style';
 import { BUTTON_ACTIVE } from '../../../const/const';
 import { useUseAllPost } from '../../../domain/useBlogDetails';
@@ -16,10 +17,16 @@ interface Props {
 }
 
 export default function ArticlesScroll({ children }: Props) {
+  const router = useRouter();
+  const { slug } = router.query;
   const mode = false;
   const queryObject: any = {
     populate: 'coverImage',
     filters: {
+      id: {
+        $ne: slug,
+      },
+
       blog_tags: {
         name: {
           $eq: children,
@@ -73,7 +80,7 @@ export default function ArticlesScroll({ children }: Props) {
           prevEl: prevRef.current,
           nextEl: nextRef.current,
         }}>
-        {data.data.map((articles: any) => (
+        {data?.data.map((articles: any) => (
           <SwiperSlide key={articles.Tag} className="swiper ">
             <Link href={`/ATTOMOTrends/${articles.id}`}>
               <div>
@@ -102,7 +109,7 @@ export default function ArticlesScroll({ children }: Props) {
             </Link>
           </SwiperSlide>
         ))}
-        {data.meta.pagination.total > 2 && (
+        {data?.meta.pagination.total > 2 && (
           <StylesArticle.BlockArrow>
             <StylesArticle.ArrowPrev ref={prevRef}>
               <img

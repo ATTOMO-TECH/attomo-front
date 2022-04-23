@@ -40,7 +40,8 @@ export default function SubMenu({
                   <Link
                     href={subTask.attributes.name
                       .replaceAll(' ', '_')
-                      .toLowerCase()}>
+                      .toLowerCase()}
+                    key={subTask.attributes.name}>
                     <Styles.SelectSubMenu
                       onClick={toggle}
                       mode={
