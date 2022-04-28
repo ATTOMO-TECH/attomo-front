@@ -102,7 +102,7 @@ function Home() {
           </Styles.Margin>
           <ButtonShare />
           <Styles.Center>
-            <Styles.ScreenMidResponsiv>
+            <Styles.ScreenMid>
               {translate.home.map((values) => (
                 <Hero
                   key={`Hero${values.HeroText}`}
@@ -112,7 +112,7 @@ function Home() {
                   link="conocenos"
                 />
               ))}
-            </Styles.ScreenMidResponsiv>
+            </Styles.ScreenMid>
           </Styles.Center>
           <Styles.SectionScreen id="conocenos">
             <Styles.BlockSelected>

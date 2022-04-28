@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import { useRouter } from 'next/dist/client/router';
-import { motion } from 'framer-motion';
 import Head from 'next/head';
 import Footer from '../../components/footer/footerWhite';
 import Menu from '../../components/nav/menu';
@@ -15,7 +14,6 @@ import BlockSection from '../../components/block/block';
 import { useAPost } from '../../domain/useBlogDetails';
 import RenderLoading from '../../components/loading/loading';
 import { getLocale } from '../../public/locales/getLocale';
-import { servicesAnimations } from '../../components/animations/animations';
 
 interface Props {
   mode: boolean;
@@ -30,7 +28,6 @@ function New({ mode }: Props) {
     { ssr: false },
   );
   const translate = getLocale();
-  const [shouldShowActions] = useState(false);
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const router = useRouter();
   const { slug } = router.query;
@@ -55,10 +52,7 @@ function New({ mode }: Props) {
           property="og:image"
           content={data?.data.attributes.coverImage.data.attributes?.url}
         />
-        <meta
-          property="og:description"
-          content={data?.data?.attributes.metadata}
-        />
+        <meta name="description" content={data?.data?.attributes.metadata} />
         <link rel="icon" href="/FaviconLight.svg" type="image/x-icon" />
       </Head>
       <Styles.Body
@@ -80,6 +74,7 @@ function New({ mode }: Props) {
             <BodyCases data={data} />
           </Styles.AlingCasesNoP>
         </Styles.Center>
+
         <Styles.Center>
           <Styles.TextSubSection>{translate.interested}</Styles.TextSubSection>
         </Styles.Center>
@@ -90,32 +85,20 @@ function New({ mode }: Props) {
             </SliderSSR>
           </Styles.AlingBlock>
         </Styles.FlexEnd>
-        <motion.div
-          animate={shouldShowActions}
-          variants={servicesAnimations}
-          className="actions "
-          transition={{
-            delay: 0.2,
-            type: 'spring',
-            stiffness: 50,
-            duration: 2,
-          }}
-          whileInView={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: '50%' }}>
-          <Styles.Center>
-            {translate.contact.map((values) => (
-              <BlockSection
-                key={values.Link}
-                text={values.Text}
-                button={values.Link}
-                text2=""
-                button2=""
-                mode={false}
-                link="/contacto"
-              />
-            ))}
-          </Styles.Center>
-        </motion.div>
+        <Styles.Center>
+          {translate.contact.map((values) => (
+            <BlockSection
+              key={values.Link}
+              text={values.Text}
+              button={values.Link}
+              text2=""
+              button2=""
+              mode={false}
+              link="/contacto"
+            />
+          ))}
+        </Styles.Center>
+
         <Footer subFooter={false} />
       </Styles.Body>
     </>

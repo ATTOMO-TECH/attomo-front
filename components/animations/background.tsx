@@ -12,6 +12,7 @@ const onLoadBg = () => {
     const aScript = document.createElement('script');
     aScript.src = 'https://d23jutsnau9x47.cloudfront.net/back/v1.0.9/viewer.js';
     document.head.appendChild(aScript);
+
     aScript.onload = () => {
       window.nakerback.render({
         container: document.getElementById('back-container'),
@@ -42,6 +43,7 @@ const onLoadBg = () => {
 export default function Background() {
   useEffect(() => {
     onLoadBg();
+    // document.addEventListener('' , onLoadBg, {passive: true});
   }, []);
   return <Styles.Bg id="back-container" />;
 }

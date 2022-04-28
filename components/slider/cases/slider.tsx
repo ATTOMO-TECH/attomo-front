@@ -14,9 +14,10 @@ import { useUseFilterCases } from '../../../domain/useCasesDetails';
 interface Props {
   mode: boolean;
   filter: string;
+  id: string | string[] | undefined;
 }
 
-export default function CasesScroll({ mode, filter }: Props) {
+export default function CasesScroll({ mode, filter, id }: Props) {
   const router = useRouter();
   let { locale } = router;
   if (locale === '/') {
@@ -25,6 +26,9 @@ export default function CasesScroll({ mode, filter }: Props) {
 
   const queryObject: any = {
     filters: {
+      id: {
+        $ne: id,
+      },
       sumary: {
         $containsi: filter,
       },
@@ -104,24 +108,26 @@ export default function CasesScroll({ mode, filter }: Props) {
             </Link>
           </SwiperSlide>
         ))}
-        <StylesArticle.BlockArrow>
-          <StylesArticle.ArrowPrev ref={prevRef}>
-            <img
-              src={!mode ? '/icon/prevDark.svg' : '/icon/prev.svg'}
-              width={100}
-              height={100}
-              alt="prev"
-            />
-          </StylesArticle.ArrowPrev>
-          <StylesArticle.ArrowNext ref={nextRef}>
-            <img
-              src={!mode ? '/icon/nextDark.svg' : '/icon/next.svg'}
-              width={100}
-              height={100}
-              alt="next"
-            />
-          </StylesArticle.ArrowNext>
-        </StylesArticle.BlockArrow>
+        {data.meta.pagination.total > 2 && (
+          <StylesArticle.BlockArrow>
+            <StylesArticle.ArrowPrev ref={prevRef}>
+              <img
+                src={!mode ? '/icon/prevDark.svg' : '/icon/prev.svg'}
+                width={100}
+                height={100}
+                alt="prev"
+              />
+            </StylesArticle.ArrowPrev>
+            <StylesArticle.ArrowNext ref={nextRef}>
+              <img
+                src={!mode ? '/icon/nextDark.svg' : '/icon/next.svg'}
+                width={100}
+                height={100}
+                alt="next"
+              />
+            </StylesArticle.ArrowNext>
+          </StylesArticle.BlockArrow>
+        )}
       </Swiper>
     </>
   );

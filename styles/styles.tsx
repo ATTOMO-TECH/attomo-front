@@ -187,7 +187,7 @@ export const Styles = {
   Margin: tw.div`m-auto `,
   Center: tw.section`w-10/12 m-auto`,
   CenterUs: tw.section`lg:w-8/12 w-10/12 m-auto`,
-  CenterMargin: tw.section`w-10/12 m-auto lg:pt-36  py-16`,
+  CenterMargin: tw.section`w-10/12 m-auto lg:pt-36 mt-12  py-16`,
   CenterCases: tw.section`w-full md:w-10/12 m-auto pt-24 lg:pt-36 overflow-hidden flex justify-between`,
   BlockRenderDetails: tw.div`lg:flex flex-col pt-10 hidden relative`,
   BlockFilter: tw.div`w-auto m-auto text-center transform -rotate-90 z-80 -left-4 sm:left-0 md:left-4 top-56 absolute lg:hidden opacity-60 hover:opacity-90  duration-100 ease-in cursor-pointer`,
@@ -202,7 +202,7 @@ export const Styles = {
   DivideSection: tw.div`lg:w-3/6 w-full pb-2`,
   BlockButton: tw.div`lg:px-24 pt-10`,
   BlockSlider: tw.div` pb-12 px-7`,
-  BlockTrends: tw.div`lg:pt-48 flex w-full m-auto lg:justify-center items-center pl-8 lg:pl-0 pt-36 pb-16 flex-wrap `,
+  BlockTrends: tw.div`lg:pt-48 flex w-full m-auto lg:justify-center items-center pl-8 lg:pl-0 pt-10 pb-16 flex-wrap `,
   // FilterCases
   SelectFilterCases: tw.div`flex w-full m-auto lg:justify-center items-center pl-8 lg:pl-0 pt-10 lg:pt-0 flex-wrap  `,
 
@@ -241,7 +241,7 @@ export const Styles = {
   )`text-primary border-2 border-primary px-14 py-3 rounded-full opacity-80 font-PrimarySerif font-thin shadow-none`,
   TitularText: tw.h3`font-Primary  lg:text-4xl text-2xl font-light py-5 leading-relaxed`,
   // SPACE
-  HeroEspace: tw.section`h-auto bg-hero-Space bg-cover bg-center py-72 bg-no-repeat`,
+  HeroEspace: tw.section`h-auto bg-hero-Space bg-cover bg-center py-72 bg-no-repeat mt-12 lg:mt-48`,
   SectionImg: tw.section`grid grid-cols-1 sm:grid-cols-2 gap-6`,
   SectionPrices: tw.section`grid grid-cols-1 sm:grid-cols-3 gap-6`,
   BlockImg: tw.div`w-full bg-cover bg-center py-44 bg-no-repeat `,
@@ -254,7 +254,7 @@ export const Styles = {
   SpaceCollapse: tw.div`lg:py-48 overflow-hidden`,
   // SUBMENU
   SubMenuBlock: tw.div`w-full lg:w-10/12 m-auto flex flex-wrap`,
-  ButtonSubMenu: tw.button`font-PrimarySerif text-md uppercase py-1 font-light`,
+  ButtonSubMenu: tw.button`font-PrimarySerif text-md uppercase py-1 font-light text-xl lg:text-md`,
   BlockSubSection: tw.div`flex flex-col relative pl-1`,
   // LEGAL
   BlockButtonLegal: tw.div`"w-2/6 mt-5 md:mt-12 lg:mt-24`,

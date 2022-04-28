@@ -20,12 +20,6 @@ import RenderLoading from '../../components/loading/loading';
 import { getLocale } from '../../public/locales/getLocale';
 
 function DetailsServices() {
-  const [isIdSubServices, SetIsIdSubServices] = useState<any>({});
-  const [isOpenFilter, SetIsOpenFilter] = useState<boolean>(false);
-  const [isOpen, SetIsOpen] = useState<boolean>(false);
-  const router = useRouter();
-  const [menuId, setMenuId] = useState(null);
-  const { slug } = router.query;
   const SliderSSR = dynamic(
     () =>
       import('../../components/slider/article/slider').then(
@@ -33,6 +27,12 @@ function DetailsServices() {
       ),
     { ssr: false },
   );
+  const [isIdSubServices, SetIsIdSubServices] = useState<any>({});
+  const [isOpenFilter, SetIsOpenFilter] = useState<boolean>(false);
+  const [isOpen, SetIsOpen] = useState<boolean>(false);
+  const router = useRouter();
+  const [menuId, setMenuId] = useState(null);
+  const { slug } = router.query;
   let { locale } = router;
   if (locale === '/') {
     locale = 'es';
@@ -73,7 +73,6 @@ function DetailsServices() {
     SetIsOpen(!isOpen);
   };
   const translate = getLocale();
-
   return (
     <>
       <Head>

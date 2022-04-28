@@ -38,18 +38,20 @@ export default function SectionProjects({
             <Styles.BlockSections
               ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
               key={values.Client}>
-              <Styles.BlockSection
-                ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-                {values?.attributes?.mainPhoto?.data[0].attributes?.url && (
-                  <img
-                    src={values?.attributes.mainPhoto.data[0].attributes.url}
-                    width={800}
-                    height={600}
-                    alt={values.attributes.name}
-                    className="object-cover"
-                  />
-                )}
-              </Styles.BlockSection>
+              <Link href={`/casos/${values.id}`}>
+                <Styles.BlockSection
+                  ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+                  {values?.attributes?.mainPhoto?.data[0].attributes?.url && (
+                    <img
+                      src={values?.attributes.mainPhoto.data[0].attributes.url}
+                      width={800}
+                      height={600}
+                      alt={values.attributes.name}
+                      className="object-cover cursor-pointer"
+                    />
+                  )}
+                </Styles.BlockSection>
+              </Link>
               <Styles.BlockText
                 ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
                 <motion.div

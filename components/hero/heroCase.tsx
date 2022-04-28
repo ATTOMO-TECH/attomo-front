@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import useDeviceSize from '../../hook/size';
 import Filter from '../input/filter';
 import { HeadSection } from './style';
 
@@ -23,6 +24,7 @@ export default function HeroCase({
   OpenMenu,
   handleChangeReset,
 }: Props) {
+  const [width] = useDeviceSize();
   const change: boolean = !!date || !!endDate || !!topic;
   return (
     <>
@@ -31,12 +33,14 @@ export default function HeroCase({
           <>
             {!OpenMenu ? (
               <>
-                <Filter
-                  toggle={toggle}
-                  date={date}
-                  topic={topic}
-                  endDate={endDate}
-                />
+                {width > 768 ? (
+                  <Filter
+                    toggle={toggle}
+                    date={date}
+                    topic={topic}
+                    endDate={endDate}
+                  />
+                ) : null}
                 <motion.svg
                   className="cursor-pointer w-1/6 fixed  top-56 -left-2 z-100 "
                   width="24"

@@ -87,12 +87,18 @@ function Carrers() {
         </Styles.Center>
         {translate.contactUsWork.map((value) => (
           <Styles.CenterMargin>
-            <Title size="lg:text-xl w-4/6 lg:w-3/6  ">{value.Text}</Title>
+            <Link href="/contacto">
+              <div>
+                <Title size="lg:text-xl w-4/6 lg:w-3/6 cursor-pointer">
+                  {value.Text}
+                </Title>
+              </div>
+            </Link>
             <Subtext size=" text-2xl font-Primary"> </Subtext>
             <Subtext size=" text-sm lg:w-3/6 font-PrimarySerif py-5">
               {value.Subtext}
             </Subtext>
-            <Link href="/">
+            <Link href="/contacto">
               <div className="lg:w-2/6">
                 <IconAnimate text={value.Button} mode />
               </div>

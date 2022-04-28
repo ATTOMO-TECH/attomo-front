@@ -81,7 +81,7 @@ export default function FormColaborator() {
       [FORMVALUES.LASTNAME]: values.lastname,
       [FORMVALUES.PHONE]: values.mobile,
       [FORMVALUES.EMAIL]: values.email,
-      [FORMVALUES.COMPANY]: values.valueCompany,
+      [FORMVALUES.COMPANY]: values.company,
       [FORMVALUES.MESSAGE]: values.message,
       [FORMVALUES.LINK]: values.portfolio,
       [FORMVALUES.PARTOF]: values.teamOrPartner,
@@ -231,7 +231,8 @@ export default function FormColaborator() {
                       <Styles.Input
                         ismode={BUTTON_ACTIVE.OFF}
                         placeholder={translate.formLink}
-                        type="text"
+                        type="url"
+                        pattern="https://.*"
                         name={FORMVALUES.LINK}
                       />
                     </Styles.BlockInputOnly>

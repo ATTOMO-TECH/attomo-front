@@ -26,6 +26,7 @@ export default function CalendarPickerInputRange({
       <div id="trend">
         <DatePicker
           selected={startDate}
+          disabledKeyboardNavigation
           autoComplete="off"
           onChange={onChange}
           startDate={startDate}
@@ -34,7 +35,7 @@ export default function CalendarPickerInputRange({
           placeholderText={translate.SelectDate}
           dateFormat="dd/MM/yyyy"
           locale={es}
-          className="outline-none font-PrimarySerif font-thin text-gray-300 h-full w-full py-2 trend text-sm bg-none "
+          className="outline-none font-PrimarySerif font-thin pl-1 h-full w-full py-2 text-sm bg-none "
         />
       </div>
     </>

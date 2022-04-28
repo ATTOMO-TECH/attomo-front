@@ -66,32 +66,34 @@ export default function Hero({ text, text2, button, link }: Props) {
         </motion.div>
         <HeadSection.Blockbutton className={button === '' ? 'hidden' : ''}>
           <Link href={`#${link}`}>
-            <HeadSection.TextButton>{button}</HeadSection.TextButton>
+            <a href={`#${link}`}>
+              <HeadSection.TextButton>{button}</HeadSection.TextButton>
+              <HeadSection.BlockArrow>
+                <motion.svg
+                  variants={pathVariant}
+                  initial="hidden"
+                  animate="visible"
+                  width="6"
+                  height="91"
+                  viewBox="0 0 6 91"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <motion.path
+                    d="M3 87.0007L3 44.0003L3.00001 0.99989"
+                    stroke="white"
+                    stroke-linecap="round"
+                  />
+                  <motion.circle
+                    cx="3"
+                    cy="88.0007"
+                    r="3"
+                    transform="rotate(90 3 88.0007)"
+                    fill="white"
+                  />
+                </motion.svg>
+              </HeadSection.BlockArrow>
+            </a>
           </Link>
-          <HeadSection.BlockArrow>
-            <motion.svg
-              variants={pathVariant}
-              initial="hidden"
-              animate="visible"
-              width="6"
-              height="91"
-              viewBox="0 0 6 91"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <motion.path
-                d="M3 87.0007L3 44.0003L3.00001 0.99989"
-                stroke="white"
-                stroke-linecap="round"
-              />
-              <motion.circle
-                cx="3"
-                cy="88.0007"
-                r="3"
-                transform="rotate(90 3 88.0007)"
-                fill="white"
-              />
-            </motion.svg>
-          </HeadSection.BlockArrow>
         </HeadSection.Blockbutton>
       </HeadSection.SectionHero>
     </>

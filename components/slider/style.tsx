@@ -59,7 +59,7 @@ export const Styles = {
 
 export const StylesArticle = {
   BlockImg: tw.div`w-full h-96 object-cover `,
-  Img: tw(Image)`max-w-full max-h-full object-cover`,
+  Img: tw(Image)`max-w-full max-h-full object-cover cursor-pointer`,
   BlockText: tw(SectionColor)``,
   TextBlog: tw(
     titleText,
@@ -72,7 +72,7 @@ export const StylesArticle = {
   opacity-50 font-PrimarySerif font-light text-xs py-2 text-primary
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'block' : 'hidden')}
   `,
-  BlockArrow: tw.div`flex w-full text-xl  justify-center lg:justify-end lg:pr-44 lg:pr-10`,
+  BlockArrow: tw.div`flex w-full text-xl  justify-center lg:justify-end lg:pr-32 `,
   ArrowPrev: tw.div`cursor-pointer  lg:py-20 py-10 mr-5 `,
   ArrowNext: tw.div`cursor-pointer lg:py-20 py-10`,
   Slide: tw(SelectedSlide)<Props>`

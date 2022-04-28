@@ -6,6 +6,7 @@ import * as qs from 'qs';
 // eslint-disable-next-line import/no-unresolved
 import { NavigationOptions } from 'swiper/types/modules/public-api';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { darkTheme, lightTheme, StylesArticle } from '../style';
 import { BUTTON_ACTIVE } from '../../../const/const';
 import { useUseAllPost } from '../../../domain/useBlogDetails';
@@ -16,10 +17,16 @@ interface Props {
 }
 
 export default function ArticlesScroll({ children }: Props) {
+  const router = useRouter();
+  const { slug } = router.query;
   const mode = false;
   const queryObject: any = {
     populate: 'coverImage',
     filters: {
+      id: {
+        $ne: slug,
+      },
+
       blog_tags: {
         name: {
           $eq: children,
@@ -50,7 +57,6 @@ export default function ArticlesScroll({ children }: Props) {
       </>
     );
   }
-
   return (
     <>
       <Swiper
@@ -74,7 +80,7 @@ export default function ArticlesScroll({ children }: Props) {
           prevEl: prevRef.current,
           nextEl: nextRef.current,
         }}>
-        {data.data.map((articles: any) => (
+        {data?.data.map((articles: any) => (
           <SwiperSlide key={articles.Tag} className="swiper ">
             <Link href={`/ATTOMOTrends/${articles.id}`}>
               <div>
@@ -103,24 +109,26 @@ export default function ArticlesScroll({ children }: Props) {
             </Link>
           </SwiperSlide>
         ))}
-        <StylesArticle.BlockArrow>
-          <StylesArticle.ArrowPrev ref={prevRef}>
-            <img
-              src={!mode ? '/icon/prevDark.svg' : '/icon/prev.svg'}
-              width={100}
-              height={100}
-              alt="prev"
-            />
-          </StylesArticle.ArrowPrev>
-          <StylesArticle.ArrowNext ref={nextRef}>
-            <img
-              src={!mode ? '/icon/nextDark.svg' : '/icon/next.svg'}
-              width={100}
-              height={100}
-              alt="next"
-            />
-          </StylesArticle.ArrowNext>
-        </StylesArticle.BlockArrow>
+        {data?.meta.pagination.total > 2 && (
+          <StylesArticle.BlockArrow>
+            <StylesArticle.ArrowPrev ref={prevRef}>
+              <img
+                src={!mode ? '/icon/prevDark.svg' : '/icon/prev.svg'}
+                width={100}
+                height={100}
+                alt="prev"
+              />
+            </StylesArticle.ArrowPrev>
+            <StylesArticle.ArrowNext ref={nextRef}>
+              <img
+                src={!mode ? '/icon/nextDark.svg' : '/icon/next.svg'}
+                width={100}
+                height={100}
+                alt="next"
+              />
+            </StylesArticle.ArrowNext>
+          </StylesArticle.BlockArrow>
+        )}
       </Swiper>
     </>
   );
