@@ -42,7 +42,7 @@ export default function BlockBlog({ dataBlog }: Props) {
       {React.Children.toArray(
         dataBlog.map((data: any) => (
           <motion.div
-            className="children"
+            className="children pb-8"
             variants={variants}
             initial="hidden"
             animate="show">

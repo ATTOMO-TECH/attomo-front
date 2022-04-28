@@ -86,6 +86,7 @@ export const CheckCheckCondition = styled.input`
 `;
 
 export const BtnSelect = styled.button<Props>`
+  z-index: 1;
   ${({ active }) =>
     active
       ? '-webkit-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9); -moz-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9); 	opacity: 1;'
@@ -258,7 +259,7 @@ export const Styles = {
 
   BtnSelect: tw(
     BtnSelect,
-  )` ease-out inline-flex justify-center  w-5/12  lg:w-2/12 duration-200 text-primary border-2 border-primary text-left lg:text-sm py-2 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none lg:mr-5 `,
+  )` ease-out inline-flex justify-center  w-5/12  lg:w-2/12 duration-200 text-primary border-2 border-primary text-left lg:text-sm py-2 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none lg:mr-5`,
   BtnSend: tw(
     BtnSend,
   )<Props>` ease-out inline-flex justify-center w-3/6 lg:w-3/12 duration-200 text-primary border-2 border-primary text-left lg:text-sm py-2 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none mr-5

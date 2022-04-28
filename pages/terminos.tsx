@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import gfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import Background from '../components/animations/background';
 import IconAnimate from '../components/button/icon';
 import Footer from '../components/footer/footer';
@@ -52,7 +53,7 @@ function Conditions() {
           </Styles.BlockButtonLegal>
           <Styles.SectionTextLegal>
             <Title size="text-3xl lg:text-5xl mb-12 ">{translate.terms}</Title>
-            <ContainerLegal remarkPlugins={[gfm]}>
+            <ContainerLegal remarkPlugins={[gfm]} rehypePlugins={[rehypeRaw]}>
               {data.data[0].attributes.content}
             </ContainerLegal>
           </Styles.SectionTextLegal>

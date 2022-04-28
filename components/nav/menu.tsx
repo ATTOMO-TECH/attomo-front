@@ -9,7 +9,7 @@ import useDeviceSize from '../../hook/size';
 
 interface Props {
   isOpen: boolean;
-  toggle: () => void;
+  toggle: any;
   logo: boolean;
   mode: boolean;
 }
@@ -17,11 +17,8 @@ interface Props {
 export default function Menu({ isOpen, toggle, logo, mode }: Props) {
   const translate = getLocale();
   const [items, setItems] = useState(translate.menu);
-  useEffect(() => {
-    setItems(translate.menu);
-  }, [items]);
 
-  const CloseMenu = () => {
+  const closeMenu = () => {
     setTimeout(() => {
       toggle();
     }, 1000);
@@ -31,6 +28,15 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
     router.push(router.pathname, router.pathname, { locale: value });
   };
   const [width] = useDeviceSize();
+  useEffect(() => {
+    setItems(translate.menu);
+  }, [items]);
+
+  // useEffect(() => {
+  //   window.addEventListener('touchend', toggle, { passive: false });
+
+  // }, [isOpen]);
+
   return (
     <>
       <Navegation.MenuRelative
@@ -161,7 +167,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                 }}>
                 <Navegation.SelectMenu
                   key={`${values.Value}`}
-                  onClick={CloseMenu}>
+                  onClick={closeMenu}>
                   <Link href={values.Url}>{values.Value}</Link>
                 </Navegation.SelectMenu>
               </motion.li>

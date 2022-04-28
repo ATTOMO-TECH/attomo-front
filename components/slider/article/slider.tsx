@@ -64,7 +64,7 @@ export default function ArticlesScroll({ children }: Props) {
         spaceBetween={30}
         centeredSlides
         modules={[Pagination]}
-        className="mySwiper action"
+        className="mySwiper SwiperSpace"
         breakpoints={{
           '460': {
             slidesPerView: 'auto',
@@ -81,9 +81,9 @@ export default function ArticlesScroll({ children }: Props) {
           prevEl: prevRef.current,
           nextEl: nextRef.current,
         }}>
-        {data.data.map((articles: any) => (
-          <SwiperSlide key={articles.Tag} className="swiper">
-            <Link href={`/ATTOMOTrends/${articles.id}`}>
+        {data?.data?.map((articles: any) => (
+          <Link href={`/ATTOMOTrends/${articles.id}`}>
+            <SwiperSlide key={articles.Tag} className="swiper">
               <div>
                 <StylesArticle.Img
                   src={articles.attributes.coverImage.data.attributes.url}
@@ -100,16 +100,20 @@ export default function ArticlesScroll({ children }: Props) {
                   <StylesArticle.TopicText ismode={BUTTON_ACTIVE.ON}>
                     {articles.attributes.blog_tags.data[0].attributes.name}
                   </StylesArticle.TopicText>
-                  <StylesArticle.TextBlog
-                    ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-                    {articles.attributes.title}
-                  </StylesArticle.TextBlog>
+                  <Link href={`/ATTOMOTrends/${articles.id}`}>
+                    <div className="cursor-pointer">
+                      <StylesArticle.TextBlog
+                        ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+                        {articles.attributes.title}
+                      </StylesArticle.TextBlog>
+                    </div>
+                  </Link>
                 </StylesArticle.BlockText>
               </div>
-            </Link>
-          </SwiperSlide>
+            </SwiperSlide>
+          </Link>
         ))}
-        {data.meta.pagination.total > 2 && (
+        {data?.meta?.pagination?.total > 2 && (
           <StylesArticle.BlockArrow>
             <StylesArticle.ArrowPrev ref={prevRef}>
               <img

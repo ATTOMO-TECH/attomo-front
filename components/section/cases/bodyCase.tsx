@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import gfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import { format } from 'date-fns';
 import BreadCrumbs from '../../breadcrumbs/breadcrumbs';
-import useDeviceSize from '../../../hook/size';
 import ShareNav from '../../button/share';
 import { BodyTrends, Container } from './style';
 
@@ -10,11 +11,15 @@ interface Props {
   data: any;
 }
 export default function BodyCases({ data }: Props) {
-  const [width] = useDeviceSize();
+  const [isSareApiAvailable, setIsSareApiAvailable] = useState(false);
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
+  useEffect(() => {
+    setIsSareApiAvailable(!!navigator.share);
+  }, []);
+
   const handleOnClick = () => {
     toggle();
     if (navigator.share) {
@@ -26,10 +31,9 @@ export default function BodyCases({ data }: Props) {
         .catch((error) => console.log(error));
     }
   };
-
   return (
     <>
-      {width > 468 ? (
+      {!isSareApiAvailable ? (
         <ShareNav
           title={data?.data.attributes.title}
           isOpen={isOpen}
@@ -52,7 +56,9 @@ export default function BodyCases({ data }: Props) {
           />
         </BodyTrends.BlockShare>
         <BodyTrends.AlingData>
-          <Container>{data.data.attributes.content}</Container>
+          <Container remarkPlugins={[gfm]} rehypePlugins={[rehypeRaw]}>
+            {data.data.attributes.content}
+          </Container>
         </BodyTrends.AlingData>
       </BodyTrends.Section>
     </>

@@ -69,11 +69,11 @@ function Carrers() {
           <Styles.ScreenWS>
             {translate.workUs.map((value) => (
               <Styles.BlockDiv>
-                <Title size="lg:text-5xl md:text-3xl text-2xl lg:pr-0 lg:pb-4 md:pb-12 pb-6 w-4/6 lg:w-3/6  ">
+                <Title size="lg:text-5xl md:text-3xl text-2xl lg:pr-0 lg:pb-4 md:pb-12 pb-6 w-4/6 lg:w-3/6  pt-12 ">
                   {value.Text}
                 </Title>
                 <Styles.FlexEnd>
-                  <Subtext size="lg:w-3/6 lg:text-left pt-3 md:pt-0  pb-24 ">
+                  <Subtext size="lg:w-3/6 lg:text-left pt-3 md:pt-0  ">
                     {value.Subtext}
                   </Subtext>
                 </Styles.FlexEnd>
@@ -82,7 +82,7 @@ function Carrers() {
           </Styles.ScreenWS>
         </Styles.CenterUs>
         <Styles.Center>
-          <Title size="text-xl  pb-8">{translate.offerWork}</Title>
+          <Title size="text-xl  pb-8 pt-24">{translate.offerWork}</Title>
           <Work works={data?.data} />
         </Styles.Center>
         {translate.contactUsWork.map((value) => (
@@ -99,7 +99,7 @@ function Carrers() {
               {value.Subtext}
             </Subtext>
             <Link href="/contacto">
-              <div className="lg:w-2/6">
+              <div className="w-8/12 lg:w-3/12">
                 <IconAnimate text={value.Button} mode />
               </div>
             </Link>

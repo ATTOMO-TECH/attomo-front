@@ -50,6 +50,23 @@ export const Container = styled(ReactMarkdown)`
     font-size: 16px;
     line-height: 36px;
   }
+  ol {
+    list-style: decimal !important;
+    padding-left: 2%;
+  }
+  ul {
+    list-style-type: disc !important;
+    padding-left: 2%;
+  }
+  li {
+    margin: 10px;
+  }
+  a {
+    text-decoration: underline;
+  }
+  &a:hover {
+    text-decoration: none;
+  }
 `;
 export const Details = {
   Section: tw.section`h-auto flex flex-wrap justify-between py-24  w-full m-auto w-11/12 ml-auto`,

@@ -171,7 +171,7 @@ export const Navegation = {
     ${(props) =>
       props.ismode === BUTTON_ACTIVE.ON
         ? `cursor-pointer h-screen w-full overflow-hidden z-100 opacity-100  `
-        : 'opacity-0 overflow-hidden h-0 '}
+        : 'opacity-0 overflow-hidden h-0 '} 
   `,
   Menu: tw.nav``,
   AlinItems: tw.ul<Props>`
@@ -197,6 +197,7 @@ export const Navegation = {
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`
+  action
 font-Primary cursor-pointer list-none fixed w-full duration-300 ease-in-out  -top-10 h-14 md:h-20 lg:14 z-100
 ${(props) =>
   props.ismode === BUTTON_ACTIVE.ON

@@ -74,7 +74,6 @@ function New({ mode }: Props) {
             <BodyCases data={data} />
           </Styles.AlingCasesNoP>
         </Styles.Center>
-
         <Styles.Center>
           <Styles.TextSubSection>{translate.interested}</Styles.TextSubSection>
         </Styles.Center>
