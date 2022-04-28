@@ -6,7 +6,7 @@ import { darkTheme, lightTheme, Navegation } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
 
 interface Props {
-  toggle: () => void;
+  toggle: any;
   logo: boolean;
   mode: boolean;
   isOpen: boolean;
@@ -94,7 +94,9 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
                 EN
               </Navegation.ButtonSelect>
             </Navegation.BlokSectionLenguage>
-            <Navegation.ItemsMenu onClick={toggle} className="colorMenu">
+            <Navegation.ItemsMenu
+              onClick={() => toggle()}
+              className="colorMenu action z-100">
               <Navegation.TextMenu
                 theme={mode === true ? lightTheme : darkTheme}
                 ismode={!scroll ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}

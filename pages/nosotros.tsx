@@ -7,6 +7,7 @@ import Footer from '../components/footer/footer';
 import { Metadata } from '../components/head/metadata';
 import RenderLoading from '../components/loading/loading';
 import Menu from '../components/nav/menu';
+import SelectedUs from '../components/section/selectedUs';
 import Nav from '../components/nav/nav';
 import OneProject from '../components/section/onlyProject';
 import ListUs from '../components/section/us';
@@ -63,6 +64,11 @@ function Us() {
         <Styles.Center>
           <Styles.BlockUs>
             <ListUs />
+            <SelectedUs
+              text={translate.selectedUs[0].Subtext}
+              link="/casosdeexito"
+              textPrimary={translate.selectedUs[0].Text}
+            />
           </Styles.BlockUs>
         </Styles.Center>
         <Styles.Center>

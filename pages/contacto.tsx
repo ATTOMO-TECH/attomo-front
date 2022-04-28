@@ -51,7 +51,7 @@ function Contact() {
         </Styles.Margin>
         <ButtonShare />
         <Styles.Center>
-          <Title size="lg:text-4xl md:text-3xl text-2xl lg:pt-24 lg:pr-0 lg:pb-24 md:pb-12 pb-10 lg:w-full pt-20  w-4/6  ">
+          <Title size="lg:text-4xl md:text-3xl text-2xl lg:pr-0 lg:py-36 md:pb-12 py-36 lg:w-full  w-4/6  ">
             {translate.contactTitle}
           </Title>
           <RenderForm />

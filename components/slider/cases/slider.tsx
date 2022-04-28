@@ -29,8 +29,10 @@ export default function CasesScroll({ mode, filter, id }: Props) {
       id: {
         $ne: id,
       },
-      sumary: {
-        $containsi: filter,
+      subservice: {
+        name: {
+          $containsi: filter,
+        },
       },
     },
   };

@@ -26,6 +26,7 @@ import { Metadata } from '../components/head/metadata';
 
 function Home() {
   const router = useRouter();
+
   let { locale } = router;
   if (locale === '/') {
     locale = 'es';
@@ -57,6 +58,11 @@ function Home() {
     random,
     locale || 'es',
   );
+  const toggle = () => {
+    SetIsOpen(!isOpen);
+    // window.addEventListener('touchend', toggle, { passive: false });
+    // window.addEventListener('click', toggle, { passive: false });
+  };
 
   useEffect(() => {
     function handleScroll() {
@@ -67,15 +73,18 @@ function Home() {
       setLastYPos(yPos);
     }
 
-    window.addEventListener('scroll', handleScroll, false);
+    // window.addEventListener('touchend', handleScroll,  { passive: false });
 
     return () => {
-      window.removeEventListener('scroll', handleScroll, false);
+      window.addEventListener('scroll', handleScroll, { passive: false });
     };
   }, [lastYPos]);
-  const toggle = () => {
-    SetIsOpen(!isOpen);
-  };
+
+  // useEffect(() => {
+  //   window.addEventListener('touchend', toggle, { passive: false });
+  //   window.addEventListener('click', toggle, { passive: false });
+
+  // }, [isOpen]);
 
   if (isLoading || QuoteIsLoading || screenIsLoading) {
     return (
@@ -90,12 +99,12 @@ function Home() {
   return (
     <>
       <Metadata screen={screen} />
+      <Background />
       <AnimateSharedLayout>
         <Styles.Body
           mode={isOpen ? BUTTON_ACTIVE.ON : ''}
           id="bg"
           className="z-100">
-          <Background />
           <Menu isOpen={isOpen} toggle={toggle} logo={false} mode />
           <Styles.Margin>
             <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
@@ -222,4 +231,5 @@ function Home() {
     </>
   );
 }
+
 export default Home;

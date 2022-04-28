@@ -177,7 +177,7 @@ export const BtnSelect = styled.button<Props>`
 
 export const Styles = {
   Body: tw(SectionColor)<Props>`
- scroll-smooth m-auto overflow-hidden
+  m-auto overflow-hidden 
   ${(props) =>
     props.mode === BUTTON_ACTIVE.ON
       ? 'overflow-hidden h-screen max-w-full'
@@ -216,7 +216,7 @@ export const Styles = {
   ScreenMid: tw.div`h-screen flex justify-center items-center justify-between`,
   ScreenMidResponsiv: tw.div`h-96 lg:h-screen flex justify-center items-center justify-between`,
   ScreenWS: tw.div`h-96 sm:h-64 lg:h-4/6 flex justify-center items-center justify-between pt-24 lg:pt-36`,
-  FlexEnd: tw.div`flex lg:justify-end w-full m-auto`,
+  FlexEnd: tw.div`flex lg:justify-end w-full m-auto relative`,
   TitleSubSection: tw(
     subText,
   )`font-Primary text-xl font-extralight pb-5 text-primary`,

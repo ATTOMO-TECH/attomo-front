@@ -95,7 +95,7 @@ export default function Cases({ mode }: Props) {
           <Styles.AlingBlock>
             <CasesScroll
               mode={false}
-              filter={data.data.attributes.sumary}
+              filter={data.data.attributes.subservice.data.name}
               id={slug}
             />
           </Styles.AlingBlock>

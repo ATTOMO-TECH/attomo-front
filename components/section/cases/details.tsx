@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import gfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import IconAnimate from '../../button/icon';
 import { Container, Details } from './style';
 
@@ -21,7 +23,6 @@ export default function DetailsCases({ data, translate }: Props) {
               </Details.SubTextSpeciality>
             ))}
           </Details.BlockSpeciality>
-
           <Details.BlockSecond>
             <Details.TitleSpeciality>
               {translate.Deliverables}
@@ -34,7 +35,9 @@ export default function DetailsCases({ data, translate }: Props) {
           </Details.BlockSecond>
         </Details.BlockItems>
         <Details.SectionContainer>
-          <Container>{data.attributes.workDescription}</Container>
+          <Container remarkPlugins={[gfm]} rehypePlugins={[rehypeRaw]}>
+            {data.attributes.workDescription}
+          </Container>
           {data.attributes.projectUrl !== '' && (
             <Link href={data.attributes.projectUrl || '/'} passHref>
               <a
@@ -47,7 +50,9 @@ export default function DetailsCases({ data, translate }: Props) {
           )}
         </Details.SectionContainer>
         <Details.SectionText>
-          <Container>{data.attributes.content}</Container>
+          <Container remarkPlugins={[gfm]} rehypePlugins={[rehypeRaw]}>
+            {data.attributes.content}
+          </Container>
         </Details.SectionText>
       </Details.Section>
     </>

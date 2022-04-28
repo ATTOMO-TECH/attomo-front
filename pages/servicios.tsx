@@ -18,6 +18,13 @@ import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 
 function Services() {
+  const SliderSSR = dynamic(
+    () =>
+      import('../components/slider/article/slider').then(
+        (module: any) => module.default,
+      ),
+    { ssr: false },
+  );
   const router = useRouter();
   let { locale } = router;
   if (locale === '/') {
@@ -32,13 +39,6 @@ function Services() {
     SetIsOpen(!isOpen);
   };
   const translate = getLocale();
-  const SliderSSR = dynamic(
-    () =>
-      import('../components/slider/article/slider').then(
-        (module: any) => module.default,
-      ),
-    { ssr: false },
-  );
 
   if (screenIsLoading) {
     return (
@@ -53,7 +53,7 @@ function Services() {
       <Metadata screen={screen} />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Background />
-        <div className="z-100">
+        <div className="z-100 bg-black">
           <Menu isOpen={isOpen} toggle={toggle} logo mode />
           <Styles.Margin>
             <Nav toggle={toggle} logo mode isOpen={isOpen} />
@@ -67,7 +67,9 @@ function Services() {
                     {services.Text}
                   </Title>
                   <Styles.FlexEnd>
-                    <Subtext size="lg:w-2/6 pt-10">{services.Subtext}</Subtext>
+                    <Subtext size="lg:w-2/6 pt-10  absolute">
+                      {services.Subtext}
+                    </Subtext>
                   </Styles.FlexEnd>
                 </Styles.BlockDiv>
               ))}

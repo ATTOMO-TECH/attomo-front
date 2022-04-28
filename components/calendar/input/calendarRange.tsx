@@ -23,7 +23,7 @@ export default function CalendarPickerInputRange({
   const translate = getLocale();
   return (
     <>
-      <div id="trend">
+      <div id="trend reserve">
         <DatePicker
           selected={startDate}
           disabledKeyboardNavigation

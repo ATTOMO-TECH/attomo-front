@@ -33,7 +33,7 @@ export default function SelectedClients({
             <div className="lg:w-4/6  w-full">
               <SubSections.Title> {text}</SubSections.Title>
               <Link href={`${link}`}>
-                <div>
+                <div className="w-48">
                   <IconAnimate text={btn} mode />
                 </div>
               </Link>

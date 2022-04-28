@@ -63,24 +63,7 @@ function Space() {
           <Nav toggle={toggle} logo mode isOpen={isOpen} />
         </Styles.Margin>
         <ButtonShare />
-        {/* <Styles.Center>
-          <Styles.Center>
-            <Styles.ScreenWS>
-              {translate.spaceAttomo.map((values) => (
-                <Styles.BlockDiv>
-                  <Title size="leading-relaxed lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl w-3/6 md:w-full ">
-                    {values.Text}
-                  </Title>
-                  <Styles.FlexEnd>
-                    <Subtext size="lg:text-sm sm:text-lg text-sm font-light lg:font-PrimarySerif font-PrimarySerif  tracking-wide leadiang-loose lg:w-3/6 pb-48">
-                      {values.Subtext}
-                    </Subtext>
-                  </Styles.FlexEnd>
-                </Styles.BlockDiv>
-              ))}
-            </Styles.ScreenWS>
-          </Styles.Center>
-        </Styles.Center> */}
+
         <Styles.Center>
           <Styles.ScreenWS>
             {translate.spaceAttomo.map((services) => (

@@ -64,7 +64,7 @@ export const Navegation = {
   )`lg:font-PrimarySerif font-Primary text-primary text-regular mb-3 `,
   NavFooter: tw.nav`list-none mb-10 font-secundary text-primary text-sm `,
   NavFooterFlex: tw.nav`list-none mb-10 flex cursor-pointer justify-start items-center`,
-  ItemsMenu: tw.p`cursor-pointer py-1 leading-relaxed lg:leading-none text-sm font-extralight hover:opacity-60 transition-all duration-150 w-3/12`,
+  ItemsMenu: tw.p`cursor-pointer py-1 leading-relaxed lg:leading-none text-sm font-extralight hover:opacity-60 transition-all duration-150 w-4/12`,
   BlockInput: tw.div`relative flex flex xl:flex-nowrap md:flex-nowrap w-11/12 lg:flex-wrap flex-wrap justify-center items-end md:justify-start`,
   Input: tw.input`w-full flex bg-secundary text-primary bg-none focus:bg-none outline-none  py-1 px-1 lg:text-xs text-xl font-light  `,
   BlockSubText: tw.div`flex flex-col lg:flex-row justify-end text-primary text-sm font-Secundary pb-6 w-11/12 m-auto`,
