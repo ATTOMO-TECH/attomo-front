@@ -34,7 +34,7 @@ function News() {
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState('');
   const [query, setQuery] = useState(
-    'pagination[page]=1&pagination[pageSize]=3&populate=coverImage?populate=blog_tags',
+    'pagination[page]=1&pagination[pageSize]=3&populate=coverImage',
   );
   const { data, isLoading } = useUseAllPost(query);
   const { data: Tags, isLoading: isLoadingTags } = useUseAllTags(
@@ -129,6 +129,7 @@ function News() {
     });
     setQuery(queryQs);
   }, [page, filter, startDate, endDate, locale]);
+
   useEffect(() => {
     setPage(1);
   }, [filter]);
@@ -192,7 +193,7 @@ function News() {
         </Styles.Center>
         <Styles.BlockTrends>
           <Styles.SectionFilter>
-            <Subtext size="text-lg lg:py-4 ">{translate.trendsFilter}</Subtext>
+            <Subtext size="text-lg py-4 ">{translate.trendsFilter}</Subtext>
           </Styles.SectionFilter>
           <Styles.SelectFilter>
             <SelectFilterMenu

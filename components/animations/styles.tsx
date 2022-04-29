@@ -5,6 +5,8 @@ export const BgMovement = styled.div`
   background: #0f0b11;
   z-index: -1 !important;
   touch-action: none !important;
+  -ms-touch-action: none !important;
+  pointer-events: all !important; ;
 `;
 export const Styles = {
   Bg: tw(BgMovement)`w-full h-screen fixed `,

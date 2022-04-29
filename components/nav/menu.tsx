@@ -6,6 +6,7 @@ import { darkTheme, lightTheme, Navegation } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { getLocale } from '../../public/locales/getLocale';
 import useDeviceSize from '../../hook/size';
+import { useEventListener } from '../../hook/eventListener';
 
 interface Props {
   isOpen: boolean;
@@ -31,11 +32,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
   useEffect(() => {
     setItems(translate.menu);
   }, [items]);
-
-  // useEffect(() => {
-  //   window.addEventListener('touchend', toggle, { passive: false });
-
-  // }, [isOpen]);
+  useEventListener('menu', 'touchstart', toggle);
 
   return (
     <>
@@ -67,11 +64,10 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                 </Link>
               )}
             </Navegation.ItemsMenu>
-            <Navegation.ItemsMenu onClick={toggle}>
+            <Navegation.ItemsMenu onClick={toggle} id="menu">
               <Navegation.TextMenu
                 ismode=""
                 theme={mode === true ? lightTheme : darkTheme}
-                onClick={toggle}
               />
               {width > 570 ? (
                 <motion.svg

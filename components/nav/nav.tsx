@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { darkTheme, lightTheme, Navegation } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
+import { useEventListener } from '../../hook/eventListener';
 
 interface Props {
   toggle: any;
@@ -27,6 +28,8 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
   const handleBtn = (value: string) => {
     router.push(router.pathname, router.pathname, { locale: value });
   };
+
+  useEventListener('menuA', 'touchstart', toggle);
 
   return (
     <>
@@ -95,6 +98,7 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
               </Navegation.ButtonSelect>
             </Navegation.BlokSectionLenguage>
             <Navegation.ItemsMenu
+              id="menuA"
               onClick={() => toggle()}
               className="colorMenu action z-100">
               <Navegation.TextMenu

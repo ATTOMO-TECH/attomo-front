@@ -52,7 +52,7 @@ export default function Footer({ subFooter }: Props) {
             <InputNew />
           </Navegation.BlockNav>
         </Navegation.BlockFooter>
-        <div className="relative ">{subFooter ? <SubFooter /> : ''}</div>
+        <div className="relative ">{subFooter && <SubFooter />}</div>
         <Navegation.BlockSubText>
           <Link href="/privacidad">
             <Navegation.SubText>{translate.privacy}</Navegation.SubText>

@@ -35,13 +35,14 @@ export default function FilterScroll({ setTopic, initialValue = '' }: Props) {
           indicatorClassName="my-picker-indicator "
           className=""
           selectedValue={value}
+          defaultSelectedValue={5}
           onScrollChange={(e: any) => {
             setValue(e);
           }}>
           {Subservice.data.map((values: any) => (
             <Picker.Item
               key={`${values.attributes.name}+${values.attributes.name}`}
-              className="my-picker-view-item text-left  text-white"
+              className="my-picker-view-item text-left  text-white touch-pan-y"
               value={values.attributes.name}>
               {values.attributes.name}
             </Picker.Item>
