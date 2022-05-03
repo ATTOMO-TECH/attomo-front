@@ -1,10 +1,13 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Navegation } from './styles';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { getLocale } from '../../public/locales/getLocale';
 import { FORMVALUES } from '../../hook/types';
+import { servicesAnimations } from '../animations/animations';
+import Title from '../Text/title';
 import { useCreateSubscriber } from '../../domain/useSubscriber';
 
 const registerSchema = Yup.object().shape({
@@ -14,6 +17,8 @@ const registerSchema = Yup.object().shape({
 });
 
 export default function InputNew() {
+  const [shouldShowActions] = useState(false);
+  const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
   const [inputMail, setInputMail] = useState('');
 
   const handleInput = (mail: string) => {
@@ -36,6 +41,7 @@ export default function InputNew() {
       { data },
       {
         onSuccess: () => {
+          setSuccesfull(true);
           action.resetForm();
         },
         onError: () => {
@@ -54,37 +60,59 @@ export default function InputNew() {
         validateOnMount>
         {({ touched, errors, handleSubmit, setFieldValue }) => (
           <Navegation.Form onSubmit={handleSubmit}>
-            <Navegation.BlockInput>
-              <Navegation.SectionInput
-                ismode={isActive ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-                onClick={() => toggleClass(isActive)}>
-                <p className="text-primary">{isActive}</p>
-                <Navegation.Input
-                  type="email"
-                  placeholder={translate.sendEmail}
-                  name={FORMVALUES.EMAIL}
-                  onChange={(e: any) => {
-                    handleInput(e.currentTarget.value);
-                    setFieldValue(FORMVALUES.EMAIL, e.currentTarget.value);
-                  }}
-                />
-                <Navegation.Button
-                  ismode={
-                    inputMail.length > 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF
-                  }
-                  type="submit">
-                  <img
-                    src="/icon/send_.svg"
-                    width={30}
-                    height={10}
-                    alt="Attomo"
-                  />
-                </Navegation.Button>
-              </Navegation.SectionInput>
-              {touched.newsletter && errors.newsletter && (
-                <div className="text-red-500">{errors.newsletter}</div>
-              )}
-            </Navegation.BlockInput>
+            {!sendSuccesfull ? (
+              <>
+                <Navegation.BlockInput>
+                  <Navegation.SectionInput
+                    ismode={isActive ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+                    onClick={() => toggleClass(isActive)}>
+                    <p className="text-primary">{isActive}</p>
+                    <Navegation.Input
+                      type="email"
+                      placeholder={translate.sendEmail}
+                      name={FORMVALUES.EMAIL}
+                      onChange={(e: any) => {
+                        handleInput(e.currentTarget.value);
+                        setFieldValue(FORMVALUES.EMAIL, e.currentTarget.value);
+                      }}
+                    />
+                    <Navegation.Button
+                      ismode={
+                        inputMail.length > 0
+                          ? BUTTON_ACTIVE.ON
+                          : BUTTON_ACTIVE.OFF
+                      }
+                      type="submit">
+                      <img
+                        src="/icon/send_.svg"
+                        width={30}
+                        height={10}
+                        alt="Attomo"
+                      />
+                    </Navegation.Button>
+                  </Navegation.SectionInput>
+                </Navegation.BlockInput>
+                {touched.newsletter && errors.newsletter && (
+                  <div className="text-red-500">{errors.newsletter}</div>
+                )}
+              </>
+            ) : (
+              <motion.div
+                animate={shouldShowActions}
+                variants={servicesAnimations}
+                className="actions"
+                transition={{
+                  type: 'magic',
+                  stiffness: 100,
+                  duration: 0.5,
+                }}
+                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: '50%' }}>
+                <Title size=" pt-2 leading-relaxed  text-sm">
+                  Datos enviados correctamente
+                </Title>
+              </motion.div>
+            )}
           </Navegation.Form>
         )}
       </Formik>

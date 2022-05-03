@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -18,15 +17,9 @@ import { Styles } from '../../styles/styles';
 import { useUseAllServices } from '../../domain/useServices';
 import RenderLoading from '../../components/loading/loading';
 import { getLocale } from '../../public/locales/getLocale';
+import ArticlesScroll from '../../components/slider/article/slider';
 
 function DetailsServices() {
-  const SliderSSR = dynamic(
-    () =>
-      import('../../components/slider/article/slider').then(
-        (module: any) => module.default,
-      ),
-    { ssr: false },
-  );
   const [isIdSubServices, SetIsIdSubServices] = useState<any>({});
   const [isOpenFilter, SetIsOpenFilter] = useState<boolean>(false);
   const [isOpen, SetIsOpen] = useState<boolean>(false);
@@ -77,16 +70,18 @@ function DetailsServices() {
     <>
       <Head>
         <title>Servicios ATTOMO - Nuestros servicios - {slug}</title>
-
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link rel="icon" href="/FaviconLight.svg" type="image/x-icon" />
-
         <meta
-          property="og:title"
+          name="title"
           content={`Servicios ATTOMO - Nuestros servicios - ${slug}`}
         />
-
-        <meta property="og:image" content="/FaviconLight.svg" />
+        <link rel="icon" href="/FaviconLight.svg" type="image/x-icon" />
+        <meta name="description" content={data?.data?.attributes?.metadata} />
+        <meta name="keywords" content={data?.data?.attributes?.metadata} />
+        <link rel="canonical" href="https://attomo.digital" />
+        <meta name="type" content="website" />
+        <meta name="copyright" content="https://attomo.digital" />
+        <meta name="robots" content="index" />
+        <meta name="image" content="/FaviconLight.svg" />
       </Head>
       <motion.div
         initial="initial"
@@ -137,9 +132,7 @@ function DetailsServices() {
                 ))}
               </Styles.BlockRenderDetails>
               <Styles.BlockFilter onClick={toggleFilter}>
-                <Title size="lg:text-lg text-lg font-Primary font-light  fixed right-12 top-8">
-                  {translate.Services}
-                </Title>
+                <Title size="mt-5 text-lg">{translate.Services}</Title>
               </Styles.BlockFilter>
               <motion.div
                 className="lg:pt-12 lg:w-9/12 w-10/12 ml-auto h-auto mr-2"
@@ -180,7 +173,11 @@ function DetailsServices() {
             </Styles.Center>
             <Styles.FlexEnd>
               <Styles.AlingBlock>
-                <SliderSSR>{data.data?.attributes?.sumary}</SliderSSR>
+                <ArticlesScroll
+                  mode
+                  filter={data.data?.attributes?.sumary}
+                  id={0}
+                />
               </Styles.AlingBlock>
             </Styles.FlexEnd>
           </motion.div>

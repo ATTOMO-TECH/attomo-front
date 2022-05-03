@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import * as qs from 'qs';
 // eslint-disable-next-line import/no-unresolved
 import { NavigationOptions } from 'swiper/types/modules/public-api';
@@ -10,6 +10,7 @@ import { useRouter } from 'next/router';
 import { darkTheme, lightTheme, StylesArticle } from '../style';
 import { BUTTON_ACTIVE } from '../../../const/const';
 import { useUseFilterCases } from '../../../domain/useCasesDetails';
+import RenderLoading from '../../loading/loading';
 
 interface Props {
   mode: boolean;
@@ -18,6 +19,11 @@ interface Props {
 }
 
 export default function CasesScroll({ mode, filter, id }: Props) {
+  const [setMyPrev] = useState<any>();
+  const [setMyNext] = useState<any>();
+  const [prevState, setPrev] = useState(null);
+  const [nextState, nextPrev] = useState(null);
+
   const router = useRouter();
   let { locale } = router;
   if (locale === '/') {
@@ -47,13 +53,19 @@ export default function CasesScroll({ mode, filter, id }: Props) {
   const nextRef = useRef(null);
 
   const onBeforeInit = (swiper: SwiperCore): void => {
-    const navigation = swiper.params.navigation as NavigationOptions;
-    navigation.prevEl = prevRef.current;
-    navigation.nextEl = nextRef.current;
+    swiper.params.navigation as NavigationOptions;
+
+    setPrev(prevRef.current);
+    nextPrev(nextRef.current);
   };
 
+  useEffect(() => {
+    setMyNext(nextState);
+    setMyPrev(prevState);
+  }, [data]);
+
   if (isLoading) {
-    return <></>;
+    return <RenderLoading mode={false} />;
   }
 
   return (

@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import { useRouter } from 'next/dist/client/router';
 import Head from 'next/head';
@@ -14,19 +13,13 @@ import BlockSection from '../../components/block/block';
 import { useAPost } from '../../domain/useBlogDetails';
 import RenderLoading from '../../components/loading/loading';
 import { getLocale } from '../../public/locales/getLocale';
+import ArticlesScroll from '../../components/slider/article/slider';
 
 interface Props {
   mode: boolean;
 }
 
 function New({ mode }: Props) {
-  const SliderSSR = dynamic(
-    () =>
-      import('../../components/slider/article/sliderInvert').then(
-        (module: any) => module.default,
-      ),
-    { ssr: false },
-  );
   const translate = getLocale();
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const router = useRouter();
@@ -46,14 +39,20 @@ function New({ mode }: Props) {
     <>
       <Head>
         <title>#ATTOMOtrends - {data?.data?.attributes.title}</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta property="og:title" content={data?.data?.attributes.title} />
         <meta
-          property="og:image"
-          content={data?.data.attributes.coverImage.data.attributes?.url}
+          name="title"
+          content={`ATTOMOtrends - ${data?.data?.attributes.title}`}
         />
-        <meta name="description" content={data?.data?.attributes.metadata} />
         <link rel="icon" href="/FaviconLight.svg" type="image/x-icon" />
+        {data?.data?.attributes.metadata && (
+          <meta name="description" content={data?.data?.attributes.metadata} />
+        )}
+        <meta name="keywords" content={data?.data?.attributes.metadata} />
+        <link rel="canonical" href="https://attomo.digital" />
+        <meta name="type" content="website" />
+        <meta name="copyright" content="https://attomo.digital" />
+        <meta name="robots" content="index" />
+        <meta name="image" content="/FaviconLight.svg" />
       </Head>
       <Styles.Body
         mode={isOpen ? BUTTON_ACTIVE.ON : ''}
@@ -79,9 +78,11 @@ function New({ mode }: Props) {
         </Styles.Center>
         <Styles.FlexEnd>
           <Styles.AlingBlock>
-            <SliderSSR>
-              {data?.data.attributes.blog_tags.data[0].attributes.name}
-            </SliderSSR>
+            <ArticlesScroll
+              mode={false}
+              filter={data?.data.attributes.blog_tags.data[0].attributes.name}
+              id={Number(slug)}
+            />
           </Styles.AlingBlock>
         </Styles.FlexEnd>
         <Styles.Center>

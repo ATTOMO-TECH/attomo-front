@@ -9,8 +9,8 @@ type Props = {
 export const SelectedSlide = styled.div<Props>`
   ${({ active }) =>
     active
-      ? 'transform: translatex(25%) scale(1.5); transition: all 0.3s ease; '
-      : 'transform: scale(1); transition: all 0.3s ease; &:nth-child(1){ opacity:0.5} '}
+      ? 'transition: all 0.3s ease; '
+      : 'transform: scale(1); transition: all 0.3s ease; '}
 `;
 export const TextTitle = styled.h2`
   @media screen and (max-width: 1024px) {
@@ -63,9 +63,10 @@ export const StylesArticle = {
   BlockText: tw(SectionColor)``,
   TextBlog: tw(
     titleText,
-  )<Props>`text-xl lg:text-lg  pt-2 lg:pt-2 font-Primary font-thin
+  )<Props>`text-xl lg:text-lg  pt-2 lg:pt-2 font-Primary font-thin cursor-pointer
   ${(props) =>
-    props.ismode === BUTTON_ACTIVE.ON ? `textDegrade  ` : 'bg-black '}
+    props.ismode === BUTTON_ACTIVE.ON ? `textDegrade` : 'bg-black '}
+    
       `,
 
   TopicText: tw.h6<Props>`
@@ -76,6 +77,6 @@ export const StylesArticle = {
   ArrowPrev: tw.div`cursor-pointer  lg:py-20 py-10 mr-5 `,
   ArrowNext: tw.div`cursor-pointer lg:py-20 py-10`,
   Slide: tw(SelectedSlide)<Props>`
-  ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'w-4/6 ' : 'w-4/6 ')}`,
+  ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'w-5/6 ' : 'w-5/6 ')}`,
   // ESPACIO
 };

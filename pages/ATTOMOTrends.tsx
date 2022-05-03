@@ -15,7 +15,7 @@ import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
 import Title from '../components/Text/title';
 import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
-import { useUseAllPost, useUseAllTags } from '../domain/useBlogDetails';
+import { useUseFeaturedPost, useUseAllTags } from '../domain/useBlogDetails';
 import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 import Subtext from '../components/Text/subText';
@@ -34,9 +34,9 @@ function News() {
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState('');
   const [query, setQuery] = useState(
-    'pagination[page]=1&pagination[pageSize]=3&populate=coverImage',
+    'pagination[page]=1&pagination[pageSize]=3&populate=coverImage&filters[featured][$eq]=true',
   );
-  const { data, isLoading } = useUseAllPost(query);
+  const { data, isLoading } = useUseFeaturedPost(query);
   const { data: Tags, isLoading: isLoadingTags } = useUseAllTags(
     locale || 'es',
   );
@@ -253,7 +253,8 @@ function News() {
         </Styles.BlockTrends>
         <BlockBlog dataBlog={preData} />
         {data &&
-          (data.meta.pagination.page !== data.meta.pagination.pageCount ? (
+          (data.meta.pagination.page !== data.meta.pagination.pageCount &&
+          data.meta.pagination.pageCount !== 0 ? (
             <Blogstyles.SectionMore>
               <Blogstyles.BlockMore
                 onClick={() => handleAddBlog(data.meta.pagination.page + 1)}>

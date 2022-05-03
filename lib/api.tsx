@@ -34,6 +34,8 @@ const QUOTE = {
 };
 const POST = {
   FETCH_ALL: (query: any) =>
+    getAbsolutePath(`blog-posts?${query}&populate=blog_tags`),
+  FETCH_ALL_FEATURED: (query: any) =>
     getAbsolutePath(
       `blog-posts?${query}&populate=blog_tags&filters[featured][$eq]=true`,
     ),
