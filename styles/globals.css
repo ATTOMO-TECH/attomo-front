@@ -10,10 +10,11 @@
 @import 'swiper/css/autoplay';
 @import 'swiper/css/lazy';
 
-/* *{
-  pointer-events: none;
-  touch-action: none;
-} */
+body {
+  touch-action: manipulation !important;
+  -ms-touch-action: manipulation !important;
+  pointer-events: all;
+}
 
 .textDegrade {
   background: linear-gradient(
@@ -36,7 +37,26 @@ input[type='number']::-webkit-outer-spin-button {
 input[type='number'] {
   -moz-appearance: textfield;
 }
-input {
+
+input[type='color'],
+input[type='date'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='email'],
+input[type='month'],
+input[type='number'],
+input[type='password'],
+input[type='search'],
+input[type='tel'],
+input[type='text'],
+input[type='time'],
+input[type='url'],
+input[type='week'],
+select:focus,
+textarea {
+  font-weight: 300 !important;
+  color: gray !important;
+  border-radius: 0% !important;
   -webkit-appearance: none;
   font-size: 16px !important;
 }
@@ -233,4 +253,21 @@ input[type='text'] {
 
 .css-319lph-ValueContainer {
   padding: 0 !important;
+}
+.filter {
+  background-image: linear-gradient(
+      to bottom,
+      rgb(0 0 0 / 100%),
+      rgb(0 0 0 / 63%)
+    ),
+    linear-gradient(to top, rgb(0 0 0 / 100%), rgb(0 0 0 / 63%)) !important;
+  filter: blur(100);
+}
+.filter .swiper-slide {
+  opacity: 0.4;
+}
+.filter .swiper-slide-active {
+  transform: translatex(25%) scale(1.5);
+  transition: all 0.3s ease;
+  opacity: 1 !important;
 }

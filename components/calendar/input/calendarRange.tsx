@@ -35,7 +35,7 @@ export default function CalendarPickerInputRange({
           placeholderText={translate.SelectDate}
           dateFormat="dd/MM/yyyy"
           locale={es}
-          className="outline-none font-PrimarySerif font-thin pl-1 h-full w-full py-2 text-sm bg-none "
+          className="outline-none text-opacity-0 pl-1 h-full w-full py-2  bg-none "
         />
       </div>
     </>

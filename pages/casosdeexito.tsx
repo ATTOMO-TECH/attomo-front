@@ -217,23 +217,23 @@ function Cases() {
                 </Styles.SectionFilter>
                 <Styles.SelectFilter onClick={toggleFilter}>
                   <Styles.Select
-                    className="lg:w-8/12  w-full cursor-pointer "
-                    disabled>
-                    {topic === '' || topic === undefined ? (
-                      <option value="">{translate.Topic}</option>
-                    ) : (
-                      <option value="">{topic}</option>
-                    )}
-                  </Styles.Select>
-                </Styles.SelectFilter>
-                <Styles.SelectFilter onClick={toggleFilter}>
-                  <Styles.Select
                     className="lg:w-8/12 w-full cursor-pointer "
                     disabled>
                     {search === '' || search === undefined ? (
                       <option value="">{translate.Services}</option>
                     ) : (
                       <option value="">{search}</option>
+                    )}
+                  </Styles.Select>
+                </Styles.SelectFilter>
+                <Styles.SelectFilter onClick={toggleFilter}>
+                  <Styles.Select
+                    className="lg:w-8/12  w-full cursor-pointer "
+                    disabled>
+                    {topic === '' || topic === undefined ? (
+                      <option value="">{translate.Topic}</option>
+                    ) : (
+                      <option value="">{topic}</option>
                     )}
                   </Styles.Select>
                 </Styles.SelectFilter>

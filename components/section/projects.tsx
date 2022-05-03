@@ -69,8 +69,7 @@ export default function SectionProjects({
                   <Styles.Paragraph className="text-sm  font-PrimarySerif uppercase">
                     {values.attributes.company}
                   </Styles.Paragraph>
-
-                  <Title size="lg:text-4xl text-2xl py-3 leading-relaxed lg:leading-normal">
+                  <Title size="lg:text-4xl text-2xl w-96 py-3 leading-relaxed lg:leading-normal">
                     {values.attributes.title}
                   </Title>
                   <Link href={`/casos/${values.id}`}>

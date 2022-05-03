@@ -60,8 +60,6 @@ function Home() {
   );
   const toggle = () => {
     SetIsOpen(!isOpen);
-    // window.addEventListener('touchend', toggle, { passive: false });
-    // window.addEventListener('click', toggle, { passive: false });
   };
 
   useEffect(() => {
@@ -72,19 +70,10 @@ function Home() {
       setShouldShowActions(isScrollingUp);
       setLastYPos(yPos);
     }
-
-    // window.addEventListener('touchend', handleScroll,  { passive: false });
-
     return () => {
       window.addEventListener('scroll', handleScroll, { passive: false });
     };
   }, [lastYPos]);
-
-  // useEffect(() => {
-  //   window.addEventListener('touchend', toggle, { passive: false });
-  //   window.addEventListener('click', toggle, { passive: false });
-
-  // }, [isOpen]);
 
   if (isLoading || QuoteIsLoading || screenIsLoading) {
     return (
@@ -93,9 +82,7 @@ function Home() {
       </>
     );
   }
-
   const translate = getLocale();
-
   return (
     <>
       <Metadata screen={screen} />

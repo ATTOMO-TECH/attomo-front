@@ -11,6 +11,10 @@ const getAllTags = async (lenguage: string) => {
   return data;
 };
 
+const getAllPostFeatured = async (query: any) => {
+  const { data } = await get(POST.FETCH_ALL_FEATURED(query));
+  return data;
+};
 const getPostId = async (id: number) => {
   const { data } = await get(POST.FETCH_ID(id));
   return data;
@@ -24,7 +28,14 @@ export function useUseAllPost(query: any) {
   });
 }
 export function useUseAllTags(lenguage: string) {
-  return useQuery(['useAllPost'], () => getAllTags(lenguage), {
+  return useQuery(['useAllPost', lenguage], () => getAllTags(lenguage), {
+    staleTime: 2500,
+    notifyOnChangePropsExclusions: ['isStale'],
+    refetchOnWindowFocus: false,
+  });
+}
+export function useUseFeaturedPost(query: any) {
+  return useQuery(['useAllFeatured', query], () => getAllPostFeatured(query), {
     staleTime: 2500,
     notifyOnChangePropsExclusions: ['isStale'],
     refetchOnWindowFocus: false,

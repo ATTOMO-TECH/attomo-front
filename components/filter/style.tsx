@@ -57,7 +57,7 @@ export const Filter = {
   `,
   BlockFilterItems: tw.div`flex flex-col justify-center text-center w-full pt-24`,
   AlingBlock: tw.div`w-full flex flex-col justify-items-stretch items-center w-full`,
-  InputSearch: tw.input`border-b border-primary bg-secundary text-primary w-full lg:w-4/6 lg:font-Primary text-xl outline-none focus:opacity-100 opacity-50 ease-in-out duration-300 font-light outline-none font-PrimarySerif font-thin text-gray-300 h-full w-full py-2  text-sm lg:text-lg`,
+  InputSearch: tw.input`border-b border-primary bg-secundary text-primary w-full md:w-4/6 lg:font-Primary text-xl outline-none focus:opacity-100 opacity-50 ease-in-out duration-300 font-light outline-none font-PrimarySerif font-thin text-gray-300 h-full w-full py-2  text-sm lg:text-lg`,
   FirtsItemFilter: tw.div`w-8/12 flex items-center justify-between m-auto `,
   TextItemFilter: tw.div`lg:w-3/6 text-left`,
   ValueFilter: tw.h6`lg:text-xl text-white`,

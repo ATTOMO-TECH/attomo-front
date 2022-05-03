@@ -63,7 +63,7 @@ ${(props) =>
   BlockMargin: tw.div`lg:py-48 flex flex-col lg:flex-row w-full justify-justify-around`,
   BlockMarginText: tw.div`lg:pt-12`,
   DivideSection: tw.div`h-full flex items-start lg:justify-around flex-col lg:flex-row justify-center w-full`,
-  BlockBtn: tw.div`text-primary z-100`,
+  BlockBtn: tw.div`text-primary z-100 w-3/6`,
 
   SectionImg: tw.section`grid grid-cols-1 sm:grid-cols-2 lg:gap-6 `,
   SectionPrices: tw.section`grid grid-cols-1 sm:grid-cols-3 gap-8 px-12 place-items-center`,

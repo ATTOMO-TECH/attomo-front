@@ -47,17 +47,21 @@ export default function Cases({ mode }: Props) {
         <title>
           Casos de éxito ATTOMO - Clientes - {data?.data?.attributes.company}
         </title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta property="og:title" content={data?.data?.attributes.title} />
+
         <meta
-          property="og:image"
-          content={data?.data.attributes.coverImage?.data.attributes?.url || ''}
-        />
-        <meta
-          property="og:description"
-          content={data?.data?.attributes.metadata}
+          name="title"
+          content={`Casos de éxito ATTOMO - Clientes - ${slug}`}
         />
         <link rel="icon" href="/FaviconLight.svg" type="image/x-icon" />
+        {data?.data?.attributes.metadata && (
+          <meta name="description" content={data?.data?.attributes.metadata} />
+        )}
+        <meta name="keywords" content={data?.data?.attributes.metadata} />
+        <link rel="canonical" href="https://attomo.digital" />
+        <meta name="type" content="website" />
+        <meta name="copyright" content="https://attomo.digital" />
+        <meta name="robots" content="index" />
+        <meta name="image" content="/FaviconLight.svg" />
       </Head>
       <Styles.Body
         mode={isOpen ? BUTTON_ACTIVE.ON : ''}

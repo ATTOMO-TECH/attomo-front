@@ -7,7 +7,7 @@ export default function SubFooter() {
       <SubNavegation.SectionSub>
         <SubNavegation.BlockSub>
           {PARTNERS.map((values) => (
-            <SubNavegation.Listsub>
+            <SubNavegation.Listsub key={values.Name}>
               <img src={values.Pic} width={120} height={60} alt={values.Name} />
             </SubNavegation.Listsub>
           ))}

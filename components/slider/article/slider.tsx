@@ -1,35 +1,37 @@
 // eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import * as qs from 'qs';
 // eslint-disable-next-line import/no-unresolved
 import { NavigationOptions } from 'swiper/types/modules/public-api';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { darkTheme, lightTheme, StylesArticle } from '../style';
 import { BUTTON_ACTIVE } from '../../../const/const';
 import { useUseAllPost } from '../../../domain/useBlogDetails';
 import RenderLoading from '../../loading/loading';
 
 interface Props {
-  children: string;
+  mode: boolean;
+  filter: string;
+  id: number;
 }
 
-export default function ArticlesScroll({ children }: Props) {
-  const router = useRouter();
-  const { slug } = router.query;
-  const mode = true;
+export default function ArticlesScroll({ mode, filter, id }: Props) {
+  const [setMyPrev] = useState<any>();
+  const [setMyNext] = useState<any>();
+  const [prevState, setPrev] = useState(null);
+  const [nextState, nextPrev] = useState(null);
+
   const queryObject: any = {
     populate: 'coverImage',
     filters: {
       id: {
-        $ne: slug,
+        $ne: id,
       },
-
       blog_tags: {
         name: {
-          $eq: children,
+          $containsi: filter,
         },
       },
     },
@@ -45,10 +47,15 @@ export default function ArticlesScroll({ children }: Props) {
   const nextRef = useRef(null);
 
   const onBeforeInit = (swiper: SwiperCore): void => {
-    const navigation = swiper.params.navigation as NavigationOptions;
-    navigation.prevEl = prevRef.current;
-    navigation.nextEl = nextRef.current;
+    swiper.params.navigation as NavigationOptions;
+
+    setPrev(prevRef.current);
+    nextPrev(nextRef.current);
   };
+  useEffect(() => {
+    setMyNext(nextState);
+    setMyPrev(prevState);
+  }, [data]);
 
   if (isLoading) {
     return (
@@ -64,7 +71,7 @@ export default function ArticlesScroll({ children }: Props) {
         spaceBetween={30}
         centeredSlides
         modules={[Pagination]}
-        className="mySwiper SwiperSpace"
+        className="mySwiper"
         breakpoints={{
           '460': {
             slidesPerView: 'auto',
@@ -81,58 +88,49 @@ export default function ArticlesScroll({ children }: Props) {
           prevEl: prevRef.current,
           nextEl: nextRef.current,
         }}>
-        {data?.data?.map((articles: any) => (
-          <Link href={`/ATTOMOTrends/${articles.id}`}>
-            <SwiperSlide key={articles.Tag} className="swiper">
+        {data.data.map((articles: any) => (
+          <SwiperSlide key={articles.Tag} className="swiper ">
+            <Link href={`/ATTOMOTrends/${articles.id}`}>
               <div>
                 <StylesArticle.Img
                   src={articles.attributes.coverImage.data.attributes.url}
                   alt={articles.Text}
                 />
-                <StylesArticle.BlockText theme={mode ? lightTheme : darkTheme}>
+                <StylesArticle.BlockText
+                  theme={mode === false ? lightTheme : darkTheme}>
                   <StylesArticle.TopicText
-                    ismode={
-                      articles.attributes.coverImage.data.attributes.url === '/'
-                        ? BUTTON_ACTIVE.OFF
-                        : BUTTON_ACTIVE.ON
-                    }
+                    ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
                   />
                   <StylesArticle.TopicText ismode={BUTTON_ACTIVE.ON}>
                     {articles.attributes.blog_tags.data[0].attributes.name}
                   </StylesArticle.TopicText>
-                  <Link href={`/ATTOMOTrends/${articles.id}`}>
-                    <div className="cursor-pointer">
-                      <StylesArticle.TextBlog
-                        ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-                        {articles.attributes.title}
-                      </StylesArticle.TextBlog>
-                    </div>
-                  </Link>
+                  <StylesArticle.TextBlog
+                    ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+                    {articles.attributes.title}
+                  </StylesArticle.TextBlog>
                 </StylesArticle.BlockText>
               </div>
-            </SwiperSlide>
-          </Link>
+            </Link>
+          </SwiperSlide>
         ))}
-        {data?.meta?.pagination?.total > 2 && (
-          <StylesArticle.BlockArrow>
-            <StylesArticle.ArrowPrev ref={prevRef}>
-              <img
-                src={!mode ? '/icon/prevDark.svg' : '/icon/prev.svg'}
-                width={100}
-                height={100}
-                alt="prev"
-              />
-            </StylesArticle.ArrowPrev>
-            <StylesArticle.ArrowNext ref={nextRef}>
-              <img
-                src={!mode ? '/icon/nextDark.svg' : '/icon/next.svg'}
-                width={100}
-                height={100}
-                alt="next"
-              />
-            </StylesArticle.ArrowNext>
-          </StylesArticle.BlockArrow>
-        )}
+        <StylesArticle.BlockArrow>
+          <StylesArticle.ArrowPrev ref={prevRef}>
+            <img
+              src={!mode ? '/icon/prevDark.svg' : '/icon/prev.svg'}
+              width={100}
+              height={100}
+              alt="prev"
+            />
+          </StylesArticle.ArrowPrev>
+          <StylesArticle.ArrowNext ref={nextRef}>
+            <img
+              src={!mode ? '/icon/nextDark.svg' : '/icon/next.svg'}
+              width={100}
+              height={100}
+              alt="next"
+            />
+          </StylesArticle.ArrowNext>
+        </StylesArticle.BlockArrow>
       </Swiper>
     </>
   );

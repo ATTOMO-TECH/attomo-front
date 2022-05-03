@@ -41,6 +41,7 @@ export default function Background() {
           particle,
           environment,
           waterMark: false,
+          pasive: false,
         });
       };
     };
