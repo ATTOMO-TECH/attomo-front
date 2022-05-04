@@ -28,29 +28,30 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
   const handleBtn = (value: string) => {
     router.push(router.pathname, router.pathname, { locale: value });
   };
+  const handleBack = () => {
+    router.push('/');
+  };
 
   useEventListener('menuA', 'touchstart', toggle);
+  useEventListener('back', 'touchstart', handleBack);
 
   return (
     <>
       <Navegation.SectionNav
-        theme={
-          // scroll ? (bgFull ? (mode ? lightTheme : darkTheme) : null) :
-          null
-        }
+        theme={!scroll ? (mode ? lightTheme : darkTheme) : null}
         className={!isOpen ? '' : 'hidden'}
         ismode={!scroll ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
         <Navegation.AlinItems
           ismode={logo ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-          <Navegation.ItemsMenu>
+          <Navegation.ItemsMenu id="back">
             {logo ? (
               <>
                 {mode ? (
                   <Link href="/">
                     <img
                       src="/icon/isoAttomo.svg"
-                      width={30}
-                      height={30}
+                      width={35}
+                      height={35}
                       alt="Attomo"
                     />
                   </Link>
@@ -58,8 +59,8 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
                   <Link href="/">
                     <img
                       src="/icon/darkAttomo.svg"
-                      width={30}
-                      height={30}
+                      width={35}
+                      height={35}
                       alt="Attomo"
                     />
                   </Link>

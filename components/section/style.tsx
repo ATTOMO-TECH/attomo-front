@@ -37,11 +37,11 @@ export const Styles = {
   BlockSections: tw.div<Props>`
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
-      ? 'flex items-center relative flex-col lg:flex-row lg:mt-48 '
+      ? 'flex items-center relative flex-col lg:flex-row lg:mt-48 ml-6 '
       : ''}
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.OFF
-      ? 'flex flex-col lg:flex-row-reverse items-center relative lg:mt-48 '
+      ? 'flex flex-col lg:flex-row-reverse items-center relative lg:mt-48 ml-6 '
       : ''}`,
   BlockSection: tw.div<Props>`
   ${(props) =>
@@ -53,7 +53,7 @@ export const Styles = {
   BlockText: tw.div<Props>`
 ${(props) =>
   props.ismode === BUTTON_ACTIVE.ON
-    ? 'md:px-20 sm:px-5 lg:w-3/6 px-9 py-12 lg:py-0 lg:absolute lg:-bottom-20 lg:right-0 z-90'
+    ? 'md:px-20 sm:px-5 lg:w-3/6 p-16 lg:py-0 lg:absolute lg:-bottom-20 lg:right-0  z-90'
     : ''}
 ${(props) =>
   props.ismode === BUTTON_ACTIVE.OFF
