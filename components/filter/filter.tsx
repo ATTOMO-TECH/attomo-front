@@ -78,7 +78,7 @@ export default function ModalFilter({
                 />
               </Link>
             </Filter.ItemsMenu>
-            <Filter.ItemsMenu onClick={toggle}>
+            <Filter.ItemsMenu onClick={toggle} onTouchEnd={toggle}>
               <motion.svg
                 width="36"
                 height="36"

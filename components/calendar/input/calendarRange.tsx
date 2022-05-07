@@ -1,5 +1,6 @@
 import es from 'date-fns/locale/es';
 import DatePicker from 'react-datepicker';
+import { useEventListener } from '../../../hook/eventListener';
 import { getLocale } from '../../../public/locales/getLocale';
 
 interface Props {
@@ -21,10 +22,15 @@ export default function CalendarPickerInputRange({
     setEndDateFilter(end);
   };
   const translate = getLocale();
+
+  useEventListener('reserve', 'touchstart', (event: any) => {
+    event.stopPropagation();
+  });
   return (
     <>
-      <div id="trend reserve">
+      <div id="trend ">
         <DatePicker
+          id="reserve"
           selected={startDate}
           disabledKeyboardNavigation
           autoComplete="off"

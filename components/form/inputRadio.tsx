@@ -18,9 +18,15 @@ export default function InputRadio({ text, value, onChange }: Props) {
           type="radio"
           name="partner"
           value={value}
+          onTouchEnd={(e: any) => {
+            setCheck(e.target.value);
+            onChange && onChange(e.target.value);
+            setCheck(!check);
+          }}
           onClick={(e: any) => {
             setCheck(e.target.value);
             onChange && onChange(e.target.value);
+            setCheck(!check);
           }}
         />
         {text}

@@ -78,7 +78,7 @@ export default function FormReserver() {
         <>
           {translate.formBooking.map((values) => (
             <>
-              <Title size=" lg:pt-36 w-full text-center pt-10 leading-relaxed lg:pr-10 lg:text-4xl pb-2 text-3xl ">
+              <Title size=" lg:pt-36 w-full text-center pt-24 leading-relaxed lg:pr-10 lg:text-4xl pb-2 text-3xl ">
                 {values.Text}
               </Title>
               <Subtext size=" text-center py-5  ">{values.Subtext}</Subtext>

@@ -134,7 +134,9 @@ function DetailsServices() {
                 ))}
               </Styles.BlockRenderDetails>
               {!isOpenFilter && (
-                <Styles.BlockFilter onClick={toggleFilter}>
+                <Styles.BlockFilter
+                  onClick={toggleFilter}
+                  onTouchStart={toggleFilter}>
                   <Title size="mt-5 text-lg">{translate.Services}</Title>
                 </Styles.BlockFilter>
               )}

@@ -21,12 +21,12 @@ export default function SectionProjects({
   const translate = getLocale();
 
   data?.map((values: any) =>
-    useEventListener(`casos-${values.id}`, 'touchstart', () =>
+    useEventListener(`casos-${values.id}`, 'touchmove', () =>
       handleClickTouch(`/casos/${values.id}`),
     ),
   );
   data?.map((values: any) =>
-    useEventListener(`link-${values.id}`, 'touchstart', () =>
+    useEventListener(`link-${values.id}`, 'touchmove', () =>
       handleClickTouch(`/casos/${values.id}`),
     ),
   );

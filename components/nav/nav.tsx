@@ -96,9 +96,8 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
               </Navegation.ButtonSelect>
             </Navegation.BlokSectionLenguage>
             <Navegation.ItemsMenu
-              id="menuA"
               onClick={() => toggle()}
-              onTouchStart={() => toggle()}
+              onTouchStart={toggle}
               className="colorMenu action z-100">
               <Navegation.TextMenu
                 theme={mode === true ? lightTheme : darkTheme}

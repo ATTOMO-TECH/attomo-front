@@ -70,10 +70,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                   </Link>
                 )}
               </Navegation.ItemsMenu>
-              <Navegation.ItemsMenu
-                onClick={toggle}
-                onTouchStart={toggle}
-                id="menu">
+              <Navegation.ItemsMenu onClick={toggle} onTouchStart={toggle}>
                 <Navegation.TextMenu
                   ismode=""
                   theme={mode === true ? lightTheme : darkTheme}

@@ -9,7 +9,9 @@ export default function Back({ children }: Props) {
   const router = useRouter();
   return (
     <>
-      <Button.SectionBack onClick={() => router.back()}>
+      <Button.SectionBack
+        onClick={() => router.back()}
+        onTouchEnd={() => router.back()}>
         <Button.BlockBack>
           <img src="/icon/arrowBack.svg" width={30} height={20} alt="back" />
           <Button.TextBack>{children}</Button.TextBack>
