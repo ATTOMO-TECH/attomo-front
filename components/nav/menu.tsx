@@ -6,7 +6,7 @@ import { darkTheme, lightTheme, Navegation } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { getLocale } from '../../public/locales/getLocale';
 import useDeviceSize from '../../hook/size';
-import { useEventListener } from '../../hook/eventListener';
+import { handleClickTouch, useEventListener } from '../../hook/eventListener';
 
 interface Props {
   isOpen: boolean;
@@ -32,8 +32,13 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
   useEffect(() => {
     setItems(translate.menu);
   }, [items]);
-  useEventListener('menu', 'touchstart', toggle);
 
+  useEventListener(`back`, 'touchstart', () => handleClickTouch('/'));
+  items.map((values, i) =>
+    useEventListener(`${values.Value}-${i}`, 'touchstart', () =>
+      handleClickTouch(values.Url),
+    ),
+  );
   return (
     <>
       <Navegation.MenuRelative
@@ -44,7 +49,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
           <Navegation.AlingItemsMenu>
             <Navegation.AlinItemsMenu
               ismode={logo ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-              <Navegation.ItemsMenu>
+              <Navegation.ItemsMenu id="back">
                 {logo ? (
                   <Link href="/">
                     <img
@@ -65,7 +70,10 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                   </Link>
                 )}
               </Navegation.ItemsMenu>
-              <Navegation.ItemsMenu onClick={toggle} id="menu">
+              <Navegation.ItemsMenu
+                onClick={toggle}
+                onTouchStart={toggle}
+                id="menu">
                 <Navegation.TextMenu
                   ismode=""
                   theme={mode === true ? lightTheme : darkTheme}
@@ -164,9 +172,10 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                   }}>
                   <Navegation.SelectMenu
                     key={`${values.Value}`}
-                    onClick={closeMenu}>
+                    onClick={closeMenu}
+                    onTouchStart={closeMenu}>
                     <Link href={values.Url}>
-                      <span id={`itemmenu${i}`}>{values.Value}</span>
+                      <span id={`${values.Value}-${i}`}>{values.Value}</span>
                     </Link>
                   </Navegation.SelectMenu>
                 </motion.li>
@@ -175,8 +184,8 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                 <Navegation.ButtonSelect
                   ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
                   onClick={() => handleBtn('es')}
-                  type="button"
-                  id="es">
+                  onTouchStart={() => handleBtn('es')}
+                  type="button">
                   ES
                 </Navegation.ButtonSelect>
                 <Navegation.LineBlock
@@ -186,8 +195,8 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                 <Navegation.ButtonSelect
                   ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
                   onClick={() => handleBtn('en')}
-                  type="button"
-                  id="en">
+                  onTouchStart={() => handleBtn('en')}
+                  type="button">
                   EN
                 </Navegation.ButtonSelect>
               </Navegation.BlokSectionLenguageResponsive>

@@ -3,11 +3,15 @@ import { SubSections } from './style';
 import Counter from './counter';
 import Title from '../Text/title';
 import IconAnimate from '../button/icon';
+import { handleClickTouch, useEventListener } from '../../hook/eventListener';
 
 interface Props {
   locale: any;
 }
 export default function SubSection({ locale }: Props) {
+  useEventListener('linkToService', 'touchstart', () =>
+    handleClickTouch('/servicios'),
+  );
   return (
     <>
       <SubSections.Subsection>
@@ -20,10 +24,10 @@ export default function SubSection({ locale }: Props) {
               {values.HeaderCounter}
             </Title>
             <SubSections.Title>{values.BodyCounter}</SubSections.Title>
-            <Link href="/servicios">
-              <div className="w-48">
+            <Link href="/servicios" passHref>
+              <a className="w-48" href="/servicios" id="linkToService">
                 <IconAnimate text={values.Button} mode />
-              </div>
+              </a>
             </Link>
           </SubSections.TextSubsection>
         ))}

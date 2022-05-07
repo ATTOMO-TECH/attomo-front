@@ -1,42 +1,31 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { ICONNAV } from '../../const/constGlobal';
 import SubFooter from './subfooter';
 import { Navegation } from './style';
 import InputNew from '../input/inputNews';
 import { getLocale } from '../../public/locales/getLocale';
-import { useEventListener } from '../../hook/eventListener';
+import { handleClickTouch, useEventListener } from '../../hook/eventListener';
 
 interface Props {
   subFooter: boolean;
 }
 export default function Footer({ subFooter }: Props) {
-  const router = useRouter();
-
-  const MENUURL: any = {
-    itemmenufot0: '/servicios',
-    itemmenufot1: '/casosdeexito',
-    itemmenufot2: '/nosotros',
-    itemmenufot3: '/ATTOMOTrends',
-    itemmenufot4: '/careers',
-    itemmenufot5: '/contacto',
-    itemmenufot6: '/espacio',
-  };
-
-  const handleEvent = (url: any) => {
-    router.push(MENUURL[url?.target?.id || '']);
-  };
-
   const translate = getLocale();
 
-  useEventListener('itemmenufot0', 'touchstart', handleEvent);
-  useEventListener('itemmenufot1', 'touchstart', handleEvent);
-  useEventListener('itemmenufot2', 'touchstart', handleEvent);
-  useEventListener('itemmenufot3', 'touchstart', handleEvent);
-  useEventListener('itemmenufot4', 'touchstart', handleEvent);
-  useEventListener('itemmenufot5', 'touchstart', handleEvent);
-  useEventListener('itemmenufot6', 'touchstart', handleEvent);
-  useEventListener('itemmenufot6', 'touchstart', handleEvent);
+  translate.menu.map((values) =>
+    useEventListener(values.Value, 'touchstart', () =>
+      handleClickTouch(values.Url),
+    ),
+  );
+  useEventListener('term', 'touchstart', () => handleClickTouch('/privacidad'));
+  useEventListener('privacy', 'touchstart', () =>
+    handleClickTouch('/terminos'),
+  );
+  ICONNAV.map((values) =>
+    useEventListener(values.Name, 'touchstart', () =>
+      handleClickTouch(values.Url),
+    ),
+  );
 
   return (
     <>
@@ -46,9 +35,9 @@ export default function Footer({ subFooter }: Props) {
           <Navegation.BlockLogo>
             <Navegation.NavFooter>
               <Navegation.TitleNav>ATTOMO</Navegation.TitleNav>
-              {translate.menu.map((values, i) => (
+              {translate.menu.map((values) => (
                 <Link href={values.Url} passHref key={`footer${values.Value}`}>
-                  <Navegation.ItemsMenu id={`itemmenufot${i}`}>
+                  <Navegation.ItemsMenu id={values.Value}>
                     {values.Value}
                   </Navegation.ItemsMenu>
                 </Link>
@@ -60,11 +49,11 @@ export default function Footer({ subFooter }: Props) {
             <Navegation.NavFooterFlex>
               {ICONNAV.map((values) => (
                 <Navegation.ListIcon key={`footer${values.Name}`}>
-                  <Link href={values.Url}>
+                  <Link href={values.Url} passHref>
                     <a
                       target="_blank"
                       href={values.Url}
-                      id="Instagram"
+                      id={values.Name}
                       rel="noreferrer">
                       <img
                         src={values.Pic2}
@@ -89,10 +78,14 @@ export default function Footer({ subFooter }: Props) {
         <div className="relative ">{subFooter && <SubFooter />}</div>
         <Navegation.BlockSubText>
           <Link href="/privacidad">
-            <Navegation.SubText>{translate.privacy}</Navegation.SubText>
+            <a href="/privacidad" id="privacy">
+              <Navegation.SubText>{translate.privacy}</Navegation.SubText>
+            </a>
           </Link>
-          <Link href="/terminos">
-            <Navegation.SubText>{translate.rightReserve}</Navegation.SubText>
+          <Link href="/terminos" passHref>
+            <a href="/terminos" id="term">
+              <Navegation.SubText>{translate.rightReserve}</Navegation.SubText>
+            </a>
           </Link>
         </Navegation.BlockSubText>
       </Navegation.SectionFooter>

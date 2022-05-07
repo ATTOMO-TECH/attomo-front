@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useEventListener, handleClickTouch } from '../../hook/eventListener';
 import IconAnimate from '../button/icon';
 import { SubSections } from '../subsection/style';
 import Title from '../Text/title';
@@ -17,25 +18,30 @@ export default function SelectedClients({
   link,
   textPrimary,
 }: Props) {
+  useEventListener(textPrimary, 'touchstart', () => handleClickTouch(link));
+  useEventListener(text, 'touchstart', () => handleClickTouch(link));
+
   return (
     <>
       <Styles.BlockMargin>
         <Styles.DivideSection>
-          <Link href={`${link}`}>
-            <SubSections.BlockCounter>
-              <Title size="text-2xl md:text-3xl lg:text-4xl font-light lg:w-3/6 lg:pl-12 cursor-pointer ">
-                {textPrimary}
-              </Title>
-            </SubSections.BlockCounter>
-          </Link>
+          <SubSections.BlockCounter>
+            <Link href={`${link}`}>
+              <a href={`${link}`} id={textPrimary}>
+                <Title size="text-2xl md:text-3xl lg:text-4xl font-light lg:w-3/6 lg:pl-12 cursor-pointer ">
+                  {textPrimary}
+                </Title>
+              </a>
+            </Link>
+          </SubSections.BlockCounter>
 
           <SubSections.TextSubsectionSelected>
             <div className="lg:w-4/6  w-full">
               <SubSections.Title> {text}</SubSections.Title>
               <Link href={`${link}`}>
-                <div className="w-48">
+                <a href={`${link}`} id={text} className="w-48">
                   <IconAnimate text={btn} mode />
-                </div>
+                </a>
               </Link>
             </div>
           </SubSections.TextSubsectionSelected>

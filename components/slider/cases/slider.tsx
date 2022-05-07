@@ -19,10 +19,8 @@ interface Props {
 }
 
 export default function CasesScroll({ mode, filter, id }: Props) {
-  const [setMyPrev] = useState<any>();
-  const [setMyNext] = useState<any>();
-  const [prevState, setPrev] = useState(null);
-  const [nextState, nextPrev] = useState(null);
+  const [prevState, setMyPrev] = useState(null);
+  const [nextState, setMyNext] = useState(null);
 
   const router = useRouter();
   let { locale } = router;
@@ -54,14 +52,11 @@ export default function CasesScroll({ mode, filter, id }: Props) {
 
   const onBeforeInit = (swiper: SwiperCore): void => {
     swiper.params.navigation as NavigationOptions;
-
-    setPrev(prevRef.current);
-    nextPrev(nextRef.current);
   };
 
   useEffect(() => {
-    setMyNext(nextState);
-    setMyPrev(prevState);
+    setMyNext(nextRef.current);
+    setMyPrev(prevRef.current);
   }, [data]);
 
   if (isLoading) {
@@ -88,8 +83,8 @@ export default function CasesScroll({ mode, filter, id }: Props) {
         }}
         onBeforeInit={onBeforeInit}
         navigation={{
-          prevEl: prevRef.current,
-          nextEl: nextRef.current,
+          prevEl: prevState,
+          nextEl: nextState,
         }}>
         {data.data.map((articles: any) => (
           <SwiperSlide key={articles.attributes.company} className="swiper ">

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { BUTTON_ACTIVE } from '../../const/const';
+import { handleClickTouch, useEventListener } from '../../hook/eventListener';
 import { darkTheme, lightTheme } from '../../styles/styles';
 import IconAnimate from '../button/icon';
 import { Block } from './style';
@@ -21,6 +22,12 @@ export default function BlockSection({
   mode,
   link,
 }: Props) {
+  if (text) {
+    useEventListener(text, 'touchstart', () => handleClickTouch(link));
+  }
+  if (text2) {
+    useEventListener(text2, 'touchstart', () => handleClickTouch(link));
+  }
   return (
     <>
       <Block.SectionBlock>
@@ -30,10 +37,10 @@ export default function BlockSection({
               <Block.Title ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
                 {text}
               </Block.Title>
-              <Link href={`${link}`}>
-                <div>
+              <Link href={`${link}`} passHref>
+                <a href={`${link}`} id={text}>
                   <IconAnimate text={button} mode={mode} />
-                </div>
+                </a>
               </Link>
             </>
           ) : (
@@ -46,10 +53,10 @@ export default function BlockSection({
               <Block.Title ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
                 {text2}
               </Block.Title>
-              <Link href={`${link}`}>
-                <div>
+              <Link href={`${link}`} passHref>
+                <a href={`${link}`} id={text2}>
                   <IconAnimate text={button2} mode={mode} />
-                </div>
+                </a>
               </Link>
             </>
           ) : (
