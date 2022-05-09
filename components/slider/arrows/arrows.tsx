@@ -1,3 +1,5 @@
+// eslint-disable-next-line import/no-unresolved
+import { useSwiper } from 'swiper/react';
 import { StylesArticle } from '../style';
 
 interface Props {
@@ -7,10 +9,13 @@ interface Props {
 }
 
 export default function ArticlesScrollArrow({ prevRef, nextRef, mode }: Props) {
+  const swiper = useSwiper();
   return (
     <>
       <StylesArticle.BlockArrow>
-        <StylesArticle.ArrowPrev ref={prevRef} id="Oescuchaesto">
+        <StylesArticle.ArrowPrev
+          ref={prevRef}
+          onTouchStart={() => swiper.slidePrev()}>
           <img
             src={!mode ? '/icon/prevDark.svg' : '/icon/prev.svg'}
             width={100}
@@ -21,8 +26,7 @@ export default function ArticlesScrollArrow({ prevRef, nextRef, mode }: Props) {
 
         <StylesArticle.ArrowNext
           ref={nextRef}
-          id="nextSlide"
-          onMouseMoveCapture={nextRef}>
+          onTouchStart={() => swiper.slideNext()}>
           <img
             src={!mode ? '/icon/nextDark.svg' : '/icon/next.svg'}
             width={100}

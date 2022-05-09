@@ -28,7 +28,7 @@ export default function InputCheckcondition({
         <Styles.InputCheckCondition
           type="checkbox"
           checked={check}
-          onTouchEnd={(e: any) => {
+          onTouchedStart={(e: any) => {
             setCheck(!check);
 
             onTouched && onTouched(e.target.checked);

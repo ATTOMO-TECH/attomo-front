@@ -1,17 +1,15 @@
 // eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination } from 'swiper';
+import { Navigation, Pagination } from 'swiper';
 import { useRef, useEffect, useState } from 'react';
 import * as qs from 'qs';
-// eslint-disable-next-line import/no-unresolved
-import { NavigationOptions } from 'swiper/types/modules/public-api';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { darkTheme, lightTheme, StylesArticle } from '../style';
 import { BUTTON_ACTIVE } from '../../../const/const';
 import { useUseAllPost } from '../../../domain/useBlogDetails';
 import RenderLoading from '../../loading/loading';
-import ArticlesScrollArrow from './arrows';
+import ArticlesScrollArrow from '../arrows/arrows';
 
 interface Props {
   mode: boolean;
@@ -41,15 +39,9 @@ export default function ArticlesScroll({ mode, filter, id }: Props) {
     encodeValuesOnly: true,
   });
   const { data, isLoading } = useUseAllPost(queryQs);
-
-  SwiperCore.use([Pagination, Navigation]);
-
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
-  const onBeforeInit = (swiper: SwiperCore): void => {
-    swiper.params.navigation as NavigationOptions;
-  };
   useEffect(() => {
     setMyNext(nextRef.current);
     setMyPrev(prevRef.current);
@@ -74,18 +66,10 @@ export default function ArticlesScroll({ mode, filter, id }: Props) {
           '460': {
             slidesPerView: 'auto',
           },
-          '640': {
-            slidesPerView: 'auto',
-          },
           '1024': {
             slidesPerView: 3.5,
           },
         }}
-        onBeforeInit={onBeforeInit}
-        // passiveListeners={true}
-        // touchStartForcePreventDefault
-        // touchEventsTarget="wrapper"
-        // touchMoveStopPropagation
         navigation={{
           prevEl: prevState,
           nextEl: nextState,
@@ -117,7 +101,7 @@ export default function ArticlesScroll({ mode, filter, id }: Props) {
             </StylesArticle.BlockText>
           </SwiperSlide>
         ))}
-        <ArticlesScrollArrow prevRef={prevRef} nextRef={nextRef} mode={mode} />
+        <ArticlesScrollArrow mode={mode} prevRef={prevRef} nextRef={nextRef} />
       </Swiper>
     </>
   );
