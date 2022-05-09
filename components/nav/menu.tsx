@@ -22,7 +22,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
   const closeMenu = () => {
     setTimeout(() => {
       toggle();
-    }, 1000);
+    }, 500);
   };
   const router = useRouter();
   const handleBtn = (value: string) => {
@@ -70,7 +70,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                   </Link>
                 )}
               </Navegation.ItemsMenu>
-              <Navegation.ItemsMenu onClick={toggle} onTouchStart={toggle}>
+              <Navegation.ItemsMenu onClick={toggle} onTouchStart={closeMenu}>
                 <Navegation.TextMenu
                   ismode=""
                   theme={mode === true ? lightTheme : darkTheme}
@@ -81,8 +81,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                     height="36"
                     viewBox="0 0 24 24"
                     fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    transition={{ duration: 1, ease: 'easeInOut' }}>
+                    xmlns="http://www.w3.org/2000/svg">
                     <motion.path
                       d="M18 6L6 18"
                       stroke="white"

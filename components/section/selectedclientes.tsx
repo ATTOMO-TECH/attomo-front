@@ -27,11 +27,11 @@ export default function SelectedClients({
         <Styles.DivideSection>
           <SubSections.BlockCounter>
             <Link href={`${link}`}>
-              <a href={`${link}`} id={textPrimary}>
-                <Title size="text-2xl md:text-3xl lg:text-4xl font-light lg:w-3/6 lg:pl-12 cursor-pointer ">
+              <SubSections.BlockBtn id={textPrimary}>
+                <Title size="text-2xl md:text-3xl lg:text-4xl font-light  lg:pl-12 cursor-pointer ">
                   {textPrimary}
                 </Title>
-              </a>
+              </SubSections.BlockBtn>
             </Link>
           </SubSections.BlockCounter>
 
@@ -39,9 +39,9 @@ export default function SelectedClients({
             <div className="lg:w-4/6  w-full">
               <SubSections.Title> {text}</SubSections.Title>
               <Link href={`${link}`}>
-                <a href={`${link}`} id={text} className="w-48">
+                <SubSections.BlockBtn id={text}>
                   <IconAnimate text={btn} mode />
-                </a>
+                </SubSections.BlockBtn>
               </Link>
             </div>
           </SubSections.TextSubsectionSelected>

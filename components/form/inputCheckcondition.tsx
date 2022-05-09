@@ -19,7 +19,6 @@ export default function InputCheckcondition({
   onTouched,
 }: Props) {
   const [check, setCheck] = useState<boolean>(false);
-
   return (
     <>
       <Styles.LabelCheckBox
@@ -28,8 +27,10 @@ export default function InputCheckcondition({
         htmlFor={value}>
         <Styles.InputCheckCondition
           type="checkbox"
+          checked={check}
           onTouchEnd={(e: any) => {
-            setCheck(e.target.checked);
+            setCheck(!check);
+
             onTouched && onTouched(e.target.checked);
           }}
           onClick={(e: any) => {

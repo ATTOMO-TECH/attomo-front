@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-expressions */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Styles } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
 
@@ -11,10 +11,24 @@ interface Props {
 
 export default function InputRadio({ text, value, onChange }: Props) {
   const [check, setCheck] = useState<boolean>(false);
+  const [sectionInputDetailKey, setSectionInputDetailKey] = useState(
+    Math.random(),
+  );
+
+  useEffect(() => {
+    if (check === false) {
+      setCheck(false);
+      setSectionInputDetailKey(Math.random());
+    }
+  }, [check]);
+
   return (
     <>
-      <Styles.LabelCheck ismode={check ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+      <Styles.LabelCheck
+        ismode={check ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+        key={sectionInputDetailKey}>
         <Styles.InputRadio
+          key={sectionInputDetailKey}
           type="radio"
           name="partner"
           value={value}
@@ -23,6 +37,7 @@ export default function InputRadio({ text, value, onChange }: Props) {
             onChange && onChange(e.target.value);
             setCheck(!check);
           }}
+          checked={check}
           onClick={(e: any) => {
             setCheck(e.target.value);
             onChange && onChange(e.target.value);

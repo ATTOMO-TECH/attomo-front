@@ -19,15 +19,15 @@ export default function SubSection({ locale }: Props) {
           <Counter />
         </SubSections.BlockCounterCircle>
         {locale.counter.map((values: any) => (
-          <SubSections.TextSubsection>
+          <SubSections.TextSubsection key={values.HeaderCounter}>
             <Title size="text-2xl md:text-3xl lg:text-4xl font-light pb-5">
               {values.HeaderCounter}
             </Title>
             <SubSections.Title>{values.BodyCounter}</SubSections.Title>
             <Link href="/servicios" passHref>
-              <a className="w-48" href="/servicios" id="linkToService">
+              <SubSections.BlockBtn id="linkToService">
                 <IconAnimate text={values.Button} mode />
-              </a>
+              </SubSections.BlockBtn>
             </Link>
           </SubSections.TextSubsection>
         ))}

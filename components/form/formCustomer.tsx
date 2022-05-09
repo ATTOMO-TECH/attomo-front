@@ -87,6 +87,7 @@ export default function FormCustomer() {
                     {touched.firstname && errors.firstname && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueName, '')}
+                        onTouchStart={() => setFieldValue(valueName, '')}
                       />
                     )}
                     {touched.firstname && errors.firstname && (
@@ -103,6 +104,7 @@ export default function FormCustomer() {
                     {touched.lastname && errors.lastname && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueLastName, '')}
+                        onTouchStart={() => setFieldValue(valueLastName, '')}
                       />
                     )}
                     {touched.lastname && errors.lastname && (
@@ -121,6 +123,7 @@ export default function FormCustomer() {
                     {touched.email && errors.email && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueEmail, '')}
+                        onTouchStart={() => setFieldValue(valueEmail, '')}
                       />
                     )}
                     {touched.email && errors.email && (
@@ -139,6 +142,7 @@ export default function FormCustomer() {
                     {touched.mobile && errors.mobile && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valuePhone, '')}
+                        onTouchStart={() => setFieldValue(valuePhone, '')}
                       />
                     )}
                     {touched.mobile && errors.mobile && (
@@ -167,6 +171,7 @@ export default function FormCustomer() {
                     {touched.message && errors.message && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueMessage, '')}
+                        onTouchStart={() => setFieldValue(valueMessage, '')}
                       />
                     )}
                     {touched.message && errors.message && (

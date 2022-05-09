@@ -24,6 +24,11 @@ export default function Nav({ toggle, logo, mode, isOpen, bgFull }: Props) {
       }
     });
   }, []);
+  const openMenu = () => {
+    setTimeout(() => {
+      toggle();
+    }, 500);
+  };
   const router = useRouter();
   const handleBtn = (value: string) => {
     router.push(router.pathname, router.pathname, { locale: value });
@@ -94,7 +99,10 @@ export default function Nav({ toggle, logo, mode, isOpen, bgFull }: Props) {
                 EN
               </Navegation.ButtonSelect>
             </Navegation.BlokSectionLenguage>
-            <Navegation.ItemsMenu onClick={toggle} className="colorMenu">
+            <Navegation.ItemsMenu
+              onClick={toggle}
+              onTouchStart={openMenu}
+              className="colorMenu">
               <Navegation.TextMenu
                 theme={mode === true ? lightTheme : darkTheme}
                 ismode={!scroll ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}

@@ -59,7 +59,7 @@ export const Navegation = {
   Form: tw.form`flex flex-col items-baseline`,
 
   SectionInput: tw.div<Props>`
-  
+touch-action: none;
       flex w-full items-center overflow-hidden relative border-b border-primary focus:outline-none text-xs font-light  duration-200 ease-in-out 
       transition delay-700 duration-300 ease-in-out bg-none
       ${(props) =>

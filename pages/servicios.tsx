@@ -54,7 +54,7 @@ function Services() {
         <Styles.Center>
           <Styles.ScreenWS>
             {translate.services.map((services) => (
-              <Styles.BlockDiv>
+              <Styles.BlockDiv key={services.Text}>
                 <Title size="lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl">
                   {services.Text}
                 </Title>

@@ -58,19 +58,24 @@ export default function InputNew() {
         initialValues={{ [FORMVALUES.EMAIL]: '' }}
         validationSchema={registerSchema}
         validateOnMount>
-        {({ touched, errors, handleSubmit, setFieldValue }) => (
+        {({ touched, errors, handleSubmit, setFieldValue, handleBlur }) => (
           <Navegation.Form onSubmit={handleSubmit}>
             {!sendSuccesfull ? (
               <>
                 <Navegation.BlockInput>
                   <Navegation.SectionInput
                     ismode={isActive ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-                    onClick={() => toggleClass(isActive)}>
+                    onClick={() => toggleClass(isActive)}
+                    onTouchStart={() => {
+                      toggleClass(isActive);
+                    }}>
                     <p className="text-primary">{isActive}</p>
                     <Navegation.Input
                       type="email"
+                      id="formikValueEmail"
                       placeholder={translate.sendEmail}
                       name={FORMVALUES.EMAIL}
+                      onBlur={handleBlur}
                       onChange={(e: any) => {
                         handleInput(e.currentTarget.value);
                         setFieldValue(FORMVALUES.EMAIL, e.currentTarget.value);

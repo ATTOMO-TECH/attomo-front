@@ -18,6 +18,6 @@ export const SubSections = {
   Title: tw(
     textTitle,
   )`lg:text-sm sm:text-lg textDegrade  text-sm lg:font-thin font-regular lg:font-PrimarySerif font-Secundary tracking-wide leading-relaxed`,
-
+  BlockBtn: tw.div`w-4/6 lg:w-3/6`,
   SectionCounter: tw.div`lg:w-64 p-12 lg:p-0  font-Secundary flex justify-center items-center`,
 };

@@ -129,6 +129,7 @@ export default function FormColaborator() {
                   {FORMPARTOF.map((valuesCheck) => (
                     <Styles.AlingSelect key={`Radio-${valuesCheck.value}`}>
                       <InputRadio
+                        key={`Radio-${valuesCheck.value}`}
                         text={valuesCheck.text}
                         value={valuesCheck.value}
                         onChange={(e: any) => {

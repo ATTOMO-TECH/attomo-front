@@ -26,10 +26,12 @@ export const Block = {
   SectionBlock: tw.div`flex flex-wrap justify-between m-auto  py-16  `,
 
   Block: tw(SectionColor)`text-primary lg:w-3/6 w-full block  `,
+
   Title: tw(
     textTitle,
   )<Props>`text-regular w-full leading-loose font-light   text-sm  font-PrimarySerif 
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON ? `textDegrade  ` : 'bg-black '}
       `,
+  BlockBtn: tw.div`w-4/6 lg:w-3/6`,
 };

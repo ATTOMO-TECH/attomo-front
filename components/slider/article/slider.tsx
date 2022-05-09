@@ -11,6 +11,7 @@ import { darkTheme, lightTheme, StylesArticle } from '../style';
 import { BUTTON_ACTIVE } from '../../../const/const';
 import { useUseAllPost } from '../../../domain/useBlogDetails';
 import RenderLoading from '../../loading/loading';
+import ArticlesScrollArrow from './arrows';
 
 interface Props {
   mode: boolean;
@@ -22,6 +23,7 @@ export default function ArticlesScroll({ mode, filter, id }: Props) {
   const router = useRouter();
   const [prevState, setMyPrev] = useState(null);
   const [nextState, setMyNext] = useState(null);
+
   const queryObject: any = {
     populate: 'coverImage',
     filters: {
@@ -80,12 +82,18 @@ export default function ArticlesScroll({ mode, filter, id }: Props) {
           },
         }}
         onBeforeInit={onBeforeInit}
+        // passiveListeners={true}
+        // touchStartForcePreventDefault
+        // touchEventsTarget="wrapper"
+        // touchMoveStopPropagation
         navigation={{
           prevEl: prevState,
           nextEl: nextState,
         }}>
         {data.data.map((articles: any) => (
-          <SwiperSlide key={articles.Tag} className="swiper ">
+          <SwiperSlide
+            key={`${articles.Tag}-${articles.id}`}
+            className="swiper ">
             <Link href={`/ATTOMOTrends/${articles.id}`}>
               <StylesArticle.Img
                 src={articles.attributes.coverImage.data.attributes.url}
@@ -109,27 +117,7 @@ export default function ArticlesScroll({ mode, filter, id }: Props) {
             </StylesArticle.BlockText>
           </SwiperSlide>
         ))}
-        <StylesArticle.BlockArrow>
-          <StylesArticle.ArrowPrev ref={prevRef}>
-            <img
-              src={!mode ? '/icon/prevDark.svg' : '/icon/prev.svg'}
-              width={100}
-              height={100}
-              alt="prev"
-            />
-          </StylesArticle.ArrowPrev>
-          <StylesArticle.ArrowNext
-            onTouchStart={(e: any) => e.stopPropagation()}
-            ref={nextRef}
-            id="next">
-            <img
-              src={!mode ? '/icon/nextDark.svg' : '/icon/next.svg'}
-              width={100}
-              height={100}
-              alt="next"
-            />
-          </StylesArticle.ArrowNext>
-        </StylesArticle.BlockArrow>
+        <ArticlesScrollArrow prevRef={prevRef} nextRef={nextRef} mode={mode} />
       </Swiper>
     </>
   );

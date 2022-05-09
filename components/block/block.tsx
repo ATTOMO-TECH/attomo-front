@@ -38,9 +38,9 @@ export default function BlockSection({
                 {text}
               </Block.Title>
               <Link href={`${link}`} passHref>
-                <a href={`${link}`} id={text}>
+                <Block.BlockBtn id={text}>
                   <IconAnimate text={button} mode={mode} />
-                </a>
+                </Block.BlockBtn>
               </Link>
             </>
           ) : (
@@ -54,9 +54,9 @@ export default function BlockSection({
                 {text2}
               </Block.Title>
               <Link href={`${link}`} passHref>
-                <a href={`${link}`} id={text2}>
+                <Block.BlockBtn id={text2}>
                   <IconAnimate text={button2} mode={mode} />
-                </a>
+                </Block.BlockBtn>
               </Link>
             </>
           ) : (

@@ -13,7 +13,8 @@ export default function ShareNav({ title, isOpen, toggle }: Props) {
     <>
       <Share.Button
         ismode={isOpen ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-        onClick={toggle}>
+        onClick={toggle}
+        onTouchStart={toggle}>
         <Share.Items>
           <Share.ItemValue>
             <Link href="https://www.instagram.com/attomo.digital/">
