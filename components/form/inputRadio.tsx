@@ -13,7 +13,7 @@ export default function InputRadio({ text, value, onChange }: Props) {
 
   return (
     <>
-      <Styles.LabelCheck checked={check && value}>
+      <Styles.LabelCheck checkedValue={check && value}>
         <Styles.InputRadio
           key={text}
           type="radio"
@@ -23,11 +23,13 @@ export default function InputRadio({ text, value, onChange }: Props) {
           readOnly
           onTouchEnd={(e: any) => {
             setCheck(e.target.value);
-            onChange && onChange(e.target.value !== value);
+            onChange && onChange(e.target.value);
+            setCheck(!check);
           }}
           onClick={(e: any) => {
             setCheck(e.target.value);
             onChange && onChange(e.target.value);
+            setCheck(!check);
           }}
         />
         {text}

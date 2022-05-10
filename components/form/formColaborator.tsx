@@ -18,7 +18,6 @@ import { getLocale } from '../../public/locales/getLocale';
 import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
 import { validationSchemaColaborator } from './validations';
-import { useEventListener } from '../../hook/eventListener';
 
 export default function FormColaborator() {
   const [shouldShowActions] = useState(false);
@@ -43,9 +42,7 @@ export default function FormColaborator() {
   useEffect(() => {
     setQuery(queryQs);
   }, [filter]);
-
   const { data: Partner } = useUseAllPartner(query);
-
   const valueName = FORMVALUES.FIRSTNAME;
   const valueLastName = FORMVALUES.LASTNAME;
   const valuePhone = FORMVALUES.PHONE;
@@ -105,25 +102,25 @@ export default function FormColaborator() {
       },
     );
   };
+
   return (
     <>
       {!sendSuccesfull ? (
         <Formik
           onSubmit={handleSubmitContact}
           initialValues={initialValues}
-          validationSchema={validationSchemaColaborator}>
+          validationSchema={validationSchemaColaborator}
+          validateOnMount>
           {({
             touched,
             errors,
             handleSubmit,
             values,
             setFieldValue,
-            handleBlur,
             isValid,
             dirty,
           }) => (
             <>
-              {useEventListener(valueName, 'touchstart', handleBlur(valueName))}
               <Styles.Form onSubmit={handleSubmit}>
                 <Subtext size="lg:text-sm w-full pb-10 font-PrimarySerif">
                   {translate.partOfTeam}
@@ -166,14 +163,11 @@ export default function FormColaborator() {
                       ismode={BUTTON_ACTIVE.ON}
                       placeholder={translate.formName}
                       type="text"
-                      id={valueName}
-                      onTouchStart={handleBlur(valueName)}
                       name={FORMVALUES.FIRSTNAME}
                     />
                     {touched.firstname && errors.firstname && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueName, '')}
-                        onTouchStart={() => setFieldValue(valueName, '')}
                       />
                     )}
                     {touched.firstname && errors.firstname && (
@@ -190,7 +184,6 @@ export default function FormColaborator() {
                     {touched.lastname && errors.lastname && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueLastName, '')}
-                        onTouchStart={() => setFieldValue(valueLastName, '')}
                       />
                     )}
                     {touched.lastname && errors.lastname && (
@@ -209,7 +202,6 @@ export default function FormColaborator() {
                     {touched.email && errors.email && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueEmail, '')}
-                        onTouchStart={() => setFieldValue(valueEmail, '')}
                       />
                     )}
                     {touched.email && errors.email && (
@@ -226,7 +218,6 @@ export default function FormColaborator() {
                     {touched.mobile && errors.mobile && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valuePhone, '')}
-                        onTouchStart={() => setFieldValue(valuePhone, '')}
                       />
                     )}
                     {touched.mobile && errors.mobile && (

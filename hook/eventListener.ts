@@ -1,5 +1,9 @@
 import { useEffect } from 'react';
 
+export const handleFocus = (idTag: string) => {
+  document.getElementById(idTag)?.focus();
+};
+
 export const handleClickTouch = (link: string) => {
   document.location.href = link;
 };

@@ -6,14 +6,14 @@ import { BUTTON_ACTIVE } from '../../const/const';
 type Props = {
   ismode?: string;
   active?: boolean;
-  checked?: boolean;
+  checkedValue?: boolean;
 };
 export const Select = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
 `;
 export const Label = styled.label<Props>`
-  ${({ checked }) => (checked ? 'opacity:1' : 'opacity:0.4')}
+  ${({ checkedValue }) => (checkedValue ? 'opacity:1' : 'opacity:0.4')}
 `;
 
 export const Input = styled.div<Props>`
