@@ -21,18 +21,19 @@ export default function CalendarPickerInputRange({
     setStartDateFilter(start);
     setEndDateFilter(end);
   };
-  const translate = getLocale();
 
-  useEventListener('reserve', 'touchstart', (event: any) => {
-    event.stopPropagation();
-  });
+  const handleTouchStart = (e: any) => e.stopPropagation();
+
+  const translate = getLocale();
+  useEventListener('reserve', 'touchstart', (e: any) => handleTouchStart(e));
+
   return (
     <>
-      <div id="trend ">
+      <div id="trend">
         <DatePicker
           id="reserve"
           selected={startDate}
-          disabledKeyboardNavigation
+          autoFocus
           autoComplete="off"
           onChange={onChange}
           startDate={startDate}

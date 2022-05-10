@@ -6,10 +6,14 @@ import { BUTTON_ACTIVE } from '../../const/const';
 type Props = {
   ismode?: string;
   active?: boolean;
+  checked?: boolean;
 };
 export const Select = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
+`;
+export const Label = styled.label<Props>`
+  ${({ checked }) => (checked ? 'opacity:1' : 'opacity:0.4')}
 `;
 
 export const Input = styled.div<Props>`
@@ -31,6 +35,7 @@ export const CheckRadio = styled.input`
     border: 0.15em solid white;
     border-radius: 100%;
     margin-right: 10px;
+    opacity: 0.5;
   }
 
   &:checked {
@@ -40,6 +45,7 @@ export const CheckRadio = styled.input`
     transition: 120ms transform ease-in-out;
     border: 0.15em solid white;
     padding: 5px;
+    opacity: 1;
   }
 `;
 export const CheckCheck = styled.input`
@@ -52,6 +58,7 @@ export const CheckCheck = styled.input`
     border: 0.15em solid white;
     border-radius: 100%;
     margin-right: 10px;
+    opacity: 0.5;
   }
 
   &:checked {
@@ -61,6 +68,7 @@ export const CheckCheck = styled.input`
     transition: 120ms transform ease-in-out;
     border: 0.15em solid white;
     padding: 5px;
+    opacity: 1;
   }
 `;
 export const CheckCheckCondition = styled.input`
@@ -291,14 +299,9 @@ ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
   InputCheck: tw(CheckCheck)`cursor-pointer `,
   TextCheck: tw.p`truncate text-ellipsis overflow-hidden lg:w-24 lg:w-auto`,
   InputCheckCondition: tw(CheckCheckCondition)`cursor-pointer `,
-  LabelCheck: tw.label<Props>`flex ease-out 
-  ${(props) =>
-    props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : 'opacity-50'}
-  ${(props) => (props.ismode === BUTTON_ACTIVE.OFF ? 'opacity-50' : '')}`,
-  LabelCheckBox: tw.label<Props>`
-  flex ease-out duration-200 py-2 text-sm flex-nowrap
-  ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'opacity-100' : '')}
-  ${(props) => (props.ismode === BUTTON_ACTIVE.OFF ? 'opacity-50' : '')}`,
+  LabelCheck: tw(Label)`flex ease-out `,
+  LabelCheckBox: tw(Label)`
+  flex ease-out duration-200 py-2 text-sm flex-nowrap`,
   // FORM
   Error: tw(ErrorText)` absolute text-PrimarySerif text-sm pt-0.5`,
   BlockSelect: tw.div`w-full flex flex-wrap pt-5 text-white font-PrimarySerif font-thin text-sm`,

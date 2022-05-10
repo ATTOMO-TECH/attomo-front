@@ -87,7 +87,7 @@ function Carrers() {
           <Work works={data?.data} />
         </Styles.Center>
         {translate.contactUsWork.map((value) => (
-          <Styles.CenterMargin>
+          <Styles.CenterMargin key={value.Text}>
             <Link href="/contacto" passHref>
               <a
                 className="w-12"

@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import { useState } from 'react';
 import { Styles } from './style';
-import { BUTTON_ACTIVE } from '../../const/const';
 
 interface Props {
   children: any;
@@ -22,7 +21,7 @@ export default function InputCheckcondition({
   return (
     <>
       <Styles.LabelCheckBox
-        ismode={check ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+        checked={check && value}
         className={`${color}`}
         htmlFor={value}>
         <Styles.InputCheckCondition
