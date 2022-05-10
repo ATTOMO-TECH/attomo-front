@@ -18,8 +18,6 @@ export const darkTheme = {
 export const SectionColor = styled(motion.nav)`
   color: ${(props) => props.theme.headings};
   background-color: ${(props) => props.theme.bodyBg};
-  top: -2px;
-  z-index: 10000 !important;
 `;
 export const Section = styled(motion.nav)`
   color: ${(props) => props.theme.headings};
@@ -156,8 +154,8 @@ export const IconPathStyled = styled(motion.path).attrs(() => ({
 }))``;
 
 export const Navegation = {
-  MenuRelative: tw.div<Props>`relative z-100
-  ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'content' : 'hidden')}
+  MenuRelative: tw.div<Props>`relative z-100  h-screen
+  ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'block' : 'hidden')}
 `,
   SectionMenu: tw(Section)<Props>`
   lg:transition ease-in-out   fixed overflow-y-scroll 
@@ -167,7 +165,7 @@ export const Navegation = {
         : 'opacity-0 overflow-hidden h-0 '}
   `,
   SectionMenuFW: tw(Section)<Props>`
-  lg:transition ease-in-out   fixed overflow-y-scroll 
+  lg:transition ease-in-out fixed overflow-y-scroll 
     ${(props) =>
       props.ismode === BUTTON_ACTIVE.ON
         ? `cursor-pointer h-screen w-full overflow-hidden z-100 opacity-100  `
@@ -175,7 +173,11 @@ export const Navegation = {
   `,
   Menu: tw.nav``,
   AlinItems: tw.ul<Props>`
-  flex items-center fixed z-100 justify-between w-11/12 m-auto md:w-10/12 md:absolute lg:left-24 md:left-12 left-5 top-4 md:top-6 
+  flex items-center z-100 justify-between w-11/12  h-1/12 items-center m-auto fixed top-4 left-0 right-0
+  ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : '')}
+  `,
+  AlinItemsMenu: tw.ul<Props>`
+  flex items-center z-100 justify-between w-11/12  h-1/12 items-center m-auto fixed top-5 left-0 right-0
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : '')}
   `,
   AlinItemsServices: tw.ul<Props>`
@@ -190,19 +192,14 @@ export const Navegation = {
   `,
   ButtonLogo: tw(Logo)`relative w-10 h-10 menu`,
   ButtonLogoInvert: tw(LogoInvert)`relative w-10 h-10 menuInvert`,
-  AlingItemsMenu: tw.div`flex flex-col items-center justify-center text-center w-full  md:pt-0 md:pt-0 justify-center h-screen absolute content-around justify-center`,
+  AlingItemsMenu: tw.div`flex flex-col items-center justify-center text-center w-full  md:pt-0 md:pt-0 justify-center absolute content-around justify-center`,
   SelectMenu: tw(
     itemMenu,
   )` leading-loose tracking-wide hover:opacity-100 opacity-60 mb-2 lg:mb-1 cursor-pointer transition ease-in-out delay-100 duration-100  text-2xl md:text-3xl lg:text-5xl md:py-4`,
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`
-  action
-font-Primary cursor-pointer list-none fixed w-full duration-300 ease-in-out  -top-10 h-14 md:h-20 lg:14 z-100
-${(props) =>
-  props.ismode === BUTTON_ACTIVE.ON
-    ? 'duration-300 ease-in-out lg:h-20 sm:mb-10 '
-    : ''}
+  action flex items-center font-Primary cursor-pointer list-none fixed w-full duration-300 ease-in-out h-16 z-100
 `,
   BlockLenguage: tw.div`flex  items-end `,
   BlokSectionLenguage: tw.div`sm:flex font-Secundary text-primary text-sm mr-5 items-center hidden`,

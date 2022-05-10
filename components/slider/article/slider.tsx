@@ -1,15 +1,15 @@
 // eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination } from 'swiper';
-import { useRef, useState, useEffect } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { useRef, useEffect, useState } from 'react';
 import * as qs from 'qs';
-// eslint-disable-next-line import/no-unresolved
-import { NavigationOptions } from 'swiper/types/modules/public-api';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { darkTheme, lightTheme, StylesArticle } from '../style';
 import { BUTTON_ACTIVE } from '../../../const/const';
 import { useUseAllPost } from '../../../domain/useBlogDetails';
 import RenderLoading from '../../loading/loading';
+import ArticlesScrollArrow from '../arrows/arrows';
 
 interface Props {
   mode: boolean;
@@ -18,10 +18,9 @@ interface Props {
 }
 
 export default function ArticlesScroll({ mode, filter, id }: Props) {
-  const [setMyPrev] = useState<any>();
-  const [setMyNext] = useState<any>();
-  const [prevState, setPrev] = useState(null);
-  const [nextState, nextPrev] = useState(null);
+  const router = useRouter();
+  const [prevState, setMyPrev] = useState(null);
+  const [nextState, setMyNext] = useState(null);
 
   const queryObject: any = {
     populate: 'coverImage',
@@ -40,21 +39,12 @@ export default function ArticlesScroll({ mode, filter, id }: Props) {
     encodeValuesOnly: true,
   });
   const { data, isLoading } = useUseAllPost(queryQs);
-
-  SwiperCore.use([Pagination, Navigation]);
-
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
-  const onBeforeInit = (swiper: SwiperCore): void => {
-    swiper.params.navigation as NavigationOptions;
-
-    setPrev(prevRef.current);
-    nextPrev(nextRef.current);
-  };
   useEffect(() => {
-    setMyNext(nextState);
-    setMyPrev(prevState);
+    setMyNext(nextRef.current);
+    setMyPrev(prevRef.current);
   }, [data]);
 
   if (isLoading) {
@@ -70,67 +60,48 @@ export default function ArticlesScroll({ mode, filter, id }: Props) {
       <Swiper
         spaceBetween={30}
         centeredSlides
-        modules={[Pagination]}
+        modules={[Pagination, Navigation]}
         className="mySwiper"
         breakpoints={{
           '460': {
-            slidesPerView: 'auto',
-          },
-          '640': {
             slidesPerView: 'auto',
           },
           '1024': {
             slidesPerView: 3.5,
           },
         }}
-        onBeforeInit={onBeforeInit}
         navigation={{
-          prevEl: prevRef.current,
-          nextEl: nextRef.current,
+          prevEl: prevState,
+          nextEl: nextState,
         }}>
         {data.data.map((articles: any) => (
-          <SwiperSlide key={articles.Tag} className="swiper ">
+          <SwiperSlide
+            key={`${articles.Tag}-${articles.id}`}
+            className="swiper ">
             <Link href={`/ATTOMOTrends/${articles.id}`}>
-              <div>
-                <StylesArticle.Img
-                  src={articles.attributes.coverImage.data.attributes.url}
-                  alt={articles.Text}
-                />
-                <StylesArticle.BlockText
-                  theme={mode === false ? lightTheme : darkTheme}>
-                  <StylesArticle.TopicText
-                    ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-                  />
-                  <StylesArticle.TopicText ismode={BUTTON_ACTIVE.ON}>
-                    {articles.attributes.blog_tags.data[0].attributes.name}
-                  </StylesArticle.TopicText>
-                  <StylesArticle.TextBlog
-                    ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-                    {articles.attributes.title}
-                  </StylesArticle.TextBlog>
-                </StylesArticle.BlockText>
-              </div>
+              <StylesArticle.Img
+                src={articles.attributes.coverImage.data.attributes.url}
+                alt={articles.Text}
+              />
             </Link>
+            <StylesArticle.BlockText
+              theme={mode === false ? lightTheme : darkTheme}>
+              <StylesArticle.TopicText
+                ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+              />
+              <StylesArticle.TopicText ismode={BUTTON_ACTIVE.ON}>
+                {articles.attributes.blog_tags.data[0].attributes.name}
+              </StylesArticle.TopicText>
+
+              <StylesArticle.TextBlog
+                onTouchStart={() => router.push(`/ATTOMOTrends/${articles.id}`)}
+                ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+                {articles.attributes.title}
+              </StylesArticle.TextBlog>
+            </StylesArticle.BlockText>
           </SwiperSlide>
         ))}
-        <StylesArticle.BlockArrow>
-          <StylesArticle.ArrowPrev ref={prevRef}>
-            <img
-              src={!mode ? '/icon/prevDark.svg' : '/icon/prev.svg'}
-              width={100}
-              height={100}
-              alt="prev"
-            />
-          </StylesArticle.ArrowPrev>
-          <StylesArticle.ArrowNext ref={nextRef}>
-            <img
-              src={!mode ? '/icon/nextDark.svg' : '/icon/next.svg'}
-              width={100}
-              height={100}
-              alt="next"
-            />
-          </StylesArticle.ArrowNext>
-        </StylesArticle.BlockArrow>
+        <ArticlesScrollArrow mode={mode} prevRef={prevRef} nextRef={nextRef} />
       </Swiper>
     </>
   );

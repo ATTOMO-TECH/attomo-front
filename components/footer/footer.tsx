@@ -4,12 +4,29 @@ import SubFooter from './subfooter';
 import { Navegation } from './style';
 import InputNew from '../input/inputNews';
 import { getLocale } from '../../public/locales/getLocale';
+import { handleClickTouch, useEventListener } from '../../hook/eventListener';
 
 interface Props {
   subFooter: boolean;
 }
 export default function Footer({ subFooter }: Props) {
   const translate = getLocale();
+
+  translate.menu.map((values) =>
+    useEventListener(values.Value, 'touchstart', () =>
+      handleClickTouch(values.Url),
+    ),
+  );
+  useEventListener('term', 'touchstart', () => handleClickTouch('/privacidad'));
+  useEventListener('privacy', 'touchstart', () =>
+    handleClickTouch('/terminos'),
+  );
+  ICONNAV.map((values) =>
+    useEventListener(values.Name, 'touchstart', () =>
+      handleClickTouch(values.Url),
+    ),
+  );
+
   return (
     <>
       <Navegation.SectionFooter>
@@ -20,7 +37,9 @@ export default function Footer({ subFooter }: Props) {
               <Navegation.TitleNav>ATTOMO</Navegation.TitleNav>
               {translate.menu.map((values) => (
                 <Link href={values.Url} passHref key={`footer${values.Value}`}>
-                  <Navegation.ItemsMenu>{values.Value}</Navegation.ItemsMenu>
+                  <Navegation.ItemsMenu id={values.Value}>
+                    {values.Value}
+                  </Navegation.ItemsMenu>
                 </Link>
               ))}
             </Navegation.NavFooter>
@@ -30,8 +49,12 @@ export default function Footer({ subFooter }: Props) {
             <Navegation.NavFooterFlex>
               {ICONNAV.map((values) => (
                 <Navegation.ListIcon key={`footer${values.Name}`}>
-                  <Link href={values.Url}>
-                    <a target="_blank" href={values.Url} rel="noreferrer">
+                  <Link href={values.Url} passHref>
+                    <a
+                      target="_blank"
+                      href={values.Url}
+                      id={values.Name}
+                      rel="noreferrer">
                       <img
                         src={values.Pic2}
                         width={25}
@@ -55,10 +78,14 @@ export default function Footer({ subFooter }: Props) {
         <div className="relative ">{subFooter && <SubFooter />}</div>
         <Navegation.BlockSubText>
           <Link href="/privacidad">
-            <Navegation.SubText>{translate.privacy}</Navegation.SubText>
+            <div id="privacy">
+              <Navegation.SubText>{translate.privacy}</Navegation.SubText>
+            </div>
           </Link>
-          <Link href="/terminos">
-            <Navegation.SubText>{translate.rightReserve}</Navegation.SubText>
+          <Link href="/terminos" passHref>
+            <a href="/terminos" id="term">
+              <Navegation.SubText>{translate.rightReserve}</Navegation.SubText>
+            </a>
           </Link>
         </Navegation.BlockSubText>
       </Navegation.SectionFooter>

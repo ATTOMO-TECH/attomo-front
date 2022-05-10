@@ -47,6 +47,7 @@ function Carrers() {
     SetIsOpen(!isOpen);
   };
   const translate = getLocale();
+
   if (isLoading || QuoteIsLoading || screenIsLoading) {
     return (
       <>
@@ -87,21 +88,27 @@ function Carrers() {
         </Styles.Center>
         {translate.contactUsWork.map((value) => (
           <Styles.CenterMargin>
-            <Link href="/contacto">
-              <div>
+            <Link href="/contacto" passHref>
+              <a
+                className="w-12"
+                href="/contacto"
+                onTouchStart={() => router.push('/contacto')}>
                 <Title size="lg:text-xl w-4/6 lg:w-3/6 cursor-pointer">
                   {value.Text}
                 </Title>
-              </div>
+              </a>
             </Link>
             <Subtext size=" text-2xl font-Primary"> </Subtext>
             <Subtext size=" text-sm lg:w-3/6 font-PrimarySerif py-5">
               {value.Subtext}
             </Subtext>
-            <Link href="/contacto">
-              <div className="w-8/12 lg:w-3/12">
+            <Link href="/contacto" passHref>
+              <a
+                href="/contacto"
+                className="w-12 "
+                onTouchStart={() => router.push('/contacto')}>
                 <IconAnimate text={value.Button} mode />
-              </div>
+              </a>
             </Link>
           </Styles.CenterMargin>
         ))}

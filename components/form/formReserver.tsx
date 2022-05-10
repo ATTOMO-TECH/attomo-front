@@ -78,7 +78,7 @@ export default function FormReserver() {
         <>
           {translate.formBooking.map((values) => (
             <>
-              <Title size=" lg:pt-36 w-full text-center pt-10 leading-relaxed lg:pr-10 lg:text-4xl pb-2 text-3xl ">
+              <Title size=" lg:pt-36 w-full text-center pt-24 leading-relaxed lg:pr-10 lg:text-4xl pb-2 text-3xl ">
                 {values.Text}
               </Title>
               <Subtext size=" text-center py-5  ">{values.Subtext}</Subtext>
@@ -109,6 +109,7 @@ export default function FormReserver() {
                       {touched.firstname && errors.firstname && (
                         <Styles.BlockClose
                           onClick={() => setFieldValue(valueName, '')}
+                          onTouchStart={() => setFieldValue(valueName, '')}
                         />
                       )}
                       {touched.firstname && errors.firstname && (
@@ -124,6 +125,7 @@ export default function FormReserver() {
                       />
                       {touched.lastname && errors.lastname && (
                         <Styles.BlockClose
+                          onTouchStart={() => setFieldValue(valueLastName, '')}
                           onClick={() => setFieldValue(valueLastName, '')}
                         />
                       )}
@@ -164,6 +166,7 @@ export default function FormReserver() {
                       />
                       {touched.email && errors.email && (
                         <Styles.BlockClose
+                          onTouchStart={() => setFieldValue(valueEmail, '')}
                           onClick={() => setFieldValue(valueEmail, '')}
                         />
                       )}
@@ -181,6 +184,7 @@ export default function FormReserver() {
                       />
                       {touched.mobile && errors.mobile && (
                         <Styles.BlockClose
+                          onTouchStart={() => setFieldValue(valuePhone, '')}
                           onClick={() => setFieldValue(valuePhone, '')}
                         />
                       )}
@@ -202,6 +206,7 @@ export default function FormReserver() {
                   <InputCheckcondition
                     color="text-primary text-xs pt-6"
                     value={FORMVALUES.CONDITIONS}
+                    onTouched={(e: any) => setFieldValue(check, e)}
                     onClick={(e: any) => setFieldValue(check, e)}>
                     <Conditions />
                   </InputCheckcondition>

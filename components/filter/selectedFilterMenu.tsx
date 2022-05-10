@@ -1,4 +1,5 @@
 import Select from 'react-select';
+import { useEventListener } from '../../hook/eventListener';
 
 type Props = {
   options: any[];
@@ -72,14 +73,17 @@ export default function SelectFilterMenu({
     const item = options.find((x) => x.name === Selected);
     return item || { value: `${valueLabel}`, label: `${valueLabel}` };
   };
+  useEventListener('selectedSelect', 'touchstart', () => selected);
 
   return (
     <>
       <Select
         components={{ IndicatorSeparator: () => null }}
         name={name}
+        id="selectedSelect"
         options={options}
         styles={customStyles(selected)}
+        onBlur={onChange}
         onChange={onChange}
         value={displayItem(selected)}
         className="outline-none font-PrimarySerif font-thin text-gray-300 h-full w-full py-2  text-sm bg-none text-left"

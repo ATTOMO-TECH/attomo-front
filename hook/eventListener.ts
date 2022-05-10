@@ -1,5 +1,9 @@
 import { useEffect } from 'react';
 
+export const handleClickTouch = (link: string) => {
+  document.location.href = link;
+};
+
 export const useEventListener = (
   getElement: string,
   event: string,

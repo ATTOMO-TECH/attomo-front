@@ -54,6 +54,7 @@ function Home() {
   const randomQuote = (min: number, max: number) =>
     Math.floor(Math.random() * (max - min + 1) + min);
   const [random] = useState<any>(randomQuote(1, 2));
+
   const { data: Quote, isLoading: QuoteIsLoading } = useUseAllQuote(
     random,
     locale || 'es',
@@ -183,22 +184,11 @@ function Home() {
               ))}
             </Styles.Center>
           </motion.div>
-          <motion.div
-            animate={shouldShowActions}
-            variants={servicesAnimations}
-            className="actions"
-            transition={{
-              delay: 0.2,
-              type: 'spring',
-              stiffness: 50,
-              duration: 2,
-            }}
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: '50%' }}>
-            <Styles.CenterFull>
-              <HeroFooter text={Quote?.data.attributes.text} />
-            </Styles.CenterFull>
-          </motion.div>
+
+          <Styles.CenterFull>
+            <HeroFooter text={Quote?.data.attributes.text} />
+          </Styles.CenterFull>
+
           <Styles.Center>
             {translate.contact.map((values) => (
               <BlockSection

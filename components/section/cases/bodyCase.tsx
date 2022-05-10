@@ -44,7 +44,9 @@ export default function BodyCases({ data }: Props) {
       )}
       <BodyTrends.Section>
         <BodyTrends.BlockShare>
-          <BodyTrends.ButtonShare onClick={handleOnClick}>
+          <BodyTrends.ButtonShare
+            onClick={handleOnClick}
+            onTouchStart={handleOnClick}>
             <img src="/icon/share.svg" width={20} height={20} alt="share" />
           </BodyTrends.ButtonShare>
           <BreadCrumbs

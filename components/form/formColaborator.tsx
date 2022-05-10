@@ -129,6 +129,7 @@ export default function FormColaborator() {
                   {FORMPARTOF.map((valuesCheck) => (
                     <Styles.AlingSelect key={`Radio-${valuesCheck.value}`}>
                       <InputRadio
+                        key={`Radio-${valuesCheck.value}`}
                         text={valuesCheck.text}
                         value={valuesCheck.value}
                         onChange={(e: any) => {
@@ -271,7 +272,8 @@ export default function FormColaborator() {
                 <InputCheckcondition
                   color="text-primary text-xs pt-6"
                   value={FORMVALUES.CONDITIONS}
-                  onClick={(e: any) => setFieldValue(check, e)}>
+                  onClick={(e: any) => setFieldValue(check, e)}
+                  onTouched={(e: any) => setFieldValue(check, e)}>
                   <Conditions />
                 </InputCheckcondition>
                 <span className="absolute w-2/6">

@@ -18,6 +18,7 @@ export default function RenderForm() {
           <Styles.BtnSelect
             key={button.Name}
             active={i === iDx}
+            onTouchEnd={() => handleClick(i)}
             onClick={() => handleClick(i)}>
             {button.Name}
           </Styles.BtnSelect>

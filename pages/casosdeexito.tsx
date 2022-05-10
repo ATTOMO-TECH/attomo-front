@@ -210,12 +210,16 @@ function Cases() {
               whileInView={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: '50%' }}>
               <Styles.SelectFilterCases>
-                <Styles.SectionFilter onClick={toggleFilter}>
+                <Styles.SectionFilter
+                  onClick={toggleFilter}
+                  onTouchStart={toggleFilter}>
                   <Subtext size="text-lg lg:py-4 ">
                     {translate.CasesFilter}
                   </Subtext>
                 </Styles.SectionFilter>
-                <Styles.SelectFilter onClick={toggleFilter}>
+                <Styles.SelectFilter
+                  onClick={toggleFilter}
+                  onTouchStart={toggleFilter}>
                   <Styles.Select
                     className="lg:w-8/12 w-full cursor-pointer "
                     disabled>
@@ -226,7 +230,9 @@ function Cases() {
                     )}
                   </Styles.Select>
                 </Styles.SelectFilter>
-                <Styles.SelectFilter onClick={toggleFilter}>
+                <Styles.SelectFilter
+                  onClick={toggleFilter}
+                  onTouchStart={toggleFilter}>
                   <Styles.Select
                     className="lg:w-8/12  w-full cursor-pointer "
                     disabled>

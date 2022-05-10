@@ -20,6 +20,7 @@ export default function Collapse() {
   const handleClick = (iDx: number) => {
     setIdx(iDx);
   };
+
   const variants = {
     hidden: {
       opacity: 0,
@@ -44,6 +45,7 @@ export default function Collapse() {
       },
     },
   };
+
   if (isLoading) {
     return (
       <>
@@ -70,7 +72,15 @@ export default function Collapse() {
                     .replaceAll(' ', '_')
                     .toLowerCase()}`}
                   key={`${tab.attributes.name}-services`}>
-                  <Styles.SubSection>
+                  <Styles.SubSection
+                    id={`${tab.attributes.name}-services`}
+                    onTouchStart={() =>
+                      router.push(
+                        `/servicios/${tab.attributes.name
+                          .replaceAll(' ', '_')
+                          .toLowerCase()}`,
+                      )
+                    }>
                     <motion.p variants={item}>{tab.attributes.name}</motion.p>
                   </Styles.SubSection>
                 </Link>
@@ -92,6 +102,8 @@ export default function Collapse() {
               <Styles.TextSelect
                 ismode={i === idx ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
                 key={tab.attributes.name}
+                id={`clickCollapse-${i}`}
+                onTouchStart={() => handleClick(i)}
                 onClick={() => handleClick(i)}>
                 {tab.attributes.name}
               </Styles.TextSelect>

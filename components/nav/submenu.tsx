@@ -29,6 +29,7 @@ export default function SubMenu({
           <motion.div variants={fadeInUp}>
             <Styles.ButtonSubMenu
               type="button"
+              onTouchStart={() => setIsToggle(subsection.id)}
               onClick={() => setIsToggle(subsection.id)}>
               {section}
             </Styles.ButtonSubMenu>
@@ -38,21 +39,32 @@ export default function SubMenu({
               <Styles.BlockSubSection>
                 {subsection.attributes.subservices.data.map((subTask: any) => (
                   <Link
+                    passHref
                     href={subTask.attributes.name
                       .replaceAll(' ', '_')
                       .toLowerCase()}
                     key={subTask.attributes.name}>
-                    <Styles.SelectSubMenu
-                      onClick={toggle}
-                      mode={
-                        subTask.attributes.name
-                          .replaceAll(' ', '_')
-                          .toLowerCase() === router.query.slug
-                          ? BUTTON_ACTIVE.ON
-                          : BUTTON_ACTIVE.OFF
+                    <div
+                      onTouchStart={() =>
+                        router.push(
+                          subTask.attributes.name
+                            .replaceAll(' ', '_')
+                            .toLowerCase(),
+                        )
                       }>
-                      {subTask.attributes.name}
-                    </Styles.SelectSubMenu>
+                      <Styles.SelectSubMenu
+                        onClick={toggle}
+                        onTouchStart={toggle}
+                        mode={
+                          subTask.attributes.name
+                            .replaceAll(' ', '_')
+                            .toLowerCase() === router.query.slug
+                            ? BUTTON_ACTIVE.ON
+                            : BUTTON_ACTIVE.OFF
+                        }>
+                        {subTask.attributes.name}
+                      </Styles.SelectSubMenu>
+                    </div>
                   </Link>
                 ))}
               </Styles.BlockSubSection>

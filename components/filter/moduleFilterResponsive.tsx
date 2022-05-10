@@ -61,6 +61,9 @@ export default function ModulelFilterResponsive({
             type="text"
             placeholder="Añadir texto"
             value={searchModal}
+            onTouchStart={(e: any) => {
+              setSearch(e.target.value);
+            }}
             onChange={(e: any) => {
               setSearch(e.target.value);
             }}
@@ -84,7 +87,6 @@ export default function ModulelFilterResponsive({
           <Subtext size=" text-xs font-Primary text-left font-light">
             Fecha
           </Subtext>
-
           <CalendarPickerRangeInput
             setDate={setDate}
             dateRangeProp={[startDateModal, endDateModal]}

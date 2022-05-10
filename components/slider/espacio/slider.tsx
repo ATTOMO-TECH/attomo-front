@@ -1,35 +1,33 @@
 // eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination } from 'swiper';
-import { useRef } from 'react';
-// eslint-disable-next-line import/no-unresolved
-import { NavigationOptions } from 'swiper/types/modules/public-api';
+import { Navigation, Pagination } from 'swiper';
+import { useRef, useState, useEffect } from 'react';
 import { StylesArticle } from '../style';
 import { BGSPACE } from '../../../const/constGlobal';
+import ArticlesScrollArrow from '../arrows/arrows';
 
 export default function EspacioArticle() {
-  SwiperCore.use([Pagination, Navigation]);
+  const [prevState, setMyPrev] = useState(null);
+  const [nextState, setMyNext] = useState(null);
 
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
-  const onBeforeInit = (swiper: SwiperCore): void => {
-    const navigation = swiper.params.navigation as NavigationOptions;
-    navigation.prevEl = prevRef.current;
-    navigation.nextEl = nextRef.current;
-  };
+  useEffect(() => {
+    setMyNext(nextRef.current);
+    setMyPrev(prevRef.current);
+  }, [BGSPACE]);
 
   return (
     <>
       <Swiper
         spaceBetween={30}
-        modules={[Pagination]}
-        className="mySwiper SwiperSpace"
-        slidesPerView={1}
-        onBeforeInit={onBeforeInit}
+        centeredSlides
+        modules={[Pagination, Navigation]}
+        className="mySwiper"
         navigation={{
-          prevEl: prevRef.current,
-          nextEl: nextRef.current,
+          prevEl: prevState,
+          nextEl: nextState,
         }}>
         {BGSPACE.map((imageSpace: any) => (
           <SwiperSlide key={imageSpace.id} className="swiper ">
@@ -39,14 +37,7 @@ export default function EspacioArticle() {
             />
           </SwiperSlide>
         ))}
-        <StylesArticle.BlockArrow>
-          <StylesArticle.ArrowPrev ref={prevRef}>
-            <img src="/icon/prev.svg" width={100} height={100} alt="prev" />
-          </StylesArticle.ArrowPrev>
-          <StylesArticle.ArrowNext ref={nextRef}>
-            <img src="/icon/next.svg" width={100} height={100} alt="next" />
-          </StylesArticle.ArrowNext>
-        </StylesArticle.BlockArrow>
+        <ArticlesScrollArrow mode prevRef={prevRef} nextRef={nextRef} />
       </Swiper>
     </>
   );

@@ -1,16 +1,15 @@
 // eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination } from 'swiper';
+import { Navigation, Pagination } from 'swiper';
 import { useRef, useState, useEffect } from 'react';
 import * as qs from 'qs';
-// eslint-disable-next-line import/no-unresolved
-import { NavigationOptions } from 'swiper/types/modules/public-api';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { darkTheme, lightTheme, StylesArticle } from '../style';
 import { BUTTON_ACTIVE } from '../../../const/const';
 import { useUseFilterCases } from '../../../domain/useCasesDetails';
 import RenderLoading from '../../loading/loading';
+import ArticlesScrollArrow from '../arrows/arrows';
 
 interface Props {
   mode: boolean;
@@ -19,10 +18,8 @@ interface Props {
 }
 
 export default function CasesScroll({ mode, filter, id }: Props) {
-  const [setMyPrev] = useState<any>();
-  const [setMyNext] = useState<any>();
-  const [prevState, setPrev] = useState(null);
-  const [nextState, nextPrev] = useState(null);
+  const [prevState, setMyPrev] = useState(null);
+  const [nextState, setMyNext] = useState(null);
 
   const router = useRouter();
   let { locale } = router;
@@ -47,21 +44,12 @@ export default function CasesScroll({ mode, filter, id }: Props) {
   });
   const { data, isLoading } = useUseFilterCases(locale || 'es', queryQs);
 
-  SwiperCore.use([Pagination, Navigation]);
-
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
-  const onBeforeInit = (swiper: SwiperCore): void => {
-    swiper.params.navigation as NavigationOptions;
-
-    setPrev(prevRef.current);
-    nextPrev(nextRef.current);
-  };
-
   useEffect(() => {
-    setMyNext(nextState);
-    setMyPrev(prevState);
+    setMyNext(nextRef.current);
+    setMyPrev(prevRef.current);
   }, [data]);
 
   if (isLoading) {
@@ -73,23 +61,19 @@ export default function CasesScroll({ mode, filter, id }: Props) {
       <Swiper
         spaceBetween={30}
         centeredSlides
-        modules={[Pagination]}
+        modules={[Pagination, Navigation]}
         className="mySwiper"
         breakpoints={{
           '460': {
-            slidesPerView: 'auto',
-          },
-          '640': {
             slidesPerView: 'auto',
           },
           '1024': {
             slidesPerView: 3.5,
           },
         }}
-        onBeforeInit={onBeforeInit}
         navigation={{
-          prevEl: prevRef.current,
-          nextEl: nextRef.current,
+          prevEl: prevState,
+          nextEl: nextState,
         }}>
         {data.data.map((articles: any) => (
           <SwiperSlide key={articles.attributes.company} className="swiper ">
@@ -123,24 +107,11 @@ export default function CasesScroll({ mode, filter, id }: Props) {
           </SwiperSlide>
         ))}
         {data.meta.pagination.total > 2 && (
-          <StylesArticle.BlockArrow>
-            <StylesArticle.ArrowPrev ref={prevRef}>
-              <img
-                src={!mode ? '/icon/prevDark.svg' : '/icon/prev.svg'}
-                width={100}
-                height={100}
-                alt="prev"
-              />
-            </StylesArticle.ArrowPrev>
-            <StylesArticle.ArrowNext ref={nextRef}>
-              <img
-                src={!mode ? '/icon/nextDark.svg' : '/icon/next.svg'}
-                width={100}
-                height={100}
-                alt="next"
-              />
-            </StylesArticle.ArrowNext>
-          </StylesArticle.BlockArrow>
+          <ArticlesScrollArrow
+            mode={mode}
+            prevRef={prevRef}
+            nextRef={nextRef}
+          />
         )}
       </Swiper>
     </>

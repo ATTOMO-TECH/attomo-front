@@ -43,6 +43,7 @@ export default function FilterDetails({
         animate={{
           x: isOpenFilter ? 0 : -500,
           opacity: isOpenFilter ? 1 : 0,
+          transition: { 200: { ease: 'easeInOut' } },
         }}>
         <Navegation.Menu>
           <Navegation.AlinItemsServices
@@ -51,8 +52,8 @@ export default function FilterDetails({
               <Link href="/">
                 <img
                   src="/icon/isoAttomo.svg"
-                  width={30}
-                  height={30}
+                  width={35}
+                  height={35}
                   alt="Attomo"
                 />
               </Link>

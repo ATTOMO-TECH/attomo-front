@@ -101,12 +101,14 @@ function DetailsServices() {
         />
         <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
           <Background />
-          {isOpenFilter ? null : (
-            <Menu isOpen={isOpen} toggle={toggle} logo mode />
+          {!isOpenFilter && (
+            <>
+              <Menu isOpen={isOpen} toggle={toggle} logo mode />
+              <Styles.Margin>
+                <Nav toggle={toggle} logo mode isOpen={isOpen} />
+              </Styles.Margin>
+            </>
           )}
-          <Styles.Margin>
-            <Nav toggle={toggle} logo mode isOpen={isOpen} />
-          </Styles.Margin>
           {!isOpenFilter && <ButtonShare />}
           <motion.div
             animate={{ opacity: 1 }}
@@ -131,9 +133,13 @@ function DetailsServices() {
                   />
                 ))}
               </Styles.BlockRenderDetails>
-              <Styles.BlockFilter onClick={toggleFilter}>
-                <Title size="mt-5 text-lg">{translate.Services}</Title>
-              </Styles.BlockFilter>
+              {!isOpenFilter && (
+                <Styles.BlockFilter
+                  onClick={toggleFilter}
+                  onTouchStart={toggleFilter}>
+                  <Title size="mt-5 text-lg">{translate.Services}</Title>
+                </Styles.BlockFilter>
+              )}
               <motion.div
                 className="lg:pt-12 lg:w-9/12 w-10/12 ml-auto h-auto mr-2"
                 animate={{ x: 0, opacity: 1 }}
