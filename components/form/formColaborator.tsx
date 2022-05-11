@@ -18,6 +18,7 @@ import { getLocale } from '../../public/locales/getLocale';
 import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
 import { validationSchemaColaborator } from './validations';
+import { handleFocus } from '../../hook/eventListener';
 
 export default function FormColaborator() {
   const [shouldShowActions] = useState(false);
@@ -163,11 +164,14 @@ export default function FormColaborator() {
                       ismode={BUTTON_ACTIVE.ON}
                       placeholder={translate.formName}
                       type="text"
+                      id={FORMVALUES.FIRSTNAME}
                       name={FORMVALUES.FIRSTNAME}
+                      onTouchStart={() => handleFocus(FORMVALUES.FIRSTNAME)}
                     />
                     {touched.firstname && errors.firstname && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueName, '')}
+                        onTouchStart={() => setFieldValue(valueName, '')}
                       />
                     )}
                     {touched.firstname && errors.firstname && (
@@ -178,12 +182,15 @@ export default function FormColaborator() {
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
                       placeholder={translate.formLastName}
+                      id={FORMVALUES.LASTNAME}
                       type="text"
                       name={FORMVALUES.LASTNAME}
+                      onTouchStart={() => handleFocus(FORMVALUES.LASTNAME)}
                     />
                     {touched.lastname && errors.lastname && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueLastName, '')}
+                        onTouchStart={() => setFieldValue(valueLastName, '')}
                       />
                     )}
                     {touched.lastname && errors.lastname && (
@@ -196,12 +203,15 @@ export default function FormColaborator() {
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
                       placeholder={translate.formEmail}
+                      id={FORMVALUES.EMAIL}
                       type="email"
                       name={FORMVALUES.EMAIL}
+                      onTouchStart={() => handleFocus(FORMVALUES.EMAIL)}
                     />
                     {touched.email && errors.email && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueEmail, '')}
+                        onTouchStart={() => setFieldValue(valueEmail, '')}
                       />
                     )}
                     {touched.email && errors.email && (
@@ -210,14 +220,17 @@ export default function FormColaborator() {
                   </Styles.BlockInput>
                   <Styles.BlockInput>
                     <Styles.Input
-                      ismode={BUTTON_ACTIVE.OFF}
+                      ismode={BUTTON_ACTIVE.ON}
                       placeholder={translate.formPhone}
+                      id={FORMVALUES.PHONE}
                       type="number"
                       name={FORMVALUES.PHONE}
+                      onTouchStart={() => handleFocus(FORMVALUES.PHONE)}
                     />
                     {touched.mobile && errors.mobile && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valuePhone, '')}
+                        onTouchStart={() => setFieldValue(valuePhone, '')}
                       />
                     )}
                     {touched.mobile && errors.mobile && (
@@ -232,9 +245,11 @@ export default function FormColaborator() {
                       <Styles.Input
                         ismode={BUTTON_ACTIVE.OFF}
                         placeholder={translate.formLink}
+                        id={FORMVALUES.LINK}
                         type="url"
                         pattern="https://.*"
                         name={FORMVALUES.LINK}
+                        onTouchStart={() => handleFocus(FORMVALUES.LINK)}
                       />
                     </Styles.BlockInputOnly>
                   </Styles.BlockInputEnd>
@@ -244,8 +259,10 @@ export default function FormColaborator() {
                       <Styles.Input
                         ismode={BUTTON_ACTIVE.OFF}
                         placeholder={translate.formCompany}
+                        id={FORMVALUES.COMPANY}
                         type="text"
                         name={FORMVALUES.COMPANY}
+                        onTouchStart={() => handleFocus(FORMVALUES.COMPANY)}
                       />
                     </Styles.BlockInputOnly>
                   </Styles.BlockInputEnd>
@@ -258,10 +275,12 @@ export default function FormColaborator() {
                       placeholder={translate.formMessage}
                       type="textarea"
                       name={FORMVALUES.MESSAGE}
+                      onTouchStart={() => handleFocus(FORMVALUES.MESSAGE)}
                     />
                     {touched.message && errors.message && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueMessage, '')}
+                        onTouchStart={() => setFieldValue(valueMessage, '')}
                       />
                     )}
                     {touched.message && errors.message && (
@@ -283,6 +302,8 @@ export default function FormColaborator() {
                 </span>
                 <Styles.BlockSendButton>
                   <Styles.BtnSend
+                    onTouchStart={() => handleSubmit()}
+                    onClick={() => handleSubmit()}
                     type="submit"
                     ismode={
                       !isValid && dirty ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF

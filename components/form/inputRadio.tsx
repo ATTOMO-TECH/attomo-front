@@ -9,28 +9,25 @@ interface Props {
 }
 
 export default function InputRadio({ text, value, onChange }: Props) {
-  const [check, setCheck] = useState<boolean>(false);
+  const [select, setSelect] = useState();
+  const handleSelectChange = (e: any) => {
+    setSelect(e.value);
+  };
 
   return (
     <>
-      <Styles.LabelCheck checkedValue={check && value}>
+      <Styles.LabelCheck htmlFor="team" checkedValue={select === value}>
         <Styles.InputRadio
-          key={text}
+          onChange={(e: any) => {
+            handleSelectChange(e);
+            onChange(e.target.value);
+          }}
+          checked={select === value}
           type="radio"
-          name="partner"
-          defaultChecked={check}
+          name="team"
           value={value}
           readOnly
-          onTouchEnd={(e: any) => {
-            setCheck(e.target.value);
-            onChange && onChange(e.target.value);
-            setCheck(!check);
-          }}
-          onClick={(e: any) => {
-            setCheck(e.target.value);
-            onChange && onChange(e.target.value);
-            setCheck(!check);
-          }}
+          defaultChecked
         />
         {text}
       </Styles.LabelCheck>

@@ -14,7 +14,7 @@ export default function InputCheck({ text, value, onChange }: Props) {
 
   return (
     <>
-      <Styles.LabelCheckBox htmlFor={value} checked={check && value}>
+      <Styles.LabelCheckBox htmlFor={value} checkedValue={check}>
         <Styles.InputCheck
           type="checkbox"
           name={value}

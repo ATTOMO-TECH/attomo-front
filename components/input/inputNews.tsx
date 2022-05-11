@@ -9,10 +9,11 @@ import { FORMVALUES } from '../../hook/types';
 import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
 import { useCreateSubscriber } from '../../domain/useSubscriber';
+import { handleFocus } from '../../hook/eventListener';
 
 const registerSchema = Yup.object().shape({
   [FORMVALUES.EMAIL]: Yup.string()
-    .email('Email no valido')
+    .email('El formato de email es incorrecto')
     .required('Email es requerido'),
 });
 
@@ -68,12 +69,13 @@ export default function InputNew() {
                     onClick={() => toggleClass(isActive)}
                     onTouchStart={() => {
                       toggleClass(isActive);
+                      handleFocus(FORMVALUES.EMAIL);
                     }}>
                     <p className="text-primary">{isActive}</p>
                     <Navegation.Input
                       type="email"
-                      id="formikValueEmail"
                       placeholder={translate.sendEmail}
+                      id={FORMVALUES.EMAIL}
                       name={FORMVALUES.EMAIL}
                       onBlur={handleBlur}
                       onChange={(e: any) => {
@@ -82,6 +84,8 @@ export default function InputNew() {
                       }}
                     />
                     <Navegation.Button
+                      onClick={() => handleSubmit()}
+                      onTouchStart={() => handleSubmit()}
                       ismode={
                         inputMail.length > 0
                           ? BUTTON_ACTIVE.ON
@@ -97,8 +101,8 @@ export default function InputNew() {
                     </Navegation.Button>
                   </Navegation.SectionInput>
                 </Navegation.BlockInput>
-                {touched.newsletter && errors.newsletter && (
-                  <div className="text-red-500">{errors.newsletter}</div>
+                {touched.email && errors.email && (
+                  <div className="text-red-500">{errors.email}</div>
                 )}
               </>
             ) : (

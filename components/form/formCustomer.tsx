@@ -205,6 +205,8 @@ export default function FormCustomer() {
                 )}
                 <Styles.BlockSendButton>
                   <Styles.BtnSend
+                    onTouchStart={() => handleSubmit()}
+                    onClick={() => handleSubmit()}
                     type="submit"
                     ismode={
                       !isValid && dirty ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF
