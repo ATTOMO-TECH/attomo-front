@@ -37,11 +37,11 @@ export const Styles = {
   BlockSections: tw.div<Props>`
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
-      ? 'flex items-center relative flex-col lg:flex-row lg:mt-48 ml-6 '
+      ? 'flex items-center relative flex-col lg:flex-row lg:mt-48 lg:ml-0 ml-6 '
       : ''}
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.OFF
-      ? 'flex flex-col lg:flex-row-reverse items-center relative lg:mt-48 ml-6 '
+      ? 'flex flex-col lg:flex-row-reverse items-center relative lg:mt-48 lg:ml-0 ml-6 '
       : ''}`,
   BlockSection: tw.div<Props>`
   ${(props) =>
@@ -51,14 +51,14 @@ export const Styles = {
       ? 'lg:w-3/6 w-11/12 ml-10 lg:ml-0 lg:-mr-12'
       : ''}`,
   BlockText: tw.div<Props>`
-${(props) =>
-  props.ismode === BUTTON_ACTIVE.ON
-    ? 'md:px-20 sm:px-5 lg:w-3/6 p-16 lg:py-0 lg:absolute lg:-bottom-20 lg:right-0  z-90'
-    : ''}
-${(props) =>
-  props.ismode === BUTTON_ACTIVE.OFF
-    ? 'md:px-20 sm:px-5 lg:w-3/6 px-12 lg:py-24 lg:absolute lg:-bottom-32 lg:left-0 '
-    : ''}`,
+      ${(props) =>
+        props.ismode === BUTTON_ACTIVE.ON
+          ? 'md:px-20 sm:px-5 lg:w-3/6 px-9 py-16 lg:py-0 lg:absolute lg:-bottom-20 lg:right-0 z-90'
+          : ''}
+      ${(props) =>
+        props.ismode === BUTTON_ACTIVE.OFF
+          ? 'md:px-20 sm:px-5 lg:w-3/6 px-12 py-16 lg:absolute lg:-bottom-32 lg:left-0 '
+          : ''}`,
   OnlyProjectBlock: tw.div`md:pr-64 sm:px-5 lg:w-3/6 w-10/12 py-16  lg:py-0 lg:absolute lg:-bottom-10 lg:right-0`,
   BlockMargin: tw.div`lg:py-48 flex flex-col lg:flex-row w-full justify-justify-around`,
   BlockMarginText: tw.div`lg:pt-12`,

@@ -1,7 +1,26 @@
 import { useEffect } from 'react';
 
+export const handleFocus = (idTag: string) => {
+  document.getElementById(idTag)?.focus();
+};
+
+export const handleFocusClass = (
+  idTag: string,
+  listener: EventListenerOrEventListenerObject,
+) => {
+  document
+    .getElementsByClassName(idTag)
+    .item(0)
+    ?.addEventListener('focus', listener);
+};
 export const handleClickTouch = (link: string) => {
   document.location.href = link;
+};
+export const handleExternalTouch = (link: string) => {
+  const a = document.createElement('a');
+  a.target = '_blank';
+  a.href = link;
+  a.click();
 };
 
 export const useEventListener = (

@@ -15,6 +15,7 @@ import { validationSchemaBooking } from './validations';
 import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
 import Subtext from '../Text/subText';
+import { handleFocus } from '../../hook/eventListener';
 
 export default function FormReserver() {
   const translate = getLocale();
@@ -105,6 +106,8 @@ export default function FormReserver() {
                         placeholder={translate.formName}
                         type="text"
                         name={FORMVALUES.FIRSTNAME}
+                        id={FORMVALUES.FIRSTNAME}
+                        onTouchStart={() => handleFocus(FORMVALUES.FIRSTNAME)}
                       />
                       {touched.firstname && errors.firstname && (
                         <Styles.BlockClose
@@ -121,6 +124,8 @@ export default function FormReserver() {
                         ismode={BUTTON_ACTIVE.OFF}
                         placeholder={translate.formLastName}
                         type="text"
+                        onTouchStart={() => handleFocus(FORMVALUES.LASTNAME)}
+                        id={FORMVALUES.LASTNAME}
                         name={FORMVALUES.LASTNAME}
                       />
                       {touched.lastname && errors.lastname && (
@@ -163,6 +168,8 @@ export default function FormReserver() {
                         placeholder={translate.formEmail}
                         type="email"
                         name={FORMVALUES.EMAIL}
+                        onTouchStart={() => handleFocus(FORMVALUES.EMAIL)}
+                        id={FORMVALUES.EMAIL}
                       />
                       {touched.email && errors.email && (
                         <Styles.BlockClose
@@ -181,6 +188,8 @@ export default function FormReserver() {
                         placeholder={translate.formPhone}
                         type="number"
                         name={FORMVALUES.PHONE}
+                        onTouchStart={() => handleFocus(FORMVALUES.PHONE)}
+                        id={FORMVALUES.PHONE}
                       />
                       {touched.mobile && errors.mobile && (
                         <Styles.BlockClose
@@ -197,6 +206,8 @@ export default function FormReserver() {
                     <Styles.BlockInputOnly>
                       <Styles.Input
                         ismode={BUTTON_ACTIVE.OFF}
+                        onTouchStart={() => handleFocus(FORMVALUES.COMPANY)}
+                        id={FORMVALUES.COMPANY}
                         placeholder={translate.formCompany}
                         type="text"
                         name={FORMVALUES.COMPANY}
@@ -220,6 +231,8 @@ export default function FormReserver() {
                   <Styles.BlockSendButton>
                     <Styles.BtnSend
                       type="submit"
+                      onTouchStart={() => handleSubmit()}
+                      onClick={() => handleSubmit()}
                       ismode={
                         !isValid && dirty ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF
                       }>

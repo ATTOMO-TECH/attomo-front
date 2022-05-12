@@ -11,6 +11,7 @@ import { getLocale } from '../../public/locales/getLocale';
 import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
 import { validationSchemaColaborator } from './validations';
+import { handleFocus } from '../../hook/eventListener';
 
 export default function FormCustomer() {
   const [shouldShowActions] = useState(false);
@@ -21,7 +22,6 @@ export default function FormCustomer() {
   const valuePhone = FORMVALUES.PHONE;
   const valueEmail = FORMVALUES.EMAIL;
   const valueMessage = FORMVALUES.MESSAGE;
-  const check = FORMVALUES.CONDITIONS;
 
   const initialValues = {
     [FORMVALUES.FIRSTNAME]: '',
@@ -33,6 +33,7 @@ export default function FormCustomer() {
     [FORMVALUES.CONDITIONS]: false,
   };
   const { mutate } = createContact();
+
   const handleSumitCustomer = (values: any, action: any) => {
     const data = {
       [FORMVALUES.FIRSTNAME]: values.firstname,
@@ -82,6 +83,8 @@ export default function FormCustomer() {
                       ismode={BUTTON_ACTIVE.ON}
                       placeholder={translate.formName}
                       type="text"
+                      id={FORMVALUES.FIRSTNAME}
+                      onTouchStart={() => handleFocus(FORMVALUES.FIRSTNAME)}
                       name={FORMVALUES.FIRSTNAME}
                     />
                     {touched.firstname && errors.firstname && (
@@ -99,6 +102,8 @@ export default function FormCustomer() {
                       ismode={BUTTON_ACTIVE.ON}
                       placeholder={translate.formLastName}
                       type="text"
+                      id={FORMVALUES.LASTNAME}
+                      onTouchStart={() => handleFocus(FORMVALUES.LASTNAME)}
                       name={FORMVALUES.LASTNAME}
                     />
                     {touched.lastname && errors.lastname && (
@@ -119,6 +124,8 @@ export default function FormCustomer() {
                       placeholder={translate.formEmail}
                       type="email"
                       name={FORMVALUES.EMAIL}
+                      id={FORMVALUES.EMAIL}
+                      onTouchStart={() => handleFocus(FORMVALUES.EMAIL)}
                     />
                     {touched.email && errors.email && (
                       <Styles.BlockClose
@@ -134,6 +141,8 @@ export default function FormCustomer() {
                   </Styles.BlockInput>
                   <Styles.BlockInput>
                     <Styles.Input
+                      id={FORMVALUES.PHONE}
+                      onTouchStart={() => handleFocus(FORMVALUES.PHONE)}
                       ismode={BUTTON_ACTIVE.OFF}
                       placeholder={translate.formPhone}
                       type="number"
@@ -154,6 +163,8 @@ export default function FormCustomer() {
                   <Styles.BlockInputOnly>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.OFF}
+                      id={FORMVALUES.COMPANY}
+                      onTouchStart={() => handleFocus(FORMVALUES.COMPANY)}
                       placeholder={translate.formCompany}
                       type="text"
                       name={FORMVALUES.COMPANY}
@@ -167,6 +178,8 @@ export default function FormCustomer() {
                       placeholder={translate.formMessage}
                       type="textarea"
                       name={FORMVALUES.MESSAGE}
+                      id={FORMVALUES.MESSAGE}
+                      onTouchStart={() => handleFocus(FORMVALUES.MESSAGE)}
                     />
                     {touched.message && errors.message && (
                       <Styles.BlockClose
@@ -182,16 +195,19 @@ export default function FormCustomer() {
                 <InputCheckcondition
                   color="text-primary text-xs pt-6"
                   value={FORMVALUES.CONDITIONS}
-                  onClick={(e: any) => setFieldValue(check, e)}
-                  onTouched={(e: any) => setFieldValue(check, e)}>
+                  onClick={(e: any) => setFieldValue(FORMVALUES.CONDITIONS, e)}
+                  onTouched={(e: any) =>
+                    setFieldValue(FORMVALUES.CONDITIONS, e)
+                  }>
                   <Conditions />
                 </InputCheckcondition>
                 {touched.conditionsAccepted && errors.conditionsAccepted && (
                   <Styles.Error>{errors.conditionsAccepted}</Styles.Error>
                 )}
-
                 <Styles.BlockSendButton>
                   <Styles.BtnSend
+                    onTouchStart={() => handleSubmit()}
+                    onClick={() => handleSubmit()}
                     type="submit"
                     ismode={
                       !isValid && dirty ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF

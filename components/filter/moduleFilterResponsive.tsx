@@ -6,6 +6,7 @@ import Title from '../Text/title';
 import { useUseAllSubServices } from '../../domain/useServices';
 import SelectFilterMenu from './selectedFilterMenu';
 import RenderLoading from '../loading/loading';
+import { handleFocus } from '../../hook/eventListener';
 
 interface Props {
   setDate: any;
@@ -49,6 +50,8 @@ export default function ModulelFilterResponsive({
     setTopic(e.value);
   };
 
+  // useEventListener('react-select-3-input', 'touchstart', () =>handleFocus());
+
   return (
     <>
       <Filter.SectionMobile>
@@ -61,8 +64,9 @@ export default function ModulelFilterResponsive({
             type="text"
             placeholder="Añadir texto"
             value={searchModal}
-            onTouchStart={(e: any) => {
-              setSearch(e.target.value);
+            id="search"
+            onTouchStart={() => {
+              handleFocus('search');
             }}
             onChange={(e: any) => {
               setSearch(e.target.value);

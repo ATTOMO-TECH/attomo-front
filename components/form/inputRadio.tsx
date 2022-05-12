@@ -1,48 +1,39 @@
-/* eslint-disable no-unused-expressions */
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Styles } from './style';
-import { BUTTON_ACTIVE } from '../../const/const';
 
 interface Props {
   text: string;
   value: string;
   onChange?: any;
+  valueChecked: string;
 }
 
-export default function InputRadio({ text, value, onChange }: Props) {
+export default function InputRadio({
+  text,
+  value,
+  onChange,
+  valueChecked,
+}: Props) {
   const [check, setCheck] = useState<boolean>(false);
-  const [sectionInputDetailKey, setSectionInputDetailKey] = useState(
-    Math.random(),
-  );
-
-  useEffect(() => {
-    if (check === false) {
-      setCheck(false);
-      setSectionInputDetailKey(Math.random());
-    }
-  }, [check]);
 
   return (
     <>
       <Styles.LabelCheck
-        ismode={check ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-        key={sectionInputDetailKey}>
+        htmlFor={value}
+        checkedValue={valueChecked === value && check}>
         <Styles.InputRadio
-          key={sectionInputDetailKey}
           type="radio"
           name="partner"
           value={value}
-          onTouchEnd={(e: any) => {
-            setCheck(e.target.value);
-            onChange && onChange(e.target.value);
-            setCheck(!check);
-          }}
-          checked={check}
-          onClick={(e: any) => {
-            setCheck(e.target.value);
-            onChange && onChange(e.target.value);
-            setCheck(!check);
-          }}
+          onTouchEnd={(e: any) => [
+            setCheck(!check),
+            onChange && onChange(e.target.value),
+          ]}
+          checked={valueChecked === value && check}
+          onClick={(e: any) => [
+            setCheck(!check),
+            onChange && onChange(e.target.value),
+          ]}
         />
         {text}
       </Styles.LabelCheck>

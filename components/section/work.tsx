@@ -11,7 +11,9 @@ export default function Work({ works }: Props) {
   return (
     <>
       {works.map((value) => (
-        <section className="flex lg:w-10/12 m-auto justify-center ">
+        <section
+          className="flex lg:w-10/12 m-auto justify-center "
+          key={value.attributes.title}>
           <div className="border-primary border-opacity-25 py-10 border-b border-t flex items-center justify-between w-full relative flex-col md:flex-row overflow-hidden">
             <div className="md:w-10/12">
               <div className=" w-3/6 lg:w-2/6">
@@ -26,12 +28,12 @@ export default function Work({ works }: Props) {
                   </a>
                 </Link>
               </div>
-              <Subtext size=" pt-4 pb-6">
+              <Subtext size=" pt-4 pb-6 lg:mr-4 text-justify">
                 {value.attributes.description}
               </Subtext>
             </div>
 
-            <div className="w-3/6 md:w-2/12 mr-auto md:m-auto">
+            <div className="w-4/12 md:w-1/6 mr-auto md:m-auto">
               <Link href={`https://${value.attributes.url}`} passHref>
                 <a
                   href={`https://${value.attributes.url}`}

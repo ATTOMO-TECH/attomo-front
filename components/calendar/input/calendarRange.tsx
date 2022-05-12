@@ -1,6 +1,6 @@
 import es from 'date-fns/locale/es';
 import DatePicker from 'react-datepicker';
-import { useEventListener } from '../../../hook/eventListener';
+import { handleFocus, handleFocusClass } from '../../../hook/eventListener';
 import { getLocale } from '../../../public/locales/getLocale';
 
 interface Props {
@@ -23,25 +23,27 @@ export default function CalendarPickerInputRange({
   };
   const translate = getLocale();
 
-  useEventListener('reserve', 'touchstart', (event: any) => {
-    event.stopPropagation();
-  });
   return (
     <>
-      <div id="trend ">
+      <div
+        id="trend"
+        onTouchStart={() => {
+          handleFocus('reserve');
+          handleFocusClass('react-datepicker', onChange);
+        }}>
         <DatePicker
           id="reserve"
+          name="reserve"
           selected={startDate}
-          disabledKeyboardNavigation
-          autoComplete="off"
           onChange={onChange}
           startDate={startDate}
           endDate={endDate}
           selectsRange
+          showDisabledMonthNavigation
           placeholderText={translate.SelectDate}
           dateFormat="dd/MM/yyyy"
           locale={es}
-          className="outline-none text-opacity-0 pl-1 h-full w-full py-2  bg-none "
+          className="outline-none text-opacity-0 pl-1 h-full w-full py-2  bg-none touch-manipulation"
         />
       </div>
     </>

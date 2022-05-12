@@ -11,13 +11,13 @@ interface Props {
   data: any;
 }
 export default function BodyCases({ data }: Props) {
-  const [isSareApiAvailable, setIsSareApiAvailable] = useState(false);
+  const [isShareApiAvailable, setIsShareApiAvailable] = useState(false);
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
   useEffect(() => {
-    setIsSareApiAvailable(!!navigator.share);
+    setIsShareApiAvailable(!!navigator.share);
   }, []);
 
   const handleOnClick = () => {
@@ -33,7 +33,7 @@ export default function BodyCases({ data }: Props) {
   };
   return (
     <>
-      {!isSareApiAvailable ? (
+      {!isShareApiAvailable ? (
         <ShareNav
           title={data?.data.attributes.title}
           isOpen={isOpen}

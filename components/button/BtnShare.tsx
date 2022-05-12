@@ -3,11 +3,14 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Btn } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
-import { handleClickTouch, useEventListener } from '../../hook/eventListener';
+import {
+  handleExternalTouch,
+  useEventListener,
+} from '../../hook/eventListener';
 
 export default function ButtonShare() {
   useEventListener('whatsappLink', 'touchstart', () =>
-    handleClickTouch('https://api.whatsapp.com/send/?phone=34610516285'),
+    handleExternalTouch('https://api.whatsapp.com/send/?phone=34610516285'),
   );
   const [scroll, setScroll] = useState(true);
   useEffect(() => {

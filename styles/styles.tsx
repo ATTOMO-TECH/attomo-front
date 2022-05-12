@@ -257,7 +257,7 @@ export const Styles = {
   ButtonSubMenu: tw.button`font-PrimarySerif text-md uppercase py-1 font-light text-xl lg:text-md`,
   BlockSubSection: tw.div`flex flex-col relative pl-1`,
   // LEGAL
-  BlockButtonLegal: tw.div`"w-2/6 mt-5 md:mt-12 lg:mt-24`,
+  BlockButtonLegal: tw.div`lg:w-1/6 mt-5 md:mt-12 lg:mt-24`,
   BlockBack: tw.div`w-full py-10`,
   SectionTextLegal: tw.div`pb-48`,
 };

@@ -143,7 +143,10 @@ export default function ModalFilter({
           </Filter.BlockFilterItems>
         </div>
         <Filter.BlockSendButton>
-          <Filter.BtnSend type="submit" onClick={handleSearch}>
+          <Filter.BtnSend
+            type="submit"
+            onClick={handleSearch}
+            onTouchStart={handleSearch}>
             Buscar
           </Filter.BtnSend>
         </Filter.BlockSendButton>

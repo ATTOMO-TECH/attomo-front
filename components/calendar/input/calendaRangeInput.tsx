@@ -2,6 +2,7 @@ import es from 'date-fns/locale/es';
 import DatePicker from 'react-datepicker';
 import { useState } from 'react';
 import { getLocale } from '../../../public/locales/getLocale';
+import { handleFocus, handleFocusClass } from '../../../hook/eventListener';
 
 interface Props {
   setDate: (value: any) => void;
@@ -18,7 +19,12 @@ export default function CalendarPickerRangeInput({
   };
   const translate = getLocale();
   return (
-    <>
+    <div
+      id="trend"
+      onTouchStart={() => {
+        handleFocus('reserve');
+        handleFocusClass('react-datepicker', setDate);
+      }}>
       <DatePicker
         id="reserve"
         placeholderText={translate.SelectDate}
@@ -35,6 +41,6 @@ export default function CalendarPickerRangeInput({
         onChangeRaw={handleDateChangeRaw}
         className="outline-none font-PrimarySerif text-sm font-thin text-gray-300 h-full w-full py-2.5 "
       />
-    </>
+    </div>
   );
 }

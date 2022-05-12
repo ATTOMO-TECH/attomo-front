@@ -18,9 +18,9 @@ interface Props {
 }
 
 export default function ArticlesScroll({ mode, filter, id }: Props) {
-  const router = useRouter();
   const [prevState, setMyPrev] = useState(null);
   const [nextState, setMyNext] = useState(null);
+  const router = useRouter();
 
   const queryObject: any = {
     populate: 'coverImage',
@@ -39,6 +39,7 @@ export default function ArticlesScroll({ mode, filter, id }: Props) {
     encodeValuesOnly: true,
   });
   const { data, isLoading } = useUseAllPost(queryQs);
+
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
@@ -64,7 +65,7 @@ export default function ArticlesScroll({ mode, filter, id }: Props) {
         className="mySwiper"
         breakpoints={{
           '460': {
-            slidesPerView: 'auto',
+            slidesPerView: 1,
           },
           '1024': {
             slidesPerView: 3.5,
@@ -77,7 +78,7 @@ export default function ArticlesScroll({ mode, filter, id }: Props) {
         {data.data.map((articles: any) => (
           <SwiperSlide
             key={`${articles.Tag}-${articles.id}`}
-            className="swiper ">
+            className="swiper z-10">
             <Link href={`/ATTOMOTrends/${articles.id}`}>
               <StylesArticle.Img
                 src={articles.attributes.coverImage.data.attributes.url}
@@ -101,7 +102,14 @@ export default function ArticlesScroll({ mode, filter, id }: Props) {
             </StylesArticle.BlockText>
           </SwiperSlide>
         ))}
-        <ArticlesScrollArrow mode={mode} prevRef={prevRef} nextRef={nextRef} />
+        {data.meta.pagination.total > 2 && (
+          <ArticlesScrollArrow
+            mode={mode}
+            prevRef={prevRef}
+            nextRef={nextRef}
+            numerSlide={data.meta.pagination.total}
+          />
+        )}
       </Swiper>
     </>
   );

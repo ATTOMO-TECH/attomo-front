@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import { useState } from 'react';
 import { Styles } from './style';
-import { BUTTON_ACTIVE } from '../../const/const';
 
 interface Props {
   children: any;
@@ -19,24 +18,25 @@ export default function InputCheckcondition({
   onTouched,
 }: Props) {
   const [check, setCheck] = useState<boolean>(false);
+
   return (
     <>
       <Styles.LabelCheckBox
-        ismode={check ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+        checkedValue={check}
         className={`${color}`}
         htmlFor={value}>
         <Styles.InputCheckCondition
           type="checkbox"
-          checked={check}
-          onTouchedStart={(e: any) => {
+          onTouchStart={() => {
+            onTouched && onTouched(!check);
             setCheck(!check);
-
-            onTouched && onTouched(e.target.checked);
           }}
-          onClick={(e: any) => {
-            setCheck(e.target.checked);
-            onClick && onClick(e.target.checked);
+          checked={check}
+          onChange={() => {
+            onClick && onClick(!check);
+            setCheck(!check);
           }}
+          value={check}
           name={value}
         />
         {children}

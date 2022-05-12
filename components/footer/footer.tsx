@@ -30,7 +30,7 @@ export default function Footer({ subFooter }: Props) {
   return (
     <>
       <Navegation.SectionFooter>
-        <Navegation.Footer />
+        {/* <Navegation.Footer /> */}
         <Navegation.BlockFooter>
           <Navegation.BlockLogo>
             <Navegation.NavFooter>
