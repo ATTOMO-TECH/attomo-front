@@ -1,5 +1,5 @@
 import Select from 'react-select';
-import { useEventListener } from '../../hook/eventListener';
+import { handleFocus, useEventListener } from '../../hook/eventListener';
 
 type Props = {
   options: any[];
@@ -73,23 +73,34 @@ export default function SelectFilterMenu({
     const item = options.find((x) => x.name === Selected);
     return item || { value: `${valueLabel}`, label: `${valueLabel}` };
   };
-  useEventListener('selectedSelect', 'touchstart', () => selected);
+
+  function touchHandler(e: any) {
+    // e.preventDefault();
+    // e.stopPropagation();
+    handleFocus(e.target.id);
+
+    document.addEventListener('touchstart', touchHandler, true);
+  }
+  useEventListener('selectedSelect', 'touchstart', (e: any) => touchHandler(e));
 
   return (
-    <>
+    <div
+      onTouchStart={() => {
+        handleFocus('react-select-5-input');
+      }}>
       <Select
         components={{ IndicatorSeparator: () => null }}
         name={name}
         id="selectedSelect"
+        isSearchable={false}
         options={options}
         styles={customStyles(selected)}
-        onBlur={onChange}
         onChange={onChange}
         value={displayItem(selected)}
         className="outline-none font-PrimarySerif font-thin text-gray-300 h-full w-full py-2  text-sm bg-none text-left"
         placeholder="Selecciona una opción"
         defaultValue={{ value: '30M', label: '30 min' }}
       />
-    </>
+    </div>
   );
 }
