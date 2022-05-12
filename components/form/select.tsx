@@ -38,10 +38,11 @@ export default function InputSelect({
       borderBottom: state.isSelected ? '1px solid white' : '1px solid black',
       borderRadius: '0%',
       color: 'white',
-      opacity: state.isSelected ? '0.7' : '1',
+      opacity: selected ? '.9' : '.6',
+      paddingBottom: '3px',
 
       '&': {
-        borderBottom: state.isFocused ? '1px solid white' : '1px solid #6F6D70',
+        borderBottom: selected ? '1px solid white' : '1px solid #6F6D70',
       },
       ':hover': {
         borderBottom: '1px solid white',

@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-use-before-define
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import * as qs from 'qs';
 import { useRouter } from 'next/router';
@@ -15,7 +15,7 @@ import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
 import Title from '../components/Text/title';
 import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
-import { useUseFeaturedPost, useUseAllTags } from '../domain/useBlogDetails';
+import { useUseAllPost, useUseAllTags } from '../domain/useBlogDetails';
 import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 import Subtext from '../components/Text/subText';
@@ -36,7 +36,7 @@ function News() {
   const [query, setQuery] = useState(
     'pagination[page]=1&pagination[pageSize]=3&populate=coverImage&filters[featured][$eq]=true',
   );
-  const { data, isLoading } = useUseFeaturedPost(query);
+  const { data, isLoading } = useUseAllPost(query);
   const { data: Tags, isLoading: isLoadingTags } = useUseAllTags(
     locale || 'es',
   );
@@ -172,23 +172,21 @@ function News() {
         </Styles.Margin>
         <Styles.Center>
           <Styles.ScreenWS>
-            {React.Children.toArray(
-              translate.trends.map((value) => (
-                <Styles.BlockDiv>
-                  <Title size="lg:text-4xl md:text-3xl text-2xl text-xl lg:pr-0  lg:pr-0 pb-12 lg:w-5/6 ">
-                    {value.Text}
-                  </Title>
-                  <Styles.BlockInputSend>
-                    <Subtext size=" md:text-lg lg:text-base md:w-2/6  lg:text-left font-Primary">
-                      {value.Subtext}
-                    </Subtext>
-                    <Styles.BlockFullInput>
-                      <InputNew />
-                    </Styles.BlockFullInput>
-                  </Styles.BlockInputSend>
-                </Styles.BlockDiv>
-              )),
-            )}
+            {translate.trends.map((value) => (
+              <Styles.BlockDiv key={value.Text}>
+                <Title size="lg:text-4xl md:text-3xl text-2xl text-xl lg:pr-0  lg:pr-0 pb-12 lg:w-5/6 ">
+                  {value.Text}
+                </Title>
+                <Styles.BlockInputSend>
+                  <Subtext size=" md:text-lg lg:text-base md:w-2/6  lg:text-left font-Primary">
+                    {value.Subtext}
+                  </Subtext>
+                  <Styles.BlockFullInput>
+                    <InputNew />
+                  </Styles.BlockFullInput>
+                </Styles.BlockInputSend>
+              </Styles.BlockDiv>
+            ))}
           </Styles.ScreenWS>
         </Styles.Center>
         <Styles.BlockTrends>
@@ -267,19 +265,17 @@ function News() {
             </Blogstyles.SectionMore>
           ) : null)}
         <Styles.Center>
-          {React.Children.toArray(
-            translate.contact.map((values) => (
-              <BlockSection
-                key={values.Link}
-                text={values.Text}
-                button={values.Link}
-                text2=""
-                button2=""
-                mode
-                link="/contacto"
-              />
-            )),
-          )}
+          {translate.contact.map((values) => (
+            <BlockSection
+              key={values.Text}
+              text={values.Text}
+              button={values.Link}
+              text2=""
+              button2=""
+              mode
+              link="/contacto"
+            />
+          ))}
         </Styles.Center>
         <Footer subFooter={false} />
       </Styles.Body>

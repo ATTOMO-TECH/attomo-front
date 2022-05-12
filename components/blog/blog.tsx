@@ -1,16 +1,17 @@
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Blogstyles } from './style';
 import Title from '../Text/title';
 import IconAnimate from '../button/icon';
 import Subtext from '../Text/subText';
-import { handleClickTouch, useEventListener } from '../../hook/eventListener';
 
 interface Props {
   dataBlog: any;
 }
 
 export default function BlockBlog({ dataBlog }: Props) {
+  const router = useRouter();
   const variants = {
     hidden: {
       opacity: 0,
@@ -36,17 +37,6 @@ export default function BlockBlog({ dataBlog }: Props) {
     },
   };
 
-  dataBlog.map((data: any) =>
-    useEventListener(`linkImg-${data.id}-${data.id}`, 'touchstart', () =>
-      handleClickTouch(`/ATTOMOTrends/${data.id}`),
-    ),
-  );
-  dataBlog.map((data: any) =>
-    useEventListener(`${data.id}`, 'touchstart', () =>
-      handleClickTouch(`/ATTOMOTrends/${data.id}`),
-    ),
-  );
-
   return (
     <>
       {dataBlog.map((data: any) => (
@@ -59,7 +49,8 @@ export default function BlockBlog({ dataBlog }: Props) {
           <motion.div variants={item}>
             <Blogstyles.Article>
               <Link href={`/ATTOMOTrends/${data.id}`}>
-                <Blogstyles.BlockImg id={`linkImg-${data.id}-${data.id}`}>
+                <Blogstyles.BlockImg
+                  onTouchStart={() => router.push(`/ATTOMOTrends/${data.id}`)}>
                   {data.attributes?.coverImage?.data?.attributes?.url ? (
                     <img
                       src={data.attributes.coverImage.data.attributes?.url}
@@ -83,7 +74,9 @@ export default function BlockBlog({ dataBlog }: Props) {
 
                 <Blogstyles.SubText />
                 <Link href={`/ATTOMOTrends/${data.id}`}>
-                  <div id={`${data.id}`} className="h-12 w-2/6 relative">
+                  <div
+                    onTouchStart={() => router.push(`/ATTOMOTrends/${data.id}`)}
+                    className="h-12 w-2/6 relative">
                     <IconAnimate text="Leer" mode />
                   </div>
                 </Link>

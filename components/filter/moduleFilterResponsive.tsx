@@ -5,7 +5,6 @@ import Subtext from '../Text/subText';
 import Title from '../Text/title';
 import { useUseAllSubServices } from '../../domain/useServices';
 import SelectFilterMenu from './selectedFilterMenu';
-import RenderLoading from '../loading/loading';
 import { handleFocus } from '../../hook/eventListener';
 
 interface Props {
@@ -33,13 +32,8 @@ export default function ModulelFilterResponsive({
   const [selectedTopic, setSelectedTopic] = useState(topicModal);
 
   if (isLoading) {
-    return (
-      <>
-        <RenderLoading mode={false} />
-      </>
-    );
+    return <></>;
   }
-
   const DEPARTMENT = Subservice.data.map((values: any) => ({
     label: values.attributes.name,
     value: values.attributes.name,

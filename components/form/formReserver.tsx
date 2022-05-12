@@ -234,7 +234,9 @@ export default function FormReserver() {
                       onTouchStart={() => handleSubmit()}
                       onClick={() => handleSubmit()}
                       ismode={
-                        !isValid && dirty ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF
+                        !(isValid && dirty)
+                          ? BUTTON_ACTIVE.ON
+                          : BUTTON_ACTIVE.OFF
                       }>
                       {translate.formRent}
                     </Styles.BtnSend>

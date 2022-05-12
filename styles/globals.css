@@ -209,7 +209,7 @@ input[type='text'] {
   transition: all ease 0.5s;
 }
 .react-datepicker__input-container {
-  opacity: 0.8;
+  opacity: 1;
 }
 .react-datepicker__input-container {
   position: relative;
@@ -270,5 +270,9 @@ input[type='text'] {
 .filter .swiper-slide-active {
   transform: translatex(25%) scale(1.5);
   transition: all 0.3s ease;
+  opacity: 1 !important;
+}
+
+#reserve:focus {
   opacity: 1 !important;
 }

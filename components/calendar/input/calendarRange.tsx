@@ -2,6 +2,7 @@ import es from 'date-fns/locale/es';
 import DatePicker from 'react-datepicker';
 import { handleFocus, handleFocusClass } from '../../../hook/eventListener';
 import { getLocale } from '../../../public/locales/getLocale';
+import { BlockDiv } from './styles';
 
 interface Props {
   setStartDateFilter: (dateStart: any) => void;
@@ -25,7 +26,8 @@ export default function CalendarPickerInputRange({
 
   return (
     <>
-      <div
+      <BlockDiv
+        active={startDate !== undefined || null || false}
         id="trend"
         onTouchStart={() => {
           handleFocus('reserve');
@@ -45,7 +47,7 @@ export default function CalendarPickerInputRange({
           locale={es}
           className="outline-none text-opacity-0 pl-1 h-full w-full py-2  bg-none touch-manipulation"
         />
-      </div>
+      </BlockDiv>
     </>
   );
 }
