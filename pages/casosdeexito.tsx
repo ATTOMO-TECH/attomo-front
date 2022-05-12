@@ -166,7 +166,7 @@ function Cases() {
     <>
       <Metadata screen={screen} />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
-        <Background />
+        {!isOpenFilter && <Background />}
         <div className="z-100">
           {isOpenFilter && (
             <ModalFilter

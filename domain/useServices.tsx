@@ -24,11 +24,15 @@ export function useUseAllServices(lenguage: string) {
   });
 }
 export function useUseAllSubServices(lenguage: string) {
-  return useQuery(['useAllSubServices'], () => getAllSubServices(lenguage), {
-    staleTime: 2500,
-    notifyOnChangePropsExclusions: ['isStale'],
-    refetchOnWindowFocus: false,
-  });
+  return useQuery(
+    ['useAllSubServices', lenguage],
+    () => getAllSubServices(lenguage),
+    {
+      staleTime: 2500,
+      notifyOnChangePropsExclusions: ['isStale'],
+      refetchOnWindowFocus: false,
+    },
+  );
 }
 export function useUseAServices(lenguage: string, query: any) {
   return useQuery(['useAllServices'], () => getAServices(lenguage, query), {

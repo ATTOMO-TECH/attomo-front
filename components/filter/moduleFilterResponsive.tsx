@@ -44,8 +44,6 @@ export default function ModulelFilterResponsive({
     setTopic(e.value);
   };
 
-  // useEventListener('react-select-3-input', 'touchstart', () =>handleFocus());
-
   return (
     <>
       <Filter.SectionMobile>
