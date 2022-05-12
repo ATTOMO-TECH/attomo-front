@@ -258,7 +258,10 @@ function News() {
           data.meta.pagination.pageCount !== 0 ? (
             <Blogstyles.SectionMore>
               <Blogstyles.BlockMore
-                onClick={() => handleAddBlog(data.meta.pagination.page + 1)}>
+                onClick={() => handleAddBlog(data.meta.pagination.page + 1)}
+                onTouchStart={() =>
+                  handleAddBlog(data.meta.pagination.page + 1)
+                }>
                 {translate.seeMoreTrends}
               </Blogstyles.BlockMore>
             </Blogstyles.SectionMore>

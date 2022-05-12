@@ -22,7 +22,6 @@ export default function FormCustomer() {
   const valuePhone = FORMVALUES.PHONE;
   const valueEmail = FORMVALUES.EMAIL;
   const valueMessage = FORMVALUES.MESSAGE;
-  const check = FORMVALUES.CONDITIONS;
 
   const initialValues = {
     [FORMVALUES.FIRSTNAME]: '',
@@ -196,8 +195,10 @@ export default function FormCustomer() {
                 <InputCheckcondition
                   color="text-primary text-xs pt-6"
                   value={FORMVALUES.CONDITIONS}
-                  onClick={(e: any) => setFieldValue(check, e)}
-                  onTouched={(e: any) => setFieldValue(check, e)}>
+                  onClick={(e: any) => setFieldValue(FORMVALUES.CONDITIONS, e)}
+                  onTouched={(e: any) =>
+                    setFieldValue(FORMVALUES.CONDITIONS, e)
+                  }>
                   <Conditions />
                 </InputCheckcondition>
                 {touched.conditionsAccepted && errors.conditionsAccepted && (

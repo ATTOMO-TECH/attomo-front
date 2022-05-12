@@ -27,14 +27,16 @@ export default function InputCheckcondition({
         htmlFor={value}>
         <Styles.InputCheckCondition
           type="checkbox"
-          onTouched={(e: any) => {
-            setCheck(e.target.checked);
-            onTouched && onTouched(e.target.checked);
+          onTouchStart={() => {
+            onTouched && onTouched(!check);
+            setCheck(!check);
           }}
-          onClick={(e: any) => {
-            setCheck(e.target.checked);
-            onClick && onClick(e.target.checked);
+          checked={check}
+          onChange={() => {
+            onClick && onClick(!check);
+            setCheck(!check);
           }}
+          value={check}
           name={value}
         />
         {children}

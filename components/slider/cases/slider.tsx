@@ -111,6 +111,7 @@ export default function CasesScroll({ mode, filter, id }: Props) {
             mode={mode}
             prevRef={prevRef}
             nextRef={nextRef}
+            numerSlide={data.meta.pagination.total}
           />
         )}
       </Swiper>

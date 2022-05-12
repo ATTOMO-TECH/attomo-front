@@ -50,7 +50,6 @@ export default function FormColaborator() {
   const valueEmail = FORMVALUES.EMAIL;
   const valuepartOf = FORMVALUES.PARTOF;
   const valueMessage = FORMVALUES.MESSAGE;
-  const check = FORMVALUES.CONDITIONS;
 
   const initialValues = {
     [FORMVALUES.FIRSTNAME]: '',
@@ -128,11 +127,12 @@ export default function FormColaborator() {
                 </Subtext>
                 <Styles.BlockSelect>
                   {FORMPARTOF.map((valuesCheck) => (
-                    <Styles.AlingSelect key={`Radio-${valuesCheck.value}`}>
+                    <Styles.AlingSelect>
                       <InputRadio
                         key={`Radio-${valuesCheck.value}`}
                         text={valuesCheck.text}
                         value={valuesCheck.value}
+                        valueChecked={filter}
                         onChange={(e: any) => {
                           setFieldValue(FORMVALUES.PARTOF, e);
                           setFilter(e);
@@ -220,7 +220,7 @@ export default function FormColaborator() {
                   </Styles.BlockInput>
                   <Styles.BlockInput>
                     <Styles.Input
-                      ismode={BUTTON_ACTIVE.ON}
+                      ismode={BUTTON_ACTIVE.OFF}
                       placeholder={translate.formPhone}
                       id={FORMVALUES.PHONE}
                       type="number"
@@ -274,6 +274,7 @@ export default function FormColaborator() {
                       ismode={BUTTON_ACTIVE.OFF}
                       placeholder={translate.formMessage}
                       type="textarea"
+                      id={FORMVALUES.MESSAGE}
                       name={FORMVALUES.MESSAGE}
                       onTouchStart={() => handleFocus(FORMVALUES.MESSAGE)}
                     />
@@ -291,8 +292,10 @@ export default function FormColaborator() {
                 <InputCheckcondition
                   color="text-primary text-xs pt-6"
                   value={FORMVALUES.CONDITIONS}
-                  onClick={(e: any) => setFieldValue(check, e)}
-                  onTouched={(e: any) => setFieldValue(check, e)}>
+                  onClick={(e: any) => setFieldValue(FORMVALUES.CONDITIONS, e)}
+                  onTouched={(e: any) =>
+                    setFieldValue(FORMVALUES.CONDITIONS, e)
+                  }>
                   <Conditions />
                 </InputCheckcondition>
                 <span className="absolute w-2/6">

@@ -37,7 +37,12 @@ export default function EspacioArticle() {
             />
           </SwiperSlide>
         ))}
-        <ArticlesScrollArrow mode prevRef={prevRef} nextRef={nextRef} />
+        <ArticlesScrollArrow
+          mode
+          prevRef={prevRef}
+          nextRef={nextRef}
+          numerSlide={BGSPACE.length}
+        />
       </Swiper>
     </>
   );

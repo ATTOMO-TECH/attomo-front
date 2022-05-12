@@ -57,8 +57,8 @@ export const Share = {
   Button: tw.div<Props>`
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
-      ? 'w-4/6 h-auto delay-300 duration-300 ease-in-out opacity-100 fixed top-96 left-0 z-90'
-      : 'w-0 overflow-hidden opacity-0 fixed -left-10  delay-300 duration-300 ease-in-out'}
+      ? 'w-4/6 h-auto delay-300 duration-300 ease-in-out opacity-100 fixed top-96 left-0'
+      : 'w-0 overflow-hidden opacity-0 fixed -left-10  delay-100 duration-300 ease-in-out'}
 `,
   Items: tw.ul`absolute w-auto z-90 top-0 bg-primary p-5 shadow-lg shadow-indigo-500/50 `,
   ItemValue: tw.li`w-auto px-1 cursor-pointer hover:opacity-50 py-2`,

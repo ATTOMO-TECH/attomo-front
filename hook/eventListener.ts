@@ -16,6 +16,12 @@ export const handleFocusClass = (
 export const handleClickTouch = (link: string) => {
   document.location.href = link;
 };
+export const handleExternalTouch = (link: string) => {
+  const a = document.createElement('a');
+  a.target = '_blank';
+  a.href = link;
+  a.click();
+};
 
 export const useEventListener = (
   getElement: string,

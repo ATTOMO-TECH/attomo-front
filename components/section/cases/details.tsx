@@ -3,12 +3,20 @@ import gfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import IconAnimate from '../../button/icon';
 import { Container, Details } from './style';
+import {
+  useEventListener,
+  handleExternalTouch,
+} from '../../../hook/eventListener';
 
 interface Props {
   data: any;
   translate: any;
 }
 export default function DetailsCases({ data, translate }: Props) {
+  useEventListener('Link-Details', 'touchstart', () =>
+    handleExternalTouch(data.attributes.projectUrl),
+  );
+
   return (
     <>
       <Details.Section>
@@ -18,7 +26,7 @@ export default function DetailsCases({ data, translate }: Props) {
               {translate.Disciplines}
             </Details.TitleSpeciality>
             {data.attributes.disciplines.data.map((disciplines: any) => (
-              <Details.SubTextSpeciality>
+              <Details.SubTextSpeciality key={disciplines.attributes.name}>
                 {disciplines.attributes.name}
               </Details.SubTextSpeciality>
             ))}
@@ -28,7 +36,7 @@ export default function DetailsCases({ data, translate }: Props) {
               {translate.Deliverables}
             </Details.TitleSpeciality>
             {data.attributes.deliverables.data.map((disciplines: any) => (
-              <Details.SubTextSpeciality>
+              <Details.SubTextSpeciality key={disciplines.attributes.name}>
                 {disciplines.attributes.name}
               </Details.SubTextSpeciality>
             ))}
@@ -39,14 +47,17 @@ export default function DetailsCases({ data, translate }: Props) {
             {data.attributes.workDescription}
           </Container>
           {data.attributes.projectUrl !== '' && (
-            <Link href={data.attributes.projectUrl || '/'} passHref>
-              <a
-                href={data.attributes.projectUrl}
-                target="_blank"
-                rel="noreferrer">
-                <IconAnimate text={translate.seeOnline} mode={false} />
-              </a>
-            </Link>
+            <div className="w-48">
+              <Link href={data.attributes.projectUrl || '/'} passHref>
+                <a
+                  id="Link-Details"
+                  href={data.attributes.projectUrl}
+                  target="_blank"
+                  rel="noreferrer">
+                  <IconAnimate text={translate.seeOnline} mode={false} />
+                </a>
+              </Link>
+            </div>
           )}
         </Details.SectionContainer>
         <Details.SectionText>

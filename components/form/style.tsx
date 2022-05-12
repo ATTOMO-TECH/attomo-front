@@ -37,7 +37,6 @@ export const CheckRadio = styled.input`
     margin-right: 10px;
     opacity: 0.5;
   }
-
   &:checked {
     content: url(/icon/isoAttomo.svg);
     width: 2px;
