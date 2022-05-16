@@ -42,7 +42,7 @@ export default function FormReserver() {
     [valuePhone]: '',
     [valueEmail]: '',
     [valueDate]: '',
-    [valueTime]: selected,
+    [valueTime]: 0,
     [FORMVALUES.CONDITIONS]: false,
   };
 
@@ -57,7 +57,7 @@ export default function FormReserver() {
       [FORMVALUES.COMPANY]: dataValues.company,
       [FORMVALUES.CONDITIONS]: dataValues.conditionsAccepted,
       [FORMVALUES.DATE]: dataValues.date,
-      [FORMVALUES.TIME]: selected,
+      [FORMVALUES.TIME]: dataValues.numberOfHours,
     };
 
     mutate(
@@ -79,7 +79,9 @@ export default function FormReserver() {
         <>
           {translate.formBooking.map((values) => (
             <>
-              <Title size=" lg:pt-36 w-full text-center pt-24 leading-relaxed lg:pr-10 lg:text-4xl pb-2 text-3xl ">
+              <Title
+                size=" lg:pt-36 w-full text-center pt-24 leading-relaxed lg:pr-10 lg:text-4xl pb-2 text-3xl "
+                key={values.Text}>
                 {values.Text}
               </Title>
               <Subtext size=" text-center py-5  ">{values.Subtext}</Subtext>
@@ -141,8 +143,11 @@ export default function FormReserver() {
                   </Styles.SectionInputs>
                   <Styles.BlockInputsCenter>
                     <Styles.BlockInput>
-                      <div className="pt-7 lg:pt-0">
+                      <div
+                        className="pt-7 lg:pt-0 py-2"
+                        onTouchStart={() => handleFocus(FORMVALUES.DATE)}>
                         <CalendarPickerInput
+                          id={FORMVALUES.DATE}
                           handleValue={(e: any) => {
                             setFieldValue(FORMVALUES.DATE, e);
                           }}
@@ -150,13 +155,16 @@ export default function FormReserver() {
                       </div>
                     </Styles.BlockInput>
                     <Styles.BlockInput>
-                      <div className="pt-5 lg:pt-0">
+                      <div className="pt-5 lg:pt-0 py-2">
                         <InputSelect
                           selected={selected}
                           options={OPTIONDISPONIBILITY}
                           valueLabel={translate.formTime}
                           name={FORMVALUES.TIME}
                           onChange={onChange}
+                          handleValue={(e: any) => {
+                            setFieldValue(FORMVALUES.TIME, e);
+                          }}
                         />
                       </div>
                     </Styles.BlockInput>

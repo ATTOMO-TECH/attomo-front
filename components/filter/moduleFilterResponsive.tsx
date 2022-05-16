@@ -78,6 +78,13 @@ export default function ModulelFilterResponsive({
             name={selectedTopic}
             onChange={onChangeTopic}
           />
+
+          {/* <select sear name="Dptos" id={'dpto'} className='w-full py-2.5' onTouchStart={()=>  handleFocus('dpto')}>
+          <option value="">Todos los servicios</option>
+          {DEPARTMENT.map((dpto:any) => (
+            <option value={dpto.label}>{dpto.value}</option>
+          ))}
+          </select> */}
         </Filter.BlockItemMed>
         <Filter.BlockItemMobile>
           <Subtext size=" text-xs font-Primary text-left font-light">

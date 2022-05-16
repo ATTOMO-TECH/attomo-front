@@ -9,6 +9,8 @@
 @import 'swiper/css/pagination';
 @import 'swiper/css/autoplay';
 @import 'swiper/css/lazy';
+@import 'react-nice-dates/build/style.css';
+@import 'react-responsive-select/dist/react-responsive-select.css';
 
 body {
   touch-action: manipulation !important;
@@ -55,10 +57,10 @@ input[type='week'],
 select:focus,
 ::placeholder,
 textarea {
+  -webkit-appearance: none !important;
   font-weight: 300 !important;
   color: gray !important;
   border-radius: 0% !important;
-  -webkit-appearance: none;
   font-size: 16px !important;
 }
 
@@ -222,6 +224,15 @@ input[type='text'] {
   bottom: 10%;
   right: 2%;
 }
+
+.nice-dates::after {
+  content: url(../public/icon/calendar.svg);
+  fill: white;
+  position: absolute;
+  bottom: 10%;
+  right: 2%;
+}
+
 #trend .react-datepicker__input-container::after {
   display: none !important;
 }
@@ -275,4 +286,54 @@ input[type='text'] {
 
 #reserve:focus {
   opacity: 1 !important;
+}
+
+.nice-dates-popover {
+  filter: invert(1);
+  box-shadow: none;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  max-width: 80%;
+}
+.rrs__button {
+  background: transparent !important;
+  outline: none !important;
+}
+.rrs__label {
+  padding: 0 10px 0 5px !important;
+  outline: none !important;
+  border: 0px !important;
+  border-radius: 0px !important;
+}
+.rrs .caret-icon {
+  fill: #e3e3e3 !important;
+}
+.rrs--has-changed .rrs__label {
+  color: #d1d5db80 !important;
+  font-weight: 300 !important;
+}
+#rrs-numberOfHours-menu {
+  filter: invert(1) !important;
+}
+.rrs__option {
+  opacity: 0.4;
+}
+
+.rrs__option--selected,
+.rrs__option.rrs__option--next-selection {
+  opacity: 1 !important;
+  color: black !important;
+}
+.rrs__option:hover {
+  color: black !important;
+  opacity: 1 !important;
+}
+
+#rrs-form-field-name-label {
+  opacity: 1;
+  color: #d1d5db;
+  -webkit-appearance: none !important;
+  font-weight: 300 !important;
+  border-radius: 0% !important;
+  font-size: 16px !important;
 }

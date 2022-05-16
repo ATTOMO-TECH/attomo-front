@@ -389,130 +389,130 @@ export const FORMPARTOF: {
   { id: 2, text: 'Colaborar como partner', value: CONDITIONFORM.PARTNER },
 ];
 export const DEPARTMENT: {
-  label: string;
+  text: string;
   value: string;
 }[] = [
   {
-    label: 'Product Design',
+    text: 'Product Design',
     value: 'PM',
   },
   {
-    label: 'UX / UI',
+    text: 'UX / UI',
     value: 'UXUI',
   },
   {
-    label: 'Diseño gráfico',
+    text: 'Diseño gráfico',
     value: 'GraphicDesing',
   },
   {
-    label: 'Ilustración',
+    text: 'Ilustración',
     value: 'Illustration',
   },
   {
-    label: 'Marketing digital',
+    text: 'Marketing digital',
     value: 'MK',
   },
   {
-    label: 'Estrategia',
+    text: 'Estrategia',
     value: 'Strategy',
   },
   {
-    label: 'Fotografía',
+    text: 'Fotografía',
     value: 'Photo',
   },
   {
-    label: 'CRM',
+    text: 'CRM',
     value: 'CRM',
   },
   {
-    label: 'ERP',
+    text: 'ERP',
     value: 'ERP',
   },
   {
-    label: 'Front-end',
+    text: 'Front-end',
     value: 'Front-end',
   },
   {
-    label: 'Back-end',
+    text: 'Back-end',
     value: 'Back-end',
   },
   {
-    label: 'Cloud Ops',
+    text: 'Cloud Ops',
     value: 'Cloud',
   },
 ];
 export const DATE: {
-  label: string;
+  text: string;
   value: string;
 }[] = [
   {
-    label: 'Última semana',
+    text: 'Última semana',
     value: 'PM',
   },
   {
-    label: 'Último mes',
+    text: 'Último mes',
     value: 'UXUI',
   },
   {
-    label: 'Último año',
+    text: 'Último año',
     value: 'GraphicDesing',
   },
   {
-    label: 'Fecha específica',
+    text: 'Fecha específica',
     value: 'GraphicDesing',
   },
 ];
 
 export const DEPARTMENTS: {
-  label: string;
+  text: string;
   value: string;
 }[] = [
   {
-    label: 'Productora',
+    text: 'Productora',
     value: 'PM',
   },
   {
-    label: 'Agencia de Marketing digital',
+    text: 'Agencia de Marketing digital',
     value: 'UXUI',
   },
   {
-    label: 'Desarrollo de software',
+    text: 'Desarrollo de software',
     value: 'GraphicDesing',
   },
   {
-    label: 'Especialidad ',
+    text: 'Especialidad ',
     value: 'Illustration',
   },
   {
-    label: 'Especialidad 5',
+    text: 'Especialidad 5',
     value: 'MK',
   },
   {
-    label: 'Especialidad 6',
+    text: 'Especialidad 6',
     value: 'Strategy',
   },
   {
-    label: 'Fotografía',
+    text: 'Fotografía',
     value: 'Photo',
   },
   {
-    label: 'CRM',
+    text: 'CRM',
     value: 'CRM',
   },
   {
-    label: 'ERP',
+    text: 'ERP',
     value: 'ERP',
   },
   {
-    label: 'Front-end',
+    text: 'Front-end',
     value: 'Front-end',
   },
   {
-    label: 'Back-end',
+    text: 'Back-end',
     value: 'Back-end',
   },
   {
-    label: 'Cloud Ops',
+    text: 'Cloud Ops',
     value: 'Cloud',
   },
 ];
@@ -564,63 +564,63 @@ export const BGSPACE: {
 ];
 
 export const OPTIONSTIME = [
-  { value: '0:00', label: '0:00' },
-  { value: '0:30', label: '0:30' },
-  { value: '1:00', label: '1:00' },
-  { value: '1:30', label: '1:30' },
-  { value: '2:00', label: '2:00' },
-  { value: '2:30', label: '2:30' },
-  { value: '3:00', label: '3:00' },
-  { value: '3:30', label: '3:30' },
-  { value: '4:00', label: '4:00' },
-  { value: '4:30', label: '4:30' },
-  { value: '5:00', label: '5:00' },
-  { value: '5:30', label: '5:30' },
-  { value: '6:00', label: '6:00' },
-  { value: '6:30', label: '6:30' },
-  { value: '7:00', label: '7:00' },
-  { value: '7:30', label: '7:30' },
-  { value: '8:00', label: '8:00' },
-  { value: '8:30', label: '8:30' },
-  { value: '9:00', label: '9:00' },
-  { value: '9:30', label: '9:30' },
-  { value: '10:00', label: '10:00' },
-  { value: '10:30', label: '10:30' },
-  { value: '11:00', label: '11:00' },
-  { value: '11:30', label: '11:30' },
-  { value: '12:00', label: '12:00' },
-  { value: '12:30 ', label: '12:30' },
-  { value: '13:00', label: '13:00' },
-  { value: '13:30 ', label: '13:30' },
-  { value: '14:00', label: '14:00' },
-  { value: '14:30', label: '14:30' },
-  { value: '15:00', label: '15:00' },
-  { value: '15:30', label: '15:30' },
-  { value: '16:00', label: '16:00' },
-  { value: '16:30', label: '16:30' },
-  { value: '17:00', label: '17:00' },
-  { value: '17:30', label: '17:30' },
-  { value: '18:00', label: '18:00' },
-  { value: '18:30', label: '18:30' },
-  { value: '19:00', label: '19:00' },
-  { value: '19:30', label: '19:30' },
-  { value: '20:00', label: '20:00' },
-  { value: '20:30', label: '20:30' },
-  { value: '21:00', label: '21:00' },
-  { value: '21:30', label: '21:30' },
-  { value: '22:00', label: '22:00' },
-  { value: '22:30', label: '22:30' },
-  { value: '23:00', label: '23:00' },
-  { value: '23:30', label: '23:30' },
+  { value: '0:00', text: '0:00' },
+  { value: '0:30', text: '0:30' },
+  { value: '1:00', text: '1:00' },
+  { value: '1:30', text: '1:30' },
+  { value: '2:00', text: '2:00' },
+  { value: '2:30', text: '2:30' },
+  { value: '3:00', text: '3:00' },
+  { value: '3:30', text: '3:30' },
+  { value: '4:00', text: '4:00' },
+  { value: '4:30', text: '4:30' },
+  { value: '5:00', text: '5:00' },
+  { value: '5:30', text: '5:30' },
+  { value: '6:00', text: '6:00' },
+  { value: '6:30', text: '6:30' },
+  { value: '7:00', text: '7:00' },
+  { value: '7:30', text: '7:30' },
+  { value: '8:00', text: '8:00' },
+  { value: '8:30', text: '8:30' },
+  { value: '9:00', text: '9:00' },
+  { value: '9:30', text: '9:30' },
+  { value: '10:00', text: '10:00' },
+  { value: '10:30', text: '10:30' },
+  { value: '11:00', text: '11:00' },
+  { value: '11:30', text: '11:30' },
+  { value: '12:00', text: '12:00' },
+  { value: '12:30 ', text: '12:30' },
+  { value: '13:00', text: '13:00' },
+  { value: '13:30 ', text: '13:30' },
+  { value: '14:00', text: '14:00' },
+  { value: '14:30', text: '14:30' },
+  { value: '15:00', text: '15:00' },
+  { value: '15:30', text: '15:30' },
+  { value: '16:00', text: '16:00' },
+  { value: '16:30', text: '16:30' },
+  { value: '17:00', text: '17:00' },
+  { value: '17:30', text: '17:30' },
+  { value: '18:00', text: '18:00' },
+  { value: '18:30', text: '18:30' },
+  { value: '19:00', text: '19:00' },
+  { value: '19:30', text: '19:30' },
+  { value: '20:00', text: '20:00' },
+  { value: '20:30', text: '20:30' },
+  { value: '21:00', text: '21:00' },
+  { value: '21:30', text: '21:30' },
+  { value: '22:00', text: '22:00' },
+  { value: '22:30', text: '22:30' },
+  { value: '23:00', text: '23:00' },
+  { value: '23:30', text: '23:30' },
 ];
 export const OPTIONDISPONIBILITY = [
-  { value: 30, label: '30 min' },
-  { value: 1, label: '1 Hora' },
-  { value: 2, label: '2 Horas' },
-  { value: 3, label: '3 Horas' },
-  { value: 4, label: '4 Horas' },
-  { value: 5, label: '5 Horas' },
-  { value: 6, label: '6 Horas' },
-  { value: 7, label: '7 Horas' },
-  { value: 8, label: '8 Horas' },
+  { value: 30, text: '30 min' },
+  { value: 1, text: '1 Hora' },
+  { value: 2, text: '2 Horas' },
+  { value: 3, text: '3 Horas' },
+  { value: 4, text: '4 Horas' },
+  { value: 5, text: '5 Horas' },
+  { value: 6, text: '6 Horas' },
+  { value: 7, text: '7 Horas' },
+  { value: 8, text: '8 Horas' },
 ];

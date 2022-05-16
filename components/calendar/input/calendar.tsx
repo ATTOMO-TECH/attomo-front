@@ -1,38 +1,53 @@
 import es from 'date-fns/locale/es';
-import DatePicker from 'react-datepicker';
+import { DatePicker } from 'react-nice-dates';
 import { useState } from 'react';
 import { getLocale } from '../../../public/locales/getLocale';
 import { BlockDiv } from './styles';
+import { handleFocus } from '../../../hook/eventListener';
 
 interface Props {
   handleValue: (value: any) => void;
+  id: any;
 }
 
-export default function CalendarPickerInput({ handleValue }: Props) {
-  const [startDate, setStartDate] = useState<Date>();
-  const [checked, setCheked] = useState<boolean>(false);
-  const translate = getLocale();
-  const handleDateChangeRaw = (e: any) => {
-    e.preventDefault();
-  };
+export default function CalendarPickerInput({ handleValue, id }: Props) {
+  const [dateValue, setDate] = useState();
 
+  const translate = getLocale();
   return (
-    <BlockDiv active={checked}>
+    <BlockDiv
+      active={!(dateValue === undefined || null)}
+      id={id}
+      className="relative"
+      autoCorrect="off"
+      onTouchStart={() => {
+        handleFocus('reserve');
+      }}>
       <DatePicker
-        className="outline-none font-PrimarySerif font-thin text-regular text-gray-300 opacity-50 hover:opacity-70 h-full w-full py-3"
-        id="reserve"
-        onChangeRaw={() => handleDateChangeRaw}
-        placeholderText={translate.SelectDate}
-        dateFormat="dd/MM/yyyy"
+        minimumDate={new Date()}
+        format="dd/MM/yyyy"
+        date={dateValue}
         locale={es}
-        autoComplete="off"
-        selected={startDate}
-        onChange={(date: Date) => {
-          setStartDate(date);
+        onDateChange={(date: any) => {
           handleValue(date);
-          setCheked(true);
-        }}
-      />
+          setDate(date);
+        }}>
+        {({ inputProps, focused }) => (
+          <input
+            autoComplete="off"
+            className={
+              dateValue === undefined || null
+                ? 'inputDate outline-none  text-sm font-light text-gray-300 h-full w-full py-3 opacity-50 hover:opacity-80  '
+                : `inputDate outline-none  text-sm font-light text-gray-300 h-full w-full py-3 opacity-80${
+                    focused ? ' -focused' : ''
+                  }`
+            }
+            {...inputProps}
+            placeholder={translate.SelectDate}
+            id="reserve"
+          />
+        )}
+      </DatePicker>
     </BlockDiv>
   );
 }
