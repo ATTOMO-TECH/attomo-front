@@ -18,6 +18,10 @@ body {
   pointer-events: all;
 }
 
+.noAction {
+  touch-action: none !important;
+  -ms-touch-action: none !important;
+}
 .textDegrade {
   background: linear-gradient(
     90deg,
@@ -312,9 +316,12 @@ input[type='text'] {
   color: #d1d5db80 !important;
   font-weight: 300 !important;
 }
-#rrs-numberOfHours-menu {
+.rrs__options {
   filter: invert(1) !important;
 }
+/* .rrs--options-visible .rrs__options{
+  max-height: max-content!important
+} */
 .rrs__option {
   opacity: 0.4;
 }

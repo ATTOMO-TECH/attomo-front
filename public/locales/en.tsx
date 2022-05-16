@@ -184,6 +184,8 @@ export default {
   Topic: 'Topic',
   whereUs: 'Where to find us',
   SelectDate: 'Choose date',
+  FromDate: 'From',
+  ToDate: 'To',
   Disciplines: 'Disciplinas',
   Deliverables: ' Deliverables',
   spaceAttomo: [

@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { Filter } from './style';
-import CalendarPickerRangeInput from '../calendar/input/calendaRangeInput';
+import { getLocale } from '../../public/locales/getLocale';
+import CalendarPickerInput from '../calendar/input/calendarRange';
 import Subtext from '../Text/subText';
 import Title from '../Text/title';
 import { useUseAllSubServices } from '../../domain/useServices';
-import SelectFilterMenu from './selectedFilterMenu';
 import { handleFocus } from '../../hook/eventListener';
+import InputSelect from '../form/select';
 
 interface Props {
-  setDate: any;
   setTopic: any;
   setSearch: any;
   locale: any;
@@ -16,10 +16,11 @@ interface Props {
   endDateModal: any;
   topicModal: any;
   searchModal: any;
+  setStartDateModal: any;
+  setEndDateModal: any;
 }
 
 export default function ModulelFilterResponsive({
-  setDate,
   setTopic,
   startDateModal,
   endDateModal,
@@ -27,7 +28,10 @@ export default function ModulelFilterResponsive({
   searchModal,
   locale,
   setSearch,
+  setStartDateModal,
+  setEndDateModal,
 }: Props) {
+  const translate = getLocale();
   const { data: Subservice, isLoading } = useUseAllSubServices(locale || 'es');
   const [selectedTopic, setSelectedTopic] = useState(topicModal);
 
@@ -35,13 +39,13 @@ export default function ModulelFilterResponsive({
     return <></>;
   }
   const DEPARTMENT = Subservice.data.map((values: any) => ({
-    label: values.attributes.name,
+    text: values.attributes.name,
     value: values.attributes.name,
   }));
 
   const onChangeTopic = (e: any) => {
-    setSelectedTopic(e.value);
-    setTopic(e.value);
+    setSelectedTopic(e);
+    setTopic(e);
   };
 
   return (
@@ -69,30 +73,28 @@ export default function ModulelFilterResponsive({
           <Subtext size=" text-xs font-Primary text-left font-light">
             Servicios
           </Subtext>
-          <SelectFilterMenu
+          <InputSelect
             selected={selectedTopic}
             options={DEPARTMENT}
             valueLabel={
-              selectedTopic === '' ? 'Todos los servicios' : selectedTopic
+              selectedTopic === '' ? `${translate.allServices}` : selectedTopic
             }
-            name={selectedTopic}
+            name="filter"
             onChange={onChangeTopic}
+            handleValue={setSelectedTopic}
           />
-
-          {/* <select sear name="Dptos" id={'dpto'} className='w-full py-2.5' onTouchStart={()=>  handleFocus('dpto')}>
-          <option value="">Todos los servicios</option>
-          {DEPARTMENT.map((dpto:any) => (
-            <option value={dpto.label}>{dpto.value}</option>
-          ))}
-          </select> */}
         </Filter.BlockItemMed>
         <Filter.BlockItemMobile>
           <Subtext size=" text-xs font-Primary text-left font-light">
             Fecha
           </Subtext>
-          <CalendarPickerRangeInput
-            setDate={setDate}
-            dateRangeProp={[startDateModal, endDateModal]}
+          <CalendarPickerInput
+            placeholderFrom={translate.FromDate}
+            placeholderTo={translate.ToDate}
+            setStartDateFilter={setStartDateModal}
+            setEndDateFilter={setEndDateModal}
+            startDate={startDateModal}
+            endDate={endDateModal}
           />
         </Filter.BlockItemMobile>
       </Filter.SectionMobile>

@@ -64,9 +64,6 @@ function Cases() {
     setStartDate(dateValue[0]);
     setEndDate(dateValue[1]);
   };
-  const handleTopic = (topicValue: string) => {
-    setTopic(topicValue);
-  };
 
   const getFilters = () => {
     let filters = {};
@@ -173,7 +170,7 @@ function Cases() {
               isOpenFilter={isOpenFilter}
               toggle={toggleFilter}
               setDate={handleDate}
-              setTopic={handleTopic}
+              setTopic={setTopic}
               setSearch={setSearch}
               startDate={startDate}
               endDate={endDate}

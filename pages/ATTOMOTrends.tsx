@@ -20,7 +20,8 @@ import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 import Subtext from '../components/Text/subText';
 import CalendarPickerInputRange from '../components/calendar/input/calendarRange';
-import SelectFilterMenu from '../components/filter/selectedFilterMenu';
+// import SelectFilterMenu from '../components/filter/selectedFilterMenu';
+import InputSelect from '../components/form/select';
 import { Metadata } from '../components/head/metadata';
 import { useAScreen } from '../domain/useScreensMetadata';
 
@@ -44,8 +45,8 @@ function News() {
     MENU_SCREENS.TRENDS,
     locale || 'es',
   );
-  const [startDate, setStartDateFilter] = useState<any>();
-  const [endDate, setEndDateFilter] = useState<any>();
+  const [startDate, setStartDateFilter] = useState<any>('');
+  const [endDate, setEndDateFilter] = useState<any>('');
   const [preData, setPreData] = useState<any[]>([]);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -54,7 +55,7 @@ function News() {
   };
 
   const onChangeTopic = (e: any) => {
-    setFilter(e.value);
+    setFilter(e);
   };
   const handleAddBlog = (value: number) => {
     setPage(value);
@@ -151,9 +152,10 @@ function News() {
     );
   }
   const DEPARTMENT = Tags?.data.map((values: any) => ({
-    label: values.attributes.name,
+    text: values.attributes.name,
     value: values.attributes.name,
   }));
+
   const handleChangeReset = () => {
     setFilter('');
     setStartDateFilter(null);
@@ -194,16 +196,19 @@ function News() {
             <Subtext size="text-lg py-4 ">{translate.trendsFilter}</Subtext>
           </Styles.SectionFilter>
           <Styles.SelectFilter>
-            <SelectFilterMenu
+            <InputSelect
               selected={filter}
               options={DEPARTMENT}
               valueLabel={filter === '' ? `${translate.allServices}` : filter}
-              name={filter}
+              name="filter"
               onChange={onChangeTopic}
+              handleValue={setFilter}
             />
           </Styles.SelectFilter>
           <Styles.SelectFilterNM>
             <CalendarPickerInputRange
+              placeholderFrom={translate.FromDate}
+              placeholderTo={translate.ToDate}
               setStartDateFilter={setStartDateFilter}
               setEndDateFilter={setEndDateFilter}
               startDate={startDate}

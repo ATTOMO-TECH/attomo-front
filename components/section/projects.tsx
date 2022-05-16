@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -5,7 +6,6 @@ import IconAnimate from '../button/icon';
 import Title from '../Text/title';
 import { Styles } from './style';
 import { getLocale } from '../../public/locales/getLocale';
-import { handleClickTouch, useEventListener } from '../../hook/eventListener';
 
 interface Props {
   data: any;
@@ -19,17 +19,7 @@ export default function SectionProjects({
   servicesAnimations,
 }: Props) {
   const translate = getLocale();
-
-  data?.map((values: any) =>
-    useEventListener(`casos-${values.id}`, 'touchstart', () =>
-      handleClickTouch(`/casos/${values.id}`),
-    ),
-  );
-  data?.map((values: any) =>
-    useEventListener(`link-${values.id}`, 'touchstart', () =>
-      handleClickTouch(`/casos/${values.id}`),
-    ),
-  );
+  const router = useRouter();
 
   return (
     <>
@@ -52,6 +42,7 @@ export default function SectionProjects({
               key={values.Client}>
               <Link href={`/casos/${values.id}`}>
                 <Styles.BlockSection
+                  onTouchStart={() => router.push(`/casos/${values.id}`)}
                   ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
                   {values?.attributes?.mainPhoto?.data[0].attributes?.url && (
                     <img
@@ -86,7 +77,8 @@ export default function SectionProjects({
                   </Title>
 
                   <Link href={`/casos/${values.id}`} passHref>
-                    <Styles.BlockBtn id={`link-${values.id}`}>
+                    <Styles.BlockBtn
+                      onTouchStart={() => router.push(`/casos/${values.id}`)}>
                       <IconAnimate text={translate.seeMoreProject} mode />
                     </Styles.BlockBtn>
                   </Link>
