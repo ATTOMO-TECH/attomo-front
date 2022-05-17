@@ -1,51 +1,75 @@
 import es from 'date-fns/locale/es';
-import DatePicker from 'react-datepicker';
-import { handleFocus, handleFocusClass } from '../../../hook/eventListener';
-import { getLocale } from '../../../public/locales/getLocale';
+import { DateRangePicker } from 'react-nice-dates';
+import { handleFocus } from '../../../hook/eventListener';
+import { BlockDiv } from './styles';
 
 interface Props {
-  setStartDateFilter: (dateStart: any) => void;
-  setEndDateFilter: (dateEnd: any) => void;
+  setStartDateFilter: any;
+  setEndDateFilter: any;
   startDate: any;
   endDate: any;
+  placeholderFrom: string;
+  placeholderTo: string;
 }
 
-export default function CalendarPickerInputRange({
+export default function CalendarPickerInput({
   setStartDateFilter,
   setEndDateFilter,
   startDate,
   endDate,
+  placeholderFrom,
+  placeholderTo,
 }: Props) {
-  const onChange = (dates: any) => {
-    const [start, end] = dates;
-    setStartDateFilter(start);
-    setEndDateFilter(end);
-  };
-  const translate = getLocale();
-
   return (
-    <>
-      <div
-        id="trend"
-        onTouchStart={() => {
-          handleFocus('reserve');
-          handleFocusClass('react-datepicker', onChange);
-        }}>
-        <DatePicker
-          id="reserve"
-          name="reserve"
-          selected={startDate}
-          onChange={onChange}
+    <BlockDiv
+      active={startDate !== null && startDate !== ''}
+      className="relative"
+      autoCorrect="off"
+      onTouchEnd={() => {
+        handleFocus('reserveForm');
+      }}>
+      <form id="reserveForm">
+        <DateRangePicker
+          key="reserve"
+          format="dd/MM/yyyy"
           startDate={startDate}
           endDate={endDate}
-          selectsRange
-          showDisabledMonthNavigation
-          placeholderText={translate.SelectDate}
-          dateFormat="dd/MM/yyyy"
-          locale={es}
-          className="outline-none text-opacity-0 pl-1 h-full w-full py-2  bg-none touch-manipulation"
-        />
-      </div>
-    </>
+          onStartDateChange={setStartDateFilter}
+          onEndDateChange={setEndDateFilter}
+          locale={es}>
+          {({ startDateInputProps, endDateInputProps, focus }) => (
+            <div className="date-range flex items-center">
+              <input
+                onTouchEnd={() => {
+                  handleFocus('reserve');
+                }}
+                id="reserve"
+                className={`input  w-3/6  outline-none inputDate   text-sm font-light text-gray-300 h-full  py-3 opacity-50 hover:opacity-80${
+                  focus ? ' -focused' : ''
+                }`}
+                {...startDateInputProps}
+                placeholder={placeholderFrom}
+                autoComplete="off"
+              />
+
+              <div className="w-3 h-0.5 border-b mx-5 " />
+
+              <input
+                onTouchStart={() => {
+                  handleFocus('reserve2');
+                }}
+                autoComplete="off"
+                id="reserve2"
+                className={`input w-3/6   outline-none inputDate   text-sm font-light text-gray-300 h-full  py-3 opacity-50 hover:opacity-80${
+                  focus ? ' -focused' : ''
+                }`}
+                {...endDateInputProps}
+                placeholder={placeholderTo}
+              />
+            </div>
+          )}
+        </DateRangePicker>
+      </form>
+    </BlockDiv>
   );
 }

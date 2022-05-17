@@ -33,7 +33,7 @@ export default function Work({ works }: Props) {
               </Subtext>
             </div>
 
-            <div className="w-4/12 md:w-1/6 mr-auto md:m-auto">
+            <div className="w-4/12 md:w-1/6 ml-4 m-auto ">
               <Link href={`https://${value.attributes.url}`} passHref>
                 <a
                   href={`https://${value.attributes.url}`}

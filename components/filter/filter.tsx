@@ -37,10 +37,7 @@ export default function ModalFilter({
   const [endDateModal, setEndDateModal] = useState<any>(endDate);
   const [topicModal, setTopicModal] = useState<any>(topic);
   const [searchModal, setSearchModal] = useState(search);
-  const handleDateModal = (dateValue: any) => {
-    setStartDateModal(dateValue[0]);
-    setEndDateModal(dateValue[1]);
-  };
+
   const handleSearch = () => {
     setDate([startDateModal, endDateModal]);
     setTopic(topicModal);
@@ -64,7 +61,7 @@ export default function ModalFilter({
         <div
           className={
             width < 768
-              ? 'w-full justify-center overflow-y-auto'
+              ? 'w-full justify-center '
               : 'h-4/6 justify-center flex items-center'
           }>
           <Filter.AlinItems ismode={BUTTON_ACTIVE.OFF}>
@@ -120,24 +117,26 @@ export default function ModalFilter({
           <Filter.BlockFilterItems>
             {width < 768 ? (
               <ModulelFilterResponsive
-                setDate={handleDateModal}
                 setTopic={setTopicModal}
                 setSearch={setSearchModal}
                 locale={locale}
-                startDateModal={startDateModal}
                 endDateModal={endDateModal}
                 topicModal={topicModal}
                 searchModal={searchModal}
+                setStartDateModal={setStartDateModal}
+                setEndDateModal={setEndDateModal}
+                startDateModal={startDateModal}
               />
             ) : (
               <ModulelFilter
-                setDate={handleDateModal}
                 setTopic={setTopicModal}
                 setSearch={setSearchModal}
                 startDateModal={startDateModal}
                 endDateModal={endDateModal}
                 topicModal={topicModal}
                 searchModal={searchModal}
+                setStartDateModal={setStartDateModal}
+                setEndDateModal={setEndDateModal}
               />
             )}
           </Filter.BlockFilterItems>

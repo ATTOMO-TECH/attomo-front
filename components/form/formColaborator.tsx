@@ -309,7 +309,7 @@ export default function FormColaborator() {
                     onClick={() => handleSubmit()}
                     type="submit"
                     ismode={
-                      !isValid && dirty ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF
+                      !(isValid && dirty) ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF
                     }>
                     {translate.formSend}
                   </Styles.BtnSend>

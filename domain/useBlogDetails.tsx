@@ -15,6 +15,7 @@ const getAllPostFeatured = async (query: any) => {
   const { data } = await get(POST.FETCH_ALL_FEATURED(query));
   return data;
 };
+
 const getPostId = async (id: number) => {
   const { data } = await get(POST.FETCH_ID(id));
   return data;

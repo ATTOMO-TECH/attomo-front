@@ -64,9 +64,6 @@ function Cases() {
     setStartDate(dateValue[0]);
     setEndDate(dateValue[1]);
   };
-  const handleTopic = (topicValue: string) => {
-    setTopic(topicValue);
-  };
 
   const getFilters = () => {
     let filters = {};
@@ -132,6 +129,7 @@ function Cases() {
   const { data, isLoading } = useUseAllCases(locale || 'es', queryQs);
 
   const [isLoadingFirst, setIsLoading] = useState<boolean>(true);
+
   useEffect(() => {
     if (data) {
       setIsLoading(false);
@@ -165,14 +163,14 @@ function Cases() {
     <>
       <Metadata screen={screen} />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
-        <Background />
+        {!isOpenFilter && <Background />}
         <div className="z-100">
           {isOpenFilter && (
             <ModalFilter
               isOpenFilter={isOpenFilter}
               toggle={toggleFilter}
               setDate={handleDate}
-              setTopic={handleTopic}
+              setTopic={setTopic}
               setSearch={setSearch}
               startDate={startDate}
               endDate={endDate}
@@ -181,11 +179,15 @@ function Cases() {
               locale={locale}
             />
           )}
-          {!isOpenFilter && <Menu isOpen={isOpen} toggle={toggle} logo mode />}
-          <Styles.Margin>
-            {!isOpenFilter && <Nav toggle={toggle} logo mode isOpen={isOpen} />}
-          </Styles.Margin>
-          {!isOpenFilter && <ButtonShare />}
+          {!isOpenFilter && (
+            <>
+              <Menu isOpen={isOpen} toggle={toggle} logo mode />
+              <Styles.Margin>
+                <Nav toggle={toggle} logo mode isOpen={isOpen} />
+              </Styles.Margin>
+              <ButtonShare />
+            </>
+          )}
           <HeroCase
             OpenMenu={isOpen}
             toggle={toggleFilter}

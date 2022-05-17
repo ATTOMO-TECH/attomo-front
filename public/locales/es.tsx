@@ -185,6 +185,8 @@ export default {
   Services: 'Servicios',
   Topic: 'Tématica',
   SelectDate: 'Selecciona fecha',
+  FromDate: 'Desde',
+  ToDate: 'Hasta',
   Disciplines: 'Disciplinas',
   Deliverables: ' Entregables',
 

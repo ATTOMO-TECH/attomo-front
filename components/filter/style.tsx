@@ -64,7 +64,7 @@ export const Filter = {
   SecondItem: tw.div`w-3/6`,
   BlockSecondFilter: tw.div`w-8/12 pt-12 flex items-center justify-between m-auto`,
   // MOBILE
-  SectionMobile: tw.div`w-8/12 m-auto`,
+  SectionMobile: tw.div`w-8/12 m-auto `,
   TitleFilter: tw.h5`text-white text-left font-Primary`,
   BlockItemMobile: tw.div`py-10`,
   SelectResponsive: tw(Select)`appearance-none w-full`,

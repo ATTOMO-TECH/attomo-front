@@ -275,7 +275,7 @@ export const Styles = {
       ? 'opacity-20 cursor-auto'
       : 'opacity-90 cursor-pointer'} `,
   SectionRenderForm: tw.section`my-12`,
-  Form: tw(Form)`lg:w-4/6 m-auto`,
+  Form: tw(Form)`lg:w-4/6 m-auto touch-enabled`,
   SectionInputs: tw.div`grid grid-cols-2 gap-6  m-auto`,
   BlockInput: tw.div`col-span-2 lg:col-span-1 relative`,
   BlockInputOnly: tw.div`col-span-2 lg:col-span-2 relative`,
@@ -286,7 +286,7 @@ export const Styles = {
   BlockClose: tw(Input)``,
   Input: tw(
     Field,
-  )<Props>`pl-1 outline-none w-full bg-transparent border-b border-primary py-2 font-PrimarySerif font-light text-gray-300 opacity-40 focus:opacity-100 hover:opacity-100 ease-out duration-200
+  )<Props>`pl-1 outline-none w-full bg-transparent border-b border-primary py-2 font-light text-gray-300 opacity-40 focus:opacity-100 hover:opacity-100 ease-out duration-200
 ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
 `,
   InputDate: tw(

@@ -46,7 +46,7 @@ export default function ArticlesScroll({ mode, filter, id }: Props) {
   useEffect(() => {
     setMyNext(nextRef.current);
     setMyPrev(prevRef.current);
-  }, [data]);
+  }, []);
 
   if (isLoading) {
     return (

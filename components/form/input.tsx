@@ -131,6 +131,7 @@ export default function FormReserver() {
                     <Styles.BlockInput>
                       <div className="pt-7 lg:pt-0">
                         <CalendarPickerInput
+                          id={FORMVALUES.DATE}
                           handleValue={(e: any) => {
                             setFieldValue(FORMVALUES.DATE, e);
                           }}
@@ -140,6 +141,9 @@ export default function FormReserver() {
                     <Styles.BlockInput>
                       <div className="pt-5 lg:pt-0">
                         <InputSelect
+                          handleValue={(e: any) => {
+                            setFieldValue(FORMVALUES.TIME, e);
+                          }}
                           selected={selected}
                           options={OPTIONDISPONIBILITY}
                           valueLabel={translate.formTime}

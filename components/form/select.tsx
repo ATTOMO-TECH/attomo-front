@@ -1,9 +1,11 @@
-import Select from 'react-select';
+import { Select, CaretIcon, ModalCloseButton } from 'react-responsive-select';
+import { BlockDiv } from '../calendar/input/styles';
 
 type Props = {
-  options: any[];
+  options: any;
   valueLabel: string;
   name: string;
+  handleValue: any;
   onChange?: any;
   selected: any;
 };
@@ -11,86 +13,26 @@ type Props = {
 export default function InputSelect({
   options,
   valueLabel,
-  name,
+  handleValue,
   onChange,
   selected,
+  name,
 }: Props) {
-  const customStyles = (value: string) => ({
-    placeholder: (base: any) => ({
-      ...base,
-      color: 'white',
-    }),
-    option: (base: any, state: any) => ({
-      ...base,
-      color: state.isSelected ? 'black' : 'white',
-      padding: 10,
-      backgroundColor: state.isSelected ? 'white' : 'black',
-      border: 0,
-      boxShadow: 0,
-      outline: 0,
-      autoComplete: 'off',
-    }),
-    control: (base: any, state: any) => ({
-      ...base,
-      boxShadow: 'none',
-      background: 'none',
-      border: 0,
-      borderBottom: state.isSelected ? '1px solid white' : '1px solid black',
-      borderRadius: '0%',
-      color: 'white',
-      opacity: state.isSelected ? '0.7' : '1',
-
-      '&': {
-        borderBottom: state.isFocused ? '1px solid white' : '1px solid #6F6D70',
-      },
-      ':hover': {
-        borderBottom: '1px solid white',
-      },
-      ':focus': {
-        background: 'none',
-        color: 'white',
-      },
-    }),
-    menu: (base: any) => ({
-      ...base,
-      border: 'none',
-      boxShadow: 'none',
-      background: 'none',
-      color: 'white',
-    }),
-    dropdownIndicator: (base: any, state: any) => ({
-      ...base,
-      transition: 'all .2s ease',
-      transform: state.isFocused ? 'rotate(180deg)' : null,
-      color: 'white',
-    }),
-    singleValue: (base: any, state: any) => ({
-      ...base,
-      color: 'white',
-      opacity: state.isSelected ? '1' : '0.4',
-    }),
-    value,
-  });
-
-  const displayItem = (Selected: any) => {
-    const item = options.find((x) => x.value === Selected);
-    return item || { value: '', label: `${valueLabel}` };
-  };
-
   return (
     <>
-      <Select
-        // isSearchable={false}
-        components={{ IndicatorSeparator: () => null }}
-        name={name}
-        options={options}
-        styles={customStyles(selected)}
-        onChange={onChange}
-        value={displayItem(selected)}
-        className="w-full  lg:py-2.5 py-4  font-PrimarySerif font-thin text-regular text-gray-300 cursor-pointer"
-        placeholder="30M"
-        defaultValue={{ value: '30M', label: '30 min' }}
-      />
+      <BlockDiv active={selected !== ''} className="relative">
+        <Select
+          name={name}
+          modalCloseButton={<ModalCloseButton />}
+          options={options}
+          caretIcon={<CaretIcon />}
+          noSelectionLabel={valueLabel}
+          onChange={(newValue: any) => {
+            onChange(newValue.value);
+            handleValue(newValue.value);
+          }}
+        />
+      </BlockDiv>
     </>
   );
 }

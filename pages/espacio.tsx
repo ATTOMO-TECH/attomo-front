@@ -67,7 +67,7 @@ function Space() {
         <Styles.Center>
           <Styles.ScreenWS>
             {translate.spaceAttomo.map((services) => (
-              <Styles.BlockDiv>
+              <Styles.BlockDiv key={services.Text}>
                 <Title size="lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl">
                   {services.Text}
                 </Title>
@@ -83,6 +83,7 @@ function Space() {
           <Styles.BlockSelected>
             {translate.bookingAttomo.map((values) => (
               <SelectedClients
+                key={values.Text}
                 text={values.Subtext}
                 btn={values.Button}
                 link="/espacio#reserva"

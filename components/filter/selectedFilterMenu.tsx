@@ -74,33 +74,23 @@ export default function SelectFilterMenu({
     return item || { value: `${valueLabel}`, label: `${valueLabel}` };
   };
 
-  function touchHandler(e: any) {
-    // e.preventDefault();
-    // e.stopPropagation();
-    handleFocus(e.target.id);
-
-    document.addEventListener('touchstart', touchHandler, true);
-  }
-  useEventListener('selectedSelect', 'touchstart', (e: any) => touchHandler(e));
+  useEventListener('selectedSelect', 'touchend', () =>
+    handleFocus('react-select-5-input'),
+  );
 
   return (
-    <div
-      onTouchStart={() => {
-        handleFocus('react-select-5-input');
-      }}>
-      <Select
-        components={{ IndicatorSeparator: () => null }}
-        name={name}
-        id="selectedSelect"
-        isSearchable={false}
-        options={options}
-        styles={customStyles(selected)}
-        onChange={onChange}
-        value={displayItem(selected)}
-        className="outline-none font-PrimarySerif font-thin text-gray-300 h-full w-full py-2  text-sm bg-none text-left"
-        placeholder="Selecciona una opción"
-        defaultValue={{ value: '30M', label: '30 min' }}
-      />
-    </div>
+    <Select
+      components={{ IndicatorSeparator: () => null }}
+      name={name}
+      id="selectedSelect"
+      isSearchable={false}
+      options={options}
+      styles={customStyles(selected)}
+      onChange={onChange}
+      value={displayItem(selected)}
+      className="outline-none font-PrimarySerif font-thin text-gray-300 h-full w-full py-2  text-sm bg-none text-left"
+      placeholder="Selecciona una opción"
+      defaultValue={{ value: '30M', label: '30 min' }}
+    />
   );
 }
