@@ -208,7 +208,7 @@ export const Styles = {
 
   // FilterAT
   SectionFilter: tw.div`w-full lg:w-2/12 `,
-  SelectFilter: tw.div`w-8/12 lg:w-2/12  `,
+  SelectFilter: tw.button`w-8/12 lg:w-2/12  `,
   SelectFilterNM: tw.div`w-8/12 lg:w-3/12 lg:ml-4 `,
   BlockUs: tw.div`lg:w-8/12 m-auto flex flex-wrap lg:pt-24`,
   Screen: tw.div`h-screen mb-48 justify-between`,
@@ -252,6 +252,14 @@ export const Styles = {
   ${(props) => (props.mode === BUTTON_ACTIVE.ON ? 'opacity-100' : 'opacity-50')}
 `,
   SpaceCollapse: tw.div`lg:py-48 overflow-hidden`,
+
+  // ACTIVESELECT
+  FilterSelectActive: tw.div<Props>`
+  lg:w-10/12 w-full cursor-pointer text-gray-300 font-light border-b text-left py-4 transition duration-300 ease-in-out
+  ${(props) =>
+    props.mode === BUTTON_ACTIVE.ON ? ' opacity-30' : ' opacity-70'}
+  
+  `,
   // SUBMENU
   SubMenuBlock: tw.div`w-full lg:w-10/12 m-auto flex flex-wrap`,
   ButtonSubMenu: tw.button`font-PrimarySerif text-md uppercase py-1 font-light text-xl lg:text-md`,

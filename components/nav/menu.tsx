@@ -26,7 +26,10 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
   };
   const router = useRouter();
   const handleBtn = (value: string) => {
-    router.push(router.pathname, router.pathname, { locale: value });
+    router.push(router.asPath, router.asPath, { locale: value });
+    setTimeout(() => {
+      router.reload();
+    }, 200);
   };
   const [width] = useDeviceSize();
   useEffect(() => {

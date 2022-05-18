@@ -133,7 +133,7 @@ function DetailsServices() {
                   />
                 ))}
               </Styles.BlockRenderDetails>
-              {!isOpenFilter && (
+              {!isOpenFilter && !isOpen && (
                 <Styles.BlockFilter
                   onClick={toggleFilter}
                   onTouchStart={toggleFilter}>

@@ -50,7 +50,7 @@ export default function ModulelFilterResponsive({
 
   return (
     <>
-      <Filter.SectionMobile>
+      <Filter.SectionMobile id="MobileFilterCases">
         <Title size="text-md text-left pb-0 ">Filtrar por</Title>
         <Filter.BlockItemMobile>
           <Subtext size=" text-xs font-Primary text-left font-light">

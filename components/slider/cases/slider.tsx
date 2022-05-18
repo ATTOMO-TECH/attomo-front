@@ -98,6 +98,7 @@ export default function CasesScroll({ mode, filter, id }: Props) {
                     {articles.attributes.name}
                   </StylesArticle.TopicText>
                   <StylesArticle.TextBlog
+                    onTouchStart={() => router.push(`/casos/${articles.id}`)}
                     ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
                     {articles.attributes.title}
                   </StylesArticle.TextBlog>

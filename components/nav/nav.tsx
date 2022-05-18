@@ -27,7 +27,10 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
   const router = useRouter();
 
   const handleBtn = (value: string) => {
-    router.push(router.pathname, router.pathname, { locale: value });
+    router.push(router, router, { locale: value });
+    setTimeout(() => {
+      router.reload();
+    }, 200);
   };
 
   useEventListener('backToHome', 'touchstart', () => handleClickTouch('/'));

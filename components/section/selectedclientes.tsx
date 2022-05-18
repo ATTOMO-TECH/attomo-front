@@ -28,7 +28,7 @@ export default function SelectedClients({
           <SubSections.BlockCounter>
             <Link href={`${link}`}>
               <SubSections.BlockBtn id={textPrimary}>
-                <Title size="text-2xl md:text-3xl lg:text-4xl font-light  lg:pl-12 cursor-pointer ">
+                <Title size="text-2xl md:text-3xl lg:text-4xl font-light w-4/6  lg:pl-12 cursor-pointer ">
                   {textPrimary}
                 </Title>
               </SubSections.BlockBtn>
@@ -36,7 +36,7 @@ export default function SelectedClients({
           </SubSections.BlockCounter>
 
           <SubSections.TextSubsectionSelected>
-            <div className="lg:w-4/6  w-full">
+            <div className="lg:w-4/6 w-full">
               <SubSections.Title> {text}</SubSections.Title>
               <Link href={`${link}`}>
                 <SubSections.BlockBtn id={text}>

@@ -58,7 +58,7 @@ export default function FilterDetails({
                 />
               </Link>
             </Navegation.ItemsMenu>
-            <Navegation.ItemsMenu onClick={toggle}>
+            <Navegation.ItemsMenu onClick={toggle} onTouchStart={toggle}>
               <Navegation.TextMenu
                 ismode=""
                 theme={mode === true ? lightTheme : darkTheme}

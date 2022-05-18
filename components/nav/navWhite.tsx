@@ -31,7 +31,10 @@ export default function Nav({ toggle, logo, mode, isOpen, bgFull }: Props) {
   };
   const router = useRouter();
   const handleBtn = (value: string) => {
-    router.push(router.pathname, router.pathname, { locale: value });
+    router.push(router.asPath, router.asPath, { locale: value });
+    setTimeout(() => {
+      router.reload();
+    }, 200);
   };
 
   return (
@@ -85,6 +88,7 @@ export default function Nav({ toggle, logo, mode, isOpen, bgFull }: Props) {
               <Navegation.ButtonSelect
                 ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
                 onClick={() => handleBtn('es')}
+                onTouchStart={() => handleBtn('es')}
                 type="button">
                 ES
               </Navegation.ButtonSelect>
@@ -95,6 +99,7 @@ export default function Nav({ toggle, logo, mode, isOpen, bgFull }: Props) {
               <Navegation.ButtonSelect
                 ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
                 onClick={() => handleBtn('en')}
+                onTouchStart={() => handleBtn('en')}
                 type="button">
                 EN
               </Navegation.ButtonSelect>

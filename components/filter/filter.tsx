@@ -133,7 +133,6 @@ export default function ModalFilter({
                 setSearch={setSearchModal}
                 startDateModal={startDateModal}
                 endDateModal={endDateModal}
-                topicModal={topicModal}
                 searchModal={searchModal}
                 setStartDateModal={setStartDateModal}
                 setEndDateModal={setEndDateModal}
@@ -144,6 +143,12 @@ export default function ModalFilter({
         <Filter.BlockSendButton>
           <Filter.BtnSend
             type="submit"
+            isactive={
+              endDateModal || topicModal || searchModal
+                ? BUTTON_ACTIVE.ON
+                : BUTTON_ACTIVE.OFF
+            }
+            disabled={!(endDateModal || topicModal || searchModal)}
             onClick={handleSearch}
             onTouchStart={handleSearch}>
             Buscar
