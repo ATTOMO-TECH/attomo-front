@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import * as qs from 'qs';
 import { useRouter } from 'next/router';
-import { format } from 'date-fns';
 import Background from '../components/animations/background';
 import BlockSection from '../components/block/block';
 import BlockBlog from '../components/blog/blog';
@@ -24,6 +23,7 @@ import CalendarPickerInputRange from '../components/calendar/input/calendarRange
 import InputSelect from '../components/form/select';
 import { Metadata } from '../components/head/metadata';
 import { useAScreen } from '../domain/useScreensMetadata';
+import { formatDateFilter } from '../hook/date';
 
 function News() {
   const router = useRouter();
@@ -45,8 +45,8 @@ function News() {
     MENU_SCREENS.TRENDS,
     locale || 'es',
   );
-  const [startDate, setStartDateFilter] = useState<any>('');
-  const [endDate, setEndDateFilter] = useState<any>('');
+  const [startDate, setStartDateFilter] = useState<Date>();
+  const [endDate, setEndDateFilter] = useState<Date>();
   const [preData, setPreData] = useState<any[]>([]);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -92,13 +92,12 @@ function News() {
           $and: [
             {
               createdAt: {
-                $gte:
-                  startDate !== null ? format(startDate, 'yyyy-MM-dd') : null,
+                $gte: startDate !== null ? formatDateFilter(startDate) : null,
               },
             },
             {
               createdAt: {
-                $lte: endDate !== null ? format(endDate, 'yyyy-MM-dd') : null,
+                $lte: endDate !== null ? formatDateFilter(endDate) : null,
               },
             },
           ],
@@ -110,7 +109,7 @@ function News() {
         filters: {
           ...queryObject.filters,
           createdAt: {
-            $gte: startDate !== null ? format(startDate, 'yyyy-MM-dd') : null,
+            $gte: startDate !== null ? formatDateFilter(startDate) : null,
           },
         },
       };
@@ -120,7 +119,7 @@ function News() {
         filters: {
           ...queryObject.filters,
           createdAt: {
-            $lte: endDate !== null ? format(endDate, 'yyyy-MM-dd') : null,
+            $lte: endDate !== null ? formatDateFilter(endDate) : null,
           },
         },
       };
@@ -158,8 +157,8 @@ function News() {
 
   const handleChangeReset = () => {
     setFilter('');
-    setStartDateFilter(null);
-    setEndDateFilter(null);
+    setStartDateFilter(undefined);
+    setEndDateFilter(undefined);
   };
   const change: boolean = !!startDate || !!endDate || !!filter;
 

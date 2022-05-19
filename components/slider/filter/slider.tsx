@@ -39,10 +39,10 @@ export default function FilterScrollTouch({ setTopic }: Props) {
         mousewheel
         pagination={false}
         modules={[Pagination, Keyboard, Navigation, Mousewheel, A11y]}
-        className="mySwiper h-48 w-full filter ">
+        className="mySwiper h-48 w-full filter slide-mask cursor-grab overflow-hidden">
         {Subservice.data.map((values: any, i: number) => (
           <SwiperSlide
-            className="font-Primary text-white text-left cursor-pointer"
+            className="font-Primary text-white text-left cursor-grab"
             key={`${values.attributes.name}`}>
             <FilterScrollTouchCards values={values} iDx={i} />
           </SwiperSlide>

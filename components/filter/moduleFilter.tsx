@@ -3,6 +3,7 @@ import FilterScroll from '../slider/filter/slider';
 import { Filter } from './style';
 import { getLocale } from '../../public/locales/getLocale';
 import CalendarPickerInput from '../calendar/input/calendarRange';
+import { handleFocus } from '../../hook/eventListener';
 
 interface Props {
   setTopic: any;
@@ -35,9 +36,13 @@ export default function ModulelFilter({
         <Filter.InputSearch
           type="text"
           placeholder="Buscar"
+          id="search"
           value={searchModal}
           onChange={(e: any) => {
             setSearch(e.target.value);
+          }}
+          onTouchStart={() => {
+            handleFocus('search');
           }}
         />
         <Filter.FirtsItemFilter>

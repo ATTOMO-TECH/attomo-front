@@ -12,7 +12,7 @@ export default function ListUs() {
           {translate.titleValuesUr}
         </Subtext>
         {translate.valuesUs.map((values) => (
-          <UsStyles.BlockSubsection>
+          <UsStyles.BlockSubsection key={values.Text}>
             <Subtext size="lg:text-3xl text-2xl w-full py-5 lg:py-10 pt-12  ">
               {values.Text}
             </Subtext>

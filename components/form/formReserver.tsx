@@ -78,14 +78,14 @@ export default function FormReserver() {
       {!sendSuccesfull ? (
         <>
           {translate.formBooking.map((values) => (
-            <>
+            <div key={values.Text}>
               <Title
                 size=" lg:pt-36 w-full text-center pt-24 leading-relaxed lg:pr-10 lg:text-4xl pb-2 text-3xl "
                 key={values.Text}>
                 {values.Text}
               </Title>
               <Subtext size=" text-center py-5  ">{values.Subtext}</Subtext>
-            </>
+            </div>
           ))}
           <Formik
             onSubmit={handleSubmitReserve}

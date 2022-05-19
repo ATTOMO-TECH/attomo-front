@@ -43,7 +43,7 @@ export default function BlockFilter({
         }}
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: '50%' }}>
-        <Styles.SelectFilterCases id="filter">
+        <Styles.SelectFilterCases>
           <Styles.SectionFilter>
             <Subtext size="text-lg lg:py-4 ">{translate.CasesFilter}</Subtext>
           </Styles.SectionFilter>

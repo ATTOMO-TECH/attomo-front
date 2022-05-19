@@ -1,8 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import 'rmc-picker/assets/index.css';
-@import 'react-datepicker/dist/react-datepicker.css';
 @import 'react-circular-progressbar/dist/styles.css';
 @import 'swiper/css';
 @import 'swiper/css/navigation';
@@ -128,29 +126,6 @@ input[data-autocompleted] {
   opacity: 0 !important;
 }
 
-.rmc-picker-mask {
-  background-image: linear-gradient(
-      to bottom,
-      rgb(0 0 0 / 100%),
-      rgb(0 0 0 / 63%)
-    ),
-    linear-gradient(to top, rgb(0 0 0 / 100%), rgb(0 0 0 / 63%)) !important;
-}
-.rmc-picker-indicator {
-  border: none !important;
-}
-
-.rmc-picker-item {
-  color: white !important;
-  font-size: 20px !important;
-  line-height: 32px !important;
-  font-family: 'Merriweather';
-  opacity: 0.8;
-}
-
-.rmc-picker-item-selected {
-  opacity: 1;
-}
 .btn {
   overflow: hidden;
 }
@@ -283,16 +258,28 @@ input[type='text'] {
 }
 
 .filter .swiper-slide {
-  opacity: 0.2;
+  opacity: 0.15;
 }
 .filter .swiper-slide-prev {
-  opacity: 0.5 !important;
+  opacity: 0.6 !important;
 }
 .filter .swiper-slide-next {
-  opacity: 0.5 !important;
+  opacity: 0.6 !important;
 }
 .filter .swiper-slide-active {
   opacity: 1 !important;
+}
+.slide-mask {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgb(255 255 255 / 70%),
+    rgba(0, 0, 0, 1)
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgbargb(255 255 255 / 70%),
+    rgba(0, 0, 0, 1)
+  );
 }
 
 @media screen and (max-width: 768px) {
