@@ -40,6 +40,8 @@ export default function HeroCase({
                       date={date}
                       topic={topic}
                       endDate={endDate}
+                      width={width}
+                      scroll={scroll}
                     />
 
                     <motion.svg
@@ -50,7 +52,8 @@ export default function HeroCase({
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                       transition={{ duration: 1, ease: 'easeInOut' }}
-                      onClick={handleChangeReset}>
+                      onClick={handleChangeReset}
+                      onTouchStart={handleChangeReset}>
                       <motion.path
                         d="M18 6L6 18"
                         stroke="white"

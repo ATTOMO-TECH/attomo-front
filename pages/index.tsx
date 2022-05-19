@@ -26,6 +26,7 @@ import { Metadata } from '../components/head/metadata';
 
 function Home() {
   const router = useRouter();
+  const translate = getLocale();
 
   let { locale } = router;
   if (locale === '/') {
@@ -83,7 +84,7 @@ function Home() {
       </>
     );
   }
-  const translate = getLocale();
+
   return (
     <>
       <Metadata screen={screen} />

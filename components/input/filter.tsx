@@ -1,6 +1,4 @@
 import { format } from 'date-fns';
-import { useEffect, useState } from 'react';
-import useDeviceSize from '../../hook/size';
 import { getLocale } from '../../public/locales/getLocale';
 import { Styles } from './styles';
 
@@ -9,24 +7,22 @@ interface Props {
   date: string;
   endDate: string;
   topic: string | any;
+  scroll: boolean;
+  width: number;
 }
-export default function Filter({ toggle, date, endDate, topic }: Props) {
-  const [scroll, setScroll] = useState(true);
-  useEffect(() => {
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 20) {
-        setScroll(false);
-      } else {
-        setScroll(true);
-      }
-    });
-  }, []);
-  const [width] = useDeviceSize();
+export default function Filter({
+  toggle,
+  date,
+  endDate,
+  topic,
+  scroll,
+  width,
+}: Props) {
   const translate = getLocale();
   return (
     <>
       {(scroll && width < 768) || scroll ? (
-        <Styles.BlockFilter onClick={toggle}>
+        <Styles.BlockFilter onClick={toggle} onTouchStart={toggle}>
           <Styles.FlexFilter>
             <Styles.TextFilter>{translate.CasesFilter}</Styles.TextFilter>
             <Styles.FirtsItem>

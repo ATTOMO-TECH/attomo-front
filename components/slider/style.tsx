@@ -76,9 +76,9 @@ export const StylesArticle = {
   BlockArrow: tw.div`flex w-full text-xl  justify-center lg:justify-end lg:pr-32 `,
   ArrowPrev: tw.div`cursor-pointer  lg:py-20 py-10 mr-5 `,
   ArrowNext: tw.div`cursor-pointer lg:py-20 py-10`,
-  Slide: tw(SelectedSlide)<Props>` 
+  Slide: tw(SelectedSlide)<Props>` cursor-grab
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : 'w-5/6 ')}`,
 
-  BlockSlider: tw.p`block w-full h-24`,
+  BlockSlider: tw.p`block w-full cursor-grab`,
   // ESPACIO
 };

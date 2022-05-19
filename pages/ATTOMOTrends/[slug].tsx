@@ -98,7 +98,6 @@ function New({ mode }: Props) {
             />
           ))}
         </Styles.Center>
-
         <Footer subFooter={false} />
       </Styles.Body>
     </>

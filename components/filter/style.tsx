@@ -65,7 +65,7 @@ export const Filter = {
   FirtsItemFilter: tw.div`w-8/12 flex items-center justify-between m-auto `,
   TextItemFilter: tw.div`lg:w-3/6 text-left`,
   ValueFilter: tw.h6`lg:text-xl text-white mb-2`,
-  SecondItem: tw.div`w-3/6`,
+  SecondItem: tw.div`w-3/6 `,
   BlockSecondFilter: tw.div`w-8/12 pt-12 flex items-center justify-between m-auto`,
   // MOBILE
   SectionMobile: tw.div`w-8/12 m-auto `,

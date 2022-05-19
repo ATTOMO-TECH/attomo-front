@@ -118,6 +118,7 @@ function DetailsServices() {
               <Styles.BlockRenderDetails>
                 {data.data.map((tab: any) => (
                   <SubMenu
+                    key={tab.attributes?.subservices?.data}
                     isOpen={
                       !menuId
                         ? tab.attributes?.subservices?.data?.some(
