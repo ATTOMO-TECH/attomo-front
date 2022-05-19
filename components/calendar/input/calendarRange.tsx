@@ -6,8 +6,8 @@ import { BlockDiv } from './styles';
 interface Props {
   setStartDateFilter: any;
   setEndDateFilter: any;
-  startDate: any;
-  endDate: any;
+  startDate: Date | undefined;
+  endDate: Date | undefined;
   placeholderFrom: string;
   placeholderTo: string;
 }
@@ -22,7 +22,7 @@ export default function CalendarPickerInput({
 }: Props) {
   return (
     <BlockDiv
-      active={startDate !== null && startDate !== ''}
+      active={startDate !== null && startDate !== undefined}
       className="relative"
       autoCorrect="off"
       onTouchEnd={() => {
@@ -31,7 +31,7 @@ export default function CalendarPickerInput({
       <form id="reserveForm">
         <DateRangePicker
           key="reserve"
-          format="dd/MM/yyyy"
+          format="dd MMM yyyy"
           startDate={startDate}
           endDate={endDate}
           onStartDateChange={setStartDateFilter}

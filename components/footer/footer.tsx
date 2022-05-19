@@ -78,9 +78,9 @@ export default function Footer({ subFooter }: Props) {
         <div className="relative ">{subFooter && <SubFooter />}</div>
         <Navegation.BlockSubText>
           <Link href="/privacidad">
-            <div id="privacy">
+            <a id="privacy" href="/privacidad">
               <Navegation.SubText>{translate.privacy}</Navegation.SubText>
-            </div>
+            </a>
           </Link>
           <Link href="/terminos" passHref>
             <a href="/terminos" id="term">
