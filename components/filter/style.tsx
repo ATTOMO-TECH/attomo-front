@@ -6,14 +6,18 @@ import { BUTTON_ACTIVE } from '../../const/const';
 
 type Props = {
   ismode: string;
+  isactive?: string;
 };
-export const BtnSend = styled.button`
-  &:hover {
+export const BtnSend = styled.button<Props>`
+  ${(props) =>
+    props.isactive === BUTTON_ACTIVE.ON
+      ? `
     -webkit-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
     -moz-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
     box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
     opacity: 1;
-  }
+`
+      : ''}
 `;
 export const Select = styled.select`
   option,
@@ -60,7 +64,7 @@ export const Filter = {
   InputSearch: tw.input`border-b border-primary bg-secundary text-primary w-full md:w-4/6 lg:font-Primary text-xl outline-none focus:opacity-100 opacity-50 ease-in-out duration-300 font-light outline-none font-PrimarySerif font-thin text-gray-300 h-full w-full py-2  text-sm lg:text-lg`,
   FirtsItemFilter: tw.div`w-8/12 flex items-center justify-between m-auto `,
   TextItemFilter: tw.div`lg:w-3/6 text-left`,
-  ValueFilter: tw.h6`lg:text-xl text-white`,
+  ValueFilter: tw.h6`lg:text-xl text-white mb-2`,
   SecondItem: tw.div`w-3/6`,
   BlockSecondFilter: tw.div`w-8/12 pt-12 flex items-center justify-between m-auto`,
   // MOBILE
@@ -74,5 +78,5 @@ export const Filter = {
   BlockSendButton: tw.div`flex justify-around pt-6`,
   BtnSend: tw(
     BtnSend,
-  )` ease-out inline-flex justify-center w-3/6 lg:w-3/12 duration-200 text-primary border-2 border-primary text-left lg:text-sm py-2 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none mr-5 `,
+  )` ease-out inline-flex justify-center w-3/6 lg:w-3/12 duration-200 text-primary border-2 border-primary text-left lg:text-sm py-2 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none mr-5`,
 };

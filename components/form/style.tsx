@@ -286,7 +286,8 @@ export const Styles = {
   BlockClose: tw(Input)``,
   Input: tw(
     Field,
-  )<Props>`pl-1 outline-none w-full bg-transparent border-b border-primary py-2 font-light text-gray-300 opacity-40 focus:opacity-100 hover:opacity-100 ease-out duration-200
+  )<Props>`pl-1 outline-none w-full bg-transparent border-b border-primary py-1 font-light text-gray-300 opacity-40 focus:opacity-100 hover:opacity-100 ease-out duration-200
+
 ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
 `,
   InputDate: tw(

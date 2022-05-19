@@ -141,6 +141,7 @@ function Home() {
                 initial={{ opacity: 0, y: '50%' }}>
                 {translate.selected.map((values) => (
                   <SelectedClients
+                    key={`SelectedClients${values.Title}`}
                     textPrimary={values.Section}
                     text={values.Title}
                     btn={values.Button}
@@ -173,7 +174,7 @@ function Home() {
             <Styles.Center>
               {translate.seeMore.map((values) => (
                 <BlockSection
-                  key={values.Link}
+                  key={`BlockSection${values.Text}`}
                   text=""
                   button=""
                   text2={values.Text}
@@ -203,7 +204,7 @@ function Home() {
           <Styles.Center>
             {translate.contact.map((values) => (
               <BlockSection
-                key={values.Link}
+                key={`BlockSection-${values.Text}`}
                 text={values.Text}
                 button={values.Link}
                 text2=""

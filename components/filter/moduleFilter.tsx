@@ -9,7 +9,6 @@ interface Props {
   setSearch: any;
   startDateModal: any;
   endDateModal: any;
-  topicModal: any;
   searchModal: any;
   setStartDateModal: any;
   setEndDateModal: any;
@@ -20,7 +19,6 @@ export default function ModulelFilter({
   setSearch,
   startDateModal,
   endDateModal,
-  topicModal,
   searchModal,
   setStartDateModal,
   setEndDateModal,
@@ -47,7 +45,7 @@ export default function ModulelFilter({
             <Filter.ValueFilter>Tématica</Filter.ValueFilter>
           </Filter.TextItemFilter>
           <Filter.SecondItem>
-            <FilterScroll setTopic={setTopic} initialValue={topicModal} />
+            <FilterScroll setTopic={setTopic} />
           </Filter.SecondItem>
         </Filter.FirtsItemFilter>
         <Filter.BlockSecondFilter>

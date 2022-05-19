@@ -1,16 +1,14 @@
 import router from 'next/router';
-import { useEffect, useState } from 'react';
-import Picker from 'rmc-picker';
+// eslint-disable-next-line import/no-unresolved
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Keyboard, Mousewheel, Navigation, A11y } from 'swiper';
 import { useUseAllSubServices } from '../../../domain/useServices';
-import RenderLoading from '../../loading/loading';
+import FilterScrollTouchCards from './cardSlide';
 
 interface Props {
   setTopic: (value: any) => void;
-  initialValue?: any;
 }
-
-export default function FilterScroll({ setTopic, initialValue = '' }: Props) {
-  const [value, setValue] = useState(initialValue);
+export default function FilterScrollTouch({ setTopic }: Props) {
   let { locale } = router;
   if (locale === '/') {
     locale = 'es';
@@ -18,36 +16,38 @@ export default function FilterScroll({ setTopic, initialValue = '' }: Props) {
 
   const { data: Subservice, isLoading } = useUseAllSubServices(locale || 'es');
 
-  useEffect(() => {
-    setTopic(value);
-  }, [value]);
   if (isLoading) {
-    return (
-      <>
-        <RenderLoading mode={false} />
-      </>
-    );
+    return <></>;
   }
+
   return (
     <>
-      <div className="cursor-grab">
-        <Picker
-          indicatorClassName="my-picker-indicator "
-          className="cursor-grab"
-          selectedValue={value}
-          onScrollChange={(e: any) => {
-            setValue(e);
-          }}>
-          {Subservice.data.map((values: any) => (
-            <Picker.Item
-              key={`${values.attributes.name}+${values.attributes.name}`}
-              className="my-picker-view-item text-left  text-white cursor-grab"
-              value={values.attributes.name}>
-              {values.attributes.name}
-            </Picker.Item>
-          ))}
-        </Picker>
-      </div>
+      <Swiper
+        slidesPerView={5.5}
+        direction="vertical"
+        centeredSlides
+        freeMode
+        slideToClickedSlide
+        grabCursor
+        onSlideChange={(e: any) => {
+          setTopic(Subservice.data[e.activeIndex].attributes.name);
+        }}
+        keyboard={{
+          enabled: true,
+          onlyInViewport: true,
+        }}
+        mousewheel
+        pagination={false}
+        modules={[Pagination, Keyboard, Navigation, Mousewheel, A11y]}
+        className="mySwiper h-48 w-full filter ">
+        {Subservice.data.map((values: any, i: number) => (
+          <SwiperSlide
+            className="font-Primary text-white text-left cursor-pointer"
+            key={`${values.attributes.name}`}>
+            <FilterScrollTouchCards values={values} iDx={i} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </>
   );
 }
