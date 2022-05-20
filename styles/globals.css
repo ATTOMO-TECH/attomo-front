@@ -11,11 +11,15 @@
 @import 'react-responsive-select/dist/react-responsive-select.css';
 
 body {
-  touch-action: manipulation !important;
-  -ms-touch-action: manipulation !important;
+  touch-action: pan-y !important;
+  -ms-touch-action: pan-y !important;
   pointer-events: all;
 }
 
+.touched {
+  touch-action: pan-y !important;
+  -ms-touch-action: pan-y !important;
+}
 .noAction {
   touch-action: none !important;
   -ms-touch-action: none !important;

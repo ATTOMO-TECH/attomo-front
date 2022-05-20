@@ -209,7 +209,7 @@ export const Styles = {
   // FilterAT
   SectionFilter: tw.div`w-full lg:w-2/12 `,
   SelectFilter: tw.button`w-8/12 lg:w-2/12  `,
-  SelectFilterNM: tw.div`w-8/12 lg:w-3/12 lg:ml-4 `,
+  SelectFilterNM: tw.div`w-8/12 lg:w-3/12 lg:ml-4 mt-4 lg:mt-0 `,
   BlockUs: tw.div`lg:w-8/12 m-auto flex flex-wrap lg:pt-24`,
   Screen: tw.div`h-screen mb-48 justify-between`,
   ScreenResponsive: tw.div`h-screen pt-24`,

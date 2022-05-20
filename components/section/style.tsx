@@ -33,7 +33,7 @@ export const textTitle = styled.div`
   text-fill-color: transparent;
 `;
 export const Styles = {
-  SectionProjects: tw.div`md:m-14 relative z-0`,
+  SectionProjects: tw.div`md:m-14 relative z-0 touched`,
   BlockSections: tw.div<Props>`
 
   ${(props) =>

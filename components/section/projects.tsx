@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useLongPress, LongPressDetectEvents } from 'use-long-press';
 import { BUTTON_ACTIVE } from '../../const/const';
 import IconAnimate from '../button/icon';
 import Title from '../Text/title';
@@ -21,12 +22,25 @@ export default function SectionProjects({
   const translate = getLocale();
   const router = useRouter();
 
+  const callback = (id: any) => {
+    router.push(`/casos/${id}`);
+  };
+
+  const bind = useLongPress((id: any) => callback(id.target.id), {
+    // eslint-disable-next-line
+    onFinish: () => {},
+    threshold: 200,
+    captureEvent: true,
+    cancelOnMovement: true,
+    detect: LongPressDetectEvents.BOTH,
+  });
+
   return (
     <>
       <Styles.SectionProjects>
         {data?.map((values: any, i: any) => (
           <motion.div
-            key={values.id}
+            key={`${values.Title}${values.id}`}
             animate={shouldShowActions}
             variants={servicesAnimations}
             className="actions"
@@ -39,17 +53,17 @@ export default function SectionProjects({
             initial={{ opacity: 0, x: '50%' }}>
             <Styles.BlockSections
               ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-              key={values.Client}>
+              key={values.Client}
+              {...bind()}>
               <Link href={`/casos/${values.id}`}>
                 <Styles.BlockSection
-                  onTouchStart={() => router.push(`/casos/${values.id}`)}
                   ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
                   {values?.attributes?.mainPhoto?.data[0].attributes?.url && (
                     <img
                       src={values?.attributes.mainPhoto.data[0].attributes.url}
                       width={800}
                       height={600}
-                      id={`casos-${values.id}`}
+                      id={`${values.id}`}
                       alt={values.attributes.name}
                       className="object-cover cursor-pointer"
                     />

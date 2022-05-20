@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useLongPress, LongPressDetectEvents } from 'use-long-press';
 import { Blogstyles } from './style';
 import Title from '../Text/title';
 import IconAnimate from '../button/icon';
@@ -36,6 +37,18 @@ export default function BlockBlog({ dataBlog }: Props) {
       },
     },
   };
+  const callback = (id: any) => {
+    router.push(`/ATTOMOTrends/${id}`);
+  };
+
+  const bind = useLongPress((id: any) => callback(id.target.id), {
+    // eslint-disable-next-line
+    onFinish: () => {},
+    threshold: 200,
+    captureEvent: true,
+    cancelOnMovement: true,
+    detect: LongPressDetectEvents.BOTH,
+  });
 
   return (
     <>
@@ -49,14 +62,14 @@ export default function BlockBlog({ dataBlog }: Props) {
           <motion.div variants={item}>
             <Blogstyles.Article>
               <Link href={`/ATTOMOTrends/${data.id}`}>
-                <Blogstyles.BlockImg
-                  onTouchStart={() => router.push(`/ATTOMOTrends/${data.id}`)}>
+                <Blogstyles.BlockImg {...bind()}>
                   {data.attributes?.coverImage?.data?.attributes?.url ? (
                     <img
                       src={data.attributes.coverImage.data.attributes?.url}
                       width={900}
                       height={700}
                       alt={data.attributes.name}
+                      id={`${data.id}`}
                     />
                   ) : null}
                 </Blogstyles.BlockImg>
