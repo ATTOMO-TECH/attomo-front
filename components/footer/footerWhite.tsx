@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { ICONNAV } from '../../const/constGlobal';
 import SubFooter from './subfooter';
 import { Navegation } from './style';
@@ -10,6 +11,8 @@ interface Props {
 }
 export default function Footer({ subFooter }: Props) {
   const translate = getLocale();
+  const router = useRouter();
+
   return (
     <>
       <Navegation.SectionFooterW>
@@ -18,7 +21,9 @@ export default function Footer({ subFooter }: Props) {
             <Navegation.NavFooter>
               <Navegation.TitleNav>ATTOMO</Navegation.TitleNav>
               {translate.menu.map((values) => (
-                <Navegation.ItemsMenu key={`footer${values.Value}`}>
+                <Navegation.ItemsMenu
+                  id={values.Value}
+                  onTouchStart={() => router.push(values.Url)}>
                   <Link href={values.Url} passHref>
                     {values.Value}
                   </Link>
@@ -32,7 +37,11 @@ export default function Footer({ subFooter }: Props) {
               {ICONNAV.map((values) => (
                 <Navegation.ListIcon key={`footer${values.Name}`}>
                   <Link href={values.Url}>
-                    <a target="_blank" href={values.Url} rel="noreferrer">
+                    <a
+                      target="_blank"
+                      href={values.Url}
+                      rel="noreferrer"
+                      onTouchStart={() => router.push(values.Url)}>
                       <img
                         src={values.Pic2}
                         width={25}
@@ -56,10 +65,17 @@ export default function Footer({ subFooter }: Props) {
         {subFooter ? <SubFooter /> : ''}
         <Navegation.BlockSubText>
           <Link href="/privacidad">
-            <Navegation.SubText>{translate.privacy}</Navegation.SubText>
+            <a
+              id="privacy"
+              href="/privacidad"
+              onTouchStart={() => router.push('/privacidad')}>
+              <Navegation.SubText>{translate.privacy}</Navegation.SubText>
+            </a>
           </Link>
-          <Link href="/terminos">
-            <Navegation.SubText>{translate.rightReserve}</Navegation.SubText>
+          <Link href="/terminos" passHref>
+            <a href="/terminos" onTouchStart={() => router.push('/terminos')}>
+              <Navegation.SubText>{translate.rightReserve}</Navegation.SubText>
+            </a>
           </Link>
         </Navegation.BlockSubText>
       </Navegation.SectionFooterW>

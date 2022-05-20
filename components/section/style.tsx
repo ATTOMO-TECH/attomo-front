@@ -33,7 +33,7 @@ export const textTitle = styled.div`
   text-fill-color: transparent;
 `;
 export const Styles = {
-  SectionProjects: tw.div`md:m-14 relative z-0 touched`,
+  SectionProjects: tw.div`lg:m-14 relative z-0 touched`,
   BlockSections: tw.div<Props>`
 
   ${(props) =>
@@ -53,14 +53,14 @@ export const Styles = {
       ? 'lg:w-3/6 w-11/12 ml-10 lg:ml-0 lg:-mr-12'
       : ''}`,
   BlockText: tw.div<Props>`
-   lg:ml-0   ml-8
+   lg:ml-0 
       ${(props) =>
         props.ismode === BUTTON_ACTIVE.ON
-          ? 'md:px-20 sm:px-5 lg:w-3/6 px-9 py-16 lg:py-0 lg:absolute lg:-bottom-20 lg:right-0 z-90 '
+          ? 'md:px-20  lg:w-3/6 px-9 py-16 w-full lg:py-0 lg:absolute lg:-bottom-20 lg:right-0 z-90 '
           : ''}
       ${(props) =>
         props.ismode === BUTTON_ACTIVE.OFF
-          ? 'md:px-20 sm:px-5 lg:w-3/6 px-12 py-16 lg:absolute lg:-bottom-32 lg:left-0 '
+          ? 'md:px-20 sm:px-5 lg:w-3/6 px-12 py-16 w-full lg:absolute lg:-bottom-32 lg:left-0 '
           : ''}`,
   OnlyProjectBlock: tw.div`md:pr-64 sm:px-5 lg:w-3/6 w-10/12 py-16  lg:py-0 lg:absolute lg:-bottom-10 lg:right-0`,
   BlockMargin: tw.div`lg:py-48 flex flex-col lg:flex-row w-full justify-justify-around`,

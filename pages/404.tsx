@@ -49,7 +49,9 @@ function Error() {
         </Styles.Margin>
         <Styles.Center>
           <Styles.BlockButtonLegal>
-            <Styles.BlockBack onClick={() => router.back()}>
+            <Styles.BlockBack
+              onClick={() => router.back()}
+              onTouchStart={() => router.back()}>
               <IconAnimate text={translate.back} mode />
             </Styles.BlockBack>
           </Styles.BlockButtonLegal>

@@ -53,11 +53,11 @@ export default function SectionProjects({
             initial={{ opacity: 0, x: '50%' }}>
             <Styles.BlockSections
               ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-              key={values.Client}
-              {...bind()}>
+              key={values.Client}>
               <Link href={`/casos/${values.id}`}>
                 <Styles.BlockSection
-                  ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+                  ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+                  {...bind()}>
                   {values?.attributes?.mainPhoto?.data[0].attributes?.url && (
                     <img
                       src={values?.attributes.mainPhoto.data[0].attributes.url}
@@ -86,7 +86,7 @@ export default function SectionProjects({
                   <Styles.Paragraph className="text-sm font-PrimarySerif uppercase">
                     {values.attributes.company}
                   </Styles.Paragraph>
-                  <Title size="lg:text-4xl md:text-2xl text-lg sm:w-96 w-80  py-3 leading-relaxed lg:leading-normal">
+                  <Title size="lg:text-4xl md:text-2xl text-xl sm:w-96 w-80  py-3 leading-relaxed lg:leading-normal">
                     {values.attributes.title}
                   </Title>
 
