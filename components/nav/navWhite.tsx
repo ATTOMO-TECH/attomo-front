@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { darkTheme, lightTheme, Navegation } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
+import { useEventListener, handleClickTouch } from '../../hook/eventListener';
 
 interface Props {
   toggle: () => void;
@@ -36,6 +37,7 @@ export default function Nav({ toggle, logo, mode, isOpen, bgFull }: Props) {
       router.reload();
     }, 200);
   };
+  useEventListener('backToHome', 'touchstart', () => handleClickTouch('/'));
 
   return (
     <>
@@ -47,42 +49,44 @@ export default function Nav({ toggle, logo, mode, isOpen, bgFull }: Props) {
         ismode={!scroll ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
         <Navegation.AlinItems
           ismode={logo ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-          <Navegation.ItemsMenu>
-            {logo ? (
-              <>
-                {mode ? (
+          <a href="/" id="backToHome">
+            <Navegation.ItemsMenu>
+              {logo ? (
+                <>
+                  {mode ? (
+                    <Link href="/">
+                      <img
+                        src="/icon/isoAttomo.svg"
+                        width={30}
+                        height={30}
+                        alt="Attomo"
+                      />
+                    </Link>
+                  ) : (
+                    <Link href="/">
+                      <img
+                        src="/icon/darkAttomo.svg"
+                        width={30}
+                        height={30}
+                        alt="Attomo"
+                      />
+                    </Link>
+                  )}
+                </>
+              ) : (
+                <>
                   <Link href="/">
                     <img
-                      src="/icon/isoAttomo.svg"
-                      width={30}
-                      height={30}
+                      src="/icon/attomo.svg"
+                      width={100}
+                      height={100}
                       alt="Attomo"
                     />
                   </Link>
-                ) : (
-                  <Link href="/">
-                    <img
-                      src="/icon/darkAttomo.svg"
-                      width={30}
-                      height={30}
-                      alt="Attomo"
-                    />
-                  </Link>
-                )}
-              </>
-            ) : (
-              <>
-                <Link href="/">
-                  <img
-                    src="/icon/attomo.svg"
-                    width={100}
-                    height={100}
-                    alt="Attomo"
-                  />
-                </Link>
-              </>
-            )}
-          </Navegation.ItemsMenu>
+                </>
+              )}
+            </Navegation.ItemsMenu>
+          </a>
           <Navegation.BlockLenguage>
             <Navegation.BlokSectionLenguage>
               <Navegation.ButtonSelect

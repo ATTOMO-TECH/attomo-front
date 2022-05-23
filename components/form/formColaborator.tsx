@@ -121,7 +121,7 @@ export default function FormColaborator() {
             dirty,
           }) => (
             <>
-              <Styles.Form onSubmit={handleSubmit}>
+              <Styles.Form onSubmit={handleSubmit} key="formColaborator">
                 <Subtext size="lg:text-sm w-full pb-10 font-PrimarySerif">
                   {translate.partOfTeam}
                 </Subtext>

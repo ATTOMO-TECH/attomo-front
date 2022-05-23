@@ -91,8 +91,24 @@ function Home() {
       <Background />
       <AnimateSharedLayout>
         <Styles.Body
+          onTouchStart={(e: any) =>
+            !e.cancelable
+              ? (e.preventDefault(),
+                {
+                  passive: true,
+                })
+              : null
+          }
+          onTouchEnd={(e: any) =>
+            !e.cancelable
+              ? (e.preventDefault(),
+                {
+                  passive: true,
+                })
+              : null
+          }
           mode={isOpen ? BUTTON_ACTIVE.ON : ''}
-          id="bg"
+          id="home"
           className="z-100">
           <Menu isOpen={isOpen} toggle={toggle} logo={false} mode />
           <Styles.Margin>

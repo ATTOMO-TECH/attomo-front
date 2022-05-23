@@ -9,9 +9,6 @@ import {
 } from '../../hook/eventListener';
 
 export default function ButtonShare() {
-  useEventListener('whatsappLink', 'touchstart', () =>
-    handleExternalTouch('https://api.whatsapp.com/send/?phone=34610516285'),
-  );
   const [scroll, setScroll] = useState(true);
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -22,6 +19,9 @@ export default function ButtonShare() {
       }
     });
   }, []);
+  useEventListener('whatsappLink', 'touchstart', () =>
+    handleExternalTouch('https://api.whatsapp.com/send/?phone=34610516285'),
+  );
   return (
     <>
       <Link href="https://api.whatsapp.com/send/?phone=34610516285">
