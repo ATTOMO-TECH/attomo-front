@@ -21,6 +21,7 @@ const DISCIPLINES = {
 };
 const CONTACT = {
   CREATE: () => getAbsolutePath('client-forms'),
+  CREATEKIT: () => 'https://formsubmit.co/6b90610a3b3c14b4c813ceed2702989f',
   CREATECOLABORATOR: () => getAbsolutePath('partner-forms'),
   CREATERESERVE: () => getAbsolutePath('space-forms'),
 };

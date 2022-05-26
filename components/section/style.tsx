@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 import { BUTTON_ACTIVE } from '../../const/const';
+import { BlurDiv, BtnSelect } from '../../styles/styles';
 
 type Props = {
   ismode: any;
@@ -97,4 +98,24 @@ export const UsStyles = {
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON ? `textDegrade  ` : 'bg-black '}
       `,
+};
+
+export const KitStyles = {
+  Section: tw.section`flex flex-wrap justify-between lg:pt-4 pb-5`,
+  BlockSubsection: tw.div``,
+
+  BlockSubsectionImgs: tw.div`lg:w-5/12 w-full flex items-center justify-between py-4`,
+  Block: tw.div`lg:w-5/12 pr-10 w-full`,
+  Title: tw(
+    textTitle,
+  )<Props>`lg:text-sm sm:text-lg  text-sm font-light font-regularm font-PrimarySerif  tracking-wide leading-8
+      ${(props) =>
+        props.ismode === BUTTON_ACTIVE.ON ? `textDegrade  ` : 'bg-black '}
+          `,
+  BlockSelectedSub: tw(
+    BtnSelect,
+  )`border-2 flex  border-primary text-left p-4 relative h-32 rounded-lg opacity-100 font-PrimarySerif font-thin shadow-none grid grid-cols-2 grid-flow-col gap-4 content-center place-items-center`,
+  BlurBlock: tw(
+    BlurDiv,
+  )` w-full h-full bg-secundary opacity-40  z-0 absolute bottom-0 left-0`,
 };
