@@ -82,7 +82,7 @@ function KitDigital() {
               <Styles.ScreenWS>
                 {translate.kitDigital.map((services) => (
                   <Styles.BlockDiv key={services.HeroText}>
-                    <Title size="lg:pr-10 w-4/12 lg:text-4xl md:text-3xl pb-2 text-2xl">
+                    <Title size="lg:pr-10 lg:w-4/12 lg:text-4xl md:text-3xl pb-2 text-2xl">
                       {services.HeroText}
                     </Title>
                     <Styles.FlexEnd>
