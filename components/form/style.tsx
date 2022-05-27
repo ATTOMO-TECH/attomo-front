@@ -276,6 +276,7 @@ export const Styles = {
       : 'opacity-90 cursor-pointer'} `,
   SectionRenderForm: tw.section`my-12`,
   Form: tw(Form)`lg:w-4/6 m-auto touch-enabled`,
+  FormKit: tw(Form)`lg:w-5/6 m-auto touch-enabled`,
   SectionInputs: tw.div`grid grid-cols-2 gap-6  m-auto`,
   BlockInput: tw.div`col-span-2 lg:col-span-1 relative`,
   BlockInputOnly: tw.div`col-span-2 lg:col-span-2 relative`,

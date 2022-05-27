@@ -14,6 +14,10 @@ export const SectionColor = styled.div`
 export const BlockDiv = styled.div`
   background-color: ${(props) => props.theme.bodyBg};
   animation: breathe 3.5s linear infinite;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+
   @keyframes breathe {
     0% {
       opacity: 0.4;
@@ -44,5 +48,4 @@ export const Loading = {
   Block: tw(
     SectionColor,
   )`text-primary w-full h-screen block  flex justify-center items-center`,
-  BlockStyle: tw(BlockDiv)`h-10 w-10 rounded-full animate-pulse`,
 };
