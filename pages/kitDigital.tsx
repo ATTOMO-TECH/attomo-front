@@ -59,6 +59,12 @@ function KitDigital() {
       </>
     );
   }
+  const scrollTo = (id: string) => {
+    const section = document.getElementById(id);
+    if (section !== null) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <>
@@ -66,8 +72,9 @@ function KitDigital() {
       <Background />
       <AnimateSharedLayout>
         <Styles.Body
+          style={{ scrollBehavior: 'smooth' }}
           mode={isOpen ? BUTTON_ACTIVE.ON : ''}
-          id="home"
+          id="kit"
           className="z-100">
           <Menu isOpen={isOpen} toggle={toggle} logo={false} mode />
           <Styles.Margin>
@@ -103,11 +110,20 @@ function KitDigital() {
                   }}
                   whileInView={{ opacity: 1, y: 0 }}
                   initial={{ opacity: 0, y: '50%' }}
-                  className="flex justify-center items-center actions mt-24 bottom-0">
-                  <Styles.BtnKit mode={BUTTON_ACTIVE.ON}>
-                    Qué es el Kit Digital
+                  className="flex flex-col lg:flex-row  justify-center items-center actions mt-24 bottom-0">
+                  <Styles.BtnKit
+                    mode={BUTTON_ACTIVE.ON}
+                    onClick={() => scrollTo('section-how-kit')}
+                    onTouchStart={() => scrollTo('section-how-kit')}>
+                    {translate.btnHow}
                   </Styles.BtnKit>
-                  <Styles.BtnKit>Solicitar Kit Digital</Styles.BtnKit>
+
+                  <Styles.BtnKit
+                    className="mt-5 lg:mt-0"
+                    onClick={() => scrollTo('form-kit')}
+                    onTouchStart={() => scrollTo('form-kit')}>
+                    {translate.btnForm}
+                  </Styles.BtnKit>
                 </motion.div>
               </Styles.Center>
             </Styles.SectionScreen>
@@ -126,51 +142,60 @@ function KitDigital() {
               <img src="/kit/logos-estado.png" alt="" />
             </motion.div>
           </div>
-          <div className="pt-24 w-8/12 text-center m-auto">
-            <Title size="lg:pr-10  lg:text-4xl md:text-3xl pb-2 text-2xl">
-              {translate.HeaderKit}
-            </Title>
-            {translate.programKit.map((values: { item: string }) => (
-              <Subtext size="text-justify lg:text-lg text-xl w-full  font-light pb-6">
-                {values.item}
-              </Subtext>
-            ))}
-            <Styles.BlockSelectedSub>
-              <h6 className="text-primary font-light text-justify text-sm p-4 ">
-                {translate.subText}
-              </h6>
-              <Styles.BlurBlock />
-            </Styles.BlockSelectedSub>
-          </div>
-          <div className="pt-24 w-8/12 text-center m-auto">
+          <Styles.BlockKits id="section-how-kit">
+            <div className="relative">
+              <Title size="lg:pr-10  lg:text-4xl md:text-3xl pb-2 text-2xl pb-12">
+                {translate.HeaderKit}
+              </Title>
+              {translate.programKit.map((values: { item: string }) => (
+                <Subtext size="text-justify  w-full  font-light pb-6">
+                  {values.item}
+                </Subtext>
+              ))}
+              <div className="relative ">
+                <Styles.BlockSelectedSub>
+                  <h6 className="text-primary font-light text-justify text-sm p-4 ">
+                    {translate.subText}
+                  </h6>
+                </Styles.BlockSelectedSub>
+                <Styles.BlurBlock />
+              </div>
+            </div>
+          </Styles.BlockKits>
+          <Styles.BlockKits>
             <Title size="lg:pr-10  lg:text-4xl md:text-3xl pb-12 text-2xl">
               {translate.kitTitlerequirements}
             </Title>
-            <Styles.BlockSelectedSub className="p-12">
-              {translate.kitRequirements.map((values) => (
-                <li className="  w-full  list-disc text-primary  text-justify  p-2 text-sm font-light font-PrimarySerif tracking-wide leading-loose">
-                  {values.item}
-                </li>
-              ))}
+            <div className="relative ">
+              <Styles.BlockSelectedSub className="p-12">
+                {translate.kitRequirements.map((values) => (
+                  <li className="w-full  list-disc text-primary  text-justify  p-2 text-sm font-light font-PrimarySerif tracking-wide leading-loose">
+                    {values.item}
+                  </li>
+                ))}
+              </Styles.BlockSelectedSub>
               <Styles.BlurBlock />
-            </Styles.BlockSelectedSub>
-          </div>
-          <div className="pt-24 w-8/12 text-center m-auto">
+            </div>
+          </Styles.BlockKits>
+          <Styles.BlockKits>
             <HowKit
               title={translate.howKitTitle}
               subtitle={translate.howSubtex}
               blockSection={translate.howRequeriments}
             />
-            <Styles.BtnKit>Solicitar Kit Digital</Styles.BtnKit>
-          </div>
-          <div className="pt-24 w-8/12 text-center m-auto">
+            <Styles.BtnKit
+              onClick={() => scrollTo('form-kit')}
+              onTouchStart={() => scrollTo('form-kit')}>
+              {translate.helpYou}
+            </Styles.BtnKit>
+          </Styles.BlockKits>
+          <Styles.BlockKits>
             <HowKit
               title={translate.AgentKit}
               blockSection={translate.AgentRequeriments}
             />
-          </div>
-
-          <div className="pt-24  w-10/12 text-center m-auto pb-24">
+          </Styles.BlockKits>
+          <Styles.BlockKits className="pb-12" id="form-kit">
             <Title size="lg:pr-10  lg:text-4xl md:text-3xl pb-2 text-2xl">
               {translate.searchAgent}
             </Title>
@@ -178,8 +203,7 @@ function KitDigital() {
               {translate.helpYouKit}
             </Subtext>
             <FormKit />
-          </div>
-
+          </Styles.BlockKits>
           <Footer subFooter />
         </Styles.Body>
       </AnimateSharedLayout>

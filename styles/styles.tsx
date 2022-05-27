@@ -281,15 +281,16 @@ export const Styles = {
   SectionTextLegal: tw.div`pb-48`,
 
   // KIT
+  BlockKits: tw.div`pt-24 w-10/12 lg:w-8/12 text-center m-auto`,
   BtnKit: tw(BtnSelect)<Props>`
-  ease-out inline-flex justify-center  w-5/12  lg:w-3/12 duration-200 cursor-pointer  border-2 border-primary text-left lg:text-sm py-3 hover:opacity-70  rounded-full opacity-100 font-PrimarySerif font-thin shadow-none lg:mr-5
+  ease-out inline-flex justify-center  w-6/12  lg:w-3/12 duration-200 cursor-pointer  border-2 border-primary text-left lg:text-sm py-3 hover:opacity-70  rounded-full opacity-100 font-PrimarySerif font-thin shadow-none lg:mr-5
   ${(props) =>
     props.mode === BUTTON_ACTIVE.ON ? 'text-primary' : 'bg-primary'}
   `,
   BlockSelectedSub: tw(
     BtnSelect,
-  )`border-2 relative border-primary text-left py-2 rounded-md opacity-100 font-PrimarySerif font-thin shadow-none`,
+  )`border-2 relative border-primary text-left py-2 rounded-md opacity-100 z-10 font-PrimarySerif font-thin shadow-none`,
   BlurBlock: tw(
     BlurDiv,
-  )` w-full h-full bg-secundary opacity-40  z-0 absolute bottom-0 left-0`,
+  )`w-full h-full bg-secundary opacity-100  z-0 absolute bottom-0 left-0 z-0`,
 };

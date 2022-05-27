@@ -70,6 +70,9 @@ export default {
     'El programa Kit Digital está financiado por la Unión Europea a través de los fondos Next Generation (EU) enmarcado en el Plan de Recuperación, Transformación y Resiliencia.',
 
   kitTitlerequirements: 'Requisitos para solicitar el Kit Digital',
+  btnHow: 'Qué es el Kit Digital',
+  btnForm: 'Solicitar Kit Digital',
+  helpYou: 'Nosotros te ayudamos',
   kitRequirements: [
     {
       item: 'Ser microempresa, pequeña empresa (hasta 49 trabajadores) o autónomo.',

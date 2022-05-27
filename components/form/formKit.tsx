@@ -18,17 +18,14 @@ export default function FormKit() {
   const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
   const translate = getLocale();
   const valueName = FORMVALUES.FIRSTNAME;
-  const valueLastName = FORMVALUES.LASTNAME;
   const valuePhone = FORMVALUES.PHONE;
   const valueEmail = FORMVALUES.EMAIL;
   const valueMessage = FORMVALUES.MESSAGE;
 
   const initialValues = {
     [FORMVALUES.FIRSTNAME]: '',
-    [FORMVALUES.LASTNAME]: '',
     [FORMVALUES.PHONE]: '',
     [FORMVALUES.EMAIL]: '',
-    [FORMVALUES.COMPANY]: '',
     [FORMVALUES.MESSAGE]: '',
     [FORMVALUES.CONDITIONS]: false,
   };
@@ -37,10 +34,8 @@ export default function FormKit() {
   const handleSumitCustomer = (values: any, action: any) => {
     const data = {
       [FORMVALUES.FIRSTNAME]: values.firstname,
-      [FORMVALUES.LASTNAME]: values.lastname,
       [FORMVALUES.PHONE]: values.mobile,
       [FORMVALUES.EMAIL]: values.email,
-      [FORMVALUES.COMPANY]: values.company,
       [FORMVALUES.MESSAGE]: values.message,
       [FORMVALUES.CONDITIONS]: values.conditionsAccepted,
     };
@@ -76,11 +71,11 @@ export default function FormKit() {
             dirty,
           }) => (
             <>
-              <Styles.Form onSubmit={handleSubmit}>
-                <Styles.BlockInputsCenter>
-                  <Styles.BlockInput>
+              <Styles.FormKit onSubmit={handleSubmit}>
+                <Styles.BlockInputEnd>
+                  <Styles.BlockInputOnly>
                     <Styles.Input
-                      ismode={BUTTON_ACTIVE.ON}
+                      ismode={BUTTON_ACTIVE.OFF}
                       placeholder={translate.formName}
                       type="text"
                       id={FORMVALUES.FIRSTNAME}
@@ -96,31 +91,12 @@ export default function FormKit() {
                     {touched.firstname && errors.firstname && (
                       <Styles.Error>{errors.firstname}</Styles.Error>
                     )}
-                  </Styles.BlockInput>
-                  <Styles.BlockInput>
+                  </Styles.BlockInputOnly>
+                </Styles.BlockInputEnd>
+                <Styles.BlockInputEnd>
+                  <Styles.BlockInputOnly>
                     <Styles.Input
-                      ismode={BUTTON_ACTIVE.ON}
-                      placeholder={translate.formLastName}
-                      type="text"
-                      id={FORMVALUES.LASTNAME}
-                      onTouchStart={() => handleFocus(FORMVALUES.LASTNAME)}
-                      name={FORMVALUES.LASTNAME}
-                    />
-                    {touched.lastname && errors.lastname && (
-                      <Styles.BlockClose
-                        onClick={() => setFieldValue(valueLastName, '')}
-                        onTouchStart={() => setFieldValue(valueLastName, '')}
-                      />
-                    )}
-                    {touched.lastname && errors.lastname && (
-                      <Styles.Error>{errors.lastname}</Styles.Error>
-                    )}
-                  </Styles.BlockInput>
-                </Styles.BlockInputsCenter>
-                <Styles.BlockInputsCenter>
-                  <Styles.BlockInput>
-                    <Styles.Input
-                      ismode={BUTTON_ACTIVE.ON}
+                      ismode={BUTTON_ACTIVE.OFF}
                       placeholder={translate.formEmail}
                       type="email"
                       name={FORMVALUES.EMAIL}
@@ -138,8 +114,10 @@ export default function FormKit() {
                         {errors.email}
                       </Styles.Error>
                     )}
-                  </Styles.BlockInput>
-                  <Styles.BlockInput>
+                  </Styles.BlockInputOnly>
+                </Styles.BlockInputEnd>
+                <Styles.BlockInputEnd>
+                  <Styles.BlockInputOnly>
                     <Styles.Input
                       id={FORMVALUES.PHONE}
                       onTouchStart={() => handleFocus(FORMVALUES.PHONE)}
@@ -157,18 +135,6 @@ export default function FormKit() {
                     {touched.mobile && errors.mobile && (
                       <Styles.Error>{errors.mobile}</Styles.Error>
                     )}
-                  </Styles.BlockInput>
-                </Styles.BlockInputsCenter>
-                <Styles.BlockInputEnd>
-                  <Styles.BlockInputOnly>
-                    <Styles.Input
-                      ismode={BUTTON_ACTIVE.OFF}
-                      id={FORMVALUES.COMPANY}
-                      onTouchStart={() => handleFocus(FORMVALUES.COMPANY)}
-                      placeholder={translate.formCompany}
-                      type="text"
-                      name={FORMVALUES.COMPANY}
-                    />
                   </Styles.BlockInputOnly>
                 </Styles.BlockInputEnd>
                 <Styles.BlockInputEnd>
@@ -215,7 +181,7 @@ export default function FormKit() {
                     {translate.formSend}
                   </Styles.BtnSend>
                 </Styles.BlockSendButton>
-              </Styles.Form>
+              </Styles.FormKit>
             </>
           )}
         </Formik>
