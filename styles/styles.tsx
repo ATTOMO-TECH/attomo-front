@@ -281,6 +281,9 @@ export const Styles = {
   SectionTextLegal: tw.div`pb-48`,
 
   // KIT
+  SectionsKits: tw.div<Props>` 
+  relative
+  ${(props) => (props.mode === BUTTON_ACTIVE.ON ? 'h-screen' : '')} `,
   BlockKits: tw.div`pt-24 w-10/12 lg:w-8/12 text-center m-auto`,
   BtnKit: tw(BtnSelect)<Props>`
   ease-out inline-flex justify-center  w-6/12  lg:w-3/12 duration-200 cursor-pointer  border-2 border-primary text-left lg:text-sm py-3 hover:opacity-70  rounded-full opacity-100 font-PrimarySerif font-thin shadow-none lg:mr-5
@@ -293,4 +296,6 @@ export const Styles = {
   BlurBlock: tw(
     BlurDiv,
   )`w-full h-full bg-secundary opacity-100  z-0 absolute bottom-0 left-0 z-0`,
+  TextSecundary: tw.h6`text-primary font-light text-justify text-sm p-4`,
+  ListType: tw.li`w-full  list-disc text-primary  text-justify  p-2 text-sm font-light font-PrimarySerif tracking-wide leading-loose`,
 };

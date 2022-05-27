@@ -37,7 +37,7 @@ export default function HowKit({ title, subtitle, blockSection }: Props) {
             }}
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: '50%' }}
-            key={`${values.Value}`}
+            key={`${values.item}`}
             className={
               !values?.logo
                 ? 'lg:w-5/12 w-full flex items-center justify-between py-4'

@@ -71,17 +71,13 @@ function KitDigital() {
       <Metadata screen={screen} />
       <Background />
       <AnimateSharedLayout>
-        <Styles.Body
-          style={{ scrollBehavior: 'smooth' }}
-          mode={isOpen ? BUTTON_ACTIVE.ON : ''}
-          id="kit"
-          className="z-100">
+        <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
           <Menu isOpen={isOpen} toggle={toggle} logo={false} mode />
           <Styles.Margin>
             <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
           </Styles.Margin>
           <ButtonShare />
-          <div className="h-screen relative">
+          <Styles.SectionsKits mode={BUTTON_ACTIVE.ON}>
             <Styles.Center>
               <Styles.ScreenWS>
                 {translate.kitDigital.map((services) => (
@@ -141,41 +137,43 @@ function KitDigital() {
               className="bg-white flex items-center justify-center  absolute w-full bottom-0">
               <img src="/kit/logos-estado.png" alt="" />
             </motion.div>
-          </div>
+          </Styles.SectionsKits>
           <Styles.BlockKits id="section-how-kit">
-            <div className="relative">
+            <Styles.SectionsKits>
               <Title size="lg:pr-10  lg:text-4xl md:text-3xl pb-2 text-2xl pb-12">
                 {translate.HeaderKit}
               </Title>
               {translate.programKit.map((values: { item: string }) => (
-                <Subtext size="text-justify  w-full  font-light pb-6">
+                <Subtext
+                  size="text-justify  w-full  font-light pb-6"
+                  key={`program-kit-${values.item}`}>
                   {values.item}
                 </Subtext>
               ))}
-              <div className="relative ">
+              <Styles.SectionsKits>
                 <Styles.BlockSelectedSub>
-                  <h6 className="text-primary font-light text-justify text-sm p-4 ">
+                  <Styles.TextSecundary>
                     {translate.subText}
-                  </h6>
+                  </Styles.TextSecundary>
                 </Styles.BlockSelectedSub>
                 <Styles.BlurBlock />
-              </div>
-            </div>
+              </Styles.SectionsKits>
+            </Styles.SectionsKits>
           </Styles.BlockKits>
           <Styles.BlockKits>
             <Title size="lg:pr-10  lg:text-4xl md:text-3xl pb-12 text-2xl">
               {translate.kitTitlerequirements}
             </Title>
-            <div className="relative ">
+            <Styles.SectionsKits>
               <Styles.BlockSelectedSub className="p-12">
                 {translate.kitRequirements.map((values) => (
-                  <li className="w-full  list-disc text-primary  text-justify  p-2 text-sm font-light font-PrimarySerif tracking-wide leading-loose">
+                  <Styles.ListType key={`program-kit-${values.item}`}>
                     {values.item}
-                  </li>
+                  </Styles.ListType>
                 ))}
               </Styles.BlockSelectedSub>
               <Styles.BlurBlock />
-            </div>
+            </Styles.SectionsKits>
           </Styles.BlockKits>
           <Styles.BlockKits>
             <HowKit
