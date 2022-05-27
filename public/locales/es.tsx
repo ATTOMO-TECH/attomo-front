@@ -62,9 +62,6 @@ export default {
     {
       item: `Estas ayudas se enmarcan dentro de los Fondos Europeos para la recuperación económica Next Generation EU. No es necesario adelantar dinero al ser subvenciones a fondo perdido.`,
     },
-    {
-      item: `El Kit Digital es una iniciativa del Gobierno de España que tiene como objetivo subvencionar la implantación de soluciones digitales disponibles en el mercado para conseguir un avance significativo en el nivel de madurez digital. Proporciona una serie de servicios digitales para ayudarles a impulsar la transición digital.`,
-    },
   ],
   subText:
     'El programa Kit Digital está financiado por la Unión Europea a través de los fondos Next Generation (EU) enmarcado en el Plan de Recuperación, Transformación y Resiliencia.',
