@@ -88,9 +88,9 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                     <motion.path
                       d="M18 6L6 18"
                       stroke="white"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       initial={{ pathLength: 0 }}
                       animate={
                         isOpen
@@ -102,9 +102,9 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                     <motion.path
                       d="M6 6L18 18"
                       stroke="white"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       initial={{ pathLength: 0 }}
                       animate={
                         isOpen
@@ -125,9 +125,9 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                     <motion.path
                       d="M18 6L6 18"
                       stroke="white"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       initial={{ pathLength: 0 }}
                       animate={
                         isOpen
@@ -139,9 +139,9 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                     <motion.path
                       d="M6 6L18 18"
                       stroke="white"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       initial={{ pathLength: 0 }}
                       animate={
                         isOpen

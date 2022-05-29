@@ -87,7 +87,7 @@ export default function Hero({ text, text2, button, link }: Props) {
                   <motion.path
                     d="M3 87.0007L3 44.0003L3.00001 0.99989"
                     stroke="white"
-                    stroke-linecap="round"
+                    strokeLinecap="round"
                   />
                   <motion.circle
                     cx="3"
