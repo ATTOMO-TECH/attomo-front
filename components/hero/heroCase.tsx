@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { BUTTON_ACTIVE } from '../../const/const';
 import useDeviceSize from '../../hook/size';
 import Filter from '../input/filter';
 import { HeadSection } from './style';
@@ -26,9 +27,11 @@ export default function HeroCase({
 }: Props) {
   const [width] = useDeviceSize();
   const change: boolean = !!date || !!endDate || !!topic;
+
   return (
     <>
-      <HeadSection.SectionCase>
+      <HeadSection.SectionCase
+        mode={isOpen ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
         {!isOpen && scroll ? (
           <>
             {!OpenMenu ? (

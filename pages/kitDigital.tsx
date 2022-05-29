@@ -40,7 +40,10 @@ function KitDigital() {
   };
 
   useEffect(() => {
-    function handleScroll() {
+    function handleScroll(e: any) {
+      if (e.cancelable) {
+        e.preventDefault();
+      }
       const yPos = window.scrollY;
       const isScrollingUp = yPos < lastYPos;
 

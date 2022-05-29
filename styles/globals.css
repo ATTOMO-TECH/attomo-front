@@ -289,13 +289,18 @@ input[type='text'] {
 
 @media screen and (max-width: 768px) {
   #MobileFilterCases .rrs--options-visible .rrs__options {
-    width: 100% !important;
-    height: 100vh !important;
+    height: 300px !important;
+    width: 66.666667%;
+    margin: auto;
     position: fixed !important;
-    font-size: 1.25rem !important;
-    top: 43% !important;
+    font-size: 1rem !important;
+    overflow-x: scroll !important;
+    top: 0% !important;
     border: 0 !important;
     border-radius: 4px !important;
+  }
+  .rrs--options-visible .rrs__options {
+    left: 0 !important;
   }
   .rrs__option {
     font-weight: 300 !important;
