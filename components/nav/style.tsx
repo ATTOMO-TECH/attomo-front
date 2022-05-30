@@ -110,7 +110,7 @@ export const IconStyled = styled(motion.svg)`
   fill: none;
   stroke: #fff;
   position: relative;
-  stroke-width: 10px;
+  strokewidth: 10px;
   border-radius: 100%;
 `;
 export const IconStyledDark = styled(motion.svg)`
@@ -143,7 +143,7 @@ export const IconStyledDark = styled(motion.svg)`
   fill: none;
   stroke: #fff;
   position: relative;
-  stroke-width: 10px;
+  strokewidth: 10px;
   border-radius: 100%;
 `;
 

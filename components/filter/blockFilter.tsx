@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLongPress, LongPressDetectEvents } from 'use-long-press';
 import { format } from 'date-fns';
 import { motion } from 'framer-motion';
 import { Styles } from '../../styles/styles';
@@ -27,6 +28,19 @@ export default function BlockFilter({
 }: Props) {
   const [shouldShowActions] = useState(false);
 
+  const callback = () => {
+    toggleFilter();
+  };
+
+  const bind = useLongPress(() => callback(), {
+    // eslint-disable-next-line
+    onFinish: () => {},
+    threshold: 200,
+    captureEvent: true,
+    cancelOnMovement: true,
+    detect: LongPressDetectEvents.BOTH,
+  });
+
   const change: boolean = !!startDate || !!endDate || !!topic || !!search;
 
   return (
@@ -47,10 +61,7 @@ export default function BlockFilter({
           <Styles.SectionFilter>
             <Subtext size="text-lg lg:py-4 ">{translate.CasesFilter}</Subtext>
           </Styles.SectionFilter>
-          <Styles.SelectFilter
-            type="button"
-            onClick={toggleFilter}
-            onTouchStart={toggleFilter}>
+          <Styles.SelectFilter type="button" onClick={toggleFilter} {...bind()}>
             <Styles.FilterSelectActive
               mode={
                 search === '' || search === undefined
@@ -64,10 +75,7 @@ export default function BlockFilter({
               )}
             </Styles.FilterSelectActive>
           </Styles.SelectFilter>
-          <Styles.SelectFilter
-            type="button"
-            onClick={toggleFilter}
-            onTouchStart={toggleFilter}>
+          <Styles.SelectFilter type="button" onClick={toggleFilter} {...bind()}>
             <Styles.FilterSelectActive
               mode={
                 topic === '' || topic === undefined
@@ -75,16 +83,13 @@ export default function BlockFilter({
                   : BUTTON_ACTIVE.OFF
               }>
               {topic === '' || topic === undefined ? (
-                <option value="">{translate.Topic}</option>
+                <p>{translate.Topic}</p>
               ) : (
-                <option value="">{topic}</option>
+                <p>{topic}</p>
               )}
             </Styles.FilterSelectActive>
           </Styles.SelectFilter>
-          <Styles.SelectFilter
-            type="button"
-            onClick={toggleFilter}
-            onTouchStart={toggleFilter}>
+          <Styles.SelectFilter type="button" onClick={toggleFilter} {...bind()}>
             <Styles.FilterSelectActive
               mode={
                 startDate === undefined || startDate === null
@@ -97,16 +102,14 @@ export default function BlockFilter({
               endDate === '' ||
               undefined ||
               null ? (
-                <option value="">{translate.SelectDate}</option>
+                <p>{translate.SelectDate}</p>
               ) : (
-                <option value="">{`${
+                <p>{`${
                   startDate
                     ? format(startDate, 'dd-MM-yyyy')
                     : `${translate.SelectDate}`
                 } 
-                    ${
-                      endDate ? format(endDate, '-  dd-MM-yyyy') : ''
-                    }`}</option>
+                    ${endDate ? format(endDate, '-  dd-MM-yyyy') : ''}`}</p>
               )}
             </Styles.FilterSelectActive>
           </Styles.SelectFilter>
@@ -124,7 +127,7 @@ export default function BlockFilter({
             <motion.path
               d="M18 6L6 18"
               stroke="white"
-              stroke-width={change ? '2' : 0}
+              strokeWidth={change ? '2' : 0}
               strokeLinecap="round"
               strokeLinejoin="round"
               initial={{ pathLength: 0 }}
@@ -138,7 +141,7 @@ export default function BlockFilter({
             <motion.path
               d="M6 6L18 18"
               stroke="white"
-              stroke-width={change ? '2' : 0}
+              strokeWidth={change ? '2' : 0}
               strokeLinecap="round"
               strokeLinejoin="round"
               initial={{ pathLength: 0 }}

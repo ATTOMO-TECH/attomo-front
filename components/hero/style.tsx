@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 import '@fontsource/merriweather/300.css';
+import { BUTTON_ACTIVE } from '../../const/const';
+
+type Props = {
+  mode?: string;
+};
 
 export const TextHero = styled.h2`
   font-family: 'Merriweather';
@@ -91,5 +96,6 @@ export const HeadSection = {
     Block,
   )`h-auto lg:h-96 text-primary lg:rounded-3xl font-Primary   lg:my-24  lg:from-gray-900 from-gray-700 border-opacity-10 flex justify-center items-center`,
   TextHeroFooter: tw.h5`text-2xl md:text-4xl lg:p-44 px-4 py-24 font-light leading-relaxed lg:leading-normal tracking-wide`,
-  SectionCase: tw.section`flex justify-end items-center relative lg:pt-24 `,
+  SectionCase: tw.section<Props>`flex justify-end items-center relative lg:pt-24 
+  ${(props) => (props.mode === BUTTON_ACTIVE.ON ? 'overflow-hidden' : '')}`,
 };

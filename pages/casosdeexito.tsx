@@ -162,7 +162,7 @@ function Cases() {
   return (
     <>
       <Metadata screen={screen} />
-      <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
+      <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : 'overflow-hidden'}>
         {!isOpenFilter && <Background />}
 
         {isOpenFilter && (
@@ -211,7 +211,8 @@ function Cases() {
         ) : (
           <></>
         )}
-        <Styles.BlockSections>
+        <Styles.BlockSections
+          mode={isOpen ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
           {!isLoading ? (
             <SectionProjects
               data={data?.data}

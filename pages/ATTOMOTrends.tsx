@@ -227,7 +227,7 @@ function News() {
             <motion.path
               d="M18 6L6 18"
               stroke="white"
-              stroke-width={change ? '2' : 0}
+              strokeWidth={change ? '2' : 0}
               strokeLinecap="round"
               strokeLinejoin="round"
               initial={{ pathLength: 0 }}
@@ -241,7 +241,7 @@ function News() {
             <motion.path
               d="M6 6L18 18"
               stroke="white"
-              stroke-width={change ? '2' : 0}
+              strokeWidth={change ? '2' : 0}
               strokeLinecap="round"
               strokeLinejoin="round"
               initial={{ pathLength: 0 }}

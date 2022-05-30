@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { BUTTON_ACTIVE } from '../../const/const';
 import useDeviceSize from '../../hook/size';
 import Filter from '../input/filter';
 import { HeadSection } from './style';
@@ -26,9 +27,11 @@ export default function HeroCase({
 }: Props) {
   const [width] = useDeviceSize();
   const change: boolean = !!date || !!endDate || !!topic;
+
   return (
     <>
-      <HeadSection.SectionCase>
+      <HeadSection.SectionCase
+        mode={isOpen ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
         {!isOpen && scroll ? (
           <>
             {!OpenMenu ? (
@@ -57,7 +60,7 @@ export default function HeroCase({
                       <motion.path
                         d="M18 6L6 18"
                         stroke="white"
-                        stroke-width={change ? '2' : 0}
+                        strokeWidth={change ? '2' : 0}
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         initial={{ pathLength: 0 }}
@@ -71,7 +74,7 @@ export default function HeroCase({
                       <motion.path
                         d="M6 6L18 18"
                         stroke="white"
-                        stroke-width={change ? '2' : 0}
+                        strokeWidth={change ? '2' : 0}
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         initial={{ pathLength: 0 }}

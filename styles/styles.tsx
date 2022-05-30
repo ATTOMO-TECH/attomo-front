@@ -209,7 +209,9 @@ export const Styles = {
   ContainerFull: tw.div`w-full`,
   BlockAddres: tw.div`lg:my-12   lg:w-5/6  m-auto overflow-hidden`,
   SectionScreen: tw.section`lg:pt-48 pt-0 h-auto`,
-  BlockSections: tw.div`py-10 relative z-0`,
+  BlockSections: tw.div<Props>`
+  py-10 relative z-0
+  ${(props) => (props.mode === BUTTON_ACTIVE.ON ? 'hidden' : '')}`,
   DivideSection: tw.div`lg:w-3/6 w-full pb-2`,
   BlockButton: tw.div`lg:px-24 pt-10`,
   BlockSlider: tw.div` pb-12 px-7`,
@@ -266,7 +268,7 @@ export const Styles = {
 
   // ACTIVESELECT
   FilterSelectActive: tw.div<Props>`
-  lg:w-10/12 w-full cursor-pointer text-gray-300 font-light border-b text-left py-4 transition duration-300 ease-in-out
+  lg:w-10/12 w-full cursor-pointer text-gray-300 font-light border-b text-left py-4 transition duration-00 ease-in-out
   ${(props) =>
     props.mode === BUTTON_ACTIVE.ON ? ' opacity-30' : ' opacity-70'}
   

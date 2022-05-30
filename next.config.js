@@ -11,5 +11,8 @@ module.exports = {
     domains: ['attomo-test.s3.eu-west-3.amazonaws.com'],
     formats: ['image/avif', 'image/webp'],
   },
+  compiler: {
+    styledComponents: true,
+  },
 };
 

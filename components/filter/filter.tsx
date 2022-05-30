@@ -86,7 +86,7 @@ export default function ModalFilter({
                 <motion.path
                   d="M18 6L6 18"
                   stroke="white"
-                  stroke-width="2"
+                  strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   initial={{ pathLength: 0 }}
@@ -100,7 +100,7 @@ export default function ModalFilter({
                 <motion.path
                   d="M6 6L18 18"
                   stroke="white"
-                  stroke-width="2"
+                  strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   initial={{ pathLength: 0 }}

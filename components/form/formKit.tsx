@@ -10,7 +10,7 @@ import Conditions from './conditions';
 import { getLocale } from '../../public/locales/getLocale';
 import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
-import { validationSchemaColaborator } from './validations';
+import { validationSchemaKit } from './validations';
 import { handleFocus } from '../../hook/eventListener';
 
 export default function FormKit() {
@@ -60,7 +60,7 @@ export default function FormKit() {
         <Formik
           onSubmit={handleSumitCustomer}
           initialValues={initialValues}
-          validationSchema={validationSchemaColaborator}
+          validationSchema={validationSchemaKit}
           validateOnMount>
           {({
             touched,
