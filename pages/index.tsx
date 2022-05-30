@@ -5,7 +5,6 @@ import { useRouter } from 'next/router';
 import BlockSection from '../components/block/block';
 import Footer from '../components/footer/footer';
 import Hero from '../components/hero/hero';
-import HeroFooter from '../components/hero/heroFooter';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
 import SectionProjects from '../components/section/projects';
@@ -18,7 +17,6 @@ import { useUseAllCases } from '../domain/useCasesDetails';
 import ButtonShare from '../components/button/BtnShare';
 import RenderLoading from '../components/loading/loading';
 import { servicesAnimations } from '../components/animations/animations';
-import { useUseAllQuote } from '../domain/useQuotes';
 import { getLocale } from '../public/locales/getLocale';
 import Background from '../components/animations/background';
 import { useAScreen } from '../domain/useScreensMetadata';
@@ -52,14 +50,6 @@ function Home() {
   const [lastYPos, setLastYPos] = useState(0);
   const [shouldShowActions, setShouldShowActions] = useState(false);
 
-  const randomQuote = (min: number, max: number) =>
-    Math.floor(Math.random() * (max - min + 1) + min);
-  const [random] = useState<any>(randomQuote(1, 2));
-
-  const { data: Quote, isLoading: QuoteIsLoading } = useUseAllQuote(
-    random,
-    locale || 'es',
-  );
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
@@ -77,7 +67,7 @@ function Home() {
     };
   }, [lastYPos]);
 
-  if (isLoading || QuoteIsLoading || screenIsLoading) {
+  if (isLoading || screenIsLoading) {
     return (
       <>
         <RenderLoading mode={false} />
@@ -202,22 +192,6 @@ function Home() {
               ))}
             </Styles.Center>
           </motion.div>
-          <motion.div
-            animate={shouldShowActions}
-            variants={servicesAnimations}
-            className="actions"
-            transition={{
-              delay: 0.2,
-              type: 'spring',
-              stiffness: 50,
-              duration: 2,
-            }}
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: '50%' }}>
-            <Styles.CenterFull>
-              <HeroFooter text={Quote.data.attributes.text} />
-            </Styles.CenterFull>
-          </motion.div>
           <Styles.Center>
             {translate.contact.map((values) => (
               <BlockSection
@@ -231,7 +205,7 @@ function Home() {
               />
             ))}
           </Styles.Center>
-          <Footer subFooter />
+          <Footer subFooter={false} />
         </Styles.Body>
       </AnimateSharedLayout>
     </>
