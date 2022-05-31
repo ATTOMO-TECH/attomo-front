@@ -34,7 +34,7 @@ function Cases() {
     locale || 'es',
   );
   const translate = getLocale();
-
+  const [preData, setPreData] = useState<any[]>([]);
   const [scroll, setScroll] = useState(true);
 
   useEffect(() => {
@@ -56,18 +56,30 @@ function Cases() {
     SetIsOpenFilter(!isOpenFilter);
   };
   const [startDate, setStartDate] = useState<any>();
+  const [page, setPage] = useState(1);
   const [endDate, setEndDate] = useState<any>();
   const [topic, setTopic] = useState<any>('');
   const [search, setSearch] = useState('');
-
+  const showScreen = true;
   const handleDate = (dateValue: any) => {
     setStartDate(dateValue[0]);
     setEndDate(dateValue[1]);
   };
+  const handleAddBlog = (value: number) => {
+    setPage(value);
+  };
 
   const getFilters = () => {
     let filters = {};
-    if (topic !== undefined) {
+    if (showScreen) {
+      filters = {
+        ...filters,
+        inServicesScreen: {
+          $eq: true,
+        },
+      };
+    }
+    if (topic !== '') {
       filters = {
         ...filters,
         subservice: {
@@ -120,7 +132,10 @@ function Cases() {
   };
   const queryObject: any = {
     populate: ['coverImage', 'disciplines', 'subservice'],
-
+    pagination: {
+      page,
+      pageSize: 3,
+    },
     filters: getFilters(),
   };
   const queryQs = qs.stringify(queryObject, {
@@ -128,15 +143,17 @@ function Cases() {
   });
   const { data, isLoading } = useUseAllCases(locale || 'es', queryQs);
 
-  const [isLoadingFirst, setIsLoading] = useState<boolean>(true);
-
   useEffect(() => {
-    if (data) {
-      setIsLoading(false);
+    if (data?.data) {
+      if (page === 1) {
+        setPreData([...data.data]);
+      } else {
+        setPreData([...preData, ...data.data]);
+      }
     }
   }, [data]);
 
-  if (isLoadingFirst || screenIsLoading) {
+  if (screenIsLoading) {
     return (
       <>
         <RenderLoading mode={false} />
@@ -150,14 +167,6 @@ function Cases() {
     setEndDate(null);
     queryClient.refetchQueries(['useAllCases']);
   };
-
-  if (screenIsLoading) {
-    return (
-      <>
-        <RenderLoading mode={false} />
-      </>
-    );
-  }
 
   return (
     <>
@@ -215,13 +224,26 @@ function Cases() {
           mode={isOpen ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
           {!isLoading ? (
             <SectionProjects
-              data={data?.data}
+              data={preData}
               shouldShowActions={undefined}
               servicesAnimations={undefined}
             />
           ) : (
             <RenderLoading mode={false} />
           )}
+          {data &&
+            (data.meta.pagination.page !== data.meta.pagination.pageCount &&
+            data.meta.pagination.pageCount !== 0 ? (
+              <Styles.SectionMore>
+                <Styles.BlockMore
+                  onClick={() => handleAddBlog(data.meta.pagination.page + 1)}
+                  onTouchStart={() =>
+                    handleAddBlog(data.meta.pagination.page + 1)
+                  }>
+                  {translate.moreCases}
+                </Styles.BlockMore>
+              </Styles.SectionMore>
+            ) : null)}
         </Styles.BlockSections>
         <Styles.Center>
           {translate.contact.map((values) => (
