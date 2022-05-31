@@ -286,7 +286,7 @@ export const Styles = {
   SectionsKits: tw.div<Props>` 
   relative
   ${(props) => (props.mode === BUTTON_ACTIVE.ON ? 'h-screen' : '')} `,
-  BlockKits: tw.div`pt-24 w-10/12 lg:w-8/12 text-center m-auto`,
+  BlockKits: tw.div`pt-24 w-10/12 lg:w-7/12 text-center m-auto`,
   BtnKit: tw(BtnSelect)<Props>`
   ease-out inline-flex justify-center  w-8/12 md:w-6/12  lg:w-3/12 duration-200 cursor-pointer  border-2 border-primary text-left lg:text-sm py-3 hover:opacity-70  rounded-full opacity-100 font-PrimarySerif font-thin shadow-none lg:mr-5
   ${(props) =>
