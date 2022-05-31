@@ -111,7 +111,7 @@ export const KitStyles = {
 
   BlockSelectedSub: tw(
     BtnSelect,
-  )`border-2 flex  border-primary text-left p-5  z-10 lg:h-36 rounded-lg opacity-100 font-PrimarySerif font-thin shadow-none grid lg:grid-cols-2 grid-flow-col gap-4 content-center place-items-center`,
+  )`border-2  w-full  border-primary text-left p-5  z-10 lg:h-42 rounded-lg opacity-100 font-PrimarySerif font-thin shadow-none grid lg:grid-cols-2 grid-flow-col gap-4 content-center self-stretch place-items-center `,
   BlurBlock: tw(
     BlurDiv,
   )` w-full h-full bg-secundary opacity-100  z-0 absolute bottom-0 left-0 z-0`,

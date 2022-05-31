@@ -16,15 +16,13 @@ export default function HowKit({ title, subtitle, blockSection }: Props) {
 
   return (
     <>
+      <Title size="lg:text-4xl md:text-3xl pb-12 text-2xl text-center m-auto ">
+        {title}
+      </Title>
+      {subtitle && (
+        <Subtext size="w-full pb-10 font-light text-center">{subtitle}</Subtext>
+      )}
       <KitStyles.Section>
-        <Title size="lg:text-4xl md:text-3xl pb-12 text-2xl text-center m-auto">
-          {title}
-        </Title>
-        {subtitle && (
-          <Subtext size="w-full pb-10 font-light text-center">
-            {subtitle}
-          </Subtext>
-        )}
         {blockSection?.map((values: any, index: number) => (
           <motion.div
             animate={shouldShowActions}
@@ -40,8 +38,8 @@ export default function HowKit({ title, subtitle, blockSection }: Props) {
             key={`${values.item}`}
             className={
               !values?.logo
-                ? 'lg:w-5/12 w-full flex items-center justify-between py-4'
-                : 'lg:w-6/12 w-full flex items-center justify-between p-4 relative  '
+                ? 'lg:w-5/12 w-full flex items-center justify-between py-4 mb-4 pb-5'
+                : 'lg:w-6/12 w-full flex  lg:items-center lg:justify-between p-4 relative  '
             }>
             {!values?.logo ? (
               <>
@@ -55,14 +53,10 @@ export default function HowKit({ title, subtitle, blockSection }: Props) {
             ) : (
               <>
                 <KitStyles.BlockSelectedSub>
-                  <img
-                    src={values.logo}
-                    alt={values.title}
-                    className="col-span-4 "
-                  />
-                  <div>
-                    <Title size="text-base col-span-3 ">{values.title}</Title>
-                    <KitStyles.Title className="text-left ">
+                  <img src={values.logo} alt={values.title} className="" />
+                  <div className="w-full 2xl:w-96">
+                    <Title size="text-base ">{values.title}</Title>
+                    <KitStyles.Title className="text-left  ">
                       {values.item}
                     </KitStyles.Title>
                   </div>

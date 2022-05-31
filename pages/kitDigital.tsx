@@ -205,7 +205,7 @@ function KitDigital() {
             </Subtext>
             <FormKit />
           </Styles.BlockKits>
-          <Footer subFooter />
+          <Footer subFooter={false} />
         </Styles.Body>
       </AnimateSharedLayout>
     </>
