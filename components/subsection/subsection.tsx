@@ -1,17 +1,28 @@
 import Link from 'next/link';
+import { useLongPress, LongPressDetectEvents } from 'use-long-press';
 import { SubSections } from './style';
 import Counter from './counter';
 import Title from '../Text/title';
 import IconAnimate from '../button/icon';
-import { handleClickTouch, useEventListener } from '../../hook/eventListener';
+import { handleClickTouch } from '../../hook/eventListener';
 
 interface Props {
   locale: any;
 }
 export default function SubSection({ locale }: Props) {
-  useEventListener('linkToService', 'touchstart', () =>
-    handleClickTouch('/servicios'),
-  );
+  const callback = () => {
+    handleClickTouch('/servicios');
+  };
+
+  const bind = useLongPress(() => callback(), {
+    // eslint-disable-next-line
+    onFinish: () => {},
+    threshold: 200,
+    captureEvent: true,
+    cancelOnMovement: true,
+    detect: LongPressDetectEvents.BOTH,
+  });
+
   return (
     <>
       <SubSections.Subsection>
@@ -25,7 +36,7 @@ export default function SubSection({ locale }: Props) {
             </Title>
             <SubSections.Title>{values.BodyCounter}</SubSections.Title>
             <Link href="/servicios" passHref>
-              <SubSections.BlockBtn id="linkToService">
+              <SubSections.BlockBtn id="linkToService" {...bind()}>
                 <IconAnimate text={values.Button} mode />
               </SubSections.BlockBtn>
             </Link>

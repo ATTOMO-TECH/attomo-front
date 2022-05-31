@@ -1,19 +1,12 @@
 import Link from 'next/link';
-
+import { useLongPress, LongPressDetectEvents } from 'use-long-press';
 import { useEffect, useState } from 'react';
 import { Btn } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
-import {
-  handleExternalTouch,
-  useEventListener,
-} from '../../hook/eventListener';
+import { handleExternalTouch } from '../../hook/eventListener';
 
 export default function ButtonShare() {
   const [scroll, setScroll] = useState(true);
-
-  useEventListener('whatsappLink', 'touchstart', () =>
-    handleExternalTouch('https://api.whatsapp.com/send/?phone=34610516285'),
-  );
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -25,6 +18,19 @@ export default function ButtonShare() {
     });
   }, []);
 
+  const callback = () => {
+    handleExternalTouch('https://api.whatsapp.com/send/?phone=34610516285');
+  };
+
+  const bind = useLongPress(() => callback(), {
+    // eslint-disable-next-line
+    onFinish: () => {},
+    threshold: 200,
+    captureEvent: true,
+    cancelOnMovement: true,
+    detect: LongPressDetectEvents.BOTH,
+  });
+
   return (
     <>
       <Link href="https://api.whatsapp.com/send/?phone=34610516285">
@@ -32,7 +38,7 @@ export default function ButtonShare() {
           target="_blank"
           href="https://api.whatsapp.com/send/?phone=34610516285"
           rel="noreferrer"
-          id="whatsappLink">
+          {...bind()}>
           <Btn.Icon ismode={!scroll ? BUTTON_ACTIVE.ON : ''}>
             <img
               src="/icon/WhatsApp.png"

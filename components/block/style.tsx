@@ -23,7 +23,7 @@ export const textTitle = styled.div`
   text-fill-color: transparent;
 `;
 export const Block = {
-  SectionBlock: tw.div`flex flex-wrap justify-between m-auto  py-16  `,
+  SectionBlock: tw.div`flex flex-wrap justify-between m-auto  py-16 lg:mt-24  `,
 
   Block: tw(SectionColor)`text-primary lg:w-3/6 w-full block  `,
 

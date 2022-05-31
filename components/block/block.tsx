@@ -1,6 +1,7 @@
 import Link from 'next/link';
+import { useLongPress, LongPressDetectEvents } from 'use-long-press';
 import { BUTTON_ACTIVE } from '../../const/const';
-import { handleClickTouch, useEventListener } from '../../hook/eventListener';
+import { handleClickTouch } from '../../hook/eventListener';
 import { darkTheme, lightTheme } from '../../styles/styles';
 import IconAnimate from '../button/icon';
 import { Block } from './style';
@@ -22,12 +23,19 @@ export default function BlockSection({
   mode,
   link,
 }: Props) {
-  if (text) {
-    useEventListener(text, 'touchstart', () => handleClickTouch(link));
-  }
-  if (text2) {
-    useEventListener(text2, 'touchstart', () => handleClickTouch(link));
-  }
+  const callback = () => {
+    handleClickTouch(link);
+  };
+
+  const bind = useLongPress(() => callback(), {
+    // eslint-disable-next-line
+    onFinish: () => {},
+    threshold: 200,
+    captureEvent: true,
+    cancelOnMovement: true,
+    detect: LongPressDetectEvents.BOTH,
+  });
+
   return (
     <>
       <Block.SectionBlock>
@@ -38,7 +46,7 @@ export default function BlockSection({
                 {text}
               </Block.Title>
               <Link href={`${link}`} passHref>
-                <Block.BlockBtn id={text}>
+                <Block.BlockBtn {...bind()}>
                   <IconAnimate text={button} mode={mode} />
                 </Block.BlockBtn>
               </Link>
@@ -54,7 +62,7 @@ export default function BlockSection({
                 {text2}
               </Block.Title>
               <Link href={`${link}`} passHref>
-                <Block.BlockBtn id={text2}>
+                <Block.BlockBtn {...bind()}>
                   <IconAnimate text={button2} mode={mode} />
                 </Block.BlockBtn>
               </Link>

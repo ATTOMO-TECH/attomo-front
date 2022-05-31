@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { useLongPress, LongPressDetectEvents } from 'use-long-press';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -6,7 +6,6 @@ import Background from '../components/animations/background';
 import ButtonShare from '../components/button/BtnShare';
 import IconAnimate from '../components/button/icon';
 import Footer from '../components/footer/footer';
-import HeroFooter from '../components/hero/heroFooter';
 import RenderLoading from '../components/loading/loading';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
@@ -15,10 +14,8 @@ import Subtext from '../components/Text/subText';
 import Title from '../components/Text/title';
 import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
 import { useUseAllCareer } from '../domain/useCareers';
-import { useUseAllQuote } from '../domain/useQuotes';
 import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
-import { servicesAnimations } from '../components/animations/animations';
 import { Metadata } from '../components/head/metadata';
 import { useAScreen } from '../domain/useScreensMetadata';
 
@@ -32,14 +29,6 @@ function Carrers() {
     MENU_SCREENS.CAREERS,
     locale || 'es',
   );
-  const [shouldShowActions] = useState(false);
-  const randomQuote = (min: number, max: number) =>
-    Math.floor(Math.random() * (max - min + 1) + min);
-  const [random] = useState<any>(randomQuote(1, 2));
-  const { data: Quote, isLoading: QuoteIsLoading } = useUseAllQuote(
-    random,
-    locale || 'es',
-  );
 
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const { data, isLoading } = useUseAllCareer(locale || 'es');
@@ -47,8 +36,20 @@ function Carrers() {
     SetIsOpen(!isOpen);
   };
   const translate = getLocale();
+  const callback = () => {
+    router.push('/contacto');
+  };
 
-  if (isLoading || QuoteIsLoading || screenIsLoading) {
+  const bind = useLongPress(() => callback(), {
+    // eslint-disable-next-line
+    onFinish: () => {},
+    threshold: 200,
+    captureEvent: true,
+    cancelOnMovement: true,
+    detect: LongPressDetectEvents.BOTH,
+  });
+
+  if (isLoading || screenIsLoading) {
     return (
       <>
         <RenderLoading mode={false} />
@@ -89,10 +90,7 @@ function Carrers() {
         {translate.contactUsWork.map((value) => (
           <Styles.CenterMargin key={value.Text}>
             <Link href="/contacto" passHref>
-              <a
-                className="w-12"
-                href="/contacto"
-                onTouchStart={() => router.push('/contacto')}>
+              <a className="w-12" href="/contacto" {...bind()}>
                 <Title size="lg:text-xl w-4/6 lg:w-3/6 cursor-pointer">
                   {value.Text}
                 </Title>
@@ -103,31 +101,13 @@ function Carrers() {
               {value.Subtext}
             </Subtext>
             <Link href="/contacto" passHref>
-              <a
-                href="/contacto"
-                className="w-12 "
-                onTouchStart={() => router.push('/contacto')}>
+              <a href="/contacto" className="w-12 " {...bind()}>
                 <IconAnimate text={value.Button} mode />
               </a>
             </Link>
           </Styles.CenterMargin>
         ))}
-        <motion.div
-          animate={shouldShowActions}
-          variants={servicesAnimations}
-          className="actions"
-          transition={{
-            delay: 0.2,
-            type: 'spring',
-            stiffness: 50,
-            duration: 2,
-          }}
-          whileInView={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: '50%' }}>
-          <Styles.CenterFull>
-            <HeroFooter text={Quote.data.attributes.text} />
-          </Styles.CenterFull>
-        </motion.div>
+
         <Footer subFooter={false} />
       </Styles.Body>
     </>

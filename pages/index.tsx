@@ -166,32 +166,7 @@ function Home() {
             shouldShowActions={shouldShowActions}
             servicesAnimations={servicesAnimations}
           />
-          <motion.div
-            animate={shouldShowActions}
-            variants={servicesAnimations}
-            className="actions"
-            transition={{
-              delay: 0.2,
-              type: 'spring',
-              stiffness: 50,
-              duration: 2,
-            }}
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: '50%' }}>
-            <Styles.Center>
-              {translate.seeMore.map((values) => (
-                <BlockSection
-                  key={`BlockSection${values.Text}`}
-                  text=""
-                  button=""
-                  text2={values.Text}
-                  button2={values.Link}
-                  mode
-                  link="/ATTOMOTrends"
-                />
-              ))}
-            </Styles.Center>
-          </motion.div>
+
           <Styles.Center>
             {translate.contact.map((values) => (
               <BlockSection

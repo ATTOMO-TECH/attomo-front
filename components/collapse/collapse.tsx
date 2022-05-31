@@ -74,7 +74,7 @@ export default function Collapse() {
                   key={`${tab.attributes.name}-services`}>
                   <Styles.SubSection
                     id={`${tab.attributes.name}-services`}
-                    onTouchStart={() =>
+                    onTouchEnd={() =>
                       router.push(
                         `/servicios/${tab.attributes.name
                           .replaceAll(' ', '_')
@@ -103,7 +103,7 @@ export default function Collapse() {
                 ismode={i === idx ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
                 key={tab.attributes.name}
                 id={`clickCollapse-${i}`}
-                onTouchStart={() => handleClick(i)}
+                onTouchEnd={() => handleClick(i)}
                 onClick={() => handleClick(i)}>
                 {tab.attributes.name}
               </Styles.TextSelect>

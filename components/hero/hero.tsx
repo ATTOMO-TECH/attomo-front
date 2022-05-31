@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useLongPress, LongPressDetectEvents } from 'use-long-press';
 import { useRouter } from 'next/router';
 import { HeadSection } from './style';
-import { useEventListener } from '../../hook/eventListener';
 
 type Props = {
   text: string;
@@ -57,7 +57,20 @@ export default function Hero({ text, text2, button, link }: Props) {
   const handleSection = () => {
     router.push('/#conocenos');
   };
-  useEventListener('linkto', 'touchstart', handleSection);
+
+  const callback = () => {
+    handleSection();
+  };
+
+  const bind = useLongPress(() => callback(), {
+    // eslint-disable-next-line
+    onFinish: () => {},
+    threshold: 200,
+    captureEvent: true,
+    cancelOnMovement: true,
+    detect: LongPressDetectEvents.BOTH,
+  });
+
   return (
     <>
       <HeadSection.SectionHero>
@@ -70,7 +83,9 @@ export default function Hero({ text, text2, button, link }: Props) {
             {line1} {line2}
           </HeadSection.TextHead>
         </motion.div>
-        <HeadSection.Blockbutton className={button === '' ? 'hidden' : ''}>
+        <HeadSection.Blockbutton
+          className={button === '' ? 'hidden' : ''}
+          {...bind()}>
           <Link href={`#${link}`}>
             <a href={`#${link}`} id="linkto">
               <HeadSection.TextButton>{button}</HeadSection.TextButton>

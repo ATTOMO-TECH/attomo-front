@@ -95,7 +95,7 @@ export default function ArticlesScroll({ mode, filter, id }: Props) {
               </StylesArticle.TopicText>
 
               <StylesArticle.TextBlog
-                onTouchStart={() => router.push(`/ATTOMOTrends/${articles.id}`)}
+                onTouchEnd={() => router.push(`/ATTOMOTrends/${articles.id}`)}
                 ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
                 {articles.attributes.title}
               </StylesArticle.TextBlog>

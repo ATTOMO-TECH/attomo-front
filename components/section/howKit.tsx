@@ -53,8 +53,12 @@ export default function HowKit({ title, subtitle, blockSection }: Props) {
             ) : (
               <>
                 <KitStyles.BlockSelectedSub>
-                  <img src={values.logo} alt={values.title} className="" />
-                  <div className="w-full 2xl:w-96">
+                  <img
+                    src={values.logo}
+                    alt={values.title}
+                    className="col-span-4"
+                  />
+                  <div className="w-full 2xl:w-96 col-span-4">
                     <Title size="text-base ">{values.title}</Title>
                     <KitStyles.Title className="text-left  ">
                       {values.item}
