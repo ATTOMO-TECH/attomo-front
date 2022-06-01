@@ -285,6 +285,10 @@ input[type='text'] {
     rgba(0, 0, 0, 1)
   );
 }
+.rrs__label {
+  font-weight: 300 !important;
+  color: gray !important;
+}
 
 @media screen and (max-width: 768px) {
   #MobileFilterCases .rrs--options-visible .rrs__options {

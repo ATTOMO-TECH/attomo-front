@@ -20,11 +20,15 @@ export default function InputSelect({
 }: Props) {
   return (
     <>
-      <BlockDiv active={selected !== ''} className="relative">
+      <BlockDiv
+        active={selected !== ''}
+        className="relative text-left"
+        key={selected}>
         <Select
           name={name}
           modalCloseButton={<ModalCloseButton />}
           options={options}
+          selectedValue=""
           caretIcon={<CaretIcon />}
           noSelectionLabel={valueLabel}
           onChange={(newValue: any) => {

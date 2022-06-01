@@ -43,6 +43,12 @@ export default function ModulelFilterResponsive({
     value: values.attributes.name,
   }));
 
+  DEPARTMENT.push({
+    value: '',
+    text: translate.allServices,
+  });
+  DEPARTMENT.reverse();
+
   const onChangeTopic = (e: any) => {
     setSelectedTopic(e);
     setTopic(e);
