@@ -161,11 +161,17 @@ function Home() {
           <Styles.BlockSlider>
             <CompaniesScroll />
           </Styles.BlockSlider>
-          <SectionProjects
-            data={data.data}
-            shouldShowActions={shouldShowActions}
-            servicesAnimations={servicesAnimations}
-          />
+          <Styles.SectionProjects>
+            {data?.data?.map((values: any, i: number) => (
+              <SectionProjects
+                i={i}
+                key={`SectionProjects${values.attributes.title}`}
+                values={values}
+                shouldShowActions={shouldShowActions}
+                servicesAnimations={servicesAnimations}
+              />
+            ))}
+          </Styles.SectionProjects>
 
           <Styles.Center>
             {translate.contact.map((values) => (

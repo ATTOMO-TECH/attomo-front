@@ -1,9 +1,8 @@
 import Link from 'next/link';
-import { useLongPress, LongPressDetectEvents } from 'use-long-press';
 import { useEffect, useState } from 'react';
 import { Btn } from './style';
+import useLongPressHook from '../../hook/longPress';
 import { BUTTON_ACTIVE } from '../../const/const';
-import { handleExternalTouch } from '../../hook/eventListener';
 
 export default function ButtonShare() {
   const [scroll, setScroll] = useState(true);
@@ -18,18 +17,9 @@ export default function ButtonShare() {
     });
   }, []);
 
-  const callback = () => {
-    handleExternalTouch('https://api.whatsapp.com/send/?phone=34610516285');
-  };
-
-  const bind = useLongPress(() => callback(), {
-    // eslint-disable-next-line
-    onFinish: () => {},
-    threshold: 200,
-    captureEvent: true,
-    cancelOnMovement: true,
-    detect: LongPressDetectEvents.BOTH,
-  });
+  const [bind] = useLongPressHook(
+    'https://api.whatsapp.com/send/?phone=34610516285',
+  );
 
   return (
     <>

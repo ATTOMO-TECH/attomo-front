@@ -259,7 +259,10 @@ function News() {
             />
           </motion.svg>
         </Styles.BlockTrends>
-        <BlockBlog dataBlog={preData} />
+        {preData.map((dataBlog: any) => (
+          <BlockBlog data={dataBlog} />
+        ))}
+
         {data &&
           (data.meta.pagination.page !== data.meta.pagination.pageCount &&
           data.meta.pagination.pageCount !== 0 ? (

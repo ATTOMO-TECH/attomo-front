@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import { useLongPress, LongPressDetectEvents } from 'use-long-press';
-import { handleClickTouch } from '../../hook/eventListener';
+import useLongPressHook from '../../hook/longPress';
 import IconAnimate from '../button/icon';
 import { SubSections } from '../subsection/style';
 import Title from '../Text/title';
@@ -19,18 +18,7 @@ export default function SelectedClients({
   link,
   textPrimary,
 }: Props) {
-  const callback = () => {
-    handleClickTouch(link);
-  };
-
-  const bind = useLongPress(() => callback(), {
-    // eslint-disable-next-line
-    onFinish: () => {},
-    threshold: 200,
-    captureEvent: true,
-    cancelOnMovement: true,
-    detect: LongPressDetectEvents.BOTH,
-  });
+  const [bind] = useLongPressHook(link);
 
   return (
     <>
@@ -38,7 +26,7 @@ export default function SelectedClients({
         <Styles.DivideSection>
           <SubSections.BlockCounter>
             <Link href={`${link}`}>
-              <SubSections.BlockBtn {...bind()}>
+              <SubSections.BlockBtn {...bind(link)}>
                 <Title size="text-2xl md:text-3xl lg:text-4xl font-light w-4/6  lg:pl-10 cursor-pointer ">
                   {textPrimary}
                 </Title>
@@ -50,7 +38,7 @@ export default function SelectedClients({
             <div className="lg:w-4/6 w-full">
               <SubSections.Title> {text}</SubSections.Title>
               <Link href={`${link}`}>
-                <SubSections.BlockBtn {...bind()}>
+                <SubSections.BlockBtn {...bind(link)}>
                   <IconAnimate text={btn} mode />
                 </SubSections.BlockBtn>
               </Link>

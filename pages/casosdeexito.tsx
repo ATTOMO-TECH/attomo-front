@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import * as qs from 'qs';
 import { format } from 'date-fns';
 import { useQueryClient } from 'react-query';
+import { fadeInUp } from '../components/animations/animations';
 import Background from '../components/animations/background';
 import BlockSection from '../components/block/block';
 import ButtonShare from '../components/button/BtnShare';
@@ -23,7 +24,6 @@ import BlockFilter from '../components/filter/blockFilter';
 
 function Cases() {
   const queryClient = useQueryClient();
-
   const router = useRouter();
   let { locale } = router;
   if (locale === '/') {
@@ -223,11 +223,17 @@ function Cases() {
         <Styles.BlockSections
           mode={isOpen ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
           {!isLoading ? (
-            <SectionProjects
-              data={preData}
-              shouldShowActions={undefined}
-              servicesAnimations={undefined}
-            />
+            <Styles.SectionProjects>
+              {preData?.map((values: any, i: number) => (
+                <SectionProjects
+                  i={i}
+                  key={`SectionProjects${values.attributes.title}`}
+                  values={values}
+                  shouldShowActions={undefined}
+                  servicesAnimations={fadeInUp}
+                />
+              ))}
+            </Styles.SectionProjects>
           ) : (
             <RenderLoading mode={false} />
           )}

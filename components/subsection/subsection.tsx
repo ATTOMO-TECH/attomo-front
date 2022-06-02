@@ -1,27 +1,15 @@
 import Link from 'next/link';
-import { useLongPress, LongPressDetectEvents } from 'use-long-press';
 import { SubSections } from './style';
 import Counter from './counter';
 import Title from '../Text/title';
 import IconAnimate from '../button/icon';
-import { handleClickTouch } from '../../hook/eventListener';
+import useLongPressHook from '../../hook/longPress';
 
 interface Props {
   locale: any;
 }
 export default function SubSection({ locale }: Props) {
-  const callback = () => {
-    handleClickTouch('/servicios');
-  };
-
-  const bind = useLongPress(() => callback(), {
-    // eslint-disable-next-line
-    onFinish: () => {},
-    threshold: 200,
-    captureEvent: true,
-    cancelOnMovement: true,
-    detect: LongPressDetectEvents.BOTH,
-  });
+  const [bind] = useLongPressHook('/servicios');
 
   return (
     <>

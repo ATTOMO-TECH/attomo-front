@@ -1,4 +1,3 @@
-import { useLongPress, LongPressDetectEvents } from 'use-long-press';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -18,6 +17,7 @@ import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 import { Metadata } from '../components/head/metadata';
 import { useAScreen } from '../domain/useScreensMetadata';
+import useLongPressHook from '../hook/longPress';
 
 function Carrers() {
   const router = useRouter();
@@ -36,18 +36,8 @@ function Carrers() {
     SetIsOpen(!isOpen);
   };
   const translate = getLocale();
-  const callback = () => {
-    router.push('/contacto');
-  };
 
-  const bind = useLongPress(() => callback(), {
-    // eslint-disable-next-line
-    onFinish: () => {},
-    threshold: 200,
-    captureEvent: true,
-    cancelOnMovement: true,
-    detect: LongPressDetectEvents.BOTH,
-  });
+  const [bind] = useLongPressHook('/contacto');
 
   if (isLoading || screenIsLoading) {
     return (

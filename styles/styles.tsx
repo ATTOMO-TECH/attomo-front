@@ -215,7 +215,8 @@ export const Styles = {
   DivideSection: tw.div`lg:w-3/6 w-full pb-2`,
   BlockButton: tw.div`lg:px-24 pt-10`,
   BlockSlider: tw.div` pb-12 px-7`,
-  BlockTrends: tw.div`lg:pt-48 flex w-full m-auto lg:justify-center items-center pl-8 lg:pl-0 pt-10 pb-16 flex-wrap `,
+  SectionProjects: tw.div`lg:m-14 relative z-0 touched`,
+  BlockTrends: tw.div`lg:pt-48 flex w-full m-auto lg:justify-center items-center lg:pl-0 py-16 flex-wrap w-10/12 `,
   // FilterCases
   SelectFilterCases: tw.div`flex w-full m-auto lg:justify-center items-center pl-8 lg:pl-0 pt-10 lg:pt-0 flex-wrap  `,
 

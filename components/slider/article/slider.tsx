@@ -77,7 +77,7 @@ export default function ArticlesScroll({ mode, filter, id }: Props) {
         }}>
         {data.data.map((articles: any) => (
           <SwiperSlide
-            key={`${articles.Tag}-${articles.id}`}
+            key={`${articles.Text}-${articles.id}`}
             className="swiper z-10">
             <Link href={`/ATTOMOTrends/${articles.id}`}>
               <StylesArticle.Img
