@@ -215,7 +215,8 @@ export const Styles = {
   DivideSection: tw.div`lg:w-3/6 w-full pb-2`,
   BlockButton: tw.div`lg:px-24 pt-10`,
   BlockSlider: tw.div` pb-12 px-7`,
-  BlockTrends: tw.div`lg:pt-48 flex w-full m-auto lg:justify-center items-center pl-8 lg:pl-0 pt-10 pb-16 flex-wrap `,
+  SectionProjects: tw.div`lg:m-14 relative z-0 touched`,
+  BlockTrends: tw.div`lg:pt-48 flex w-full m-auto lg:justify-center items-center lg:pl-0 py-16 flex-wrap w-10/12 `,
   // FilterCases
   SelectFilterCases: tw.div`flex w-full m-auto lg:justify-center items-center pl-8 lg:pl-0 pt-10 lg:pt-0 flex-wrap  `,
 
@@ -300,4 +301,6 @@ export const Styles = {
   )`w-full h-full bg-secundary opacity-100  z-0 absolute bottom-0 left-0 z-0`,
   TextSecundary: tw.h6`text-primary font-light text-justify text-sm p-4`,
   ListType: tw.li`w-full  list-disc text-primary  text-justify  p-2 text-sm font-light font-PrimarySerif tracking-wide leading-loose`,
+  SectionMore: tw.div`flex  text-primary font-Primary underline text-center justify-center py-24 font-extralight text-xl`,
+  BlockMore: tw.span`hover:opacity-75 cursor-pointer ease-out duration-300`,
 };

@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
 import { HeadSection } from './style';
-import { useEventListener } from '../../hook/eventListener';
+import useLongPressHook from '../../hook/longPress';
 
 type Props = {
   text: string;
@@ -12,7 +11,6 @@ type Props = {
 };
 
 export default function Hero({ text, text2, button, link }: Props) {
-  const router = useRouter();
   const line1 = text;
   const line2 = text2;
   const duration = 0.5;
@@ -54,10 +52,9 @@ export default function Hero({ text, text2, button, link }: Props) {
       },
     },
   };
-  const handleSection = () => {
-    router.push('/#conocenos');
-  };
-  useEventListener('linkto', 'touchstart', handleSection);
+
+  const [bind] = useLongPressHook(`#${link}`);
+
   return (
     <>
       <HeadSection.SectionHero>
@@ -70,9 +67,11 @@ export default function Hero({ text, text2, button, link }: Props) {
             {line1} {line2}
           </HeadSection.TextHead>
         </motion.div>
-        <HeadSection.Blockbutton className={button === '' ? 'hidden' : ''}>
+        <HeadSection.Blockbutton
+          className={button === '' ? 'hidden' : ''}
+          {...bind()}>
           <Link href={`#${link}`}>
-            <a href={`#${link}`} id="linkto">
+            <a href={`#${link}`}>
               <HeadSection.TextButton>{button}</HeadSection.TextButton>
               <HeadSection.BlockArrow>
                 <motion.svg

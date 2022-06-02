@@ -47,7 +47,9 @@ function Privacidad() {
         </Styles.Margin>
         <Styles.Center>
           <Styles.BlockButtonLegal>
-            <Styles.BlockBack onClick={() => router.back()}>
+            <Styles.BlockBack
+              onClick={() => router.back()}
+              onTouchEnd={() => router.back()}>
               <IconAnimate text={translate.back} mode />
             </Styles.BlockBack>
           </Styles.BlockButtonLegal>

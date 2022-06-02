@@ -22,6 +22,7 @@ export default function Footer({ subFooter }: Props) {
               <Navegation.TitleNav>ATTOMO</Navegation.TitleNav>
               {translate.menu.map((values) => (
                 <Navegation.ItemsMenu
+                  key={`footer${values.Value}`}
                   id={values.Value}
                   onTouchStart={() => router.push(values.Url)}>
                   <Link href={values.Url} passHref>

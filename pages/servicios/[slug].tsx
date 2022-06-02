@@ -66,6 +66,7 @@ function DetailsServices() {
     SetIsOpen(!isOpen);
   };
   const translate = getLocale();
+
   return (
     <>
       <Head>

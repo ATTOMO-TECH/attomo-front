@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { useLongPress, LongPressDetectEvents } from 'use-long-press';
 import { format } from 'date-fns';
 import { motion } from 'framer-motion';
 import { Styles } from '../../styles/styles';
 import Subtext from '../Text/subText';
 import { servicesAnimations } from '../animations/animations';
 import { BUTTON_ACTIVE } from '../../const/const';
+import useLongPressHook from '../../hook/longPress';
 
 interface Props {
   toggleFilter: () => void;
@@ -28,18 +28,7 @@ export default function BlockFilter({
 }: Props) {
   const [shouldShowActions] = useState(false);
 
-  const callback = () => {
-    toggleFilter();
-  };
-
-  const bind = useLongPress(() => callback(), {
-    // eslint-disable-next-line
-    onFinish: () => {},
-    threshold: 200,
-    captureEvent: true,
-    cancelOnMovement: true,
-    detect: LongPressDetectEvents.BOTH,
-  });
+  const [bind] = useLongPressHook('', toggleFilter);
 
   const change: boolean = !!startDate || !!endDate || !!topic || !!search;
 

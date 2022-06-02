@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import Subtext from '../Text/subText';
 import IconAnimate from '../button/icon';
 import Title from '../Text/title';
@@ -8,6 +9,8 @@ interface Props {
 }
 
 export default function Work({ works }: Props) {
+  const router = useRouter();
+
   return (
     <>
       {works.map((value) => (
@@ -21,7 +24,10 @@ export default function Work({ works }: Props) {
                   <a
                     href={`https://${value.attributes.url}`}
                     target="_blank"
-                    rel="noreferrer">
+                    rel="noreferrer"
+                    onTouchEnd={() =>
+                      router.push(`https://${value.attributes.url}`)
+                    }>
                     <Title size="lg:text-xl text-2xl ">
                       {value.attributes.title}
                     </Title>
@@ -39,7 +45,10 @@ export default function Work({ works }: Props) {
                   href={`https://${value.attributes.url}`}
                   target="_blank"
                   className=""
-                  rel="noreferrer">
+                  rel="noreferrer"
+                  onTouchEnd={() =>
+                    router.push(`https://${value.attributes.url}`)
+                  }>
                   <IconAnimate text="Aplicar" mode />
                 </a>
               </Link>

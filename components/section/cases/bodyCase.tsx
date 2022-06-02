@@ -51,15 +51,15 @@ export default function BodyCases({ data }: Props) {
           </BodyTrends.ButtonShare>
           <BreadCrumbs
             Author={data?.data.attributes.author}
-            Date={format(
-              new Date(data?.data.attributes.publishedAt),
-              'dd-MM-yyyy',
-            )}
+            Date={
+              data?.data.attributes.publishedAt &&
+              format(new Date(data?.data.attributes.publishedAt), 'dd-MM-yyyy')
+            }
           />
         </BodyTrends.BlockShare>
         <BodyTrends.AlingData>
           <Container remarkPlugins={[gfm]} rehypePlugins={[rehypeRaw]}>
-            {data.data.attributes.content}
+            {data?.data?.attributes?.content}
           </Container>
         </BodyTrends.AlingData>
       </BodyTrends.Section>

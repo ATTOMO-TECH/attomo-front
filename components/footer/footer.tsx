@@ -13,16 +13,14 @@ export default function Footer({ subFooter }: Props) {
   const translate = getLocale();
 
   translate.menu.map((values) =>
-    useEventListener(values.Value, 'touchstart', () =>
+    useEventListener(values.Value, 'touchend', () =>
       handleClickTouch(values.Url),
     ),
   );
-  useEventListener('term', 'touchstart', () => handleClickTouch('/privacidad'));
-  useEventListener('privacy', 'touchstart', () =>
-    handleClickTouch('/terminos'),
-  );
+  useEventListener('term', 'touchend', () => handleClickTouch('/privacidad'));
+  useEventListener('privacy', 'touchend', () => handleClickTouch('/terminos'));
   ICONNAV.map((values) =>
-    useEventListener(values.Name, 'touchstart', () =>
+    useEventListener(values.Name, 'touchend', () =>
       handleClickTouch(values.Url),
     ),
   );

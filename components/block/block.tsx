@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { BUTTON_ACTIVE } from '../../const/const';
-import { handleClickTouch, useEventListener } from '../../hook/eventListener';
+import useLongPressHook from '../../hook/longPress';
 import { darkTheme, lightTheme } from '../../styles/styles';
 import IconAnimate from '../button/icon';
 import { Block } from './style';
@@ -22,12 +22,8 @@ export default function BlockSection({
   mode,
   link,
 }: Props) {
-  if (text) {
-    useEventListener(text, 'touchstart', () => handleClickTouch(link));
-  }
-  if (text2) {
-    useEventListener(text2, 'touchstart', () => handleClickTouch(link));
-  }
+  const [bind] = useLongPressHook(link);
+
   return (
     <>
       <Block.SectionBlock>
@@ -38,7 +34,7 @@ export default function BlockSection({
                 {text}
               </Block.Title>
               <Link href={`${link}`} passHref>
-                <Block.BlockBtn id={text}>
+                <Block.BlockBtn {...bind(link)}>
                   <IconAnimate text={button} mode={mode} />
                 </Block.BlockBtn>
               </Link>
@@ -54,7 +50,7 @@ export default function BlockSection({
                 {text2}
               </Block.Title>
               <Link href={`${link}`} passHref>
-                <Block.BlockBtn id={text2}>
+                <Block.BlockBtn {...bind(link)}>
                   <IconAnimate text={button2} mode={mode} />
                 </Block.BlockBtn>
               </Link>

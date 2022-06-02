@@ -55,13 +55,6 @@ function KitDigital() {
     };
   }, [lastYPos]);
 
-  if (screenIsLoading) {
-    return (
-      <>
-        <RenderLoading mode={false} />
-      </>
-    );
-  }
   const scrollTo = (id: string) => {
     const section = document.getElementById(id);
     if (section !== null) {
@@ -69,6 +62,13 @@ function KitDigital() {
     }
   };
 
+  if (screenIsLoading) {
+    return (
+      <>
+        <RenderLoading mode={false} />
+      </>
+    );
+  }
   return (
     <>
       <Metadata screen={screen} />
@@ -109,18 +109,18 @@ function KitDigital() {
                   }}
                   whileInView={{ opacity: 1, y: 0 }}
                   initial={{ opacity: 0, y: '50%' }}
-                  className="flex flex-col lg:flex-row  justify-center items-center actions mt-24 bottom-0">
+                  className="flex flex-col lg:flex-row  justify-center items-center actions my-24 xl:my-0 bottom-0 ">
                   <Styles.BtnKit
                     mode={BUTTON_ACTIVE.ON}
                     onClick={() => scrollTo('section-how-kit')}
-                    onTouchStart={() => scrollTo('section-how-kit')}>
+                    onTouchEnd={() => scrollTo('section-how-kit')}>
                     {translate.btnHow}
                   </Styles.BtnKit>
 
                   <Styles.BtnKit
                     className="mt-5 lg:mt-0"
                     onClick={() => scrollTo('form-kit')}
-                    onTouchStart={() => scrollTo('form-kit')}>
+                    onTouchEnd={() => scrollTo('form-kit')}>
                     {translate.btnForm}
                   </Styles.BtnKit>
                 </motion.div>

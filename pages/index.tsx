@@ -161,37 +161,18 @@ function Home() {
           <Styles.BlockSlider>
             <CompaniesScroll />
           </Styles.BlockSlider>
-          <SectionProjects
-            data={data.data}
-            shouldShowActions={shouldShowActions}
-            servicesAnimations={servicesAnimations}
-          />
-          <motion.div
-            animate={shouldShowActions}
-            variants={servicesAnimations}
-            className="actions"
-            transition={{
-              delay: 0.2,
-              type: 'spring',
-              stiffness: 50,
-              duration: 2,
-            }}
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: '50%' }}>
-            <Styles.Center>
-              {translate.seeMore.map((values) => (
-                <BlockSection
-                  key={`BlockSection${values.Text}`}
-                  text=""
-                  button=""
-                  text2={values.Text}
-                  button2={values.Link}
-                  mode
-                  link="/ATTOMOTrends"
-                />
-              ))}
-            </Styles.Center>
-          </motion.div>
+          <Styles.SectionProjects>
+            {data?.data?.map((values: any, i: number) => (
+              <SectionProjects
+                i={i}
+                key={`SectionProjects${values.attributes.title}`}
+                values={values}
+                shouldShowActions={shouldShowActions}
+                servicesAnimations={servicesAnimations}
+              />
+            ))}
+          </Styles.SectionProjects>
+
           <Styles.Center>
             {translate.contact.map((values) => (
               <BlockSection

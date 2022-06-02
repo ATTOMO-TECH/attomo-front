@@ -154,6 +154,11 @@ function News() {
     text: values.attributes.name,
     value: values.attributes.name,
   }));
+  DEPARTMENT.push({
+    value: '',
+    text: translate.allServices,
+  });
+  DEPARTMENT.reverse();
 
   const handleChangeReset = () => {
     setFilter('');
@@ -198,7 +203,7 @@ function News() {
             <InputSelect
               selected={filter}
               options={DEPARTMENT}
-              valueLabel={filter === '' ? `${translate.allServices}` : filter}
+              valueLabel={filter}
               name="filter"
               onChange={onChangeTopic}
               handleValue={setFilter}
@@ -254,7 +259,10 @@ function News() {
             />
           </motion.svg>
         </Styles.BlockTrends>
-        <BlockBlog dataBlog={preData} />
+        {preData.map((dataBlog: any) => (
+          <BlockBlog data={dataBlog} />
+        ))}
+
         {data &&
           (data.meta.pagination.page !== data.meta.pagination.pageCount &&
           data.meta.pagination.pageCount !== 0 ? (
