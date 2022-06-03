@@ -19,8 +19,7 @@ import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 import Subtext from '../components/Text/subText';
 import CalendarPickerInputRange from '../components/calendar/input/calendarRange';
-// import SelectFilterMenu from '../components/filter/selectedFilterMenu';
-import InputSelect from '../components/form/select';
+import InputSelectFilter from '../components/form/selectFilter';
 import { Metadata } from '../components/head/metadata';
 import { useAScreen } from '../domain/useScreensMetadata';
 import { formatDateFilter } from '../hook/date';
@@ -57,6 +56,7 @@ function News() {
   const onChangeTopic = (e: any) => {
     setFilter(e);
   };
+
   const handleAddBlog = (value: number) => {
     setPage(value);
   };
@@ -200,7 +200,7 @@ function News() {
             <Subtext size="text-lg py-4 ">{translate.trendsFilter}</Subtext>
           </Styles.SectionFilter>
           <Styles.SelectFilter>
-            <InputSelect
+            <InputSelectFilter
               selected={filter}
               options={DEPARTMENT}
               valueLabel={filter}

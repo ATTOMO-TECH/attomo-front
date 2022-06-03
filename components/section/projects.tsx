@@ -42,8 +42,7 @@ export default function SectionProjects({
           key={values.Client}>
           <Link href={`/casos/${values.id}`}>
             <Styles.BlockSection
-              ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-              {...bind()}>
+              ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
               {values?.attributes?.mainPhoto?.data[0].attributes?.url && (
                 <img
                   src={values?.attributes.mainPhoto.data[0].attributes.url}
@@ -52,6 +51,7 @@ export default function SectionProjects({
                   id={`${values.id}`}
                   alt={values.attributes.name}
                   className="object-cover cursor-pointer"
+                  {...bind()}
                 />
               )}
             </Styles.BlockSection>
@@ -75,7 +75,7 @@ export default function SectionProjects({
               <Title size="lg:text-4xl md:text-2xl text-xl sm:w-96 w-80  py-3 leading-relaxed lg:leading-normal">
                 {values.attributes.title}
               </Title>
-              <Link href={`/casos/${values.id}`} passHref>
+              <Link href={`/casos/${values.id}`}>
                 <Styles.BlockBtn {...bind()}>
                   <IconAnimate text={translate.seeMoreProject} mode />
                 </Styles.BlockBtn>

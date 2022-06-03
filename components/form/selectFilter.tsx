@@ -10,7 +10,7 @@ type Props = {
   selected: any;
 };
 
-export default function InputSelect({
+export default function InputSelectFilter({
   options,
   valueLabel,
   handleValue,
@@ -20,7 +20,10 @@ export default function InputSelect({
 }: Props) {
   return (
     <>
-      <BlockDiv active={selected !== ''} className="relative text-left">
+      <BlockDiv
+        active={selected !== ''}
+        className="relative text-left"
+        key={selected}>
         <Select
           name={name}
           modalCloseButton={<ModalCloseButton />}

@@ -45,7 +45,6 @@ export default function FormReserver() {
     [valueTime]: 0,
     [FORMVALUES.CONDITIONS]: false,
   };
-
   const { mutate } = createReserve();
 
   const handleSubmitReserve = (dataValues: any, action: any) => {
@@ -64,7 +63,6 @@ export default function FormReserver() {
       { data },
       {
         onSuccess: () => {
-          action.resetForm();
           setSuccesfull(true);
         },
         onError: () => {
@@ -73,6 +71,7 @@ export default function FormReserver() {
       },
     );
   };
+
   return (
     <>
       {!sendSuccesfull ? (
@@ -238,9 +237,8 @@ export default function FormReserver() {
 
                   <Styles.BlockSendButton>
                     <Styles.BtnSend
-                      type="submit"
-                      onTouchStart={() => handleSubmit()}
-                      onClick={() => handleSubmit()}
+                      onTouchStart={handleSubmit}
+                      onClick={handleSubmit}
                       ismode={
                         !(isValid && dirty)
                           ? BUTTON_ACTIVE.ON
