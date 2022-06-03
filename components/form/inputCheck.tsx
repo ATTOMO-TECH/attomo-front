@@ -20,12 +20,13 @@ export default function InputCheck({ text, value, onChange }: Props) {
           name={value}
           id={value}
           checked={check}
+          readOnly
           onTouchEnd={(e: any) => {
             setCheck(e.target.value);
             onChange && onChange(e.target.value);
             setCheck(!check);
           }}
-          onClick={(e: any) => {
+          onChange={(e: any) => {
             setCheck(e.target.value);
             onChange && onChange(e.target.value);
             setCheck(!check);

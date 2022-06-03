@@ -16,7 +16,7 @@ export default function RenderForm() {
       <Styles.BlockButton>
         {translate.buttonsRenderForm.map((button: any, i) => (
           <Styles.BtnSelect
-            key={button.Name}
+            key={`FormRender-${button.Name}`}
             active={i === iDx}
             onTouchEnd={() => handleClick(i)}
             onClick={() => handleClick(i)}>

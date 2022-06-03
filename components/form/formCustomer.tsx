@@ -49,7 +49,6 @@ export default function FormCustomer() {
       { data },
       {
         onSuccess: () => {
-          action.resetForm();
           setSuccesfull(true);
         },
         onError: () => {
@@ -206,9 +205,8 @@ export default function FormCustomer() {
                 )}
                 <Styles.BlockSendButton>
                   <Styles.BtnSend
-                    onTouchStart={() => handleSubmit()}
-                    onClick={() => handleSubmit()}
-                    type="submit"
+                    onTouchStart={handleSubmit}
+                    onClick={handleSubmit}
                     ismode={
                       !(isValid && dirty) ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF
                     }>

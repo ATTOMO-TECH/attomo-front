@@ -93,7 +93,6 @@ export default function FormColaborator() {
       { data },
       {
         onSuccess: () => {
-          action.resetForm();
           setSuccesfull(true);
         },
         onError: () => {
@@ -127,9 +126,8 @@ export default function FormColaborator() {
                 </Subtext>
                 <Styles.BlockSelect>
                   {FORMPARTOF.map((valuesCheck) => (
-                    <Styles.AlingSelect>
+                    <Styles.AlingSelect key={`Radio-${valuesCheck.value}`}>
                       <InputRadio
-                        key={`Radio-${valuesCheck.value}`}
                         text={valuesCheck.text}
                         value={valuesCheck.value}
                         valueChecked={filter}
@@ -305,9 +303,8 @@ export default function FormColaborator() {
                 </span>
                 <Styles.BlockSendButton>
                   <Styles.BtnSend
-                    onTouchStart={() => handleSubmit()}
-                    onClick={() => handleSubmit()}
-                    type="submit"
+                    onTouchStart={handleSubmit}
+                    onClick={handleSubmit}
                     ismode={
                       !(isValid && dirty) ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF
                     }>

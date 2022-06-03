@@ -23,6 +23,7 @@ export default function InputRadio({
         checkedValue={valueChecked === value && check}>
         <Styles.InputRadio
           type="radio"
+          readOnly
           name="partner"
           value={value}
           onTouchEnd={(e: any) => [

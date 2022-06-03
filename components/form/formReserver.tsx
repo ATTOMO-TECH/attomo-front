@@ -64,7 +64,6 @@ export default function FormReserver() {
       { data },
       {
         onSuccess: () => {
-          action.resetForm();
           setSuccesfull(true);
         },
         onError: () => {
@@ -238,9 +237,8 @@ export default function FormReserver() {
 
                   <Styles.BlockSendButton>
                     <Styles.BtnSend
-                      type="submit"
-                      onTouchStart={() => handleSubmit()}
-                      onClick={() => handleSubmit()}
+                      onTouchStart={handleSubmit}
+                      onClick={handleSubmit}
                       ismode={
                         !(isValid && dirty)
                           ? BUTTON_ACTIVE.ON

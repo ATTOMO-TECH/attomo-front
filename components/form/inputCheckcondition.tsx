@@ -32,6 +32,7 @@ export default function InputCheckcondition({
             setCheck(!check);
           }}
           checked={check}
+          readOnly
           onChange={() => {
             onClick && onClick(!check);
             setCheck(!check);
