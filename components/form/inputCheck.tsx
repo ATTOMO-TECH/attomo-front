@@ -5,19 +5,22 @@ import { Styles } from './style';
 interface Props {
   text: any;
   value: string;
-
+  key: string;
   onChange?: any;
 }
 
-export default function InputCheck({ text, value, onChange }: Props) {
+export default function InputCheck({ text, value, onChange, key }: Props) {
   const [check, setCheck] = useState<boolean>(false);
 
   return (
     <>
-      <Styles.LabelCheckBox htmlFor={value} checkedValue={check}>
+      <Styles.LabelCheckBox
+        htmlFor={key}
+        checkedValue={check}
+        key={`${key}-${value}`}>
         <Styles.InputCheck
           type="checkbox"
-          name={value}
+          name={key}
           id={value}
           checked={check}
           readOnly
@@ -26,7 +29,7 @@ export default function InputCheck({ text, value, onChange }: Props) {
             onChange && onChange(e.target.value);
             setCheck(!check);
           }}
-          onChange={(e: any) => {
+          onClick={(e: any) => {
             setCheck(e.target.value);
             onChange && onChange(e.target.value);
             setCheck(!check);

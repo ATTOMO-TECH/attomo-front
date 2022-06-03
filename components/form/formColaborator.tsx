@@ -26,7 +26,7 @@ export default function FormColaborator() {
   const translate = getLocale();
   const [query, setQuery] = useState('');
   const [area, setArea] = useState<any>([]);
-  const [filter, setFilter] = useState('team');
+  const [filter, setFilter] = useState('');
 
   const queryQs = qs.stringify(
     {
@@ -42,6 +42,7 @@ export default function FormColaborator() {
   );
   useEffect(() => {
     setQuery(queryQs);
+    setArea([]);
   }, [filter]);
   const { data: Partner } = useUseAllPartner(query);
   const valueName = FORMVALUES.FIRSTNAME;
@@ -69,9 +70,10 @@ export default function FormColaborator() {
     const removeArea = area.filter((areas: any) => !equals(areas, newArea));
     if (!areaFind) {
       setArea([...area, newArea]);
-    } else {
-      setArea(removeArea);
+      return [...area, newArea];
     }
+    setArea(removeArea);
+    return removeArea;
   };
 
   const { mutate } = createContactColaborator();
@@ -85,7 +87,7 @@ export default function FormColaborator() {
       [FORMVALUES.MESSAGE]: values.message,
       [FORMVALUES.LINK]: values.portfolio,
       [FORMVALUES.PARTOF]: values.teamOrPartner,
-      [FORMVALUES.SPECIALITY]: area,
+      [FORMVALUES.SPECIALITY]: values.areas,
       [FORMVALUES.CONDITIONS]: values.conditionsAccepted,
     };
 
@@ -121,9 +123,14 @@ export default function FormColaborator() {
           }) => (
             <>
               <Styles.Form onSubmit={handleSubmit} key="formColaborator">
-                <Subtext size="lg:text-sm w-full pb-10 font-PrimarySerif">
-                  {translate.partOfTeam}
-                </Subtext>
+                <div className="pb-10">
+                  <Subtext size="lg:text-sm w-full font-PrimarySerif">
+                    {translate.partOfTeam}
+                  </Subtext>
+                  {touched.teamOrPartner && errors.teamOrPartner && (
+                    <Styles.Error>{errors.teamOrPartner}</Styles.Error>
+                  )}
+                </div>
                 <Styles.BlockSelect>
                   {FORMPARTOF.map((valuesCheck) => (
                     <Styles.AlingSelect key={`Radio-${valuesCheck.value}`}>
@@ -138,10 +145,15 @@ export default function FormColaborator() {
                       />
                     </Styles.AlingSelect>
                   ))}
+                  {touched.teamOrPartner && errors.teamOrPartner && (
+                    <Styles.Error>{errors.teamOrPartner}</Styles.Error>
+                  )}
                 </Styles.BlockSelect>
-                <Subtext size="lg:text-sm w-full lg:pb-10 pb-4 font-PrimarySerif pt-10">
-                  {translate.speciality}
-                </Subtext>
+                {values.teamOrPartner && (
+                  <Subtext size="lg:text-sm w-full lg:pb-10 pb-4 font-PrimarySerif pt-10">
+                    {translate.speciality}
+                  </Subtext>
+                )}
                 <Styles.BlockSelectSecond>
                   {Partner?.data.map((valuesCheck: any) => (
                     <Styles.AlingSelectSecond
@@ -149,8 +161,10 @@ export default function FormColaborator() {
                       <InputCheck
                         text={valuesCheck.attributes.area}
                         value={valuesCheck.attributes.area}
+                        key={values.teamOrPartner as string}
                         onChange={() => {
-                          addArea(valuesCheck.id);
+                          const data = addArea(valuesCheck.id);
+                          setFieldValue(FORMVALUES.SPECIALITY, data);
                         }}
                       />
                     </Styles.AlingSelectSecond>

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Styles } from './style';
 
 interface Props {
@@ -14,27 +13,19 @@ export default function InputRadio({
   onChange,
   valueChecked,
 }: Props) {
-  const [check, setCheck] = useState<boolean>(false);
-
   return (
     <>
       <Styles.LabelCheck
-        htmlFor={value}
-        checkedValue={valueChecked === value && check}>
+        htmlFor="partner"
+        checkedValue={valueChecked === value}>
         <Styles.InputRadio
           type="radio"
           readOnly
           name="partner"
           value={value}
-          onTouchEnd={(e: any) => [
-            setCheck(!check),
-            onChange && onChange(e.target.value),
-          ]}
-          checked={valueChecked === value && check}
-          onClick={(e: any) => [
-            setCheck(!check),
-            onChange && onChange(e.target.value),
-          ]}
+          checked={valueChecked === value}
+          onTouchEnd={(e: any) => onChange(e.target.value)}
+          onChange={(e: any) => onChange(e.target.value)}
         />
         {text}
       </Styles.LabelCheck>

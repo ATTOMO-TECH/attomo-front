@@ -8,9 +8,8 @@ const getAllPartners = async (query: any) => {
 };
 
 export function useUseAllPartner(query: any) {
-  return useQuery(['useAllPost', query], () => getAllPartners(query), {
-    staleTime: 2500,
+  return useQuery(['useAllPartner', query], () => getAllPartners(query), {
+    staleTime: Infinity,
     notifyOnChangePropsExclusions: ['isStale'],
-    refetchOnWindowFocus: false,
   });
 }

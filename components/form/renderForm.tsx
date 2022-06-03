@@ -24,7 +24,9 @@ export default function RenderForm() {
           </Styles.BtnSelect>
         ))}
       </Styles.BlockButton>
-      <Styles.SectionRenderForm>{innerRender(iDx)}</Styles.SectionRenderForm>
+      <Styles.SectionRenderForm key={iDx}>
+        {innerRender(iDx)}
+      </Styles.SectionRenderForm>
     </>
   );
 }

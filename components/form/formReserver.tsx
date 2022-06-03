@@ -45,7 +45,6 @@ export default function FormReserver() {
     [valueTime]: 0,
     [FORMVALUES.CONDITIONS]: false,
   };
-
   const { mutate } = createReserve();
 
   const handleSubmitReserve = (dataValues: any, action: any) => {
@@ -72,6 +71,7 @@ export default function FormReserver() {
       },
     );
   };
+
   return (
     <>
       {!sendSuccesfull ? (
