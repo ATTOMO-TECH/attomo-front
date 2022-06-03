@@ -92,7 +92,7 @@ export const Item = styled.div<Props>`
     @media screen and (min-width: 468px) {
       top: -2.5%;
       left: 40%;
-      transform: scale(0.9) rotate(10deg);
+      transform: scale(0.9) rotate(12deg);
     }
     @media screen and (min-width: 640px) {
       top: -2.5%;
