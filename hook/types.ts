@@ -1,7 +1,9 @@
 export const FORMVALUES = {
   FIRSTNAME: 'firstname',
+  NAME: 'name',
   LASTNAME: 'lastname',
   PHONE: 'mobile',
+  PHONE2: 'phone',
   EMAIL: 'email',
   COMPANY: 'company',
   MESSAGE: 'message',

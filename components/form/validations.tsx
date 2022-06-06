@@ -31,8 +31,8 @@ export const validationSchemaColaborator = Yup.object().shape({
   ),
 });
 export const validationSchemaKit = Yup.object().shape({
-  [FORMVALUES.FIRSTNAME]: Yup.string().required('Campo obligatorio'),
-  [FORMVALUES.PHONE]: Yup.string()
+  [FORMVALUES.NAME]: Yup.string().required('Campo obligatorio'),
+  [FORMVALUES.PHONE2]: Yup.string()
     .min(9, 'El número no tiene formato correcto')
     .required('Campo obligatorio'),
   [FORMVALUES.EMAIL]: Yup.string()

@@ -16,7 +16,7 @@ const useLongPressHook = (value?: string, onClick?: any) => {
   const bind = useLongPress(() => callback(), {
     // eslint-disable-next-line
     onFinish: () => {},
-    threshold: 300,
+    threshold: 500,
     captureEvent: true,
     cancelOnMovement: true,
     detect: LongPressDetectEvents.BOTH,

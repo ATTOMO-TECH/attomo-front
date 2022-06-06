@@ -83,8 +83,8 @@ export default function Cases({ mode }: Props) {
             src={
               data.data?.attributes?.mainPhoto?.data[0].attributes?.url || '/'
             }
-            width={1100}
-            height={600}
+            width="80%"
+            height="auto"
             alt={data.data.attributes.name}
             className="object-cover"
           />

@@ -83,8 +83,8 @@ export const textSubText = styled.h6`
 export const HeadSection = {
   TextHead: tw(TextHero)` lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl`,
   SectionHero: tw.section`font-Primary`,
-  Blockbutton: tw.div`relative cursor-pointer`,
-  TextButton: tw.h6`text-primary font-PrimarySerif font-light text-xs sm:text-lg lg:text-lg pt-10 `,
+  Blockbutton: tw.div`relative cursor-pointer w-20 lg:w-48`,
+  TextButton: tw.h6`text-primary font-PrimarySerif font-light text-xs sm:text-lg lg:text-lg pt-10`,
   BlockArrow: tw.span`absolute `,
   SectionHeroCases: tw(
     BlockHeroSection,

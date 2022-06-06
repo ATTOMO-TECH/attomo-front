@@ -133,7 +133,7 @@ export default function FormCustomer() {
                       />
                     )}
                     {touched.email && errors.email && (
-                      <Styles.Error className="-mt-4 lg:mt-0">
+                      <Styles.Error className="mt-4 lg:mt-0">
                         {errors.email}
                       </Styles.Error>
                     )}

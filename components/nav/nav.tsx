@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import useLongPressHook from '../../hook/longPress';
 import { darkTheme, lightTheme, Navegation } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { handleClickTouch, useEventListener } from '../../hook/eventListener';
@@ -31,9 +30,9 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
     router.push(router, router, { locale: value });
     setTimeout(() => {
       router.reload();
-    }, 200);
+    }, 10);
   };
-  const [bind] = useLongPressHook('', toggle);
+
   useEventListener('backToHome', 'touchend', () => handleClickTouch('/'));
 
   return (
@@ -101,7 +100,7 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
             </Navegation.BlokSectionLenguage>
             <Navegation.ItemsMenu
               onClick={() => toggle()}
-              {...bind()}
+              onTouchEnd={() => toggle()}
               className="colorMenu action z-100">
               <Navegation.TextMenu
                 theme={mode === true ? lightTheme : darkTheme}

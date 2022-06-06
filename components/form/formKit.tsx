@@ -17,27 +17,26 @@ export default function FormKit() {
   const [shouldShowActions] = useState(false);
   const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
   const translate = getLocale();
-  const valueName = FORMVALUES.FIRSTNAME;
-  const valuePhone = FORMVALUES.PHONE;
+  const valueName = FORMVALUES.NAME;
+  const valuePhone = FORMVALUES.PHONE2;
   const valueEmail = FORMVALUES.EMAIL;
   const valueMessage = FORMVALUES.MESSAGE;
 
   const initialValues = {
-    [FORMVALUES.FIRSTNAME]: '',
-    [FORMVALUES.PHONE]: '',
+    [FORMVALUES.NAME]: '',
+    [FORMVALUES.PHONE2]: '',
     [FORMVALUES.EMAIL]: '',
     [FORMVALUES.MESSAGE]: '',
     [FORMVALUES.CONDITIONS]: false,
   };
   const { mutate } = createKit();
 
-  const handleSumitCustomer = (values: any, action: any) => {
+  const handleSumitCustomer = (values: any) => {
     const data = {
-      [FORMVALUES.FIRSTNAME]: values.firstname,
-      [FORMVALUES.PHONE]: values.mobile,
+      [FORMVALUES.NAME]: values.name,
+      [FORMVALUES.PHONE2]: values.phone,
       [FORMVALUES.EMAIL]: values.email,
       [FORMVALUES.MESSAGE]: values.message,
-      [FORMVALUES.CONDITIONS]: values.conditionsAccepted,
     };
 
     mutate(
@@ -47,7 +46,7 @@ export default function FormKit() {
           setSuccesfull(true);
         },
         onError: () => {
-          action.resetForm();
+          setSuccesfull(false);
         },
       },
     );
@@ -77,18 +76,18 @@ export default function FormKit() {
                       ismode={BUTTON_ACTIVE.OFF}
                       placeholder={translate.formName}
                       type="text"
-                      id={FORMVALUES.FIRSTNAME}
-                      onTouchStart={() => handleFocus(FORMVALUES.FIRSTNAME)}
-                      name={FORMVALUES.FIRSTNAME}
+                      id={FORMVALUES.NAME}
+                      onTouchStart={() => handleFocus(FORMVALUES.NAME)}
+                      name={FORMVALUES.NAME}
                     />
-                    {touched.firstname && errors.firstname && (
+                    {touched.name && errors.name && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueName, '')}
                         onTouchStart={() => setFieldValue(valueName, '')}
                       />
                     )}
-                    {touched.firstname && errors.firstname && (
-                      <Styles.Error>{errors.firstname}</Styles.Error>
+                    {touched.name && errors.name && (
+                      <Styles.Error>{errors.name}</Styles.Error>
                     )}
                   </Styles.BlockInputOnly>
                 </Styles.BlockInputEnd>
@@ -118,21 +117,21 @@ export default function FormKit() {
                 <Styles.BlockInputEnd>
                   <Styles.BlockInputOnly>
                     <Styles.Input
-                      id={FORMVALUES.PHONE}
-                      onTouchStart={() => handleFocus(FORMVALUES.PHONE)}
+                      id={FORMVALUES.PHONE2}
+                      onTouchStart={() => handleFocus(FORMVALUES.PHONE2)}
                       ismode={BUTTON_ACTIVE.OFF}
                       placeholder={translate.formPhone}
                       type="number"
-                      name={FORMVALUES.PHONE}
+                      name={FORMVALUES.PHONE2}
                     />
-                    {touched.mobile && errors.mobile && (
+                    {touched.phone && errors.phone && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valuePhone, '')}
                         onTouchStart={() => setFieldValue(valuePhone, '')}
                       />
                     )}
-                    {touched.mobile && errors.mobile && (
-                      <Styles.Error>{errors.mobile}</Styles.Error>
+                    {touched.phone && errors.phone && (
+                      <Styles.Error>{errors.phone}</Styles.Error>
                     )}
                   </Styles.BlockInputOnly>
                 </Styles.BlockInputEnd>
