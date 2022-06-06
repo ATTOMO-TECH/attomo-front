@@ -194,8 +194,9 @@ export default function FormKit() {
           }}
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: '50%' }}>
-          <Title size=" lg:py-32 w-full text-center pt-10 leading-relaxed lg:pr-10 lg:text-4xl pb-2 text-3xl w-2/6 m-auto">
-            Datos enviados correctamente
+          <Title size=" lg:py-32 w-full text-center pt-10 leading-relaxed lg:pr-10 lg:text-4xl pb-2 text-2xl w-5/6 m-auto">
+            Muchas gracias, hemos recibido tu solicitud . Pronto nos pondremos
+            en contacto contigo
           </Title>
         </motion.div>
       )}
