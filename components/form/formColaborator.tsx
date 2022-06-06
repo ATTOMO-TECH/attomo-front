@@ -227,7 +227,9 @@ export default function FormColaborator() {
                       />
                     )}
                     {touched.email && errors.email && (
-                      <Styles.Error>{errors.email}</Styles.Error>
+                      <Styles.Error className="-mt-4 lg:mt-0">
+                        {errors.email}
+                      </Styles.Error>
                     )}
                   </Styles.BlockInput>
                   <Styles.BlockInput>

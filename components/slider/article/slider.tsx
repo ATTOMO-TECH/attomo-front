@@ -1,15 +1,16 @@
 // eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useRouter } from 'next/router';
 import { Navigation, Pagination } from 'swiper';
 import { useRef, useEffect, useState } from 'react';
 import * as qs from 'qs';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { darkTheme, lightTheme, StylesArticle } from '../style';
 import { BUTTON_ACTIVE } from '../../../const/const';
 import { useUseAllPost } from '../../../domain/useBlogDetails';
 import RenderLoading from '../../loading/loading';
 import ArticlesScrollArrow from '../arrows/arrows';
+import useLongPressHook from '../../../hook/longPress';
 
 interface Props {
   mode: boolean;
@@ -20,6 +21,8 @@ interface Props {
 export default function ArticlesScroll({ mode, filter, id }: Props) {
   const [prevState, setMyPrev] = useState(null);
   const [nextState, setMyNext] = useState(null);
+  const [idValue, setId] = useState(id);
+
   const router = useRouter();
 
   const queryObject: any = {
@@ -43,10 +46,19 @@ export default function ArticlesScroll({ mode, filter, id }: Props) {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
+  const handleId = (idValueSlide: number) => {
+    setId(idValueSlide);
+  };
+
   useEffect(() => {
     setMyNext(nextRef.current);
     setMyPrev(prevRef.current);
   }, [data]);
+
+  const handleIdrouter = () => {
+    router.push(`/ATTOMOTrends/${idValue}`);
+  };
+  const [bind] = useLongPressHook('', handleIdrouter);
 
   if (isLoading) {
     return (
@@ -77,10 +89,12 @@ export default function ArticlesScroll({ mode, filter, id }: Props) {
         }}>
         {data.data.map((articles: any) => (
           <SwiperSlide
-            key={`${articles.Text}-${articles.id}`}
+            onTouchStart={() => handleId(articles.id)}
+            key={`${articles.Tag}-${articles.id}`}
             className="swiper z-10">
             <Link href={`/ATTOMOTrends/${articles.id}`}>
               <StylesArticle.Img
+                {...bind()}
                 src={articles.attributes.coverImage.data.attributes.url}
                 alt={articles.Text}
               />
@@ -93,10 +107,9 @@ export default function ArticlesScroll({ mode, filter, id }: Props) {
               <StylesArticle.TopicText ismode={BUTTON_ACTIVE.ON}>
                 {articles.attributes.blog_tags.data[0].attributes.name}
               </StylesArticle.TopicText>
-
               <StylesArticle.TextBlog
-                onTouchEnd={() => router.push(`/ATTOMOTrends/${articles.id}`)}
-                ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+                ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+                {...bind()}>
                 {articles.attributes.title}
               </StylesArticle.TextBlog>
             </StylesArticle.BlockText>

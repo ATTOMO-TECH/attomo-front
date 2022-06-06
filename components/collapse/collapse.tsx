@@ -72,16 +72,18 @@ export default function Collapse() {
                     .replaceAll(' ', '_')
                     .toLowerCase()}`}
                   key={`${tab.attributes.name}-services`}>
-                  <Styles.SubSection
-                    id={`${tab.attributes.name}-services`}
-                    onTouchEnd={() =>
-                      router.push(
-                        `/servicios/${tab.attributes.name
-                          .replaceAll(' ', '_')
-                          .toLowerCase()}`,
-                      )
-                    }>
-                    <motion.p variants={item}>{tab.attributes.name}</motion.p>
+                  <Styles.SubSection id={`${tab.attributes.name}-services`}>
+                    <motion.p
+                      variants={item}
+                      onTouchEnd={() =>
+                        router.push(
+                          `/servicios/${tab.attributes.name
+                            .replaceAll(' ', '_')
+                            .toLowerCase()}`,
+                        )
+                      }>
+                      {tab.attributes.name}
+                    </motion.p>
                   </Styles.SubSection>
                 </Link>
               ))}

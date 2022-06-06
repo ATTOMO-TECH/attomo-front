@@ -69,52 +69,45 @@ export const Item = styled.div<Props>`
   transition-duration: 0.4s;
   transition-property: transform;
   position: relative;
-  // &:after {
-  //   position: absolute;
-  //   content:  url('/icon/elips.svg');
-  //   transform: scale(1) rotate(180deg);
-  //   bottom: -2%;
-  //   right: 70%;
-  // }
-  &:before {
+  &:after {
     content: url('/icon/elips.svg');
     position: absolute;
     z-index: 100 !important;
     -webkit-animation-duration: 4000ms;
-    top: -3%;
-    left: 40%;
-    transform: scale(0.6) rotate(20deg);
+    top: -4%;
+    left: 38%;
+    transform: scale(0.6) rotate(16deg);
     @media screen and (min-width: 370px) {
-      top: -3%;
-      left: 42%;
-      transform: scale(0.9) rotate(12deg);
-    }
-    @media screen and (min-width: 468px) {
-      top: -2.5%;
+      top: -3.7%;
       left: 40%;
       transform: scale(0.9) rotate(12deg);
     }
-    @media screen and (min-width: 640px) {
-      top: -2.5%;
-      left: 43%;
+    @media screen and (min-width: 468px) {
+      top: -3.5%;
+      left: 40%;
+      transform: scale(0.9) rotate(12deg);
+    }
+    @media screen and (min-width: 768px) {
+      top: -2.2%;
+      left: 45%;
       transform: scale(0.9) rotate(8deg);
     }
     @media screen and (min-width: 1024px) {
-      top: -1%;
+      top: -1.2%;
       left: 43%;
       transform: scale(0.9) rotate(8deg);
     }
   }
   ${(props) =>
     props.ismode === 0
-      ? `
-  
-      transform:rotate(-60deg);
+      ? `   
+      transform:rotate(-58deg);
+
       @media screen and (min-width: 370px) 
       {      
-        &:before {
+        &:after {
   
-          transform: scale(0.6) rotate(18deg);
+          transform: scale(0.6) rotate(16deg);
         };
         transform: rotate(-55deg);
   
@@ -123,24 +116,24 @@ export const Item = styled.div<Props>`
 
     @media screen and (min-width: 468px) 
     {      
-      &:before {
+      &:after {
 
-        transform: scale(0.9) rotate(10deg);
+        transform: scale(0.7) rotate(10deg);
       };
       transform: rotate(-55deg);
     
     };
-    @media screen and (min-width: 640px) 
+    @media screen and (min-width: 768px) 
     {
-      &:before {
-        transform: scale(0.9) rotate(8deg);
+      &:after {
+        transform: scale(1)  rotate(10deg);
       };
       transform: rotate(-55deg);
     
     };
     @media screen and (min-width: 1024px) 
     {
-      &:before {
+      &:after {
 
         transform: scale(0.9) rotate(8deg);
       };
@@ -156,9 +149,9 @@ export const Item = styled.div<Props>`
       transform:rotate(-18deg);
       @media screen and (min-width: 370px) 
       {      
-        &:before {
+        &:after {
   
-          transform: scale(0.6) rotate(18deg);
+          transform: scale(0.6) rotate(16deg);
         };
         transform: rotate(-18deg);
   
@@ -166,18 +159,19 @@ export const Item = styled.div<Props>`
       };
       @media screen and (min-width: 468px) 
       {      
-        &:before {
+        &:after {
   
-          transform: scale(0.9) rotate(10deg);
+          transform: scale(0.7) rotate(10deg);
         };
         transform: rotate(-11deg);
       
       };
-      @media screen and (min-width: 640px) {
-        @media screen and (min-width: 640px) 
+ 
+        @media screen and (min-width: 768px) 
         {
-          &:before {
-            transform: scale(0.9) rotate(8deg);
+          &:after {
+            transform: scale(1)  rotate(10deg);
+         
           };
         transform: rotate(-8deg);
         
@@ -185,7 +179,7 @@ export const Item = styled.div<Props>`
       @media screen and (min-width: 1024px) 
       {
         {
-          &:before {
+          &:after {
     
             transform: scale(0.9) rotate(8deg);
           };
@@ -200,26 +194,26 @@ export const Item = styled.div<Props>`
       transform:scale(.99) rotate(22deg);
       @media screen and (min-width: 370px) 
       {      
-        &:before {
+        &:after {
   
-          transform: scale(0.6) rotate(18deg);
+          transform: scale(0.6) rotate(16deg);
         };
-        transform: rotate(27deg);
+        transform: rotate(23deg);
   
 
       };
       @media screen and (min-width: 468px) 
       {
-        &:before {
-          transform: scale(0.9) rotate(10deg);
+        &:after {
+          transform: scale(0.7) rotate(10deg);
         };
         {transform: rotate(30deg)}
       };
-      @media screen and (min-width: 640px) {
-        @media screen and (min-width: 640px) 
+   
+        @media screen and (min-width: 768px) 
         {
-          &:before {
-            transform: scale(0.9) rotate(8deg);
+          &:after {
+            transform: scale(1)  rotate(10deg);
           };
         transform: rotate(45deg);
         
@@ -227,7 +221,7 @@ export const Item = styled.div<Props>`
       @media screen and (min-width: 1024px) 
       {
         
-          &:before {
+          &:after {
     
             transform: scale(0.9) rotate(8deg);
           };

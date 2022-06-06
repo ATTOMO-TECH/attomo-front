@@ -3,6 +3,9 @@ import ReactMarkdown from 'react-markdown';
 import tw from 'tailwind-styled-components';
 
 export const Container = styled(ReactMarkdown)`
+  * {
+    text-align: justify;
+  }
   h1 {
     font-family: 'Merriweather';
     font-style: normal;
