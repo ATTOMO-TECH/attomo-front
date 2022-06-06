@@ -10,7 +10,7 @@ import Conditions from './conditions';
 import { getLocale } from '../../public/locales/getLocale';
 import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
-import { validationSchemaColaborator } from './validations';
+import { validationSchemaContact } from './validations';
 import { handleFocus } from '../../hook/eventListener';
 
 export default function FormCustomer() {
@@ -64,7 +64,7 @@ export default function FormCustomer() {
         <Formik
           onSubmit={handleSumitCustomer}
           initialValues={initialValues}
-          validationSchema={validationSchemaColaborator}
+          validationSchema={validationSchemaContact}
           validateOnMount>
           {({
             touched,
