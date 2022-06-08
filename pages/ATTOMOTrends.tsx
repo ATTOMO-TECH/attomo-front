@@ -196,8 +196,47 @@ function News() {
           </Styles.ScreenWS>
         </Styles.Center>
         <Styles.BlockTrends>
-          <Styles.SectionFilter>
+          <Styles.SectionFilter className="flex  w-full items-center justify-between">
             <Subtext size="text-lg py-4 ">{translate.trendsFilter}</Subtext>
+            <motion.svg
+              className="cursor-pointer w-10 h-6 lg:hidden"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              transition={{ duration: 1, ease: 'easeInOut' }}
+              onClick={handleChangeReset}
+              onTouchStart={handleChangeReset}>
+              <motion.path
+                d="M18 6L6 18"
+                stroke="white"
+                strokeWidth={change ? '2' : 0}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                initial={{ pathLength: 0 }}
+                animate={
+                  change
+                    ? { pathLength: 1, type: 'tween' }
+                    : { pathLength: 0, type: 'spring' }
+                }
+                transition={{ duration: 1, ease: 'easeInOut' }}
+              />
+              <motion.path
+                d="M6 6L18 18"
+                stroke="white"
+                strokeWidth={change ? '2' : 0}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                initial={{ pathLength: 0 }}
+                animate={
+                  change
+                    ? { pathLength: 1, type: 'tween' }
+                    : { pathLength: 0, type: 'spring' }
+                }
+                transition={{ duration: 1, ease: 'easeInOut' }}
+              />
+            </motion.svg>
           </Styles.SectionFilter>
           <Styles.SelectFilter>
             <InputSelectFilter
@@ -220,7 +259,7 @@ function News() {
             />
           </Styles.SelectFilterNM>
           <motion.svg
-            className="cursor-pointer w-10 h-6"
+            className="cursor-pointer w-10 h-6 hidden lg:block"
             width="24"
             height="24"
             viewBox="0 0 24 24"

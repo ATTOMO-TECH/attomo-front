@@ -154,7 +154,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                 )}
               </Navegation.ItemsMenu>
             </Navegation.AlinItemsMenu>
-            <div className="h-screen flex flex-col justify-center items-center">
+            <Navegation.BlockNav>
               {items.map((values, i) => (
                 <motion.li
                   key={`${values.Value}`}
@@ -163,7 +163,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                       ? { opacity: 1, translateY: 0 }
                       : { opacity: 0, translateY: '100%' }
                   }
-                  className="list-none overflow-hidden block"
+                  className="list-none w-full "
                   transition={{
                     duration: 0.5,
                     delay: i * 0.1,
@@ -199,7 +199,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                   EN
                 </Navegation.ButtonSelect>
               </Navegation.BlokSectionLenguageResponsive>
-            </div>
+            </Navegation.BlockNav>
           </Navegation.AlingItemsMenu>
         </Navegation.SectionMenuFW>
       </Navegation.MenuRelative>

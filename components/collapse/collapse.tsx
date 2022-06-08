@@ -7,6 +7,7 @@ import { BUTTON_ACTIVE } from '../../const/const';
 import { useUseAllServices } from '../../domain/useServices';
 import RenderLoading from '../loading/loading';
 import { Styles } from './style';
+import useLongPressHook from '../../hook/longPress';
 
 export default function Collapse() {
   const router = useRouter();
@@ -15,8 +16,9 @@ export default function Collapse() {
     locale = 'es';
   }
   const { data, isLoading } = useUseAllServices(locale || 'es');
-
   const [idx, setIdx] = useState(0);
+  const [url, setUrl] = useState('');
+
   const handleClick = (iDx: number) => {
     setIdx(iDx);
   };
@@ -45,6 +47,10 @@ export default function Collapse() {
       },
     },
   };
+  const handleLink = () => {
+    router.push(url);
+  };
+  const [bindQuickScreen] = useLongPressHook(``, handleLink);
 
   if (isLoading) {
     return (
@@ -72,16 +78,16 @@ export default function Collapse() {
                     .replaceAll(' ', '_')
                     .toLowerCase()}`}
                   key={`${tab.attributes.name}-services`}>
-                  <Styles.SubSection id={`${tab.attributes.name}-services`}>
-                    <motion.p
-                      variants={item}
-                      onTouchEnd={() =>
-                        router.push(
-                          `/servicios/${tab.attributes.name
-                            .replaceAll(' ', '_')
-                            .toLowerCase()}`,
-                        )
-                      }>
+                  <Styles.SubSection
+                    id={`${tab.attributes.name}-services`}
+                    onTouchStart={() =>
+                      setUrl(
+                        `/servicios/${tab.attributes.name
+                          .replaceAll(' ', '_')
+                          .toLowerCase()}`,
+                      )
+                    }>
+                    <motion.p variants={item} {...bindQuickScreen()}>
                       {tab.attributes.name}
                     </motion.p>
                   </Styles.SubSection>

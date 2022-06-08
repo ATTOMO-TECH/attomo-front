@@ -137,7 +137,7 @@ function KitDigital() {
               }}
               whileInView={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: '50%' }}
-              className="bg-white flex items-center justify-center  absolute w-full bottom-0">
+              className="bg-white flex items-center justify-center w-full lg:mt-48 ">
               <img src="/kit/logos-estado.png" alt="" />
             </motion.div>
           </Styles.SectionsKits>

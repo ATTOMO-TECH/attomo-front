@@ -90,11 +90,13 @@ function Carrers() {
             <Subtext size=" text-sm lg:w-3/6 font-PrimarySerif py-5">
               {value.Subtext}
             </Subtext>
-            <Link href="/contacto" passHref>
-              <a href="/contacto" className="w-12 " {...bind()}>
-                <IconAnimate text={value.Button} mode />
-              </a>
-            </Link>
+            <Styles.BtnLimit>
+              <Link href="/contacto" passHref>
+                <a href="/contacto" className="w-12 " {...bind()}>
+                  <IconAnimate text={value.Button} mode />
+                </a>
+              </Link>
+            </Styles.BtnLimit>
           </Styles.CenterMargin>
         ))}
 

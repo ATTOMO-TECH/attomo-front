@@ -28,7 +28,7 @@ export default function BlockFilter({
 }: Props) {
   const [shouldShowActions] = useState(false);
 
-  const [bind] = useLongPressHook('', toggleFilter);
+  const [bindQuick] = useLongPressHook('', toggleFilter);
 
   const change: boolean = !!startDate || !!endDate || !!topic || !!search;
 
@@ -37,7 +37,7 @@ export default function BlockFilter({
       <motion.div
         animate={shouldShowActions}
         variants={servicesAnimations}
-        className="actions cursor-pointer -pb-36 lg:-mb-6 lg:pt-12"
+        className="-pb-36 lg:-mb-6 lg:pt-12"
         transition={{
           delay: 0.2,
           type: 'spring',
@@ -47,10 +47,54 @@ export default function BlockFilter({
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: '50%' }}>
         <Styles.SelectFilterCases>
-          <Styles.SectionFilter>
+          <Styles.SectionFilter className="flex  w-full items-center justify-between">
             <Subtext size="text-lg lg:py-4 ">{translate.CasesFilter}</Subtext>
+            <motion.svg
+              className="cursor-pointer w-1/6 lg:hidden  "
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              transition={{ duration: 1, ease: 'easeInOut' }}
+              onClick={handleChangeReset}
+              onTouchStart={handleChangeReset}>
+              <motion.path
+                d="M18 6L6 18"
+                stroke="white"
+                strokeWidth={change ? '2' : 0}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                initial={{ pathLength: 0 }}
+                animate={
+                  change
+                    ? { pathLength: 1, type: 'tween' }
+                    : { pathLength: 0, type: 'spring' }
+                }
+                transition={{ duration: 1, ease: 'easeInOut' }}
+              />
+              <motion.path
+                d="M6 6L18 18"
+                stroke="white"
+                strokeWidth={change ? '2' : 0}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                initial={{ pathLength: 0 }}
+                animate={
+                  change
+                    ? { pathLength: 1, type: 'tween' }
+                    : { pathLength: 0, type: 'spring' }
+                }
+                transition={{ duration: 1, ease: 'easeInOut' }}
+              />
+            </motion.svg>
           </Styles.SectionFilter>
-          <Styles.SelectFilter type="button" onClick={toggleFilter} {...bind()}>
+
+          <Styles.SelectFilter
+            className="w-11/12"
+            type="button"
+            onClick={toggleFilter}
+            {...bindQuick()}>
             <Styles.FilterSelectActive
               mode={
                 search === '' || search === undefined
@@ -64,7 +108,11 @@ export default function BlockFilter({
               )}
             </Styles.FilterSelectActive>
           </Styles.SelectFilter>
-          <Styles.SelectFilter type="button" onClick={toggleFilter} {...bind()}>
+          <Styles.SelectFilter
+            type="button"
+            className="w-11/12"
+            onClick={toggleFilter}
+            {...bindQuick()}>
             <Styles.FilterSelectActive
               mode={
                 topic === '' || topic === undefined
@@ -78,7 +126,11 @@ export default function BlockFilter({
               )}
             </Styles.FilterSelectActive>
           </Styles.SelectFilter>
-          <Styles.SelectFilter type="button" onClick={toggleFilter} {...bind()}>
+          <Styles.SelectFilter
+            type="button"
+            className="w-11/12"
+            onClick={toggleFilter}
+            {...bindQuick()}>
             <Styles.FilterSelectActive
               mode={
                 startDate === undefined || startDate === null
@@ -102,9 +154,8 @@ export default function BlockFilter({
               )}
             </Styles.FilterSelectActive>
           </Styles.SelectFilter>
-
           <motion.svg
-            className="cursor-pointer w-1/6 lg:w-auto"
+            className="cursor-pointer w-1/6 lg:w-auto lg:block hidden"
             width="24"
             height="24"
             viewBox="0 0 24 24"

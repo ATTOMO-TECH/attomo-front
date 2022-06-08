@@ -289,7 +289,7 @@ export const Styles = {
     Field,
   )<Props>`pl-1 outline-none w-full bg-transparent border-b border-primary py-1 font-light text-gray-300 opacity-40 focus:opacity-100 hover:opacity-100 ease-out duration-200
 
-${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
+${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 mt-5' : '')}
 `,
   InputDate: tw(
     Field,
@@ -304,7 +304,7 @@ ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
   LabelCheckBox: tw(Label)`
   flex ease-out duration-200 py-2 text-sm flex-nowrap`,
   // FORM
-  Error: tw(ErrorText)` absolute text-PrimarySerif text-sm pt-0.5`,
+  Error: tw(ErrorText)`absolute text-PrimarySerif text-sm `,
   BlockSelect: tw.div`w-full flex flex-wrap pt-5 text-white font-PrimarySerif font-thin text-sm`,
   BlockSelectSecond: tw.div`w-full flex flex-wrap  text-white font-PrimarySerif font-thin text-sm lg:pb-10 pb-4`,
   AlingSelect: tw.div`w-3/6`,

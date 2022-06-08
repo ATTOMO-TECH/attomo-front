@@ -215,15 +215,16 @@ export const Styles = {
   DivideSection: tw.div`lg:w-3/6 w-full pb-2`,
   BlockButton: tw.div`lg:px-24 pt-10`,
   BlockSlider: tw.div` pb-12 px-7`,
+  BtnLimit: tw.div`lg:w-2/6 w-4/6`,
   SectionProjects: tw.div`lg:m-14 relative z-0 touched`,
   BlockTrends: tw.div`lg:pt-48 flex w-full m-auto lg:justify-center items-center lg:pl-0 py-16 flex-wrap w-10/12 `,
   // FilterCases
-  SelectFilterCases: tw.div`flex w-full m-auto lg:justify-center items-center pl-8 lg:pl-0 pt-10 lg:pt-0 flex-wrap  `,
+  SelectFilterCases: tw.div`flex w-full m-auto lg:justify-center items-center pl-8 lg:pl-0 pt-10 lg:pt-0 flex-wrap   `,
 
   // FilterAT
   SectionFilter: tw.div`w-full lg:w-2/12 `,
-  SelectFilter: tw.button`w-8/12 lg:w-2/12  `,
-  SelectFilterNM: tw.div`w-8/12 lg:w-3/12 lg:ml-4 mt-4 lg:mt-0 `,
+  SelectFilter: tw.button`w-full lg:w-2/12  `,
+  SelectFilterNM: tw.div`w-full lg:w-3/12 lg:ml-4 mt-4 lg:mt-0 `,
   BlockUs: tw.div`lg:w-8/12 m-auto flex flex-wrap lg:pt-24`,
   Screen: tw.div`h-screen mb-48 justify-between`,
   ScreenResponsive: tw.div`h-screen pt-24`,
@@ -286,7 +287,7 @@ export const Styles = {
   // KIT
   SectionsKits: tw.div<Props>` 
   relative
-  ${(props) => (props.mode === BUTTON_ACTIVE.ON ? 'h-screen' : '')} `,
+  ${(props) => (props.mode === BUTTON_ACTIVE.ON ? 'h-auto' : '')} `,
   BlockKits: tw.div`pt-24 w-10/12 lg:w-7/12 text-center m-auto`,
   BtnKit: tw(BtnSelect)<Props>`
   ease-out inline-flex justify-center  w-8/12 md:w-6/12  lg:w-3/12 duration-200 cursor-pointer  border-2 border-primary text-left lg:text-sm py-3 hover:opacity-70  rounded-full opacity-100 font-PrimarySerif font-thin shadow-none lg:mr-5

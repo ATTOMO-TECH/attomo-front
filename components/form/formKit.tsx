@@ -121,7 +121,10 @@ export default function FormKit() {
                       onTouchStart={() => handleFocus(FORMVALUES.PHONE2)}
                       ismode={BUTTON_ACTIVE.OFF}
                       placeholder={translate.formPhone}
-                      type="number"
+                      type="tel"
+                      defaultCountry="es"
+                      maxLength={9}
+                      pattern="[0-9]{10}"
                       name={FORMVALUES.PHONE2}
                     />
                     {touched.phone && errors.phone && (

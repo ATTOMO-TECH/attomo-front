@@ -193,7 +193,10 @@ export default function FormReserver() {
                       <Styles.Input
                         ismode={BUTTON_ACTIVE.ON}
                         placeholder={translate.formPhone}
-                        type="number"
+                        type="tel"
+                        defaultCountry="es"
+                        maxLength={9}
+                        pattern="[0-9]{10}"
                         name={FORMVALUES.PHONE}
                         onTouchStart={() => handleFocus(FORMVALUES.PHONE)}
                         id={FORMVALUES.PHONE}
@@ -264,9 +267,9 @@ export default function FormReserver() {
           }}
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: '50%' }}>
-          <Title size=" lg:pt-36 w-full text-center pt-10 leading-relaxed lg:pr-10 lg:text-4xl pb-2 text-3xl ">
-            Muchas gracias, hemos recibido tu solicitud de reserva. Pronto nos
-            pondremos en contacto contigo
+          <Title size=" w-full text-center pt-10 leading-relaxed  text-3xl m-auto lg:w-3/6">
+            Gracias por reservar con nosotros, te prometemos que tu evento será
+            inolvidable
           </Title>
         </motion.div>
       )}

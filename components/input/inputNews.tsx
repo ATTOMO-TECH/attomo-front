@@ -59,7 +59,7 @@ export default function InputNew() {
         initialValues={{ [FORMVALUES.EMAIL]: '' }}
         validationSchema={registerSchema}
         validateOnMount>
-        {({ touched, errors, handleSubmit, setFieldValue, handleBlur }) => (
+        {({ touched, errors, handleSubmit, setFieldValue }) => (
           <Navegation.Form onSubmit={handleSubmit}>
             {!sendSuccesfull ? (
               <>
@@ -77,7 +77,6 @@ export default function InputNew() {
                       placeholder={translate.sendEmail}
                       id={FORMVALUES.EMAIL}
                       name={FORMVALUES.EMAIL}
-                      onBlur={handleBlur}
                       onChange={(e: any) => {
                         handleInput(e.currentTarget.value);
                         setFieldValue(FORMVALUES.EMAIL, e.currentTarget.value);
@@ -102,7 +101,7 @@ export default function InputNew() {
                   </Navegation.SectionInput>
                 </Navegation.BlockInput>
                 {touched.email && errors.email && (
-                  <div className="text-red-500">{errors.email}</div>
+                  <Navegation.Error>{errors.email}</Navegation.Error>
                 )}
               </>
             ) : (
@@ -118,7 +117,7 @@ export default function InputNew() {
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: '50%' }}>
                 <Title size=" pt-2 leading-relaxed  text-sm">
-                  Datos enviados correctamente
+                  ¡Gracias por tu confianza! Ya eres parte del Attomo.
                 </Title>
               </motion.div>
             )}

@@ -133,18 +133,17 @@ export default function FormCustomer() {
                       />
                     )}
                     {touched.email && errors.email && (
-                      <Styles.Error className="mt-4 lg:mt-0">
-                        {errors.email}
-                      </Styles.Error>
+                      <Styles.Error>{errors.email}</Styles.Error>
                     )}
                   </Styles.BlockInput>
                   <Styles.BlockInput>
                     <Styles.Input
                       id={FORMVALUES.PHONE}
                       onTouchStart={() => handleFocus(FORMVALUES.PHONE)}
-                      ismode={BUTTON_ACTIVE.OFF}
+                      ismode={BUTTON_ACTIVE.ON}
                       placeholder={translate.formPhone}
-                      type="number"
+                      type="tel"
+                      maxLength={12}
                       name={FORMVALUES.PHONE}
                     />
                     {touched.mobile && errors.mobile && (
@@ -229,8 +228,8 @@ export default function FormCustomer() {
           }}
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: '50%' }}>
-          <Title size=" lg:py-32 w-full text-center pt-10 leading-relaxed lg:pr-10 lg:text-4xl pb-2 text-3xl w-2/6 m-auto">
-            Datos enviados correctamente
+          <Title size=" w-full text-center pt-10 leading-relaxed  text-3xl m-auto lg:w-3/6">
+            ¡Bienvenido a Attomo, bienvenido al principio de algo muy grande!
           </Title>
         </motion.div>
       )}

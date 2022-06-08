@@ -42,7 +42,9 @@ export default function ModalFilter({
     setDate([startDateModal, endDateModal]);
     setTopic(topicModal);
     setSearch(searchModal);
-    toggle();
+    setTimeout(() => {
+      toggle();
+    }, 50);
   };
 
   return (

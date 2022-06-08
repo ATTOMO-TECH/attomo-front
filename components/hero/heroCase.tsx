@@ -48,7 +48,7 @@ export default function HeroCase({
                     />
 
                     <motion.svg
-                      className="cursor-pointer w-1/6 fixed  top-56 -left-2 z-100 "
+                      className="cursor-pointer w-1/6 absolute top-36 lg:-left-10 -left-4  z-100 "
                       width="24"
                       height="24"
                       viewBox="0 0 24 24"

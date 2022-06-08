@@ -22,7 +22,7 @@ import { useAScreen } from '../domain/useScreensMetadata';
 import { Metadata } from '../components/head/metadata';
 import BlockFilter from '../components/filter/blockFilter';
 
-function Cases() {
+function Cases({ valueRender }: any) {
   const queryClient = useQueryClient();
   const router = useRouter();
   let { locale } = router;
@@ -34,7 +34,7 @@ function Cases() {
     locale || 'es',
   );
   const translate = getLocale();
-  const [preData, setPreData] = useState<any[]>([]);
+  const [preData, setPreData] = useState<any[]>(valueRender);
   const [scroll, setScroll] = useState(true);
 
   useEffect(() => {
@@ -134,7 +134,7 @@ function Cases() {
     populate: ['coverImage', 'disciplines', 'subservice'],
     pagination: {
       page,
-      pageSize: 3,
+      pageSize: 4,
     },
     filters: getFilters(),
   };
@@ -153,7 +153,7 @@ function Cases() {
     }
   }, [data]);
 
-  if (screenIsLoading) {
+  if (screenIsLoading || (isLoading && !preData)) {
     return (
       <>
         <RenderLoading mode={false} />
@@ -173,7 +173,6 @@ function Cases() {
       <Metadata screen={screen} />
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : 'overflow-hidden'}>
         {!isOpenFilter && <Background />}
-
         {isOpenFilter && (
           <ModalFilter
             isOpenFilter={isOpenFilter}
@@ -222,21 +221,18 @@ function Cases() {
         )}
         <Styles.BlockSections
           mode={isOpen ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-          {!isLoading ? (
-            <Styles.SectionProjects>
-              {preData?.map((values: any, i: number) => (
-                <SectionProjects
-                  i={i}
-                  key={`SectionProjects${values.attributes.title}`}
-                  values={values}
-                  shouldShowActions={undefined}
-                  servicesAnimations={fadeInUp}
-                />
-              ))}
-            </Styles.SectionProjects>
-          ) : (
-            <RenderLoading mode={false} />
-          )}
+          <Styles.SectionProjects>
+            {preData?.map((values: any, i: number) => (
+              <SectionProjects
+                i={i}
+                key={`SectionProjects${values.attributes.title}`}
+                values={values}
+                shouldShowActions={undefined}
+                servicesAnimations={fadeInUp}
+              />
+            ))}
+          </Styles.SectionProjects>
+
           {data &&
             (data.meta.pagination.page !== data.meta.pagination.pageCount &&
             data.meta.pagination.pageCount !== 0 ? (

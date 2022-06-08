@@ -237,7 +237,10 @@ export default function FormColaborator() {
                       ismode={BUTTON_ACTIVE.OFF}
                       placeholder={translate.formPhone}
                       id={FORMVALUES.PHONE}
-                      type="number"
+                      type="tel"
+                      defaultCountry="es"
+                      maxLength={9}
+                      pattern="[0-9]{10}"
                       name={FORMVALUES.PHONE}
                       onTouchStart={() => handleFocus(FORMVALUES.PHONE)}
                     />
@@ -343,8 +346,9 @@ export default function FormColaborator() {
           }}
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: '50%' }}>
-          <Title size=" lg:py-36 w-full text-center pt-10 leading-relaxed lg:pr-10 lg:text-4xl pb-2 text-3xl lg:w-2/6  m-auto ">
-            Datos enviados correctamente
+          <Title size=" w-full text-center pt-10 leading-relaxed  text-3xl m-auto lg:w-3/6">
+            ¡Muchas gracias por tu tiempo! Nos pondremos en contacto contigo lo
+            antes posible.
           </Title>
         </motion.div>
       )}

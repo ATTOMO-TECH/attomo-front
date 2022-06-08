@@ -16,12 +16,28 @@ const useLongPressHook = (value?: string, onClick?: any) => {
   const bind = useLongPress(() => callback(), {
     // eslint-disable-next-line
     onFinish: () => {},
-    threshold: 500,
+    threshold: 400,
+    captureEvent: true,
+    cancelOnMovement: true,
+    detect: LongPressDetectEvents.BOTH,
+  });
+  const bindQuick = useLongPress(() => callback(), {
+    // eslint-disable-next-line
+    onFinish: () => {},
+    threshold: 200,
+    captureEvent: true,
+    cancelOnMovement: true,
+    detect: LongPressDetectEvents.BOTH,
+  });
+  const bindQuickScreen = useLongPress(() => callback(), {
+    // eslint-disable-next-line
+    onFinish: () => {},
+    threshold: 100,
     captureEvent: true,
     cancelOnMovement: true,
     detect: LongPressDetectEvents.BOTH,
   });
 
-  return [bind];
+  return [bind, bindQuick, bindQuickScreen];
 };
 export default useLongPressHook;
