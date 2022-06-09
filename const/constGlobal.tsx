@@ -146,8 +146,8 @@ export const CUSTOMERS: {
     Url: '',
   },
   {
-    Name: 'ROA',
-    Pic: '/customers/ROA.png',
+    Name: 'Grupo LALALA',
+    Pic: '/customers/grupo-lalala.png',
     Url: '',
   },
 ];

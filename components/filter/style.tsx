@@ -42,7 +42,7 @@ export const Options = styled.option`
 export const Filter = {
   RelativeSection: tw.section``,
   SectionFilter: tw(motion.div)<Props>`
-  fixed
+  fixed overflow-y-scroll
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
       ? 'block h-screen z-100 flex flex-col w-full bg-black opacity-1'
@@ -59,7 +59,7 @@ export const Filter = {
   )<Props>`pl-2 lg:pl-0 outline-none w-full bg-transparent opacity-20 border-b border-primary mr-7 text-primary opacity-40 focus:opacity-100 ease-out duration-200
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-10' : '')}
   `,
-  BlockFilterItems: tw.div`flex flex-col justify-center text-center w-full pt-24`,
+  BlockFilterItems: tw.div`flex flex-col  justify-center text-center w-full pt-24`,
   AlingBlock: tw.div`w-full flex flex-col justify-items-stretch items-center w-full`,
   InputSearch: tw.input`border-b border-primary bg-secundary text-primary w-full md:w-4/6 lg:font-Primary text-xl outline-none focus:opacity-100 opacity-50 ease-in-out duration-300 font-light outline-none font-PrimarySerif font-thin text-gray-300 h-full w-full py-2  text-sm lg:text-lg`,
   FirtsItemFilter: tw.div`w-8/12 flex items-center justify-between m-auto `,
@@ -75,7 +75,7 @@ export const Filter = {
   OptionsResponsive: tw(Options)`appearance-none w-full outline-none`,
   BlockItemMed: tw.div``,
   SubTextMobile: tw.h6`text-white text-left font-light text-sm`,
-  BlockSendButton: tw.div`flex justify-around pt-6`,
+  BlockSendButton: tw.div`flex justify-around pt-6 lg:pt-24 w-full`,
   BtnSend: tw(
     BtnSend,
   )` ease-out inline-flex justify-center w-3/6 lg:w-3/12 duration-200 text-primary border-2 border-primary text-left lg:text-sm py-2 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none mr-5`,

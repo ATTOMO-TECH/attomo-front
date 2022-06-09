@@ -42,7 +42,9 @@ export default function ModalFilter({
     setDate([startDateModal, endDateModal]);
     setTopic(topicModal);
     setSearch(searchModal);
-    toggle();
+    setTimeout(() => {
+      toggle();
+    }, 400);
   };
 
   return (
@@ -62,7 +64,7 @@ export default function ModalFilter({
           className={
             width < 768
               ? 'w-full justify-center '
-              : 'h-4/6 justify-center flex items-center'
+              : 'h-4/6 justify-center flex items-center  min-h-auto flex-wrap pt-24'
           }>
           <Filter.AlinItems ismode={BUTTON_ACTIVE.OFF}>
             <Filter.ItemsMenu>
@@ -139,21 +141,21 @@ export default function ModalFilter({
               />
             )}
           </Filter.BlockFilterItems>
+
+          <Filter.BlockSendButton>
+            <Filter.BtnSend
+              isactive={
+                endDateModal || topicModal || searchModal
+                  ? BUTTON_ACTIVE.ON
+                  : BUTTON_ACTIVE.OFF
+              }
+              disabled={!(endDateModal || topicModal || searchModal)}
+              onClick={handleSearch}
+              onTouchStart={handleSearch}>
+              Buscar
+            </Filter.BtnSend>
+          </Filter.BlockSendButton>
         </div>
-        <Filter.BlockSendButton>
-          <Filter.BtnSend
-            type="submit"
-            isactive={
-              endDateModal || topicModal || searchModal
-                ? BUTTON_ACTIVE.ON
-                : BUTTON_ACTIVE.OFF
-            }
-            disabled={!(endDateModal || topicModal || searchModal)}
-            onClick={handleSearch}
-            onTouchStart={handleSearch}>
-            Buscar
-          </Filter.BtnSend>
-        </Filter.BlockSendButton>
       </Filter.SectionFilter>
     </>
   );

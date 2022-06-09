@@ -226,11 +226,16 @@ input[type='text'] {
   outline: none !important;
 }
 .rrs__label {
+  font-weight: 300 !important;
+  color: gray !important;
+  border-radius: 0% !important;
+  font-size: 16px !important;
   padding: 0 2px 0 2px !important;
   outline: none !important;
   border: 0px !important;
   border-radius: 0px !important;
 }
+
 .rrs .caret-icon {
   fill: #e3e3e3 !important;
 }

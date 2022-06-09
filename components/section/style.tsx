@@ -40,7 +40,7 @@ export const Styles = {
 
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
-      ? 'flex items-center relative flex-col lg:flex-row lg:mt-48 '
+      ? 'flex items-center relative flex-col lg:flex-row lg:mt-48 mt-12 '
       : ''}
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.OFF
@@ -49,7 +49,7 @@ export const Styles = {
   BlockSection: tw.div<Props>`
 
   ${(props) =>
-    props.ismode === BUTTON_ACTIVE.ON ? 'lg:w-3/6 w-11/12 -ml-12 ' : ''}
+    props.ismode === BUTTON_ACTIVE.ON ? 'lg:w-3/6 w-11/12 -ml-9 ' : ''}
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.OFF
       ? 'lg:w-3/6 w-11/12 ml-10 lg:ml-0 lg:-mr-12'
@@ -104,7 +104,7 @@ export const UsStyles = {
 export const KitStyles = {
   Section: tw.section`flex flex-wrap justify-between lg:pt-4 pb-5`,
   BlockSubsection: tw.div``,
-
+  BlockNumber: tw.div`rounded-full border w-10 h-10 p-5 flex items-center justify-center`,
   BlockSubsectionImgs: tw.div`lg:w-5/12 w-full flex items-center justify-between py-4`,
   Block: tw.div`lg:w-5/12 pr-10 w-full`,
   Title: tw.p`text-sm font-light font-PrimarySerif tracking-wide  textDegrade`,

@@ -22,15 +22,15 @@ export default function InputCheckcondition({
   return (
     <>
       <Styles.LabelCheckBox
+        onTouchEnd={() => {
+          onTouched && onTouched(!check);
+          setCheck(!check);
+        }}
         checkedValue={check}
         className={`${color}`}
         htmlFor={value}>
         <Styles.InputCheckCondition
           type="checkbox"
-          onTouchStart={() => {
-            onTouched && onTouched(!check);
-            setCheck(!check);
-          }}
           checked={check}
           readOnly
           onChange={() => {

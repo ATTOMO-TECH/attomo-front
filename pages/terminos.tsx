@@ -17,6 +17,7 @@ import { ContainerLegal, Styles } from '../styles/styles';
 
 function Conditions() {
   const router = useRouter();
+  const translate = getLocale();
   let { locale } = router;
   if (locale === '/terminos/') {
     locale = 'es';
@@ -33,7 +34,6 @@ function Conditions() {
       </>
     );
   }
-  const translate = getLocale();
   return (
     <>
       <Head>

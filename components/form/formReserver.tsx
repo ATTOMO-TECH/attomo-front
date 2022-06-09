@@ -117,7 +117,9 @@ export default function FormReserver() {
                         />
                       )}
                       {touched.firstname && errors.firstname && (
-                        <Styles.Error>{errors.firstname}</Styles.Error>
+                        <Styles.Error className="-bottom-4  ">
+                          {errors.firstname}
+                        </Styles.Error>
                       )}
                     </Styles.BlockInput>
                     <Styles.BlockInput>
@@ -136,14 +138,16 @@ export default function FormReserver() {
                         />
                       )}
                       {touched.lastname && errors.lastname && (
-                        <Styles.Error>{errors.lastname}</Styles.Error>
+                        <Styles.Error className="-bottom-4  ">
+                          {errors.lastname}
+                        </Styles.Error>
                       )}
                     </Styles.BlockInput>
                   </Styles.SectionInputs>
                   <Styles.BlockInputsCenter>
                     <Styles.BlockInput>
                       <div
-                        className="pt-7 lg:pt-0 py-2"
+                        className="pt-4 lg:pt-0 lg:py-2"
                         onTouchStart={() => handleFocus(FORMVALUES.DATE)}>
                         <CalendarPickerInput
                           id={FORMVALUES.DATE}
@@ -154,7 +158,7 @@ export default function FormReserver() {
                       </div>
                     </Styles.BlockInput>
                     <Styles.BlockInput>
-                      <div className="pt-5 lg:pt-0 py-2">
+                      <div className="pt-4 lg:pt-0.5 lg:py-2">
                         <InputSelect
                           selected={selected}
                           options={OPTIONDISPONIBILITY}
@@ -193,7 +197,9 @@ export default function FormReserver() {
                       <Styles.Input
                         ismode={BUTTON_ACTIVE.ON}
                         placeholder={translate.formPhone}
-                        type="number"
+                        type="tel"
+                        maxLength={9}
+                        pattern="[0-9]{10}"
                         name={FORMVALUES.PHONE}
                         onTouchStart={() => handleFocus(FORMVALUES.PHONE)}
                         id={FORMVALUES.PHONE}
@@ -264,9 +270,9 @@ export default function FormReserver() {
           }}
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: '50%' }}>
-          <Title size=" lg:pt-36 w-full text-center pt-10 leading-relaxed lg:pr-10 lg:text-4xl pb-2 text-3xl ">
-            Muchas gracias, hemos recibido tu solicitud de reserva. Pronto nos
-            pondremos en contacto contigo
+          <Title size=" w-full text-center pt-10 leading-relaxed  text-3xl m-auto lg:w-3/6">
+            Gracias por reservar con nosotros, te prometemos que tu evento será
+            inolvidable
           </Title>
         </motion.div>
       )}

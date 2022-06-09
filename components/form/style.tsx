@@ -1,4 +1,5 @@
 import { Field, Form } from 'formik';
+import { Select } from 'react-responsive-select';
 import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -8,7 +9,7 @@ type Props = {
   active?: boolean;
   checkedValue?: boolean;
 };
-export const Select = styled.select`
+export const Selected = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
 `;
@@ -107,6 +108,12 @@ export const BtnSend = styled.button`
   -webkit-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
   -moz-box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
   box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
+`;
+
+export const CustomSelect = styled(Select)`
+  .rrs__label {
+    color: red !important;
+  }
 `;
 
 export const Succes = styled.div`
@@ -259,7 +266,7 @@ export const Succes = styled.div`
 
 export const Styles = {
   Select: tw(
-    Select,
+    Selected,
   )`bg-black text-primary outline-none text-sm lg:py-4 font-PrimarySerif font-light ml-5 z-90`,
   BlockButton: tw.div`flex lg:justify-center justify-between`,
   BlockSendButton: tw.div`flex justify-center  pt-6`,
@@ -274,7 +281,7 @@ export const Styles = {
     props.ismode === BUTTON_ACTIVE.ON
       ? 'opacity-20 cursor-auto'
       : 'opacity-90 cursor-pointer'} `,
-  SectionRenderForm: tw.section`my-12`,
+  SectionRenderForm: tw.section`my-12 min-h-96`,
   Form: tw(Form)`lg:w-4/6 m-auto touch-enabled`,
   FormKit: tw(Form)`lg:w-5/6 m-auto touch-enabled`,
   SectionInputs: tw.div`grid grid-cols-2 gap-6  m-auto`,
@@ -289,7 +296,7 @@ export const Styles = {
     Field,
   )<Props>`pl-1 outline-none w-full bg-transparent border-b border-primary py-1 font-light text-gray-300 opacity-40 focus:opacity-100 hover:opacity-100 ease-out duration-200
 
-${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
+${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 mt-5' : '')}
 `,
   InputDate: tw(
     Field,
@@ -304,7 +311,7 @@ ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
   LabelCheckBox: tw(Label)`
   flex ease-out duration-200 py-2 text-sm flex-nowrap`,
   // FORM
-  Error: tw(ErrorText)` absolute text-PrimarySerif text-sm pt-0.5`,
+  Error: tw(ErrorText)`absolute text-PrimarySerif text-sm `,
   BlockSelect: tw.div`w-full flex flex-wrap pt-5 text-white font-PrimarySerif font-thin text-sm`,
   BlockSelectSecond: tw.div`w-full flex flex-wrap  text-white font-PrimarySerif font-thin text-sm lg:pb-10 pb-4`,
   AlingSelect: tw.div`w-3/6`,
@@ -313,4 +320,6 @@ ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
   TextChecked: tw.p`mx-1 text-left`,
   LinkCheck: tw.h6`ml-1 underline cursor-pointer`,
   SuccesButton: tw(Succes)``,
+  // Select
+  SelectTime: tw(CustomSelect)`opacity-0`,
 };

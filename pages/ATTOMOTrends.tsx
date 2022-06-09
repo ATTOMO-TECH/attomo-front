@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-use-before-define
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import * as qs from 'qs';
 import { useRouter } from 'next/router';
@@ -59,6 +59,17 @@ function News() {
 
   const handleAddBlog = (value: number) => {
     setPage(value);
+  };
+
+  const DEPARTMENT = Tags?.data.map((values: any) => ({
+    text: values.attributes.name,
+    value: values.attributes.name,
+  }));
+
+  const handleChangeReset = () => {
+    setFilter('');
+    setStartDateFilter(undefined);
+    setEndDateFilter(undefined);
   };
 
   useEffect(() => {
@@ -150,21 +161,13 @@ function News() {
       </>
     );
   }
-  const DEPARTMENT = Tags?.data.map((values: any) => ({
-    text: values.attributes.name,
-    value: values.attributes.name,
-  }));
+
   DEPARTMENT.push({
     value: '',
     text: translate.allServices,
   });
   DEPARTMENT.reverse();
 
-  const handleChangeReset = () => {
-    setFilter('');
-    setStartDateFilter(undefined);
-    setEndDateFilter(undefined);
-  };
   const change: boolean = !!startDate || !!endDate || !!filter;
 
   return (
@@ -196,10 +199,49 @@ function News() {
           </Styles.ScreenWS>
         </Styles.Center>
         <Styles.BlockTrends>
-          <Styles.SectionFilter>
+          <Styles.SectionFilter className="flex  w-full items-center justify-between">
             <Subtext size="text-lg py-4 ">{translate.trendsFilter}</Subtext>
+            <motion.svg
+              className="cursor-pointer w-10 h-6 md:hidden"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              transition={{ duration: 1, ease: 'easeInOut' }}
+              onClick={handleChangeReset}
+              onTouchStart={handleChangeReset}>
+              <motion.path
+                d="M18 6L6 18"
+                stroke="white"
+                strokeWidth={change ? '2' : 0}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                initial={{ pathLength: 0 }}
+                animate={
+                  change
+                    ? { pathLength: 1, type: 'tween' }
+                    : { pathLength: 0, type: 'spring' }
+                }
+                transition={{ duration: 1, ease: 'easeInOut' }}
+              />
+              <motion.path
+                d="M6 6L18 18"
+                stroke="white"
+                strokeWidth={change ? '2' : 0}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                initial={{ pathLength: 0 }}
+                animate={
+                  change
+                    ? { pathLength: 1, type: 'tween' }
+                    : { pathLength: 0, type: 'spring' }
+                }
+                transition={{ duration: 1, ease: 'easeInOut' }}
+              />
+            </motion.svg>
           </Styles.SectionFilter>
-          <Styles.SelectFilter>
+          <Styles.SelectFilterTrends>
             <InputSelectFilter
               selected={filter}
               options={DEPARTMENT}
@@ -208,7 +250,7 @@ function News() {
               onChange={onChangeTopic}
               handleValue={setFilter}
             />
-          </Styles.SelectFilter>
+          </Styles.SelectFilterTrends>
           <Styles.SelectFilterNM>
             <CalendarPickerInputRange
               placeholderFrom={translate.FromDate}
@@ -220,7 +262,7 @@ function News() {
             />
           </Styles.SelectFilterNM>
           <motion.svg
-            className="cursor-pointer w-10 h-6"
+            className="cursor-pointer w-10 h-6 hidden md:block"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -259,9 +301,9 @@ function News() {
             />
           </motion.svg>
         </Styles.BlockTrends>
-        {preData.map((dataBlog: any) => (
-          <BlockBlog data={dataBlog} />
-        ))}
+        {React.Children.toArray(
+          preData.map((dataBlog: any) => <BlockBlog data={dataBlog} />),
+        )}
 
         {data &&
           (data.meta.pagination.page !== data.meta.pagination.pageCount &&

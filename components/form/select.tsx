@@ -1,5 +1,6 @@
-import { Select, CaretIcon, ModalCloseButton } from 'react-responsive-select';
+import { CaretIcon, ModalCloseButton } from 'react-responsive-select';
 import { BlockDiv } from '../calendar/input/styles';
+import { Styles } from './style';
 
 type Props = {
   options: any;
@@ -21,7 +22,7 @@ export default function InputSelect({
   return (
     <>
       <BlockDiv active={selected !== ''} className="relative text-left">
-        <Select
+        <Styles.SelectTime
           name={name}
           modalCloseButton={<ModalCloseButton />}
           options={options}

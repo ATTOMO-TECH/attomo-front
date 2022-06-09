@@ -13,7 +13,7 @@ export default function CompaniesScroll() {
         loop
         speed={4000}
         slidesPerView={5}
-        autoplay={{ delay: 1 }}
+        autoplay={{ delay: 1, disableOnInteraction: false }}
         freeMode>
         {CUSTOMERS.map((values) => (
           <SwiperSlide key={values.Name} className="swiper-wrapper ">

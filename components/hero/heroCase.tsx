@@ -32,6 +32,7 @@ export default function HeroCase({
     <>
       <HeadSection.SectionCase
         mode={isOpen ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+        <HeadSection.SectionHeroCases />
         {!isOpen && scroll ? (
           <>
             {!OpenMenu ? (
@@ -48,7 +49,7 @@ export default function HeroCase({
                     />
 
                     <motion.svg
-                      className="cursor-pointer w-1/6 fixed  top-56 -left-2 z-100 "
+                      className="cursor-pointer w-1/6 absolute top-56 lg:top-40 lg:-left-8 -left-5  z-100 "
                       width="24"
                       height="24"
                       viewBox="0 0 24 24"
@@ -92,7 +93,6 @@ export default function HeroCase({
             ) : null}
           </>
         ) : null}
-        <HeadSection.SectionHeroCases />
       </HeadSection.SectionCase>
     </>
   );

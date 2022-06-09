@@ -11,7 +11,10 @@ export const validationSchemaContact = Yup.object().shape({
     .email('Email no valido')
     .required('Campo obligatorio'),
   [FORMVALUES.MESSAGE]: Yup.string().required('Campo obligatorio'),
-  // check: Yup.boolean().oneOf([true],'Debes aceptar las condiciones')
+  [FORMVALUES.CONDITIONS]: Yup.boolean().oneOf(
+    [true],
+    'Debes aceptar las condiciones',
+  ),
 });
 export const validationSchemaColaborator = Yup.object().shape({
   [FORMVALUES.PARTOF]: Yup.string().required('Campo obligatorio'),

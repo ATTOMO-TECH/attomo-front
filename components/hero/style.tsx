@@ -67,6 +67,7 @@ export const Block = styled.section`
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#111827",GradientType=1);
 `;
 export const BlockHeroSection = styled.section`
+  background-image: url('/cases/header_case.jpg');
   @media screen and (min-width: 1024px) {
     height: 70vh;
   }
@@ -88,7 +89,7 @@ export const HeadSection = {
   BlockArrow: tw.span`absolute `,
   SectionHeroCases: tw(
     BlockHeroSection,
-  )`md:w-10/12 w-full h-96 md:h-11/12 z-0 relative bg-hero-Case bg-no-repeat bg-center bg-cover `,
+  )`md:w-10/12 w-full h-96 z-0 relative bg-no-repeat bg-center bg-cover `,
 
   // HeroFooter
 

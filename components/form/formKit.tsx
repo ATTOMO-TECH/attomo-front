@@ -121,7 +121,9 @@ export default function FormKit() {
                       onTouchStart={() => handleFocus(FORMVALUES.PHONE2)}
                       ismode={BUTTON_ACTIVE.OFF}
                       placeholder={translate.formPhone}
-                      type="number"
+                      type="tel"
+                      maxLength={9}
+                      pattern="[0-9]{10}"
                       name={FORMVALUES.PHONE2}
                     />
                     {touched.phone && errors.phone && (
@@ -194,9 +196,9 @@ export default function FormKit() {
           }}
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: '50%' }}>
-          <Title size=" lg:py-32 w-full text-center pt-10 leading-relaxed lg:pr-10 lg:text-4xl pb-2 text-2xl w-5/6 m-auto">
-            Muchas gracias, hemos recibido tu solicitud . Pronto nos pondremos
-            en contacto contigo
+          <Title size=" w-full text-center pt-10 leading-relaxed  text-3xl m-auto lg:w-3/6">
+            ¡Gracias por elegirnos como agentes digitalizadores! Nos pondremos
+            en contacto contigo lo antes posible
           </Title>
         </motion.div>
       )}

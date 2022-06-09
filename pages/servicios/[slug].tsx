@@ -1,6 +1,7 @@
+/* eslint-disable no-use-before-define */
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { fadeInUp, stagger } from '../../components/animations/animations';
 import Background from '../../components/animations/background';
@@ -27,27 +28,33 @@ function DetailsServices() {
   const [menuId, setMenuId] = useState(null);
   const { slug } = router.query;
   let { locale } = router;
+  const toggleFilter = () => {
+    SetIsOpenFilter(!isOpenFilter);
+  };
+  const toggle = () => {
+    SetIsOpen(!isOpen);
+  };
+  const translate = getLocale();
+
   if (locale === '/') {
     locale = 'es';
   }
   const { data, isLoading } = useUseAllServices(locale || 'es');
 
   useEffect(() => {
-    if (!isLoading) {
-      if (data) {
-        const valueFilter = data.data.flatMap((tab: any) => {
-          const some = tab.attributes?.subservices?.data?.filter(
-            ({ attributes: { name } }: any) => {
-              const nameParse = name.replaceAll(' ', '_').toLowerCase();
+    if (data) {
+      const valueFilter = data.data.flatMap((tab: any) => {
+        const some = tab.attributes?.subservices?.data?.filter(
+          ({ attributes: { name } }: any) => {
+            const nameParse = name.replaceAll(' ', '_').toLowerCase();
 
-              return nameParse === slug;
-            },
-          );
+            return nameParse === slug;
+          },
+        );
 
-          return some;
-        });
-        SetIsIdSubServices(valueFilter);
-      }
+        return some;
+      });
+      SetIsIdSubServices(valueFilter);
     }
   }, [data, slug]);
 
@@ -58,14 +65,6 @@ function DetailsServices() {
       </>
     );
   }
-
-  const toggleFilter = () => {
-    SetIsOpenFilter(!isOpenFilter);
-  };
-  const toggle = () => {
-    SetIsOpen(!isOpen);
-  };
-  const translate = getLocale();
 
   return (
     <>
@@ -117,23 +116,24 @@ function DetailsServices() {
             className="pb-36">
             <Styles.CenterCases>
               <Styles.BlockRenderDetails>
-                {data.data.map((tab: any) => (
-                  <SubMenu
-                    key={tab.attributes?.subservices?.data}
-                    isOpen={
-                      !menuId
-                        ? tab.attributes?.subservices?.data?.some(
-                            ({ attributes: { name } }: any) =>
-                              name.replaceAll(' ', '_').toLowerCase() ===
-                              router.query.slug,
-                          )
-                        : menuId === tab.id
-                    }
-                    section={tab.attributes.name}
-                    subsection={tab}
-                    setIsToggle={setMenuId}
-                  />
-                ))}
+                {React.Children.toArray(
+                  data.data.map((tab: any) => (
+                    <SubMenu
+                      isOpen={
+                        !menuId
+                          ? tab.attributes?.subservices?.data?.some(
+                              ({ attributes: { name } }: any) =>
+                                name.replaceAll(' ', '_').toLowerCase() ===
+                                router.query.slug,
+                            )
+                          : menuId === tab.id
+                      }
+                      section={tab.attributes.name}
+                      subsection={tab}
+                      setIsToggle={setMenuId}
+                    />
+                  )),
+                )}
               </Styles.BlockRenderDetails>
               {!isOpenFilter && !isOpen && (
                 <Styles.BlockFilter

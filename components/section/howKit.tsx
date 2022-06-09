@@ -28,7 +28,7 @@ export default function HowKit({ title, subtitle, blockSection }: Props) {
             animate={shouldShowActions}
             variants={servicesAnimations}
             transition={{
-              type: 'magic',
+              type: 'fade',
               stiffness: 100,
               duration: 0.5,
               delay: index * 0.2,
@@ -43,9 +43,9 @@ export default function HowKit({ title, subtitle, blockSection }: Props) {
             }>
             {!values?.logo ? (
               <>
-                <Subtext size="lg:text-xl text-2xl rounded-full border w-10 h-10 p-5 flex items-center justify-center ">
-                  {index + 1}
-                </Subtext>
+                <KitStyles.BlockNumber>
+                  <Subtext size="lg:text-xl text-2xl">{index + 1}</Subtext>
+                </KitStyles.BlockNumber>
                 <KitStyles.Title className="text-left ml-4">
                   {values.item}
                 </KitStyles.Title>
