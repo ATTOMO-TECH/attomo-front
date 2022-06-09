@@ -23,6 +23,9 @@ export const Section = styled(motion.nav)`
   color: ${(props) => props.theme.headings};
   background-color: ${(props) => props.theme.bodyBg};
   z-index: 100 !important;
+  @media screen and (max-height: 300px) {
+    display: block;
+  }
 `;
 export const itemMenu = styled.h6`
   font-family: 'Merriweather', 'serif';
@@ -165,18 +168,18 @@ export const Navegation = {
         : 'opacity-0 overflow-hidden h-0 '}
   `,
   SectionMenuFW: tw(Section)<Props>`
-  lg:transition ease-in-out fixed overflow-y-scroll 
+  lg:transition ease-in-out fixed overflow-y-scroll flex flex-col justify-center items-center
     ${(props) =>
       props.ismode === BUTTON_ACTIVE.ON
-        ? `cursor-pointer h-screen w-full overflow-hidden z-100 opacity-100  `
+        ? `cursor-pointer h-screen w-full overflow-y-scroll z-100 opacity-100  `
         : 'opacity-0 overflow-hidden h-0 '} 
   `,
   Menu: tw.nav``,
   AlinItems: tw.ul<Props>`
-  flex items-center z-100 justify-between w-11/12  h-1/12 items-center m-auto fixed top-4 left-0 right-0
+  flex items-center z-100 justify-between w-11/12  h-1/12 items-center m-auto fixed  left-0 right-0
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : '')}
   `,
-  BlockNav: tw.div` h-screen flex flex-wrap  flex-row md:flex-row lg:flex-col lg:flex-nowrap   lg:py-10 justify-center items-center w-full overflow-y-scroll `,
+  BlockNav: tw.div`flex flex-col h-auto justify-center items-center content-center`,
   AlinItemsMenu: tw.ul<Props>`
   flex items-center z-100 justify-between w-11/12  h-1/12 items-center m-auto fixed top-5 left-0 right-0
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : '')}
@@ -196,7 +199,7 @@ export const Navegation = {
   AlingItemsMenu: tw.div`flex flex-col  items-center justify-center text-center w-full  md:pt-0 md:pt-0 justify-center justify-center`,
   SelectMenu: tw(
     itemMenu,
-  )` leading-loose tracking-wide hover:opacity-100 opacity-60 mb-2 lg:mb-1 cursor-pointer transition ease-in-out delay-100 duration-100  text-2xl md:text-3xl lg:text-5xl md:py-4 `,
+  )` leading-loose tracking-wide hover:opacity-100 opacity-60 cursor-pointer transition ease-in-out delay-100 duration-100  text-2xl md:text-3xl lg:text-5xl md:py-2 md:px-4 lg:py-2`,
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`

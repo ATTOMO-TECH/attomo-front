@@ -44,8 +44,8 @@ export default function CalendarPickerInput({
                   handleFocus('reserve');
                 }}
                 id="reserve"
-                className={`input  w-3/6  outline-none inputDate   text-sm font-light text-gray-300 h-full  py-3 hover:opacity-80${
-                  focus ? ' -focused' : ''
+                className={`input  w-3/6  outline-none inputDate opacity-40   text-sm font-light text-gray-300 h-full  py-3 hover:opacity-100${
+                  focus ? ' -focused opacity-100' : ''
                 }`}
                 {...startDateInputProps}
                 placeholder={placeholderFrom}
@@ -60,8 +60,8 @@ export default function CalendarPickerInput({
                 }}
                 autoComplete="off"
                 id="reserve2"
-                className={`input w-3/6   outline-none inputDate   text-sm font-light text-gray-300 h-full  py-3  hover:opacity-80${
-                  focus ? ' -focused' : ''
+                className={`input w-3/6   outline-none inputDate opacity-40  text-sm font-light text-gray-300 h-full  py-3  hover:opacity-100${
+                  focus ? ' -focused opacity-100' : ''
                 }`}
                 {...endDateInputProps}
                 placeholder={placeholderTo}

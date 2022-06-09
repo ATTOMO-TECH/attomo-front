@@ -93,7 +93,9 @@ export default function FormCustomer() {
                       />
                     )}
                     {touched.firstname && errors.firstname && (
-                      <Styles.Error>{errors.firstname}</Styles.Error>
+                      <Styles.Error className="-bottom-4  ">
+                        {errors.firstname}
+                      </Styles.Error>
                     )}
                   </Styles.BlockInput>
                   <Styles.BlockInput>
@@ -112,7 +114,9 @@ export default function FormCustomer() {
                       />
                     )}
                     {touched.lastname && errors.lastname && (
-                      <Styles.Error>{errors.lastname}</Styles.Error>
+                      <Styles.Error className="-bottom-4  ">
+                        {errors.lastname}
+                      </Styles.Error>
                     )}
                   </Styles.BlockInput>
                 </Styles.BlockInputsCenter>

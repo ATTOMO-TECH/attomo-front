@@ -78,7 +78,7 @@ touch-action: none;
   Error: tw(ErrorText)`  text-PrimarySerif text-sm`,
 };
 export const Styles = {
-  BlockFilter: tw.div`w-1/12 text-center transform -rotate-90  flex  absolute left-24 sm:left-4 lg:bottom-44 sm:bottom-72 z-100 lg:z-0 cursor-pointer `,
+  BlockFilter: tw.div`w-1/12 text-center transform -rotate-90  flex  absolute left-24 sm:left-4 lg:bottom-44 sm:bottom-72  lg:z-0 cursor-pointer `,
   BlockFilterAling: tw.div`w-full text-center flex justify-center absolute bottom-0 z-100`,
   TextFilter: tw.h6`text-gray-700 md:text-primary font-light text-xs font-PrimarySerif font-thin w-24 absolute lg:right-10 sm:right-24 right-12 opacity-100 sm:opacity-50`,
   FlexFilter: tw.div`flex flex-wrap w-full items-center`,

@@ -42,7 +42,7 @@ export const Options = styled.option`
 export const Filter = {
   RelativeSection: tw.section``,
   SectionFilter: tw(motion.div)<Props>`
-  fixed
+  fixed overflow-y-scroll
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON
       ? 'block h-screen z-100 flex flex-col w-full bg-black opacity-1'
@@ -75,7 +75,7 @@ export const Filter = {
   OptionsResponsive: tw(Options)`appearance-none w-full outline-none`,
   BlockItemMed: tw.div``,
   SubTextMobile: tw.h6`text-white text-left font-light text-sm`,
-  BlockSendButton: tw.div`flex justify-around pt-24`,
+  BlockSendButton: tw.div`flex justify-around pt-6 lg:pt-24 w-full`,
   BtnSend: tw(
     BtnSend,
   )` ease-out inline-flex justify-center w-3/6 lg:w-3/12 duration-200 text-primary border-2 border-primary text-left lg:text-sm py-2 rounded-full opacity-20 font-PrimarySerif font-thin shadow-none mr-5`,

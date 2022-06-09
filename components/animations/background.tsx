@@ -14,7 +14,7 @@ const particle = {
   power: 0.005,
   texture:
     'https://res.cloudinary.com/naker-io/image/upload/v1566560053/circle_05.png',
-  number: 1000,
+  number: 900,
   colorStart: [251, 251, 251, 0],
   colorEnd: [57, 138, 171, 0.52],
   sizeStart: 0.1,
@@ -35,7 +35,8 @@ export default function Background() {
       aScript.src =
         'https://d23jutsnau9x47.cloudfront.net/back/v1.0.9/viewer.js';
       document.head.appendChild(aScript);
-      aScript.onload = () => {
+      aScript.onload = (e: any) => {
+        if (e.cancelable) e.preventDefault();
         window.nakerback.render({
           container: document.getElementById('back-container'),
           particle,
@@ -48,6 +49,13 @@ export default function Background() {
 
     onLoadBg();
   }, []);
-
+  document.addEventListener('touchend', (e: any) => e.preventDefault, {
+    passive: false,
+    capture: true,
+  });
+  document.addEventListener('changedTouches', (e: any) => e.preventDefault, {
+    passive: false,
+    capture: true,
+  });
   return <Styles.Bg id="back-container" />;
 }

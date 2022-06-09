@@ -109,7 +109,7 @@ function KitDigital() {
                   }}
                   whileInView={{ opacity: 1, y: 0 }}
                   initial={{ opacity: 0, y: '50%' }}
-                  className="flex flex-col lg:flex-row  justify-center items-center actions my-24 xl:my-0 bottom-0 ">
+                  className="flex flex-col lg:flex-row  justify-center items-center actions my-24 lg:my-0 bottom-0 ">
                   <Styles.BtnKit
                     mode={BUTTON_ACTIVE.ON}
                     onClick={() => scrollTo('section-how-kit')}
@@ -126,7 +126,7 @@ function KitDigital() {
                 </motion.div>
               </Styles.Center>
             </Styles.SectionScreen>
-            <motion.div
+            <Styles.SectionImage
               animate={shouldShowActions}
               variants={servicesAnimations}
               transition={{
@@ -136,10 +136,9 @@ function KitDigital() {
                 delay: 1,
               }}
               whileInView={{ opacity: 1, y: 0 }}
-              initial={{ opacity: 0, y: '50%' }}
-              className="bg-white flex items-center justify-center w-full lg:mt-48 ">
+              initial={{ opacity: 0, y: '50%' }}>
               <img src="/kit/logos-estado.png" alt="" />
-            </motion.div>
+            </Styles.SectionImage>
           </Styles.SectionsKits>
           <Styles.BlockKits id="section-how-kit">
             <Styles.SectionsKits>

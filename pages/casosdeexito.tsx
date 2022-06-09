@@ -22,7 +22,7 @@ import { useAScreen } from '../domain/useScreensMetadata';
 import { Metadata } from '../components/head/metadata';
 import BlockFilter from '../components/filter/blockFilter';
 
-function Cases({ valueRender }: any) {
+function Cases() {
   const queryClient = useQueryClient();
   const router = useRouter();
   let { locale } = router;
@@ -34,7 +34,7 @@ function Cases({ valueRender }: any) {
     locale || 'es',
   );
   const translate = getLocale();
-  const [preData, setPreData] = useState<any[]>(valueRender);
+  const [preData, setPreData] = useState<any[]>([]);
   const [scroll, setScroll] = useState(true);
 
   useEffect(() => {
@@ -128,6 +128,7 @@ function Cases({ valueRender }: any) {
         },
       };
     }
+
     return filters;
   };
   const queryObject: any = {

@@ -91,7 +91,7 @@ export default function BlockFilter({
           </Styles.SectionFilter>
 
           <Styles.SelectFilter
-            className="w-11/12"
+            className="w-11/12 mr-5 lg:mr-0 "
             type="button"
             onClick={toggleFilter}
             {...bindQuick()}>
@@ -110,7 +110,7 @@ export default function BlockFilter({
           </Styles.SelectFilter>
           <Styles.SelectFilter
             type="button"
-            className="w-11/12"
+            className="w-11/12 mr-5 lg:mr-0 "
             onClick={toggleFilter}
             {...bindQuick()}>
             <Styles.FilterSelectActive
@@ -128,7 +128,7 @@ export default function BlockFilter({
           </Styles.SelectFilter>
           <Styles.SelectFilter
             type="button"
-            className="w-11/12"
+            className="w-11/12 mr-5 lg:mr-0 "
             onClick={toggleFilter}
             {...bindQuick()}>
             <Styles.FilterSelectActive

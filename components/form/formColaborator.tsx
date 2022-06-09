@@ -187,7 +187,9 @@ export default function FormColaborator() {
                       />
                     )}
                     {touched.firstname && errors.firstname && (
-                      <Styles.Error>{errors.firstname}</Styles.Error>
+                      <Styles.Error className="-bottom-4">
+                        {errors.firstname}
+                      </Styles.Error>
                     )}
                   </Styles.BlockInput>
                   <Styles.BlockInput>
@@ -206,7 +208,9 @@ export default function FormColaborator() {
                       />
                     )}
                     {touched.lastname && errors.lastname && (
-                      <Styles.Error>{errors.lastname}</Styles.Error>
+                      <Styles.Error className="-bottom-4">
+                        {errors.lastname}
+                      </Styles.Error>
                     )}
                   </Styles.BlockInput>
                 </Styles.BlockInputsCenter>
@@ -227,14 +231,12 @@ export default function FormColaborator() {
                       />
                     )}
                     {touched.email && errors.email && (
-                      <Styles.Error className="-mt-4 lg:mt-0">
-                        {errors.email}
-                      </Styles.Error>
+                      <Styles.Error>{errors.email}</Styles.Error>
                     )}
                   </Styles.BlockInput>
                   <Styles.BlockInput>
                     <Styles.Input
-                      ismode={BUTTON_ACTIVE.OFF}
+                      ismode={BUTTON_ACTIVE.ON}
                       placeholder={translate.formPhone}
                       id={FORMVALUES.PHONE}
                       type="tel"

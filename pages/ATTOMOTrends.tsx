@@ -199,7 +199,7 @@ function News() {
           <Styles.SectionFilter className="flex  w-full items-center justify-between">
             <Subtext size="text-lg py-4 ">{translate.trendsFilter}</Subtext>
             <motion.svg
-              className="cursor-pointer w-10 h-6 lg:hidden"
+              className="cursor-pointer w-10 h-6 md:hidden"
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -238,7 +238,7 @@ function News() {
               />
             </motion.svg>
           </Styles.SectionFilter>
-          <Styles.SelectFilter>
+          <Styles.SelectFilterTrends>
             <InputSelectFilter
               selected={filter}
               options={DEPARTMENT}
@@ -247,7 +247,7 @@ function News() {
               onChange={onChangeTopic}
               handleValue={setFilter}
             />
-          </Styles.SelectFilter>
+          </Styles.SelectFilterTrends>
           <Styles.SelectFilterNM>
             <CalendarPickerInputRange
               placeholderFrom={translate.FromDate}
@@ -259,7 +259,7 @@ function News() {
             />
           </Styles.SelectFilterNM>
           <motion.svg
-            className="cursor-pointer w-10 h-6 hidden lg:block"
+            className="cursor-pointer w-10 h-6 hidden md:block"
             width="24"
             height="24"
             viewBox="0 0 24 24"

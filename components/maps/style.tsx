@@ -19,14 +19,12 @@ export const SectionZoom = styled.div`
   }
   width: 100%;
   height: 360px;
-  &:hover div {
-    transform: scale(1.2);
-  }
+  // &:hover div {
+  //   transform: scale(1.2);
+  // }
 `;
 
 export const Block = {
-  SectionBlock: tw(
-    SectionZoom,
-  )` overflow-hidden transition-colors duration-400 ease-in-out`,
+  SectionBlock: tw(SectionZoom)` `,
   Maps: tw.div`w-full h-full bg-localitation bg-center bg-cover transition ease-in-out duration-500 delay-100 `,
 };

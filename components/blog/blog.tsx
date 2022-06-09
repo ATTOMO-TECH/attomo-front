@@ -65,10 +65,10 @@ export default function BlockBlog({ data }: Props) {
               <Subtext size="text-sm leading-relaxed  ">
                 {data.attributes.blog_tags.data[0].attributes.name}
               </Subtext>
-              <Title size="text-xl lg:text-3xl pr-12 leading-loose pt-4">
+              <Title size="text-xl lg:text-3xl pr-12 md:pr-4 lg:pr-12 leading-loose pt-4 md:pt-0 lg:pt-4">
                 {data.attributes.title}
               </Title>
-              <Subtext size="pr-12 pt-4 text-sm leading-relaxed ">
+              <Subtext size="pr-12 md:pr-4 lg:pr-12 pt-4 md:pt-0 lg:pt-4 text-sm leading-relaxed ">
                 {data.attributes.title}
               </Subtext>
 
