@@ -44,7 +44,7 @@ export default function ModalFilter({
     setSearch(searchModal);
     setTimeout(() => {
       toggle();
-    }, 50);
+    }, 400);
   };
 
   return (
@@ -144,7 +144,6 @@ export default function ModalFilter({
 
           <Filter.BlockSendButton>
             <Filter.BtnSend
-              type="submit"
               isactive={
                 endDateModal || topicModal || searchModal
                   ? BUTTON_ACTIVE.ON

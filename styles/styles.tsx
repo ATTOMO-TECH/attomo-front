@@ -313,7 +313,7 @@ export const Styles = {
     BlurDiv,
   )`w-full h-full bg-secundary opacity-100  z-0 absolute bottom-0 left-0 z-0`,
   TextSecundary: tw.h6`text-primary font-light text-justify text-sm p-4`,
-  ListType: tw.li`w-full  list-disc text-primary  text-justify  p-2 text-sm font-light font-PrimarySerif tracking-wide leading-loose`,
+  ListType: tw.li`w-full list-inside list-disc text-primary  text-justify  p-2 text-sm font-light font-PrimarySerif tracking-wide leading-loose`,
   SectionMore: tw.div`flex  text-primary font-Primary underline text-center justify-center py-24 font-extralight text-xl`,
   BlockMore: tw.span`hover:opacity-75 cursor-pointer ease-out duration-300`,
 };

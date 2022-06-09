@@ -11,10 +11,10 @@ const particle = {
   direction1: { x: 0, y: 0, z: 100 },
   direction2: { x: 0, y: 0, z: 100 },
   life: 5,
-  power: 0.005,
+  power: 0.05,
   texture:
     'https://res.cloudinary.com/naker-io/image/upload/v1566560053/circle_05.png',
-  number: 900,
+  number: 1000,
   colorStart: [251, 251, 251, 0],
   colorEnd: [57, 138, 171, 0.52],
   sizeStart: 0.1,
@@ -50,12 +50,10 @@ export default function Background() {
     onLoadBg();
   }, []);
   document.addEventListener('touchend', (e: any) => e.preventDefault, {
-    passive: false,
-    capture: true,
+    passive: true,
   });
   document.addEventListener('changedTouches', (e: any) => e.preventDefault, {
-    passive: false,
-    capture: true,
+    passive: true,
   });
   return <Styles.Bg id="back-container" />;
 }

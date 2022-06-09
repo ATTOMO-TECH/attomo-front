@@ -104,7 +104,7 @@ export const UsStyles = {
 export const KitStyles = {
   Section: tw.section`flex flex-wrap justify-between lg:pt-4 pb-5`,
   BlockSubsection: tw.div``,
-
+  BlockNumber: tw.div`rounded-full border w-10 h-10 p-5 flex items-center justify-center`,
   BlockSubsectionImgs: tw.div`lg:w-5/12 w-full flex items-center justify-between py-4`,
   Block: tw.div`lg:w-5/12 pr-10 w-full`,
   Title: tw.p`text-sm font-light font-PrimarySerif tracking-wide  textDegrade`,
