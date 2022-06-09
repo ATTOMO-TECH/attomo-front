@@ -60,7 +60,7 @@ function Carrers() {
         <Styles.CenterUs>
           <Styles.ScreenWS>
             {translate.workUs.map((value) => (
-              <Styles.BlockDiv>
+              <Styles.BlockDiv key={`${value.Text}-${value.Subtext}`}>
                 <Title size="lg:text-5xl md:text-3xl text-2xl lg:pr-0 lg:pb-4 md:pb-12 pb-6 w-4/6 lg:w-3/6  pt-12 ">
                   {value.Text}
                 </Title>

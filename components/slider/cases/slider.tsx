@@ -20,12 +20,11 @@ interface Props {
 export default function CasesScroll({ mode, filter, id }: Props) {
   const [prevState, setMyPrev] = useState(null);
   const [nextState, setMyNext] = useState(null);
-
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
   const router = useRouter();
+
   let { locale } = router;
-  if (locale === '/') {
-    locale = 'es';
-  }
 
   const queryObject: any = {
     filters: {
@@ -39,13 +38,15 @@ export default function CasesScroll({ mode, filter, id }: Props) {
       },
     },
   };
+
+  if (locale === '/') {
+    locale = 'es';
+  }
+
   const queryQs = qs.stringify(queryObject, {
     encodeValuesOnly: true,
   });
   const { data, isLoading } = useUseFilterCases(locale || 'es', queryQs);
-
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
 
   useEffect(() => {
     setMyNext(nextRef.current);

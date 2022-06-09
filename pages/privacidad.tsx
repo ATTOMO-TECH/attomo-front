@@ -16,6 +16,7 @@ import { ContainerLegal, Styles } from '../styles/styles';
 
 function Privacidad() {
   const router = useRouter();
+  const translate = getLocale();
   let { locale } = router;
   if (locale === '/') {
     locale = 'es';
@@ -32,7 +33,6 @@ function Privacidad() {
       </>
     );
   }
-  const translate = getLocale();
 
   return (
     <>

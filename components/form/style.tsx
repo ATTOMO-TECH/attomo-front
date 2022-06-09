@@ -281,7 +281,7 @@ export const Styles = {
     props.ismode === BUTTON_ACTIVE.ON
       ? 'opacity-20 cursor-auto'
       : 'opacity-90 cursor-pointer'} `,
-  SectionRenderForm: tw.section`my-12`,
+  SectionRenderForm: tw.section`my-12 min-h-96`,
   Form: tw(Form)`lg:w-4/6 m-auto touch-enabled`,
   FormKit: tw(Form)`lg:w-5/6 m-auto touch-enabled`,
   SectionInputs: tw.div`grid grid-cols-2 gap-6  m-auto`,

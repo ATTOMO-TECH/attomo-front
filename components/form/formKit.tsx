@@ -122,7 +122,6 @@ export default function FormKit() {
                       ismode={BUTTON_ACTIVE.OFF}
                       placeholder={translate.formPhone}
                       type="tel"
-                      defaultCountry="es"
                       maxLength={9}
                       pattern="[0-9]{10}"
                       name={FORMVALUES.PHONE2}

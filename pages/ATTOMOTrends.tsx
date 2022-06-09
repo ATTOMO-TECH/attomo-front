@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-use-before-define
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import * as qs from 'qs';
 import { useRouter } from 'next/router';
@@ -59,6 +59,17 @@ function News() {
 
   const handleAddBlog = (value: number) => {
     setPage(value);
+  };
+
+  const DEPARTMENT = Tags?.data.map((values: any) => ({
+    text: values.attributes.name,
+    value: values.attributes.name,
+  }));
+
+  const handleChangeReset = () => {
+    setFilter('');
+    setStartDateFilter(undefined);
+    setEndDateFilter(undefined);
   };
 
   useEffect(() => {
@@ -150,21 +161,13 @@ function News() {
       </>
     );
   }
-  const DEPARTMENT = Tags?.data.map((values: any) => ({
-    text: values.attributes.name,
-    value: values.attributes.name,
-  }));
+
   DEPARTMENT.push({
     value: '',
     text: translate.allServices,
   });
   DEPARTMENT.reverse();
 
-  const handleChangeReset = () => {
-    setFilter('');
-    setStartDateFilter(undefined);
-    setEndDateFilter(undefined);
-  };
   const change: boolean = !!startDate || !!endDate || !!filter;
 
   return (
@@ -298,9 +301,9 @@ function News() {
             />
           </motion.svg>
         </Styles.BlockTrends>
-        {preData.map((dataBlog: any) => (
-          <BlockBlog data={dataBlog} />
-        ))}
+        {React.Children.toArray(
+          preData.map((dataBlog: any) => <BlockBlog data={dataBlog} />),
+        )}
 
         {data &&
           (data.meta.pagination.page !== data.meta.pagination.pageCount &&

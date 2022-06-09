@@ -198,7 +198,6 @@ export default function FormReserver() {
                         ismode={BUTTON_ACTIVE.ON}
                         placeholder={translate.formPhone}
                         type="tel"
-                        defaultCountry="es"
                         maxLength={9}
                         pattern="[0-9]{10}"
                         name={FORMVALUES.PHONE}

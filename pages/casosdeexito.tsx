@@ -135,7 +135,7 @@ function Cases() {
     populate: ['coverImage', 'disciplines', 'subservice'],
     pagination: {
       page,
-      pageSize: 4,
+      pageSize: 20,
     },
     filters: getFilters(),
   };

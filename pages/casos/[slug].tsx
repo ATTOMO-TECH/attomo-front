@@ -21,6 +21,7 @@ interface Props {
 }
 
 export default function Cases({ mode }: Props) {
+  const translate = getLocale();
   const router = useRouter();
   const { slug } = router.query;
   const [shouldShowActions] = useState(false);
@@ -40,7 +41,6 @@ export default function Cases({ mode }: Props) {
       </>
     );
   }
-  const translate = getLocale();
   return (
     <>
       <Head>
