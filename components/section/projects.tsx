@@ -31,8 +31,8 @@ export default function SectionProjects({
         variants={servicesAnimations}
         className="actions"
         transition={{
-          delay: 0.2,
-          type: 'tween',
+          delay: 0.1,
+          type: 'fast',
           duration: 1,
         }}
         whileInView={{ opacity: 1, x: 0 }}

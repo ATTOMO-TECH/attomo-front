@@ -49,10 +49,10 @@ export const Styles = {
   BlockSection: tw.div<Props>`
 
   ${(props) =>
-    props.ismode === BUTTON_ACTIVE.ON ? 'lg:w-3/6 w-11/12 -ml-9 ' : ''}
+    props.ismode === BUTTON_ACTIVE.ON ? 'lg:w-3/6 w-11/12 -ml-16 ' : ''}
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.OFF
-      ? 'lg:w-3/6 w-11/12 ml-10 lg:ml-0 lg:-mr-12'
+      ? 'lg:w-3/6 w-11/12 lg:ml-10  -mr-16 md:-mr-32 lg:-mr-16 '
       : ''}`,
   BlockText: tw.div<Props>`
    lg:ml-0 
