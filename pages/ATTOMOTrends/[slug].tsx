@@ -35,6 +35,7 @@ function New({ mode }: Props) {
       </>
     );
   }
+
   return (
     <>
       <Head>

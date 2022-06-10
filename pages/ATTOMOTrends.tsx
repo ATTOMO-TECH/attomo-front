@@ -191,7 +191,7 @@ function News() {
                     {value.Subtext}
                   </Subtext>
                   <Styles.BlockFullInput>
-                    <InputNew />
+                    <InputNew idInput="#InputTrends" />
                   </Styles.BlockFullInput>
                 </Styles.BlockInputSend>
               </Styles.BlockDiv>

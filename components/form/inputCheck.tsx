@@ -17,23 +17,23 @@ export default function InputCheck({ text, value, onChange, key }: Props) {
       <Styles.LabelCheckBox
         htmlFor={key}
         checkedValue={check}
+        onTouchStart={(e: any) => {
+          setCheck(e.target.value);
+          onChange && onChange(e.target.value);
+          setCheck(!check);
+        }}
+        onClick={(e: any) => {
+          setCheck(e.target.value);
+          onChange && onChange(e.target.value);
+          setCheck(!check);
+        }}
         key={`${key}-${value}`}>
         <Styles.InputCheck
           type="checkbox"
           name={key}
-          id={value}
+          id={key}
           checked={check}
           readOnly
-          onTouchEnd={(e: any) => {
-            setCheck(e.target.value);
-            onChange && onChange(e.target.value);
-            setCheck(!check);
-          }}
-          onClick={(e: any) => {
-            setCheck(e.target.value);
-            onChange && onChange(e.target.value);
-            setCheck(!check);
-          }}
         />
         <Styles.TextCheck> {text}</Styles.TextCheck>
       </Styles.LabelCheckBox>

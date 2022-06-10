@@ -64,15 +64,15 @@ export default function ModalFilter({
           className={
             width < 768
               ? 'w-full justify-center '
-              : 'h-4/6 justify-center flex items-center  min-h-auto flex-wrap pt-24'
+              : 'h-4/6 justify-center flex items-center  min-h-auto flex-wrap '
           }>
           <Filter.AlinItems ismode={BUTTON_ACTIVE.OFF}>
             <Filter.ItemsMenu>
               <Link href="/">
                 <img
                   src="/icon/isoAttomo.svg"
-                  width={30}
-                  height={30}
+                  width={35}
+                  height={35}
                   alt="Attomo"
                 />
               </Link>

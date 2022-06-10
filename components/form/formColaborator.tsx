@@ -12,7 +12,6 @@ import { CONDITIONFORM, FORMPARTOF } from '../../const/constGlobal';
 import InputCheck from './inputCheck';
 import InputCheckcondition from './inputCheckcondition';
 import { createContactColaborator } from '../../domain/useContact';
-import Conditions from './conditions';
 import { useUseAllPartner } from '../../domain/usePartners';
 import { getLocale } from '../../public/locales/getLocale';
 import { servicesAnimations } from '../animations/animations';
@@ -156,8 +155,7 @@ export default function FormColaborator() {
                 )}
                 <Styles.BlockSelectSecond>
                   {Partner?.data.map((valuesCheck: any) => (
-                    <Styles.AlingSelectSecond
-                      key={`check-${valuesCheck.attributes.area}`}>
+                    <Styles.AlingSelectSecond>
                       <InputCheck
                         text={valuesCheck.attributes.area}
                         value={valuesCheck.attributes.area}
@@ -313,9 +311,8 @@ export default function FormColaborator() {
                   onClick={(e: any) => setFieldValue(FORMVALUES.CONDITIONS, e)}
                   onTouched={(e: any) =>
                     setFieldValue(FORMVALUES.CONDITIONS, e)
-                  }>
-                  <Conditions />
-                </InputCheckcondition>
+                  }
+                />
                 <span className="absolute w-2/6">
                   {touched.conditionsAccepted && errors.conditionsAccepted && (
                     <Styles.Error>{errors.conditionsAccepted}</Styles.Error>
