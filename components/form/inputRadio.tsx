@@ -17,15 +17,15 @@ export default function InputRadio({
     <>
       <Styles.LabelCheck
         htmlFor="partner"
+        onClick={() => onChange(value)}
+        onTouchStart={() => onChange(value)}
+        checked={valueChecked === value}
         checkedValue={valueChecked === value}>
         <Styles.InputRadio
           type="radio"
-          readOnly
           name="partner"
           value={value}
           checked={valueChecked === value}
-          onTouchEnd={(e: any) => onChange(e.target.value)}
-          onChange={(e: any) => onChange(e.target.value)}
         />
         {text}
       </Styles.LabelCheck>

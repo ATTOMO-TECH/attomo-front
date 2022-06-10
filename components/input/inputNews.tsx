@@ -16,8 +16,11 @@ const registerSchema = Yup.object().shape({
     .email('El formato de email es incorrecto')
     .required('Email es requerido'),
 });
+interface Props {
+  idInput: string;
+}
 
-export default function InputNew() {
+export default function InputNew({ idInput }: Props) {
   const [shouldShowActions] = useState(false);
   const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
   const [inputMail, setInputMail] = useState('');
@@ -69,13 +72,13 @@ export default function InputNew() {
                     onClick={() => toggleClass(isActive)}
                     onTouchStart={() => {
                       toggleClass(isActive);
-                      handleFocus(FORMVALUES.EMAIL);
+                      handleFocus(idInput);
                     }}>
                     <p className="text-primary">{isActive}</p>
                     <Navegation.Input
                       type="email"
                       placeholder={translate.sendEmail}
-                      id={FORMVALUES.EMAIL}
+                      id={idInput}
                       name={FORMVALUES.EMAIL}
                       onChange={(e: any) => {
                         handleInput(e.currentTarget.value);

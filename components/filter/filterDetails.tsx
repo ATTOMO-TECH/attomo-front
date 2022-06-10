@@ -38,12 +38,14 @@ export default function FilterDetails({
 
   return (
     <>
-      <Navegation.SectionFilter
-        ismode={isOpenFilter ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+      <Navegation.SectionFilterDetails
+        transition={{
+          x: { type: 'fast', duration: 0.4, ease: 'easeInOut' },
+          default: { duration: 0.4, ease: 'easeInOut' },
+        }}
         animate={{
           x: isOpenFilter ? 0 : -500,
           opacity: isOpenFilter ? 1 : 0,
-          transition: { 200: { ease: 'easeInOut' } },
         }}>
         <Navegation.Menu>
           <Navegation.AlinItemsServices
@@ -123,7 +125,7 @@ export default function FilterDetails({
             ))}
           </div>
         </Navegation.Menu>
-      </Navegation.SectionFilter>
+      </Navegation.SectionFilterDetails>
     </>
   );
 }

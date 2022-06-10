@@ -60,7 +60,7 @@ export default function Footer({ subFooter }: Props) {
             <Navegation.TitleNavResponsive>
               NEWSLETTER
             </Navegation.TitleNavResponsive>
-            <InputNew />
+            <InputNew idInput="#InputFooterWhite" />
           </Navegation.BlockNav>
         </Navegation.BlockFooter>
         {subFooter ? <SubFooter /> : ''}

@@ -176,7 +176,7 @@ export const Navegation = {
   `,
   Menu: tw.nav``,
   AlinItems: tw.ul<Props>`
-  flex items-center z-100 justify-between w-11/12  h-1/12 items-center m-auto fixed  left-0 right-0
+  flex items-center z-100 justify-between w-11/12  h-1/12 items-center m-auto fixed top-4 left-0 right-0
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : '')}
   `,
   BlockNav: tw.div`flex flex-col h-auto justify-center items-center content-center`,
@@ -185,7 +185,7 @@ export const Navegation = {
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : '')}
   `,
   AlinItemsServices: tw.ul<Props>`
-  flex items-center fixed z-100 justify-between w-11/12 m-auto md:w-10/12 md:absolute lg:left-24 md:left-12 left-5 top-4 md:top-6 
+  flex items-center z-100 justify-between w-11/12  h-1/12 items-center m-auto fixed top-4 left-0 right-0
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : '')}
   `,
   ItemsMenu: tw.li`flex items-center list-none  min-h-min cursor-pointer`,
@@ -222,4 +222,7 @@ export const Navegation = {
     h-screen overflow-hidden fixed bg-black overflow-y-visible z-100 w-full lg:hidden
     ${(props) =>
       props.ismode === BUTTON_ACTIVE.ON ? 'opacity-1' : 'opacity-0 hidden'}`,
+  SectionFilterDetails: tw(
+    motion.div,
+  )`    h-screen overflow-hidden fixed bg-black overflow-y-visible z-100 w-full lg:hidden`,
 };

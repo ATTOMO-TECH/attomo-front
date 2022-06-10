@@ -8,7 +8,6 @@ import InputSelect from './select';
 import { OPTIONDISPONIBILITY } from '../../const/constGlobal';
 import InputCheckcondition from './inputCheckcondition';
 import { createReserve } from '../../domain/useContact';
-import Conditions from './conditions';
 import { getLocale } from '../../public/locales/getLocale';
 import CalendarPickerInput from '../calendar/input/calendar';
 import { validationSchemaBooking } from './validations';
@@ -231,9 +230,9 @@ export default function FormReserver() {
                     color="text-primary text-xs pt-6"
                     value={FORMVALUES.CONDITIONS}
                     onTouched={(e: any) => setFieldValue(check, e)}
-                    onClick={(e: any) => setFieldValue(check, e)}>
-                    <Conditions />
-                  </InputCheckcondition>
+                    onClick={(e: any) => setFieldValue(check, e)}
+                  />
+
                   <span className="absolute w-2/6">
                     {touched.conditionsAccepted &&
                       errors.conditionsAccepted && (

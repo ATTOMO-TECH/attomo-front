@@ -6,7 +6,6 @@ import { BUTTON_ACTIVE } from '../../const/const';
 import { FORMVALUES } from '../../hook/types';
 import InputCheckcondition from './inputCheckcondition';
 import { createContact } from '../../domain/useContact';
-import Conditions from './conditions';
 import { getLocale } from '../../public/locales/getLocale';
 import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
@@ -200,9 +199,8 @@ export default function FormCustomer() {
                   onClick={(e: any) => setFieldValue(FORMVALUES.CONDITIONS, e)}
                   onTouched={(e: any) =>
                     setFieldValue(FORMVALUES.CONDITIONS, e)
-                  }>
-                  <Conditions />
-                </InputCheckcondition>
+                  }
+                />
                 {touched.conditionsAccepted && errors.conditionsAccepted && (
                   <Styles.Error>{errors.conditionsAccepted}</Styles.Error>
                 )}

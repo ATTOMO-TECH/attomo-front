@@ -5,22 +5,24 @@ import { Navegation } from './style';
 import InputNew from '../input/inputNews';
 import { getLocale } from '../../public/locales/getLocale';
 import { handleClickTouch, useEventListener } from '../../hook/eventListener';
+import useLongPressHook from '../../hook/longPress';
 
 interface Props {
   subFooter: boolean;
 }
 export default function Footer({ subFooter }: Props) {
   const translate = getLocale();
+  const [bindQuickScreen] = useLongPressHook(`/terminos`);
+  const [bindQuick] = useLongPressHook(`/privacidad`);
 
   translate.menu.map((values) =>
-    useEventListener(values.Value, 'touchend', () =>
+    useEventListener(values.Value, 'touchstart', () =>
       handleClickTouch(values.Url),
     ),
   );
-  useEventListener('term', 'touchend', () => handleClickTouch('/privacidad'));
-  useEventListener('privacy', 'touchend', () => handleClickTouch('/terminos'));
+
   ICONNAV.map((values) =>
-    useEventListener(values.Name, 'touchend', () =>
+    useEventListener(values.Name, 'touchstart', () =>
       handleClickTouch(values.Url),
     ),
   );
@@ -70,18 +72,18 @@ export default function Footer({ subFooter }: Props) {
             <Navegation.TitleNavResponsive>
               NEWSLETTER
             </Navegation.TitleNavResponsive>
-            <InputNew />
+            <InputNew idInput="#InputFooter" />
           </Navegation.BlockNav>
         </Navegation.BlockFooter>
         <div className="relative ">{subFooter && <SubFooter />}</div>
         <Navegation.BlockSubText>
           <Link href="/privacidad">
-            <a id="privacy" href="/privacidad">
+            <a href="/privacidad" {...bindQuick()}>
               <Navegation.SubText>{translate.privacy}</Navegation.SubText>
             </a>
           </Link>
           <Link href="/terminos" passHref>
-            <a href="/terminos" id="term">
+            <a href="/terminos" {...bindQuickScreen()}>
               <Navegation.SubText>{translate.rightReserve}</Navegation.SubText>
             </a>
           </Link>

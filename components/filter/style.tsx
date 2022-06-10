@@ -49,7 +49,7 @@ export const Filter = {
       : 'opacity-0'}`,
 
   AlinItems: tw.ul<Props>`
-  flex items-center fixed z-100 justify-between w-11/12 m-auto md:mt-0 md:w-10/12 md:absolute lg:left-24 md:left-12 left-4 top-2 md:top-6
+  flex items-center z-100 justify-between w-11/12  h-1/12 items-center m-auto fixed top-4 left-0 right-0
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'pt-10' : '')}
   `,
   ItemsMenu: tw.li`flex items-center list-none z-100 min-h-min`,

@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-expressions */
 import { useState } from 'react';
 import { Styles } from './style';
+import Conditions from './conditions';
 
 interface Props {
-  children: any;
   value: any;
   color?: string;
   onClick?: any;
@@ -11,7 +11,6 @@ interface Props {
 }
 
 export default function InputCheckcondition({
-  children,
   value,
   color,
   onClick,
@@ -22,25 +21,26 @@ export default function InputCheckcondition({
   return (
     <>
       <Styles.LabelCheckBox
-        onTouchEnd={() => {
+        onTouchStart={() => {
           onTouched && onTouched(!check);
           setCheck(!check);
         }}
         checkedValue={check}
         className={`${color}`}
+        onChange={() => {
+          onClick && onClick(!check);
+          setCheck(!check);
+        }}
         htmlFor={value}>
         <Styles.InputCheckCondition
           type="checkbox"
           checked={check}
           readOnly
-          onChange={() => {
-            onClick && onClick(!check);
-            setCheck(!check);
-          }}
+          id={value}
           value={check}
           name={value}
         />
-        {children}
+        <Conditions />
       </Styles.LabelCheckBox>
     </>
   );

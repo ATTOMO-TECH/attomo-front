@@ -16,7 +16,7 @@ const useLongPressHook = (value?: string, onClick?: any) => {
   const bind = useLongPress(() => callback(), {
     // eslint-disable-next-line
     onFinish: () => {},
-    threshold: 400,
+    threshold: 350,
     captureEvent: true,
     cancelOnMovement: true,
     detect: LongPressDetectEvents.BOTH,
@@ -24,7 +24,7 @@ const useLongPressHook = (value?: string, onClick?: any) => {
   const bindQuick = useLongPress(() => callback(), {
     // eslint-disable-next-line
     onFinish: () => {},
-    threshold: 200,
+    threshold: 100,
     captureEvent: true,
     cancelOnMovement: true,
     detect: LongPressDetectEvents.BOTH,
@@ -32,7 +32,7 @@ const useLongPressHook = (value?: string, onClick?: any) => {
   const bindQuickScreen = useLongPress(() => callback(), {
     // eslint-disable-next-line
     onFinish: () => {},
-    threshold: 100,
+    threshold: 50,
     captureEvent: true,
     cancelOnMovement: true,
     detect: LongPressDetectEvents.BOTH,
