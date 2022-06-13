@@ -1,6 +1,29 @@
+import { useSwipeable } from 'react-swipeable';
 import { useRef, useState } from 'react';
 import { useLongPress, LongPressDetectEvents } from 'use-long-press';
 import { handleClickTouch } from './eventListener';
+
+export const useTap = (value?: string, onClick?: any) => {
+  const [state] = useState<string>(value || '');
+  if (value !== '') {
+    handleClickTouch(state);
+  } else {
+    onClick();
+  }
+  const handlers = useSwipeable({
+    onTap: () => handleClickTouch(state),
+  });
+  const handlers2 = useSwipeable({
+    onTap: () => handleClickTouch(state),
+  });
+  const handlers3 = useSwipeable({
+    onTap: () => handleClickTouch(state),
+  });
+  const handlers4 = useSwipeable({
+    onTap: () => handleClickTouch(state),
+  });
+  return [handlers, handlers2, handlers3, handlers4];
+};
 
 const useLongPressHook = (value?: string, onClick?: any) => {
   const [state] = useState<string>(value || '');
@@ -29,6 +52,7 @@ const useLongPressHook = (value?: string, onClick?: any) => {
     cancelOnMovement: true,
     detect: LongPressDetectEvents.BOTH,
   });
+
   const bindQuick = useLongPress(() => callback(), {
     // eslint-disable-next-line
     onFinish: () => {},

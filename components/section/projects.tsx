@@ -5,7 +5,7 @@ import IconAnimate from '../button/icon';
 import Title from '../Text/title';
 import { Styles } from './style';
 import { getLocale } from '../../public/locales/getLocale';
-import useLongPressHook from '../../hook/longPress';
+import useTap from '../../hook/longPress';
 
 interface Props {
   values: any;
@@ -22,7 +22,7 @@ export default function SectionProjects({
 }: Props) {
   const translate = getLocale();
 
-  const [bind] = useLongPressHook(`/casos/${values.id}`);
+  const [handlers] = useTap(`/casos/${values.id}`);
 
   return (
     <>
@@ -51,7 +51,7 @@ export default function SectionProjects({
                   id={`${values.id}`}
                   alt={values.attributes.name}
                   className="object-cover cursor-pointer"
-                  {...bind()}
+                  {...handlers()}
                 />
               )}
             </Styles.BlockSection>
@@ -76,7 +76,7 @@ export default function SectionProjects({
                 {values.attributes.title}
               </Title>
               <Link href={`/casos/${values.id}`}>
-                <Styles.BlockBtn {...bind()}>
+                <Styles.BlockBtn {...handlers()}>
                   <IconAnimate text={translate.seeMoreProject} mode />
                 </Styles.BlockBtn>
               </Link>

@@ -15,22 +15,15 @@
 }
 
 body {
-  touch-action: pan-y !important;
-  -ms-touch-action: pan-y !important;
+  touch-action: manipulation !important;
+  -ms-touch-action: manipulation !important;
   pointer-events: all;
   scroll-behavior: smooth;
   margin-bottom: 0px !important;
   min-height: 100vh;
   min-height: -webkit-fill-available;
 }
-.touched {
-  touch-action: pan-y !important;
-  -ms-touch-action: pan-y !important;
-}
-.noAction {
-  touch-action: none !important;
-  -ms-touch-action: none !important;
-}
+
 .textDegrade {
   background: linear-gradient(
     90deg,
