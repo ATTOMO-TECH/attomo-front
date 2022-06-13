@@ -36,7 +36,9 @@ export default function Background() {
         'https://d23jutsnau9x47.cloudfront.net/back/v1.0.9/viewer.js';
       document.head.appendChild(aScript);
       aScript.onload = (e: any) => {
-        if (e.cancelable) e.preventDefault();
+        if (e.cancelable) {
+          e.preventDefault();
+        }
         window.nakerback.render({
           container: document.getElementById('back-container'),
           particle,
@@ -49,10 +51,12 @@ export default function Background() {
 
     onLoadBg();
   }, []);
-  document.addEventListener('touchend', (e: any) => e.preventDefault, {
+  // eslint-disable-next-line
+  document.addEventListener('touchend', () => {}, {
     passive: true,
   });
-  document.addEventListener('changedTouches', (e: any) => e.preventDefault, {
+  // eslint-disable-next-line
+  document.addEventListener('touchmove', () => {}, {
     passive: true,
   });
   return <Styles.Bg id="back-container" />;

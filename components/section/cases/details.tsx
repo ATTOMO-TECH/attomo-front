@@ -25,7 +25,7 @@ export default function DetailsCases({ data, translate }: Props) {
             <Details.TitleSpeciality>
               {translate.Disciplines}
             </Details.TitleSpeciality>
-            {data.attributes.disciplines.data.map((disciplines: any) => (
+            {data?.attributes.disciplines.data.map((disciplines: any) => (
               <Details.SubTextSpeciality key={disciplines.attributes.name}>
                 {disciplines.attributes.name}
               </Details.SubTextSpeciality>
@@ -35,7 +35,7 @@ export default function DetailsCases({ data, translate }: Props) {
             <Details.TitleSpeciality>
               {translate.Deliverables}
             </Details.TitleSpeciality>
-            {data.attributes.deliverables.data.map((disciplines: any) => (
+            {data?.attributes.deliverables.data.map((disciplines: any) => (
               <Details.SubTextSpeciality key={disciplines.attributes.name}>
                 {disciplines.attributes.name}
               </Details.SubTextSpeciality>

@@ -241,7 +241,7 @@ function News() {
               />
             </motion.svg>
           </Styles.SectionFilter>
-          <Styles.SelectFilterTrends>
+          <Styles.SelectFilterTrends id="MobileFilterTrends">
             <InputSelectFilter
               selected={filter}
               options={DEPARTMENT}

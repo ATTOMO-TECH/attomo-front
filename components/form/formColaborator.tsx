@@ -1,7 +1,8 @@
+/* eslint-disable no-use-before-define */
 import { Formik } from 'formik';
+import React, { useEffect, useState } from 'react';
 import * as qs from 'qs';
 import { equals } from 'ramda';
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Styles } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -18,10 +19,12 @@ import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
 import { validationSchemaColaborator } from './validations';
 import { handleFocus } from '../../hook/eventListener';
+import useLongPressHook from '../../hook/longPress';
 
 export default function FormColaborator() {
   const [shouldShowActions] = useState(false);
   const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
+  const [idInput, setIdInput] = useState('');
   const translate = getLocale();
   const [query, setQuery] = useState('');
   const [area, setArea] = useState<any>([]);
@@ -102,7 +105,7 @@ export default function FormColaborator() {
       },
     );
   };
-
+  const [bindInput] = useLongPressHook('', () => handleFocus(idInput));
   return (
     <>
       {!sendSuccesfull ? (
@@ -154,29 +157,32 @@ export default function FormColaborator() {
                   </Subtext>
                 )}
                 <Styles.BlockSelectSecond>
-                  {Partner?.data.map((valuesCheck: any) => (
-                    <Styles.AlingSelectSecond>
-                      <InputCheck
-                        text={valuesCheck.attributes.area}
-                        value={valuesCheck.attributes.area}
-                        key={values.teamOrPartner as string}
-                        onChange={() => {
-                          const data = addArea(valuesCheck.id);
-                          setFieldValue(FORMVALUES.SPECIALITY, data);
-                        }}
-                      />
-                    </Styles.AlingSelectSecond>
-                  ))}
+                  {React.Children.toArray(
+                    Partner?.data.map((valuesCheck: any) => (
+                      <Styles.AlingSelectSecond
+                        key={valuesCheck.attributes.area}>
+                        <InputCheck
+                          text={valuesCheck.attributes.area}
+                          value={valuesCheck.id}
+                          onChange={() => {
+                            const data = addArea(valuesCheck.id);
+                            setFieldValue(FORMVALUES.SPECIALITY, data);
+                          }}
+                        />
+                      </Styles.AlingSelectSecond>
+                    )),
+                  )}
                 </Styles.BlockSelectSecond>
                 <Styles.BlockInputsCenter>
-                  <Styles.BlockInput>
+                  <Styles.BlockInput
+                    onTouchStart={() => setIdInput(FORMVALUES.FIRSTNAME)}>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
                       placeholder={translate.formName}
                       type="text"
                       id={FORMVALUES.FIRSTNAME}
                       name={FORMVALUES.FIRSTNAME}
-                      onTouchStart={() => handleFocus(FORMVALUES.FIRSTNAME)}
+                      {...bindInput()}
                     />
                     {touched.firstname && errors.firstname && (
                       <Styles.BlockClose
@@ -190,14 +196,15 @@ export default function FormColaborator() {
                       </Styles.Error>
                     )}
                   </Styles.BlockInput>
-                  <Styles.BlockInput>
+                  <Styles.BlockInput
+                    onTouchStart={() => setIdInput(FORMVALUES.LASTNAME)}>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
                       placeholder={translate.formLastName}
                       id={FORMVALUES.LASTNAME}
                       type="text"
                       name={FORMVALUES.LASTNAME}
-                      onTouchStart={() => handleFocus(FORMVALUES.LASTNAME)}
+                      {...bindInput()}
                     />
                     {touched.lastname && errors.lastname && (
                       <Styles.BlockClose
@@ -213,14 +220,15 @@ export default function FormColaborator() {
                   </Styles.BlockInput>
                 </Styles.BlockInputsCenter>
                 <Styles.BlockInputsCenter>
-                  <Styles.BlockInput>
+                  <Styles.BlockInput
+                    onTouchStart={() => setIdInput(FORMVALUES.EMAIL)}>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
                       placeholder={translate.formEmail}
                       id={FORMVALUES.EMAIL}
                       type="email"
                       name={FORMVALUES.EMAIL}
-                      onTouchStart={() => handleFocus(FORMVALUES.EMAIL)}
+                      {...bindInput()}
                     />
                     {touched.email && errors.email && (
                       <Styles.BlockClose
@@ -232,7 +240,8 @@ export default function FormColaborator() {
                       <Styles.Error>{errors.email}</Styles.Error>
                     )}
                   </Styles.BlockInput>
-                  <Styles.BlockInput>
+                  <Styles.BlockInput
+                    onTouchStart={() => setIdInput(FORMVALUES.PHONE)}>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
                       placeholder={translate.formPhone}
@@ -241,7 +250,7 @@ export default function FormColaborator() {
                       maxLength={9}
                       pattern="[0-9]{10}"
                       name={FORMVALUES.PHONE}
-                      onTouchStart={() => handleFocus(FORMVALUES.PHONE)}
+                      {...bindInput()}
                     />
                     {touched.mobile && errors.mobile && (
                       <Styles.BlockClose
@@ -257,7 +266,8 @@ export default function FormColaborator() {
 
                 {values[valuepartOf] === CONDITIONFORM.TEAM ? (
                   <Styles.BlockInputEnd>
-                    <Styles.BlockInputOnly>
+                    <Styles.BlockInputOnly
+                      onTouchStart={() => setIdInput(FORMVALUES.LINK)}>
                       <Styles.Input
                         ismode={BUTTON_ACTIVE.OFF}
                         placeholder={translate.formLink}
@@ -265,34 +275,36 @@ export default function FormColaborator() {
                         type="url"
                         pattern="https://.*"
                         name={FORMVALUES.LINK}
-                        onTouchStart={() => handleFocus(FORMVALUES.LINK)}
+                        {...bindInput()}
                       />
                     </Styles.BlockInputOnly>
                   </Styles.BlockInputEnd>
                 ) : (
                   <Styles.BlockInputEnd>
-                    <Styles.BlockInputOnly>
+                    <Styles.BlockInputOnly
+                      onTouchStart={() => setIdInput(FORMVALUES.COMPANY)}>
                       <Styles.Input
                         ismode={BUTTON_ACTIVE.OFF}
                         placeholder={translate.formCompany}
                         id={FORMVALUES.COMPANY}
                         type="text"
                         name={FORMVALUES.COMPANY}
-                        onTouchStart={() => handleFocus(FORMVALUES.COMPANY)}
+                        {...bindInput()}
                       />
                     </Styles.BlockInputOnly>
                   </Styles.BlockInputEnd>
                 )}
 
                 <Styles.BlockInputEnd>
-                  <Styles.BlockInputOnly>
+                  <Styles.BlockInputOnly
+                    onTouchStart={() => setIdInput(FORMVALUES.MESSAGE)}>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.OFF}
                       placeholder={translate.formMessage}
                       type="textarea"
                       id={FORMVALUES.MESSAGE}
                       name={FORMVALUES.MESSAGE}
-                      onTouchStart={() => handleFocus(FORMVALUES.MESSAGE)}
+                      {...bindInput()}
                     />
                     {touched.message && errors.message && (
                       <Styles.BlockClose

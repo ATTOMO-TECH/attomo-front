@@ -72,16 +72,18 @@ export default function Cases({ mode }: Props) {
         </Styles.Margin>
         <Styles.Center className="lg:mt-44 mt-20 lg:pl-6">
           <BreadCrumbsCases
-            customer={data.data.attributes.company}
-            sumary={data.data.attributes.sumary}
+            customer={data?.data?.attributes?.company}
+            sumary={data?.data?.attributes?.sumary}
           />
-          <Styles.TitularText>{data?.data.attributes.title}</Styles.TitularText>
+          <Styles.TitularText>
+            {data?.data?.attributes?.title}
+          </Styles.TitularText>
         </Styles.Center>
 
-        {data.data?.attributes?.mainPhoto?.data[0].attributes?.url ? (
+        {data?.data?.attributes?.mainPhoto?.data[0].attributes?.url ? (
           <img
             src={
-              data.data?.attributes?.mainPhoto?.data[0].attributes?.url || '/'
+              data?.data?.attributes?.mainPhoto?.data[0].attributes?.url || '/'
             }
             width="80%"
             height="auto"
@@ -90,7 +92,7 @@ export default function Cases({ mode }: Props) {
           />
         ) : null}
         <Styles.Center>
-          <DetailsCases data={data.data} translate={translate} />
+          <DetailsCases data={data?.data} translate={translate} />
         </Styles.Center>
         <Styles.Center>
           <Styles.TextSubSection>{translate.moreCases}</Styles.TextSubSection>

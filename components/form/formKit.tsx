@@ -11,9 +11,11 @@ import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
 import { validationSchemaKit } from './validations';
 import { handleFocus } from '../../hook/eventListener';
+import useLongPressHook from '../../hook/longPress';
 
 export default function FormKit() {
   const [shouldShowActions] = useState(false);
+  const [idInput, setIdInput] = useState('');
   const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
   const translate = getLocale();
   const valueName = FORMVALUES.NAME;
@@ -50,7 +52,7 @@ export default function FormKit() {
       },
     );
   };
-
+  const [bindInput] = useLongPressHook('', () => handleFocus(idInput));
   return (
     <>
       {!sendSuccesfull ? (
@@ -70,14 +72,15 @@ export default function FormKit() {
             <>
               <Styles.FormKit onSubmit={handleSubmit}>
                 <Styles.BlockInputEnd>
-                  <Styles.BlockInputOnly>
+                  <Styles.BlockInputOnly
+                    onTouchStart={() => setIdInput(FORMVALUES.NAME)}>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.OFF}
                       placeholder={translate.formName}
                       type="text"
                       id={FORMVALUES.NAME}
-                      onTouchStart={() => handleFocus(FORMVALUES.NAME)}
                       name={FORMVALUES.NAME}
+                      {...bindInput()}
                     />
                     {touched.name && errors.name && (
                       <Styles.BlockClose
@@ -91,14 +94,15 @@ export default function FormKit() {
                   </Styles.BlockInputOnly>
                 </Styles.BlockInputEnd>
                 <Styles.BlockInputEnd>
-                  <Styles.BlockInputOnly>
+                  <Styles.BlockInputOnly
+                    onTouchStart={() => setIdInput(FORMVALUES.EMAIL)}>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.OFF}
                       placeholder={translate.formEmail}
                       type="email"
                       name={FORMVALUES.EMAIL}
                       id={FORMVALUES.EMAIL}
-                      onTouchStart={() => handleFocus(FORMVALUES.EMAIL)}
+                      {...bindInput()}
                     />
                     {touched.email && errors.email && (
                       <Styles.BlockClose
@@ -114,16 +118,17 @@ export default function FormKit() {
                   </Styles.BlockInputOnly>
                 </Styles.BlockInputEnd>
                 <Styles.BlockInputEnd>
-                  <Styles.BlockInputOnly>
+                  <Styles.BlockInputOnly
+                    onTouchStart={() => setIdInput(FORMVALUES.PHONE2)}>
                     <Styles.Input
                       id={FORMVALUES.PHONE2}
-                      onTouchStart={() => handleFocus(FORMVALUES.PHONE2)}
                       ismode={BUTTON_ACTIVE.OFF}
                       placeholder={translate.formPhone}
                       type="tel"
                       maxLength={9}
                       pattern="[0-9]{10}"
                       name={FORMVALUES.PHONE2}
+                      {...bindInput()}
                     />
                     {touched.phone && errors.phone && (
                       <Styles.BlockClose
@@ -137,14 +142,15 @@ export default function FormKit() {
                   </Styles.BlockInputOnly>
                 </Styles.BlockInputEnd>
                 <Styles.BlockInputEnd>
-                  <Styles.BlockInputOnly>
+                  <Styles.BlockInputOnly
+                    onTouchStart={() => setIdInput(FORMVALUES.MESSAGE)}>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.OFF}
                       placeholder={translate.formMessage}
                       type="textarea"
                       name={FORMVALUES.MESSAGE}
                       id={FORMVALUES.MESSAGE}
-                      onTouchStart={() => handleFocus(FORMVALUES.MESSAGE)}
+                      {...bindInput()}
                     />
                     {touched.message && errors.message && (
                       <Styles.BlockClose

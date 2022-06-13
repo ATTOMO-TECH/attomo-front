@@ -29,6 +29,12 @@ function Space() {
       ),
     { ssr: false },
   );
+  const [isOpen, SetIsOpen] = useState<boolean>(false);
+  const toggle = () => {
+    SetIsOpen(!isOpen);
+  };
+  const translate = getLocale();
+  const [width] = useDeviceSize();
   const router = useRouter();
   let { locale } = router;
   if (locale === '/') {
@@ -39,12 +45,6 @@ function Space() {
     locale || 'es',
   );
 
-  const [isOpen, SetIsOpen] = useState<boolean>(false);
-  const toggle = () => {
-    SetIsOpen(!isOpen);
-  };
-  const translate = getLocale();
-  const [width] = useDeviceSize();
   if (screenIsLoading) {
     return (
       <>

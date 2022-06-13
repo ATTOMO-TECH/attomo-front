@@ -25,8 +25,8 @@ export default function InputSelectFilter({
         className="relative text-left"
         key={selected}>
         <Select
-          name={name}
           modalCloseButton={<ModalCloseButton />}
+          name={name}
           options={options}
           selectedValue="any"
           caretIcon={<CaretIcon />}

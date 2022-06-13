@@ -11,9 +11,11 @@ import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
 import { validationSchemaContact } from './validations';
 import { handleFocus } from '../../hook/eventListener';
+import useLongPressHook from '../../hook/longPress';
 
 export default function FormCustomer() {
   const [shouldShowActions] = useState(false);
+  const [idInput, setIdInput] = useState('');
   const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
   const translate = getLocale();
   const valueName = FORMVALUES.FIRSTNAME;
@@ -56,7 +58,7 @@ export default function FormCustomer() {
       },
     );
   };
-
+  const [bindInput] = useLongPressHook('', () => handleFocus(idInput));
   return (
     <>
       {!sendSuccesfull ? (
@@ -76,14 +78,15 @@ export default function FormCustomer() {
             <>
               <Styles.Form onSubmit={handleSubmit}>
                 <Styles.BlockInputsCenter>
-                  <Styles.BlockInput>
+                  <Styles.BlockInput
+                    onTouchStart={() => setIdInput(FORMVALUES.FIRSTNAME)}>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
                       placeholder={translate.formName}
                       type="text"
                       id={FORMVALUES.FIRSTNAME}
-                      onTouchStart={() => handleFocus(FORMVALUES.FIRSTNAME)}
                       name={FORMVALUES.FIRSTNAME}
+                      {...bindInput()}
                     />
                     {touched.firstname && errors.firstname && (
                       <Styles.BlockClose
@@ -97,14 +100,15 @@ export default function FormCustomer() {
                       </Styles.Error>
                     )}
                   </Styles.BlockInput>
-                  <Styles.BlockInput>
+                  <Styles.BlockInput
+                    onTouchStart={() => setIdInput(FORMVALUES.LASTNAME)}>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
                       placeholder={translate.formLastName}
                       type="text"
                       id={FORMVALUES.LASTNAME}
-                      onTouchStart={() => handleFocus(FORMVALUES.LASTNAME)}
                       name={FORMVALUES.LASTNAME}
+                      {...bindInput()}
                     />
                     {touched.lastname && errors.lastname && (
                       <Styles.BlockClose
@@ -120,14 +124,15 @@ export default function FormCustomer() {
                   </Styles.BlockInput>
                 </Styles.BlockInputsCenter>
                 <Styles.BlockInputsCenter>
-                  <Styles.BlockInput>
+                  <Styles.BlockInput
+                    onTouchStart={() => setIdInput(FORMVALUES.EMAIL)}>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
                       placeholder={translate.formEmail}
                       type="email"
                       name={FORMVALUES.EMAIL}
                       id={FORMVALUES.EMAIL}
-                      onTouchStart={() => handleFocus(FORMVALUES.EMAIL)}
+                      {...bindInput()}
                     />
                     {touched.email && errors.email && (
                       <Styles.BlockClose
@@ -139,14 +144,15 @@ export default function FormCustomer() {
                       <Styles.Error>{errors.email}</Styles.Error>
                     )}
                   </Styles.BlockInput>
-                  <Styles.BlockInput>
+                  <Styles.BlockInput
+                    onTouchStart={() => setIdInput(FORMVALUES.PHONE)}>
                     <Styles.Input
                       id={FORMVALUES.PHONE}
-                      onTouchStart={() => handleFocus(FORMVALUES.PHONE)}
                       ismode={BUTTON_ACTIVE.ON}
                       placeholder={translate.formPhone}
                       type="tel"
                       maxLength={12}
+                      {...bindInput()}
                       name={FORMVALUES.PHONE}
                     />
                     {touched.mobile && errors.mobile && (
@@ -161,26 +167,28 @@ export default function FormCustomer() {
                   </Styles.BlockInput>
                 </Styles.BlockInputsCenter>
                 <Styles.BlockInputEnd>
-                  <Styles.BlockInputOnly>
+                  <Styles.BlockInputOnly
+                    onTouchStart={() => setIdInput(FORMVALUES.COMPANY)}>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.OFF}
                       id={FORMVALUES.COMPANY}
-                      onTouchStart={() => handleFocus(FORMVALUES.COMPANY)}
                       placeholder={translate.formCompany}
                       type="text"
+                      {...bindInput()}
                       name={FORMVALUES.COMPANY}
                     />
                   </Styles.BlockInputOnly>
                 </Styles.BlockInputEnd>
                 <Styles.BlockInputEnd>
-                  <Styles.BlockInputOnly>
+                  <Styles.BlockInputOnly
+                    onTouchStart={() => setIdInput(FORMVALUES.MESSAGE)}>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.OFF}
                       placeholder={translate.formMessage}
                       type="textarea"
                       name={FORMVALUES.MESSAGE}
                       id={FORMVALUES.MESSAGE}
-                      onTouchStart={() => handleFocus(FORMVALUES.MESSAGE)}
+                      {...bindInput()}
                     />
                     {touched.message && errors.message && (
                       <Styles.BlockClose
