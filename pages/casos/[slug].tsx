@@ -7,7 +7,7 @@ import Menu from '../../components/nav/menu';
 import Nav from '../../components/nav/navWhite';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { darkTheme, lightTheme, Styles } from '../../styles/styles';
-import BlockSection from '../../components/block/block';
+import BlockSectionWhite from '../../components/block/block';
 import DetailsCases from '../../components/section/cases/details';
 import { useaCase } from '../../domain/useCasesDetails';
 import BreadCrumbsCases from '../../components/breadcrumbs/breadcrumbsCases';
@@ -103,6 +103,7 @@ export default function Cases({ mode }: Props) {
               mode={false}
               filter={data?.data?.attributes?.subservice?.data?.name}
               id={slug}
+              renderTouch={false}
             />
           </Styles.AlingBlock>
         </Styles.FlexEnd>
@@ -120,7 +121,7 @@ export default function Cases({ mode }: Props) {
           initial={{ opacity: 0, y: '50%' }}>
           <Styles.Center>
             {translate.contact.map((values) => (
-              <BlockSection
+              <BlockSectionWhite
                 key={values.Link}
                 text={values.Text}
                 button={values.Link}

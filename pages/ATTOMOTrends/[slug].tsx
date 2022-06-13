@@ -81,6 +81,7 @@ function New({ mode }: Props) {
           <Styles.AlingBlock>
             <ArticlesScroll
               mode={false}
+              renderTouch={false}
               filter={data?.data.attributes.blog_tags.data[0].attributes.name}
               id={Number(slug)}
             />

@@ -8,6 +8,7 @@ interface Props {
   nextRef: any;
   mode: any;
   numerSlide: number;
+  renderTouch: boolean;
 }
 
 export default function ArticlesScrollArrow({
@@ -15,12 +16,14 @@ export default function ArticlesScrollArrow({
   nextRef,
   mode,
   numerSlide,
+  renderTouch,
 }: Props) {
   const swiper = useSwiper();
-
-  if (numerSlide > 3) {
-    useEventListener('PrevSlide', 'touchstart', () => swiper.slidePrev());
-    useEventListener('NextSlide', 'touchstart', () => swiper.slideNext());
+  if (renderTouch) {
+    if (numerSlide > 3) {
+      useEventListener('PrevSlide', 'touchstart', () => swiper.slidePrev());
+      useEventListener('NextSlide', 'touchstart', () => swiper.slideNext());
+    }
   }
 
   return (

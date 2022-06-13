@@ -39,6 +39,7 @@ export default function EspacioArticle() {
         ))}
         <ArticlesScrollArrow
           mode
+          renderTouch
           prevRef={prevRef}
           nextRef={nextRef}
           numerSlide={BGSPACE.length}

@@ -53,7 +53,14 @@ const useLongPressHook = (value?: string, onClick?: any) => {
     cancelOnMovement: true,
     detect: LongPressDetectEvents.BOTH,
   });
-
-  return [bind, bindQuick, bindQuickScreen, bindInput];
+  const bindLogo = useLongPress(() => callback(), {
+    // eslint-disable-next-line
+    onFinish: () => {},
+    threshold: 0,
+    captureEvent: true,
+    cancelOnMovement: true,
+    detect: LongPressDetectEvents.BOTH,
+  });
+  return [bind, bindQuick, bindQuickScreen, bindInput, bindLogo];
 };
 export default useLongPressHook;

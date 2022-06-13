@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useState } from 'react';
 import { ICONNAV } from '../../const/constGlobal';
 import SubFooter from './subfooter';
 import { Navegation } from './style';
@@ -11,22 +12,19 @@ interface Props {
   subFooter: boolean;
 }
 export default function Footer({ subFooter }: Props) {
+  const [url, setUrl] = useState('');
+  const [logo, setLogo] = useState('');
   const translate = getLocale();
   const [bindQuickScreen] = useLongPressHook(`/terminos`);
   const [bindQuick] = useLongPressHook(`/privacidad`);
-
-  translate.menu.map((values) =>
-    useEventListener(values.Value, 'touchstart', () =>
-      handleClickTouch(values.Url),
-    ),
-  );
+  const [bindInput] = useLongPressHook('', () => handleClickTouch(url));
+  const [bindLogo] = useLongPressHook('', () => handleClickTouch(logo));
 
   ICONNAV.map((values) =>
     useEventListener(values.Name, 'touchstart', () =>
       handleClickTouch(values.Url),
     ),
   );
-
   return (
     <>
       <Navegation.SectionFooter>
@@ -36,10 +34,12 @@ export default function Footer({ subFooter }: Props) {
             <Navegation.NavFooter>
               <Navegation.TitleNav>ATTOMO</Navegation.TitleNav>
               {translate.menu.map((values) => (
-                <Link href={values.Url} passHref key={`footer${values.Value}`}>
-                  <Navegation.ItemsMenu id={values.Value}>
-                    {values.Value}
-                  </Navegation.ItemsMenu>
+                <Link href={values.Url} passHref>
+                  <a href={values.Url} onTouchStart={() => setUrl(values.Url)}>
+                    <Navegation.ItemsMenu id={values.Value} {...bindInput()}>
+                      {values.Value}
+                    </Navegation.ItemsMenu>
+                  </a>
                 </Link>
               ))}
             </Navegation.NavFooter>
@@ -48,13 +48,14 @@ export default function Footer({ subFooter }: Props) {
             <Navegation.TitleNav>{translate.followFooter}</Navegation.TitleNav>
             <Navegation.NavFooterFlex>
               {ICONNAV.map((values) => (
-                <Navegation.ListIcon key={`footer${values.Name}`}>
+                <Navegation.ListIcon onTouchStart={() => setLogo(values.Url)}>
                   <Link href={values.Url} passHref>
                     <a
                       target="_blank"
                       href={values.Url}
                       id={values.Name}
-                      rel="noreferrer">
+                      rel="noreferrer"
+                      {...bindLogo()}>
                       <img
                         src={values.Pic2}
                         width={25}
