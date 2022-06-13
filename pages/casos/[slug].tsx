@@ -7,7 +7,7 @@ import Menu from '../../components/nav/menu';
 import Nav from '../../components/nav/navWhite';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { darkTheme, lightTheme, Styles } from '../../styles/styles';
-import BlockSection from '../../components/block/block';
+import BlockSectionWhite from '../../components/block/block';
 import DetailsCases from '../../components/section/cases/details';
 import { useaCase } from '../../domain/useCasesDetails';
 import BreadCrumbsCases from '../../components/breadcrumbs/breadcrumbsCases';
@@ -72,16 +72,18 @@ export default function Cases({ mode }: Props) {
         </Styles.Margin>
         <Styles.Center className="lg:mt-44 mt-20 lg:pl-6">
           <BreadCrumbsCases
-            customer={data.data.attributes.company}
-            sumary={data.data.attributes.sumary}
+            customer={data?.data?.attributes?.company}
+            sumary={data?.data?.attributes?.sumary}
           />
-          <Styles.TitularText>{data?.data.attributes.title}</Styles.TitularText>
+          <Styles.TitularText>
+            {data?.data?.attributes?.title}
+          </Styles.TitularText>
         </Styles.Center>
 
-        {data.data?.attributes?.mainPhoto?.data[0].attributes?.url ? (
+        {data?.data?.attributes?.mainPhoto?.data[0].attributes?.url ? (
           <img
             src={
-              data.data?.attributes?.mainPhoto?.data[0].attributes?.url || '/'
+              data?.data?.attributes?.mainPhoto?.data[0].attributes?.url || '/'
             }
             width="80%"
             height="auto"
@@ -90,7 +92,7 @@ export default function Cases({ mode }: Props) {
           />
         ) : null}
         <Styles.Center>
-          <DetailsCases data={data.data} translate={translate} />
+          <DetailsCases data={data?.data} translate={translate} />
         </Styles.Center>
         <Styles.Center>
           <Styles.TextSubSection>{translate.moreCases}</Styles.TextSubSection>
@@ -101,6 +103,7 @@ export default function Cases({ mode }: Props) {
               mode={false}
               filter={data?.data?.attributes?.subservice?.data?.name}
               id={slug}
+              renderTouch={false}
             />
           </Styles.AlingBlock>
         </Styles.FlexEnd>
@@ -118,7 +121,7 @@ export default function Cases({ mode }: Props) {
           initial={{ opacity: 0, y: '50%' }}>
           <Styles.Center>
             {translate.contact.map((values) => (
-              <BlockSection
+              <BlockSectionWhite
                 key={values.Link}
                 text={values.Text}
                 button={values.Link}

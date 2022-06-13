@@ -76,8 +76,8 @@ export default function FormKit() {
                       placeholder={translate.formName}
                       type="text"
                       id={FORMVALUES.NAME}
-                      onTouchStart={() => handleFocus(FORMVALUES.NAME)}
                       name={FORMVALUES.NAME}
+                      onTouchStart={() => handleFocus(FORMVALUES.NAME)}
                     />
                     {touched.name && errors.name && (
                       <Styles.BlockClose
@@ -117,13 +117,13 @@ export default function FormKit() {
                   <Styles.BlockInputOnly>
                     <Styles.Input
                       id={FORMVALUES.PHONE2}
-                      onTouchStart={() => handleFocus(FORMVALUES.PHONE2)}
                       ismode={BUTTON_ACTIVE.OFF}
                       placeholder={translate.formPhone}
                       type="tel"
                       maxLength={9}
                       pattern="[0-9]{10}"
                       name={FORMVALUES.PHONE2}
+                      onTouchStart={() => handleFocus(FORMVALUES.PHONE2)}
                     />
                     {touched.phone && errors.phone && (
                       <Styles.BlockClose

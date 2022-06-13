@@ -201,7 +201,6 @@ export const Styles = {
     props.mode === BUTTON_ACTIVE.ON
       ? 'overflow-hidden h-screen max-w-full'
       : ''}
-  
   `,
   Margin: tw.div`m-auto `,
   Center: tw.section`w-10/12 m-auto`,
@@ -279,7 +278,7 @@ export const Styles = {
 
   // ACTIVESELECT
   FilterSelectActive: tw.div<Props>`
-  lg:w-10/12 w-full cursor-pointer text-gray-300 font-light border-b text-left py-4 transition duration-00 ease-in-out
+  lg:w-10/12 w-full cursor-pointer overflow-x-hidden text-gray-300 font-light border-b text-left py-4 transition duration-00 ease-in-out flex justify-between items-center
   ${(props) =>
     props.mode === BUTTON_ACTIVE.ON ? ' opacity-30' : ' opacity-70'}
   

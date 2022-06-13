@@ -82,8 +82,8 @@ export default function FormCustomer() {
                       placeholder={translate.formName}
                       type="text"
                       id={FORMVALUES.FIRSTNAME}
-                      onTouchStart={() => handleFocus(FORMVALUES.FIRSTNAME)}
                       name={FORMVALUES.FIRSTNAME}
+                      onTouchStart={() => handleFocus(FORMVALUES.FIRSTNAME)}
                     />
                     {touched.firstname && errors.firstname && (
                       <Styles.BlockClose
@@ -103,8 +103,8 @@ export default function FormCustomer() {
                       placeholder={translate.formLastName}
                       type="text"
                       id={FORMVALUES.LASTNAME}
-                      onTouchStart={() => handleFocus(FORMVALUES.LASTNAME)}
                       name={FORMVALUES.LASTNAME}
+                      onTouchStart={() => handleFocus(FORMVALUES.LASTNAME)}
                     />
                     {touched.lastname && errors.lastname && (
                       <Styles.BlockClose
@@ -142,11 +142,11 @@ export default function FormCustomer() {
                   <Styles.BlockInput>
                     <Styles.Input
                       id={FORMVALUES.PHONE}
-                      onTouchStart={() => handleFocus(FORMVALUES.PHONE)}
                       ismode={BUTTON_ACTIVE.ON}
                       placeholder={translate.formPhone}
                       type="tel"
                       maxLength={12}
+                      onTouchStart={() => handleFocus(FORMVALUES.PHONE)}
                       name={FORMVALUES.PHONE}
                     />
                     {touched.mobile && errors.mobile && (
@@ -165,10 +165,10 @@ export default function FormCustomer() {
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.OFF}
                       id={FORMVALUES.COMPANY}
-                      onTouchStart={() => handleFocus(FORMVALUES.COMPANY)}
                       placeholder={translate.formCompany}
                       type="text"
                       name={FORMVALUES.COMPANY}
+                      onTouchStart={() => handleFocus(FORMVALUES.COMPANY)}
                     />
                   </Styles.BlockInputOnly>
                 </Styles.BlockInputEnd>

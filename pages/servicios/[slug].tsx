@@ -182,6 +182,7 @@ function DetailsServices() {
             <Styles.FlexEnd>
               <Styles.AlingBlock>
                 <ArticlesScroll
+                  renderTouch
                   mode
                   filter={data.data?.attributes?.sumary}
                   id={0}

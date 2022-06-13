@@ -4,16 +4,6 @@ export const handleFocus = (idTag: string) => {
   document.getElementById(idTag)?.focus();
 };
 
-export const handleFocusClass = (
-  idTag: string,
-  listener: EventListenerOrEventListenerObject,
-) => {
-  document
-    .getElementsByClassName(idTag)
-    .item(0)
-    ?.addEventListener('focus', listener);
-};
-
 export const handleClickTouch = (link: string) => {
   document.location.href = link;
 };

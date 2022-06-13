@@ -63,7 +63,7 @@ function Home() {
       setLastYPos(yPos);
     }
     return () => {
-      window.addEventListener('scroll', handleScroll, { passive: false });
+      window.addEventListener('scroll', handleScroll, { passive: true });
     };
   }, [lastYPos]);
 
@@ -81,22 +81,6 @@ function Home() {
       <Background />
       <AnimateSharedLayout>
         <Styles.Body
-          onTouchStart={(e: any) =>
-            !e.cancelable
-              ? (e.preventDefault(),
-                {
-                  passive: true,
-                })
-              : null
-          }
-          onTouchEnd={(e: any) =>
-            !e.cancelable
-              ? (e.preventDefault(),
-                {
-                  passive: true,
-                })
-              : null
-          }
           mode={isOpen ? BUTTON_ACTIVE.ON : ''}
           id="home"
           className="z-100">

@@ -15,9 +15,10 @@ interface Props {
   mode: boolean;
   filter: string;
   id: string | string[] | undefined;
+  renderTouch: boolean;
 }
 
-export default function CasesScroll({ mode, filter, id }: Props) {
+export default function CasesScroll({ mode, filter, id, renderTouch }: Props) {
   const [prevState, setMyPrev] = useState(null);
   const [nextState, setMyNext] = useState(null);
   const prevRef = useRef(null);
@@ -114,6 +115,7 @@ export default function CasesScroll({ mode, filter, id }: Props) {
             prevRef={prevRef}
             nextRef={nextRef}
             numerSlide={data.meta.pagination.total}
+            renderTouch={renderTouch}
           />
         )}
       </Swiper>

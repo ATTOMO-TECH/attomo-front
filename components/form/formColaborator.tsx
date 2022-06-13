@@ -1,7 +1,8 @@
+/* eslint-disable no-use-before-define */
 import { Formik } from 'formik';
+import React, { useEffect, useState } from 'react';
 import * as qs from 'qs';
 import { equals } from 'ramda';
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Styles } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -154,19 +155,21 @@ export default function FormColaborator() {
                   </Subtext>
                 )}
                 <Styles.BlockSelectSecond>
-                  {Partner?.data.map((valuesCheck: any) => (
-                    <Styles.AlingSelectSecond>
-                      <InputCheck
-                        text={valuesCheck.attributes.area}
-                        value={valuesCheck.attributes.area}
-                        key={values.teamOrPartner as string}
-                        onChange={() => {
-                          const data = addArea(valuesCheck.id);
-                          setFieldValue(FORMVALUES.SPECIALITY, data);
-                        }}
-                      />
-                    </Styles.AlingSelectSecond>
-                  ))}
+                  {React.Children.toArray(
+                    Partner?.data.map((valuesCheck: any) => (
+                      <Styles.AlingSelectSecond
+                        key={valuesCheck.attributes.area}>
+                        <InputCheck
+                          text={valuesCheck.attributes.area}
+                          value={valuesCheck.id}
+                          onChange={() => {
+                            const data = addArea(valuesCheck.id);
+                            setFieldValue(FORMVALUES.SPECIALITY, data);
+                          }}
+                        />
+                      </Styles.AlingSelectSecond>
+                    )),
+                  )}
                 </Styles.BlockSelectSecond>
                 <Styles.BlockInputsCenter>
                   <Styles.BlockInput>

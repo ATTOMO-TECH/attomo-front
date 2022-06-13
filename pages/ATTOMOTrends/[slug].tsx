@@ -9,7 +9,7 @@ import { darkTheme, lightTheme, Styles } from '../../styles/styles';
 import HeaderCases from '../../components/section/cases/header';
 import Back from '../../components/button/back';
 import BodyCases from '../../components/section/cases/bodyCase';
-import BlockSection from '../../components/block/block';
+import BlockSectionWhite from '../../components/block/block';
 import { useAPost } from '../../domain/useBlogDetails';
 import RenderLoading from '../../components/loading/loading';
 import { getLocale } from '../../public/locales/getLocale';
@@ -81,6 +81,7 @@ function New({ mode }: Props) {
           <Styles.AlingBlock>
             <ArticlesScroll
               mode={false}
+              renderTouch={false}
               filter={data?.data.attributes.blog_tags.data[0].attributes.name}
               id={Number(slug)}
             />
@@ -88,7 +89,7 @@ function New({ mode }: Props) {
         </Styles.FlexEnd>
         <Styles.Center>
           {translate.contact.map((values) => (
-            <BlockSection
+            <BlockSectionWhite
               key={values.Link}
               text={values.Text}
               button={values.Link}

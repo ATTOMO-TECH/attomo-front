@@ -77,7 +77,7 @@ function Services() {
         </Styles.Center>
         <Styles.FlexEnd>
           <Styles.AlingBlock>
-            <ArticlesScroll mode filter="" id={0} />
+            <ArticlesScroll mode filter="" id={0} renderTouch />
           </Styles.AlingBlock>
         </Styles.FlexEnd>
         <Styles.Center>

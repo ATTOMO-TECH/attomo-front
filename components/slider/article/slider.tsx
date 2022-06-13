@@ -16,9 +16,15 @@ interface Props {
   mode: boolean;
   filter: string;
   id: number;
+  renderTouch: boolean;
 }
 
-export default function ArticlesScroll({ mode, filter, id }: Props) {
+export default function ArticlesScroll({
+  mode,
+  filter,
+  id,
+  renderTouch,
+}: Props) {
   const [prevState, setMyPrev] = useState(null);
   const [nextState, setMyNext] = useState(null);
   const [idValue, setId] = useState(id);
@@ -121,6 +127,7 @@ export default function ArticlesScroll({ mode, filter, id }: Props) {
             prevRef={prevRef}
             nextRef={nextRef}
             numerSlide={data.meta.pagination.total}
+            renderTouch={renderTouch}
           />
         )}
       </Swiper>

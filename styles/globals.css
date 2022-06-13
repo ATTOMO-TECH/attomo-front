@@ -19,8 +19,10 @@ body {
   -ms-touch-action: pan-y !important;
   pointer-events: all;
   scroll-behavior: smooth;
+  margin-bottom: 0px !important;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 }
-
 .touched {
   touch-action: pan-y !important;
   -ms-touch-action: pan-y !important;
@@ -77,6 +79,7 @@ textarea {
   -khtml-border-radius: 0% !important;
   font-weight: 300 !important;
   color: gray !important;
+  caret-color: gray !important;
   border-radius: 0% !important;
   font-size: 16px !important;
 }
@@ -211,9 +214,7 @@ input[type='text'] {
   transition: all 0.3s ease;
   opacity: 1 !important;
 }
-.mobile-close__icon {
-  display: none !important;
-}
+
 #reserve:focus {
   opacity: 1 !important;
 }
@@ -320,9 +321,29 @@ input[type='text'] {
   .rrs--options-visible .rrs__options {
     left: 0 !important;
   }
+  .rrs--options-visible .rrs__options {
+    max-height: fit-content !important;
+    top: 50% !important;
+    position: relative !important;
+  }
+
+  .mobile-close {
+    position: absolute !important;
+    top: 2rem !important;
+    right: 0rem !important;
+  }
+  #MobileFilterCases .mobile-close {
+    position: absolute !important;
+    top: -2rem !important;
+  }
 }
 .rrs__option {
   font-weight: 300 !important;
   font-size: 16px !important;
   color: #000000 !important;
+}
+.safari.keyboard .app-container {
+  bottom: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0% !important;
 }

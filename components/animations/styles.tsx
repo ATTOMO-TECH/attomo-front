@@ -6,8 +6,10 @@ export const BgMovement = styled.div`
   z-index: -1 !important;
   touch-action: none !important;
   -ms-touch-action: none !important;
-  pointer-events: all !important; ;
+  pointer-events: all !important;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 `;
 export const Styles = {
-  Bg: tw(BgMovement)`w-full h-screen fixed `,
+  Bg: tw(BgMovement)`w-full h-screen  fixed `,
 };

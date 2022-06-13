@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { BUTTON_ACTIVE } from '../../const/const';
 import useDeviceSize from '../../hook/size';
 import Filter from '../input/filter';
@@ -30,8 +29,7 @@ export default function HeroCase({
 
   return (
     <>
-      <HeadSection.SectionCase
-        mode={isOpen ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+      <HeadSection.SectionCase mode={BUTTON_ACTIVE.ON}>
         <HeadSection.SectionHeroCases />
         {!isOpen && scroll ? (
           <>
@@ -40,53 +38,15 @@ export default function HeroCase({
                 {width > 768 ? (
                   <>
                     <Filter
+                      change={change}
                       toggle={toggle}
                       date={date}
                       topic={topic}
                       endDate={endDate}
                       width={width}
                       scroll={scroll}
+                      handleChangeReset={handleChangeReset}
                     />
-
-                    <motion.svg
-                      className="cursor-pointer w-1/6 absolute top-56 lg:top-40 lg:-left-8 -left-5  z-100 "
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      transition={{ duration: 1, ease: 'easeInOut' }}
-                      onClick={handleChangeReset}
-                      onTouchStart={handleChangeReset}>
-                      <motion.path
-                        d="M18 6L6 18"
-                        stroke="white"
-                        strokeWidth={change ? '2' : 0}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        initial={{ pathLength: 0 }}
-                        animate={
-                          change
-                            ? { pathLength: 1, type: 'tween' }
-                            : { pathLength: 0, type: 'spring' }
-                        }
-                        transition={{ duration: 1, ease: 'easeInOut' }}
-                      />
-                      <motion.path
-                        d="M6 6L18 18"
-                        stroke="white"
-                        strokeWidth={change ? '2' : 0}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        initial={{ pathLength: 0 }}
-                        animate={
-                          change
-                            ? { pathLength: 1, type: 'tween' }
-                            : { pathLength: 0, type: 'spring' }
-                        }
-                        transition={{ duration: 1, ease: 'easeInOut' }}
-                      />
-                    </motion.svg>
                   </>
                 ) : null}
               </>
