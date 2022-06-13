@@ -24,7 +24,7 @@ const useLongPressHook = (value?: string, onClick?: any) => {
       isSwiping.current = false;
     },
 
-    threshold: 200,
+    threshold: 300,
     captureEvent: true,
     cancelOnMovement: true,
     detect: LongPressDetectEvents.BOTH,
@@ -49,6 +49,19 @@ const useLongPressHook = (value?: string, onClick?: any) => {
     // eslint-disable-next-line
     onFinish: () => {},
     threshold: 0,
+    cancelOnMovement: true,
+    detect: LongPressDetectEvents.BOTH,
+  });
+  const bindLink = useLongPress(!isSwiping.current ? () => callback() : null, {
+    // eslint-disable-next-line
+    onMove: () => {
+      isSwiping.current = true;
+    },
+
+    onFinish: () => {
+      isSwiping.current = false;
+    },
+    threshold: 100,
     captureEvent: true,
     cancelOnMovement: true,
     detect: LongPressDetectEvents.BOTH,
@@ -61,6 +74,6 @@ const useLongPressHook = (value?: string, onClick?: any) => {
     cancelOnMovement: true,
     detect: LongPressDetectEvents.BOTH,
   });
-  return [bind, bindQuick, bindQuickScreen, bindInput, bindLogo];
+  return [bind, bindQuick, bindQuickScreen, bindInput, bindLink, bindLogo];
 };
 export default useLongPressHook;
