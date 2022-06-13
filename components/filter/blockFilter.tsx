@@ -106,6 +106,7 @@ export default function BlockFilter({
               ) : (
                 <p>{search}</p>
               )}
+              <img src="./icon/arrowSelect.svg" alt="arrow" className="mr-2" />
             </Styles.FilterSelectActive>
           </Styles.SelectFilter>
           <Styles.SelectFilter
@@ -124,6 +125,7 @@ export default function BlockFilter({
               ) : (
                 <p>{topic}</p>
               )}
+              <img src="./icon/arrowSelect.svg" alt="arrow" className="mr-2" />
             </Styles.FilterSelectActive>
           </Styles.SelectFilter>
           <Styles.SelectFilter
@@ -152,6 +154,7 @@ export default function BlockFilter({
                 } 
                     ${endDate ? format(endDate, '-  dd-MM-yyyy') : ''}`}</p>
               )}
+              <img src="./icon/calendar.svg" alt="arrow" />
             </Styles.FilterSelectActive>
           </Styles.SelectFilter>
           <motion.svg

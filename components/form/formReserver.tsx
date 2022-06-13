@@ -15,12 +15,10 @@ import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
 import Subtext from '../Text/subText';
 import { handleFocus } from '../../hook/eventListener';
-import useLongPressHook from '../../hook/longPress';
 
 export default function FormReserver() {
   const translate = getLocale();
   const [shouldShowActions] = useState(false);
-  const [idInput, setIdInput] = useState('');
   const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
   const [selected, setSelected] = useState('');
   const onChange = (e: any) => {
@@ -72,7 +70,7 @@ export default function FormReserver() {
       },
     );
   };
-  const [bindInput] = useLongPressHook('', () => handleFocus(idInput));
+
   return (
     <>
       {!sendSuccesfull ? (
@@ -102,15 +100,14 @@ export default function FormReserver() {
               <>
                 <Styles.Form onSubmit={handleSubmit}>
                   <Styles.SectionInputs>
-                    <Styles.BlockInput
-                      onTouchStart={() => setIdInput(FORMVALUES.FIRSTNAME)}>
+                    <Styles.BlockInput>
                       <Styles.Input
                         ismode={BUTTON_ACTIVE.ON}
                         placeholder={translate.formName}
                         type="text"
                         name={FORMVALUES.FIRSTNAME}
                         id={FORMVALUES.FIRSTNAME}
-                        {...bindInput()}
+                        onTouchStart={() => handleFocus(FORMVALUES.FIRSTNAME)}
                       />
                       {touched.firstname && errors.firstname && (
                         <Styles.BlockClose
@@ -124,15 +121,14 @@ export default function FormReserver() {
                         </Styles.Error>
                       )}
                     </Styles.BlockInput>
-                    <Styles.BlockInput
-                      onTouchStart={() => setIdInput(FORMVALUES.LASTNAME)}>
+                    <Styles.BlockInput>
                       <Styles.Input
                         ismode={BUTTON_ACTIVE.OFF}
                         placeholder={translate.formLastName}
                         type="text"
                         id={FORMVALUES.LASTNAME}
                         name={FORMVALUES.LASTNAME}
-                        {...bindInput()}
+                        onTouchStart={() => handleFocus(FORMVALUES.LASTNAME)}
                       />
                       {touched.lastname && errors.lastname && (
                         <Styles.BlockClose
@@ -148,9 +144,10 @@ export default function FormReserver() {
                     </Styles.BlockInput>
                   </Styles.SectionInputs>
                   <Styles.BlockInputsCenter>
-                    <Styles.BlockInput
-                      onTouchStart={() => setIdInput(FORMVALUES.DATE)}>
-                      <div className="pt-4 lg:pt-0 lg:py-2" {...bindInput()}>
+                    <Styles.BlockInput>
+                      <div
+                        className="pt-4 lg:pt-0 lg:py-2"
+                        onTouchStart={() => handleFocus(FORMVALUES.DATE)}>
                         <CalendarPickerInput
                           id={FORMVALUES.DATE}
                           handleValue={(e: any) => {
@@ -159,9 +156,10 @@ export default function FormReserver() {
                         />
                       </div>
                     </Styles.BlockInput>
-                    <Styles.BlockInput
-                      onTouchStart={() => setIdInput(FORMVALUES.TIME)}>
-                      <div className="pt-4 lg:pt-0.5 lg:py-2" {...bindInput()}>
+                    <Styles.BlockInput>
+                      <div
+                        className="pt-4 lg:pt-0.5 lg:py-2"
+                        onTouchStart={() => handleFocus(FORMVALUES.TIME)}>
                         <InputSelect
                           selected={selected}
                           options={OPTIONDISPONIBILITY}
@@ -176,15 +174,14 @@ export default function FormReserver() {
                     </Styles.BlockInput>
                   </Styles.BlockInputsCenter>
                   <Styles.BlockInputsCenter>
-                    <Styles.BlockInput
-                      onTouchStart={() => setIdInput(FORMVALUES.EMAIL)}>
+                    <Styles.BlockInput>
                       <Styles.Input
-                        {...bindInput()}
                         ismode={BUTTON_ACTIVE.ON}
                         placeholder={translate.formEmail}
                         type="email"
                         name={FORMVALUES.EMAIL}
                         id={FORMVALUES.EMAIL}
+                        onTouchStart={() => handleFocus(FORMVALUES.EMAIL)}
                       />
                       {touched.email && errors.email && (
                         <Styles.BlockClose
@@ -197,18 +194,16 @@ export default function FormReserver() {
                       )}
                     </Styles.BlockInput>
 
-                    <Styles.BlockInput
-                      onTouchStart={() => setIdInput(FORMVALUES.PHONE)}>
+                    <Styles.BlockInput>
                       <Styles.Input
-                        {...bindInput()}
                         ismode={BUTTON_ACTIVE.ON}
                         placeholder={translate.formPhone}
                         type="tel"
                         maxLength={9}
                         pattern="[0-9]{10}"
                         name={FORMVALUES.PHONE}
-                        onTouchStart={() => handleFocus(FORMVALUES.PHONE)}
                         id={FORMVALUES.PHONE}
+                        onTouchStart={() => handleFocus(FORMVALUES.PHONE)}
                       />
                       {touched.mobile && errors.mobile && (
                         <Styles.BlockClose
@@ -222,15 +217,14 @@ export default function FormReserver() {
                     </Styles.BlockInput>
                   </Styles.BlockInputsCenter>
                   <Styles.BlockInputEnd>
-                    <Styles.BlockInputOnly
-                      onTouchStart={() => setIdInput(FORMVALUES.COMPANY)}>
+                    <Styles.BlockInputOnly>
                       <Styles.Input
-                        {...bindInput()}
                         ismode={BUTTON_ACTIVE.OFF}
                         id={FORMVALUES.COMPANY}
                         placeholder={translate.formCompany}
                         type="text"
                         name={FORMVALUES.COMPANY}
+                        onTouchStart={() => handleFocus(FORMVALUES.COMPANY)}
                       />
                     </Styles.BlockInputOnly>
                   </Styles.BlockInputEnd>
