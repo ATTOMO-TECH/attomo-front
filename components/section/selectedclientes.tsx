@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import useLongPressHook from '../../hook/longPress';
+import useTap from '../../hook/longPress';
 import IconAnimate from '../button/icon';
 import { SubSections } from '../subsection/style';
 import Title from '../Text/title';
@@ -18,7 +18,7 @@ export default function SelectedClients({
   link,
   textPrimary,
 }: Props) {
-  const [bind] = useLongPressHook(link);
+  const [handlers] = useTap(link);
 
   return (
     <>
@@ -26,7 +26,7 @@ export default function SelectedClients({
         <Styles.DivideSection>
           <SubSections.BlockCounter>
             <Link href={`${link}`}>
-              <SubSections.BlockBtn {...bind(link)}>
+              <SubSections.BlockBtn {...handlers()}>
                 <Title size="text-2xl md:text-3xl lg:text-4xl font-light w-4/6  lg:pl-10 cursor-pointer ">
                   {textPrimary}
                 </Title>
@@ -38,7 +38,7 @@ export default function SelectedClients({
             <div className="lg:w-4/6 w-full">
               <SubSections.Title> {text}</SubSections.Title>
               <Link href={`${link}`}>
-                <SubSections.BlockBtn {...bind(link)}>
+                <SubSections.BlockBtn {...handlers()}>
                   <IconAnimate text={btn} mode />
                 </SubSections.BlockBtn>
               </Link>

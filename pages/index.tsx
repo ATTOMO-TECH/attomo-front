@@ -156,7 +156,6 @@ function Home() {
               />
             ))}
           </Styles.SectionProjects>
-
           <Styles.Center>
             {translate.contact.map((values) => (
               <BlockSection
