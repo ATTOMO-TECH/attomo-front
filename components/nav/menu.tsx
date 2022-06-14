@@ -7,6 +7,7 @@ import { BUTTON_ACTIVE } from '../../const/const';
 import { getLocale } from '../../public/locales/getLocale';
 import useDeviceSize from '../../hook/size';
 import { handleClickTouch, useEventListener } from '../../hook/eventListener';
+import { handlersFuntion, handlers } from '../../hook/longPress';
 
 interface Props {
   isOpen: boolean;
@@ -36,7 +37,6 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
     setItems(translate.menu);
   }, [items]);
 
-  useEventListener(`back`, 'touchstart', () => handleClickTouch('/'));
   items.map((values, i) =>
     useEventListener(`${values.Value}-${i}`, 'touchstart', () =>
       handleClickTouch(values.Url),
@@ -52,7 +52,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
           <Navegation.AlingItemsMenu>
             <Navegation.AlinItemsMenu
               ismode={logo ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-              <Navegation.ItemsMenu id="back">
+              <Navegation.ItemsMenu>
                 {logo ? (
                   <Link href="/">
                     <img
@@ -73,7 +73,9 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                   </Link>
                 )}
               </Navegation.ItemsMenu>
-              <Navegation.ItemsMenu onClick={toggle} onTouchStart={closeMenu}>
+              <Navegation.ItemsMenu
+                onClick={toggle}
+                {...handlersFuntion(toggle)}>
                 <Navegation.TextMenu
                   ismode=""
                   theme={mode === true ? lightTheme : darkTheme}
@@ -171,10 +173,13 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                   }}>
                   <Navegation.SelectMenu
                     key={`${values.Value}`}
-                    onClick={closeMenu}
-                    onTouchStart={closeMenu}>
+                    onClick={closeMenu}>
                     <Link href={values.Url}>
-                      <span id={`${values.Value}-${i}`}>{values.Value}</span>
+                      <span
+                        id={`${values.Value}-${i}`}
+                        {...handlers(values.Url)}>
+                        {values.Value}
+                      </span>
                     </Link>
                   </Navegation.SelectMenu>
                 </motion.li>
@@ -183,8 +188,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                 <Navegation.ButtonSelect
                   ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
                   onClick={() => handleBtn('es')}
-                  onTouchStart={() => handleBtn('es')}
-                  type="button">
+                  {...handlersFuntion(() => handleBtn('es'))}>
                   ES
                 </Navegation.ButtonSelect>
                 <Navegation.LineBlock
@@ -194,8 +198,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                 <Navegation.ButtonSelect
                   ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
                   onClick={() => handleBtn('en')}
-                  onTouchStart={() => handleBtn('en')}
-                  type="button">
+                  {...handlersFuntion(() => handleBtn('en'))}>
                   EN
                 </Navegation.ButtonSelect>
               </Navegation.BlokSectionLenguageResponsive>

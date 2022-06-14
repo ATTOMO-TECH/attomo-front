@@ -33,5 +33,5 @@ export const Block = {
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON ? `textDegrade  ` : 'bg-black '}
       `,
-  BlockBtn: tw.div`w-5/6 md:w-4/6 lg:w-3/6`,
+  BlockBtn: tw.span`w-5/6 md:w-4/6 lg:w-3/6`,
 };

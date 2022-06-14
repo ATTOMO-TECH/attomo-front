@@ -3,14 +3,12 @@ import { SubSections } from './style';
 import Counter from './counter';
 import Title from '../Text/title';
 import IconAnimate from '../button/icon';
-import useTap from '../../hook/longPress';
+import { handlers } from '../../hook/longPress';
 
 interface Props {
   locale: any;
 }
 export default function SubSection({ locale }: Props) {
-  const [handlers] = useTap('/servicios');
-
   return (
     <>
       <SubSections.Subsection>
@@ -23,8 +21,9 @@ export default function SubSection({ locale }: Props) {
               {values.HeaderCounter}
             </Title>
             <SubSections.Title>{values.BodyCounter}</SubSections.Title>
+
             <Link href="/servicios" passHref>
-              <SubSections.BlockBtn {...handlers()}>
+              <SubSections.BlockBtn {...handlers('/servicios')}>
                 <IconAnimate text={values.Button} mode />
               </SubSections.BlockBtn>
             </Link>

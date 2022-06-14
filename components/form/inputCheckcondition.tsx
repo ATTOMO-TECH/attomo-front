@@ -2,29 +2,24 @@
 import { useState } from 'react';
 import { Styles } from './style';
 import Conditions from './conditions';
+import { handlersFuntion } from '../../hook/longPress';
 
 interface Props {
   value: any;
   color?: string;
   onClick?: any;
-  onTouched?: any;
 }
 
-export default function InputCheckcondition({
-  value,
-  color,
-  onClick,
-  onTouched,
-}: Props) {
+export default function InputCheckcondition({ value, color, onClick }: Props) {
   const [check, setCheck] = useState<boolean>(false);
 
   return (
     <>
       <Styles.LabelCheckBox
-        onTouchStart={() => {
-          onTouched && onTouched(!check);
+        {...handlersFuntion(() => {
+          onClick && onClick(!check);
           setCheck(!check);
-        }}
+        })}
         checkedValue={check}
         className={`${color}`}
         onChange={() => {

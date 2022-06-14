@@ -1,4 +1,5 @@
 import { Styles } from './style';
+import { handlersFuntion } from '../../hook/longPress';
 
 interface Props {
   text: string;
@@ -17,7 +18,7 @@ export default function InputRadio({
     <>
       <Styles.LabelCheck
         htmlFor="partner"
-        onTouchStart={() => onChange(value)}
+        {...handlersFuntion(() => onChange(value))}
         onClick={() => onChange(value)}
         checked={valueChecked === value}
         checkedValue={valueChecked === value}>

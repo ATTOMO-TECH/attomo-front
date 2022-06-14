@@ -91,9 +91,7 @@ export default function Nav({ toggle, logo, mode, isOpen, bgFull }: Props) {
             <Navegation.BlokSectionLenguage>
               <Navegation.ButtonSelect
                 ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-                onClick={() => handleBtn('es')}
-                onTouchStart={() => handleBtn('es')}
-                type="button">
+                onClick={() => handleBtn('es')}>
                 ES
               </Navegation.ButtonSelect>
               <Navegation.LineBlock
@@ -102,9 +100,7 @@ export default function Nav({ toggle, logo, mode, isOpen, bgFull }: Props) {
               </Navegation.LineBlock>
               <Navegation.ButtonSelect
                 ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-                onClick={() => handleBtn('en')}
-                onTouchStart={() => handleBtn('en')}
-                type="button">
+                onClick={() => handleBtn('en')}>
                 EN
               </Navegation.ButtonSelect>
             </Navegation.BlokSectionLenguage>

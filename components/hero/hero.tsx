@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { HeadSection } from './style';
-import useTap from '../../hook/longPress';
+import { handlers } from '../../hook/longPress';
 
 type Props = {
   text: string;
@@ -53,8 +53,6 @@ export default function Hero({ text, text2, button, link }: Props) {
     },
   };
 
-  const [handlers] = useTap(`#${link}`);
-
   return (
     <>
       <HeadSection.SectionHero>
@@ -69,7 +67,7 @@ export default function Hero({ text, text2, button, link }: Props) {
         </motion.div>
         <HeadSection.Blockbutton className={button === '' ? 'hidden' : ''}>
           <Link href={`#${link}`}>
-            <a href={`#${link}`} {...handlers()}>
+            <a href={`#${link}`} {...handlers(`#${link}`)}>
               <HeadSection.TextButton>{button}</HeadSection.TextButton>
               <HeadSection.BlockArrow>
                 <motion.svg

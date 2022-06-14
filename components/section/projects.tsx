@@ -5,7 +5,7 @@ import IconAnimate from '../button/icon';
 import Title from '../Text/title';
 import { Styles } from './style';
 import { getLocale } from '../../public/locales/getLocale';
-import useTap from '../../hook/longPress';
+import { handlers } from '../../hook/longPress';
 
 interface Props {
   values: any;
@@ -21,8 +21,6 @@ export default function SectionProjects({
   i,
 }: Props) {
   const translate = getLocale();
-
-  const [handlers] = useTap(`/casos/${values.id}`);
 
   return (
     <>
@@ -42,7 +40,8 @@ export default function SectionProjects({
           key={values.Client}>
           <Link href={`/casos/${values.id}`}>
             <Styles.BlockSection
-              ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+              ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+              {...handlers(`/casos/${values.id}`)}>
               {values?.attributes?.mainPhoto?.data[0].attributes?.url && (
                 <img
                   src={values?.attributes.mainPhoto.data[0].attributes.url}
@@ -51,7 +50,6 @@ export default function SectionProjects({
                   id={`${values.id}`}
                   alt={values.attributes.name}
                   className="object-cover cursor-pointer"
-                  {...handlers()}
                 />
               )}
             </Styles.BlockSection>
@@ -76,7 +74,7 @@ export default function SectionProjects({
                 {values.attributes.title}
               </Title>
               <Link href={`/casos/${values.id}`}>
-                <Styles.BlockBtn {...handlers()}>
+                <Styles.BlockBtn {...handlers(`/casos/${values.id}`)}>
                   <IconAnimate text={translate.seeMoreProject} mode />
                 </Styles.BlockBtn>
               </Link>

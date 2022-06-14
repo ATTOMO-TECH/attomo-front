@@ -1,13 +1,10 @@
 import Link from 'next/link';
-import useLongPressHook from '../../hook/longPress';
+import { handlers } from '../../hook/longPress';
 import { getLocale } from '../../public/locales/getLocale';
 import { Styles } from './style';
 
 export default function Conditions() {
   const translate = getLocale();
-
-  const [bindQuickScreen] = useLongPressHook(`/terminos`);
-  const [bindQuick] = useLongPressHook(`/privacidad`);
 
   return (
     <>
@@ -19,7 +16,7 @@ export default function Conditions() {
               id="term-form"
               href="/terminos"
               target="_blank"
-              {...bindQuickScreen()}>
+              {...handlers(`/terminos`)}>
               {` ${translate.formTems} `}
             </a>
           </Link>
@@ -29,7 +26,7 @@ export default function Conditions() {
               id="privacy-form"
               href="/privacidad"
               target="_blank"
-              {...bindQuick()}>
+              {...handlers(`/privacidad`)}>
               {` ${translate.formPrivacy}`}
             </a>
           </Link>
