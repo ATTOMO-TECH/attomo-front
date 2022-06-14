@@ -29,7 +29,6 @@ export default function InputCheck({ text, value, onChange }: Props) {
           name={value}
           id={value}
           checked={check}
-          readOnly
         />
         <Styles.TextCheck> {text}</Styles.TextCheck>
       </Styles.LabelCheckBox>

@@ -19,6 +19,7 @@ import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
 import { validationSchemaColaborator } from './validations';
 import { handleFocus } from '../../hook/eventListener';
+import { handlersFuntion } from '../../hook/longPress';
 
 export default function FormColaborator() {
   const [shouldShowActions] = useState(false);
@@ -96,6 +97,7 @@ export default function FormColaborator() {
       {
         onSuccess: () => {
           setSuccesfull(true);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         },
         onError: () => {
           action.resetForm();
@@ -179,12 +181,12 @@ export default function FormColaborator() {
                       type="text"
                       id={FORMVALUES.FIRSTNAME}
                       name={FORMVALUES.FIRSTNAME}
-                      onTouchStart={() => handleFocus(FORMVALUES.FIRSTNAME)}
+                      onTouchEnd={() => handleFocus(FORMVALUES.FIRSTNAME)}
                     />
                     {touched.firstname && errors.firstname && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueName, '')}
-                        onTouchStart={() => setFieldValue(valueName, '')}
+                        onTouchEnd={() => setFieldValue(valueName, '')}
                       />
                     )}
                     {touched.firstname && errors.firstname && (
@@ -200,12 +202,12 @@ export default function FormColaborator() {
                       id={FORMVALUES.LASTNAME}
                       type="text"
                       name={FORMVALUES.LASTNAME}
-                      onTouchStart={() => handleFocus(FORMVALUES.LASTNAME)}
+                      onTouchEnd={() => handleFocus(FORMVALUES.LASTNAME)}
                     />
                     {touched.lastname && errors.lastname && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueLastName, '')}
-                        onTouchStart={() => setFieldValue(valueLastName, '')}
+                        onTouchEnd={() => setFieldValue(valueLastName, '')}
                       />
                     )}
                     {touched.lastname && errors.lastname && (
@@ -223,12 +225,12 @@ export default function FormColaborator() {
                       id={FORMVALUES.EMAIL}
                       type="email"
                       name={FORMVALUES.EMAIL}
-                      onTouchStart={() => handleFocus(FORMVALUES.EMAIL)}
+                      onTouchEnd={() => handleFocus(FORMVALUES.EMAIL)}
                     />
                     {touched.email && errors.email && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueEmail, '')}
-                        onTouchStart={() => setFieldValue(valueEmail, '')}
+                        onTouchEnd={() => setFieldValue(valueEmail, '')}
                       />
                     )}
                     {touched.email && errors.email && (
@@ -244,12 +246,12 @@ export default function FormColaborator() {
                       maxLength={9}
                       pattern="[0-9]{10}"
                       name={FORMVALUES.PHONE}
-                      onTouchStart={() => handleFocus(FORMVALUES.PHONE)}
+                      onTouchEnd={() => handleFocus(FORMVALUES.PHONE)}
                     />
                     {touched.mobile && errors.mobile && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valuePhone, '')}
-                        onTouchStart={() => setFieldValue(valuePhone, '')}
+                        onTouchEnd={() => setFieldValue(valuePhone, '')}
                       />
                     )}
                     {touched.mobile && errors.mobile && (
@@ -268,7 +270,7 @@ export default function FormColaborator() {
                         type="url"
                         pattern="https://.*"
                         name={FORMVALUES.LINK}
-                        onTouchStart={() => handleFocus(FORMVALUES.LINK)}
+                        onTouchEnd={() => handleFocus(FORMVALUES.LINK)}
                       />
                     </Styles.BlockInputOnly>
                   </Styles.BlockInputEnd>
@@ -281,7 +283,7 @@ export default function FormColaborator() {
                         id={FORMVALUES.COMPANY}
                         type="text"
                         name={FORMVALUES.COMPANY}
-                        onTouchStart={() => handleFocus(FORMVALUES.COMPANY)}
+                        onTouchEnd={() => handleFocus(FORMVALUES.COMPANY)}
                       />
                     </Styles.BlockInputOnly>
                   </Styles.BlockInputEnd>
@@ -295,12 +297,12 @@ export default function FormColaborator() {
                       type="textarea"
                       id={FORMVALUES.MESSAGE}
                       name={FORMVALUES.MESSAGE}
-                      onTouchStart={() => handleFocus(FORMVALUES.MESSAGE)}
+                      onTouchEnd={() => handleFocus(FORMVALUES.MESSAGE)}
                     />
                     {touched.message && errors.message && (
                       <Styles.BlockClose
                         onClick={() => setFieldValue(valueMessage, '')}
-                        onTouchStart={() => setFieldValue(valueMessage, '')}
+                        onTouchEnd={() => setFieldValue(valueMessage, '')}
                       />
                     )}
                     {touched.message && errors.message && (
@@ -312,9 +314,6 @@ export default function FormColaborator() {
                   color="text-primary text-xs pt-6"
                   value={FORMVALUES.CONDITIONS}
                   onClick={(e: any) => setFieldValue(FORMVALUES.CONDITIONS, e)}
-                  onTouched={(e: any) =>
-                    setFieldValue(FORMVALUES.CONDITIONS, e)
-                  }
                 />
                 <span className="absolute w-2/6">
                   {touched.conditionsAccepted && errors.conditionsAccepted && (
@@ -323,7 +322,7 @@ export default function FormColaborator() {
                 </span>
                 <Styles.BlockSendButton>
                   <Styles.BtnSend
-                    onTouchStart={handleSubmit}
+                    {...handlersFuntion(handleSubmit)}
                     onClick={handleSubmit}
                     ismode={
                       !(isValid && dirty) ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF

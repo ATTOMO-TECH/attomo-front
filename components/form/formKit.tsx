@@ -161,9 +161,6 @@ export default function FormKit() {
                   color="text-primary text-xs pt-6"
                   value={FORMVALUES.CONDITIONS}
                   onClick={(e: any) => setFieldValue(FORMVALUES.CONDITIONS, e)}
-                  onTouched={(e: any) =>
-                    setFieldValue(FORMVALUES.CONDITIONS, e)
-                  }
                 />
                 {touched.conditionsAccepted && errors.conditionsAccepted && (
                   <Styles.Error>{errors.conditionsAccepted}</Styles.Error>

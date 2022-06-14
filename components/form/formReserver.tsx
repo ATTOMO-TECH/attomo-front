@@ -231,7 +231,6 @@ export default function FormReserver() {
                   <InputCheckcondition
                     color="text-primary text-xs pt-6"
                     value={FORMVALUES.CONDITIONS}
-                    onTouched={(e: any) => setFieldValue(check, e)}
                     onClick={(e: any) => setFieldValue(check, e)}
                   />
 

@@ -1,33 +1,25 @@
 import { useSwipeable } from 'react-swipeable';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { useLongPress, LongPressDetectEvents } from 'use-long-press';
-import { handleClickTouch } from './eventListener';
+import { handleClickTouch, handleFocus } from './eventListener';
 
-export const useTap = (value?: string, onClick?: any) => {
-  const [state] = useState<string>(value || '');
-  if (value !== '') {
-    handleClickTouch(state);
-  } else {
-    onClick();
-  }
-  const handlers = useSwipeable({
-    onTap: () => handleClickTouch(state),
+export const handlers = (param: string) =>
+  useSwipeable({
+    onTap: () => handleClickTouch(param),
   });
-  const handlers2 = useSwipeable({
-    onTap: () => handleClickTouch(state),
+
+export const handlersFuntion = (onTouch: any) =>
+  useSwipeable({
+    onTap: () => onTouch(),
   });
-  const handlers3 = useSwipeable({
-    onTap: () => handleClickTouch(state),
+
+export const handlersFuntionFocus = (id: any) =>
+  useSwipeable({
+    onTap: () => handleFocus(id),
   });
-  const handlers4 = useSwipeable({
-    onTap: () => handleClickTouch(state),
-  });
-  return [handlers, handlers2, handlers3, handlers4];
-};
 
 const useLongPressHook = (value?: string, onClick?: any) => {
   const [state] = useState<string>(value || '');
-  const isSwiping = useRef<boolean>(false);
 
   const callback = () => {
     if (value !== '') {
@@ -37,15 +29,9 @@ const useLongPressHook = (value?: string, onClick?: any) => {
     }
   };
 
-  const bind = useLongPress(!isSwiping.current ? () => callback() : null, {
-    onMove: () => {
-      isSwiping.current = true;
-    },
-
+  const bind = useLongPress(() => callback(), {
     // eslint-disable-next-line
-    onFinish: () => {
-      isSwiping.current = false;
-    },
+    onFinish: () => {},
 
     threshold: 300,
     captureEvent: true,
@@ -76,15 +62,9 @@ const useLongPressHook = (value?: string, onClick?: any) => {
     cancelOnMovement: true,
     detect: LongPressDetectEvents.BOTH,
   });
-  const bindLink = useLongPress(!isSwiping.current ? () => callback() : null, {
+  const bindLink = useLongPress(() => callback(), {
     // eslint-disable-next-line
-    onMove: () => {
-      isSwiping.current = true;
-    },
-
-    onFinish: () => {
-      isSwiping.current = false;
-    },
+    onFinish: () => {},
     threshold: 100,
     captureEvent: true,
     cancelOnMovement: true,

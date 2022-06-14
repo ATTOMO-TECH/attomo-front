@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { BUTTON_ACTIVE } from '../../const/const';
-import useTap from '../../hook/longPress';
+import { handlers } from '../../hook/longPress';
 import { darkTheme, lightTheme } from '../../styles/styles';
 import IconAnimate from '../button/icon';
 import { Block } from './style';
@@ -22,8 +22,6 @@ export default function BlockSection({
   mode,
   link,
 }: Props) {
-  const [handlers] = useTap(link);
-
   return (
     <>
       <Block.SectionBlock>
@@ -33,8 +31,8 @@ export default function BlockSection({
               <Block.Title ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
                 {text}
               </Block.Title>
-              <Link href={`${link}`} passHref>
-                <Block.BlockBtn {...handlers()}>
+              <Link href={`${link}`}>
+                <Block.BlockBtn {...handlers(`${link}`)}>
                   <IconAnimate text={button} mode={mode} />
                 </Block.BlockBtn>
               </Link>
@@ -49,8 +47,8 @@ export default function BlockSection({
               <Block.Title ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
                 {text2}
               </Block.Title>
-              <Link href={`${link}`} passHref>
-                <Block.BlockBtn {...handlers()}>
+              <Link href={`${link}`}>
+                <Block.BlockBtn {...handlers(`${link}`)}>
                   <IconAnimate text={button2} mode={mode} />
                 </Block.BlockBtn>
               </Link>

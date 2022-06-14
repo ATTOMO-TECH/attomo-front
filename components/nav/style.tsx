@@ -188,7 +188,7 @@ export const Navegation = {
   flex items-center z-100 justify-between w-11/12  h-1/12 items-center m-auto fixed top-4 left-0 right-0
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : '')}
   `,
-  ItemsMenu: tw.li`flex items-center list-none  min-h-min cursor-pointer`,
+  ItemsMenu: tw.span`flex items-center list-none  min-h-min cursor-pointer`,
   BlockMenu: tw.div``,
   TextMenu: tw(SectionColor)<Props>`
  font-Primary colorMenu
@@ -209,7 +209,7 @@ export const Navegation = {
   BlokSectionLenguage: tw.div`sm:flex font-Secundary text-primary text-sm mr-5 items-center hidden`,
   BlokSectionLenguageResponsive: tw.div`sm:hidden font-Secundary text-primary text-sm bottom-2 items-center flex  -bottom-8 left-4
   `,
-  ButtonSelect: tw.button<Props>`
+  ButtonSelect: tw.span<Props>`
   block p-2 delay-150 duration-300 ease-in-out hover:opacity-50
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON ? 'text-white' : 'text-black'}`,

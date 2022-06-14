@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { darkTheme, lightTheme, Navegation } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
-import { handleClickTouch, useEventListener } from '../../hook/eventListener';
+import { handlers, handlersFuntion } from '../../hook/longPress';
 
 interface Props {
   toggle: any;
@@ -33,8 +33,6 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
     }, 10);
   };
 
-  useEventListener('backToHome', 'touchend', () => handleClickTouch('/'));
-
   return (
     <>
       <Navegation.SectionNav
@@ -44,7 +42,7 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
         <Navegation.AlinItems
           ismode={logo ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
           <Link href="/" passHref>
-            <a href="/" id="backToHome">
+            <a href="/" {...handlers('/')}>
               <Navegation.ItemsMenu>
                 {logo ? (
                   <>
@@ -82,8 +80,7 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
               <Navegation.ButtonSelect
                 ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
                 onClick={() => handleBtn('es')}
-                onTouchStart={() => handleBtn('es')}
-                type="button">
+                {...handlersFuntion(() => handleBtn('es'))}>
                 ES
               </Navegation.ButtonSelect>
               <Navegation.LineBlock
@@ -93,14 +90,13 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
               <Navegation.ButtonSelect
                 ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
                 onClick={() => handleBtn('en')}
-                onTouchStart={() => handleBtn('en')}
-                type="button">
+                {...handlersFuntion(() => handleBtn('en'))}>
                 EN
               </Navegation.ButtonSelect>
             </Navegation.BlokSectionLenguage>
             <Navegation.ItemsMenu
               onClick={() => toggle()}
-              onTouchEnd={() => toggle()}
+              {...handlersFuntion(toggle)}
               className="colorMenu action z-100">
               <Navegation.TextMenu
                 theme={mode === true ? lightTheme : darkTheme}

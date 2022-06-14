@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { handlersFuntion } from '../../hook/longPress';
 import { Styles } from './style';
 import { getLocale } from '../../public/locales/getLocale';
 
@@ -18,7 +19,7 @@ export default function RenderForm() {
           <Styles.BtnSelect
             key={`FormRender-${button.Name}`}
             active={i === iDx}
-            onTouchEnd={() => handleClick(i)}
+            {...handlersFuntion(() => handleClick(i))}
             onClick={() => handleClick(i)}>
             {button.Name}
           </Styles.BtnSelect>
