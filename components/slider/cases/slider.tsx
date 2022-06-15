@@ -3,13 +3,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
 import { useRef, useState, useEffect } from 'react';
 import * as qs from 'qs';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { darkTheme, lightTheme, StylesArticle } from '../style';
-import { BUTTON_ACTIVE } from '../../../const/const';
 import { useUseFilterCases } from '../../../domain/useCasesDetails';
 import RenderLoading from '../../loading/loading';
 import ArticlesScrollArrow from '../arrows/arrows';
+import SlideCases from '../slide/slideCases';
 
 interface Props {
   mode: boolean;
@@ -79,34 +77,7 @@ export default function CasesScroll({ mode, filter, id, renderTouch }: Props) {
         }}>
         {data.data.map((articles: any) => (
           <SwiperSlide key={articles.attributes.company} className="swiper ">
-            <Link href={`/casos/${articles.id}`}>
-              <div className="cursor-pointer">
-                <StylesArticle.Img
-                  src={articles.attributes.mainPhoto.data[0].attributes.url}
-                  alt={
-                    articles.attributes.mainPhoto.data[0].attributes
-                      .alternativeText
-                  }
-                />
-                <StylesArticle.BlockText
-                  theme={mode === false ? lightTheme : darkTheme}>
-                  <StylesArticle.TopicText
-                    ismode={
-                      articles.attributes.mainPhoto.data[0].attributes.url ===
-                      '/'
-                        ? BUTTON_ACTIVE.OFF
-                        : BUTTON_ACTIVE.ON
-                    }>
-                    {articles.attributes.name}
-                  </StylesArticle.TopicText>
-                  <StylesArticle.TextBlog
-                    onTouchStart={() => router.push(`/casos/${articles.id}`)}
-                    ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-                    {articles.attributes.title}
-                  </StylesArticle.TextBlog>
-                </StylesArticle.BlockText>
-              </div>
-            </Link>
+            <SlideCases articles={articles} mode={mode} />
           </SwiperSlide>
         ))}
         {data.meta.pagination.total > 2 && (
