@@ -6,7 +6,7 @@ type Props = {
   ismode: any;
 };
 // TITLE TEXT
-export const SectionTitle = styled.div`
+export const SectionTitle = styled.span`
   &:nth-child(1) {
     padding-top: 0%;
   }

@@ -17,7 +17,7 @@ import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 import { Metadata } from '../components/head/metadata';
 import { useAScreen } from '../domain/useScreensMetadata';
-import useLongPressHook from '../hook/longPress';
+import { handlers } from '../hook/longPress';
 
 function Carrers() {
   const router = useRouter();
@@ -36,8 +36,6 @@ function Carrers() {
     SetIsOpen(!isOpen);
   };
   const translate = getLocale();
-
-  const [bind] = useLongPressHook('/contacto');
 
   if (isLoading || screenIsLoading) {
     return (
@@ -80,7 +78,7 @@ function Carrers() {
         {translate.contactUsWork.map((value) => (
           <Styles.CenterMargin key={value.Text}>
             <Link href="/contacto" passHref>
-              <a className="w-12" href="/contacto" {...bind()}>
+              <a className="w-12" href="/contacto" {...handlers('/contacto')}>
                 <Title size="lg:text-xl w-4/6 lg:w-3/6 cursor-pointer">
                   {value.Text}
                 </Title>
@@ -92,7 +90,10 @@ function Carrers() {
             </Subtext>
             <Styles.BtnLimit>
               <Link href="/contacto" passHref>
-                <a href="/contacto" className="w-12 " {...bind()}>
+                <a
+                  href="/contacto"
+                  className="w-12 "
+                  {...handlers('/contacto')}>
                   <IconAnimate text={value.Button} mode />
                 </a>
               </Link>

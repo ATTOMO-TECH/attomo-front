@@ -19,6 +19,7 @@ import { useUseAllServices } from '../../domain/useServices';
 import RenderLoading from '../../components/loading/loading';
 import { getLocale } from '../../public/locales/getLocale';
 import ArticlesScroll from '../../components/slider/article/slider';
+import BlockFilter from '../../components/block/blockFilter';
 
 function DetailsServices() {
   const [isIdSubServices, SetIsIdSubServices] = useState<any>({});
@@ -136,11 +137,10 @@ function DetailsServices() {
                 )}
               </Styles.BlockRenderDetails>
               {!isOpenFilter && !isOpen && (
-                <Styles.BlockFilter
-                  onClick={toggleFilter}
-                  onTouchStart={toggleFilter}>
-                  <Title size="mt-5 text-lg">{translate.Services}</Title>
-                </Styles.BlockFilter>
+                <BlockFilter
+                  toggleFilter={toggleFilter}
+                  text={translate.Services}
+                />
               )}
               <motion.div
                 className="lg:pt-12 lg:w-9/12 w-10/12 ml-auto h-auto mr-2"

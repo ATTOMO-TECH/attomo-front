@@ -5,7 +5,7 @@ import { Styles } from '../../styles/styles';
 import Subtext from '../Text/subText';
 import { servicesAnimations } from '../animations/animations';
 import { BUTTON_ACTIVE } from '../../const/const';
-import useLongPressHook from '../../hook/longPress';
+import { handlersFuntion } from '../../hook/longPress';
 
 interface Props {
   toggleFilter: () => void;
@@ -27,8 +27,6 @@ export default function BlockFilter({
   handleChangeReset,
 }: Props) {
   const [shouldShowActions] = useState(false);
-
-  const [bindQuick] = useLongPressHook('', toggleFilter);
 
   const change: boolean = !!startDate || !!endDate || !!topic || !!search;
 
@@ -92,9 +90,8 @@ export default function BlockFilter({
 
           <Styles.SelectFilter
             className="w-11/12 mr-5 lg:mr-0 "
-            type="button"
             onClick={toggleFilter}
-            {...bindQuick()}>
+            {...handlersFuntion(toggleFilter)}>
             <Styles.FilterSelectActive
               mode={
                 search === '' || search === undefined
@@ -110,10 +107,9 @@ export default function BlockFilter({
             </Styles.FilterSelectActive>
           </Styles.SelectFilter>
           <Styles.SelectFilter
-            type="button"
             className="w-11/12 mr-5 lg:mr-0 "
             onClick={toggleFilter}
-            {...bindQuick()}>
+            {...handlersFuntion(toggleFilter)}>
             <Styles.FilterSelectActive
               mode={
                 topic === '' || topic === undefined
@@ -129,10 +125,9 @@ export default function BlockFilter({
             </Styles.FilterSelectActive>
           </Styles.SelectFilter>
           <Styles.SelectFilter
-            type="button"
             className="w-11/12 mr-5 lg:mr-0 "
             onClick={toggleFilter}
-            {...bindQuick()}>
+            {...handlersFuntion(toggleFilter)}>
             <Styles.FilterSelectActive
               mode={
                 startDate === undefined || startDate === null
@@ -157,45 +152,46 @@ export default function BlockFilter({
               <img src="./icon/calendar.svg" alt="arrow" />
             </Styles.FilterSelectActive>
           </Styles.SelectFilter>
-          <motion.svg
-            className="cursor-pointer w-1/6 lg:w-auto lg:block hidden"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            transition={{ duration: 1, ease: 'easeInOut' }}
-            onClick={handleChangeReset}
-            onTouchStart={handleChangeReset}>
-            <motion.path
-              d="M18 6L6 18"
-              stroke="white"
-              strokeWidth={change ? '2' : 0}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              initial={{ pathLength: 0 }}
-              animate={
-                change
-                  ? { pathLength: 1, type: 'tween' }
-                  : { pathLength: 0, type: 'spring' }
-              }
+          <span {...handlersFuntion(handleChangeReset)}>
+            <motion.svg
+              className="cursor-pointer w-1/6 lg:w-auto lg:block hidden"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
               transition={{ duration: 1, ease: 'easeInOut' }}
-            />
-            <motion.path
-              d="M6 6L18 18"
-              stroke="white"
-              strokeWidth={change ? '2' : 0}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              initial={{ pathLength: 0 }}
-              animate={
-                change
-                  ? { pathLength: 1, type: 'tween' }
-                  : { pathLength: 0, type: 'spring' }
-              }
-              transition={{ duration: 1, ease: 'easeInOut' }}
-            />
-          </motion.svg>
+              onClick={handleChangeReset}>
+              <motion.path
+                d="M18 6L6 18"
+                stroke="white"
+                strokeWidth={change ? '2' : 0}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                initial={{ pathLength: 0 }}
+                animate={
+                  change
+                    ? { pathLength: 1, type: 'tween' }
+                    : { pathLength: 0, type: 'spring' }
+                }
+                transition={{ duration: 1, ease: 'easeInOut' }}
+              />
+              <motion.path
+                d="M6 6L18 18"
+                stroke="white"
+                strokeWidth={change ? '2' : 0}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                initial={{ pathLength: 0 }}
+                animate={
+                  change
+                    ? { pathLength: 1, type: 'tween' }
+                    : { pathLength: 0, type: 'spring' }
+                }
+                transition={{ duration: 1, ease: 'easeInOut' }}
+              />
+            </motion.svg>
+          </span>
         </Styles.SelectFilterCases>
       </motion.div>
     </>
