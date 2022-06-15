@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { motion, AnimateSharedLayout } from 'framer-motion';
+import { AnimateSharedLayout } from 'framer-motion';
 import { useRouter } from 'next/router';
 import Footer from '../components/footer/footer';
 import Menu from '../components/nav/menu';
@@ -17,6 +17,8 @@ import Title from '../components/Text/title';
 import Subtext from '../components/Text/subText';
 import HowKit from '../components/section/howKit';
 import FormKit from '../components/form/formKit';
+import ButtonsKit from '../components/button/buttonsKit';
+import ButtonKit from '../components/button/buttonKit';
 
 function KitDigital() {
   const router = useRouter();
@@ -55,13 +57,6 @@ function KitDigital() {
     };
   }, [lastYPos]);
 
-  const scrollTo = (id: string) => {
-    const section = document.getElementById(id);
-    if (section !== null) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   if (screenIsLoading) {
     return (
       <>
@@ -97,35 +92,10 @@ function KitDigital() {
                 ))}
               </Styles.ScreenWS>
             </Styles.Center>
-            <Styles.SectionScreen id="conocenos">
-              <Styles.Center>
-                <motion.div
-                  animate={shouldShowActions}
-                  variants={servicesAnimations}
-                  transition={{
-                    type: 'magic',
-                    stiffness: 100,
-                    duration: 0.5,
-                  }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  initial={{ opacity: 0, y: '50%' }}
-                  className="flex flex-col lg:flex-row  justify-center items-center actions my-24 lg:my-0 bottom-0 ">
-                  <Styles.BtnKit
-                    mode={BUTTON_ACTIVE.ON}
-                    onClick={() => scrollTo('section-how-kit')}
-                    onTouchEnd={() => scrollTo('section-how-kit')}>
-                    {translate.btnHow}
-                  </Styles.BtnKit>
-
-                  <Styles.BtnKit
-                    className="mt-5 lg:mt-0"
-                    onClick={() => scrollTo('form-kit')}
-                    onTouchEnd={() => scrollTo('form-kit')}>
-                    {translate.btnForm}
-                  </Styles.BtnKit>
-                </motion.div>
-              </Styles.Center>
-            </Styles.SectionScreen>
+            <ButtonsKit
+              translate={translate}
+              shouldShowActions={shouldShowActions}
+            />
             <Styles.SectionImage
               animate={shouldShowActions}
               variants={servicesAnimations}
@@ -183,11 +153,7 @@ function KitDigital() {
               subtitle={translate.howSubtex}
               blockSection={translate.howRequeriments}
             />
-            <Styles.BtnKit
-              onClick={() => scrollTo('form-kit')}
-              onTouchStart={() => scrollTo('form-kit')}>
-              {translate.helpYou}
-            </Styles.BtnKit>
+            <ButtonKit translate={translate} />
           </Styles.BlockKits>
           <Styles.BlockKits>
             <HowKit

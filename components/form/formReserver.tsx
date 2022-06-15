@@ -242,7 +242,7 @@ export default function FormReserver() {
 
                   <Styles.BlockSendButton>
                     <Styles.BtnSend
-                      {...handlersFuntion(() => handleSubmit)}
+                      {...handlersFuntion(handleSubmit)}
                       onClick={handleSubmit}
                       ismode={
                         !(isValid && dirty)

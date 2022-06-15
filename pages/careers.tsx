@@ -1,9 +1,7 @@
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Background from '../components/animations/background';
 import ButtonShare from '../components/button/BtnShare';
-import IconAnimate from '../components/button/icon';
 import Footer from '../components/footer/footer';
 import RenderLoading from '../components/loading/loading';
 import Menu from '../components/nav/menu';
@@ -17,7 +15,7 @@ import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
 import { Metadata } from '../components/head/metadata';
 import { useAScreen } from '../domain/useScreensMetadata';
-import { handlers } from '../hook/longPress';
+import BlocKnow from '../components/block/blockKnowYou';
 
 function Carrers() {
   const router = useRouter();
@@ -76,29 +74,7 @@ function Carrers() {
           <Work works={data?.data} />
         </Styles.Center>
         {translate.contactUsWork.map((value) => (
-          <Styles.CenterMargin key={value.Text}>
-            <Link href="/contacto" passHref>
-              <a className="w-12" href="/contacto" {...handlers('/contacto')}>
-                <Title size="lg:text-xl w-4/6 lg:w-3/6 cursor-pointer">
-                  {value.Text}
-                </Title>
-              </a>
-            </Link>
-            <Subtext size=" text-2xl font-Primary"> </Subtext>
-            <Subtext size=" text-sm lg:w-3/6 font-PrimarySerif py-5">
-              {value.Subtext}
-            </Subtext>
-            <Styles.BtnLimit>
-              <Link href="/contacto" passHref>
-                <a
-                  href="/contacto"
-                  className="w-12 "
-                  {...handlers('/contacto')}>
-                  <IconAnimate text={value.Button} mode />
-                </a>
-              </Link>
-            </Styles.BtnLimit>
-          </Styles.CenterMargin>
+          <BlocKnow value={value} />
         ))}
 
         <Footer subFooter={false} />

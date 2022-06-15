@@ -204,7 +204,7 @@ export default function FormCustomer() {
                 )}
                 <Styles.BlockSendButton>
                   <Styles.BtnSend
-                    {...handlersFuntion(() => handleSubmit)}
+                    {...handlersFuntion(handleSubmit)}
                     onClick={handleSubmit}
                     ismode={
                       !(isValid && dirty) ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF
