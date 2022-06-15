@@ -19,7 +19,7 @@ import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
 import { validationSchemaColaborator } from './validations';
 import { handleFocus } from '../../hook/eventListener';
-import { handlersFuntion } from '../../hook/longPress';
+import { handlersFuntion, handlersFuntionFocus } from '../../hook/longPress';
 
 export default function FormColaborator() {
   const [shouldShowActions] = useState(false);
@@ -174,14 +174,14 @@ export default function FormColaborator() {
                   )}
                 </Styles.BlockSelectSecond>
                 <Styles.BlockInputsCenter>
-                  <Styles.BlockInput>
+                  <Styles.BlockInput
+                    {...handlersFuntionFocus(FORMVALUES.FIRSTNAME)}>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
                       placeholder={translate.formName}
                       type="text"
                       id={FORMVALUES.FIRSTNAME}
                       name={FORMVALUES.FIRSTNAME}
-                      onTouchEnd={() => handleFocus(FORMVALUES.FIRSTNAME)}
                     />
                     {touched.firstname && errors.firstname && (
                       <Styles.BlockClose
@@ -195,14 +195,14 @@ export default function FormColaborator() {
                       </Styles.Error>
                     )}
                   </Styles.BlockInput>
-                  <Styles.BlockInput>
+                  <Styles.BlockInput
+                    {...handlersFuntionFocus(FORMVALUES.LASTNAME)}>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
                       placeholder={translate.formLastName}
                       id={FORMVALUES.LASTNAME}
                       type="text"
                       name={FORMVALUES.LASTNAME}
-                      onTouchEnd={() => handleFocus(FORMVALUES.LASTNAME)}
                     />
                     {touched.lastname && errors.lastname && (
                       <Styles.BlockClose
@@ -218,7 +218,8 @@ export default function FormColaborator() {
                   </Styles.BlockInput>
                 </Styles.BlockInputsCenter>
                 <Styles.BlockInputsCenter>
-                  <Styles.BlockInput>
+                  <Styles.BlockInput
+                    {...handlersFuntionFocus(FORMVALUES.EMAIL)}>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
                       placeholder={translate.formEmail}
@@ -237,7 +238,8 @@ export default function FormColaborator() {
                       <Styles.Error>{errors.email}</Styles.Error>
                     )}
                   </Styles.BlockInput>
-                  <Styles.BlockInput>
+                  <Styles.BlockInput
+                    {...handlersFuntionFocus(FORMVALUES.PHONE)}>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.ON}
                       placeholder={translate.formPhone}
@@ -246,7 +248,6 @@ export default function FormColaborator() {
                       maxLength={9}
                       pattern="[0-9]{10}"
                       name={FORMVALUES.PHONE}
-                      onTouchEnd={() => handleFocus(FORMVALUES.PHONE)}
                     />
                     {touched.mobile && errors.mobile && (
                       <Styles.BlockClose
@@ -262,7 +263,8 @@ export default function FormColaborator() {
 
                 {values[valuepartOf] === CONDITIONFORM.TEAM ? (
                   <Styles.BlockInputEnd>
-                    <Styles.BlockInputOnly>
+                    <Styles.BlockInputOnly
+                      {...handlersFuntionFocus(FORMVALUES.LINK)}>
                       <Styles.Input
                         ismode={BUTTON_ACTIVE.OFF}
                         placeholder={translate.formLink}
@@ -270,34 +272,33 @@ export default function FormColaborator() {
                         type="url"
                         pattern="https://.*"
                         name={FORMVALUES.LINK}
-                        onTouchEnd={() => handleFocus(FORMVALUES.LINK)}
                       />
                     </Styles.BlockInputOnly>
                   </Styles.BlockInputEnd>
                 ) : (
                   <Styles.BlockInputEnd>
-                    <Styles.BlockInputOnly>
+                    <Styles.BlockInputOnly
+                      {...handlersFuntionFocus(FORMVALUES.COMPANY)}>
                       <Styles.Input
                         ismode={BUTTON_ACTIVE.OFF}
                         placeholder={translate.formCompany}
                         id={FORMVALUES.COMPANY}
                         type="text"
                         name={FORMVALUES.COMPANY}
-                        onTouchEnd={() => handleFocus(FORMVALUES.COMPANY)}
                       />
                     </Styles.BlockInputOnly>
                   </Styles.BlockInputEnd>
                 )}
 
                 <Styles.BlockInputEnd>
-                  <Styles.BlockInputOnly>
+                  <Styles.BlockInputOnly
+                    {...handlersFuntionFocus(FORMVALUES.MESSAGE)}>
                     <Styles.Input
                       ismode={BUTTON_ACTIVE.OFF}
                       placeholder={translate.formMessage}
                       type="textarea"
                       id={FORMVALUES.MESSAGE}
                       name={FORMVALUES.MESSAGE}
-                      onTouchEnd={() => handleFocus(FORMVALUES.MESSAGE)}
                     />
                     {touched.message && errors.message && (
                       <Styles.BlockClose
@@ -322,7 +323,7 @@ export default function FormColaborator() {
                 </span>
                 <Styles.BlockSendButton>
                   <Styles.BtnSend
-                    {...handlersFuntion(handleSubmit)}
+                    {...handlersFuntion(() => handleSubmit)}
                     onClick={handleSubmit}
                     ismode={
                       !(isValid && dirty) ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF

@@ -8,10 +8,15 @@ export const handlers = (param: string) =>
 
 export const handlersFuntion = (onTouch: any) =>
   useSwipeable({
-    onTap: () => onTouch(),
+    onTap: onTouch,
   });
 
 export const handlersFuntionFocus = (id: any) =>
   useSwipeable({
     onTap: () => handleFocus(id),
+  });
+
+export const handlersFuntionRef = (onTouch: any, ref: any) =>
+  useSwipeable({
+    onTap: () => onTouch(ref),
   });

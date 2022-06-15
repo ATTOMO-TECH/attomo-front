@@ -9,7 +9,7 @@ import { FORMVALUES } from '../../hook/types';
 import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
 import { useCreateSubscriber } from '../../domain/useSubscriber';
-import { handleFocus } from '../../hook/eventListener';
+import InputForNews from './inputForNews';
 
 const registerSchema = Yup.object().shape({
   [FORMVALUES.EMAIL]: Yup.string()
@@ -40,7 +40,6 @@ export default function InputNew({ idInput }: Props) {
     const data = {
       [FORMVALUES.EMAIL]: values.email,
     };
-
     mutate(
       { data },
       {
@@ -69,21 +68,14 @@ export default function InputNew({ idInput }: Props) {
                 <Navegation.BlockInput>
                   <Navegation.SectionInput
                     ismode={isActive ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-                    onClick={() => toggleClass(isActive)}
-                    onTouchStart={() => {
-                      toggleClass(isActive);
-                      handleFocus(idInput);
-                    }}>
-                    <p className="text-primary">{isActive}</p>
-                    <Navegation.Input
-                      type="email"
-                      placeholder={translate.sendEmail}
-                      id={idInput}
-                      name={FORMVALUES.EMAIL}
-                      onChange={(e: any) => {
-                        handleInput(e.currentTarget.value);
-                        setFieldValue(FORMVALUES.EMAIL, e.currentTarget.value);
-                      }}
+                    onClick={() => toggleClass(isActive)}>
+                    <InputForNews
+                      idInput={idInput}
+                      toggleClass={toggleClass}
+                      isActive={isActive}
+                      translate={translate}
+                      handleInput={handleInput}
+                      setFieldValue={setFieldValue}
                     />
                     <Navegation.Button
                       onClick={() => handleSubmit()}

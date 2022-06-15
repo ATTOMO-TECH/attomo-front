@@ -13,13 +13,15 @@ interface Props {
 export default function InputCheckcondition({ value, color, onClick }: Props) {
   const [check, setCheck] = useState<boolean>(false);
 
+  const handleChange = () => {
+    onClick && onClick(!check);
+    setCheck(!check);
+  };
+
   return (
     <>
       <Styles.LabelCheckBox
-        {...handlersFuntion(() => {
-          onClick && onClick(!check);
-          setCheck(!check);
-        })}
+        {...handlersFuntion(handleChange)}
         checkedValue={check}
         className={`${color}`}
         onChange={() => {

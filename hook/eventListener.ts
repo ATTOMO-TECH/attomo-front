@@ -4,9 +4,14 @@ export const handleFocus = (idTag: string) => {
   document.getElementById(idTag)?.focus();
 };
 
+export const handleFocusRef = (idTag: string) => {
+  document.getElementById(idTag)?.focus();
+};
+
 export const handleClickTouch = (link: string) => {
   document.location.href = link;
 };
+
 export const handleExternalTouch = (link: string) => {
   const a = document.createElement('a');
   a.target = '_blank';
