@@ -14,7 +14,7 @@ import { validationSchemaBooking } from './validations';
 import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
 import Subtext from '../Text/subText';
-import { handleFocus } from '../../hook/eventListener';
+import { handlersFuntionFocus, handlersFuntion } from '../../hook/longPress';
 
 export default function FormReserver() {
   const translate = getLocale();
@@ -100,14 +100,14 @@ export default function FormReserver() {
               <>
                 <Styles.Form onSubmit={handleSubmit}>
                   <Styles.SectionInputs>
-                    <Styles.BlockInput>
+                    <Styles.BlockInput
+                      {...handlersFuntionFocus(FORMVALUES.FIRSTNAME)}>
                       <Styles.Input
                         ismode={BUTTON_ACTIVE.ON}
                         placeholder={translate.formName}
                         type="text"
                         name={FORMVALUES.FIRSTNAME}
                         id={FORMVALUES.FIRSTNAME}
-                        onTouchStart={() => handleFocus(FORMVALUES.FIRSTNAME)}
                       />
                       {touched.firstname && errors.firstname && (
                         <Styles.BlockClose
@@ -121,14 +121,14 @@ export default function FormReserver() {
                         </Styles.Error>
                       )}
                     </Styles.BlockInput>
-                    <Styles.BlockInput>
+                    <Styles.BlockInput
+                      {...handlersFuntionFocus(FORMVALUES.LASTNAME)}>
                       <Styles.Input
                         ismode={BUTTON_ACTIVE.OFF}
                         placeholder={translate.formLastName}
                         type="text"
                         id={FORMVALUES.LASTNAME}
                         name={FORMVALUES.LASTNAME}
-                        onTouchStart={() => handleFocus(FORMVALUES.LASTNAME)}
                       />
                       {touched.lastname && errors.lastname && (
                         <Styles.BlockClose
@@ -147,7 +147,7 @@ export default function FormReserver() {
                     <Styles.BlockInput>
                       <div
                         className="pt-4 lg:pt-0 lg:py-2"
-                        onTouchStart={() => handleFocus(FORMVALUES.DATE)}>
+                        {...handlersFuntionFocus(FORMVALUES.DATE)}>
                         <CalendarPickerInput
                           id={FORMVALUES.DATE}
                           handleValue={(e: any) => {
@@ -159,7 +159,7 @@ export default function FormReserver() {
                     <Styles.BlockInput>
                       <div
                         className="pt-4 lg:pt-0.5 lg:py-2"
-                        onTouchStart={() => handleFocus(FORMVALUES.TIME)}>
+                        {...handlersFuntionFocus(FORMVALUES.TIME)}>
                         <InputSelect
                           selected={selected}
                           options={OPTIONDISPONIBILITY}
@@ -174,14 +174,14 @@ export default function FormReserver() {
                     </Styles.BlockInput>
                   </Styles.BlockInputsCenter>
                   <Styles.BlockInputsCenter>
-                    <Styles.BlockInput>
+                    <Styles.BlockInput
+                      {...handlersFuntionFocus(FORMVALUES.EMAIL)}>
                       <Styles.Input
                         ismode={BUTTON_ACTIVE.ON}
                         placeholder={translate.formEmail}
                         type="email"
                         name={FORMVALUES.EMAIL}
                         id={FORMVALUES.EMAIL}
-                        onTouchStart={() => handleFocus(FORMVALUES.EMAIL)}
                       />
                       {touched.email && errors.email && (
                         <Styles.BlockClose
@@ -203,7 +203,6 @@ export default function FormReserver() {
                         pattern="[0-9]{10}"
                         name={FORMVALUES.PHONE}
                         id={FORMVALUES.PHONE}
-                        onTouchStart={() => handleFocus(FORMVALUES.PHONE)}
                       />
                       {touched.mobile && errors.mobile && (
                         <Styles.BlockClose
@@ -217,14 +216,14 @@ export default function FormReserver() {
                     </Styles.BlockInput>
                   </Styles.BlockInputsCenter>
                   <Styles.BlockInputEnd>
-                    <Styles.BlockInputOnly>
+                    <Styles.BlockInputOnly
+                      {...handlersFuntionFocus(FORMVALUES.COMPANY)}>
                       <Styles.Input
                         ismode={BUTTON_ACTIVE.OFF}
                         id={FORMVALUES.COMPANY}
                         placeholder={translate.formCompany}
                         type="text"
                         name={FORMVALUES.COMPANY}
-                        onTouchStart={() => handleFocus(FORMVALUES.COMPANY)}
                       />
                     </Styles.BlockInputOnly>
                   </Styles.BlockInputEnd>
@@ -243,7 +242,7 @@ export default function FormReserver() {
 
                   <Styles.BlockSendButton>
                     <Styles.BtnSend
-                      onTouchStart={handleSubmit}
+                      {...handlersFuntion(handleSubmit)}
                       onClick={handleSubmit}
                       ismode={
                         !(isValid && dirty)

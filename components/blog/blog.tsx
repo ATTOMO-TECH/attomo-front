@@ -4,7 +4,7 @@ import { Blogstyles } from './style';
 import Title from '../Text/title';
 import IconAnimate from '../button/icon';
 import Subtext from '../Text/subText';
-import useLongPressHook from '../../hook/longPress';
+import { handlers } from '../../hook/longPress';
 
 interface Props {
   data: any;
@@ -36,8 +36,6 @@ export default function BlockBlog({ data }: Props) {
     },
   };
 
-  const [bind] = useLongPressHook(`/ATTOMOTrends/${data.id}`);
-
   return (
     <>
       <motion.div
@@ -49,7 +47,7 @@ export default function BlockBlog({ data }: Props) {
         <motion.div variants={item}>
           <Blogstyles.Article>
             <Link href={`/ATTOMOTrends/${data.id}`}>
-              <Blogstyles.BlockImg {...bind(`/ATTOMOTrends/${data.id}`)}>
+              <Blogstyles.BlockImg>
                 {data.attributes?.coverImage?.data?.attributes?.url ? (
                   <img
                     src={data.attributes.coverImage.data.attributes?.url}
@@ -57,6 +55,7 @@ export default function BlockBlog({ data }: Props) {
                     height={700}
                     alt={data.attributes.name}
                     id={`${data.id}`}
+                    {...handlers(`/ATTOMOTrends/${data.id}`)}
                   />
                 ) : null}
               </Blogstyles.BlockImg>
@@ -74,11 +73,11 @@ export default function BlockBlog({ data }: Props) {
 
               <Blogstyles.SubText />
               <Link href={`/ATTOMOTrends/${data.id}`}>
-                <div
-                  {...bind(`/ATTOMOTrends/${data.id}`)}
+                <span
+                  {...handlers(`/ATTOMOTrends/${data.id}`)}
                   className="h-12 w-2/6 relative">
                   <IconAnimate text="Leer" mode />
-                </div>
+                </span>
               </Link>
             </Blogstyles.BlockText>
           </Blogstyles.Article>

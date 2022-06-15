@@ -6,7 +6,6 @@ import { useRouter } from 'next/router';
 import Background from '../components/animations/background';
 import BlockSection from '../components/block/block';
 import BlockBlog from '../components/blog/blog';
-import { Blogstyles } from '../components/blog/style';
 import Footer from '../components/footer/footer';
 import InputNew from '../components/input/inputNews';
 import RenderLoading from '../components/loading/loading';
@@ -23,6 +22,7 @@ import InputSelectFilter from '../components/form/selectFilter';
 import { Metadata } from '../components/head/metadata';
 import { useAScreen } from '../domain/useScreensMetadata';
 import { formatDateFilter } from '../hook/date';
+import ShowMore from '../components/block/showMore';
 
 function News() {
   const router = useRouter();
@@ -304,20 +304,11 @@ function News() {
         {React.Children.toArray(
           preData.map((dataBlog: any) => <BlockBlog data={dataBlog} />),
         )}
-
-        {data &&
-          (data.meta.pagination.page !== data.meta.pagination.pageCount &&
-          data.meta.pagination.pageCount !== 0 ? (
-            <Blogstyles.SectionMore>
-              <Blogstyles.BlockMore
-                onClick={() => handleAddBlog(data.meta.pagination.page + 1)}
-                onTouchStart={() =>
-                  handleAddBlog(data.meta.pagination.page + 1)
-                }>
-                {translate.seeMoreTrends}
-              </Blogstyles.BlockMore>
-            </Blogstyles.SectionMore>
-          ) : null)}
+        <ShowMore
+          data={data}
+          handleAddBlog={handleAddBlog}
+          translate={translate}
+        />
         <Styles.Center>
           {translate.contact.map((values) => (
             <BlockSection

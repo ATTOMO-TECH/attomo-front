@@ -14,11 +14,15 @@ export default function InputRadio({
   onChange,
   valueChecked,
 }: Props) {
+  const handleChange = () => {
+    onChange(value);
+  };
+
   return (
     <>
       <Styles.LabelCheck
         htmlFor="partner"
-        {...handlersFuntion(() => onChange(value))}
+        {...handlersFuntion(handleChange)}
         onClick={() => onChange(value)}
         checked={valueChecked === value}
         checkedValue={valueChecked === value}>

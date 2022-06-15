@@ -6,6 +6,7 @@ import { Filter } from './style';
 import ModulelFilterResponsive from './moduleFilterResponsive';
 import ModulelFilter from './moduleFilter';
 import useDeviceSize from '../../hook/size';
+import { handlersFuntion } from '../../hook/longPress';
 
 interface Props {
   isOpenFilter: boolean;
@@ -151,7 +152,7 @@ export default function ModalFilter({
               }
               disabled={!(endDateModal || topicModal || searchModal)}
               onClick={handleSearch}
-              onTouchStart={handleSearch}>
+              {...handlersFuntion(handleSearch)}>
               Buscar
             </Filter.BtnSend>
           </Filter.BlockSendButton>

@@ -1,7 +1,7 @@
 import es from 'date-fns/locale/es';
 import { DateRangePicker } from 'react-nice-dates';
-import { handleFocus } from '../../../hook/eventListener';
 import { BlockDiv } from './styles';
+import { handlersFuntionFocus } from '../../../hook/longPress';
 
 interface Props {
   setStartDateFilter: any;
@@ -24,25 +24,19 @@ export default function CalendarPickerInput({
     <BlockDiv
       active={startDate !== null && startDate !== undefined}
       className="relative"
-      autoCorrect="off"
-      onTouchEnd={() => {
-        handleFocus('reserveForm');
-      }}>
-      <form id="reserveForm">
-        <DateRangePicker
-          key="reserve"
-          format="dd MMM yyyy"
-          startDate={startDate}
-          endDate={endDate}
-          onStartDateChange={setStartDateFilter}
-          onEndDateChange={setEndDateFilter}
-          locale={es}>
-          {({ startDateInputProps, endDateInputProps, focus }) => (
-            <div className="date-range flex items-center">
+      autoCorrect="off">
+      <DateRangePicker
+        key="reserve"
+        format="dd MMM yyyy"
+        startDate={startDate}
+        endDate={endDate}
+        onStartDateChange={setStartDateFilter}
+        onEndDateChange={setEndDateFilter}
+        locale={es}>
+        {({ startDateInputProps, endDateInputProps, focus }) => (
+          <div className="date-range flex items-center">
+            <div {...handlersFuntionFocus('reserve')}>
               <input
-                onTouchEnd={() => {
-                  handleFocus('reserve');
-                }}
                 id="reserve"
                 className={`input  w-3/6  outline-none inputDate opacity-40   text-sm font-light text-gray-300 h-full  py-3 hover:opacity-100${
                   focus ? ' -focused opacity-100' : ''
@@ -51,13 +45,10 @@ export default function CalendarPickerInput({
                 placeholder={placeholderFrom}
                 autoComplete="off"
               />
-
-              <div className="w-3 h-0.5 border-b mx-5 " />
-
+            </div>
+            <div className="w-3 h-0.5 border-b mx-5 " />
+            <div {...handlersFuntionFocus('reserve2')}>
               <input
-                onTouchStart={() => {
-                  handleFocus('reserve2');
-                }}
                 autoComplete="off"
                 id="reserve2"
                 className={`input w-3/6   outline-none inputDate opacity-40  text-sm font-light text-gray-300 h-full  py-3  hover:opacity-100${
@@ -67,9 +58,9 @@ export default function CalendarPickerInput({
                 placeholder={placeholderTo}
               />
             </div>
-          )}
-        </DateRangePicker>
-      </form>
+          </div>
+        )}
+      </DateRangePicker>
     </BlockDiv>
   );
 }

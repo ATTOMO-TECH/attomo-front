@@ -1,13 +1,12 @@
 // eslint-disable-next-line no-use-before-define
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { BUTTON_ACTIVE } from '../../const/const';
 import { useUseAllServices } from '../../domain/useServices';
 import RenderLoading from '../loading/loading';
 import { Styles } from './style';
-import useLongPressHook from '../../hook/longPress';
+import TitleCollapse from './titleCollapse';
+import LinkCollapse from './linksCollapse';
 
 export default function Collapse() {
   const router = useRouter();
@@ -17,7 +16,6 @@ export default function Collapse() {
   }
   const { data, isLoading } = useUseAllServices(locale || 'es');
   const [idx, setIdx] = useState(0);
-  const [url, setUrl] = useState('');
 
   const handleClick = (iDx: number) => {
     setIdx(iDx);
@@ -47,10 +45,6 @@ export default function Collapse() {
       },
     },
   };
-  const handleLink = () => {
-    router.push(url);
-  };
-  const [bindQuickScreen] = useLongPressHook(``, handleLink);
 
   if (isLoading) {
     return (
@@ -59,6 +53,7 @@ export default function Collapse() {
       </>
     );
   }
+
   const innerRenderText = (iDx: number) =>
     data.data[iDx].attributes.description;
 
@@ -73,25 +68,11 @@ export default function Collapse() {
               animate="show"
               className="w-auto">
               {data.data[idx].attributes.subservices.data.map((tab: any) => (
-                <Link
-                  href={`/servicios/${tab.attributes.name
-                    .replaceAll(' ', '_')
-                    .toLowerCase()}`}
-                  key={`${tab.attributes.name}-services`}>
-                  <Styles.SubSection
-                    id={`${tab.attributes.name}-services`}
-                    onTouchStart={() =>
-                      setUrl(
-                        `/servicios/${tab.attributes.name
-                          .replaceAll(' ', '_')
-                          .toLowerCase()}`,
-                      )
-                    }>
-                    <motion.p variants={item} {...bindQuickScreen()}>
-                      {tab.attributes.name}
-                    </motion.p>
-                  </Styles.SubSection>
-                </Link>
+                <LinkCollapse
+                  tab={tab}
+                  item={item}
+                  key={`${tab.attributes.name}-services`}
+                />
               ))}
             </motion.div>
           </Styles.BlockDescription>
@@ -107,14 +88,13 @@ export default function Collapse() {
         <Styles.BlockSectionTitle>
           <Styles.BlockTextSelect>
             {data.data.map((tab: any, i: number) => (
-              <Styles.TextSelect
-                ismode={i === idx ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+              <TitleCollapse
+                i={i}
+                tab={tab}
                 key={tab.attributes.name}
-                id={`clickCollapse-${i}`}
-                onTouchEnd={() => handleClick(i)}
-                onClick={() => handleClick(i)}>
-                {tab.attributes.name}
-              </Styles.TextSelect>
+                handleClick={handleClick}
+                idx={idx}
+              />
             ))}
           </Styles.BlockTextSelect>
         </Styles.BlockSectionTitle>
