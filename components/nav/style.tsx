@@ -210,7 +210,7 @@ export const Navegation = {
   BlokSectionLenguageResponsive: tw.div`sm:hidden font-Secundary text-primary text-sm bottom-2 items-center flex  -bottom-8 left-4
   `,
   ButtonSelect: tw.span<Props>`
-  block p-2 delay-150 duration-300 ease-in-out hover:opacity-50
+  block p-4 delay-150 duration-300 ease-in-out hover:opacity-50
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON ? 'text-white' : 'text-black'}`,
   LineBlock: tw.span<Props>`

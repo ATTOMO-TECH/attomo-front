@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { darkTheme, lightTheme, Navegation } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
-import { useEventListener, handleClickTouch } from '../../hook/eventListener';
+import { handlersFuntion } from '../../hook/longPress';
 
 interface Props {
   toggle: () => void;
@@ -25,19 +25,14 @@ export default function Nav({ toggle, logo, mode, isOpen, bgFull }: Props) {
       }
     });
   }, []);
-  const openMenu = () => {
-    setTimeout(() => {
-      toggle();
-    }, 500);
-  };
   const router = useRouter();
+
   const handleBtn = (value: string) => {
-    router.push(router.asPath, router.asPath, { locale: value });
+    router.push(router, router, { locale: value });
     setTimeout(() => {
       router.reload();
-    }, 200);
+    }, 10);
   };
-  useEventListener('backToHome', 'touchstart', () => handleClickTouch('/'));
 
   return (
     <>
@@ -105,8 +100,8 @@ export default function Nav({ toggle, logo, mode, isOpen, bgFull }: Props) {
               </Navegation.ButtonSelect>
             </Navegation.BlokSectionLenguage>
             <Navegation.ItemsMenu
-              onClick={toggle}
-              onTouchStart={openMenu}
+              onClick={() => toggle()}
+              {...handlersFuntion(toggle)}
               className="colorMenu">
               <Navegation.TextMenu
                 theme={mode === true ? lightTheme : darkTheme}
