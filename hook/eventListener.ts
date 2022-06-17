@@ -4,8 +4,8 @@ export const handleFocus = (idTag: string) => {
   document.getElementById(idTag)?.focus();
 };
 
-export const handleFocusRef = (idTag: string) => {
-  document.getElementById(idTag)?.focus();
+export const handleBlur = (idTag: string) => {
+  document.getElementById(idTag)?.blur();
 };
 
 export const handleClickTouch = (link: string) => {

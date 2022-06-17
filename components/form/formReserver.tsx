@@ -1,5 +1,5 @@
 import { Formik } from 'formik';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Styles } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -14,9 +14,15 @@ import { validationSchemaBooking } from './validations';
 import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
 import Subtext from '../Text/subText';
-import { handlersFuntionFocus, handlersFuntion } from '../../hook/longPress';
+import {
+  handlersFuntionFocus,
+  handlersFuntion,
+  useOnClickOutside,
+} from '../../hook/longPress';
+import { handleBlur } from '../../hook/eventListener';
 
 export default function FormReserver() {
+  const formRef = useRef();
   const translate = getLocale();
   const [shouldShowActions] = useState(false);
   const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
@@ -70,6 +76,16 @@ export default function FormReserver() {
       },
     );
   };
+  useOnClickOutside(formRef, () => {
+    handleBlur(FORMVALUES.FIRSTNAME);
+    handleBlur(FORMVALUES.LASTNAME);
+    handleBlur(FORMVALUES.PHONE);
+    handleBlur(FORMVALUES.EMAIL);
+    handleBlur(FORMVALUES.COMPANY);
+    handleBlur(FORMVALUES.DATE);
+    handleBlur(FORMVALUES.TIME);
+    handleBlur(FORMVALUES.CONDITIONS);
+  });
 
   return (
     <>
@@ -98,7 +114,7 @@ export default function FormReserver() {
               dirty,
             }) => (
               <>
-                <Styles.Form onSubmit={handleSubmit}>
+                <Styles.Form onSubmit={handleSubmit} ref={formRef}>
                   <Styles.SectionInputs>
                     <Styles.BlockInput
                       {...handlersFuntionFocus(FORMVALUES.FIRSTNAME)}>

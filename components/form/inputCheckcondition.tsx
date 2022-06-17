@@ -14,7 +14,7 @@ export default function InputCheckcondition({ value, color, onClick }: Props) {
   const [check, setCheck] = useState<boolean>(false);
 
   const handleChange = () => {
-    onClick && onClick(!check);
+    onClick(!check);
     setCheck(!check);
   };
 
@@ -25,7 +25,7 @@ export default function InputCheckcondition({ value, color, onClick }: Props) {
         checkedValue={check}
         className={`${color}`}
         onChange={() => {
-          onClick && onClick(!check);
+          onClick(!check);
           setCheck(!check);
         }}
         htmlFor={value}>

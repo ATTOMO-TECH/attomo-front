@@ -1,5 +1,5 @@
 import { Formik } from 'formik';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Styles } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -10,9 +10,15 @@ import { getLocale } from '../../public/locales/getLocale';
 import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
 import { validationSchemaContact } from './validations';
-import { handlersFuntionFocus, handlersFuntion } from '../../hook/longPress';
+import {
+  handlersFuntionFocus,
+  handlersFuntion,
+  useOnClickOutside,
+} from '../../hook/longPress';
+import { handleBlur } from '../../hook/eventListener';
 
 export default function FormCustomer() {
+  const formRef = useRef();
   const [shouldShowActions] = useState(false);
   const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
   const translate = getLocale();
@@ -57,6 +63,15 @@ export default function FormCustomer() {
       },
     );
   };
+  useOnClickOutside(formRef, () => {
+    handleBlur(FORMVALUES.FIRSTNAME);
+    handleBlur(FORMVALUES.LASTNAME);
+    handleBlur(FORMVALUES.PHONE);
+    handleBlur(FORMVALUES.EMAIL);
+    handleBlur(FORMVALUES.COMPANY);
+    handleBlur(FORMVALUES.MESSAGE);
+    handleBlur(FORMVALUES.CONDITIONS);
+  });
 
   return (
     <>
@@ -75,7 +90,7 @@ export default function FormCustomer() {
             dirty,
           }) => (
             <>
-              <Styles.Form onSubmit={handleSubmit}>
+              <Styles.Form onSubmit={handleSubmit} ref={formRef}>
                 <Styles.BlockInputsCenter>
                   <Styles.BlockInput
                     {...handlersFuntionFocus(FORMVALUES.FIRSTNAME)}>
@@ -194,14 +209,18 @@ export default function FormCustomer() {
                     )}
                   </Styles.BlockInputOnly>
                 </Styles.BlockInputEnd>
-                <InputCheckcondition
-                  color="text-primary text-xs pt-6"
-                  value={FORMVALUES.CONDITIONS}
-                  onClick={(e: any) => setFieldValue(FORMVALUES.CONDITIONS, e)}
-                />
-                {touched.conditionsAccepted && errors.conditionsAccepted && (
-                  <Styles.Error>{errors.conditionsAccepted}</Styles.Error>
-                )}
+                <div {...handlersFuntionFocus(FORMVALUES.CONDITIONS)}>
+                  <InputCheckcondition
+                    color="text-primary text-xs pt-6"
+                    value={FORMVALUES.CONDITIONS}
+                    onClick={(e: any) =>
+                      setFieldValue(FORMVALUES.CONDITIONS, e)
+                    }
+                  />
+                  {touched.conditionsAccepted && errors.conditionsAccepted && (
+                    <Styles.Error>{errors.conditionsAccepted}</Styles.Error>
+                  )}
+                </div>
                 <Styles.BlockSendButton>
                   <Styles.BtnSend
                     {...handlersFuntion(handleSubmit)}

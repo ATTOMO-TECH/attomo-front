@@ -6,6 +6,7 @@ interface Props {
   value: string;
   onChange?: any;
   valueChecked: string;
+  id: string;
 }
 
 export default function InputRadio({
@@ -13,6 +14,7 @@ export default function InputRadio({
   value,
   onChange,
   valueChecked,
+  id,
 }: Props) {
   const handleChange = () => {
     onChange(value);
@@ -30,6 +32,7 @@ export default function InputRadio({
           onChange={() => onChange(value)}
           type="radio"
           name="partner"
+          id={id}
           value={value}
           checked={valueChecked === value}
         />

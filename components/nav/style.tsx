@@ -203,10 +203,10 @@ export const Navegation = {
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`
-  action flex items-center font-Primary cursor-pointer list-none fixed w-full duration-300 ease-in-out h-16 z-100
+  action flex items-center font-Primary cursor-pointer list-none fixed w-full duration-300 ease-in-out h-20 z-100
 `,
-  BlockLenguage: tw.div`flex  items-end `,
-  BlokSectionLenguage: tw.div`sm:flex font-Secundary text-primary text-sm mr-5 items-center hidden`,
+  BlockLenguage: tw.div`flex  items-center justify-end `,
+  BlokSectionLenguage: tw.div`sm:flex font-Secundary text-primary text-sm mr-5 items-center  hidden`,
   BlokSectionLenguageResponsive: tw.div`sm:hidden font-Secundary text-primary text-sm bottom-2 items-center flex  -bottom-8 left-4
   `,
   ButtonSelect: tw.span<Props>`

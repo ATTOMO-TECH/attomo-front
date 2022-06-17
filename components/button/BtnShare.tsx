@@ -28,8 +28,8 @@ export default function ButtonShare() {
           <Btn.Icon ismode={!scroll ? BUTTON_ACTIVE.ON : ''}>
             <img
               src="/icon/WhatsApp.png"
-              width={100}
-              height={100}
+              width="100%"
+              height="auto"
               alt="WhatsApp"
             />
           </Btn.Icon>

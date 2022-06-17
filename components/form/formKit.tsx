@@ -1,5 +1,5 @@
 import { Formik } from 'formik';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Styles } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -10,9 +10,15 @@ import { getLocale } from '../../public/locales/getLocale';
 import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
 import { validationSchemaKit } from './validations';
-import { handlersFuntionFocus, handlersFuntion } from '../../hook/longPress';
+import {
+  handlersFuntionFocus,
+  handlersFuntion,
+  useOnClickOutside,
+} from '../../hook/longPress';
+import { handleBlur } from '../../hook/eventListener';
 
 export default function FormKit() {
+  const formRef = useRef();
   const [shouldShowActions] = useState(false);
   const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
   const translate = getLocale();
@@ -50,6 +56,13 @@ export default function FormKit() {
       },
     );
   };
+  useOnClickOutside(formRef, () => {
+    handleBlur(FORMVALUES.NAME);
+    handleBlur(FORMVALUES.PHONE2);
+    handleBlur(FORMVALUES.EMAIL);
+    handleBlur(FORMVALUES.MESSAGE);
+    handleBlur(FORMVALUES.CONDITIONS);
+  });
 
   return (
     <>
@@ -68,7 +81,7 @@ export default function FormKit() {
             dirty,
           }) => (
             <>
-              <Styles.FormKit onSubmit={handleSubmit}>
+              <Styles.FormKit onSubmit={handleSubmit} ref={formRef}>
                 <Styles.BlockInputEnd>
                   <Styles.BlockInputOnly
                     {...handlersFuntionFocus(FORMVALUES.NAME)}>
