@@ -312,8 +312,8 @@ ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
   flex ease-out duration-200 py-2 text-sm   `,
   // FORM
   Error: tw(ErrorText)`absolute text-PrimarySerif text-sm `,
-  BlockSelect: tw.div`w-full flex flex-wrap pt-5 text-white font-PrimarySerif font-thin text-sm`,
-  BlockSelectSecond: tw.div`w-full flex flex-wrap  text-white font-PrimarySerif font-thin text-sm lg:pb-10 pb-4`,
+  BlockSelect: tw.div<any>`w-full flex flex-wrap pt-5 text-white font-PrimarySerif font-thin text-sm`,
+  BlockSelectSecond: tw.div<any>`w-full flex flex-wrap  text-white font-PrimarySerif font-thin text-sm lg:pb-10 pb-4`,
   AlingSelect: tw.div`w-3/6`,
   AlingSelectSecond: tw.div`w-full lg:w-2/6 gap-5 flex`,
   BlockCheck: tw.div`flex flex-wrap`,

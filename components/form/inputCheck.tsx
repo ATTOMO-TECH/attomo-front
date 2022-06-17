@@ -7,9 +7,10 @@ interface Props {
   text: any;
   value: string;
   onChange?: any;
+  id: string;
 }
 
-export default function InputCheck({ text, value, onChange }: Props) {
+export default function InputCheck({ text, value, onChange, id }: Props) {
   const [check, setCheck] = useState<boolean>(false);
 
   const handleChange = ({ event }: any) => {
@@ -23,14 +24,14 @@ export default function InputCheck({ text, value, onChange }: Props) {
         htmlFor={value}
         checkedValue={check}
         {...handlersFuntion(handleChange)}
-        onClick={(e: any) => {
+        onChange={(e: any) => {
           onChange(e.target.value);
           setCheck(!check);
         }}>
         <Styles.InputCheck
           type="checkbox"
           name={value}
-          id={value}
+          id={id}
           checked={check}
         />
         <Styles.TextCheck> {text}</Styles.TextCheck>

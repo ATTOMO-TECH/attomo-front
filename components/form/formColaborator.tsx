@@ -1,6 +1,6 @@
 /* eslint-disable no-use-before-define */
 import { Formik } from 'formik';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import * as qs from 'qs';
 import { equals } from 'ramda';
 import { motion } from 'framer-motion';
@@ -18,10 +18,15 @@ import { getLocale } from '../../public/locales/getLocale';
 import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
 import { validationSchemaColaborator } from './validations';
-import { handleFocus } from '../../hook/eventListener';
-import { handlersFuntion, handlersFuntionFocus } from '../../hook/longPress';
+import {
+  handlersFuntion,
+  handlersFuntionFocus,
+  useOnClickOutside,
+} from '../../hook/longPress';
+import { handleBlur } from '../../hook/eventListener';
 
 export default function FormColaborator() {
+  const formRef = useRef();
   const [shouldShowActions] = useState(false);
   const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
   const translate = getLocale();
@@ -106,6 +111,19 @@ export default function FormColaborator() {
     );
   };
 
+  useOnClickOutside(formRef, () => {
+    handleBlur(FORMVALUES.FIRSTNAME);
+    handleBlur(FORMVALUES.LASTNAME);
+    handleBlur(FORMVALUES.PHONE);
+    handleBlur(FORMVALUES.EMAIL);
+    handleBlur(FORMVALUES.LINK);
+    handleBlur(FORMVALUES.COMPANY);
+    handleBlur(FORMVALUES.MESSAGE);
+    handleBlur(FORMVALUES.PARTOF);
+    handleBlur(FORMVALUES.SPECIALITY);
+    handleBlur(FORMVALUES.CONDITIONS);
+  });
+
   return (
     <>
       {!sendSuccesfull ? (
@@ -124,7 +142,10 @@ export default function FormColaborator() {
             dirty,
           }) => (
             <>
-              <Styles.Form onSubmit={handleSubmit} key="formColaborator">
+              <Styles.Form
+                onSubmit={handleSubmit}
+                key="formColaborator"
+                ref={formRef}>
                 <div className="pb-10">
                   <Subtext size="lg:text-sm w-full font-PrimarySerif">
                     {translate.partOfTeam}
@@ -133,10 +154,12 @@ export default function FormColaborator() {
                     <Styles.Error>{errors.teamOrPartner}</Styles.Error>
                   )}
                 </div>
-                <Styles.BlockSelect>
+                <Styles.BlockSelect
+                  {...handlersFuntionFocus(FORMVALUES.PARTOF)}>
                   {FORMPARTOF.map((valuesCheck) => (
                     <Styles.AlingSelect key={`Radio-${valuesCheck.value}`}>
                       <InputRadio
+                        id={FORMVALUES.PARTOF}
                         text={valuesCheck.text}
                         value={valuesCheck.value}
                         valueChecked={filter}
@@ -156,12 +179,14 @@ export default function FormColaborator() {
                     {translate.speciality}
                   </Subtext>
                 )}
-                <Styles.BlockSelectSecond>
+                <Styles.BlockSelectSecond
+                  {...handlersFuntionFocus(FORMVALUES.SPECIALITY)}>
                   {React.Children.toArray(
                     Partner?.data.map((valuesCheck: any) => (
                       <Styles.AlingSelectSecond
                         key={valuesCheck.attributes.area}>
                         <InputCheck
+                          id={FORMVALUES.SPECIALITY}
                           text={valuesCheck.attributes.area}
                           value={valuesCheck.id}
                           onChange={() => {
@@ -226,7 +251,6 @@ export default function FormColaborator() {
                       id={FORMVALUES.EMAIL}
                       type="email"
                       name={FORMVALUES.EMAIL}
-                      onTouchEnd={() => handleFocus(FORMVALUES.EMAIL)}
                     />
                     {touched.email && errors.email && (
                       <Styles.BlockClose
@@ -311,16 +335,21 @@ export default function FormColaborator() {
                     )}
                   </Styles.BlockInputOnly>
                 </Styles.BlockInputEnd>
-                <InputCheckcondition
-                  color="text-primary text-xs pt-6"
-                  value={FORMVALUES.CONDITIONS}
-                  onClick={(e: any) => setFieldValue(FORMVALUES.CONDITIONS, e)}
-                />
-                <span className="absolute w-2/6">
-                  {touched.conditionsAccepted && errors.conditionsAccepted && (
-                    <Styles.Error>{errors.conditionsAccepted}</Styles.Error>
-                  )}
-                </span>
+                <div {...handlersFuntionFocus(FORMVALUES.CONDITIONS)}>
+                  <InputCheckcondition
+                    color="text-primary text-xs pt-6"
+                    value={FORMVALUES.CONDITIONS}
+                    onClick={(e: any) =>
+                      setFieldValue(FORMVALUES.CONDITIONS, e)
+                    }
+                  />
+                  <span className="absolute w-2/6">
+                    {touched.conditionsAccepted &&
+                      errors.conditionsAccepted && (
+                        <Styles.Error>{errors.conditionsAccepted}</Styles.Error>
+                      )}
+                  </span>
+                </div>
                 <Styles.BlockSendButton>
                   <Styles.BtnSend
                     {...handlersFuntion(handleSubmit)}
