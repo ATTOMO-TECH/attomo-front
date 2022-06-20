@@ -1,10 +1,19 @@
 import { useEffect } from 'react';
 import { useSwipeable } from 'react-swipeable';
-import { handleClickTouch, handleFocus } from './eventListener';
+import {
+  handleClickTouch,
+  handleFocus,
+  handleExternalTouch,
+} from './eventListener';
 
 export const handlers = (param: string) =>
   useSwipeable({
     onTap: () => handleClickTouch(param),
+  });
+
+export const handlersExternal = (param: string) =>
+  useSwipeable({
+    onTap: () => handleExternalTouch(param),
   });
 
 export const handlersFuntion = (onTouch: any) =>

@@ -37,12 +37,12 @@ export default function Work({ works }: Props) {
               </Subtext>
             </div>
 
-            <div className="w-4/12 md:w-1/6 ml-4 m-auto ">
+            <div className="ml-0 lg:ml-4 m-auto lg:w-1/6 sm:w-2/6 w-3/6">
               <Link href={`https://${value.attributes.url}`} passHref>
                 <a
                   href={`https://${value.attributes.url}`}
                   target="_blank"
-                  className=""
+                  className="w-auto"
                   rel="noreferrer"
                   {...handlers(`https://${value.attributes.url}`)}>
                   <IconAnimate text="Aplicar" mode />

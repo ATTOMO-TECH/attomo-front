@@ -1,10 +1,7 @@
-import { useRouter } from 'next/router';
 import es from './es';
 import en from './en';
 
-export function getLocale() {
-  const router = useRouter();
-  const { locale } = router;
+export function getLocale(locale?: string) {
   let translate = es;
 
   switch (locale) {

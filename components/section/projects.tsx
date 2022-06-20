@@ -38,7 +38,7 @@ export default function SectionProjects({
         <Styles.BlockSections
           ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
           key={values.Client}>
-          <Link href={`/casos/${values.id}`}>
+          <Link href={`/casos/${values.id}`} passHref>
             <Styles.BlockSection
               ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
               {...handlers(`/casos/${values.id}`)}>
@@ -73,7 +73,7 @@ export default function SectionProjects({
               <Title size="lg:text-4xl md:text-2xl text-xl sm:w-96 w-80  py-3 leading-relaxed lg:leading-normal">
                 {values.attributes.title}
               </Title>
-              <Link href={`/casos/${values.id}`}>
+              <Link href={`/casos/${values.id}`} passHref>
                 <Styles.BlockBtn {...handlers(`/casos/${values.id}`)}>
                   <IconAnimate text={translate.seeMoreProject} mode />
                 </Styles.BlockBtn>

@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
-import { useState, useRef } from 'react';
+import { useRouter } from 'next/router';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Styles } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -18,10 +19,17 @@ import {
 import { handleBlur } from '../../hook/eventListener';
 
 export default function FormCustomer() {
+  const router = useRouter();
+  const [translate, setTranslate] = useState(getLocale('es'));
+
+  useEffect(() => {
+    if (router.locale) {
+      setTranslate(getLocale(router.locale));
+    }
+  }, [router.locale]);
   const formRef = useRef();
   const [shouldShowActions] = useState(false);
   const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
-  const translate = getLocale();
   const valueName = FORMVALUES.FIRSTNAME;
   const valueLastName = FORMVALUES.LASTNAME;
   const valuePhone = FORMVALUES.PHONE;
@@ -211,6 +219,7 @@ export default function FormCustomer() {
                 </Styles.BlockInputEnd>
                 <div {...handlersFuntionFocus(FORMVALUES.CONDITIONS)}>
                   <InputCheckcondition
+                    id={FORMVALUES.CONDITIONS}
                     color="text-primary text-xs pt-6"
                     value={FORMVALUES.CONDITIONS}
                     onClick={(e: any) =>

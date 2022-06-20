@@ -302,9 +302,9 @@ input[type='text'] {
 @media screen and (max-width: 768px) {
   #MobileFilterCases .rrs--options-visible .rrs__options {
     height: 300px !important;
-    width: 66.666667%;
+    width: 100% !important;
     margin: auto;
-    position: fixed !important;
+    position: relative !important;
     font-size: 1rem !important;
     overflow-x: scroll !important;
     top: 0% !important;

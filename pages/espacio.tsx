@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Footer from '../components/footer/footer';
 import Menu from '../components/nav/menu';
@@ -22,6 +22,7 @@ import { Metadata } from '../components/head/metadata';
 import RenderLoading from '../components/loading/loading';
 
 function Space() {
+  const router = useRouter();
   const SliderSSR = dynamic(
     () =>
       import('../components/slider/espacio/slider').then(
@@ -33,9 +34,15 @@ function Space() {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
-  const translate = getLocale();
+  const [translate, setTranslate] = useState(getLocale('es'));
+
+  useEffect(() => {
+    if (router.locale) {
+      setTranslate(getLocale(router.locale));
+    }
+  }, [router.locale]);
+
   const [width] = useDeviceSize();
-  const router = useRouter();
   let { locale } = router;
   if (locale === '/') {
     locale = 'es';

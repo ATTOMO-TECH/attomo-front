@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import rehypeRaw from 'rehype-raw';
 import Background from '../components/animations/background';
 import IconAnimate from '../components/button/icon';
@@ -16,8 +16,15 @@ import { ContainerLegal, Styles } from '../styles/styles';
 
 function Privacidad() {
   const router = useRouter();
-  const translate = getLocale();
+  const [translate, setTranslate] = useState(getLocale('es'));
   let { locale } = router;
+
+  useEffect(() => {
+    if (locale) {
+      setTranslate(getLocale(locale));
+    }
+  }, [locale]);
+
   if (locale === '/') {
     locale = 'es';
   }

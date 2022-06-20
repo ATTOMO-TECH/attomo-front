@@ -1,5 +1,7 @@
 import { format } from 'date-fns';
+import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import { getLocale } from '../../public/locales/getLocale';
 import { Styles } from './styles';
 
@@ -23,7 +25,14 @@ export default function Filter({
   change,
   handleChangeReset,
 }: Props) {
-  const translate = getLocale();
+  const router = useRouter();
+  const [translate, setTranslate] = useState(getLocale('es'));
+  useEffect(() => {
+    if (router.locale) {
+      setTranslate(getLocale(router.locale));
+    }
+  }, [router.locale]);
+
   return (
     <>
       {(scroll && width < 768) || scroll ? (

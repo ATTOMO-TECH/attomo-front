@@ -22,10 +22,17 @@ import ArticlesScroll from '../../components/slider/article/slider';
 import BlockFilter from '../../components/block/blockFilter';
 
 function DetailsServices() {
+  const router = useRouter();
+  const [translate, setTranslate] = useState(getLocale('es'));
+
+  useEffect(() => {
+    if (router.locale) {
+      setTranslate(getLocale(router.locale));
+    }
+  }, [router.locale]);
   const [isIdSubServices, SetIsIdSubServices] = useState<any>({});
   const [isOpenFilter, SetIsOpenFilter] = useState<boolean>(false);
   const [isOpen, SetIsOpen] = useState<boolean>(false);
-  const router = useRouter();
   const [menuId, setMenuId] = useState(null);
   const { slug } = router.query;
   let { locale } = router;
@@ -35,7 +42,6 @@ function DetailsServices() {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
-  const translate = getLocale();
 
   if (locale === '/') {
     locale = 'es';

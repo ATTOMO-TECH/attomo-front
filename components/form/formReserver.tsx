@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
-import { useRef, useState } from 'react';
+import { useRouter } from 'next/router';
+import { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Styles } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -22,8 +23,16 @@ import {
 import { handleBlur } from '../../hook/eventListener';
 
 export default function FormReserver() {
+  const router = useRouter();
+  const [translate, setTranslate] = useState(getLocale('es'));
+
+  useEffect(() => {
+    if (router.locale) {
+      setTranslate(getLocale(router.locale));
+    }
+  }, [router.locale]);
   const formRef = useRef();
-  const translate = getLocale();
+
   const [shouldShowActions] = useState(false);
   const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
   const [selected, setSelected] = useState('');
@@ -245,6 +254,7 @@ export default function FormReserver() {
                     </Styles.BlockInputOnly>
                   </Styles.BlockInputEnd>
                   <InputCheckcondition
+                    id={FORMVALUES.CONDITIONS}
                     color="text-primary text-xs pt-6"
                     value={FORMVALUES.CONDITIONS}
                     onClick={(e: any) => setFieldValue(check, e)}

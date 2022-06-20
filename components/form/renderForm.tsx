@@ -1,14 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { handlersFuntion } from '../../hook/longPress';
 import { Styles } from './style';
 import { getLocale } from '../../public/locales/getLocale';
 
 export default function RenderForm() {
+  const router = useRouter();
   const [iDx, setidx] = useState(0);
+  const [translate, setTranslate] = useState(getLocale('es'));
   const handleClick = (idx: number) => {
     setidx(idx);
   };
-  const translate = getLocale();
+
+  useEffect(() => {
+    if (router.locale) {
+      setTranslate(getLocale(router.locale));
+    }
+  }, [router.locale]);
   const innerRender = (idx: number) =>
     translate.buttonsRenderForm[idx].Component;
 

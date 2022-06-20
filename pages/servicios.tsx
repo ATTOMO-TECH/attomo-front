@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Background from '../components/animations/background';
 import BlockSection from '../components/block/block';
 import ButtonShare from '../components/button/BtnShare';
@@ -19,19 +19,26 @@ import { Styles } from '../styles/styles';
 
 function Services() {
   const router = useRouter();
+  const [translate, setTranslate] = useState(getLocale('es'));
   let { locale } = router;
-  if (locale === '/') {
-    locale = 'es';
-  }
+
+  useEffect(() => {
+    if (locale) {
+      setTranslate(getLocale(locale));
+    }
+  }, [locale]);
   const { data: screen, isLoading: screenIsLoading } = useAScreen(
     MENU_SCREENS.HOME,
     locale || 'es',
   );
+
+  if (locale === '/') {
+    locale = 'es';
+  }
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
-  const translate = getLocale();
 
   if (screenIsLoading) {
     return (

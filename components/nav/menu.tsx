@@ -17,25 +17,29 @@ interface Props {
 }
 
 export default function Menu({ isOpen, toggle, logo, mode }: Props) {
-  const translate = getLocale();
+  const router = useRouter();
+  const [translate, setTranslate] = useState(getLocale('es'));
   const [items, setItems] = useState(translate.menu);
+
+  useEffect(() => {
+    if (router.locale) {
+      setTranslate(getLocale(router.locale));
+    }
+  }, [router.locale]);
 
   const closeMenu = () => {
     setTimeout(() => {
       toggle();
     }, 500);
   };
-  const router = useRouter();
   const handleBtn = (value: string) => {
     router.push(router.asPath, router.asPath, { locale: value });
-    setTimeout(() => {
-      router.reload();
-    }, 200);
   };
+
   const [width] = useDeviceSize();
   useEffect(() => {
     setItems(translate.menu);
-  }, [items]);
+  }, [items, translate]);
 
   items.map((values, i) =>
     useEventListener(`${values.Value}-${i}`, 'touchstart', () =>
@@ -54,7 +58,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
               ismode={logo ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
               <Navegation.ItemsMenu>
                 {logo ? (
-                  <Link href="/">
+                  <Link href="/" passHref>
                     <img
                       src="/icon/isoAttomo.svg"
                       width={35}
@@ -174,7 +178,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                   <Navegation.SelectMenu
                     key={`${values.Value}`}
                     onClick={closeMenu}>
-                    <Link href={values.Url}>
+                    <Link href={values.Url} passHref>
                       <span
                         id={`${values.Value}-${i}`}
                         {...handlers(values.Url)}>

@@ -4,7 +4,7 @@ import SubFooter from './subfooter';
 import { Navegation } from './style';
 import InputNew from '../input/inputNews';
 import { getLocale } from '../../public/locales/getLocale';
-import { handlers } from '../../hook/longPress';
+import { handlers, handlersExternal } from '../../hook/longPress';
 
 interface Props {
   subFooter: boolean;
@@ -42,7 +42,7 @@ export default function Footer({ subFooter }: Props) {
                       href={values.Url}
                       id={values.Name}
                       rel="noreferrer"
-                      {...handlers(values.Url)}>
+                      {...handlersExternal(values.Url)}>
                       <img
                         src={values.Pic2}
                         width={25}
@@ -65,7 +65,7 @@ export default function Footer({ subFooter }: Props) {
         </Navegation.BlockFooter>
         <div className="relative ">{subFooter && <SubFooter />}</div>
         <Navegation.BlockSubText>
-          <Link href="/privacidad">
+          <Link href="/privacidad" passHref>
             <a href="/privacidad" {...handlers('/privacidad')}>
               <Navegation.SubText>{translate.privacy}</Navegation.SubText>
             </a>

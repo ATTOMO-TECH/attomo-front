@@ -25,7 +25,15 @@ import BlockFilter from '../components/filter/blockFilter';
 function Cases() {
   const queryClient = useQueryClient();
   const router = useRouter();
+  const [translate, setTranslate] = useState(getLocale('es'));
   let { locale } = router;
+
+  useEffect(() => {
+    if (locale) {
+      setTranslate(getLocale(locale));
+    }
+  }, [locale]);
+
   if (locale === '/') {
     locale = 'es';
   }
@@ -33,7 +41,7 @@ function Cases() {
     MENU_SCREENS.CASES,
     locale || 'es',
   );
-  const translate = getLocale();
+
   const [preData, setPreData] = useState<any[]>([]);
   const [scroll, setScroll] = useState(true);
 

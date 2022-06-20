@@ -26,11 +26,18 @@ import ShowMore from '../components/block/showMore';
 
 function News() {
   const router = useRouter();
+  const [translate, setTranslate] = useState(getLocale('es'));
+
+  useEffect(() => {
+    if (router.locale) {
+      setTranslate(getLocale(router.locale));
+    }
+  }, [router.locale]);
+
   let { locale } = router;
   if (locale === '/') {
     locale = 'es';
   }
-  const translate = getLocale();
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState('');
   const [query, setQuery] = useState(

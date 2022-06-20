@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import gfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import Background from '../components/animations/background';
@@ -17,7 +17,14 @@ import { ContainerLegal, Styles } from '../styles/styles';
 
 function Conditions() {
   const router = useRouter();
-  const translate = getLocale();
+  const [translate, setTranslate] = useState(getLocale('es'));
+
+  useEffect(() => {
+    if (router.locale) {
+      setTranslate(getLocale(router.locale));
+    }
+  }, [router.locale]);
+
   let { locale } = router;
   if (locale === '/terminos/') {
     locale = 'es';

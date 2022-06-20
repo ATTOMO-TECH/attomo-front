@@ -46,7 +46,7 @@ export default function BlockBlog({ data }: Props) {
         animate="show">
         <motion.div variants={item}>
           <Blogstyles.Article>
-            <Link href={`/ATTOMOTrends/${data.id}`}>
+            <Link href={`/ATTOMOTrends/${data.id}`} passHref>
               <Blogstyles.BlockImg>
                 {data.attributes?.coverImage?.data?.attributes?.url ? (
                   <img
@@ -72,7 +72,7 @@ export default function BlockBlog({ data }: Props) {
               </Subtext>
 
               <Blogstyles.SubText />
-              <Link href={`/ATTOMOTrends/${data.id}`}>
+              <Link href={`/ATTOMOTrends/${data.id}`} passHref>
                 <span
                   {...handlers(`/ATTOMOTrends/${data.id}`)}
                   className="h-12 w-2/6 relative">
