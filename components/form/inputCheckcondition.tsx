@@ -21,14 +21,11 @@ export default function InputCheckcondition({ value, color, onClick }: Props) {
   return (
     <>
       <Styles.LabelCheckBox
-        {...handlersFuntion(handleChange)}
         checkedValue={check}
         className={`${color}`}
-        onChange={() => {
-          onClick(!check);
-          setCheck(!check);
-        }}
-        htmlFor={value}>
+        htmlFor={value}
+        onChange={() => handleChange()}
+        {...handlersFuntion(handleChange)}>
         <Styles.InputCheckCondition
           type="checkbox"
           checked={check}

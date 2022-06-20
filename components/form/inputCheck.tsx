@@ -23,12 +23,16 @@ export default function InputCheck({ text, value, onChange, id }: Props) {
       <Styles.LabelCheckBox
         htmlFor={value}
         checkedValue={check}
-        {...handlersFuntion(handleChange)}
-        onChange={(e: any) => {
+        onClick={(e: any) => {
           onChange(e.target.value);
           setCheck(!check);
-        }}>
+        }}
+        {...handlersFuntion(handleChange)}>
         <Styles.InputCheck
+          onChange={(e: any) => {
+            onChange(e.target.value);
+            setCheck(!check);
+          }}
           type="checkbox"
           name={value}
           id={id}

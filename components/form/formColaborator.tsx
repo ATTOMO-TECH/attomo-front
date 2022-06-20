@@ -28,6 +28,7 @@ import { handleBlur } from '../../hook/eventListener';
 export default function FormColaborator() {
   const formRef = useRef();
   const [shouldShowActions] = useState(false);
+  const [sectionInputDetailKey, setSectionInputDetailKey] = useState(1);
   const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
   const translate = getLocale();
   const [query, setQuery] = useState('');
@@ -49,7 +50,9 @@ export default function FormColaborator() {
   useEffect(() => {
     setQuery(queryQs);
     setArea([]);
+    setSectionInputDetailKey(Math.random());
   }, [filter]);
+
   const { data: Partner } = useUseAllPartner(query);
   const valueName = FORMVALUES.FIRSTNAME;
   const valueLastName = FORMVALUES.LASTNAME;
@@ -184,7 +187,7 @@ export default function FormColaborator() {
                   {React.Children.toArray(
                     Partner?.data.map((valuesCheck: any) => (
                       <Styles.AlingSelectSecond
-                        key={valuesCheck.attributes.area}>
+                        key={`${valuesCheck.attributes.area}-${sectionInputDetailKey}`}>
                         <InputCheck
                           id={FORMVALUES.SPECIALITY}
                           text={valuesCheck.attributes.area}
