@@ -71,7 +71,7 @@ export default function FormReserver() {
           setSuccesfull(true);
         },
         onError: () => {
-          action.resetForm();
+          action.resetForm({});
         },
       },
     );
@@ -210,7 +210,8 @@ export default function FormReserver() {
                       )}
                     </Styles.BlockInput>
 
-                    <Styles.BlockInput>
+                    <Styles.BlockInput
+                      {...handlersFuntionFocus(FORMVALUES.PHONE)}>
                       <Styles.Input
                         ismode={BUTTON_ACTIVE.ON}
                         placeholder={translate.formPhone}

@@ -3,7 +3,6 @@ import { DatePicker } from 'react-nice-dates';
 import { useState } from 'react';
 import { getLocale } from '../../../public/locales/getLocale';
 import { BlockDiv } from './styles';
-import { handleFocus } from '../../../hook/eventListener';
 
 interface Props {
   handleValue: (value: any) => void;
@@ -17,12 +16,8 @@ export default function CalendarPickerInput({ handleValue, id }: Props) {
   return (
     <BlockDiv
       active={!(dateValue === undefined || null)}
-      id={id}
       className="relative"
-      autoCorrect="off"
-      onTouchStart={() => {
-        handleFocus('reserve');
-      }}>
+      autoCorrect="off">
       <DatePicker
         minimumDate={new Date()}
         format="dd/MM/yyyy"
@@ -44,7 +39,7 @@ export default function CalendarPickerInput({ handleValue, id }: Props) {
             }
             {...inputProps}
             placeholder={translate.SelectDate}
-            id="reserve"
+            id={id}
           />
         )}
       </DatePicker>

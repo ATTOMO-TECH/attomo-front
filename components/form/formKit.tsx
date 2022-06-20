@@ -120,7 +120,7 @@ export default function FormKit() {
                       />
                     )}
                     {touched.email && errors.email && (
-                      <Styles.Error className="-mt-4 lg:mt-0">
+                      <Styles.Error className="lg:mt-0">
                         {errors.email}
                       </Styles.Error>
                     )}

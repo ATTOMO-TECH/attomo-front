@@ -29,65 +29,68 @@ export const Input = styled.div<Props>`
 
 export const CheckRadio = styled.input`
   &[type='radio'] {
+    outline: none !important;
+    display: block;
     appearance: none;
     margin: 0;
     min-width: 25px;
     height: 25px;
+    padding: 5px;
     border: 0.15em solid white;
+    margin-right: 20px;
     border-radius: 100%;
-    margin-right: 10px;
-    opacity: 0.5;
   }
   &:checked {
     content: url(/icon/isoAttomo.svg);
-    width: 2px;
+    min-width: 25px;
     height: 25px;
-    transition: 120ms transform ease-in-out;
-    border: 0.15em solid white;
     padding: 5px;
-    opacity: 1;
+    transition: 120ms transform ease-in-out;
+    border: 1px solid white;
   }
 `;
 export const CheckCheck = styled.input`
-  border-radius: 100%;
   &[type='checkbox'] {
+    outline: none !important;
+    display: block;
     appearance: none;
     margin: 0;
     min-width: 25px;
     height: 25px;
+    padding: 5px;
     border: 0.15em solid white;
+    margin-right: 20px;
     border-radius: 100%;
-    margin-right: 10px;
-    opacity: 0.5;
   }
 
   &:checked {
     content: url(/icon/isoAttomo.svg);
-    width: 25px;
+    min-width: 25px;
     height: 25px;
-    transition: 120ms transform ease-in-out;
-    border: 0.15em solid white;
     padding: 5px;
-    opacity: 1;
+    transition: 120ms transform ease-in-out;
+    border: 1px solid white;
   }
 `;
 export const CheckCheckCondition = styled.input`
   &[type='checkbox'] {
+    outline: none !important;
+    display: block;
     appearance: none;
     margin: 0;
     min-width: 20px;
     height: 20px;
+    padding: 5px;
     border: 0.15em solid white;
-    margin-right: 10px;
-    padding: 2px;
+    margin-right: 20px;
     border-radius: 100%;
   }
 
   &:checked {
-    padding: 5px;
     content: url(/icon/isoAttomo.svg);
-    width: 20px;
+    min-width: 20px;
     height: 20px;
+    padding: 5px;
     transition: 120ms transform ease-in-out;
     border: 1px solid white;
   }
@@ -296,7 +299,7 @@ export const Styles = {
     Field,
   )<Props>`pl-1 outline-none w-full bg-transparent border-b border-primary py-1 font-light text-gray-300 opacity-40 focus:opacity-100 hover:opacity-100 ease-out duration-200
 
-${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 mt-5' : '')}
+${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'pt-7 lg:pt-2' : '')}
 `,
   InputDate: tw(
     Field,
@@ -305,17 +308,19 @@ ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
 `,
   InputRadio: tw(CheckRadio)`cursor-pointer`,
   InputCheck: tw(CheckCheck)`cursor-pointer `,
-  TextCheck: tw.p`truncate text-ellipsis overflow-hidden lg:w-24 lg:w-auto`,
-  InputCheckCondition: tw(CheckCheckCondition)`cursor-pointer `,
-  LabelCheck: tw(Label)`flex gap-0.5 transition duration-200 ease-out`,
+  TextCheck: tw.p`truncate capitalize text-ellipsis overflow-hidden lg:w-24 lg:w-auto`,
+  InputCheckCondition: tw(CheckCheckCondition)`cursor-pointer`,
+  LabelCheck: tw(
+    Label,
+  )`flex gap-0.5 transition duration-200 ease-out cursor-pointer`,
   LabelCheckBox: tw(Label)`
-  flex ease-out duration-200 py-2 text-sm   `,
+  flex ease-out duration-200  text-sm  items-center py-2 cursor-pointer `,
   // FORM
   Error: tw(ErrorText)`absolute text-PrimarySerif text-sm `,
   BlockSelect: tw.div<any>`w-full flex flex-wrap pt-5 text-white font-PrimarySerif font-thin text-sm`,
   BlockSelectSecond: tw.div<any>`w-full flex flex-wrap  text-white font-PrimarySerif font-thin text-sm lg:pb-10 pb-4`,
   AlingSelect: tw.div`w-3/6`,
-  AlingSelectSecond: tw.div`w-full lg:w-2/6 gap-5 flex`,
+  AlingSelectSecond: tw.div`w-full lg:w-2/6 gap-10 flex`,
   BlockCheck: tw.div`flex flex-wrap`,
   TextChecked: tw.p`mx-1 text-left`,
   LinkCheck: tw.h6`ml-1 underline cursor-pointer`,

@@ -16,8 +16,9 @@ export default function Conditions() {
               id="term-form"
               href="/terminos"
               target="_blank"
+              className="underline lg:no-underline"
               {...handlers(`/terminos`)}>
-              {` ${translate.formTems} `}
+              {` ${translate.formTems}  `}
             </a>
           </Link>
           {translate.formAnd}
@@ -26,6 +27,7 @@ export default function Conditions() {
               id="privacy-form"
               href="/privacidad"
               target="_blank"
+              className="underline lg:no-underline"
               {...handlers(`/privacidad`)}>
               {` ${translate.formPrivacy}`}
             </a>
