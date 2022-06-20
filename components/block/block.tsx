@@ -31,7 +31,7 @@ export default function BlockSection({
               <Block.Title ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
                 {text}
               </Block.Title>
-              <Link href={`${link}`}>
+              <Link href={`${link}`} passHref>
                 <Block.BlockBtn {...handlers(`${link}`)}>
                   <IconAnimate text={button} mode={mode} />
                 </Block.BlockBtn>
@@ -47,7 +47,7 @@ export default function BlockSection({
               <Block.Title ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
                 {text2}
               </Block.Title>
-              <Link href={`${link}`}>
+              <Link href={`${link}`} passHref>
                 <Block.BlockBtn {...handlers(`${link}`)}>
                   <IconAnimate text={button2} mode={mode} />
                 </Block.BlockBtn>

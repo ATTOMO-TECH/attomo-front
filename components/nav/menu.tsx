@@ -58,7 +58,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
               ismode={logo ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
               <Navegation.ItemsMenu>
                 {logo ? (
-                  <Link href="/">
+                  <Link href="/" passHref>
                     <img
                       src="/icon/isoAttomo.svg"
                       width={35}
@@ -178,7 +178,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                   <Navegation.SelectMenu
                     key={`${values.Value}`}
                     onClick={closeMenu}>
-                    <Link href={values.Url}>
+                    <Link href={values.Url} passHref>
                       <span
                         id={`${values.Value}-${i}`}
                         {...handlers(values.Url)}>

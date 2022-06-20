@@ -6,11 +6,10 @@ import {
   handleExternalTouch,
 } from './eventListener';
 
-export const handlers = (param: string) => {
+export const handlers = (param: string) =>
   useSwipeable({
     onTap: () => handleClickTouch(param),
   });
-};
 
 export const handlersExternal = (param: string) =>
   useSwipeable({
