@@ -192,22 +192,20 @@ export default function FormColaborator() {
                 )}
                 <Styles.BlockSelectSecond
                   {...handlersFuntionFocus(FORMVALUES.SPECIALITY)}>
-                  {React.Children.toArray(
-                    Partner?.data.map((valuesCheck: any) => (
-                      <Styles.AlingSelectSecond
-                        key={`${valuesCheck.attributes.area}-${sectionInputDetailKey}`}>
-                        <InputCheck
-                          id={FORMVALUES.SPECIALITY}
-                          text={valuesCheck.attributes.area}
-                          value={valuesCheck.id}
-                          onChange={() => {
-                            const data = addArea(valuesCheck.id);
-                            setFieldValue(FORMVALUES.SPECIALITY, data);
-                          }}
-                        />
-                      </Styles.AlingSelectSecond>
-                    )),
-                  )}
+                  {Partner?.data.map((valuesCheck: any) => (
+                    <Styles.AlingSelectSecond
+                      key={`${valuesCheck.attributes.area}-${sectionInputDetailKey}`}>
+                      <InputCheck
+                        id={FORMVALUES.SPECIALITY}
+                        text={valuesCheck.attributes.area}
+                        value={valuesCheck.id}
+                        onChange={() => {
+                          const data = addArea(valuesCheck.id);
+                          setFieldValue(FORMVALUES.SPECIALITY, data);
+                        }}
+                      />
+                    </Styles.AlingSelectSecond>
+                  ))}
                 </Styles.BlockSelectSecond>
                 <Styles.BlockInputsCenter>
                   <Styles.BlockInput

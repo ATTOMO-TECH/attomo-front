@@ -138,16 +138,13 @@ function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: '50%' }}>
                 {translate.selected.map((values) => (
-                  <>
-                    <SelectedClients
-                      key={`SelectedClients${values.Title}`}
-                      textPrimary={values.Section}
-                      text={values.Title}
-                      btn={values.Button}
-                      link="/casosdeexito"
-                    />
-                    ;
-                  </>
+                  <SelectedClients
+                    key={`SelectedClients${values.Title}`}
+                    textPrimary={values.Section}
+                    text={values.Title}
+                    btn={values.Button}
+                    link="/casosdeexito"
+                  />
                 ))}
               </motion.div>
             </Styles.Center>

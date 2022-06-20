@@ -19,7 +19,7 @@ export default function Conditions() {
       <Styles.BlockCheck>
         <Styles.TextChecked>
           {translate.formRead}
-          <Link href="/terminos">
+          <Link href="/terminos" passHref>
             <a
               id="term-form"
               href="/terminos"
@@ -30,7 +30,7 @@ export default function Conditions() {
             </a>
           </Link>
           {translate.formAnd}
-          <Link href="/privacidad">
+          <Link href="/privacidad" passHref>
             <a
               id="privacy-form"
               href="/privacidad"
