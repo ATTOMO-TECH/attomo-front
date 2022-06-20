@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import { Styles } from './style';
 import Conditions from './conditions';
-import { handlersFuntion } from '../../hook/longPress';
 
 interface Props {
   value: any;
@@ -31,8 +30,8 @@ export default function InputCheckcondition({
         id={id}
         className={`${color}`}
         htmlFor={value}
-        onChange={() => handleChange()}
-        {...handlersFuntion(handleChange)}>
+        onTouchStart={() => handleChange()}
+        onChange={() => handleChange()}>
         <Styles.InputCheckCondition
           type="checkbox"
           checked={check}
