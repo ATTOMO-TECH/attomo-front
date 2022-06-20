@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Background from '../components/animations/background';
 import IconAnimate from '../components/button/icon';
 import Footer from '../components/footer/footer';
@@ -15,6 +15,14 @@ import { Styles } from '../styles/styles';
 
 function Error() {
   const router = useRouter();
+  const [translate, setTranslate] = useState(getLocale('es'));
+
+  useEffect(() => {
+    if (router.locale) {
+      setTranslate(getLocale(router.locale));
+    }
+  }, [router.locale]);
+
   let { locale } = router;
   if (locale === '/') {
     locale = 'es';
@@ -30,7 +38,7 @@ function Error() {
     MENU_SCREENS.HOME,
     locale || 'es',
   );
-  const translate = getLocale();
+
   if (screenIsLoading) {
     return (
       <>

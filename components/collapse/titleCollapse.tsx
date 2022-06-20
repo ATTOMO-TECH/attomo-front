@@ -15,6 +15,7 @@ export default function TitleCollapse({ i, tab, idx, handleClick }: Props) {
         ismode={i === idx ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
         key={tab.attributes.name}
         id={`clickCollapse-${i}`}
+        onClick={() => handleClick(i)}
         {...handlersFuntion(() => handleClick(i))}>
         {tab.attributes.name}
       </Styles.TextSelect>

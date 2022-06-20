@@ -26,7 +26,7 @@ export default function BlocKnow({ value }: Props) {
         </Subtext>
         <Styles.BtnLimit>
           <Link href="/contacto" passHref>
-            <a href="/contacto" className="w-12 " {...handlers('/contacto')}>
+            <a href="/contacto" className="w-full " {...handlers('/contacto')}>
               <IconAnimate text={value.Button} mode />
             </a>
           </Link>

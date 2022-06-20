@@ -28,9 +28,6 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
 
   const handleBtn = (value: string) => {
     router.push(router, router, { locale: value });
-    setTimeout(() => {
-      router.reload();
-    }, 10);
   };
 
   return (

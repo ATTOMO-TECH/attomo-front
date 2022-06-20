@@ -8,9 +8,15 @@ interface Props {
   value: any;
   color?: string;
   onClick?: any;
+  id: string;
 }
 
-export default function InputCheckcondition({ value, color, onClick }: Props) {
+export default function InputCheckcondition({
+  value,
+  color,
+  onClick,
+  id,
+}: Props) {
   const [check, setCheck] = useState<boolean>(false);
 
   const handleChange = () => {
@@ -22,6 +28,7 @@ export default function InputCheckcondition({ value, color, onClick }: Props) {
     <>
       <Styles.LabelCheckBox
         checkedValue={check}
+        id={id}
         className={`${color}`}
         htmlFor={value}
         onChange={() => handleChange()}

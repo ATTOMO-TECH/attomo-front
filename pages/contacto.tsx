@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Footer from '../components/footer/footer';
 import RenderForm from '../components/form/renderForm';
@@ -22,6 +22,14 @@ function Contact() {
     SetIsOpen(!isOpen);
   };
   const router = useRouter();
+  const [translate, setTranslate] = useState(getLocale('es'));
+
+  useEffect(() => {
+    if (router.locale) {
+      setTranslate(getLocale(router.locale));
+    }
+  }, [router.locale]);
+
   let { locale } = router;
   if (locale === '/') {
     locale = 'es';
@@ -31,7 +39,6 @@ function Contact() {
     locale || 'es',
   );
 
-  const translate = getLocale();
   if (screenIsLoading) {
     return (
       <>

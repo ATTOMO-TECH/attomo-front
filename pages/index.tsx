@@ -24,9 +24,16 @@ import { Metadata } from '../components/head/metadata';
 
 function Home() {
   const router = useRouter();
-  const translate = getLocale();
+  const [translate, setTranslate] = useState(getLocale('es'));
+
+  useEffect(() => {
+    if (router.locale) {
+      setTranslate(getLocale(router.locale));
+    }
+  }, [router.locale]);
 
   let { locale } = router;
+
   if (locale === '/') {
     locale = 'es';
   }
@@ -131,13 +138,16 @@ function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: '50%' }}>
                 {translate.selected.map((values) => (
-                  <SelectedClients
-                    key={`SelectedClients${values.Title}`}
-                    textPrimary={values.Section}
-                    text={values.Title}
-                    btn={values.Button}
-                    link="/casosdeexito"
-                  />
+                  <>
+                    <SelectedClients
+                      key={`SelectedClients${values.Title}`}
+                      textPrimary={values.Section}
+                      text={values.Title}
+                      btn={values.Button}
+                      link="/casosdeexito"
+                    />
+                    ;
+                  </>
                 ))}
               </motion.div>
             </Styles.Center>

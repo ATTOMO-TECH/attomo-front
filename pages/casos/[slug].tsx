@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/dist/client/router';
 import { motion } from 'framer-motion';
 import Head from 'next/head';
@@ -21,8 +21,14 @@ interface Props {
 }
 
 export default function Cases({ mode }: Props) {
-  const translate = getLocale();
   const router = useRouter();
+  const [translate, setTranslate] = useState(getLocale('es'));
+
+  useEffect(() => {
+    if (router.locale) {
+      setTranslate(getLocale(router.locale));
+    }
+  }, [router.locale]);
   const { slug } = router.query;
   const [shouldShowActions] = useState(false);
   const [isOpen, SetIsOpen] = useState<boolean>(false);

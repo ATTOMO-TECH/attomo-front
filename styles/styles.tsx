@@ -222,7 +222,7 @@ export const Styles = {
   DivideSection: tw.div`lg:w-3/6 w-full pb-2`,
   BlockButton: tw.div`lg:px-24 pt-10`,
   BlockSlider: tw.div` pb-12 px-7`,
-  BtnLimit: tw.div`lg:w-2/6 w-4/6`,
+  BtnLimit: tw.div`lg:w-2/6 sm:w-4/6 w-5/6`,
   SectionProjects: tw.div`lg:m-14 relative z-0`,
   BlockTrends: tw.div`lg:pt-48 flex w-full m-auto md:justify-center items-center lg:pl-0 py-16 flex-wrap w-10/12 `,
   // FilterCases

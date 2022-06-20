@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { ICONNAV } from '../../const/constGlobal';
 import SubFooter from './subfooter';
 import { Navegation } from './style';
@@ -11,7 +10,6 @@ interface Props {
 }
 export default function Footer({ subFooter }: Props) {
   const translate = getLocale();
-  const router = useRouter();
 
   return (
     <>
@@ -23,8 +21,7 @@ export default function Footer({ subFooter }: Props) {
               {translate.menu.map((values) => (
                 <Navegation.ItemsMenu
                   key={`footer${values.Value}`}
-                  id={values.Value}
-                  onTouchStart={() => router.push(values.Url)}>
+                  id={values.Value}>
                   <Link href={values.Url} passHref>
                     {values.Value}
                   </Link>
@@ -38,11 +35,7 @@ export default function Footer({ subFooter }: Props) {
               {ICONNAV.map((values) => (
                 <Navegation.ListIcon key={`footer${values.Name}`}>
                   <Link href={values.Url}>
-                    <a
-                      target="_blank"
-                      href={values.Url}
-                      rel="noreferrer"
-                      onTouchStart={() => router.push(values.Url)}>
+                    <a target="_blank" href={values.Url} rel="noreferrer">
                       <img
                         src={values.Pic2}
                         width={25}
@@ -66,15 +59,12 @@ export default function Footer({ subFooter }: Props) {
         {subFooter ? <SubFooter /> : ''}
         <Navegation.BlockSubText>
           <Link href="/privacidad">
-            <a
-              id="privacy"
-              href="/privacidad"
-              onTouchStart={() => router.push('/privacidad')}>
+            <a id="privacy" href="/privacidad">
               <Navegation.SubText>{translate.privacy}</Navegation.SubText>
             </a>
           </Link>
           <Link href="/terminos" passHref>
-            <a href="/terminos" onTouchStart={() => router.push('/terminos')}>
+            <a href="/terminos">
               <Navegation.SubText>{translate.rightReserve}</Navegation.SubText>
             </a>
           </Link>

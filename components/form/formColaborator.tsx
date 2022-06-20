@@ -1,5 +1,6 @@
 /* eslint-disable no-use-before-define */
 import { Formik } from 'formik';
+import { useRouter } from 'next/router';
 import React, { useEffect, useState, useRef } from 'react';
 import * as qs from 'qs';
 import { equals } from 'ramda';
@@ -26,11 +27,18 @@ import {
 import { handleBlur } from '../../hook/eventListener';
 
 export default function FormColaborator() {
+  const router = useRouter();
+  const [translate, setTranslate] = useState(getLocale('es'));
+
+  useEffect(() => {
+    if (router.locale) {
+      setTranslate(getLocale(router.locale));
+    }
+  }, [router.locale]);
   const formRef = useRef();
   const [shouldShowActions] = useState(false);
   const [sectionInputDetailKey, setSectionInputDetailKey] = useState(1);
   const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
-  const translate = getLocale();
   const [query, setQuery] = useState('');
   const [area, setArea] = useState<any>([]);
   const [filter, setFilter] = useState('');
@@ -340,11 +348,12 @@ export default function FormColaborator() {
                 </Styles.BlockInputEnd>
                 <div {...handlersFuntionFocus(FORMVALUES.CONDITIONS)}>
                   <InputCheckcondition
+                    id={FORMVALUES.CONDITIONS}
                     color="text-primary text-xs pt-6"
                     value={FORMVALUES.CONDITIONS}
-                    onClick={(e: any) =>
-                      setFieldValue(FORMVALUES.CONDITIONS, e)
-                    }
+                    onClick={(e: any) => {
+                      setFieldValue(FORMVALUES.CONDITIONS, e);
+                    }}
                   />
                   <span className="absolute w-2/6">
                     {touched.conditionsAccepted &&

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Btn } from './style';
-import { handlers } from '../../hook/longPress';
+import { handlersExternal } from '../../hook/longPress';
 import { BUTTON_ACTIVE } from '../../const/const';
 
 export default function ButtonShare() {
@@ -24,7 +24,9 @@ export default function ButtonShare() {
           target="_blank"
           href="https://api.whatsapp.com/send/?phone=34610516285"
           rel="noreferrer"
-          {...handlers('https://api.whatsapp.com/send/?phone=34610516285')}>
+          {...handlersExternal(
+            'https://api.whatsapp.com/send/?phone=34610516285',
+          )}>
           <Btn.Icon ismode={!scroll ? BUTTON_ACTIVE.ON : ''}>
             <img
               src="/icon/WhatsApp.png"

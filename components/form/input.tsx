@@ -198,6 +198,7 @@ export default function FormReserver() {
                     </Styles.BlockInputOnly>
                   </Styles.BlockInputEnd>
                   <InputCheckcondition
+                    id={FORMVALUES.CONDITIONS}
                     color="text-primary text-xs pt-6"
                     value={FORMVALUES.CONDITIONS}
                     onClick={(e: any) => setFieldValue(check, e)}

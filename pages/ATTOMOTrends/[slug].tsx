@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/dist/client/router';
 import Head from 'next/head';
 import Footer from '../../components/footer/footerWhite';
@@ -20,9 +20,15 @@ interface Props {
 }
 
 function New({ mode }: Props) {
-  const translate = getLocale();
-  const [isOpen, SetIsOpen] = useState<boolean>(false);
   const router = useRouter();
+  const [translate, setTranslate] = useState(getLocale('es'));
+
+  useEffect(() => {
+    if (router.locale) {
+      setTranslate(getLocale(router.locale));
+    }
+  }, [router.locale]);
+  const [isOpen, SetIsOpen] = useState<boolean>(false);
   const { slug } = router.query;
   const { data, isLoading } = useAPost(Number(slug));
   const toggle = () => {

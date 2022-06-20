@@ -1,11 +1,19 @@
 import Link from 'next/link';
-import { handlers } from '../../hook/longPress';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import { getLocale } from '../../public/locales/getLocale';
+import { handlersExternal } from '../../hook/longPress';
 import { Styles } from './style';
 
 export default function Conditions() {
-  const translate = getLocale();
+  const router = useRouter();
+  const [translate, setTranslate] = useState(getLocale('es'));
 
+  useEffect(() => {
+    if (router.locale) {
+      setTranslate(getLocale(router.locale));
+    }
+  }, [router.locale]);
   return (
     <>
       <Styles.BlockCheck>
@@ -17,7 +25,7 @@ export default function Conditions() {
               href="/terminos"
               target="_blank"
               className="underline lg:no-underline"
-              {...handlers(`/terminos`)}>
+              {...handlersExternal(`/terminos`)}>
               {` ${translate.formTems}  `}
             </a>
           </Link>
@@ -28,7 +36,7 @@ export default function Conditions() {
               href="/privacidad"
               target="_blank"
               className="underline lg:no-underline"
-              {...handlers(`/privacidad`)}>
+              {...handlersExternal(`/privacidad`)}>
               {` ${translate.formPrivacy}`}
             </a>
           </Link>
