@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import { useState } from 'react';
 import { Styles } from './style';
+import { handlersFuntion } from '../../hook/longPress';
 import Conditions from './conditions';
 
 interface Props {
@@ -30,14 +31,12 @@ export default function InputCheckcondition({
         id={id}
         className={`${color}`}
         htmlFor={value}
-
         onClick={() => {
           if (!iOSDevice) {
             handleChange();
           }
         }}
         {...handlersFuntion(handleChange)}>
-
         <Styles.InputCheckCondition
           type="checkbox"
           checked={check}
