@@ -61,6 +61,10 @@ export default function InputNew({ idInput }: Props) {
     handleBlur(idInput);
   });
 
+  useOnClickOutside(formRef, () => {
+    handleBlur(idInput);
+  });
+
   return (
     <>
       <Formik
