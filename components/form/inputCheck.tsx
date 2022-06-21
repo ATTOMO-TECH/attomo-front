@@ -10,16 +10,26 @@ interface Props {
 }
 
 export default function InputCheck({ text, value, onChange, id }: Props) {
+  const iOSDevice = !!navigator.userAgent.match(/iPhone|iPod|iPad/);
   const [check, setCheck] = useState<boolean>(false);
+
 
   return (
     <>
       <Styles.LabelCheckBox
         htmlFor={value}
         checkedValue={check}
+ disableClickInInput
+        onClick={(e: any) => {
+          if (!iOSDevice) {
+            onChange(e.target.value);
+            setCheck(!check);
+          }
+
         onTouchStart={(e: any) => {
           onChange(e.target.value);
           setCheck(!check);
+
         }}
         onClick={(e: any) => {
           onChange(e.target.value);
