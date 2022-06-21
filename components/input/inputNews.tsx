@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Navegation } from './styles';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -10,6 +10,8 @@ import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
 import { useCreateSubscriber } from '../../domain/useSubscriber';
 import InputForNews from './inputForNews';
+import { handleBlur } from '../../hook/eventListener';
+import { useOnClickOutside } from '../../hook/longPress';
 
 const registerSchema = Yup.object().shape({
   [FORMVALUES.EMAIL]: Yup.string()
@@ -21,6 +23,7 @@ interface Props {
 }
 
 export default function InputNew({ idInput }: Props) {
+  const formRef = useRef();
   const [shouldShowActions] = useState(false);
   const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
   const [inputMail, setInputMail] = useState('');
@@ -54,6 +57,10 @@ export default function InputNew({ idInput }: Props) {
     );
   };
 
+  useOnClickOutside(formRef, () => {
+    handleBlur(idInput);
+  });
+
   return (
     <>
       <Formik
@@ -62,7 +69,7 @@ export default function InputNew({ idInput }: Props) {
         validationSchema={registerSchema}
         validateOnMount>
         {({ touched, errors, handleSubmit, setFieldValue }) => (
-          <Navegation.Form onSubmit={handleSubmit}>
+          <Navegation.Form onSubmit={handleSubmit} ref={formRef}>
             {!sendSuccesfull ? (
               <>
                 <Navegation.BlockInput>

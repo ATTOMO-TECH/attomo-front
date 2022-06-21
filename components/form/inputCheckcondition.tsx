@@ -18,7 +18,7 @@ export default function InputCheckcondition({
   id,
 }: Props) {
   const [check, setCheck] = useState<boolean>(false);
-
+  const iOSDevice = !!navigator.userAgent.match(/iPhone|iPod|iPad/);
   const handleChange = () => {
     onClick(!check);
     setCheck(!check);
@@ -31,7 +31,11 @@ export default function InputCheckcondition({
         id={id}
         className={`${color}`}
         htmlFor={value}
-        onChange={() => handleChange()}
+        onClick={() => {
+          if (!iOSDevice) {
+            handleChange();
+          }
+        }}
         {...handlersFuntion(handleChange)}>
         <Styles.InputCheckCondition
           type="checkbox"

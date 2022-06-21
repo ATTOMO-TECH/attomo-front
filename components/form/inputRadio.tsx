@@ -16,6 +16,7 @@ export default function InputRadio({
   valueChecked,
   id,
 }: Props) {
+  const iOSDevice = !!navigator.userAgent.match(/iPhone|iPod|iPad/);
   const handleChange = () => {
     onChange(value);
   };
@@ -25,11 +26,15 @@ export default function InputRadio({
       <Styles.LabelCheck
         htmlFor="partner"
         {...handlersFuntion(handleChange)}
-        onClick={() => onChange(value)}
+        onClick={() => {
+          if (!iOSDevice) {
+            onChange(value);
+          }
+        }}
         checked={valueChecked === value}
         checkedValue={valueChecked === value}>
         <Styles.InputRadio
-          onChange={() => onChange(value)}
+          readOnly
           type="radio"
           name="partner"
           id={id}

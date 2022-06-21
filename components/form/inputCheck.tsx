@@ -11,8 +11,8 @@ interface Props {
 }
 
 export default function InputCheck({ text, value, onChange, id }: Props) {
+  const iOSDevice = !!navigator.userAgent.match(/iPhone|iPod|iPad/);
   const [check, setCheck] = useState<boolean>(false);
-
   const handleChange = ({ event }: any) => {
     onChange(event.target.value);
     setCheck(!check);
@@ -24,8 +24,10 @@ export default function InputCheck({ text, value, onChange, id }: Props) {
         htmlFor={value}
         checkedValue={check}
         onClick={(e: any) => {
-          onChange(e.target.value);
-          setCheck(!check);
+          if (!iOSDevice) {
+            onChange(e.target.value);
+            setCheck(!check);
+          }
         }}
         {...handlersFuntion(handleChange)}>
         <Styles.InputCheck
