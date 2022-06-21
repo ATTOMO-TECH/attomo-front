@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { darkTheme, lightTheme, Navegation } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
-import { handlersFuntion } from '../../hook/longPress';
 
 interface Props {
   toggle: () => void;
@@ -101,7 +100,6 @@ export default function Nav({ toggle, logo, mode, isOpen, bgFull }: Props) {
             </Navegation.BlokSectionLenguage>
             <Navegation.ItemsMenu
               onClick={() => toggle()}
-              {...handlersFuntion(toggle)}
               className="colorMenu">
               <Navegation.TextMenu
                 theme={mode === true ? lightTheme : darkTheme}

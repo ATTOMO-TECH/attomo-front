@@ -317,9 +317,9 @@ ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
   flex ease-out duration-200  text-sm  items-center py-2 cursor-pointer `,
   // FORM
   Error: tw(ErrorText)`absolute text-PrimarySerif text-sm `,
-  BlockSelect: tw.div<any>`w-full flex flex-wrap pt-5 text-white font-PrimarySerif font-thin text-sm`,
+  BlockSelect: tw.div<any>`w-full flex flex-no-wrap pt-5 text-white font-PrimarySerif font-thin text-sm`,
   BlockSelectSecond: tw.div<any>`w-full flex flex-wrap  text-white font-PrimarySerif font-thin text-sm lg:pb-10 pb-4`,
-  AlingSelect: tw.div`w-3/6`,
+  AlingSelect: tw.div`w-3/6 mr-6`,
   AlingSelectSecond: tw.div`w-full lg:w-2/6 gap-10 flex`,
   BlockCheck: tw.div`flex flex-wrap`,
   TextChecked: tw.p`mx-1 text-left`,

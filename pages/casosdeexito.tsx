@@ -160,7 +160,7 @@ function Cases() {
         setPreData([...preData, ...data.data]);
       }
     }
-  }, [data]);
+  }, [data, locale]);
 
   if (screenIsLoading || (isLoading && !preData)) {
     return (
