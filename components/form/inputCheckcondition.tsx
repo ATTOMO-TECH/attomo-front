@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import { Styles } from './style';
 import Conditions from './conditions';
-import { handlersFuntion } from '../../hook/longPress';
 
 interface Props {
   value: any;
@@ -31,12 +30,14 @@ export default function InputCheckcondition({
         id={id}
         className={`${color}`}
         htmlFor={value}
+
         onClick={() => {
           if (!iOSDevice) {
             handleChange();
           }
         }}
         {...handlersFuntion(handleChange)}>
+
         <Styles.InputCheckCondition
           type="checkbox"
           checked={check}
