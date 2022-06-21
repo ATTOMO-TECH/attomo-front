@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/dist/client/router';
 import Head from 'next/head';
 import Footer from '../../components/footer/footerWhite';
-import Menu from '../../components/nav/menu';
+import MenuWhite from '../../components/nav/menuWhite';
 import Nav from '../../components/nav/navWhite';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { darkTheme, lightTheme, Styles } from '../../styles/styles';
@@ -64,7 +64,7 @@ function New({ mode }: Props) {
       <Styles.Body
         mode={isOpen ? BUTTON_ACTIVE.ON : ''}
         theme={mode === true ? lightTheme : darkTheme}>
-        <Menu isOpen={isOpen} toggle={toggle} logo={false} mode />
+        <MenuWhite isOpen={isOpen} toggle={toggle} logo={false} mode />
         <Styles.Margin>
           <Nav toggle={toggle} logo mode={false} bgFull isOpen={isOpen} />
         </Styles.Margin>

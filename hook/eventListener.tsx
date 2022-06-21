@@ -9,7 +9,12 @@ export const handleBlur = (idTag: string) => {
 };
 
 export const handleClickTouch = (link: string) => {
-  document.location.href = link;
+  const language = document.location.pathname.split('/')[1];
+  if (language === 'en') {
+    document.location.href = `${document.location.origin}/en${link}`;
+  } else {
+    document.location.href = document.location.origin + link;
+  }
 };
 
 export const handleExternalTouch = (link: string) => {

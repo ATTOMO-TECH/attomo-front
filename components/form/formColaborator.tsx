@@ -157,7 +157,7 @@ export default function FormColaborator() {
                 onSubmit={handleSubmit}
                 key="formColaborator"
                 ref={formRef}>
-                <div className="pb-10">
+                <div className="pb-4">
                   <Subtext size="lg:text-sm w-full font-PrimarySerif">
                     {translate.partOfTeam}
                   </Subtext>
