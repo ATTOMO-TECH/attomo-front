@@ -30,11 +30,13 @@ export default function SlideCases({ articles, mode }: Props) {
           }>
           {articles.attributes.name}
         </StylesArticle.TopicText>
-        <StylesArticle.TextBlog
-          {...handlers(`/casos/${articles.id}`)}
-          ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-          {articles.attributes.title}
-        </StylesArticle.TextBlog>
+        <Link href={`/casos/${articles.id}`}>
+          <StylesArticle.TextBlog
+            {...handlers(`/casos/${articles.id}`)}
+            ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+            {articles.attributes.title}
+          </StylesArticle.TextBlog>
+        </Link>
       </StylesArticle.BlockText>
     </>
   );

@@ -57,7 +57,6 @@ export default function ArticlesScroll({
       </>
     );
   }
-
   return (
     <>
       <Swiper
@@ -70,7 +69,7 @@ export default function ArticlesScroll({
             slidesPerView: 1,
           },
           '1024': {
-            slidesPerView: 3.5,
+            slidesPerView: data.data.length === 1 ? 1.5 : 3.5,
           },
         }}
         navigation={{
@@ -78,11 +77,13 @@ export default function ArticlesScroll({
           nextEl: nextState,
         }}>
         {data.data.map((articles: any) => (
-          <SwiperSlide
-            key={`${articles.Tag}-${articles.id}`}
-            className="swiper z-10">
-            <Slide articles={articles} mode={mode} />
-          </SwiperSlide>
+          <div className={data.data.length === 1 ? 'lg:w-3/6' : ''}>
+            <SwiperSlide
+              key={`${articles.Tag}-${articles.id}`}
+              className="swiper z-10">
+              <Slide articles={articles} mode={mode} />
+            </SwiperSlide>
+          </div>
         ))}
         {data.meta.pagination.total > 2 && (
           <ArticlesScrollArrow
