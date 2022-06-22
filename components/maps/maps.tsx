@@ -17,7 +17,7 @@ export default function MapsBlock() {
           )}
           rel="noreferrer">
           <Block.SectionBlock>
-            <Block.Maps />
+            <img src="./Map_.jpg" alt="maps" />
           </Block.SectionBlock>
         </a>
       </Link>
