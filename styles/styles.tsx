@@ -23,6 +23,21 @@ export const Button = styled.button`
   box-shadow: 0px 0px 18px -1px rgba(255, 255, 255, 0.9);
   opacity: 1;
 `;
+export const Arrow = styled.div<Props>`
+
+position: relative;
+
+&:after {
+  ${(props) =>
+    props.active === true
+      ? ` content:url('/icon/arrowSelect.svg');`
+      : ` content:url('/icon/calendar.svg');`}
+  position: absolute;
+  right:2%;
+  bottom: 25%;
+  z-index: 100 !important;
+
+`;
 export const Sticky2Styled = styled.div`
   overflow: hidden;
   .section {
@@ -230,7 +245,7 @@ export const Styles = {
 
   // FilterAT
   SectionFilter: tw.div`w-full md:w-2/12 `,
-  SelectFilter: tw.span`w-full md:w-2/12  `,
+  SelectFilter: tw.div<any>`w-full md:w-2/12  `,
   SelectFilterTrends: tw.button`w-full md:w-3/12  `,
   SelectFilterNM: tw.div`w-full md:w-3/12 md:ml-4 mt-4 md:mt-0 `,
   BlockUs: tw.div`lg:w-8/12 m-auto flex flex-wrap lg:pt-24`,
@@ -277,7 +292,7 @@ export const Styles = {
   SpaceCollapse: tw.div`lg:py-48 overflow-hidden`,
 
   // ACTIVESELECT
-  FilterSelectActive: tw.div<Props>`
+  FilterSelectActive: tw(Arrow)<Props>`
   lg:w-10/12 w-full cursor-pointer overflow-x-hidden text-gray-300 font-light border-b text-left py-4 transition duration-00 ease-in-out flex justify-between items-center
   ${(props) =>
     props.mode === BUTTON_ACTIVE.ON ? ' opacity-30' : ' opacity-70'}
