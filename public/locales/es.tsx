@@ -200,7 +200,7 @@ export default {
   ],
   projectUs: [
     {
-      Text: 'ATTOMO nace en enero de 2021 con la misión de ayudar a las pymes en su proceso de digitalización.',
+      Text: 'ATTOMO nace con la misión de ayudar a las pymes en su proceso de digitalización.',
       Subtext:
         '  Está fundada por Álvaro Barrera y Mateo Hernández, que llevan 10 años en el sector tecnológico.',
     },

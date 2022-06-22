@@ -17,14 +17,14 @@ export const SectionZoom = styled.div`
     width: 640px;
     height: 316px;
   }
+  transition: all 0.3s ease-in-out;
   width: 100%;
   height: 360px;
-  // &:hover div {
-  //   transform: scale(1.2);
-  // }
+  &:hover {
+    transform: scale(1.02);
+  }
 `;
 
 export const Block = {
   SectionBlock: tw(SectionZoom)` `,
-  Maps: tw.div`w-full h-full bg-localitation bg-center bg-cover transition ease-in-out duration-500 delay-100 `,
 };

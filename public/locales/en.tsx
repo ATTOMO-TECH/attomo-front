@@ -201,7 +201,7 @@ export default {
   ],
   projectUs: [
     {
-      Text: 'ATTOMO was born in January 2021 with the mission to help SMEs in their digitalization process.',
+      Text: 'ATTOMO was born with the mission to help SMEs in their digitalization process.',
       Subtext:
         'Álvaro Barrera and Mateo Hernández founded it. Both have been in the technology sector for ten years.',
     },
