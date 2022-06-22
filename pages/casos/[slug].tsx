@@ -63,9 +63,9 @@ export default function Cases({ mode }: Props) {
           <meta name="description" content={data?.data?.attributes.metadata} />
         )}
         <meta name="keywords" content={data?.data?.attributes.metadata} />
-        <link rel="canonical" href="https://attomo.digital" />
+        <link rel="canonical" href={document.location.href} />
         <meta name="type" content="website" />
-        <meta name="copyright" content="https://attomo.digital" />
+        <meta name="copyright" content={document.location.href} />
         <meta name="robots" content="index" />
         <meta name="image" content="/FaviconLight.svg" />
       </Head>

@@ -14,9 +14,9 @@ export function Metadata({ screen }: Props) {
         <meta name="description" content={screen.data?.attributes.metadata} />
       )}
       <meta name="keywords" content={screen.data?.attributes.screenTitle} />
-      <link rel="canonical" href="https://attomo.digital" />
+      <link rel="canonical" href={document.location.href} />
       <meta name="type" content="website" />
-      <meta name="copyright" content="https://attomo.digital" />
+      <meta name="copyright" content={document.location.href} />
       <meta name="robots" content="index" />
     </Head>
   );

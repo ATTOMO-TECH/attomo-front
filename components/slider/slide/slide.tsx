@@ -26,11 +26,13 @@ export default function Slide({ articles, mode }: Props) {
         <StylesArticle.TopicText ismode={BUTTON_ACTIVE.ON}>
           {articles.attributes.blog_tags.data[0].attributes.name}
         </StylesArticle.TopicText>
-        <StylesArticle.TextBlog
-          ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-          {...handlers(`/ATTOMOTrends/${articles.id}`)}>
-          {articles.attributes.title}
-        </StylesArticle.TextBlog>
+        <Link href={`/ATTOMOTrends/${articles.id}`}>
+          <StylesArticle.TextBlog
+            ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+            {...handlers(`/ATTOMOTrends/${articles.id}`)}>
+            {articles.attributes.title}
+          </StylesArticle.TextBlog>
+        </Link>
       </StylesArticle.BlockText>
     </>
   );
