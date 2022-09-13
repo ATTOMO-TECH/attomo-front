@@ -179,11 +179,9 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                     key={`${values.Value}`}
                     onClick={closeMenu}>
                     <Link href={values.Url} passHref>
-                      <span
-                        id={`${values.Value}-${i}`}
-                        {...handlers(values.Url)}>
+                      <p id={`${values.Value}-${i}`} {...handlers(values.Url)}>
                         {values.Value}
-                      </span>
+                      </p>
                     </Link>
                   </Navegation.SelectMenu>
                 </motion.li>
