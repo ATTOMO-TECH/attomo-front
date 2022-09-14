@@ -16,4 +16,5 @@ export const MENU_SCREENS = {
   CAREERS: 6,
   CONTACT: 7,
   SPACE: 8,
+  KIT: 9,
 };
