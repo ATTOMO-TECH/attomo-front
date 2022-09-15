@@ -35,7 +35,7 @@ function KitDigital() {
     locale = 'es';
   }
   const { data: screen, isLoading: screenIsLoading } = useAScreen(
-    MENU_SCREENS.HOME,
+    MENU_SCREENS.KIT,
     locale || 'es',
   );
 
