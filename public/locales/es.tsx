@@ -246,6 +246,7 @@ export default {
   sendEmail: 'Escribe tu correo electrónico',
   CasesFilter: 'Filtrar por:',
   trendsFilter: 'Filtrar noticias por:',
+  newsletterSubscription: '¡Gracias por tu confianza! Ya eres parte de ATTOMO.',
   workUs: [
     {
       Text: 'Trabaja con nosotros',

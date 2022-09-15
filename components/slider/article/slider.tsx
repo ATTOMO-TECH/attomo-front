@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 // eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
@@ -23,9 +24,16 @@ export default function ArticlesScroll({
 }: Props) {
   const [prevState, setMyPrev] = useState(null);
   const [nextState, setMyNext] = useState(null);
+  const router = useRouter();
+
+  let { locale } = router;
+  if (locale === '/') {
+    locale = 'es';
+  }
 
   const queryObject: any = {
     populate: 'coverImage',
+    locale: locale || 'es',
     filters: {
       id: {
         $ne: id,

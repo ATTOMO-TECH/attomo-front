@@ -170,7 +170,7 @@ export default {
       Button: 'Our services',
     },
   ],
-  seeMoreProject: 'view project ',
+  seeMoreProject: 'View project ',
   close: 'Close',
 
   seeMore: [
@@ -243,9 +243,11 @@ export default {
       Subtext: `Find out what's new in the industry:`,
     },
   ],
-  sendEmail: 'Write your e-mail.',
+  sendEmail: 'Enter your email address.',
   CasesFilter: 'Filter by:',
   trendsFilter: 'Filter by:',
+  newsletterSubscription:
+    'Thank you for your trust! You are now part of ATTOMO.',
   workUs: [
     {
       Text: 'Work with us',
