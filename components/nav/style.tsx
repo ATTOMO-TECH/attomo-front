@@ -27,7 +27,7 @@ export const Section = styled(motion.nav)`
     display: block;
   }
 `;
-export const itemMenu = styled.h6`
+export const itemMenu = styled.div`
   font-family: 'Merriweather', 'serif';
   font-style: normal;
   font-weight: 300;

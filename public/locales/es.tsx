@@ -33,7 +33,7 @@ export default {
     },
     {
       Value: 'Kit Digital',
-      Url: '/kitDigital',
+      Url: '/kit-digital',
     },
   ],
   home: [

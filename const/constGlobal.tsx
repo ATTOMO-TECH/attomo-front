@@ -56,6 +56,10 @@ export const VALUESNAV: {
     Value: 'Espacio Attomo',
     Url: '/espacio',
   },
+  {
+    Value: 'Kit Digital',
+    Url: '/kit-digital',
+  },
 ];
 export const ICONNAV: {
   Name: string;

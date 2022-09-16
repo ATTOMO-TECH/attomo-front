@@ -308,6 +308,7 @@ function News() {
             />
           </motion.svg>
         </Styles.BlockTrends>
+        {/* {console.log(preData)} */}
         {React.Children.toArray(
           preData.map((dataBlog: any) => <BlockBlog data={dataBlog} />),
         )}
