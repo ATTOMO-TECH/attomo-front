@@ -8,9 +8,10 @@ import { handlersExternal } from '../../hook/longPress';
 
 interface Props {
   works: any[];
+  apply: string;
 }
 
-export default function Work({ works }: Props) {
+export default function Work({ works, apply }: Props) {
   return (
     <>
       {works.map((value) => (
@@ -45,7 +46,7 @@ export default function Work({ works }: Props) {
                   className="w-auto"
                   rel="noreferrer"
                   {...handlersExternal(`https://${value.attributes.url}`)}>
-                  <IconAnimate text="Aplicar" mode />
+                  <IconAnimate text={apply} mode />
                 </a>
               </Link>
             </div>

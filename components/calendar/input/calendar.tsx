@@ -1,18 +1,36 @@
 import es from 'date-fns/locale/es';
+import { enGB } from 'date-fns/locale';
+import { useRouter } from 'next/router';
 import { DatePicker } from 'react-nice-dates';
-import { useState } from 'react';
-import { getLocale } from '../../../public/locales/getLocale';
+import { useState, useEffect } from 'react';
+/* import { getLocale } from '../../../public/locales/getLocale'; */
 import { BlockDiv } from './styles';
 
 interface Props {
   handleValue: (value: any) => void;
   id: any;
+  translate: any;
 }
 
-export default function CalendarPickerInput({ handleValue, id }: Props) {
+export default function CalendarPickerInput({
+  handleValue,
+  id,
+  translate,
+}: Props) {
   const [dateValue, setDate] = useState();
-
-  const translate = getLocale();
+  const router = useRouter();
+  const [locale, setLocale] = useState(es);
+  if (router.locale === '/') {
+    router.locale = 'es';
+  }
+  useEffect(() => {
+    if (router.locale === 'es') {
+      setLocale(es);
+    } else {
+      setLocale(enGB);
+    }
+  }, [router.locale]);
+  /* const translate = getLocale(); */
   return (
     <BlockDiv
       active={!(dateValue === undefined || null)}
@@ -22,7 +40,7 @@ export default function CalendarPickerInput({ handleValue, id }: Props) {
         minimumDate={new Date()}
         format="dd/MM/yyyy"
         date={dateValue}
-        locale={es}
+        locale={locale}
         onDateChange={(date: any) => {
           handleValue(date);
           setDate(date);

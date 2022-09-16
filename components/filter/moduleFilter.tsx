@@ -29,13 +29,13 @@ export default function ModulelFilter({
   if (locale === '/') {
     locale = 'es';
   }
-  const translate = getLocale();
+  const translate = getLocale(locale || 'es');
   return (
     <>
       <Filter.AlingBlock>
         <Filter.InputSearch
           type="text"
-          placeholder="Buscar"
+          placeholder={translate.Search}
           id="search"
           value={searchModal}
           onChange={(e: any) => {
@@ -47,7 +47,7 @@ export default function ModulelFilter({
         />
         <Filter.FirtsItemFilter>
           <Filter.TextItemFilter>
-            <Filter.ValueFilter>Tématica</Filter.ValueFilter>
+            <Filter.ValueFilter>{translate.Topic}</Filter.ValueFilter>
           </Filter.TextItemFilter>
           <Filter.SecondItem>
             <FilterScroll setTopic={setTopic} />
@@ -55,7 +55,7 @@ export default function ModulelFilter({
         </Filter.FirtsItemFilter>
         <Filter.BlockSecondFilter>
           <Filter.TextItemFilter>
-            <Filter.ValueFilter>Fecha</Filter.ValueFilter>
+            <Filter.ValueFilter>{translate.Date}</Filter.ValueFilter>
           </Filter.TextItemFilter>
           <Filter.SecondItem>
             <CalendarPickerInput

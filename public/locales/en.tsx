@@ -1,5 +1,6 @@
 import FormColaborator from '../../components/form/formColaborator';
 import FormCustomer from '../../components/form/formCustomer';
+import { CONDITIONFORM } from '../../const/constGlobal';
 
 export default {
   menu: [
@@ -194,9 +195,9 @@ export default {
   ],
   us: [
     {
-      Text: ' El átomo es el principio de todo, alrededor del cual se construye y fluye todo',
+      Text: ' The atom is the beginning of everything, around which everything is built and flows.',
       Subtext:
-        ' La digitalización también es el principio de todo para cualquier empresa que quiera sobrevivir en el mundo actual y proyectar a futuro',
+        " Digitalization is also the beginning of everything for any company that wants to survive in today's world and project into the future.",
     },
   ],
   projectUs: [
@@ -206,34 +207,34 @@ export default {
         'Álvaro Barrera and Mateo Hernández founded it. Both have been in the technology sector for ten years.',
     },
   ],
-  titleValuesUr: 'The company is built on four differentiating pillars:',
+  titleValuesUr: 'The company is built on four distinctive pillars:',
   valuesUs: [
     {
       Text: 'Scale',
       Subtext:
-        'Today, competition is in any market. Scale to reach millions of people is essential to survive.',
+        'Today, competition is in any market, and the scale to reach millions of people is essential to survive.',
     },
     {
       Text: 'Data',
       Subtext:
-        'Information is everywhere. The important thing is to differentiate between the good and the improvable.',
+        'Information is everywhere. The important thing is to know how to differentiate between the good and the improvable.',
     },
     {
       Text: 'Velocity',
       Subtext:
-        'Good ideas are essential, but only those that grow and move fast survive in this world of immediacy.',
+        'Good ideas are important, but in this world of immediacy, only those that grow and move fast survive.',
     },
     {
       Text: 'Design',
       Subtext:
-        'In a visual-first world, where art is everywhere, generating unforgettable experiences is more important than ever.',
+        'In a visual world, where art is everywhere, generating unforgettable experiences is more important than ever.',
     },
   ],
   selectedUs: [
     {
       Text: 'Selected clients',
       Subtext:
-        'We seek to be a first-class partner focused on developing customized products and projects, where quality always prevails over quantity.',
+        'we seek to be a first-class partner, focused on developing customized products and projects, where quality always prevails over quantity.',
       Button: 'I want to be a client.',
     },
   ],
@@ -255,8 +256,9 @@ export default {
         'We are always looking for digital, technological, and creative profiles to incorporate into our team.',
     },
   ],
-
+  Apply: 'Apply',
   offerWork: 'Work with us',
+
   contactUsWork: [
     {
       Text: 'We want to meet you',
@@ -279,6 +281,10 @@ export default {
   ],
   partOfTeam:
     'Do you want to be part of our team or collaborate as a partner? *',
+  formPartOF: [
+    { id: 1, text: 'Be part of the team', value: CONDITIONFORM.TEAM },
+    { id: 2, text: 'Collaborate as a partner', value: CONDITIONFORM.PARTNER },
+  ],
   speciality: 'Be part of the team/ Collaborate as a partner',
   formName: 'First name *',
   formTime: 'Time',
@@ -294,14 +300,29 @@ export default {
   formPrivacy: ' Policy.',
   formSend: 'Send',
   formRent: 'Rent',
+  formOptionsDisponibility: [
+    { value: 0, text: 'Time' },
+    { value: 30, text: '30 min' },
+    { value: 1, text: '1 Hour' },
+    { value: 2, text: '2 Hours' },
+    { value: 3, text: '3 Hours' },
+    { value: 4, text: '4 Hours' },
+    { value: 5, text: '5 Hours' },
+    { value: 6, text: '6 Hours' },
+    { value: 7, text: '7 Hours' },
+    { value: 8, text: '8 Hours' },
+  ],
   Services: 'Services',
   Topic: 'Topic',
+  Date: 'Date',
+  AddText: 'Add text',
   whereUs: 'Where to find us',
   SelectDate: 'Choose date',
   FromDate: 'From',
   ToDate: 'To',
   Disciplines: 'Disciplinas',
   Deliverables: ' Deliverables',
+  Search: 'Search',
   spaceAttomo: [
     {
       Text: 'The ATTOMO Digital Space',
