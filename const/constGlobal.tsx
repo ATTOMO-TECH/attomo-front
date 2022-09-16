@@ -154,6 +154,11 @@ export const CUSTOMERS: {
     Pic: '/customers/grupo-lalala.png',
     Url: '',
   },
+  {
+    Name: 'VIVLA',
+    Pic: '/customers/vivla.png',
+    Url: '',
+  },
 ];
 
 export const ARTICLES: {
