@@ -21,18 +21,25 @@ export default function SectionProjects({
   i,
 }: Props) {
   const translate = getLocale();
-  console.log(values);
+  /* console.log(values); */
   const { company }: any = values.attributes;
   const { title }: any = values.attributes;
   const { id } = values;
   /* console.log(company, title, id); */
   const arrNewSlug = [];
   arrNewSlug.push(company.replaceAll(' ', ''));
-  arrNewSlug.push(title.replaceAll(/[^\w]/gi, ' ').split(' ').join('-'));
+  arrNewSlug.push(
+    title
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replaceAll(/[^\w]/gi, ' ')
+      .split(' ')
+      .join('-'),
+  );
   arrNewSlug.push(id);
   /* console.log(arrNewSlug); */
   const newSlug = arrNewSlug.join('-');
-  console.log(newSlug);
+  /* console.log(newSlug); */
 
   return (
     <>

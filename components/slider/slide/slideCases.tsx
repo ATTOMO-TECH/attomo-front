@@ -9,18 +9,25 @@ interface Props {
 }
 
 export default function SlideCases({ articles, mode }: Props) {
-  console.log(articles);
+  /* console.log(articles); */
   const { company }: any = articles.attributes;
   const { title }: any = articles.attributes;
   const { id } = articles;
   /* console.log(company, title, id); */
   const arrNewSlug = [];
   arrNewSlug.push(company.replaceAll(' ', ''));
-  arrNewSlug.push(title.replaceAll(/[^\w]/gi, ' ').split(' ').join('-'));
+  arrNewSlug.push(
+    title
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replaceAll(/[^\w]/gi, ' ')
+      .split(' ')
+      .join('-'),
+  );
   arrNewSlug.push(id);
   /* console.log(arrNewSlug); */
   const newSlug = arrNewSlug.join('-');
-  console.log(newSlug);
+  /* console.log(newSlug); */
 
   return (
     <>

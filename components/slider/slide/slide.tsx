@@ -10,6 +10,8 @@ interface Props {
 
 export default function Slide({ articles, mode }: Props) {
   const articleTitle = articles.attributes.title
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
     .replaceAll(/[^\w]/gi, ' ')
     .split(' ')
     .join('-');

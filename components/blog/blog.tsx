@@ -37,6 +37,8 @@ export default function BlockBlog({ data }: Props) {
     },
   };
   const articleTitle = data.attributes.title
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
     .replaceAll(/[^\w]/gi, ' ')
     .split(' ')
     .join('-');
