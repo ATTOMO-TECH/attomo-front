@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { Filter } from './style';
@@ -7,6 +7,7 @@ import ModulelFilterResponsive from './moduleFilterResponsive';
 import ModulelFilter from './moduleFilter';
 import useDeviceSize from '../../hook/size';
 import { handlersFuntion } from '../../hook/longPress';
+import { getLocale } from '../../public/locales/getLocale';
 
 interface Props {
   isOpenFilter: boolean;
@@ -38,6 +39,14 @@ export default function ModalFilter({
   const [endDateModal, setEndDateModal] = useState<any>(endDate);
   const [topicModal, setTopicModal] = useState<any>(topic);
   const [searchModal, setSearchModal] = useState(search);
+
+  const [translate, setTranslate] = useState(getLocale(locale || 'es'));
+
+  useEffect(() => {
+    if (locale) {
+      setTranslate(getLocale(locale));
+    }
+  }, [locale]);
 
   const handleSearch = () => {
     setDate([startDateModal, endDateModal]);
@@ -153,7 +162,7 @@ export default function ModalFilter({
               disabled={!(endDateModal || topicModal || searchModal)}
               onClick={handleSearch}
               {...handlersFuntion(handleSearch)}>
-              Buscar
+              {translate.Search}
             </Filter.BtnSend>
           </Filter.BlockSendButton>
         </div>

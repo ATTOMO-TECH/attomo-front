@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
-import { useRouter } from 'next/router';
-import { useRef, useState, useEffect } from 'react';
+/* import { useRouter } from 'next/router'; */
+import { useRef, useState /* ,   useEffect */ } from 'react';
 import { motion } from 'framer-motion';
 import { Styles } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -9,7 +9,7 @@ import InputSelect from './select';
 import { OPTIONDISPONIBILITY } from '../../const/constGlobal';
 import InputCheckcondition from './inputCheckcondition';
 import { createReserve } from '../../domain/useContact';
-import { getLocale } from '../../public/locales/getLocale';
+/* import { getLocale } from '../../public/locales/getLocale'; */
 import CalendarPickerInput from '../calendar/input/calendar';
 import { validationSchemaBooking } from './validations';
 import { servicesAnimations } from '../animations/animations';
@@ -22,15 +22,18 @@ import {
 } from '../../hook/longPress';
 import { handleBlur } from '../../hook/eventListener';
 
-export default function FormReserver() {
-  const router = useRouter();
-  const [translate, setTranslate] = useState(getLocale('es'));
+type Props = {
+  translate: any;
+};
 
-  useEffect(() => {
-    if (router.locale) {
-      setTranslate(getLocale(router.locale));
-    }
-  }, [router.locale]);
+export default function FormReserver({ translate }: Props) {
+  /* const [translate, setTranslate] = useState(getLocale(locale ||'es')); */
+
+  // useEffect(() => {
+  //   if (locale) {
+  //     setTranslate(getLocale(locale));
+  //   }
+  // }, [locale]);
   const formRef = useRef();
 
   const [shouldShowActions] = useState(false);
@@ -100,16 +103,18 @@ export default function FormReserver() {
     <>
       {!sendSuccesfull ? (
         <>
-          {translate.formBooking.map((values) => (
-            <div key={values.Text}>
-              <Title
-                size=" lg:pt-36 w-full text-center pt-24 leading-relaxed lg:pr-10 lg:text-4xl pb-2 text-3xl "
-                key={values.Text}>
-                {values.Text}
-              </Title>
-              <Subtext size=" text-center py-5  ">{values.Subtext}</Subtext>
-            </div>
-          ))}
+          {translate.formBooking.map(
+            (values: { Text: string; Subtext: string }) => (
+              <div key={values.Text}>
+                <Title
+                  size=" lg:pt-36 w-full text-center pt-24 leading-relaxed lg:pr-10 lg:text-4xl pb-2 text-3xl "
+                  key={values.Text}>
+                  {values.Text}
+                </Title>
+                <Subtext size=" text-center py-5  ">{values.Subtext}</Subtext>
+              </div>
+            ),
+          )}
           <Formik
             onSubmit={handleSubmitReserve}
             initialValues={initialValues}
@@ -178,6 +183,7 @@ export default function FormReserver() {
                           handleValue={(e: any) => {
                             setFieldValue(FORMVALUES.DATE, e);
                           }}
+                          translate={translate}
                         />
                       </div>
                     </Styles.BlockInput>
@@ -188,7 +194,9 @@ export default function FormReserver() {
                         <InputSelect
                           selected={selected}
                           options={OPTIONDISPONIBILITY}
-                          valueLabel={translate.formTime}
+                          valueLabel={
+                            selected === '' ? translate.formTime : selected
+                          }
                           name={FORMVALUES.TIME}
                           onChange={onChange}
                           handleValue={(e: any) => {

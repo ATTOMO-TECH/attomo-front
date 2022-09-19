@@ -22,7 +22,7 @@ import ButtonKit from '../components/button/buttonKit';
 
 function KitDigital() {
   const router = useRouter();
-  const [translate, setTranslate] = useState(getLocale('es'));
+  const [translate, setTranslate] = useState(getLocale(router.locale || 'es'));
 
   useEffect(() => {
     if (router.locale) {

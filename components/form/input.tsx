@@ -134,6 +134,7 @@ export default function FormReserver() {
                           handleValue={(e: any) => {
                             setFieldValue(FORMVALUES.DATE, e);
                           }}
+                          translate={translate}
                         />
                       </div>
                     </Styles.BlockInput>

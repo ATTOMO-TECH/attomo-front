@@ -27,9 +27,20 @@ export default function Filter({
 }: Props) {
   const router = useRouter();
   const [translate, setTranslate] = useState(getLocale('es'));
+  if (router.locale === '/') {
+    router.locale = 'es';
+  }
+  const [topixText, setTopicTest] = useState(
+    router.locale === 'es' ? 'Estrategia' : 'Strategy',
+  );
   useEffect(() => {
     if (router.locale) {
       setTranslate(getLocale(router.locale));
+      if (router.locale === 'es') {
+        setTopicTest('Estrategia');
+      } else {
+        setTopicTest('Strategy');
+      }
     }
   }, [router.locale]);
 
@@ -41,7 +52,7 @@ export default function Filter({
             <Styles.FlexFilter onClick={toggle} onTouchStart={toggle}>
               <Styles.TextFilter>{translate.CasesFilter}</Styles.TextFilter>
               <Styles.FirtsItem>
-                {topic === '' || topic === undefined ? 'Estrategia' : topic}
+                {topic === '' || topic === undefined ? topixText : topic}
               </Styles.FirtsItem>
               <Styles.DateItem>
                 {date === undefined || date === null ? (

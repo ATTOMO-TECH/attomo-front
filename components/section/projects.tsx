@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -20,7 +22,19 @@ export default function SectionProjects({
   servicesAnimations,
   i,
 }: Props) {
-  const translate = getLocale();
+  const router = useRouter();
+  const [translate, setTranslate] = useState(getLocale('es'));
+  let { locale } = router;
+
+  useEffect(() => {
+    if (locale) {
+      setTranslate(getLocale(locale));
+    }
+  }, [locale]);
+
+  if (locale === '/') {
+    locale = 'es';
+  }
 
   return (
     <>

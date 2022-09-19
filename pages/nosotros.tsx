@@ -71,7 +71,10 @@ function Us() {
         <OneProject data={translate.projectUs[0]} />
         <Styles.Center>
           <Styles.BlockUs>
-            <ListUs />
+            <ListUs
+              titleValuesUr={translate.titleValuesUr}
+              valuesUs={translate.valuesUs}
+            />
             <SelectedUs
               text={translate.selectedUs[0].Subtext}
               link="/casosdeexito"

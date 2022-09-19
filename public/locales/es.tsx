@@ -1,5 +1,6 @@
 import FormColaborator from '../../components/form/formColaborator';
 import FormCustomer from '../../components/form/formCustomer';
+import { CONDITIONFORM } from '../../const/constGlobal';
 
 export default {
   menu: [
@@ -246,6 +247,7 @@ export default {
   sendEmail: 'Escribe tu correo electrónico',
   CasesFilter: 'Filtrar por:',
   trendsFilter: 'Filtrar noticias por:',
+  newsletterSubscription: '¡Gracias por tu confianza! Ya eres parte de ATTOMO.',
   workUs: [
     {
       Text: 'Trabaja con nosotros',
@@ -253,7 +255,7 @@ export default {
         'Siempre estamos buscando perfiles digitales, tecnológicos y creativos para incorporar a nuestro equipo',
     },
   ],
-
+  Apply: 'Aplicar',
   offerWork: 'Ofertas de trabajo',
   contactUsWork: [
     {
@@ -277,6 +279,10 @@ export default {
   ],
   partOfTeam:
     '¿Quieres formar parte de nuestro equipo o colaborar como partner? *',
+  formPartOF: [
+    { id: 1, text: 'Formar parte del equipo', value: CONDITIONFORM.TEAM },
+    { id: 2, text: 'Colaborar como partner', value: CONDITIONFORM.PARTNER },
+  ],
   speciality: '¿Cuál es tu especialidad? *',
   formTime: 'Tiempo',
   formName: 'Nombre *',
@@ -292,14 +298,28 @@ export default {
   formPrivacy: 'Privacidad.',
   formSend: 'Enviar',
   formRent: 'Alquilar',
+  formOptionsDisponibility: [
+    { value: 0, text: 'Tiempo' },
+    { value: 30, text: '30 min' },
+    { value: 1, text: '1 Hora' },
+    { value: 2, text: '2 Horas' },
+    { value: 3, text: '3 Horas' },
+    { value: 4, text: '4 Horas' },
+    { value: 5, text: '5 Horas' },
+    { value: 6, text: '6 Horas' },
+    { value: 7, text: '7 Horas' },
+    { value: 8, text: '8 Horas' },
+  ],
   Services: 'Servicios',
   Topic: 'Tématica',
+  Date: 'Fecha',
+  AddText: 'Añadir texto',
   SelectDate: 'Selecciona fecha',
   FromDate: 'Desde',
   ToDate: 'Hasta',
   Disciplines: 'Disciplinas',
   Deliverables: ' Entregables',
-
+  Search: 'Buscar',
   whereUs: 'Nuestras oficinas',
   spaceAttomo: [
     {

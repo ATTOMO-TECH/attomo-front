@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ICONNAV } from '../../const/constGlobal';
 import SubFooter from './subfooter';
@@ -10,7 +12,19 @@ interface Props {
   subFooter: boolean;
 }
 export default function Footer({ subFooter }: Props) {
-  const translate = getLocale();
+  const router = useRouter();
+  const [translate, setTranslate] = useState(getLocale('es'));
+  let { locale } = router;
+
+  useEffect(() => {
+    if (locale) {
+      setTranslate(getLocale(locale));
+    }
+  }, [locale]);
+
+  if (locale === '/') {
+    locale = 'es';
+  }
 
   return (
     <>

@@ -1,6 +1,7 @@
+import { useRouter } from 'next/router';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { useState, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Navegation } from './styles';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -36,7 +37,19 @@ export default function InputNew({ idInput }: Props) {
   const toggleClass = (value: boolean) => {
     setActive(value);
   };
-  const translate = getLocale();
+  const router = useRouter();
+  const [translate, setTranslate] = useState(getLocale('es'));
+  let { locale } = router;
+
+  useEffect(() => {
+    if (locale) {
+      setTranslate(getLocale(locale));
+    }
+  }, [locale]);
+
+  if (locale === '/') {
+    locale = 'es';
+  }
 
   const { mutate } = useCreateSubscriber();
   const sendSubcriber = (values: any, action: any) => {
@@ -123,7 +136,7 @@ export default function InputNew({ idInput }: Props) {
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: '50%' }}>
                 <Title size=" pt-2 leading-relaxed  text-sm">
-                  ¡Gracias por tu confianza! Ya eres parte del Attomo.
+                  {translate.newsletterSubscription}
                 </Title>
               </motion.div>
             )}

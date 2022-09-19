@@ -10,7 +10,7 @@ import { BUTTON_ACTIVE } from '../../const/const';
 import { FORMVALUES } from '../../hook/types';
 import Subtext from '../Text/subText';
 import InputRadio from './inputRadio';
-import { CONDITIONFORM, FORMPARTOF } from '../../const/constGlobal';
+import { CONDITIONFORM } from '../../const/constGlobal';
 import InputCheck from './inputCheck';
 import InputCheckcondition from './inputCheckcondition';
 import { createContactColaborator } from '../../domain/useContact';
@@ -28,7 +28,7 @@ import { handleBlur } from '../../hook/eventListener';
 
 export default function FormColaborator() {
   const router = useRouter();
-  const [translate, setTranslate] = useState(getLocale('es'));
+  const [translate, setTranslate] = useState(getLocale(router.locale || 'es'));
 
   useEffect(() => {
     if (router.locale) {
@@ -167,7 +167,7 @@ export default function FormColaborator() {
                 </div>
                 <Styles.BlockSelect
                   {...handlersFuntionFocus(FORMVALUES.PARTOF)}>
-                  {FORMPARTOF.map((valuesCheck) => (
+                  {translate.formPartOF.map((valuesCheck) => (
                     <Styles.AlingSelect key={`Radio-${valuesCheck.value}`}>
                       <InputRadio
                         id={FORMVALUES.PARTOF}
