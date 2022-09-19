@@ -9,10 +9,23 @@ interface Props {
 }
 
 export default function SlideCases({ articles, mode }: Props) {
+  console.log(articles);
+  const { company }: any = articles.attributes;
+  const { title }: any = articles.attributes;
+  const { id } = articles;
+  /* console.log(company, title, id); */
+  const arrNewSlug = [];
+  arrNewSlug.push(company.replaceAll(' ', ''));
+  arrNewSlug.push(title.replaceAll(/[^\w]/gi, ' ').split(' ').join('-'));
+  arrNewSlug.push(id);
+  /* console.log(arrNewSlug); */
+  const newSlug = arrNewSlug.join('-');
+  console.log(newSlug);
+
   return (
     <>
-      <Link href={`/casos/${articles.id}`}>
-        <span {...handlers(`/casos/${articles.id}`)}>
+      <Link href={`/casos/${newSlug}`}>
+        <span {...handlers(`/casos/${newSlug}`)}>
           <StylesArticle.Img
             src={articles.attributes.mainPhoto.data[0].attributes.url}
             alt={
@@ -30,9 +43,9 @@ export default function SlideCases({ articles, mode }: Props) {
           }>
           {articles.attributes.name}
         </StylesArticle.TopicText>
-        <Link href={`/casos/${articles.id}`}>
+        <Link href={`/casos/${newSlug}`}>
           <StylesArticle.TextBlog
-            {...handlers(`/casos/${articles.id}`)}
+            {...handlers(`/casos/${newSlug}`)}
             ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
             {articles.attributes.title}
           </StylesArticle.TextBlog>

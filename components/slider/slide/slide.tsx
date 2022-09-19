@@ -9,10 +9,17 @@ interface Props {
 }
 
 export default function Slide({ articles, mode }: Props) {
+  const articleTitle = articles.attributes.title
+    .replaceAll(/[^\w]/gi, ' ')
+    .split(' ')
+    .join('-');
+
+  /* console.log(articleTitle) */
+
   return (
     <>
-      <Link href={`/ATTOMOTrends/${articles.id}`}>
-        <span {...handlers(`/ATTOMOTrends/${articles.id}`)}>
+      <Link href={`/attomo-trends/${articleTitle}-${articles.id}`}>
+        <span {...handlers(`/attomo-trends/${articleTitle}-${articles.id}`)}>
           <StylesArticle.Img
             src={articles.attributes.coverImage.data.attributes.url}
             alt={articles.Text}
@@ -26,10 +33,10 @@ export default function Slide({ articles, mode }: Props) {
         <StylesArticle.TopicText ismode={BUTTON_ACTIVE.ON}>
           {articles.attributes.blog_tags.data[0].attributes.name}
         </StylesArticle.TopicText>
-        <Link href={`/ATTOMOTrends/${articles.id}`}>
+        <Link href={`/attomo-trends/${articleTitle}-${articles.id}`}>
           <StylesArticle.TextBlog
             ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-            {...handlers(`/ATTOMOTrends/${articles.id}`)}>
+            {...handlers(`/attomo-trends/${articleTitle}-${articles.id}`)}>
             {articles.attributes.title}
           </StylesArticle.TextBlog>
         </Link>

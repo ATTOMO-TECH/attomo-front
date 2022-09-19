@@ -42,7 +42,7 @@ export const VALUESNAV: {
   },
   {
     Value: '#ATTOMOTrends',
-    Url: '/ATTOMOTrends',
+    Url: '/attomo-trends',
   },
   {
     Value: 'Careers',
@@ -54,7 +54,7 @@ export const VALUESNAV: {
   },
   {
     Value: 'Espacio Attomo',
-    Url: '/espacio',
+    Url: '/espacio-attomo',
   },
   {
     Value: 'Kit Digital',

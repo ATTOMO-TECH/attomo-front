@@ -36,6 +36,11 @@ export default function BlockBlog({ data }: Props) {
       },
     },
   };
+  const articleTitle = data.attributes.title
+    .replaceAll(/[^\w]/gi, ' ')
+    .split(' ')
+    .join('-');
+  /* console.log(articleTitle) */
 
   return (
     <>
@@ -47,7 +52,7 @@ export default function BlockBlog({ data }: Props) {
         animate="show">
         <motion.div variants={item}>
           <Blogstyles.Article>
-            <Link href={`/ATTOMOTrends/${data.id}`} passHref>
+            <Link href={`/attomo-trends/${articleTitle}-${data.id}`} passHref>
               <Blogstyles.BlockImg>
                 {data.attributes?.coverImage?.data?.attributes?.url ? (
                   <img
@@ -56,7 +61,7 @@ export default function BlockBlog({ data }: Props) {
                     height={700}
                     alt={data.attributes.coverImage.data.attributes?.name}
                     id={`${data.id}`}
-                    {...handlers(`/ATTOMOTrends/${data.id}`)}
+                    {...handlers(`/attomo-trends/${articleTitle}-${data.id}`)}
                   />
                 ) : null}
               </Blogstyles.BlockImg>
@@ -73,9 +78,9 @@ export default function BlockBlog({ data }: Props) {
               </Subtext>
 
               <Blogstyles.SubText />
-              <Link href={`/ATTOMOTrends/${data.id}`} passHref>
+              <Link href={`attomo-trends/${articleTitle}-${data.id}`} passHref>
                 <span
-                  {...handlers(`/ATTOMOTrends/${data.id}`)}
+                  {...handlers(`attomo-trends/${articleTitle}-${data.id}`)}
                   className="h-12 w-2/6 relative">
                   <IconAnimate text="Leer" mode />
                 </span>

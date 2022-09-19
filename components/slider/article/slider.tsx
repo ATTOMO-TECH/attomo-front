@@ -21,6 +21,7 @@ export default function ArticlesScroll({
   id,
   renderTouch,
 }: Props) {
+  /* console.log(id) */
   const [prevState, setMyPrev] = useState(null);
   const [nextState, setMyNext] = useState(null);
 
