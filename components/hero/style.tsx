@@ -7,6 +7,39 @@ type Props = {
   mode?: string;
 };
 
+export const TextHeroTitle = styled.h1`
+  font-family: 'Merriweather';
+  font-size: 2 rem;
+  font-weight: bold;
+  padding-bottom: 1.5rem;
+  will-change: transform;
+  background: linear-gradient(
+    90deg,
+    #b4a9bc 0%,
+    #ffffff 10.79%,
+    #ffffff 70.3%,
+    #b4a9bc 100%
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 400% 400%;
+
+  -webkit-animation: gradient 5s ease infinite;
+  animation: gradient 5s ease infinite;
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+`;
+
 export const TextHero = styled.h2`
   font-family: 'Merriweather';
   font-weight: 300;
@@ -80,6 +113,17 @@ export const textSubText = styled.h6`
   font-size: 47.78px;
   line-height: 72px;
 `;
+
+export const TitleSection = {
+  TextHead: tw(TextHeroTitle)` lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl`,
+  SectionHero: tw.section`font-Primary`,
+  Blockbutton: tw.div`relative cursor-pointer w-20 lg:w-48`,
+  TextButton: tw.h6`text-primary font-PrimarySerif font-light text-xs sm:text-lg lg:text-lg pt-10`,
+  BlockArrow: tw.span`absolute `,
+  SectionHeroCases: tw(
+    BlockHeroSection,
+  )`md:w-10/12 w-full h-full z-0 sticky bg-no-repeat bg-center bg-cover `,
+};
 
 export const HeadSection = {
   TextHead: tw(TextHero)` lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl`,

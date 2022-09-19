@@ -38,6 +38,7 @@ export default {
   ],
   home: [
     {
+      HeroTitle: 'Consultora tecnológica - ATTOMO Digital',
       HeroText: 'Somos una consultora tecnológica con una única misión:',
       HeroSubTex:
         'ayudar a las empresas y administraciones a liderar a través de la digitalización',
