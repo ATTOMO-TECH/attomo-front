@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ICONNAV } from '../../const/constGlobal';
 import SubFooter from './subfooter';
@@ -10,7 +12,19 @@ interface Props {
   subFooter: boolean;
 }
 export default function Footer({ subFooter }: Props) {
-  const translate = getLocale();
+  const router = useRouter();
+  const [translate, setTranslate] = useState(getLocale('es'));
+  let { locale } = router;
+
+  useEffect(() => {
+    if (locale) {
+      setTranslate(getLocale(locale));
+    }
+  }, [locale]);
+
+  if (locale === '/') {
+    locale = 'es';
+  }
 
   return (
     <>
@@ -41,7 +55,7 @@ export default function Footer({ subFooter }: Props) {
                       target="_blank"
                       href={values.Url}
                       id={values.Name}
-                      rel="noreferrer"
+                      rel="nofollow noreferrer"
                       {...handlersExternal(values.Url)}>
                       <img
                         src={values.Pic2}
@@ -66,12 +80,12 @@ export default function Footer({ subFooter }: Props) {
         <div className="relative ">{subFooter && <SubFooter />}</div>
         <Navegation.BlockSubText>
           <Link href="/privacidad" passHref>
-            <a href="/privacidad" {...handlers('/privacidad')}>
+            <a href="/privacidad" rel="nofollow" {...handlers('/privacidad')}>
               <Navegation.SubText>{translate.privacy}</Navegation.SubText>
             </a>
           </Link>
           <Link href="/terminos" passHref>
-            <a href="/terminos" {...handlers('/terminos')}>
+            <a href="/terminos" rel="nofollow" {...handlers('/terminos')}>
               <Navegation.SubText>{translate.rightReserve}</Navegation.SubText>
             </a>
           </Link>

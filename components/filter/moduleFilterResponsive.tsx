@@ -31,7 +31,7 @@ export default function ModulelFilterResponsive({
   setStartDateModal,
   setEndDateModal,
 }: Props) {
-  const translate = getLocale();
+  const translate = getLocale(locale || 'es');
   const { data: Subservice, isLoading } = useUseAllSubServices(locale || 'es');
   const [selectedTopic, setSelectedTopic] = useState(topicModal);
 
@@ -57,14 +57,14 @@ export default function ModulelFilterResponsive({
   return (
     <>
       <Filter.SectionMobile id="MobileFilterCases">
-        <Title size="text-md text-left pb-0 ">Filtrar por</Title>
+        <Title size="text-md text-left pb-0 ">{translate.CasesFilter}</Title>
         <Filter.BlockItemMobile>
           <Subtext size=" text-xs font-Primary text-left font-light">
-            Buscar
+            {translate.Search}
           </Subtext>
           <Filter.InputSearch
             type="text"
-            placeholder="Añadir texto"
+            placeholder={translate.AddText}
             value={searchModal}
             id="search"
             onTouchStart={() => {
@@ -77,13 +77,13 @@ export default function ModulelFilterResponsive({
         </Filter.BlockItemMobile>
         <Filter.BlockItemMed>
           <Subtext size=" text-xs font-Primary text-left font-light">
-            Servicios
+            {translate.Services}
           </Subtext>
           <InputSelect
             selected={selectedTopic}
             options={DEPARTMENT}
             valueLabel={
-              selectedTopic === '' ? `${translate.allServices}` : selectedTopic
+              selectedTopic === '' ? translate.allServices : selectedTopic
             }
             name="filter"
             onChange={onChangeTopic}
@@ -92,7 +92,7 @@ export default function ModulelFilterResponsive({
         </Filter.BlockItemMed>
         <Filter.BlockItemMobile>
           <Subtext size=" text-xs font-Primary text-left font-light">
-            Fecha
+            {translate.Date}
           </Subtext>
           <CalendarPickerInput
             placeholderFrom={translate.FromDate}

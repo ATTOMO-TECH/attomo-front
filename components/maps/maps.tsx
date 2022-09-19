@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import { handlersExternal } from '../../hook/longPress';
-
 import { Block } from './style';
 
 export default function MapsBlock() {
+  const path = window.location.href;
+  const arrayPath = path.split('/');
+  /* console.log(arrayPath) */
   return (
     <>
       <Link
@@ -17,7 +19,7 @@ export default function MapsBlock() {
           )}
           rel="noreferrer">
           <Block.SectionBlock>
-            <img src="./Map_.jpg" alt="maps" />
+            <img src={`${arrayPath[0]}//${arrayPath[2]}/Map_.jpg`} alt="maps" />
           </Block.SectionBlock>
         </a>
       </Link>

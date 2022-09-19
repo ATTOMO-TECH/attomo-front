@@ -112,7 +112,7 @@ function Space() {
           )}
         </Styles.Center>
         <Styles.Center id="reserva">
-          <FormReserver />
+          <FormReserver translate={translate} />
         </Styles.Center>
         <Styles.CenterMargin>
           <Title size="text-2xl  lg:pr-10 "> {translate.whereUs}</Title>

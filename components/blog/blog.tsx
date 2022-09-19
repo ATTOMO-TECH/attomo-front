@@ -11,6 +11,7 @@ interface Props {
 }
 
 export default function BlockBlog({ data }: Props) {
+  /** console.log(data) */
   const variants = {
     hidden: {
       opacity: 0,
@@ -53,7 +54,7 @@ export default function BlockBlog({ data }: Props) {
                     src={data.attributes.coverImage.data.attributes?.url}
                     width={900}
                     height={700}
-                    alt={data.attributes.name}
+                    alt={data.attributes.coverImage.data.attributes?.name}
                     id={`${data.id}`}
                     {...handlers(`/ATTOMOTrends/${data.id}`)}
                   />
@@ -62,7 +63,7 @@ export default function BlockBlog({ data }: Props) {
             </Link>
             <Blogstyles.BlockText>
               <Subtext size="text-sm leading-relaxed  ">
-                {data.attributes.blog_tags.data[0].attributes.name}
+                {data.attributes.blog_tags.data[0]?.attributes.name}
               </Subtext>
               <Title size="text-xl lg:text-3xl pr-12 md:pr-4 lg:pr-12 leading-loose pt-4 md:pt-0 lg:pt-4">
                 {data.attributes.title}

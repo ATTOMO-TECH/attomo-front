@@ -7,7 +7,7 @@ import { getLocale } from '../../public/locales/getLocale';
 export default function RenderForm() {
   const router = useRouter();
   const [iDx, setidx] = useState(0);
-  const [translate, setTranslate] = useState(getLocale('es'));
+  const [translate, setTranslate] = useState(getLocale(router.locale || 'es'));
   const handleClick = (idx: number) => {
     setidx(idx);
   };

@@ -28,7 +28,7 @@ function Services() {
     }
   }, [locale]);
   const { data: screen, isLoading: screenIsLoading } = useAScreen(
-    MENU_SCREENS.HOME,
+    MENU_SCREENS.SERVICES,
     locale || 'es',
   );
 

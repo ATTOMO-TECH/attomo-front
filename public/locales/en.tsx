@@ -1,5 +1,6 @@
 import FormColaborator from '../../components/form/formColaborator';
 import FormCustomer from '../../components/form/formCustomer';
+import { CONDITIONFORM } from '../../const/constGlobal';
 
 export default {
   menu: [
@@ -46,107 +47,109 @@ export default {
   ],
   kitDigital: [
     {
-      HeroText: 'Plan de ayudas al Kit Digital',
+      HeroText: 'Digital kit support plan',
       HeroSubTex:
-        'Si tienes de 0 a 49 empleados, puedes recibir hasta 12.000 € para digitalizar tu empresa. Nosotros te ayudamos.',
+        'If you have between 0 and 49 employees, you can receive up to 12,000 euros to digitize your company. We will help you.',
     },
   ],
-  HeaderKit: 'Programa Kit Digital',
+  HeaderKit: 'Digital kit program',
   programKit: [
     {
-      item: `El Kit Digital es una iniciativa del Gobierno de España que tiene como objetivo subvencionar la implantación de soluciones digitales disponibles en el mercado para conseguir un avance significativo en el nivel de madurez digital. Proporciona una serie de servicios digitales para ayudarles a impulsar la transición digital.`,
+      item: `The Digital Kit is an initiative of the Government of Spain that aims to subsidize the implementation of digital solutions available on the market to achieve a significant advance in the level of digital maturity. It provides a series of digital services to help them boost the digital transition.`,
     },
     {
-      item: ` Es un programa del Ministerio de Asuntos Económicos y Transformación Digital dirigido a pymes y autónomos, que te acompaña en tu proceso de transformación digital.`,
+      item: `It is a program of the Ministry of Economic Affairs and Digital Transformation aimed at SMEs and freelancers, which accompanies you in your digital transformation process.`,
     },
     {
-      item: `Estas ayudas se enmarcan dentro de los Fondos Europeos para la recuperación económica Next Generation EU. No es necesario adelantar dinero al ser subvenciones a fondo perdido.`,
+      item: `These grants are part of the European Funds for economic recovery Next Generation EU. It is not necessary to advance money as they are non-refundable grants.`,
     },
-    {
-      item: `El Kit Digital es una iniciativa del Gobierno de España que tiene como objetivo subvencionar la implantación de soluciones digitales disponibles en el mercado para conseguir un avance significativo en el nivel de madurez digital. Proporciona una serie de servicios digitales para ayudarles a impulsar la transición digital.`,
-    },
+    /* {
+      item: `The Digital Kit is an initiative of the Government of Spain that aims to subsidize the implementation of digital solutions available on the market to achieve a significant advance in the level of digital maturity. It provides a series of digital services to help them boost the digital transition.`,
+    }, */
   ],
   subText:
-    'El programa Kit Digital está financiado por la Unión Europea a través de los fondos Next Generation (EU) enmarcado en el Plan de Recuperación, Transformación y Resiliencia.',
+    'The Kit Digital program is funded by the European Union through Next Generation (EU) funds under the Recovery, Transformation and Resilience Plan.',
 
-  kitTitlerequirements: 'Requisitos para solicitar el Kit Digital',
-  btnHow: 'Qué es el Kit Digital',
-  btnForm: 'Solicitar Kit Digital',
-  helpYou: 'Nosotros te ayudamos',
+  kitTitlerequirements: 'Requirements to apply for the Digital Kit',
+  btnHow: 'What is the digital kit',
+  btnForm: 'Request digital kit',
+  helpYou: 'We help you',
   kitRequirements: [
     {
-      item: 'Ser microempresa, pequeña empresa (hasta 49 trabajadores) o autónomo.',
+      item: 'Be a microenterprise, small company (up to 49 workers) or self-employed.',
     },
     {
-      item: 'No tener la consideración de empresa en crisis.',
+      item: 'Not to be considered a company in crisis.',
     },
     {
-      item: 'Estar al corriente de las obligaciones tributarias y frente a la Seguridad Social.',
+      item: 'Be up to date with tax and Social Security obligations.',
     },
     {
-      item: 'No estar sujeto a una orden de recuperación pendiente de la Comisión Europea que haya declarado una ayuda ilegal e incompatible con el mercado común.',
+      item: 'Not to be subject to a pending recovery order from the European Commission that has declared an aid illegal and incompatible with the common market.',
     },
     {
-      item: 'No incurrir en ninguna de las prohibiciones previstas en el artículo 13.2 de la Ley 38/2003, de 17 de noviembre, General de Subvenciones.',
+      item: 'Not to incur in any of the prohibitions foreseen in Article 13.2 of Law 38/2003, of November 17, 2003, General Law on Subsidies.',
     },
     {
-      item: `Estar inscrito en el Censo de empresarios, profesionales y retenedores de la Agencia Estatal de Administración Tributaria o en el censo equivalente de la Administración Tributaria Foral.`,
+      item: `To be registered in the Census of businessmen, professionals and withholders of the State Agency of Tax Administration or in the equivalent census of the Foral Tax Administration.`,
     },
     {
-      item: `No superar el límite de ayudas de mínimos –todas las subvenciones otorgadas por estados de la UE inferiores a 200.000 €–.`,
+      item: `Not to exceed the minimum aid limit -all subsidies granted by EU states of less than €200,000-.`,
     },
     {
-      item: `Disponer de la evaluación del Nivel de Madurez Digital de acuerdo con el test de diagnóstico en la plataforma Acelera pyme.`,
+      item: `Have the evaluation of the Digital Maturity Level according to the diagnostic test in the Acelera pyme platform.`,
     },
     {
-      item: `Tener el domicilio fiscal en España.`,
+      item: `Have a tax domicile in Spain.`,
     },
   ],
-  howKitTitle: '¿Cómo solicitar el Kit Digital?',
+  howKitTitle: 'How to apply for the Digital Kit?',
   howSubtex:
-    'El Kit Digital supone un bono digital con una cuantía económica para que escojas una o varias soluciones digitales de las ofrecidas por los agentes digitalizadores que desarrollen los servicios del catálogo. Sigue estos pasos para solicitar el Kit Digital:',
+    'The Digital Kit is a digital voucher with an economic amount for you to choose one or more digital solutions offered by the digitalizing agents that develop the services of the catalog. Follow these steps to apply for the Digital Kit:',
   howRequeriments: [
     {
-      item: 'Regístrate en Acelera Pyme y completa el test de autodiagnóstico.',
+      item: 'Register in Acelera Pyme and complete the self-diagnosis test.',
     },
     {
-      item: 'Consulta el catálogo de agentes digitalizadores y elige las soluciones que te interesen.',
+      item: 'Consult the catalog of digitizing agents and choose the solutions you are interested in.',
     },
-    { item: 'Rellena la solicitud de ayuda en la sede electrónica de Red.es.' },
     {
-      item: 'Accede a tu Kit Digital a través de un agente digitalizador, como ATTOMO.',
+      item: 'Fill in the application form at the Red.es electronic headquarters.',
+    },
+    {
+      item: 'Access your Digital Kit through a digitizing agent, such as ATTOMO.',
     },
   ],
-  AgentKit: 'Somos agentes digitalizadores',
+  AgentKit: 'We are digitizing agents',
   AgentRequeriments: [
     {
-      title: 'Sitio Web',
-      item: 'Creación de tu página web a medida y servicios de posicionamiento web (SEO), para mejorar la presencia en buscadores.',
+      title: 'Website',
+      item: 'Custom website creation and SEO services to improve your presence in search engines.',
       logo: '/kit/logos/Icono-SitioWeb.png',
     },
     {
-      title: 'Gestión de redes sociales',
-      item: 'Generación de contenido y promoción de tu negocio en redes sociales.',
+      title: 'Social media management',
+      item: 'Content generation and promotion of your business in social networks.',
       logo: '/kit/logos/Icono-RedesSociales.png',
     },
     {
-      title: 'Business Inteligence & analítica',
-      item: 'Visualizaición del estado de tu negocio a partir del análisis inteligente de datos, para mejorar el proceso de toma de decisiones.',
+      title: 'Business Intelligence & analytics',
+      item: 'Visualization of the state of your business based on intelligent data analysis, to improve the decision making process.',
       logo: '/kit/logos/Icono-BusinessInteligence.png',
     },
     {
-      title: 'Comercio electrónico',
-      item: 'Creación y personalización de tu tienda online, para vender de productos y/o servicios a través de internet.',
+      title: 'E-commerce',
+      item: 'Creation and customization of your online store, to sell products and/or services through the internet.',
       logo: '/kit/logos/Icono-ComercioElectronico.png',
     },
     {
-      title: 'Gestión de clientes y proveedores',
-      item: 'Digitalización y optimización de la gestión de las relaciones comerciales con clientes y proveedores.',
+      title: 'Customer and supplier management',
+      item: 'Digitalization and optimization of the management of commercial relationships with customers and suppliers.',
       logo: '/kit/logos/Icono-GestionClientes.png',
     },
     {
-      title: 'Gestión de procesos',
-      item: 'Digitalización y automatización de procesos relacionados con aspectos productivos y operativos.',
+      title: 'Process management',
+      item: 'Digitalization and automation of processes related to production and operational aspects.',
       logo: '/kit/logos/Icono-GestionProcesos.png',
     },
   ],
@@ -159,8 +162,8 @@ export default {
     },
   ],
 
-  searchAgent: '¿Buscas un agente digitalizador?',
-  helpYouKit: 'Te ayudamos a conseguir el kit digital',
+  searchAgent: 'Looking for a digitizing agent?',
+  helpYouKit: 'We help you to get the digital kit',
   selected: [
     {
       Section: 'Selected clients',
@@ -170,7 +173,7 @@ export default {
       Button: 'Our services',
     },
   ],
-  seeMoreProject: 'view project ',
+  seeMoreProject: 'View project ',
   close: 'Close',
 
   seeMore: [
@@ -194,9 +197,9 @@ export default {
   ],
   us: [
     {
-      Text: ' El átomo es el principio de todo, alrededor del cual se construye y fluye todo',
+      Text: ' The atom is the beginning of everything, around which everything is built and flows.',
       Subtext:
-        ' La digitalización también es el principio de todo para cualquier empresa que quiera sobrevivir en el mundo actual y proyectar a futuro',
+        " Digitalization is also the beginning of everything for any company that wants to survive in today's world and project into the future.",
     },
   ],
   projectUs: [
@@ -206,34 +209,34 @@ export default {
         'Álvaro Barrera and Mateo Hernández founded it. Both have been in the technology sector for ten years.',
     },
   ],
-  titleValuesUr: 'The company is built on four differentiating pillars:',
+  titleValuesUr: 'The company is built on four distinctive pillars:',
   valuesUs: [
     {
       Text: 'Scale',
       Subtext:
-        'Today, competition is in any market. Scale to reach millions of people is essential to survive.',
+        'Today, competition is in any market, and the scale to reach millions of people is essential to survive.',
     },
     {
       Text: 'Data',
       Subtext:
-        'Information is everywhere. The important thing is to differentiate between the good and the improvable.',
+        'Information is everywhere. The important thing is to know how to differentiate between the good and the improvable.',
     },
     {
       Text: 'Velocity',
       Subtext:
-        'Good ideas are essential, but only those that grow and move fast survive in this world of immediacy.',
+        'Good ideas are important, but in this world of immediacy, only those that grow and move fast survive.',
     },
     {
       Text: 'Design',
       Subtext:
-        'In a visual-first world, where art is everywhere, generating unforgettable experiences is more important than ever.',
+        'In a visual world, where art is everywhere, generating unforgettable experiences is more important than ever.',
     },
   ],
   selectedUs: [
     {
       Text: 'Selected clients',
       Subtext:
-        'We seek to be a first-class partner focused on developing customized products and projects, where quality always prevails over quantity.',
+        'we seek to be a first-class partner, focused on developing customized products and projects, where quality always prevails over quantity.',
       Button: 'I want to be a client.',
     },
   ],
@@ -243,9 +246,11 @@ export default {
       Subtext: `Find out what's new in the industry:`,
     },
   ],
-  sendEmail: 'Write your e-mail.',
+  sendEmail: 'Enter your email address.',
   CasesFilter: 'Filter by:',
   trendsFilter: 'Filter by:',
+  newsletterSubscription:
+    'Thank you for your trust! You are now part of ATTOMO.',
   workUs: [
     {
       Text: 'Work with us',
@@ -253,8 +258,9 @@ export default {
         'We are always looking for digital, technological, and creative profiles to incorporate into our team.',
     },
   ],
-
+  Apply: 'Apply',
   offerWork: 'Work with us',
+
   contactUsWork: [
     {
       Text: 'We want to meet you',
@@ -277,6 +283,10 @@ export default {
   ],
   partOfTeam:
     'Do you want to be part of our team or collaborate as a partner? *',
+  formPartOF: [
+    { id: 1, text: 'Be part of the team', value: CONDITIONFORM.TEAM },
+    { id: 2, text: 'Collaborate as a partner', value: CONDITIONFORM.PARTNER },
+  ],
   speciality: 'Be part of the team/ Collaborate as a partner',
   formName: 'First name *',
   formTime: 'Time',
@@ -292,14 +302,29 @@ export default {
   formPrivacy: ' Policy.',
   formSend: 'Send',
   formRent: 'Rent',
+  formOptionsDisponibility: [
+    { value: 0, text: 'Time' },
+    { value: 30, text: '30 min' },
+    { value: 1, text: '1 Hour' },
+    { value: 2, text: '2 Hours' },
+    { value: 3, text: '3 Hours' },
+    { value: 4, text: '4 Hours' },
+    { value: 5, text: '5 Hours' },
+    { value: 6, text: '6 Hours' },
+    { value: 7, text: '7 Hours' },
+    { value: 8, text: '8 Hours' },
+  ],
   Services: 'Services',
   Topic: 'Topic',
+  Date: 'Date',
+  AddText: 'Add text',
   whereUs: 'Where to find us',
   SelectDate: 'Choose date',
   FromDate: 'From',
   ToDate: 'To',
   Disciplines: 'Disciplinas',
   Deliverables: ' Deliverables',
+  Search: 'Search',
   spaceAttomo: [
     {
       Text: 'The ATTOMO Digital Space',
