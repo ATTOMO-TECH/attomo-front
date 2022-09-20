@@ -45,6 +45,7 @@ function Privacidad() {
     <>
       <Head>
         <title>Politica de Privacidad - ATTOMO ESTUDIO</title>
+        <meta name="robots" content="noindex follow" />
       </Head>
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Background />

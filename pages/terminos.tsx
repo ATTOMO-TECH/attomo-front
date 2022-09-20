@@ -45,6 +45,7 @@ function Conditions() {
     <>
       <Head>
         <title>ATTOMO - Terminos y condicciones </title>
+        <meta name="robots" content="noindex follow" />
       </Head>
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
         <Background />
