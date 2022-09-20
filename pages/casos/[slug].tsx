@@ -29,7 +29,14 @@ export default function Cases({ mode }: Props) {
       setTranslate(getLocale(router.locale));
     }
   }, [router.locale]);
-  const { slug } = router.query;
+  const { slug }: any = router.query;
+  /* console.log(typeof slug); */
+  let id = 0;
+  if (slug) {
+    const arrSlug = slug.split('-');
+    /* console.log(arrSlug); */
+    id = Number(arrSlug[arrSlug.length - 1]);
+  }
   const [shouldShowActions] = useState(false);
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const toggle = () => {
@@ -39,7 +46,7 @@ export default function Cases({ mode }: Props) {
   if (locale === '/') {
     locale = 'es';
   }
-  const { data, isLoading } = useaCase(Number(slug), locale || 'es');
+  const { data, isLoading } = useaCase(Number(id), locale || 'es');
   if (isLoading) {
     return (
       <>
@@ -108,7 +115,7 @@ export default function Cases({ mode }: Props) {
             <CasesScroll
               mode={false}
               filter={data?.data?.attributes?.subservice?.data?.name}
-              id={slug}
+              id={id.toString()}
               renderTouch={false}
             />
           </Styles.AlingBlock>

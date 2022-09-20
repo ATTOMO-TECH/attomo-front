@@ -29,7 +29,6 @@ function Cases() {
   let { locale } = router;
 
   useEffect(() => {
-    /* Prueba para probar las GA */
     if (locale) {
       setTranslate(getLocale(locale));
     }
