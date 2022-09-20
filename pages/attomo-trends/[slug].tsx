@@ -29,8 +29,16 @@ function New({ mode }: Props) {
     }
   }, [router.locale]);
   const [isOpen, SetIsOpen] = useState<boolean>(false);
-  const { slug } = router.query;
-  const { data, isLoading } = useAPost(Number(slug));
+  const { slug }: any = router.query;
+  /* console.log(typeof slug); */
+  let id = 0;
+  if (slug) {
+    const arrSlug = slug.split('-');
+    /* console.log(arrSlug); */
+    id = Number(arrSlug[arrSlug.length - 1]);
+  }
+  /* console.log(id): */
+  const { data, isLoading } = useAPost(Number(id));
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
@@ -89,7 +97,7 @@ function New({ mode }: Props) {
               mode={false}
               renderTouch={false}
               filter={data?.data.attributes.blog_tags.data[0].attributes.name}
-              id={Number(slug)}
+              id={Number(id)}
             />
           </Styles.AlingBlock>
         </Styles.FlexEnd>

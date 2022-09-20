@@ -1,5 +1,5 @@
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+/* import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react'; */
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -22,19 +22,26 @@ export default function SectionProjects({
   servicesAnimations,
   i,
 }: Props) {
-  const router = useRouter();
-  const [translate, setTranslate] = useState(getLocale('es'));
-  let { locale } = router;
-
-  useEffect(() => {
-    if (locale) {
-      setTranslate(getLocale(locale));
-    }
-  }, [locale]);
-
-  if (locale === '/') {
-    locale = 'es';
-  }
+  const translate = getLocale();
+  /* console.log(values); */
+  const { company }: any = values.attributes;
+  const { title }: any = values.attributes;
+  const { id } = values;
+  /* console.log(company, title, id); */
+  const arrNewSlug = [];
+  arrNewSlug.push(company.replaceAll(' ', ''));
+  arrNewSlug.push(
+    title
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replaceAll(/[^\w]/gi, ' ')
+      .split(' ')
+      .join('-'),
+  );
+  arrNewSlug.push(id);
+  /* console.log(arrNewSlug); */
+  const newSlug = arrNewSlug.join('-');
+  /* console.log(newSlug); */
 
   return (
     <>
@@ -52,10 +59,10 @@ export default function SectionProjects({
         <Styles.BlockSections
           ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
           key={values.Client}>
-          <Link href={`/casos/${values.id}`} passHref>
+          <Link href={`/casos/${newSlug}`} passHref>
             <Styles.BlockSection
               ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-              {...handlers(`/casos/${values.id}`)}>
+              {...handlers(`/casos/${newSlug}`)}>
               {values?.attributes?.mainPhoto?.data[0].attributes?.url && (
                 <img
                   src={values?.attributes.mainPhoto.data[0].attributes.url}
@@ -87,8 +94,8 @@ export default function SectionProjects({
               <Title size="lg:text-4xl md:text-2xl text-xl sm:w-96 w-80  py-3 leading-relaxed lg:leading-normal">
                 {values.attributes.title}
               </Title>
-              <Link href={`/casos/${values.id}`} passHref>
-                <Styles.BlockBtn {...handlers(`/casos/${values.id}`)}>
+              <Link href={`/casos/${newSlug}`} passHref>
+                <Styles.BlockBtn {...handlers(`/casos/${newSlug}`)}>
                   <IconAnimate text={translate.seeMoreProject} mode />
                 </Styles.BlockBtn>
               </Link>

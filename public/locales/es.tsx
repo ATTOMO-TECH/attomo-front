@@ -18,7 +18,7 @@ export default {
     },
     {
       Value: '#ATTOMOTrends',
-      Url: '/ATTOMOTrends',
+      Url: '/attomo-trends',
     },
     {
       Value: 'Careers',
@@ -30,7 +30,7 @@ export default {
     },
     {
       Value: 'Espacio ATTOMO',
-      Url: '/espacio',
+      Url: '/espacio-attomo',
     },
     {
       Value: 'Kit Digital',
