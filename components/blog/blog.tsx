@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Blogstyles } from './style';
-import Title from '../Text/title';
+import TitleBlog from '../Text/titleBlog';
 import IconAnimate from '../button/icon';
-import Subtext from '../Text/subText';
+import SubtextBlog from '../Text/subTextBlog';
 import { handlers } from '../../hook/longPress';
 
 interface Props {
@@ -69,15 +69,21 @@ export default function BlockBlog({ data }: Props) {
               </Blogstyles.BlockImg>
             </Link>
             <Blogstyles.BlockText>
-              <Subtext size="text-sm leading-relaxed  ">
+              <SubtextBlog
+                size="text-sm leading-relaxed  "
+                url={`/attomo-trends/${articleTitle}-${data.id}`}>
                 {data.attributes.blog_tags.data[0]?.attributes.name}
-              </Subtext>
-              <Title size="text-xl lg:text-3xl pr-12 md:pr-4 lg:pr-12 leading-loose pt-4 md:pt-0 lg:pt-4">
+              </SubtextBlog>
+              <TitleBlog
+                size="text-xl lg:text-3xl pr-12 md:pr-4 lg:pr-12 leading-loose pt-4 md:pt-0 lg:pt-4 cursor-pointer"
+                url={`/attomo-trends/${articleTitle}-${data.id}`}>
                 {data.attributes.title}
-              </Title>
-              <Subtext size="pr-12 md:pr-4 lg:pr-12 pt-4 md:pt-0 lg:pt-4 text-sm leading-relaxed ">
+              </TitleBlog>
+              <SubtextBlog
+                size="pr-12 md:pr-4 lg:pr-12 pt-4 md:pt-0 lg:pt-4 text-sm leading-relaxed cursor-pointer"
+                url={`/attomo-trends/${articleTitle}-${data.id}`}>
                 {data.attributes.title}
-              </Subtext>
+              </SubtextBlog>
 
               <Blogstyles.SubText />
               <Link href={`attomo-trends/${articleTitle}-${data.id}`} passHref>
