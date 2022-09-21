@@ -87,11 +87,11 @@ export default function BlockBlog({ data }: Props) {
 
               <Blogstyles.SubText />
               <Link href={`attomo-trends/${articleTitle}-${data.id}`} passHref>
-                <span
+                <a
                   {...handlers(`attomo-trends/${articleTitle}-${data.id}`)}
                   className="h-12 w-2/6 relative">
                   <IconAnimate text="Leer" mode />
-                </span>
+                </a>
               </Link>
             </Blogstyles.BlockText>
           </Blogstyles.Article>

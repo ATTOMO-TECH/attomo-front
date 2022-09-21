@@ -46,7 +46,7 @@ export const Styles = {
     props.ismode === BUTTON_ACTIVE.OFF
       ? 'flex flex-col lg:flex-row-reverse items-center relative lg:mt-48 lg:ml-0 '
       : ''}`,
-  BlockSection: tw.span<Props>`
+  BlockSection: tw.a<Props>`
 
   ${(props) =>
     props.ismode === BUTTON_ACTIVE.ON ? 'lg:w-3/6 w-11/12 -ml-16 ' : ''}
@@ -68,7 +68,7 @@ export const Styles = {
   BlockMargin: tw.div`lg:py-48 flex flex-col lg:flex-row w-full justify-justify-around`,
   BlockMarginText: tw.div`lg:pt-12`,
   DivideSection: tw.div`h-full flex items-start lg:justify-around flex-col lg:flex-row justify-center w-full`,
-  BlockBtn: tw.span`text-primary z-100 w-3/6`,
+  BlockBtn: tw.a`text-primary z-100 w-3/6`,
 
   SectionImg: tw.section`grid grid-cols-1 sm:grid-cols-2 lg:gap-6 `,
   SectionPrices: tw.section`grid grid-cols-1 sm:grid-cols-3 gap-8 px-12 place-items-center`,

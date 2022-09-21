@@ -32,14 +32,14 @@ export default function SlideCases({ articles, mode }: Props) {
   return (
     <>
       <Link href={`/casos/${newSlug}`}>
-        <span {...handlers(`/casos/${newSlug}`)}>
+        <a href={`/casos/${newSlug}`}>
           <StylesArticle.Img
             src={articles.attributes.mainPhoto.data[0].attributes.url}
             alt={
               articles.attributes.mainPhoto.data[0].attributes.alternativeText
             }
           />
-        </span>
+        </a>
       </Link>
       <StylesArticle.BlockText theme={mode === false ? lightTheme : darkTheme}>
         <StylesArticle.TopicText
