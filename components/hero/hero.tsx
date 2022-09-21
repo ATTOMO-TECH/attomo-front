@@ -1,16 +1,25 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { HeadSection } from './style';
+import { HeadSection, TitleSection } from './style';
 import { handlers } from '../../hook/longPress';
 
 type Props = {
+  title: string;
+  subTitle: string;
   text: string;
   text2: string;
   button: string;
   link: string;
 };
 
-export default function Hero({ text, text2, button, link }: Props) {
+export default function Hero({
+  title,
+  subTitle,
+  text,
+  text2,
+  button,
+  link,
+}: Props) {
   const line1 = text;
   const line2 = text2;
   const duration = 0.5;
@@ -61,6 +70,10 @@ export default function Hero({ text, text2, button, link }: Props) {
           initial="initial"
           animate="animate"
           exit="exit">
+          <TitleSection.SectionTitle>
+            <TitleSection.TextTitle>{title}</TitleSection.TextTitle>
+            <TitleSection.TextSubTitle>{subTitle}</TitleSection.TextSubTitle>
+          </TitleSection.SectionTitle>
           <HeadSection.TextHead>
             {line1} {line2}
           </HeadSection.TextHead>
