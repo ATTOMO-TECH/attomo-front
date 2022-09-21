@@ -8,7 +8,6 @@ type Props = {
 };
 
 export const TextHeroTitle = styled.h1`
-  text-align: center;
   font-family: 'Merriweather';
   font-size: 2.5 rem;
   font-weight: 700;
@@ -143,7 +142,6 @@ export const TitleHeroSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   @media screen and (min-width: 1024px) {
     height: 50vh;
   }
