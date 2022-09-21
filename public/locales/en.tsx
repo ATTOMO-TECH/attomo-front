@@ -38,7 +38,8 @@ export default {
   ],
   home: [
     {
-      HeroTitle: 'Consultora tecnológica - ATTOMO Digital',
+      HeroTitle: 'ATTOMO DIGITAL',
+      HeroSubTitle: 'Technology consulting',
       HeroText: 'We are a technology consulting firm with a single mission:',
       HeroSubTex:
         'To help companies and administrations to lead through digitalization.',
