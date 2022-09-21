@@ -93,7 +93,7 @@ function Space() {
                 key={values.Text}
                 text={values.Subtext}
                 btn={values.Button}
-                link="/espacio#reserva"
+                link="/espacio-attomo#reserva"
                 textPrimary={values.Text}
               />
             ))}
