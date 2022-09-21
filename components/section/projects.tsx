@@ -7,7 +7,7 @@ import IconAnimate from '../button/icon';
 import Title from '../Text/title';
 import { Styles } from './style';
 import { getLocale } from '../../public/locales/getLocale';
-import { handlers } from '../../hook/longPress';
+/* import { handlers } from '../../hook/longPress'; */
 
 interface Props {
   values: any;
@@ -59,19 +59,20 @@ export default function SectionProjects({
         <Styles.BlockSections
           ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
           key={values.Client}>
-          <Link href={`/casos/${newSlug}`} passHref>
+          <Link href={`/casos/${newSlug}`}>
             <Styles.BlockSection
-              ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-              {...handlers(`/casos/${newSlug}`)}>
+              ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
               {values?.attributes?.mainPhoto?.data[0].attributes?.url && (
-                <img
-                  src={values?.attributes.mainPhoto.data[0].attributes.url}
-                  width={800}
-                  height={600}
-                  id={`${values.id}`}
-                  alt={values.attributes.name}
-                  className="object-cover cursor-pointer"
-                />
+                <a href={`/casos/${newSlug}`}>
+                  <img
+                    src={values?.attributes.mainPhoto.data[0].attributes.url}
+                    width={800}
+                    height={600}
+                    id={`${values.id}`}
+                    alt={values.attributes.name}
+                    className="object-cover cursor-pointer"
+                  />
+                </a>
               )}
             </Styles.BlockSection>
           </Link>
@@ -94,9 +95,11 @@ export default function SectionProjects({
               <Title size="lg:text-4xl md:text-2xl text-xl sm:w-96 w-80  py-3 leading-relaxed lg:leading-normal">
                 {values.attributes.title}
               </Title>
-              <Link href={`/casos/${newSlug}`} passHref>
-                <Styles.BlockBtn {...handlers(`/casos/${newSlug}`)}>
-                  <IconAnimate text={translate.seeMoreProject} mode />
+              <Link href={`/casos/${newSlug}`}>
+                <Styles.BlockBtn>
+                  <a href={`/casos/${newSlug}`}>
+                    <IconAnimate text={translate.seeMoreProject} mode />
+                  </a>
                 </Styles.BlockBtn>
               </Link>
             </motion.div>
