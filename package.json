@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "export NODE_OPTIONS=--max_old_space_size=4096 next build ",
+    "build": "next build ",
     "start": "next start",
     "lint": "yarn tsc --noEmit && yarn eslint --fix . && yarn prettier --write .",
     "prepare": "husky install"
