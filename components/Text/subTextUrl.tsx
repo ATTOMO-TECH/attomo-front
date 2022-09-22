@@ -7,10 +7,10 @@ interface Props {
   size: string;
 }
 
-export default function TitleBlog({ children, url, size }: Props) {
+export default function SubtextUrl({ children, size, url }: Props) {
   return (
     <Link href={`${url}`} passHref>
-      <Text.TextTitle className={size}>{children}</Text.TextTitle>
+      <Text.SubTextTitle className={size}>{children}</Text.SubTextTitle>
     </Link>
   );
 }

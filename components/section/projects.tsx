@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { BUTTON_ACTIVE } from '../../const/const';
 import IconAnimate from '../button/icon';
-import Title from '../Text/title';
+import TitleUrl from '../Text/titleUrl';
 import { Styles } from './style';
 import { getLocale } from '../../public/locales/getLocale';
 /* import { handlers } from '../../hook/longPress'; */
@@ -92,9 +92,11 @@ export default function SectionProjects({
               <Styles.Paragraph className="text-sm font-PrimarySerif uppercase">
                 {values.attributes.company}
               </Styles.Paragraph>
-              <Title size="lg:text-4xl md:text-2xl text-xl sm:w-96 w-80  py-3 leading-relaxed lg:leading-normal">
+              <TitleUrl
+                url={`/casos/${newSlug}`}
+                size="lg:text-4xl md:text-2xl text-xl sm:w-96 w-80  py-3 leading-relaxed lg:leading-normal cursor-pointer">
                 {values.attributes.title}
-              </Title>
+              </TitleUrl>
               <Link href={`/casos/${newSlug}`}>
                 <Styles.BlockBtn>
                   <a href={`/casos/${newSlug}`}>
