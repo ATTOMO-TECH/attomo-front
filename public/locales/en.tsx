@@ -251,6 +251,7 @@ export default {
   sendEmail: 'Enter your email address.',
   CasesFilter: 'Filter by:',
   trendsFilter: 'Filter by:',
+  trendsReadButton: 'Read',
   newsletterSubscription:
     'Thank you for your trust! You are now part of ATTOMO.',
   workUs: [

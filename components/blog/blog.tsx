@@ -1,10 +1,13 @@
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { Blogstyles } from './style';
 import TitleUrl from '../Text/titleUrl';
 import IconAnimate from '../button/icon';
 import SubtextUrl from '../Text/subTextUrl';
 import { handlers } from '../../hook/longPress';
+import { getLocale } from '../../public/locales/getLocale';
 
 interface Props {
   data: any;
@@ -12,6 +15,19 @@ interface Props {
 
 export default function BlockBlog({ data }: Props) {
   /** console.log(data) */
+  const router = useRouter();
+  let { locale } = router;
+  if (locale === '/') {
+    locale = 'es';
+  }
+  const [translate, setTranslate] = useState(getLocale(locale || 'es'));
+
+  useEffect(() => {
+    if (locale) {
+      setTranslate(getLocale(locale));
+    }
+  }, [locale]);
+
   const variants = {
     hidden: {
       opacity: 0,
@@ -90,7 +106,7 @@ export default function BlockBlog({ data }: Props) {
                 <a
                   {...handlers(`attomo-trends/${articleTitle}-${data.id}`)}
                   className="h-12 w-2/6 relative">
-                  <IconAnimate text="Leer" mode />
+                  <IconAnimate text={translate.trendsReadButton} mode />
                 </a>
               </Link>
             </Blogstyles.BlockText>
