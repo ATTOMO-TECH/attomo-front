@@ -17,11 +17,15 @@ const getAServices = async (lenguage: string, query: any) => {
   return data;
 };
 export function useUseAllServices(lenguage: string) {
-  return useQuery(['useAllServices'], () => getAllServices(lenguage), {
-    staleTime: 2500,
-    notifyOnChangePropsExclusions: ['isStale'],
-    refetchOnWindowFocus: false,
-  });
+  return useQuery(
+    ['useAllServices', lenguage],
+    () => getAllServices(lenguage),
+    {
+      staleTime: 2500,
+      notifyOnChangePropsExclusions: ['isStale'],
+      refetchOnWindowFocus: false,
+    },
+  );
 }
 export function useUseAllSubServices(lenguage: string) {
   return useQuery(
