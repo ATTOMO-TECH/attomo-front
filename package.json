@@ -11,7 +11,8 @@
     "build": "next build ",
     "start": "next start",
     "lint": "yarn tsc --noEmit && yarn eslint --fix . && yarn prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@emailjs/browser": "^3.6.2",
@@ -30,6 +31,7 @@
     "next": "^12.0.10",
     "next-i18next": "^10.3.0",
     "next-seo": "^5.1.0",
+    "next-sitemap": "^3.1.22",
     "qs": "^6.10.3",
     "ramda": "^0.28.0",
     "react": "^17.0.2",
