@@ -1,15 +1,15 @@
 import { Formik } from 'formik';
-/* import { useRouter } from 'next/router'; */
-import { useRef, useState /* ,   useEffect */ } from 'react';
+import { useRouter } from 'next/router';
+import { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Styles } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { FORMVALUES } from '../../hook/types';
 import InputSelect from './select';
-import { OPTIONDISPONIBILITY } from '../../const/constGlobal';
+/* import { OPTIONDISPONIBILITY } from '../../const/constGlobal'; */
 import InputCheckcondition from './inputCheckcondition';
 import { createReserve } from '../../domain/useContact';
-/* import { getLocale } from '../../public/locales/getLocale'; */
+import { getLocale } from '../../public/locales/getLocale';
 import CalendarPickerInput from '../calendar/input/calendar';
 import { validationSchemaBooking } from './validations';
 import { servicesAnimations } from '../animations/animations';
@@ -22,24 +22,28 @@ import {
 } from '../../hook/longPress';
 import { handleBlur } from '../../hook/eventListener';
 
-type Props = {
-  translate: any;
-};
+export default function FormReserver() {
+  const router = useRouter();
+  let { locale } = router;
+  if (locale === '/') {
+    locale = 'es';
+  }
+  const [translate, setTranslate] = useState(getLocale(locale || 'es'));
+  console.log(translate.formTime);
+  console.log(locale);
 
-export default function FormReserver({ translate }: Props) {
-  /* const [translate, setTranslate] = useState(getLocale(locale ||'es')); */
-
-  // useEffect(() => {
-  //   if (locale) {
-  //     setTranslate(getLocale(locale));
-  //   }
-  // }, [locale]);
+  useEffect(() => {
+    if (locale) {
+      setTranslate(getLocale(locale));
+    }
+  }, [locale]);
   const formRef = useRef();
 
   const [shouldShowActions] = useState(false);
   const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
   const [selected, setSelected] = useState('');
   const onChange = (e: any) => {
+    console.log(e.value);
     setSelected(e.value);
   };
 
@@ -193,9 +197,11 @@ export default function FormReserver({ translate }: Props) {
                         {...handlersFuntionFocus(FORMVALUES.TIME)}>
                         <InputSelect
                           selected={selected}
-                          options={OPTIONDISPONIBILITY}
+                          options={translate.formOptionsDisponibility}
                           valueLabel={
-                            selected === '' ? translate.formTime : selected
+                            selected === ''
+                              ? translate.formOptionsDisponibility[0].text
+                              : selected
                           }
                           name={FORMVALUES.TIME}
                           onChange={onChange}
