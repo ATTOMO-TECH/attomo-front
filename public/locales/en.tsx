@@ -306,7 +306,7 @@ export default {
   formSend: 'Send',
   formRent: 'Rent',
   formOptionsDisponibility: [
-    { value: 0, text: 'Time' },
+    { value: 0, text: 'Time', disabled: true },
     { value: 30, text: '30 min' },
     { value: 1, text: '1 Hour' },
     { value: 2, text: '2 Hours' },
@@ -317,6 +317,8 @@ export default {
     { value: 7, text: '7 Hours' },
     { value: 8, text: '8 Hours' },
   ],
+  formBookingSpaceMessage:
+    'Thank you for reserving with us, we can promise you that your event will be memorable.',
   Services: 'Services',
   Topic: 'Topic',
   Date: 'Date',

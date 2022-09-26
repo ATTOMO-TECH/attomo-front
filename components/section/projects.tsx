@@ -1,5 +1,5 @@
-/* import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react'; */
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -22,7 +22,18 @@ export default function SectionProjects({
   servicesAnimations,
   i,
 }: Props) {
-  const translate = getLocale();
+  const router = useRouter();
+  let { locale } = router;
+  if (locale === '/') {
+    locale = 'es';
+  }
+  const [translate, setTranslate] = useState(getLocale(locale || 'es'));
+
+  useEffect(() => {
+    if (locale) {
+      setTranslate(getLocale(locale));
+    }
+  }, [locale]);
   /* console.log(values); */
   const { company }: any = values.attributes;
   const { title }: any = values.attributes;
@@ -101,6 +112,7 @@ export default function SectionProjects({
                 <Styles.BlockBtn>
                   <a href={`/casos/${newSlug}`}>
                     <IconAnimate text={translate.seeMoreProject} mode />
+                    {console.log(translate.seeMoreProject)}
                   </a>
                 </Styles.BlockBtn>
               </Link>

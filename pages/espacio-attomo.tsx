@@ -23,6 +23,10 @@ import RenderLoading from '../components/loading/loading';
 
 function Space() {
   const router = useRouter();
+  let { locale } = router;
+  if (locale === '/') {
+    locale = 'es';
+  }
   const SliderSSR = dynamic(
     () =>
       import('../components/slider/espacio/slider').then(
@@ -34,19 +38,16 @@ function Space() {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
-  const [translate, setTranslate] = useState(getLocale('es'));
+  const [translate, setTranslate] = useState(getLocale(locale || 'es'));
 
   useEffect(() => {
-    if (router.locale) {
-      setTranslate(getLocale(router.locale));
+    if (locale) {
+      setTranslate(getLocale(locale));
     }
-  }, [router.locale]);
+  }, [locale]);
 
   const [width] = useDeviceSize();
-  let { locale } = router;
-  if (locale === '/') {
-    locale = 'es';
-  }
+
   const { data: screen, isLoading: screenIsLoading } = useAScreen(
     MENU_SCREENS.SPACE,
     locale || 'es',
@@ -112,7 +113,7 @@ function Space() {
           )}
         </Styles.Center>
         <Styles.Center id="reserva">
-          <FormReserver translate={translate} />
+          <FormReserver />
         </Styles.Center>
         <Styles.CenterMargin>
           <Title size="text-2xl  lg:pr-10 "> {translate.whereUs}</Title>
