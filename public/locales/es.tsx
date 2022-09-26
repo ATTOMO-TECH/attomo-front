@@ -313,6 +313,8 @@ export default {
     { value: 7, text: '7 Horas' },
     { value: 8, text: '8 Horas' },
   ],
+  formBookingSpace:
+    'Gracias por reservar con nosotros, te prometemos que tu evento será inolvidable.',
   Services: 'Servicios',
   Topic: 'Tématica',
   Date: 'Fecha',

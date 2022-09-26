@@ -317,6 +317,8 @@ export default {
     { value: 7, text: '7 Hours' },
     { value: 8, text: '8 Hours' },
   ],
+  formBookingSpace:
+    'Gracias por reservar con nosotros, te prometemos que tu evento será inolvidable.',
   Services: 'Services',
   Topic: 'Topic',
   Date: 'Date',
