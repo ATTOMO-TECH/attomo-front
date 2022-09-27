@@ -21,12 +21,12 @@ export default function Slide({ articles, mode }: Props) {
   return (
     <>
       <Link href={`/attomo-trends/${articleTitle}-${articles.id}`}>
-        <span {...handlers(`/attomo-trends/${articleTitle}-${articles.id}`)}>
+        <a href={`/attomo-trends/${articleTitle}-${articles.id}`}>
           <StylesArticle.Img
             src={articles.attributes.coverImage.data.attributes.url}
             alt={articles.Text}
           />
-        </span>
+        </a>
       </Link>
       <StylesArticle.BlockText theme={mode === false ? lightTheme : darkTheme}>
         <StylesArticle.TopicText

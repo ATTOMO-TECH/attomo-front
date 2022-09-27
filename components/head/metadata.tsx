@@ -13,7 +13,6 @@ export function Metadata({ screen }: Props) {
       {screen.data?.attributes.metadata && (
         <meta name="description" content={screen.data?.attributes.metadata} />
       )}
-      <meta name="keywords" content={screen.data?.attributes.screenTitle} />
       <link rel="canonical" href={document.location.href} />
       <meta name="type" content="website" />
       <meta name="copyright" content={document.location.href} />

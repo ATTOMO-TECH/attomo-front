@@ -7,7 +7,7 @@ type Props = {
   mode?: string;
 };
 
-export const TextHero = styled.h2`
+export const TextHero = styled.h1`
   font-family: 'Merriweather';
   font-weight: 300;
   will-change: transform;

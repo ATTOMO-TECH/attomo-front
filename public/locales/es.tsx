@@ -39,6 +39,8 @@ export default {
   ],
   home: [
     {
+      HeroTitle: 'ATTOMO DIGITAL',
+      HeroSubTitle: 'Consultora tecnológica',
       HeroText: 'Somos una consultora tecnológica con una única misión:',
       HeroSubTex:
         'ayudar a las empresas y administraciones a liderar a través de la digitalización',
@@ -247,6 +249,7 @@ export default {
   sendEmail: 'Escribe tu correo electrónico',
   CasesFilter: 'Filtrar por:',
   trendsFilter: 'Filtrar noticias por:',
+  trendsReadButton: 'Leer',
   newsletterSubscription: '¡Gracias por tu confianza! Ya eres parte de ATTOMO.',
   workUs: [
     {
@@ -299,7 +302,7 @@ export default {
   formSend: 'Enviar',
   formRent: 'Alquilar',
   formOptionsDisponibility: [
-    { value: 0, text: 'Tiempo' },
+    { value: 0, text: 'Tiempo', disabled: true },
     { value: 30, text: '30 min' },
     { value: 1, text: '1 Hora' },
     { value: 2, text: '2 Horas' },
@@ -310,6 +313,8 @@ export default {
     { value: 7, text: '7 Horas' },
     { value: 8, text: '8 Horas' },
   ],
+  formBookingSpaceMessage:
+    'Gracias por reservar con nosotros, te prometemos que tu evento será inolvidable.',
   Services: 'Servicios',
   Topic: 'Tématica',
   Date: 'Fecha',

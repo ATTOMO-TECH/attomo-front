@@ -32,9 +32,11 @@ export default function BlockSection({
                 {text}
               </Block.Title>
               <Link href={`${link}`} passHref>
-                <Block.BlockBtn {...handlers(`${link}`)}>
-                  <IconAnimate text={button} mode={mode} />
-                </Block.BlockBtn>
+                <a {...handlers(`${link}`)}>
+                  <Block.BlockBtn>
+                    <IconAnimate text={button} mode={mode} />
+                  </Block.BlockBtn>
+                </a>
               </Link>
             </>
           ) : (
