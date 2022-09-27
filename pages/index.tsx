@@ -101,8 +101,6 @@ function Home() {
               {translate.home.map((values) => (
                 <Hero
                   key={`Hero${values.HeroText}`}
-                  title={values.HeroTitle}
-                  subTitle={values.HeroSubTitle}
                   text={values.HeroText}
                   text2={values.HeroSubTex}
                   button={values.Button}
