@@ -41,12 +41,12 @@ export default function FormReserver() {
 
   const [shouldShowActions] = useState(false);
   const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
-  const [selected, setSelected] = useState('');
+  const [selected, setSelected] = useState(translate.formTime);
   const onChange = (e: any) => {
-    console.log(e.value);
-    setSelected(e.value);
+    console.log(e);
+    setSelected(e);
   };
-
+  const TIME_OPTIONS = translate.formOptionsDisponibility;
   const valueDate = FORMVALUES.DATE;
   const valueTime = FORMVALUES.TIME;
   const valueName = FORMVALUES.FIRSTNAME;
@@ -196,13 +196,10 @@ export default function FormReserver() {
                         className="pt-4 lg:pt-0.5 lg:py-2"
                         {...handlersFuntionFocus(FORMVALUES.TIME)}>
                         <InputSelect
+                          translate={translate}
                           selected={selected}
-                          options={translate.formOptionsDisponibility}
-                          valueLabel={
-                            selected === ''
-                              ? translate.formOptionsDisponibility[0].text
-                              : selected
-                          }
+                          options={TIME_OPTIONS}
+                          valueLabel={selected}
                           name={FORMVALUES.TIME}
                           onChange={onChange}
                           handleValue={(e: any) => {

@@ -9,6 +9,7 @@ type Props = {
   handleValue: any;
   onChange?: any;
   selected: any;
+  translate?: any;
 };
 
 export default function InputSelect({
@@ -18,7 +19,14 @@ export default function InputSelect({
   onChange,
   selected,
   name,
+  translate,
 }: Props) {
+  console.log(options);
+  console.log(valueLabel);
+  console.log(handleValue);
+  console.log(onChange);
+  console.log(selected);
+  console.log(name);
   return (
     <>
       <BlockDiv active={selected !== ''} className="relative text-left">
@@ -26,9 +34,10 @@ export default function InputSelect({
           name={name}
           modalCloseButton={<ModalCloseButton />}
           options={options}
-          selectedValue="any"
+          selectedValue={translate.formTime}
           caretIcon={<CaretIcon />}
-          noSelectionLabel={valueLabel}
+          valueLabel={selected}
+          noSelectionLabel={selected}
           onChange={(newValue: any) => {
             onChange(newValue.value);
             handleValue(newValue.value);

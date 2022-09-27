@@ -302,7 +302,7 @@ export default {
   formSend: 'Enviar',
   formRent: 'Alquilar',
   formOptionsDisponibility: [
-    { value: 0, text: 'Tiempo', disabled: true },
+    { value: 0, text: 'Tiempo', disabled: true, optHeader: true },
     { value: 30, text: '30 min' },
     { value: 1, text: '1 Hora' },
     { value: 2, text: '2 Horas' },

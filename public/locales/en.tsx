@@ -306,7 +306,7 @@ export default {
   formSend: 'Send',
   formRent: 'Rent',
   formOptionsDisponibility: [
-    { value: 0, text: 'Time', disabled: true },
+    { value: 0, text: 'Time', disabled: true, optHeader: true },
     { value: 30, text: '30 min' },
     { value: 1, text: '1 Hour' },
     { value: 2, text: '2 Hours' },
