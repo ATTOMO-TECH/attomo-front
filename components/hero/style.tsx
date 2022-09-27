@@ -7,71 +7,7 @@ type Props = {
   mode?: string;
 };
 
-export const TextHeroTitle = styled.h1`
-  font-family: 'Merriweather';
-  font-size: 2.5 rem;
-  font-weight: 700;
-  will-change: transform;
-  background: linear-gradient(
-    90deg,
-    #b4a9bc 0%,
-    #ffffff 10.79%,
-    #ffffff 70.3%,
-    #b4a9bc 100%
-  );
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  background-size: 400% 400%;
-
-  -webkit-animation: gradient 5s ease infinite;
-  animation: gradient 5s ease infinite;
-  @keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-`;
-export const TextHeroSubTitle = styled.h6`
-  font-family: 'Merriweather';
-  font-size: 1 rem;
-  font-weight: 400;
-  height: min-content;
-  will-change: transform;
-  background: linear-gradient(
-    90deg,
-    #b4a9bc 0%,
-    #ffffff 10.79%,
-    #ffffff 70.3%,
-    #b4a9bc 100%
-  );
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  background-size: 400% 400%;
-
-  -webkit-animation: gradient 5s ease infinite;
-  animation: gradient 5s ease infinite;
-  @keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-`;
-
-export const TextHero = styled.h2`
+export const TextHero = styled.h1`
   font-family: 'Merriweather';
   font-weight: 300;
   will-change: transform;
@@ -137,16 +73,6 @@ export const BlockHeroSection = styled.section`
   }
   height: 100vh;
 `;
-export const TitleHeroSection = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  @media screen and (min-width: 1024px) {
-    height: 50vh;
-  }
-  height: 40vh;
-`;
 export const textSubText = styled.h6`
   font-family: 'Merriweather';
   font-style: normal;
@@ -154,16 +80,6 @@ export const textSubText = styled.h6`
   font-size: 47.78px;
   line-height: 72px;
 `;
-
-export const TitleSection = {
-  TextTitle: tw(TextHeroTitle)` lg:text-4xl md:text-3xl text-2xl`,
-  TextSubTitle: tw(
-    TextHeroSubTitle,
-  )`text-primary font-PrimarySerif font-light text-xs sm:text-lg lg:text-lg`,
-  SectionTitle: tw(
-    TitleHeroSection,
-  )`md:w-10/12 w-full h-full z-0 sticky bg-no-repeat bg-center bg-cover `,
-};
 
 export const HeadSection = {
   TextHead: tw(TextHero)` lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl`,
