@@ -99,64 +99,104 @@ export const CUSTOMERS: {
   Pic: string;
   Url: string;
 }[] = [
-  {
+  /* {
     Name: 'AddTimme',
     Pic: '/customers/Addtimme.png',
     Url: '',
+  }, */
+  {
+    Name: 'Bstadium',
+    Pic: '/customers/logos/bstadium-logo.svg',
+    Url: '',
   },
   {
+    Name: 'Idealista',
+    Pic: '/customers/logos/idealista-logo.svg',
+    Url: '',
+  },
+  {
+    Name: 'Magoni',
+    Pic: '/customers/logos/magoni-logo.svg',
+    Url: '',
+  },
+  {
+    Name: 'Método R',
+    Pic: '/customers/logos/metodo-r-logo.svg',
+    Url: '',
+  },
+  {
+    Name: 'Real Sociedad FC',
+    Pic: '/customers/logos/real-sociedad-logo.svg',
+    Url: '',
+  },
+  {
+    Name: 'Sevilla FC',
+    Pic: '/customers/logos/sevilla-logo.svg',
+    Url: '',
+  },
+  {
+    Name: 'Spherika',
+    Pic: '/customers/logos/spherika-logo.svg',
+    Url: '',
+  },
+  {
+    Name: 'Tasafy',
+    Pic: '/customers/logos/tasafy-logo.svg',
+    Url: '',
+  },
+  /* {
     Name: 'Benneti',
     Pic: '/customers/Bennetti-watches.png',
     Url: '',
-  },
-  {
+  }, */
+  /* {
     Name: 'ChiandSu',
     Pic: '/customers/chiandsu.png',
     Url: '',
-  },
-  {
+  }, */
+  /* {
     Name: 'Davo',
     Pic: '/customers/DAVO-sin-slogan.png',
     Url: '',
-  },
-  {
+  }, */
+  /* {
     Name: 'Eco Tuk Tuk',
     Pic: '/customers/Eco-Tuk-Tuk.png',
     Url: '',
-  },
-  {
+  }, */
+  /* {
     Name: 'Farandula',
     Pic: '/customers/Farandula.png',
     Url: '',
-  },
+  }, */
   {
     Name: 'El Rincón',
-    Pic: '/customers/Grupo-El-Rincon.png',
+    Pic: '/customers/logos/grupo-el-rincon-logo.svg',
     Url: '',
   },
   {
-    Name: 'GV',
-    Pic: '/customers/GV.png',
+    Name: 'GVRE',
+    Pic: '/customers/logos/gvre-logo.svg',
     Url: '',
   },
-  {
+  /* {
     Name: 'Mi pequeño rincón Azul',
     Pic: '/customers/Mi-pequeno-rincon-azul.png',
     Url: '',
-  },
-  {
+  }, */
+  /* {
     Name: 'Revuelta',
     Pic: '/customers/REVUELTA-DOMECQ.png',
     Url: '',
-  },
+  }, */
   {
     Name: 'Grupo LALALA',
-    Pic: '/customers/grupo-lalala.png',
+    Pic: '/customers/logos/grupo-lalala-logo.svg',
     Url: '',
   },
   {
     Name: 'VIVLA',
-    Pic: '/customers/vivla.png',
+    Pic: '/customers/logos/vivla-logo.svg',
     Url: '',
   },
 ];
