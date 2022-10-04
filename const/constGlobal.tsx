@@ -106,42 +106,42 @@ export const CUSTOMERS: {
   }, */
   {
     Name: 'Bstadium',
-    Pic: '/customers/logos/bstadium-logo.svg',
+    Pic: '/customers/logos/bstadium.svg',
     Url: '',
   },
   {
     Name: 'Idealista',
-    Pic: '/customers/logos/idealista-logo.svg',
+    Pic: '/customers/logos/idealista.svg',
     Url: '',
   },
   {
     Name: 'Magoni',
-    Pic: '/customers/logos/magoni-logo.svg',
+    Pic: '/customers/logos/magoni.svg',
     Url: '',
   },
   {
     Name: 'Método R',
-    Pic: '/customers/logos/metodo-r-logo.svg',
+    Pic: '/customers/logos/metodo-r.svg',
     Url: '',
   },
   {
     Name: 'Real Sociedad FC',
-    Pic: '/customers/logos/real-sociedad-logo.svg',
+    Pic: '/customers/logos/real-sociedad.svg',
     Url: '',
   },
   {
     Name: 'Sevilla FC',
-    Pic: '/customers/logos/sevilla-logo.svg',
+    Pic: '/customers/logos/sevilla-fc.svg',
     Url: '',
   },
   {
     Name: 'Spherika',
-    Pic: '/customers/logos/spherika-logo.svg',
+    Pic: '/customers/logos/spherika.svg',
     Url: '',
   },
   {
     Name: 'Tasafy',
-    Pic: '/customers/logos/tasafy-logo.svg',
+    Pic: '/customers/logos/tasafy.svg',
     Url: '',
   },
   /* {
@@ -171,12 +171,12 @@ export const CUSTOMERS: {
   }, */
   {
     Name: 'El Rincón',
-    Pic: '/customers/logos/grupo-el-rincon-logo.svg',
+    Pic: '/customers/logos/grupo-el-rincon.svg',
     Url: '',
   },
   {
     Name: 'GVRE',
-    Pic: '/customers/logos/gvre-logo.svg',
+    Pic: '/customers/logos/gvre.svg',
     Url: '',
   },
   /* {
@@ -191,12 +191,12 @@ export const CUSTOMERS: {
   }, */
   {
     Name: 'Grupo LALALA',
-    Pic: '/customers/logos/grupo-lalala-logo.svg',
+    Pic: '/customers/logos/grupo-lalala.svg',
     Url: '',
   },
   {
     Name: 'VIVLA',
-    Pic: '/customers/logos/vivla-logo.svg',
+    Pic: '/customers/logos/vivla.svg',
     Url: '',
   },
 ];
