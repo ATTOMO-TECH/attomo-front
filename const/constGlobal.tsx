@@ -105,8 +105,23 @@ export const CUSTOMERS: {
     Url: '',
   }, */
   {
-    Name: 'Bstadium',
-    Pic: '/customers/logos/bstadium.svg',
+    Name: 'Tasafy',
+    Pic: '/customers/logos/tasafy.svg',
+    Url: '',
+  },
+  {
+    Name: 'El Rincón',
+    Pic: '/customers/logos/grupo-el-rincon.svg',
+    Url: '',
+  },
+  {
+    Name: 'VIVLA',
+    Pic: '/customers/logos/vivla.svg',
+    Url: '',
+  },
+  {
+    Name: 'Grupo LALALA',
+    Pic: '/customers/logos/grupo-lalala.svg',
     Url: '',
   },
   {
@@ -115,13 +130,13 @@ export const CUSTOMERS: {
     Url: '',
   },
   {
-    Name: 'Magoni',
-    Pic: '/customers/logos/magoni.svg',
+    Name: 'Bstadium',
+    Pic: '/customers/logos/bstadium.svg',
     Url: '',
   },
   {
-    Name: 'Método R',
-    Pic: '/customers/logos/metodo-r.svg',
+    Name: 'GVRE',
+    Pic: '/customers/logos/gvre.svg',
     Url: '',
   },
   {
@@ -135,15 +150,21 @@ export const CUSTOMERS: {
     Url: '',
   },
   {
+    Name: 'Magoni',
+    Pic: '/customers/logos/magoni.svg',
+    Url: '',
+  },
+  {
+    Name: 'Método R',
+    Pic: '/customers/logos/metodo-r.svg',
+    Url: '',
+  },
+  {
     Name: 'Spherika',
     Pic: '/customers/logos/spherika.svg',
     Url: '',
   },
-  {
-    Name: 'Tasafy',
-    Pic: '/customers/logos/tasafy.svg',
-    Url: '',
-  },
+
   /* {
     Name: 'Benneti',
     Pic: '/customers/Bennetti-watches.png',
@@ -169,16 +190,6 @@ export const CUSTOMERS: {
     Pic: '/customers/Farandula.png',
     Url: '',
   }, */
-  {
-    Name: 'El Rincón',
-    Pic: '/customers/logos/grupo-el-rincon.svg',
-    Url: '',
-  },
-  {
-    Name: 'GVRE',
-    Pic: '/customers/logos/gvre.svg',
-    Url: '',
-  },
   /* {
     Name: 'Mi pequeño rincón Azul',
     Pic: '/customers/Mi-pequeno-rincon-azul.png',
@@ -189,16 +200,6 @@ export const CUSTOMERS: {
     Pic: '/customers/REVUELTA-DOMECQ.png',
     Url: '',
   }, */
-  {
-    Name: 'Grupo LALALA',
-    Pic: '/customers/logos/grupo-lalala.svg',
-    Url: '',
-  },
-  {
-    Name: 'VIVLA',
-    Pic: '/customers/logos/vivla.svg',
-    Url: '',
-  },
 ];
 
 export const ARTICLES: {
