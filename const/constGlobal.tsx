@@ -105,45 +105,66 @@ export const CUSTOMERS: {
     Url: '',
   }, */
   {
-    Name: 'Bstadium',
-    Pic: '/customers/logos/bstadium-logo.svg',
+    Name: 'Tasafy',
+    Pic: '/customers/logos/tasafy.svg',
+    Url: '',
+  },
+  {
+    Name: 'El Rincón',
+    Pic: '/customers/logos/grupo-el-rincon.svg',
+    Url: '',
+  },
+  {
+    Name: 'VIVLA',
+    Pic: '/customers/logos/vivla.svg',
+    Url: '',
+  },
+  {
+    Name: 'Grupo LALALA',
+    Pic: '/customers/logos/grupo-lalala.svg',
     Url: '',
   },
   {
     Name: 'Idealista',
-    Pic: '/customers/logos/idealista-logo.svg',
+    Pic: '/customers/logos/idealista.svg',
     Url: '',
   },
   {
-    Name: 'Magoni',
-    Pic: '/customers/logos/magoni-logo.svg',
+    Name: 'Bstadium',
+    Pic: '/customers/logos/bstadium.svg',
     Url: '',
   },
   {
-    Name: 'Método R',
-    Pic: '/customers/logos/metodo-r-logo.svg',
+    Name: 'GVRE',
+    Pic: '/customers/logos/gvre.svg',
     Url: '',
   },
   {
     Name: 'Real Sociedad FC',
-    Pic: '/customers/logos/real-sociedad-logo.svg',
+    Pic: '/customers/logos/real-sociedad.svg',
     Url: '',
   },
   {
     Name: 'Sevilla FC',
-    Pic: '/customers/logos/sevilla-logo.svg',
+    Pic: '/customers/logos/sevilla-fc.svg',
+    Url: '',
+  },
+  {
+    Name: 'Magoni',
+    Pic: '/customers/logos/magoni.svg',
+    Url: '',
+  },
+  {
+    Name: 'Método R',
+    Pic: '/customers/logos/metodo-r.svg',
     Url: '',
   },
   {
     Name: 'Spherika',
-    Pic: '/customers/logos/spherika-logo.svg',
+    Pic: '/customers/logos/spherika.svg',
     Url: '',
   },
-  {
-    Name: 'Tasafy',
-    Pic: '/customers/logos/tasafy-logo.svg',
-    Url: '',
-  },
+
   /* {
     Name: 'Benneti',
     Pic: '/customers/Bennetti-watches.png',
@@ -169,16 +190,6 @@ export const CUSTOMERS: {
     Pic: '/customers/Farandula.png',
     Url: '',
   }, */
-  {
-    Name: 'El Rincón',
-    Pic: '/customers/logos/grupo-el-rincon-logo.svg',
-    Url: '',
-  },
-  {
-    Name: 'GVRE',
-    Pic: '/customers/logos/gvre-logo.svg',
-    Url: '',
-  },
   /* {
     Name: 'Mi pequeño rincón Azul',
     Pic: '/customers/Mi-pequeno-rincon-azul.png',
@@ -189,16 +200,6 @@ export const CUSTOMERS: {
     Pic: '/customers/REVUELTA-DOMECQ.png',
     Url: '',
   }, */
-  {
-    Name: 'Grupo LALALA',
-    Pic: '/customers/logos/grupo-lalala-logo.svg',
-    Url: '',
-  },
-  {
-    Name: 'VIVLA',
-    Pic: '/customers/logos/vivla-logo.svg',
-    Url: '',
-  },
 ];
 
 export const ARTICLES: {
