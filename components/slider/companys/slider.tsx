@@ -17,14 +17,25 @@ export default function CompaniesScroll() {
         freeMode>
         {CUSTOMERS.map((values) => (
           <SwiperSlide key={values.Name} className="swiper-wrapper ">
-            <img
-              src={values.Pic}
-              width="120px"
-              height="auto"
-              alt={values.Name}
-              loading="lazy"
-              className="object-contain"
-            />
+            {
+              values.Name === 'Magoni' || values.Name === 'Idealista' || values.Name ==='Tasafy' || values.Name ==='Spherika' || values.Name ==='El Rincón' || values.Name ==='Grupo LALALA' ?
+                (<img
+                src={values.Pic}
+                width="120px"
+                height="auto"
+                alt={values.Name}
+                loading="lazy"
+                className="object-contain"
+              />) :
+              <img
+                src={values.Pic}
+                width="80px"
+                height="auto"
+                alt={values.Name}
+                loading="lazy"
+                className="object-contain"
+              />
+              }
           </SwiperSlide>
         ))}
       </Swiper>
