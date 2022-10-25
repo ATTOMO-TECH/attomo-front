@@ -9,7 +9,7 @@ export default {
       Url: '/servicios',
     },
     {
-      Value: 'Success cases',
+      Value: 'Case studies',
       Url: '/casosdeexito',
     },
     {
@@ -33,7 +33,7 @@ export default {
       Url: '/espacio-attomo',
     },
     {
-      Value: 'Kit Digital',
+      Value: 'Digital Kit',
       Url: '/kit-digital',
     },
   ],
@@ -43,7 +43,7 @@ export default {
       HeroSubTitle: 'Technology consulting',
       HeroText: 'We are a technology consulting firm with a single mission:',
       HeroSubTex:
-        'To help companies and administrations to lead through digitalization.',
+        'To help companies and administrations to lead through digitization.',
       Button: 'More info',
     },
   ],
@@ -146,12 +146,12 @@ export default {
     },
     {
       title: 'Customer and supplier management',
-      item: 'Digitalization and optimization of the management of commercial relationships with customers and suppliers.',
+      item: 'Digitization and optimization of the management of commercial relationships with customers and suppliers.',
       logo: '/kit/logos/Icono-GestionClientes.png',
     },
     {
       title: 'Process management',
-      item: 'Digitalization and automation of processes related to production and operational aspects.',
+      item: 'Digitization and automation of processes related to production and operational aspects.',
       logo: '/kit/logos/Icono-GestionProcesos.png',
     },
   ],
@@ -176,6 +176,7 @@ export default {
     },
   ],
   seeMoreProject: 'View project ',
+  seeMoreCases: 'Case studies ',
   close: 'Close',
 
   seeMore: [
@@ -201,12 +202,12 @@ export default {
     {
       Text: ' The atom is the beginning of everything, around which everything is built and flows.',
       Subtext:
-        " Digitalization is also the beginning of everything for any company that wants to survive in today's world and project into the future.",
+        "Digitization is also the beginning of everything for any company that wants to survive in today's world and project into the future.",
     },
   ],
   projectUs: [
     {
-      Text: 'ATTOMO was born with the mission to help SMEs in their digitalization process.',
+      Text: 'ATTOMO was born with the mission to help SMEs in their digitization process.',
       Subtext:
         'Álvaro Barrera and Mateo Hernández founded it. Both have been in the technology sector for ten years.',
     },

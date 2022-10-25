@@ -111,8 +111,8 @@ export default function SectionProjects({
               <Link href={`/casos/${newSlug}`}>
                 <Styles.BlockBtn>
                   <a href={`/casos/${newSlug}`}>
-                    <IconAnimate text={translate.seeMoreProject} mode />
-                    {console.log(translate.seeMoreProject)}
+                    <IconAnimate text={translate.seeMoreCases} mode />
+                    {/* {console.log(translate.seeMoreCases)} */}
                   </a>
                 </Styles.BlockBtn>
               </Link>
