@@ -62,7 +62,9 @@ function Us() {
             {translate.us.map((values) => (
               <Styles.BlockDiv key={values.Text}>
                 <Title size="lg:text-4xl md:text-3xl text-xl lg:pt-24 lg:pr-0 lg:pb-24 md:pb-12 pb-6 w-full md:pt-36  ">
-                  {values.Text}.{values.Subtext}
+                  {values.Text}.
+                  <br/>
+                  {values.Subtext}
                 </Title>
               </Styles.BlockDiv>
             ))}

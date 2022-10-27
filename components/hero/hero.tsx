@@ -62,7 +62,10 @@ export default function Hero({ text, text2, button, link }: Props) {
           animate="animate"
           exit="exit">
           <HeadSection.TextHead>
-            {line1} {line2}
+            {line1} <br/> 
+          </HeadSection.TextHead>
+          <HeadSection.TextHead>
+            {line2}
           </HeadSection.TextHead>
         </motion.div>
         <HeadSection.Blockbutton className={button === '' ? 'hidden' : ''}>
