@@ -44,6 +44,7 @@ export const SubTitle = styled.h2`
   -webkit-background-clip: text;
   background-clip: text;
   background-size: 400% 400%;
+  text-align: left;
 
   -webkit-animation: gradient 5s ease infinite;
   animation: gradient 5s ease infinite;

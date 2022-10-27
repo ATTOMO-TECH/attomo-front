@@ -154,6 +154,16 @@ function Cases() {
 
   useEffect(() => {
     if (data?.data) {
+      data?.data.sort((a:any, b:any) => {
+        if (a.attributes.company > b.attributes.company) {
+          return 1;
+        }
+        if (a.attributes.company < b.attributes.company) {
+          return -1;
+        }
+        return 0;
+      })
+      /* console.log(data.data) */
       if (page === 1) {
         setPreData([...data.data]);
       } else {

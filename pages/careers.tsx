@@ -79,6 +79,7 @@ function Carrers() {
         <Styles.Center>
           <Title size="text-xl  pb-8 pt-24">{translate.offerWork}</Title>
           <Work works={data?.data} apply={translate.Apply} />
+          {/* {console.log(data?.data)} */}
         </Styles.Center>
         {translate.contactUsWork.map((value) => (
           <BlocKnow value={value} />
