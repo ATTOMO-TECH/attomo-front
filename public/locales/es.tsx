@@ -173,6 +173,7 @@ export default {
     },
   ],
   seeMoreProject: 'Ver proyecto ',
+  seeMoreCases: 'Casos de estudio ',
   close: 'Cerrar',
 
   seeMore: [

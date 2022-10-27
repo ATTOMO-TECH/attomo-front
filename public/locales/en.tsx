@@ -9,7 +9,7 @@ export default {
       Url: '/servicios',
     },
     {
-      Value: 'Success cases',
+      Value: 'Case studies',
       Url: '/casosdeexito',
     },
     {
@@ -33,7 +33,7 @@ export default {
       Url: '/espacio-attomo',
     },
     {
-      Value: 'Kit Digital',
+      Value: 'Digital Kit',
       Url: '/kit-digital',
     },
   ],
@@ -43,21 +43,21 @@ export default {
       HeroSubTitle: 'Technology consulting',
       HeroText: 'We are a technology consulting firm with a single mission:',
       HeroSubTex:
-        'To help companies and administrations to lead through digitalization.',
+        'To help companies and administrations to lead through digitization.',
       Button: 'More info',
     },
   ],
   kitDigital: [
     {
-      HeroText: 'Digital kit support plan',
+      HeroText: 'Digital Kit support plan',
       HeroSubTex:
-        'If you have between 0 and 49 employees, you can receive up to 12,000 euros to digitize your company. We will help you.',
+        'If you have between 0 and 49 employees, you can receive up to 12,000 euros to digitize your company. We can help you.',
     },
   ],
-  HeaderKit: 'Digital kit program',
+  HeaderKit: 'Digital Kit program',
   programKit: [
     {
-      item: `The Digital Kit is an initiative of the Government of Spain that aims to subsidize the implementation of digital solutions available on the market to achieve a significant advance in the level of digital maturity. It provides a series of digital services to help them boost the digital transition.`,
+      item: `The Digital Kit is a public initiative of the Government of Spain that aims to subsidize the implementation of digital solutions available on the market to achieve a significant advance in the level of digital maturity. It provides a series of digital services to help them boost the digital transition.`,
     },
     {
       item: `It is a program of the Ministry of Economic Affairs and Digital Transformation aimed at SMEs and freelancers, which accompanies you in your digital transformation process.`,
@@ -70,11 +70,11 @@ export default {
     }, */
   ],
   subText:
-    'The Kit Digital program is funded by the European Union through Next Generation (EU) funds under the Recovery, Transformation and Resilience Plan.',
+    'The Digital Kit program is funded by the European Union through Next Generation (EU) funds under the Recovery, Transformation and Resilience Plan.',
 
   kitTitlerequirements: 'Requirements to apply for the Digital Kit',
-  btnHow: 'What is the digital kit',
-  btnForm: 'Request digital kit',
+  btnHow: 'Digital Kit: what it is',
+  btnForm: 'Request Digital Kit',
   helpYou: 'We help you',
   kitRequirements: [
     {
@@ -122,7 +122,7 @@ export default {
       item: 'Access your Digital Kit through a digitizing agent, such as ATTOMO.',
     },
   ],
-  AgentKit: 'We are digitizing agents',
+  AgentKit: 'We are agentes digitalizadores',
   AgentRequeriments: [
     {
       title: 'Website',
@@ -146,12 +146,12 @@ export default {
     },
     {
       title: 'Customer and supplier management',
-      item: 'Digitalization and optimization of the management of commercial relationships with customers and suppliers. (4.000 €)',
+      item: 'Digitization and optimization of the management of commercial relationships with customers and suppliers. (4.000 €)',
       logo: '/kit/logos/Icono-GestionClientes.png',
     },
     {
       title: 'Process management',
-      item: 'Digitalization and automation of processes related to production and operational aspects. (6.000 €)',
+      item: 'Digitization and automation of processes related to production and operational aspects. (6.000 €)',
       logo: '/kit/logos/Icono-GestionProcesos.png',
     },
   ],
@@ -165,7 +165,7 @@ export default {
   ],
 
   searchAgent: 'Looking for a digitizing agent?',
-  helpYouKit: 'We help you to get the digital kit',
+  helpYouKit: 'We help you to get the Digital Kit',
   selected: [
     {
       Section: 'Selected clients',
@@ -176,6 +176,7 @@ export default {
     },
   ],
   seeMoreProject: 'View project ',
+  seeMoreCases: 'Case studies ',
   close: 'Close',
 
   seeMore: [
@@ -186,27 +187,27 @@ export default {
   ],
   contact: [
     {
-      Text: 'Do you have a project?',
-      Link: 'Contact with us',
+      Text: 'Want to digitalice your business?',
+      Link: 'Meet us',
     },
   ],
   services: [
     {
-      Text: 'We combine engineering, design, scalability, and innovation to transform industries, companies, and administrations.',
+      Text: 'We combine engineering, design, scalability, and innovation to transform industries, companies, and public administrations.',
       Subtext:
-        'We offer any service related to digitization and digital transformation.',
+        'We offer any service related to digitization and digital transformation with direct impact in your business.',
     },
   ],
   us: [
     {
-      Text: ' The atom is the beginning of everything, around which everything is built and flows.',
+      Text: ' The atom is the beginning of everything, around which everything is built and flows',
       Subtext:
-        " Digitalization is also the beginning of everything for any company that wants to survive in today's world and project into the future.",
+        "Digitization is also the beginning of everything for any company that wants to survive in today's world and project into the future.",
     },
   ],
   projectUs: [
     {
-      Text: 'ATTOMO was born with the mission to help SMEs in their digitalization process.',
+      Text: 'ATTOMO was born with the mission to help SME´S companies and public administration.',
       Subtext:
         'Álvaro Barrera and Mateo Hernández founded it. Both have been in the technology sector for ten years.',
     },
@@ -221,7 +222,7 @@ export default {
     {
       Text: 'Data',
       Subtext:
-        'Information is everywhere. The important thing is to know how to differentiate between the good and the improvable.',
+        'Information is everywhere. The important thing is to know how to differentiate between the good and the bad ones.',
     },
     {
       Text: 'Velocity',
@@ -251,18 +252,18 @@ export default {
   sendEmail: 'Enter your email address.',
   CasesFilter: 'Filter by:',
   trendsFilter: 'Filter by:',
-  trendsReadButton: 'Read',
+  trendsReadButton: 'Full article',
   newsletterSubscription:
     'Thank you for your trust! You are now part of ATTOMO.',
   workUs: [
     {
-      Text: 'Work with us',
+      Text: 'Open rols',
       Subtext:
         'We are always looking for digital, technological, and creative profiles to incorporate into our team.',
     },
   ],
   Apply: 'Apply',
-  offerWork: 'Work with us',
+  offerWork: 'Open rols',
 
   contactUsWork: [
     {
@@ -291,7 +292,7 @@ export default {
     { id: 2, text: 'Collaborate as a partner', value: CONDITIONFORM.PARTNER },
   ],
   speciality: 'Be part of the team/ Collaborate as a partner',
-  formName: 'First name *',
+  formName: 'Name *',
   formTime: 'Time',
   formLastName: 'Last name *',
   formEmail: 'Email *',
@@ -323,7 +324,7 @@ export default {
   Topic: 'Topic',
   Date: 'Date',
   AddText: 'Add text',
-  whereUs: 'Where to find us',
+  whereUs: 'Where are we',
   SelectDate: 'Choose date',
   FromDate: 'From',
   ToDate: 'To',
@@ -340,16 +341,16 @@ export default {
   spaceAttomoFooter: 'The ATTOMO Digital Space',
   bookingAttomo: [
     {
-      Text: 'Reserve the space',
+      Text: 'Book the space',
       Subtext:
-        'We rent spacious and multipurpose rooms to entrepreneurs, photographers, agencies, and production companies by the hour or day.',
-      Button: 'Reserve',
+        'We rent spacious and multidisciplinary rooms to entrepreneurs, photographers, agencies, and production companies by the hour or day.',
+      Button: 'Book',
     },
   ],
   prices: 'Tarifas',
   formBooking: [
     {
-      Text: 'Book the Attomo Space',
+      Text: 'Book the ATTOMO Space',
       Subtext: 'Select the date and check availability',
     },
   ],
