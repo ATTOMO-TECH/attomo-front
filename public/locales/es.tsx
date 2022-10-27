@@ -121,32 +121,32 @@ export default {
   AgentRequeriments: [
     {
       title: 'Sitio Web',
-      item: 'Creación de tu página web a medida y servicios de posicionamiento web (SEO), para mejorar la presencia en buscadores.',
+      item: 'Creación de tu página web a medida y servicios de posicionamiento web (SEO), para mejorar la presencia en buscadores. (2.000 €)',
       logo: '/kit/logos/Icono-SitioWeb.png',
     },
     {
       title: 'Gestión de redes sociales',
-      item: 'Generación de contenido y promoción de tu negocio en redes sociales.',
+      item: 'Generación de contenido y promoción de tu negocio en redes sociales. (2.500 €)',
       logo: '/kit/logos/Icono-RedesSociales.png',
     },
     {
       title: 'Business Inteligence & analítica',
-      item: 'Visualizaición del estado de tu negocio a partir del análisis inteligente de datos, para mejorar el proceso de toma de decisiones.',
+      item: 'Visualización del estado de tu negocio a partir del análisis inteligente de datos, para mejorar el proceso de toma de decisiones. (4.000 €)',
       logo: '/kit/logos/Icono-BusinessInteligence.png',
     },
     {
       title: 'Comercio electrónico',
-      item: 'Creación y personalización de tu tienda online, para vender de productos y/o servicios a través de internet.',
+      item: 'Creación y personalización de tu tienda online, para vender de productos y/o servicios a través de internet. (2.000 €)',
       logo: '/kit/logos/Icono-ComercioElectronico.png',
     },
     {
       title: 'Gestión de clientes y proveedores',
-      item: 'Digitalización y optimización de la gestión de las relaciones comerciales con clientes y proveedores.',
+      item: 'Digitalización y optimización de la gestión de las relaciones comerciales con clientes y proveedores. (4.000 €)',
       logo: '/kit/logos/Icono-GestionClientes.png',
     },
     {
       title: 'Gestión de procesos',
-      item: 'Digitalización y automatización de procesos relacionados con aspectos productivos y operativos.',
+      item: 'Digitalización y automatización de procesos relacionados con aspectos productivos y operativos. (6.000 €)',
       logo: '/kit/logos/Icono-GestionProcesos.png',
     },
   ],

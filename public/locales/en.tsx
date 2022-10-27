@@ -126,32 +126,32 @@ export default {
   AgentRequeriments: [
     {
       title: 'Website',
-      item: 'Custom website creation and SEO services to improve your presence in search engines.',
+      item: 'Custom website creation and SEO services to improve your presence in search engines. (2.000 €)',
       logo: '/kit/logos/Icono-SitioWeb.png',
     },
     {
       title: 'Social media management',
-      item: 'Content generation and promotion of your business in social networks.',
+      item: 'Content generation and promotion of your business in social networks. (2.500 €)',
       logo: '/kit/logos/Icono-RedesSociales.png',
     },
     {
       title: 'Business Intelligence & analytics',
-      item: 'Visualization of the state of your business based on intelligent data analysis, to improve the decision making process.',
+      item: 'Visualization of the state of your business based on intelligent data analysis, to improve the decision making process. (4.000 €)',
       logo: '/kit/logos/Icono-BusinessInteligence.png',
     },
     {
       title: 'E-commerce',
-      item: 'Creation and customization of your online store, to sell products and/or services through the internet.',
+      item: 'Creation and customization of your online store, to sell products and/or services through the internet. (2.000 €)',
       logo: '/kit/logos/Icono-ComercioElectronico.png',
     },
     {
       title: 'Customer and supplier management',
-      item: 'Digitization and optimization of the management of commercial relationships with customers and suppliers.',
+      item: 'Digitization and optimization of the management of commercial relationships with customers and suppliers. (4.000 €)',
       logo: '/kit/logos/Icono-GestionClientes.png',
     },
     {
       title: 'Process management',
-      item: 'Digitization and automation of processes related to production and operational aspects.',
+      item: 'Digitization and automation of processes related to production and operational aspects. (6.000 €)',
       logo: '/kit/logos/Icono-GestionProcesos.png',
     },
   ],
