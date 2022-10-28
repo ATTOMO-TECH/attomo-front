@@ -187,7 +187,7 @@ export default {
   ],
   contact: [
     {
-      Text: 'Want to digitalice your business?',
+      Text: 'Want to digitalize your business?',
       Link: 'Meet us',
     },
   ],
@@ -296,7 +296,7 @@ export default {
   formTime: 'Time',
   formLastName: 'Last name *',
   formEmail: 'Email *',
-  formPhone: 'Cell phone *',
+  formPhone: 'Phone number *',
   formCompany: 'Company/Organization *',
   formMessage: 'Your message *',
   formLink: 'Link to portfolio or LinkedIn',
