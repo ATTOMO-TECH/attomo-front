@@ -12,7 +12,7 @@ import CompaniesScroll from '../components/slider/companys/slider';
 import SubSection from '../components/subsection/subsection';
 import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
 import { Styles } from '../styles/styles';
-import SelectedClients from '../components/section/selectedclientes';
+// import SelectedClients from '../components/section/selectedclientes';
 import { useUseAllCases } from '../domain/useCasesDetails';
 import ButtonShare from '../components/button/BtnShare';
 import RenderLoading from '../components/loading/loading';
@@ -125,7 +125,7 @@ function Home() {
                 <SubSection locale={translate} />
               </motion.div>
             </Styles.BlockSelected>
-            <Styles.Center>
+            {/* <Styles.Center>
               <motion.div
                 animate={shouldShowActions}
                 variants={servicesAnimations}
@@ -147,7 +147,7 @@ function Home() {
                   />
                 ))}
               </motion.div>
-            </Styles.Center>
+            </Styles.Center> */}
           </Styles.SectionScreen>
           <Styles.BlockSlider>
             <CompaniesScroll />
