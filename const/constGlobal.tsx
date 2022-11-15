@@ -107,62 +107,62 @@ export const CUSTOMERS: {
   {
     Name: 'Tasafy',
     Pic: '/customers/logos/tasafy.svg',
-    Url: '',
+    Url: 'https://www.tasafy.com/',
   },
   {
     Name: 'El Rincón',
     Pic: '/customers/logos/grupo-el-rincon.svg',
-    Url: '',
+    Url: 'https://www.grupoelrincon.es/',
   },
   {
     Name: 'VIVLA',
     Pic: '/customers/logos/vivla.svg',
-    Url: '',
+    Url: 'https://es.vivla.com/',
   },
   {
     Name: 'Grupo LALALA',
     Pic: '/customers/logos/grupo-lalala.svg',
-    Url: '',
+    Url: 'https://grupolalala.com/',
   },
   {
     Name: 'Idealista',
     Pic: '/customers/logos/idealista.svg',
-    Url: '',
+    Url: 'https://www.idealista.com/',
   },
   {
     Name: 'Bstadium',
     Pic: '/customers/logos/bstadium.svg',
-    Url: '',
+    Url: 'https://bstadium.es/',
   },
   {
     Name: 'GVRE',
     Pic: '/customers/logos/gvre.svg',
-    Url: '',
+    Url: 'https://gvre.es/',
   },
   {
     Name: 'Real Sociedad FC',
     Pic: '/customers/logos/real-sociedad.svg',
-    Url: '',
+    Url: 'https://www.realsociedad.eus/',
   },
   {
     Name: 'Sevilla FC',
     Pic: '/customers/logos/sevilla-fc.svg',
-    Url: '',
+    Url: 'https://sevillafc.es/',
   },
   {
     Name: 'Magoni',
     Pic: '/customers/logos/magoni.svg',
-    Url: '',
+    Url: 'https://www.magoni.co/',
   },
   {
     Name: 'Método R',
     Pic: '/customers/logos/metodo-r.svg',
-    Url: '',
+    Url: 'https://www.metodo-r.com/es/',
   },
   {
     Name: 'Spherika',
     Pic: '/customers/logos/spherika.svg',
-    Url: '',
+    Url: 'https://spherika.es/',
   },
 
   /* {
