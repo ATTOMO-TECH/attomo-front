@@ -164,6 +164,11 @@ export const CUSTOMERS: {
     Pic: '/customers/logos/spherika.svg',
     Url: 'https://spherika.es/',
   },
+  {
+    Name: 'Zityhub',
+    Pic: '/customers/logos/zityhub.svg',
+    Url: 'https://zityhub.com/',
+  },
 
   /* {
     Name: 'Benneti',

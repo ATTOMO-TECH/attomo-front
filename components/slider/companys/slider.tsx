@@ -18,7 +18,7 @@ export default function CompaniesScroll() {
         {CUSTOMERS.map((values) => (
           <SwiperSlide key={values.Name} className="swiper-wrapper ">
             {
-              values.Name === 'Magoni' || values.Name === 'Idealista' || values.Name ==='Tasafy' || values.Name ==='Spherika' || values.Name ==='El Rincón' || values.Name ==='Grupo LALALA' ?
+              values.Name === 'Magoni' || values.Name === 'Idealista' || values.Name ==='Tasafy' || values.Name ==='Spherika' || values.Name ==='El Rincón' || values.Name ==='Grupo LALALA' || values.Name ==='Zityhub' ?
                 (<a href={values.Url} target='blank' >
                   <img
                     src={values.Pic}
