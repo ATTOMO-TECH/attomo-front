@@ -110,9 +110,9 @@ export const CUSTOMERS: {
     Url: 'https://www.tasafy.com/',
   },
   {
-    Name: 'El Rincón',
-    Pic: '/customers/logos/grupo-el-rincon.svg',
-    Url: 'https://www.grupoelrincon.es/',
+    Name: 'Zityhub',
+    Pic: '/customers/logos/zityhub.svg',
+    Url: 'https://zityhub.com/',
   },
   {
     Name: 'VIVLA',
@@ -163,6 +163,11 @@ export const CUSTOMERS: {
     Name: 'Spherika',
     Pic: '/customers/logos/spherika.svg',
     Url: 'https://spherika.es/',
+  },
+  {
+    Name: 'El Rincón',
+    Pic: '/customers/logos/grupo-el-rincon.svg',
+    Url: 'https://www.grupoelrincon.es/',
   },
 
   /* {
