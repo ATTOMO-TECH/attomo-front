@@ -17,19 +17,25 @@ export default function CompaniesScroll() {
         freeMode>
         {CUSTOMERS.map((values) => (
           <SwiperSlide key={values.Name} className="swiper-wrapper ">
-            {
-              values.Name === 'Magoni' || values.Name === 'Idealista' || values.Name ==='Tasafy' || values.Name ==='Spherika' || values.Name ==='El Rincón' || values.Name ==='Grupo LALALA' || values.Name ==='Zityhub' ?
-                (<a href={values.Url} target='blank' >
-                  <img
-                    src={values.Pic}
-                    width="120px"
-                    height="auto"
-                    alt={values.Name}
-                    loading="lazy"
-                    className="object-contain"
-                  />
-                </a>) :
-              <a href={values.Url} target='blank'>
+            {values.Name === 'Magoni' ||
+            values.Name === 'Idealista' ||
+            values.Name === 'Tasafy' ||
+            values.Name === 'Spherika' ||
+            values.Name === 'El Rincón' ||
+            values.Name === 'Grupo LALALA' ||
+            values.Name === 'Zityhub' ? (
+              <a href={values.Url} target="blank">
+                <img
+                  src={values.Pic}
+                  width="120px"
+                  height="auto"
+                  alt={values.Name}
+                  loading="lazy"
+                  className="object-contain"
+                />
+              </a>
+            ) : (
+              <a href={values.Url} target="blank">
                 <img
                   src={values.Pic}
                   width="80px"
@@ -39,7 +45,7 @@ export default function CompaniesScroll() {
                   className="object-contain"
                 />
               </a>
-              }
+            )}
           </SwiperSlide>
         ))}
       </Swiper>

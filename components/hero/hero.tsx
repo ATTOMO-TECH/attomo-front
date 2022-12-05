@@ -62,7 +62,7 @@ export default function Hero({ text, text2, button, link }: Props) {
           animate="animate"
           exit="exit">
           <HeadSection.TextHead>
-            {line1} <br/> {line2}
+            {line1} <br /> {line2}
           </HeadSection.TextHead>
           {/* <HeadSection.TextHead>
             {line2}
