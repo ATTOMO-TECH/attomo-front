@@ -124,7 +124,7 @@ input[data-autocompleted] {
   -o-transition-timing-function: linear !important;
   transition-timing-function: linear !important;
   display: flex;
-  align-items: center;  
+  align-items: center;
 }
 .swiper-container-free-mode > .swiper-wrapper {
   -webkit-transition-timing-function: linear !important;

@@ -34,6 +34,8 @@ function DetailsServices() {
   const [isOpenFilter, SetIsOpenFilter] = useState<boolean>(false);
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const [menuId, setMenuId] = useState(null);
+  const [metaTitle, setMetaTitle] = useState('');
+  const [metaDescription, setMetaDescription] = useState('');
   const { slug } = router.query;
   let { locale } = router;
   const toggleFilter = () => {
@@ -62,6 +64,8 @@ function DetailsServices() {
         return some;
       });
       SetIsIdSubServices(valueFilter);
+      setMetaTitle(valueFilter[0].attributes.screenTitle);
+      setMetaDescription(valueFilter[0].attributes.metadata);
     }
   }, [data, slug]);
 
@@ -72,18 +76,17 @@ function DetailsServices() {
       </>
     );
   }
-
   return (
     <>
       <Head>
-        <title>Servicios ATTOMO - Nuestros servicios - {slug}</title>
+        <title>Servicios ATTOMO - Nuestros servicios - {metaTitle}</title>
         <meta
           name="title"
-          content={`Servicios ATTOMO - Nuestros servicios - ${slug}`}
+          content={`Servicios ATTOMO - Nuestros servicios - ${metaTitle}`}
         />
         <link rel="icon" href="/FaviconLight.svg" type="image/x-icon" />
-        <meta name="description" content={data?.data?.attributes?.metadata} />
-        <meta name="keywords" content={data?.data?.attributes?.metadata} />
+        <meta name="description" content={metaDescription} />
+        <meta name="keywords" content={metaDescription} />
         <link rel="canonical" href={document.location.href} />
         <meta name="type" content="website" />
         <meta name="copyright" content={document.location.href} />
