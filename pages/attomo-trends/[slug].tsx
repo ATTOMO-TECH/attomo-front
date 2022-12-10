@@ -53,10 +53,10 @@ function New({ mode }: Props) {
   return (
     <>
       <Head>
-        <title>#ATTOMOtrends - {data?.data?.attributes.title}</title>
+        <title>#ATTOMOtrends - {data?.data?.attributes.screenTitle}</title>
         <meta
           name="title"
-          content={`ATTOMOtrends - ${data?.data?.attributes.title}`}
+          content={`ATTOMOtrends - ${data?.data?.attributes.screenTitle}`}
         />
         <link rel="icon" href="/FaviconLight.svg" type="image/x-icon" />
         {data?.data?.attributes.metadata && (
