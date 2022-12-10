@@ -277,7 +277,7 @@ export const Styles = {
   BtnSelect: tw(
     BtnSelect,
   )`text-primary border-2 border-primary px-14 py-3 rounded-full opacity-80 font-PrimarySerif font-thin shadow-none`,
-  TitularText: tw.h3`font-Primary  lg:text-4xl text-2xl font-light py-5 leading-relaxed`,
+  TitularText: tw.h1`font-Primary  lg:text-4xl text-2xl font-light py-5 leading-relaxed`,
   // SPACE
   HeroEspace: tw.section`h-auto bg-hero-Space bg-cover bg-center py-72 bg-no-repeat mt-12 lg:mt-48`,
   SectionImg: tw.section`grid grid-cols-1 sm:grid-cols-2 gap-6`,
