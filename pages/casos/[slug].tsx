@@ -58,12 +58,13 @@ export default function Cases({ mode }: Props) {
     <>
       <Head>
         <title>
-          Casos de éxito ATTOMO - Clientes - {data?.data?.attributes.company}
+          Casos de éxito ATTOMO - Clientes -{' '}
+          {data?.data?.attributes.screenTitle}
         </title>
 
         <meta
           name="title"
-          content={`Casos de éxito ATTOMO - Clientes - ${slug}`}
+          content={`Casos de éxito ATTOMO - Clientes - ${data?.data?.attributes.screenTitle}`}
         />
         <link rel="icon" href="/FaviconLight.svg" type="image/x-icon" />
         {data?.data?.attributes.metadata && (

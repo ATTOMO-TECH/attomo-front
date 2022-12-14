@@ -83,7 +83,7 @@ export const Styles = {
 
 export const StylesCases = {
   CategoryText: tw.h6`font-PrimarySans text-addictional font-light`,
-  TitularText: tw.h3`font-Primary text-3xl md:text-5xl font-light py-5 leading-relaxed`,
+  TitularText: tw.h1`font-Primary text-3xl md:text-5xl font-light py-5 leading-relaxed`,
   Paragraph: tw.p`font-PrimarySans font-extralight pb-5 leading-relaxed text-lg`,
 };
 

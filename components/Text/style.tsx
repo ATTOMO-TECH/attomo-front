@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import tw from 'tailwind-styled-components';
 import '@fontsource/merriweather-sans';
 
-export const TextHero = styled.h2`
+export const TextHero = styled.h1`
   font-family: 'Merriweather';
   will-change: transform;
   background: linear-gradient(
