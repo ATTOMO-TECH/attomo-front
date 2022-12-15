@@ -40,26 +40,26 @@ export default function SubMenu({
                 {subsection.attributes.subservices.data.map((subTask: any) => (
                   <Link
                     passHref
-                    href={subTask.attributes.name
-                      .replaceAll(' ', '_')
-                      .toLowerCase()}
-                    key={subTask.attributes.name}>
+                    href={subTask.attributes.URLSlug}
+                    // .replaceAll(' ', '_')
+                    // .toLowerCase()}
+                    key={subTask.attributes.URLSlug}>
                     <div
                       onTouchStart={() =>
                         router.push(
-                          subTask.attributes.name
-                            .replaceAll(' ', '_')
-                            .toLowerCase(),
+                          subTask.attributes.URLSlug,
+                          // .replaceAll(' ', '_')
+                          // .toLowerCase(),
                         )
                       }>
                       <Styles.SelectSubMenu
                         onClick={toggle}
                         onTouchStart={toggle}
                         mode={
-                          subTask.attributes.name
-                            .replaceAll(' ', '_')
-                            .toLowerCase() === router.query.slug
-                            ? BUTTON_ACTIVE.ON
+                          subTask.attributes.URLSlug === router.query.slug
+                            ? //  .replaceAll(' ', '_')
+                              //  .toLowerCase() === router.query.slug
+                              BUTTON_ACTIVE.ON
                             : BUTTON_ACTIVE.OFF
                         }>
                         {subTask.attributes.name}
