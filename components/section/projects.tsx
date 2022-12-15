@@ -80,7 +80,10 @@ export default function SectionProjects({
                     width={800}
                     height={600}
                     id={`${values.id}`}
-                    alt={values.attributes.name}
+                    alt={
+                      values.attributes.mainPhoto.data[0].attributes
+                        .alternativeText
+                    }
                     className="object-cover cursor-pointer"
                   />
                 </a>
