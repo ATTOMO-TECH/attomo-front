@@ -98,7 +98,7 @@ export default function BlockBlog({ data }: Props) {
               <SubtextUrl
                 size="pr-12 md:pr-4 lg:pr-12 pt-4 md:pt-0 lg:pt-4 text-sm leading-relaxed cursor-pointer"
                 url={`/attomo-trends/${articleTitle}-${data.id}`}>
-                {data.attributes.title}
+                {data.attributes.description}
               </SubtextUrl>
 
               <Blogstyles.SubText />
