@@ -24,7 +24,7 @@ export default function Slide({ articles, mode }: Props) {
         <a href={`/attomo-trends/${articleTitle}-${articles.id}`}>
           <StylesArticle.Img
             src={articles.attributes.coverImage.data.attributes.url}
-            alt={articles.Text}
+            alt={articles.attributes.coverImage.data.attributes.alternativeText}
           />
         </a>
       </Link>
