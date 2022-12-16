@@ -7,6 +7,7 @@ import IconAnimate from '../button/icon';
 import TitleUrl from '../Text/titleUrl';
 import { Styles } from './style';
 import { getLocale } from '../../public/locales/getLocale';
+import { VALUESNAV } from '../../const/constGlobal';
 /* import { handlers } from '../../hook/longPress'; */
 
 interface Props {
@@ -69,11 +70,12 @@ export default function SectionProjects({
         <Styles.BlockSections
           ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
           key={values.Client}>
-          <Link href={`/casos/${values.attributes.URLSlug}-${id}`}>
+          <Link href={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}>
             <Styles.BlockSection
               ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
               {values?.attributes?.mainPhoto?.data[0].attributes?.url && (
-                <a href={`/casos/${values.attributes.URLSlug}-${id}`}>
+                <a
+                  href={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}>
                   <img
                     src={values?.attributes.mainPhoto.data[0].attributes.url}
                     width={800}
@@ -106,13 +108,15 @@ export default function SectionProjects({
                 {values.attributes.company}
               </Styles.Paragraph>
               <TitleUrl
-                url={`/casos/${values.attributes.URLSlug}-${id}`}
+                url={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}
                 size="lg:text-4xl md:text-2xl text-xl sm:w-96 w-80  py-3 leading-relaxed lg:leading-normal cursor-pointer">
                 {values.attributes.title}
               </TitleUrl>
-              <Link href={`/casos/${values.attributes.URLSlug}-${id}`}>
+              <Link
+                href={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}>
                 <Styles.BlockBtn>
-                  <a href={`/casos/${values.attributes.URLSlug}-${id}`}>
+                  <a
+                    href={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}>
                     <IconAnimate text={translate.seeMoreCases} mode />
                     {/* {console.log(translate.seeMoreCases)} */}
                   </a>
