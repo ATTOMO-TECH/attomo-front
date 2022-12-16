@@ -10,16 +10,9 @@ interface Props {
 export default function LinkCollapse({ tab, item }: Props) {
   return (
     <>
-      <Link
-        href={`/servicios/${tab.attributes.name
-          .replaceAll(' ', '_')
-          .toLowerCase()}`}>
+      <Link href={`/servicios/${tab.attributes.URLSlug}`}>
         <Styles.SubSection
-          {...handlers(
-            `/servicios/${tab.attributes.name
-              .replaceAll(' ', '_')
-              .toLowerCase()}`,
-          )}>
+          {...handlers(`/servicios/${tab.attributes.URLSlug}`)}>
           <motion.p variants={item}>{tab.attributes.name}</motion.p>
         </Styles.SubSection>
       </Link>

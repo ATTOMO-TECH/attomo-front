@@ -51,9 +51,8 @@ export default function SectionProjects({
   );
   arrNewSlug.push(id);
   /* console.log(arrNewSlug); */
-  const newSlug = arrNewSlug.join('-');
+  // const newSlug = arrNewSlug.join('-');
   /* console.log(newSlug); */
-
   return (
     <>
       <motion.div
@@ -70,11 +69,11 @@ export default function SectionProjects({
         <Styles.BlockSections
           ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
           key={values.Client}>
-          <Link href={`/casos/${newSlug}`}>
+          <Link href={`/casos/${values.attributes.URLSlug}-${id}`}>
             <Styles.BlockSection
               ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
               {values?.attributes?.mainPhoto?.data[0].attributes?.url && (
-                <a href={`/casos/${newSlug}`}>
+                <a href={`/casos/${values.attributes.URLSlug}-${id}`}>
                   <img
                     src={values?.attributes.mainPhoto.data[0].attributes.url}
                     width={800}
@@ -107,13 +106,13 @@ export default function SectionProjects({
                 {values.attributes.company}
               </Styles.Paragraph>
               <TitleUrl
-                url={`/casos/${newSlug}`}
+                url={`/casos/${values.attributes.URLSlug}-${id}`}
                 size="lg:text-4xl md:text-2xl text-xl sm:w-96 w-80  py-3 leading-relaxed lg:leading-normal cursor-pointer">
                 {values.attributes.title}
               </TitleUrl>
-              <Link href={`/casos/${newSlug}`}>
+              <Link href={`/casos/${values.attributes.URLSlug}-${id}`}>
                 <Styles.BlockBtn>
-                  <a href={`/casos/${newSlug}`}>
+                  <a href={`/casos/${values.attributes.URLSlug}-${id}`}>
                     <IconAnimate text={translate.seeMoreCases} mode />
                     {/* {console.log(translate.seeMoreCases)} */}
                   </a>
