@@ -54,8 +54,9 @@ function DetailsServices() {
     if (data) {
       const valueFilter = data.data.flatMap((tab: any) => {
         const some = tab.attributes?.subservices?.data?.filter(
-          ({ attributes: { name } }: any) => {
-            const nameParse = name.replaceAll(' ', '_').toLowerCase();
+          ({ attributes: { URLSlug } }: any) => {
+            const nameParse = URLSlug;
+            // .replaceAll(' ', '_').toLowerCase();
 
             return nameParse === slug;
           },
@@ -64,8 +65,8 @@ function DetailsServices() {
         return some;
       });
       SetIsIdSubServices(valueFilter);
-      setMetaTitle(valueFilter[0].attributes.screenTitle);
-      setMetaDescription(valueFilter[0].attributes.metadata);
+      setMetaTitle(valueFilter[0]?.attributes.screenTitle);
+      setMetaDescription(valueFilter[0]?.attributes.metadata);
     }
   }, [data, slug]);
 
@@ -132,9 +133,9 @@ function DetailsServices() {
                       isOpen={
                         !menuId
                           ? tab.attributes?.subservices?.data?.some(
-                              ({ attributes: { name } }: any) =>
-                                name.replaceAll(' ', '_').toLowerCase() ===
-                                router.query.slug,
+                              ({ attributes: { URLSlug } }: any) =>
+                                // name.replaceAll(' ', '_').toLowerCase() ===
+                                URLSlug === router.query.slug,
                             )
                           : menuId === tab.id
                       }

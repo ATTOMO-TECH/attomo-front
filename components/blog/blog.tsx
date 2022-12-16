@@ -52,12 +52,13 @@ export default function BlockBlog({ data }: Props) {
       },
     },
   };
-  const articleTitle = data.attributes.title
+  /* const articleTitle = data.attributes.title
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replaceAll(/[^\w]/gi, ' ')
     .split(' ')
     .join('-');
+  */
   /* console.log(articleTitle) */
 
   return (
@@ -70,7 +71,9 @@ export default function BlockBlog({ data }: Props) {
         animate="show">
         <motion.div variants={item}>
           <Blogstyles.Article>
-            <Link href={`/attomo-trends/${articleTitle}-${data.id}`} passHref>
+            <Link
+              href={`/attomo-trends/${data.attributes.URLSlug}-${data.id}`}
+              passHref>
               <Blogstyles.BlockImg>
                 {data.attributes?.coverImage?.data?.attributes?.url ? (
                   <img
@@ -79,7 +82,9 @@ export default function BlockBlog({ data }: Props) {
                     height={700}
                     alt={data.attributes.coverImage.data.attributes?.name}
                     id={`${data.id}`}
-                    {...handlers(`/attomo-trends/${articleTitle}-${data.id}`)}
+                    {...handlers(
+                      `/attomo-trends/${data.attributes.URLSlug}-${data.id}`,
+                    )}
                   />
                 ) : null}
               </Blogstyles.BlockImg>
@@ -87,24 +92,28 @@ export default function BlockBlog({ data }: Props) {
             <Blogstyles.BlockText>
               <SubtextUrl
                 size="text-sm leading-relaxed  "
-                url={`/attomo-trends/${articleTitle}-${data.id}`}>
+                url={`/attomo-trends/${data.attributes.URLSlug}-${data.id}`}>
                 {data.attributes.blog_tags.data[0]?.attributes.name}
               </SubtextUrl>
               <TitleUrl
                 size="text-xl lg:text-3xl pr-12 md:pr-4 lg:pr-12 leading-loose pt-4 md:pt-0 lg:pt-4 cursor-pointer"
-                url={`/attomo-trends/${articleTitle}-${data.id}`}>
+                url={`/attomo-trends/${data.attributes.URLSlug}-${data.id}`}>
                 {data.attributes.title}
               </TitleUrl>
               <SubtextUrl
                 size="pr-12 md:pr-4 lg:pr-12 pt-4 md:pt-0 lg:pt-4 text-sm leading-relaxed cursor-pointer"
-                url={`/attomo-trends/${articleTitle}-${data.id}`}>
-                {data.attributes.title}
+                url={`/attomo-trends/${data.attributes.URLSlug}-${data.id}`}>
+                {data.attributes.description}
               </SubtextUrl>
 
               <Blogstyles.SubText />
-              <Link href={`attomo-trends/${articleTitle}-${data.id}`} passHref>
+              <Link
+                href={`attomo-trends/${data.attributes.URLSlug}-${data.id}`}
+                passHref>
                 <a
-                  {...handlers(`attomo-trends/${articleTitle}-${data.id}`)}
+                  {...handlers(
+                    `attomo-trends/${data.attributes.URLSlug}-${data.id}`,
+                  )}
                   className="h-12 w-2/6 relative">
                   <IconAnimate text={translate.trendsReadButton} mode />
                 </a>

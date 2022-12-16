@@ -26,13 +26,12 @@ export default function SlideCases({ articles, mode }: Props) {
   );
   arrNewSlug.push(id);
   /* console.log(arrNewSlug); */
-  const newSlug = arrNewSlug.join('-');
+  // const newSlug = arrNewSlug.join('-');
   /* console.log(newSlug); */
-
   return (
     <>
-      <Link href={`/casos/${newSlug}`}>
-        <a href={`/casos/${newSlug}`}>
+      <Link href={`/casos/${articles.attributes.URLSlug}-${id}`}>
+        <a href={`/casos/${articles.attributes.URLSlug}-${id}}`}>
           <StylesArticle.Img
             src={articles.attributes.mainPhoto.data[0].attributes.url}
             alt={
@@ -50,9 +49,9 @@ export default function SlideCases({ articles, mode }: Props) {
           }>
           {articles.attributes.name}
         </StylesArticle.TopicText>
-        <Link href={`/casos/${newSlug}`}>
+        <Link href={`/casos/${articles.attributes.URLSlug}-${id}}`}>
           <StylesArticle.TextBlog
-            {...handlers(`/casos/${newSlug}`)}
+            {...handlers(`/casos/${articles.attributes.URLSlug}-${id}}`)}
             ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
             {articles.attributes.title}
           </StylesArticle.TextBlog>
