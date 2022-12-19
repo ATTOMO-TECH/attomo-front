@@ -14,14 +14,18 @@ export function Metadata({ screen }: Props) {
         <meta name="description" content={screen.data?.attributes.metadata} />
       )}
       <meta property="og:type" content="website" />
-      <meta property="og:title" content={screen.data?.attributes.screenTitle} />
+      <meta
+        property="og:title"
+        content="ATTOMO - Consultora de Transformación Digital"
+      />
       {screen.data?.attributes.metadata && (
         <meta
           property="og:description"
-          content={screen.data?.attributes.metadata}
+          content="* ATTOMO - Consultora de Transformación Digital *
+          Ayudamos a las empresas privadas y administraciones públicas en todo su proceso de digitalización."
         />
       )}
-      <meta property="og:url" content={document.location.origin} />
+      <meta property="og:url" content="https://www.attomo.digital" />
       <meta
         property="og:site_name"
         content="ATTOMO - Consultora de Transformación Digital"
