@@ -6,23 +6,28 @@ export default {
   menu: [
     {
       Value: 'Services',
-      Url: '/servicios',
+      // Url: '/servicios',
+      Url: '/consultora-transformacion-digital',
     },
     {
       Value: 'Case studies',
-      Url: '/casosdeexito',
+      // Url: '/casosdeexito',
+      Url: '/casos-exito-digitalizacion',
     },
     {
       Value: 'About us',
-      Url: '/nosotros',
+      // Url: '/nosotros',
+      Url: '/quienes-somos',
     },
     {
       Value: '#ATTOMOTrends',
-      Url: '/attomo-trends',
+      // Url: '/attomo-trends',
+      Url: '/tendencias',
     },
     {
       Value: 'Careers',
-      Url: '/careers',
+      // Url: '/careers',
+      Url: '/ofertas-trabajo',
     },
     {
       Value: 'Contact',
@@ -30,11 +35,13 @@ export default {
     },
     {
       Value: 'ATTOMO Space',
-      Url: '/espacio-attomo',
+      // Url: '/espacio-attomo',
+      Url: '/estudio-fotografia-madrid',
     },
     {
       Value: 'Digital Kit',
-      Url: '/kit-digital',
+      // Url: '/kit-digital',
+      Url: '/agente-digitalizador-madrid',
     },
   ],
   home: [
