@@ -5,6 +5,7 @@ import { appWithTranslation } from 'next-i18next';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import TagManager from 'react-gtm-module';
 import { AuthProvider } from '../context/AuthContext';
+import logoAttomo from '../public/logo-attomo.jpg';
 import '../styles/globals.css';
 
 const queryClient = new QueryClient();
@@ -29,6 +30,36 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <link
           href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&family=Merriweather+Sans:wght@300;500;600;700;800&family=Merriweather:wght@300;400;700;900&display=swap"
           rel="stylesheet"
+        />
+        <meta
+          prefix="og: http://ogp.me/ns#"
+          property="og:type"
+          content="website"
+        />
+        <meta
+          prefix="og: http://ogp.me/ns#"
+          property="og:title"
+          content="ATTOMO - Consultora de Transformación Digital"
+        />
+        <meta
+          prefix="og: http://ogp.me/ns#"
+          property="og:description"
+          content=" ATTOMO - Consultora de Transformación Digital - Ayudamos a las empresas privadas y administraciones públicas en todo su proceso de digitalización."
+        />
+        <meta
+          prefix="og: http://ogp.me/ns#"
+          property="og:url"
+          content="https://www.attomo.digital"
+        />
+        <meta
+          prefix="og: http://ogp.me/ns#"
+          property="og:site_name"
+          content="ATTOMO - Consultora de Transformación Digital"
+        />
+        <meta
+          prefix="og: http://ogp.me/ns#"
+          property="og:image"
+          content={`${logoAttomo}`}
         />
       </Head>
       <AuthProvider>
