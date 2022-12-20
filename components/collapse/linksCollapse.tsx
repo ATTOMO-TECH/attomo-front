@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Styles } from './style';
 import { handlers } from '../../hook/longPress';
+import { VALUESNAV } from '../../const/constGlobal';
 
 interface Props {
   tab: any;
@@ -10,9 +11,9 @@ interface Props {
 export default function LinkCollapse({ tab, item }: Props) {
   return (
     <>
-      <Link href={`/servicios/${tab.attributes.URLSlug}`}>
+      <Link href={`${VALUESNAV[0].Url}/${tab.attributes.URLSlug}`}>
         <Styles.SubSection
-          {...handlers(`/servicios/${tab.attributes.URLSlug}`)}>
+          {...handlers(`${VALUESNAV[0].Url}/${tab.attributes.URLSlug}`)}>
           <motion.p variants={item}>{tab.attributes.name}</motion.p>
         </Styles.SubSection>
       </Link>

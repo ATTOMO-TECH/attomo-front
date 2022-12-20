@@ -30,23 +30,28 @@ export const VALUESNAV: {
 }[] = [
   {
     Value: 'Servicios',
-    Url: '/servicios',
+    // Url: '/servicios',
+    Url: '/consultora-transformacion-digital',
   },
   {
     Value: 'Casos de éxito',
-    Url: '/casosdeexito',
+    // Url: '/casosdeexito',
+    Url: '/casos-exito-digitalizacion',
   },
   {
     Value: 'Nosotros',
-    Url: '/nosotros',
+    // Url: '/nosotros',
+    Url: '/quienes-somos',
   },
   {
     Value: '#ATTOMOTrends',
-    Url: '/attomo-trends',
+    // Url: '/attomo-trends',
+    Url: '/tendencias',
   },
   {
     Value: 'Careers',
-    Url: '/careers',
+    // Url: '/careers',
+    Url: '/ofertas-trabajo',
   },
   {
     Value: 'Contacto',
@@ -54,11 +59,13 @@ export const VALUESNAV: {
   },
   {
     Value: 'Espacio Attomo',
-    Url: '/espacio-attomo',
+    // Url: '/espacio-attomo',
+    Url: '/estudio-fotografia-madrid',
   },
   {
     Value: 'Kit Digital',
-    Url: '/kit-digital',
+    // Url: '/kit-digital',
+    Url: '/agente-digitalizador-madrid',
   },
 ];
 export const ICONNAV: {
