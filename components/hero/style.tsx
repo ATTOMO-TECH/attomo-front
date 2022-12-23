@@ -89,7 +89,8 @@ export const HeadSection = {
   BlockArrow: tw.span`absolute `,
   SectionHeroCases: tw(
     BlockHeroSection,
-  )`md:w-10/12 w-full h-full z-0 sticky bg-no-repeat bg-center bg-cover `,
+    // change bg-center to bg-right because the image dont see well in mobile version
+  )`md:w-10/12 w-full h-full z-0 sticky bg-no-repeat bg-right bg-cover `,
 
   // HeroFooter
 
