@@ -11,7 +11,7 @@ import SelectedUs from '../components/section/selectedUs';
 import Nav from '../components/nav/nav';
 import OneProject from '../components/section/onlyProject';
 import ListUs from '../components/section/us';
-import Title from '../components/Text/title';
+import MainTitle from '../components/Text/mainTitle';
 import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
 import { useAScreen } from '../domain/useScreensMetadata';
 import { getLocale } from '../public/locales/getLocale';
@@ -61,11 +61,11 @@ function Us() {
           <Styles.ScreenWS>
             {translate.us.map((values) => (
               <Styles.BlockDiv key={values.Text}>
-                <Title size="lg:text-4xl md:text-3xl text-xl lg:pt-24 lg:pr-0 lg:pb-24 md:pb-12 pb-6 w-full md:pt-36  ">
+                <MainTitle size="lg:text-4xl md:text-3xl text-xl lg:pt-24 lg:pr-0 lg:pb-24 md:pb-12 pb-6 w-full md:pt-36  ">
                   {values.Text}.
                   <br />
                   {values.Subtext}
-                </Title>
+                </MainTitle>
               </Styles.BlockDiv>
             ))}
           </Styles.ScreenWS>

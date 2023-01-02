@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { format } from 'date-fns';
 import { motion } from 'framer-motion';
 import { Styles } from '../../styles/styles';
-import Subtext from '../Text/subText';
+import ParagraphText from '../Text/paragraphText';
 import { servicesAnimations } from '../animations/animations';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { handlersFuntion } from '../../hook/longPress';
@@ -46,7 +46,9 @@ export default function BlockFilter({
         initial={{ opacity: 0, y: '50%' }}>
         <Styles.SelectFilterCases>
           <Styles.SectionFilter className="flex  w-full items-center justify-between">
-            <Subtext size="text-lg lg:py-4 ">{translate.CasesFilter}</Subtext>
+            <ParagraphText size="text-lg lg:py-4 ">
+              {translate.CasesFilter}
+            </ParagraphText>
             <motion.svg
               className="cursor-pointer w-1/6 lg:hidden  "
               width="24"

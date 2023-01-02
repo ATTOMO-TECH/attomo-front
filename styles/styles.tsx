@@ -193,6 +193,11 @@ export const subText = styled.h5`
   font-family: 'Merriweather';
   font-style: normal;
 `;
+
+export const subTexth2 = styled.h2`
+  font-family: 'Merriweather';
+  font-style: normal;
+`;
 export const linkSubmenu = styled.p`
   font-weight: 300;
   line-height: 36px;
@@ -257,6 +262,9 @@ export const Styles = {
   FlexEnd: tw.div`flex lg:justify-end w-full m-auto relative`,
   TitleSubSection: tw(
     subText,
+  )`font-Primary text-xl font-extralight pb-5 text-primary`,
+  TitleSubSectionH2: tw(
+    subTexth2,
   )`font-Primary text-xl font-extralight pb-5 text-primary`,
   AlingBlock: tw.div`w-10/12 lg:w-full overflow-x-hidden m-auto `,
   BlockInput: tw.div`flex `,
