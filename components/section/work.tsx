@@ -1,8 +1,7 @@
 import Link from 'next/link';
 
-import Subtext from '../Text/subText';
+import ParagraphText from '../Text/paragraphText';
 import IconAnimate from '../button/icon';
-import Title from '../Text/title';
 
 import { handlersExternal } from '../../hook/longPress';
 
@@ -27,15 +26,15 @@ export default function Work({ works, apply }: Props) {
                     target="_blank"
                     rel="noreferrer"
                     {...handlersExternal(`https://${value.attributes.url}`)}>
-                    <Title size="lg:text-xl text-2xl ">
+                    <ParagraphText size="lg:text-xl text-2xl ">
                       {value.attributes.title}
-                    </Title>
+                    </ParagraphText>
                   </a>
                 </Link>
               </div>
-              <Subtext size=" pt-4 pb-6 lg:mr-4 text-justify">
+              <ParagraphText size=" pt-4 pb-6 lg:mr-4 text-justify">
                 {value.attributes.description}
-              </Subtext>
+              </ParagraphText>
             </div>
 
             <div className="ml-0 lg:ml-4 m-auto lg:w-1/6 sm:w-2/6 w-3/6">

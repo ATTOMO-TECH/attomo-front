@@ -7,8 +7,9 @@ import RenderLoading from '../components/loading/loading';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
 import Work from '../components/section/work';
-import Subtext from '../components/Text/subText';
+import MainTitle from '../components/Text/mainTitle';
 import Title from '../components/Text/title';
+import ParagraphText from '../components/Text/paragraphText';
 import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
 import { useUseAllCareer } from '../domain/useCareers';
 import { getLocale } from '../public/locales/getLocale';
@@ -64,13 +65,13 @@ function Carrers() {
           <Styles.ScreenWS>
             {translate.workUs.map((value) => (
               <Styles.BlockDiv key={`${value.Text}-${value.Subtext}`}>
-                <Title size="lg:text-5xl md:text-3xl text-2xl lg:pr-0 lg:pb-4 md:pb-12 pb-6 w-4/6 lg:w-3/6  pt-12 ">
+                <MainTitle size="lg:text-5xl md:text-3xl text-2xl lg:pr-0 lg:pb-4 md:pb-12 pb-6 w-4/6 lg:w-3/6  pt-12 ">
                   {value.Text}
-                </Title>
+                </MainTitle>
                 <Styles.FlexEnd>
-                  <Subtext size="lg:w-3/6 lg:text-left pt-3 md:pt-0  ">
+                  <ParagraphText size="lg:w-3/6 lg:text-left pt-3 md:pt-0  ">
                     {value.Subtext}
-                  </Subtext>
+                  </ParagraphText>
                 </Styles.FlexEnd>
               </Styles.BlockDiv>
             ))}

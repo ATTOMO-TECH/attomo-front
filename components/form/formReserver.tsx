@@ -14,7 +14,7 @@ import CalendarPickerInput from '../calendar/input/calendar';
 import { validationSchemaBooking } from './validations';
 import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
-import Subtext from '../Text/subText';
+import ParagraphText from '../Text/paragraphText';
 import {
   handlersFuntionFocus,
   handlersFuntion,
@@ -115,7 +115,9 @@ export default function FormReserver() {
                   key={values.Text}>
                   {values.Text}
                 </Title>
-                <Subtext size=" text-center py-5  ">{values.Subtext}</Subtext>
+                <ParagraphText size=" text-center py-5  ">
+                  {values.Subtext}
+                </ParagraphText>
               </div>
             ),
           )}

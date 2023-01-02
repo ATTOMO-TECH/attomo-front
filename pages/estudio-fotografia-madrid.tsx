@@ -4,8 +4,9 @@ import { useRouter } from 'next/router';
 import Footer from '../components/footer/footer';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
-import Subtext from '../components/Text/subText';
+import MainTitle from '../components/Text/mainTitle';
 import Title from '../components/Text/title';
+import ParagraphText from '../components/Text/paragraphText';
 import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
 import { Styles } from '../styles/styles';
 import BlockSection from '../components/block/block';
@@ -76,11 +77,13 @@ function Space() {
           <Styles.ScreenWS>
             {translate.spaceAttomo.map((services) => (
               <Styles.BlockDiv key={services.Text}>
-                <Title size="lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl">
+                <MainTitle size="lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl">
                   {services.Text}
-                </Title>
+                </MainTitle>
                 <Styles.FlexEnd>
-                  <Subtext size="lg:w-2/6 pt-10">{services.Subtext}</Subtext>
+                  <ParagraphText size="lg:w-2/6 pt-10">
+                    {services.Subtext}
+                  </ParagraphText>
                 </Styles.FlexEnd>
               </Styles.BlockDiv>
             ))}
@@ -118,10 +121,10 @@ function Space() {
         <Styles.CenterMargin>
           <Title size="text-2xl  lg:pr-10 "> {translate.whereUs}</Title>
           <Styles.BlockAddresMap>
-            <Subtext size="text-regular w-full leading-loose font-Secundary w-full pb-10 ">
+            <ParagraphText size="text-regular w-full leading-loose font-Secundary w-full pb-10 ">
               Calle del Monte Esquinza, 8-Bajo Izquierda <br />
               28010 Madrid
-            </Subtext>
+            </ParagraphText>
             <MapsBlock />
           </Styles.BlockAddresMap>
         </Styles.CenterMargin>

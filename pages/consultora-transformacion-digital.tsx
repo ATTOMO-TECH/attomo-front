@@ -10,8 +10,8 @@ import RenderLoading from '../components/loading/loading';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
 import ArticlesScroll from '../components/slider/article/slider';
-import Subtext from '../components/Text/subText';
-import Title from '../components/Text/title';
+import MainTitle from '../components/Text/mainTitle';
+import ParagraphText from '../components/Text/paragraphText';
 import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
 import { useAScreen } from '../domain/useScreensMetadata';
 import { getLocale } from '../public/locales/getLocale';
@@ -62,13 +62,13 @@ function Services() {
           <Styles.ScreenWS>
             {translate.services.map((services) => (
               <Styles.BlockDiv key={services.Text}>
-                <Title size="lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl">
+                <MainTitle size="lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl">
                   {services.Text}
-                </Title>
+                </MainTitle>
                 <Styles.FlexEnd>
-                  <Subtext size="lg:w-2/6 pt-10  absolute">
+                  <ParagraphText size="lg:w-2/6 pt-10  absolute">
                     {services.Subtext}
-                  </Subtext>
+                  </ParagraphText>
                 </Styles.FlexEnd>
               </Styles.BlockDiv>
             ))}
@@ -80,7 +80,9 @@ function Services() {
           </Styles.SpaceCollapse>
         </Styles.Center>
         <Styles.Center>
-          <Styles.TitleSubSection>{translate.project}</Styles.TitleSubSection>
+          <Styles.TitleSubSectionH2>
+            {translate.project}
+          </Styles.TitleSubSectionH2>
         </Styles.Center>
         <Styles.FlexEnd>
           <Styles.AlingBlock>

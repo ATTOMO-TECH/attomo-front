@@ -1,6 +1,6 @@
 import { handlersFuntion } from '../../hook/longPress';
 import { Styles } from '../../styles/styles';
-import Title from '../Text/title';
+import MainTitle from '../Text/mainTitle';
 
 interface Props {
   toggleFilter: any;
@@ -13,7 +13,7 @@ export default function BlockFilter({ toggleFilter, text }: Props) {
       <Styles.BlockFilter
         onClick={() => toggleFilter()}
         {...handlersFuntion(() => toggleFilter())}>
-        <Title size="mt-5 text-lg">{text}</Title>
+        <MainTitle size="mt-5 text-lg">{text}</MainTitle>
       </Styles.BlockFilter>
     </>
   );
