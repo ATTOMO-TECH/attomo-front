@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { darkTheme, lightTheme, Navegation } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
+import { VALUESNAV } from '../../const/constGlobal';
 
 interface Props {
   toggle: () => void;
@@ -15,6 +16,7 @@ interface Props {
 
 export default function Nav({ toggle, logo, mode, isOpen, bgFull }: Props) {
   const [scroll, setScroll] = useState(true);
+  const [viewLanguage, setViewLanguage] = useState(true);
   useEffect(() => {
     window.addEventListener('scroll', () => {
       if (window.pageYOffset > 20) {
@@ -33,6 +35,15 @@ export default function Nav({ toggle, logo, mode, isOpen, bgFull }: Props) {
     }, 10);
   };
 
+  useEffect((): void => {
+    if (router.asPath.includes(`${VALUESNAV[1].Url}/`)) {
+      console.log('en el if');
+      setViewLanguage(false);
+    } else if (router.asPath.includes(`${VALUESNAV[3].Url}/`)) {
+      console.log('en el if');
+      setViewLanguage(false);
+    }
+  }, []);
   return (
     <>
       <Navegation.SectionNav
@@ -82,22 +93,24 @@ export default function Nav({ toggle, logo, mode, isOpen, bgFull }: Props) {
             </Navegation.ItemsMenu>
           </a>
           <Navegation.BlockLenguage>
-            <Navegation.BlokSectionLenguage>
-              <Navegation.ButtonSelect
-                ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-                onClick={() => handleBtn('es')}>
-                ES
-              </Navegation.ButtonSelect>
-              <Navegation.LineBlock
-                ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-                |
-              </Navegation.LineBlock>
-              <Navegation.ButtonSelect
-                ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-                onClick={() => handleBtn('en')}>
-                EN
-              </Navegation.ButtonSelect>
-            </Navegation.BlokSectionLenguage>
+            {viewLanguage && (
+              <Navegation.BlokSectionLenguage>
+                <Navegation.ButtonSelect
+                  ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+                  onClick={() => handleBtn('es')}>
+                  ES
+                </Navegation.ButtonSelect>
+                <Navegation.LineBlock
+                  ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+                  |
+                </Navegation.LineBlock>
+                <Navegation.ButtonSelect
+                  ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+                  onClick={() => handleBtn('en')}>
+                  EN
+                </Navegation.ButtonSelect>
+              </Navegation.BlokSectionLenguage>
+            )}
             <Navegation.ItemsMenu
               onClick={() => toggle()}
               className="colorMenu">
