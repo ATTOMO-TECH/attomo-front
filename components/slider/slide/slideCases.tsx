@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { BUTTON_ACTIVE } from '../../../const/const';
+import { VALUESNAV } from '../../../const/constGlobal';
 import { StylesArticle, darkTheme, lightTheme } from '../style';
 import { handlers } from '../../../hook/longPress';
 
@@ -25,13 +26,14 @@ export default function SlideCases({ articles, mode }: Props) {
       .join('-'),
   );
   arrNewSlug.push(id);
+
   /* console.log(arrNewSlug); */
   // const newSlug = arrNewSlug.join('-');
   /* console.log(newSlug); */
   return (
     <>
-      <Link href={`/casos/${articles.attributes.URLSlug}-${id}`}>
-        <a href={`/casos/${articles.attributes.URLSlug}-${id}}`}>
+      <Link href={`${VALUESNAV[1].Url}/${articles.attributes.URLSlug}-${id}`}>
+        <a href={`${VALUESNAV[1].Url}/${articles.attributes.URLSlug}-${id}}`}>
           <StylesArticle.Img
             src={articles.attributes.mainPhoto.data[0].attributes.url}
             alt={
@@ -49,9 +51,12 @@ export default function SlideCases({ articles, mode }: Props) {
           }>
           {articles.attributes.name}
         </StylesArticle.TopicText>
-        <Link href={`/casos/${articles.attributes.URLSlug}-${id}}`}>
+        <Link
+          href={`${VALUESNAV[1].Url}/${articles.attributes.URLSlug}-${id}}`}>
           <StylesArticle.TextBlog
-            {...handlers(`/casos/${articles.attributes.URLSlug}-${id}}`)}
+            {...handlers(
+              `${VALUESNAV[1].Url}/${articles.attributes.URLSlug}-${id}}`,
+            )}
             ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
             {articles.attributes.title}
           </StylesArticle.TextBlog>
