@@ -1,14 +1,21 @@
 import axios from 'axios';
+import { getAuthToken } from './auth';
 
 export const API_URL = process.env.NEXT_PUBLIC_REACT_APP_API_URL;
 let api: any = null;
 
 const getHeaders = async () => {
-  const headers: any = {
+  let headers: any = {
     'Content-Type': 'application/json',
     Accept: 'application/json',
   };
-
+  const token = await getAuthToken();
+  if (token) {
+    headers = {
+      ...headers,
+      Authorization: `Bearer ${token}`,
+    };
+  }
   return headers;
 };
 

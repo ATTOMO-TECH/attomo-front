@@ -2,8 +2,8 @@ import { useQuery } from 'react-query';
 import { CASES, DISCIPLINES } from '../lib/api';
 import { get } from '../lib/restClient';
 
-export const getAllCases = async (query?: string) => {
-  const { data } = await get(CASES.FETCH_ALL(query));
+const getAllCases = async (lenguage: string, query?: string) => {
+  const { data } = await get(CASES.FETCH_ALL(lenguage, query));
   return data;
 };
 const getAllDisciplines = async (lenguage: string) => {
@@ -11,7 +11,7 @@ const getAllDisciplines = async (lenguage: string) => {
   return data;
 };
 
-export const getCaseId = async (id: number, lenguage: string | undefined) => {
+const getCaseId = async (id: number, lenguage: string) => {
   const { data } = await get(CASES.FETCH_ID(id, lenguage));
   return data;
 };
@@ -34,12 +34,16 @@ export function useUseFilterCases(lenguage: string, query: string) {
     refetchOnWindowFocus: false,
   });
 }
-export function useUseAllCases(query?: string) {
-  return useQuery(['useAllCases', query], () => getAllCases(query), {
-    staleTime: 2500,
-    notifyOnChangePropsExclusions: ['isStale'],
-    refetchOnWindowFocus: false,
-  });
+export function useUseAllCases(lenguage: string, query?: string) {
+  return useQuery(
+    ['useAllCases', lenguage, query],
+    () => getAllCases(lenguage, query),
+    {
+      staleTime: 2500,
+      notifyOnChangePropsExclusions: ['isStale'],
+      refetchOnWindowFocus: false,
+    },
+  );
 }
 export function useaCase(id: number, lenguage: string) {
   return useQuery(['useACase', id], () => getCaseId(id, lenguage), {

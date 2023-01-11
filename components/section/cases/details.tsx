@@ -17,7 +17,7 @@ export default function DetailsCases({ data, translate }: Props) {
             <Details.TitleSpeciality>
               {translate.Disciplines}
             </Details.TitleSpeciality>
-            {data?.attributes.disciplines?.data.map((disciplines: any) => (
+            {data?.attributes.disciplines.data.map((disciplines: any) => (
               <Details.SubTextSpeciality key={disciplines.attributes.name}>
                 {disciplines.attributes.name}
               </Details.SubTextSpeciality>
@@ -27,7 +27,7 @@ export default function DetailsCases({ data, translate }: Props) {
             <Details.TitleSpeciality>
               {translate.Deliverables}
             </Details.TitleSpeciality>
-            {data?.attributes.deliverables?.data.map((disciplines: any) => (
+            {data?.attributes.deliverables.data.map((disciplines: any) => (
               <Details.SubTextSpeciality key={disciplines.attributes.name}>
                 {disciplines.attributes.name}
               </Details.SubTextSpeciality>
@@ -36,13 +36,13 @@ export default function DetailsCases({ data, translate }: Props) {
         </Details.BlockItems>
         <Details.SectionContainer>
           <Container remarkPlugins={[gfm]} rehypePlugins={[rehypeRaw]}>
-            {data?.attributes?.workDescription}
+            {data.attributes.workDescription}
           </Container>
-          {data?.attributes?.projectUrl !== '' && (
+          {data.attributes.projectUrl !== '' && (
             <div className="w-48">
-              <Link href={data?.attributes?.projectUrl || '/'} passHref>
+              <Link href={data.attributes.projectUrl || '/'} passHref>
                 <a
-                  href={data?.attributes?.projectUrl}
+                  href={data.attributes.projectUrl}
                   target="_blank"
                   rel="noreferrer">
                   <IconAnimate text={translate.seeOnline} mode={false} />
@@ -53,7 +53,7 @@ export default function DetailsCases({ data, translate }: Props) {
         </Details.SectionContainer>
         <Details.SectionText>
           <Container remarkPlugins={[gfm]} rehypePlugins={[rehypeRaw]}>
-            {data?.attributes?.content}
+            {data.attributes.content}
           </Container>
         </Details.SectionText>
       </Details.Section>

@@ -7,10 +7,7 @@ const getAllScreens = async (lenguage: string) => {
   return data;
 };
 
-export const getScreensId = async (
-  id: number,
-  lenguage: string | undefined,
-) => {
+const getScreensId = async (id: number, lenguage: string) => {
   const { data } = await get(SCREENS.FETCH_ID(id, lenguage));
   return data;
 };

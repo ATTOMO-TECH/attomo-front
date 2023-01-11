@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { useEffect } from 'react';
 import { Styles } from './styles';
 
@@ -52,13 +51,13 @@ export default function Background() {
 
     onLoadBg();
   }, []);
-  typeof window !== 'undefined' &&
-    document.addEventListener('touchend', () => {}, {
-      passive: true,
-    });
-  typeof window !== 'undefined' &&
-    document.addEventListener('touchmove', () => {}, {
-      passive: true,
-    });
+  // eslint-disable-next-line
+  document.addEventListener('touchend', () => {}, {
+    passive: true,
+  });
+  // eslint-disable-next-line
+  document.addEventListener('touchmove', () => {}, {
+    passive: true,
+  });
   return <Styles.Bg id="back-container" />;
 }

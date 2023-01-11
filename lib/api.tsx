@@ -2,13 +2,15 @@ import { API_URL } from './httpClient';
 
 const getAbsolutePath = (path: string) => `${API_URL}/${path}`;
 const CASES = {
-  FETCH_ALL: (query?: string) =>
-    getAbsolutePath(`successful-cases?populate=mainPhoto&${query}`),
+  FETCH_ALL: (lenguage: string, query?: string) =>
+    getAbsolutePath(
+      `successful-cases?populate=mainPhoto&locale=${lenguage}&${query}`,
+    ),
   FETCH_FILTER: (lenguage: string, query: string) =>
     getAbsolutePath(
       `successful-cases?populate=mainPhoto&locale=${lenguage}&populate=subservice&${query}`,
     ),
-  FETCH_ID: (id: number, lenguage: string | undefined) =>
+  FETCH_ID: (id: number, lenguage: string) =>
     getAbsolutePath(
       `successful-cases/${id}?populate=mainPhoto&populate=disciplines&populate=deliverables&populate=subservice&locale=${lenguage}`,
     ),
@@ -77,8 +79,8 @@ const RATES = {
 const SCREENS = {
   FETCH_ALL: (lenguage: string) =>
     getAbsolutePath(`espacio-attomo-rates?locale=${lenguage}`),
-  FETCH_ID: (id: number, lenguage: string | undefined) =>
-    getAbsolutePath(`screens-metadata/${id}?locale=${lenguage}&populate=%2A`),
+  FETCH_ID: (id: number, lenguage: string) =>
+    getAbsolutePath(`screens-metadata/${id}?locale=${lenguage}`),
 };
 
 export {
