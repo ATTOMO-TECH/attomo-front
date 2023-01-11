@@ -140,7 +140,6 @@ function Cases() {
     return filters;
   };
   const queryObject: any = {
-    locale: locale || 'es',
     populate: ['coverImage', 'disciplines', 'subservice'],
     pagination: {
       page,
@@ -151,7 +150,7 @@ function Cases() {
   const queryQs = qs.stringify(queryObject, {
     encodeValuesOnly: true,
   });
-  const { data, isLoading } = useUseAllCases(queryQs);
+  const { data, isLoading } = useUseAllCases(locale || 'es', queryQs);
 
   useEffect(() => {
     if (data?.data) {
