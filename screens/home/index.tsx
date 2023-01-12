@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimateSharedLayout } from 'framer-motion';
-import { useRouter } from 'next/router';
 import BlockSection from '../../components/block/block';
 import Footer from '../../components/footer/footer';
 import Hero from '../../components/hero/hero';
@@ -11,20 +10,13 @@ import CompaniesScroll from '../../components/slider/companys/slider';
 import SubSection from '../../components/subsection/subsection';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { Styles } from '../../styles/styles';
-// import SelectedClients from '../components/section/selectedclientes';
 import ButtonShare from '../../components/button/BtnShare';
 import { servicesAnimations } from '../../components/animations/animations';
 import { getLocale } from '../../public/locales/getLocale';
+import { Props } from '../types';
 
-function Home({ data }: any) {
-  const router = useRouter();
-  const [translate, setTranslate] = useState(getLocale('es'));
-
-  useEffect(() => {
-    if (router.locale) {
-      setTranslate(getLocale(router.locale));
-    }
-  }, [router.locale]);
+function Home({ data, locale }: Props) {
+  const [translate, setTranslate] = useState(getLocale(locale));
 
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const [lastYPos, setLastYPos] = useState(0);
@@ -33,6 +25,12 @@ function Home({ data }: any) {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    if (locale) {
+      setTranslate(getLocale(locale));
+    }
+  }, [locale]);
 
   useEffect(() => {
     function handleScroll() {

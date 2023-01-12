@@ -1,5 +1,6 @@
 import { GetServerSideProps } from 'next';
 import { getCaseId } from '../domain/useCasesDetails';
+import { getAllServices } from '../domain/useServices';
 
 export const getServerSidePropsCases: GetServerSideProps = async (context) => {
   const { slug } = context.query;
@@ -12,6 +13,23 @@ export const getServerSidePropsCases: GetServerSideProps = async (context) => {
     props: {
       data,
       locale: context.locale,
+    },
+  };
+};
+
+export const getServerSidePropsConsultora: GetServerSideProps = async (
+  context,
+) => {
+  const { locale } = context;
+  const { data } = await getAllServices(locale);
+  const { slug } = context.query;
+  const slugId: string = slug as string;
+
+  return {
+    props: {
+      data,
+      locale,
+      param: slugId,
     },
   };
 };

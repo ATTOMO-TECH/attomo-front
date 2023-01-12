@@ -43,7 +43,7 @@ export default function index(props: any) {
     <>
       <MetadataSSR screen={metadataInfo} />
       <Background />
-      <Home data={data} />
+      <Home data={data} locale={locale} />
     </>
   );
 }

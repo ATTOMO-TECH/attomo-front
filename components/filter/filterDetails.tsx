@@ -105,16 +105,17 @@ export default function FilterDetails({
           </Navegation.AlinItemsServices>
 
           <div className="pl-8  w-full  flex flex-col items-center justify-center pt-24 relative z-90">
-            {data.data.map((tab: any) => (
+            {data.map((tab: any) => (
               <SubMenu
                 key={tab.id}
                 toggle={toggle}
                 isOpen={
                   !menuId
                     ? tab.attributes?.subservices?.data?.some(
-                        ({ attributes: { name } }: any) =>
-                          name.replaceAll(' ', '_').toLowerCase() ===
-                          router.query.slug,
+                        ({ attributes: { URLSlug } }: any) => {
+                          const nameParse = URLSlug;
+                          return nameParse === router.query.slug;
+                        },
                       )
                     : menuId === tab.id
                 }

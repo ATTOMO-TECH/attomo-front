@@ -55,7 +55,7 @@ const TERMS = {
     getAbsolutePath(`privacy-policies?locale=${lenguage}`),
 };
 const SERVICES = {
-  FETCH_ALL: (lenguage: string) =>
+  FETCH_ALL: (lenguage: string | undefined) =>
     getAbsolutePath(`services?locale=${lenguage}&populate=subservices`),
   FETCH_ONE: (query: any, lenguage: string) =>
     getAbsolutePath(
