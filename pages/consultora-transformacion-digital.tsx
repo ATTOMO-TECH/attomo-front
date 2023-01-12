@@ -5,6 +5,7 @@ import Background from '../components/animations/background';
 import { MetadataSSR } from '../components/head/metadataSSR';
 import Services from '../screens/consultora';
 import { getAllServices } from '../domain/useServices';
+import { translateHeader } from '../hook/utils';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { locale } = context;
@@ -22,21 +23,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export default function index(props: any) {
   const { metadata, locale, data } = props;
-  const localeStrapi = metadata?.attributes?.locale;
-  const title =
-    locale === localeStrapi
-      ? metadata?.attributes?.screenTitle
-      : metadata?.attributes?.localizations?.data[0]?.attributes?.screenTitle;
-
-  const description =
-    locale === localeStrapi
-      ? metadata?.attributes?.metadata
-      : metadata?.attributes?.localizations?.data[0]?.attributes?.metadata;
-
-  const metadataInfo = {
-    screenTitle: title,
-    metadata: description,
-  };
+  const metadataInfo = translateHeader(metadata, locale);
 
   return (
     <>
