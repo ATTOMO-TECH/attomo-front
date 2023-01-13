@@ -14,7 +14,8 @@ import Background from '../components/animations/background';
 import { useAScreen } from '../domain/useScreensMetadata';
 import { Metadata } from '../components/head/metadata';
 import Title from '../components/Text/title';
-import Subtext from '../components/Text/subText';
+import MainTitle from '../components/Text/mainTitle';
+import ParagraphText from '../components/Text/paragraphText';
 import HowKit from '../components/section/howKit';
 import FormKit from '../components/form/formKit';
 import ButtonsKit from '../components/button/buttonsKit';
@@ -86,13 +87,13 @@ function KitDigital() {
               <Styles.ScreenWS>
                 {translate.kitDigital.map((services) => (
                   <Styles.BlockDiv key={services.HeroText}>
-                    <Title size="lg:pr-10 lg:w-4/12 lg:text-4xl md:text-3xl pb-2 text-2xl">
+                    <MainTitle size="lg:pr-10 lg:w-4/12 lg:text-4xl md:text-3xl pb-2 text-2xl">
                       {services.HeroText}
-                    </Title>
+                    </MainTitle>
                     <Styles.FlexEnd>
-                      <Subtext size="lg:w-2/6 pt-10  absolute">
+                      <ParagraphText size="lg:w-2/6 pt-10  absolute">
                         {services.HeroSubTex}
-                      </Subtext>
+                      </ParagraphText>
                     </Styles.FlexEnd>
                   </Styles.BlockDiv>
                 ))}
@@ -125,11 +126,11 @@ function KitDigital() {
                 {translate.HeaderKit}
               </Title>
               {translate.programKit.map((values: { item: string }) => (
-                <Subtext
+                <ParagraphText
                   size="text-justify  w-full  font-light pb-6"
                   key={`program-kit-${values.item}`}>
                   {values.item}
-                </Subtext>
+                </ParagraphText>
               ))}
               <Styles.SectionsKits>
                 <Styles.BlockSelectedSub>
@@ -174,9 +175,9 @@ function KitDigital() {
             <Title size="lg:pr-10  lg:text-4xl md:text-3xl pb-2 text-2xl">
               {translate.searchAgent}
             </Title>
-            <Subtext size="text-justify lg:text-lg text-xl  text-center  font-light pb-6">
+            <ParagraphText size="text-justify lg:text-lg text-xl  text-center  font-light pb-6">
               {translate.helpYouKit}
-            </Subtext>
+            </ParagraphText>
             <FormKit />
           </Styles.BlockKits>
           <Footer subFooter={false} />

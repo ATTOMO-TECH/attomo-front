@@ -1,4 +1,5 @@
 import Subtext from '../Text/title';
+import ParagraphText from '../Text/paragraphText';
 import { UsStyles } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
 
@@ -19,9 +20,9 @@ export default function ListUs({ titleValuesUr, valuesUs }: Props) {
         </Subtext>
         {valuesUs.map((values) => (
           <UsStyles.BlockSubsection key={values.Text}>
-            <Subtext size="lg:text-3xl text-2xl w-full py-5 lg:py-10 pt-12  ">
+            <ParagraphText size="lg:text-3xl text-2xl w-full py-5 lg:py-10 pt-12  ">
               {values.Text}
-            </Subtext>
+            </ParagraphText>
             <UsStyles.Title ismode={BUTTON_ACTIVE.ON}>
               {values.Subtext}
             </UsStyles.Title>

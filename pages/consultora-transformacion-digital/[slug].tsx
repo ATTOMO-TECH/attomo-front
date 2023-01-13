@@ -10,7 +10,7 @@ import ButtonShare from '../../components/button/BtnShare';
 import FilterDetails from '../../components/filter/filterDetails';
 import Footer from '../../components/footer/footer';
 import Menu from '../../components/nav/menu';
-import Nav from '../../components/nav/nav';
+import NavNoLanguage from '../../components/nav/navNoLanguage';
 import SubMenu from '../../components/nav/submenu';
 import Title from '../../components/Text/title';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -116,7 +116,7 @@ function DetailsServices() {
             <>
               <Menu isOpen={isOpen} toggle={toggle} logo mode />
               <Styles.Margin>
-                <Nav toggle={toggle} logo mode isOpen={isOpen} />
+                <NavNoLanguage toggle={toggle} logo mode isOpen={isOpen} />
               </Styles.Margin>
             </>
           )}

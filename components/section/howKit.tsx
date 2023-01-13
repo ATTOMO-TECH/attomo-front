@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { servicesAnimations } from '../animations/animations';
-import Subtext from '../Text/subText';
+import ParagraphText from '../Text/paragraphText';
 import { KitStyles } from './style';
 import Title from '../Text/title';
 
@@ -20,7 +20,9 @@ export default function HowKit({ title, subtitle, blockSection }: Props) {
         {title}
       </Title>
       {subtitle && (
-        <Subtext size="w-full pb-10 font-light text-center">{subtitle}</Subtext>
+        <ParagraphText size="w-full pb-10 font-light text-center">
+          {subtitle}
+        </ParagraphText>
       )}
       <KitStyles.Section>
         {blockSection?.map((values: any, index: number) => (
@@ -44,7 +46,9 @@ export default function HowKit({ title, subtitle, blockSection }: Props) {
             {!values?.logo ? (
               <>
                 <KitStyles.BlockNumber>
-                  <Subtext size="lg:text-xl text-2xl">{index + 1}</Subtext>
+                  <ParagraphText size="lg:text-xl text-2xl">
+                    {index + 1}
+                  </ParagraphText>
                 </KitStyles.BlockNumber>
                 <KitStyles.Title className="text-left ml-4">
                   {values.item}
@@ -59,7 +63,9 @@ export default function HowKit({ title, subtitle, blockSection }: Props) {
                     className="col-span-4"
                   />
                   <div className="w-full 2xl:w-96 col-span-4">
-                    <Title size="text-base ">{values.title}</Title>
+                    <ParagraphText size="text-base ">
+                      {values.title}
+                    </ParagraphText>
                     <KitStyles.Title className="text-left  ">
                       {values.item}
                     </KitStyles.Title>

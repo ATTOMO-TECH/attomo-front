@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Blogstyles } from './style';
 import TitleUrl from '../Text/titleUrl';
 import IconAnimate from '../button/icon';
-import SubtextUrl from '../Text/subTextUrl';
+import ParagraphURL from '../Text/paragraphURL';
 import { handlers } from '../../hook/longPress';
 import { getLocale } from '../../public/locales/getLocale';
 import { VALUESNAV } from '../../const/constGlobal';
@@ -91,21 +91,21 @@ export default function BlockBlog({ data }: Props) {
               </Blogstyles.BlockImg>
             </Link>
             <Blogstyles.BlockText>
-              <SubtextUrl
+              <ParagraphURL
                 size="text-sm leading-relaxed  "
                 url={`${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`}>
                 {data.attributes.blog_tags.data[0]?.attributes.name}
-              </SubtextUrl>
+              </ParagraphURL>
               <TitleUrl
                 size="text-xl lg:text-3xl pr-12 md:pr-4 lg:pr-12 leading-loose pt-4 md:pt-0 lg:pt-4 cursor-pointer"
                 url={`${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`}>
                 {data.attributes.title}
               </TitleUrl>
-              <SubtextUrl
+              <ParagraphURL
                 size="pr-12 md:pr-4 lg:pr-12 pt-4 md:pt-0 lg:pt-4 text-sm leading-relaxed cursor-pointer"
                 url={`${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`}>
                 {data.attributes.description}
-              </SubtextUrl>
+              </ParagraphURL>
 
               <Blogstyles.SubText />
               <Link
