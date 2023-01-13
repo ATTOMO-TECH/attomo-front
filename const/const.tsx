@@ -18,3 +18,8 @@ export const MENU_SCREENS = {
   SPACE: 8,
   KIT: 18,
 };
+
+export const QUERY_PARAMS = {
+  ALL_POST:
+    'pagination[page]=1&pagination[pageSize]=3&populate=coverImage&filters[featured][$eq]=true',
+};

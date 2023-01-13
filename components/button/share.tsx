@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { BUTTON_ACTIVE } from '../../const/const';
@@ -12,13 +13,14 @@ interface Props {
 export default function ShareNav({ title, isOpen, toggle }: Props) {
   const [scroll, setScroll] = useState(true);
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 2000) {
-        setScroll(false);
-      } else {
-        setScroll(true);
-      }
-    });
+    typeof window !== 'undefined' &&
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 2000) {
+          setScroll(false);
+        } else {
+          setScroll(true);
+        }
+      });
   }, []);
 
   return (
@@ -81,7 +83,9 @@ export default function ShareNav({ title, isOpen, toggle }: Props) {
                 href={`mailto:equipo@attomo.digital?subject=#ATTOMOtrends | ${title}`}>
                 <a
                   target="_blank"
-                  href={`mailto:equipo@attomo.digital?subject=#ATTOMOtrends | ${title}&body=Echa un vistazo a esta publicación ${document.location.href}`}
+                  href={`mailto:equipo@attomo.digital?subject=#ATTOMOtrends | ${title}&body=Echa un vistazo a esta publicación ${
+                    typeof window !== 'undefined' && document.location.href
+                  }`}
                   rel="noreferrer">
                   <img
                     src="/icon/mail.svg"
