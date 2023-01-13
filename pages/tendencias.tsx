@@ -11,12 +11,12 @@ import InputNew from '../components/input/inputNews';
 import RenderLoading from '../components/loading/loading';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
-import Title from '../components/Text/title';
+import MainTitle from '../components/Text/mainTitle';
+import ParagraphText from '../components/Text/paragraphText';
 import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
 import { useUseAllPost, useUseAllTags } from '../domain/useBlogDetails';
 import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
-import Subtext from '../components/Text/subText';
 import CalendarPickerInputRange from '../components/calendar/input/calendarRange';
 import InputSelectFilter from '../components/form/selectFilter';
 import { Metadata } from '../components/head/metadata';
@@ -190,13 +190,13 @@ function News() {
           <Styles.ScreenWS>
             {translate.trends.map((value) => (
               <Styles.BlockDiv key={value.Text}>
-                <Title size="lg:text-4xl md:text-3xl text-2xl text-xl lg:pr-0  lg:pr-0 pb-12 lg:w-5/6 ">
+                <MainTitle size="lg:text-4xl md:text-3xl text-2xl text-xl lg:pr-0  lg:pr-0 pb-12 lg:w-5/6 ">
                   {value.Text}
-                </Title>
+                </MainTitle>
                 <Styles.BlockInputSend>
-                  <Subtext size=" md:text-lg lg:text-base md:w-2/6  lg:text-left font-Primary">
+                  <ParagraphText size=" md:text-lg lg:text-base md:w-2/6  lg:text-left font-Primary">
                     {value.Subtext}
-                  </Subtext>
+                  </ParagraphText>
                   <Styles.BlockFullInput>
                     <InputNew idInput="#InputTrends" />
                   </Styles.BlockFullInput>
@@ -207,7 +207,9 @@ function News() {
         </Styles.Center>
         <Styles.BlockTrends>
           <Styles.SectionFilter className="flex  w-full items-center justify-between">
-            <Subtext size="text-lg py-4 ">{translate.trendsFilter}</Subtext>
+            <ParagraphText size="text-lg py-4 ">
+              {translate.trendsFilter}
+            </ParagraphText>
             <motion.svg
               className="cursor-pointer w-10 h-6 md:hidden"
               width="24"

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Subtext from '../Text/subText';
+import ParagraphText from '../Text/paragraphText';
 import Title from '../Text/title';
 import { handlers } from '../../hook/longPress';
 import { Styles } from '../../styles/styles';
@@ -20,10 +20,10 @@ export default function BlocKnow({ value }: Props) {
             </Title>
           </a>
         </Link>
-        <Subtext size=" text-2xl font-Primary"> </Subtext>
-        <Subtext size=" text-sm lg:w-3/6 font-PrimarySerif py-5">
+        <ParagraphText size=" text-2xl font-Primary"> </ParagraphText>
+        <ParagraphText size=" text-sm lg:w-3/6 font-PrimarySerif py-5">
           {value.Subtext}
-        </Subtext>
+        </ParagraphText>
         <Styles.BtnLimit>
           <Link href="/contacto" passHref>
             <a href="/contacto" className="w-full " {...handlers('/contacto')}>

@@ -27,6 +27,19 @@ export const TextHero = styled.h2`
   -webkit-text-fill-color: transparent;
 `;
 
+export const Paragraph = styled.p`
+  background: linear-gradient(
+    to right,
+    #cccfe8 0.04%,
+    #ffffff 50.27%,
+    #cccfe8 100%
+  );
+  line-height: 1.5em;
+  font-size: 300;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`;
+
 export const textTitle = styled.div`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -77,7 +90,7 @@ export const Styles = {
     BlockSelected,
   )`w-5/6 border bg-backCollaplse border-primary rounded-xl overflow-hidden flex flex-col p-4 justify-center items-center text-center  duration-300 ease-in-out cursor-pointer  border-opacity-40 hover:border-opacity-100 py-12 transition delay-100 duration-500 ease-in-out`,
   Paragraph: tw(
-    TextHero,
+    Paragraph,
   )`lg:text-md text-xl  text-sm font-light lg:font-PrimarySerif font-Secundary pt-5 tracking-wide leading-relaxed`,
 };
 

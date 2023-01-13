@@ -34,7 +34,7 @@ export default function InputSelect({
           name={name}
           modalCloseButton={<ModalCloseButton />}
           options={options}
-          selectedValue={translate.formTime}
+          selectedValue={translate?.formTime}
           caretIcon={<CaretIcon />}
           valueLabel={selected}
           noSelectionLabel={selected}

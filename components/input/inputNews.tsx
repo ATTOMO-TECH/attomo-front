@@ -8,7 +8,7 @@ import { BUTTON_ACTIVE } from '../../const/const';
 import { getLocale } from '../../public/locales/getLocale';
 import { FORMVALUES } from '../../hook/types';
 import { servicesAnimations } from '../animations/animations';
-import Title from '../Text/title';
+import ParagraphText from '../Text/paragraphText';
 import { useCreateSubscriber } from '../../domain/useSubscriber';
 import InputForNews from './inputForNews';
 import { handleBlur } from '../../hook/eventListener';
@@ -135,9 +135,9 @@ export default function InputNew({ idInput }: Props) {
                 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: '50%' }}>
-                <Title size=" pt-2 leading-relaxed  text-sm">
+                <ParagraphText size=" pt-2 leading-relaxed  text-sm">
                   {translate.newsletterSubscription}
-                </Title>
+                </ParagraphText>
               </motion.div>
             )}
           </Navegation.Form>
