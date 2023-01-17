@@ -1,5 +1,4 @@
 import { Formik } from 'formik';
-import { useRouter } from 'next/router';
 import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Styles } from './style';
@@ -17,16 +16,17 @@ import {
   useOnClickOutside,
 } from '../../hook/longPress';
 import { handleBlur } from '../../hook/eventListener';
+import { Props } from '../../screens/types';
 
-export default function FormKit() {
-  const router = useRouter();
-  const [translate, setTranslate] = useState(getLocale('es'));
+export default function FormKit({ locale }: Props) {
+  const [translate, setTranslate] = useState(getLocale(locale));
 
   useEffect(() => {
-    if (router.locale) {
-      setTranslate(getLocale(router.locale));
+    if (locale) {
+      setTranslate(getLocale(locale));
     }
-  }, [router.locale]);
+  }, [locale]);
+
   const formRef = useRef();
   const [shouldShowActions] = useState(false);
   const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);

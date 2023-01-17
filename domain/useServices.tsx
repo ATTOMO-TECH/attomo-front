@@ -2,7 +2,7 @@ import { useQuery } from 'react-query';
 import { SERVICES, SUBSERVICES } from '../lib/api';
 import { get } from '../lib/restClient';
 
-const getAllServices = async (lenguage: string) => {
+export const getAllServices = async (lenguage: string | undefined) => {
   const { data } = await get(SERVICES.FETCH_ALL(lenguage));
   return data;
 };

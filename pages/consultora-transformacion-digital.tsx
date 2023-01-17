@@ -1,110 +1,35 @@
-import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
+import { GetStaticProps } from 'next';
+import { MENU_SCREENS } from '../const/const';
+import { getScreensId } from '../domain/useScreensMetadata';
 import Background from '../components/animations/background';
-import BlockSection from '../components/block/block';
-import ButtonShare from '../components/button/BtnShare';
-import Collapse from '../components/collapse/collapse';
-import Footer from '../components/footer/footer';
-import { Metadata } from '../components/head/metadata';
-import RenderLoading from '../components/loading/loading';
-import Menu from '../components/nav/menu';
-import Nav from '../components/nav/nav';
-import ArticlesScroll from '../components/slider/article/slider';
-import MainTitle from '../components/Text/mainTitle';
-import ParagraphText from '../components/Text/paragraphText';
-import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
-import { useAScreen } from '../domain/useScreensMetadata';
-import { getLocale } from '../public/locales/getLocale';
-import { Styles } from '../styles/styles';
+import { MetadataSSR } from '../components/head/metadataSSR';
+import Services from '../screens/consultora';
+import { getAllServices } from '../domain/useServices';
+import { translateHeader } from '../hook/utils';
 
-function Services() {
-  const router = useRouter();
-  const [translate, setTranslate] = useState(getLocale('es'));
-  let { locale } = router;
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { locale } = context;
+  const { data: metadata } = await getScreensId(MENU_SCREENS.SERVICES, locale);
+  const { data } = await getAllServices(locale);
 
-  useEffect(() => {
-    if (locale) {
-      setTranslate(getLocale(locale));
-    }
-  }, [locale]);
-  const { data: screen, isLoading: screenIsLoading } = useAScreen(
-    MENU_SCREENS.SERVICES,
-    locale || 'es',
-  );
-
-  if (locale === '/') {
-    locale = 'es';
-  }
-  const [isOpen, SetIsOpen] = useState<boolean>(false);
-  const toggle = () => {
-    SetIsOpen(!isOpen);
+  return {
+    props: {
+      metadata,
+      locale,
+      data,
+    },
   };
+};
 
-  if (screenIsLoading) {
-    return (
-      <>
-        <RenderLoading mode={false} />
-      </>
-    );
-  }
+export default function index(props: any) {
+  const { metadata, locale, data } = props;
+  const metadataInfo = translateHeader(metadata, locale);
 
   return (
     <>
-      <Metadata screen={screen} />
-      <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
-        <Background />
-        <Menu isOpen={isOpen} toggle={toggle} logo mode />
-        <Styles.Margin>
-          <Nav toggle={toggle} logo mode isOpen={isOpen} />
-        </Styles.Margin>
-        <ButtonShare />
-        <Styles.Center>
-          <Styles.ScreenWS>
-            {translate.services.map((services) => (
-              <Styles.BlockDiv key={services.Text}>
-                <MainTitle size="lg:pr-10 lg:text-4xl md:text-3xl pb-2 text-2xl">
-                  {services.Text}
-                </MainTitle>
-                <Styles.FlexEnd>
-                  <ParagraphText size="lg:w-2/6 pt-10  absolute">
-                    {services.Subtext}
-                  </ParagraphText>
-                </Styles.FlexEnd>
-              </Styles.BlockDiv>
-            ))}
-          </Styles.ScreenWS>
-        </Styles.Center>
-        <Styles.Center>
-          <Styles.SpaceCollapse>
-            <Collapse />
-          </Styles.SpaceCollapse>
-        </Styles.Center>
-        <Styles.Center>
-          <Styles.TitleSubSectionH2>
-            {translate.project}
-          </Styles.TitleSubSectionH2>
-        </Styles.Center>
-        <Styles.FlexEnd>
-          <Styles.AlingBlock>
-            <ArticlesScroll mode filter="" id={0} renderTouch />
-          </Styles.AlingBlock>
-        </Styles.FlexEnd>
-        <Styles.Center>
-          {translate.contact.map((values) => (
-            <BlockSection
-              key={values.Link}
-              text={values.Text}
-              button={values.Link}
-              text2=""
-              button2=""
-              mode
-              link="/contacto"
-            />
-          ))}
-        </Styles.Center>
-        <Footer subFooter={false} />
-      </Styles.Body>
+      <MetadataSSR screen={metadataInfo} />
+      <Background />
+      <Services data={data} locale={locale} />
     </>
   );
 }
-export default Services;

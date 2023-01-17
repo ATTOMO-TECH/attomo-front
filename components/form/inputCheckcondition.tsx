@@ -18,7 +18,9 @@ export default function InputCheckcondition({
   id,
 }: Props) {
   const [check, setCheck] = useState<boolean>(false);
-  const iOSDevice = !!navigator.userAgent.match(/iPhone|iPod|iPad/);
+  const iOSDevice =
+    typeof window !== 'undefined' &&
+    !!navigator.userAgent.match(/iPhone|iPod|iPad/);
   const handleChange = () => {
     onClick(!check);
     setCheck(!check);

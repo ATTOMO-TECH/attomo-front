@@ -1,5 +1,4 @@
 import { Formik } from 'formik';
-import { useRouter } from 'next/router';
 import { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Styles } from './style';
@@ -21,22 +20,17 @@ import {
   useOnClickOutside,
 } from '../../hook/longPress';
 import { handleBlur } from '../../hook/eventListener';
+import { Props } from '../../screens/types';
 
-export default function FormReserver() {
-  const router = useRouter();
-  let { locale } = router;
-  if (locale === '/') {
-    locale = 'es';
-  }
-  const [translate, setTranslate] = useState(getLocale(locale || 'es'));
-  console.log(translate.formTime);
-  console.log(locale);
+export default function FormReserver({ locale }: Props) {
+  const [translate, setTranslate] = useState(getLocale(locale));
 
   useEffect(() => {
     if (locale) {
       setTranslate(getLocale(locale));
     }
   }, [locale]);
+
   const formRef = useRef();
 
   const [shouldShowActions] = useState(false);
@@ -115,7 +109,7 @@ export default function FormReserver() {
                   key={values.Text}>
                   {values.Text}
                 </Title>
-                <ParagraphText size=" text-center py-5  ">
+                <ParagraphText size="py-5 flex items-center justify-center ">
                   {values.Subtext}
                 </ParagraphText>
               </div>

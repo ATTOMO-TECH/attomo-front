@@ -1,340 +1,39 @@
-// eslint-disable-next-line no-use-before-define
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import * as qs from 'qs';
-import { useRouter } from 'next/router';
+import { GetStaticProps } from 'next';
+import { MENU_SCREENS, QUERY_PARAMS } from '../const/const';
+import { getScreensId } from '../domain/useScreensMetadata';
 import Background from '../components/animations/background';
-import BlockSection from '../components/block/block';
-import BlockBlog from '../components/blog/blog';
-import Footer from '../components/footer/footer';
-import InputNew from '../components/input/inputNews';
-import RenderLoading from '../components/loading/loading';
-import Menu from '../components/nav/menu';
-import Nav from '../components/nav/nav';
-import MainTitle from '../components/Text/mainTitle';
-import ParagraphText from '../components/Text/paragraphText';
-import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
-import { useUseAllPost, useUseAllTags } from '../domain/useBlogDetails';
-import { getLocale } from '../public/locales/getLocale';
-import { Styles } from '../styles/styles';
-import CalendarPickerInputRange from '../components/calendar/input/calendarRange';
-import InputSelectFilter from '../components/form/selectFilter';
-import { Metadata } from '../components/head/metadata';
-import { useAScreen } from '../domain/useScreensMetadata';
-import { formatDateFilter } from '../hook/date';
-import ShowMore from '../components/block/showMore';
+import { MetadataSSR } from '../components/head/metadataSSR';
+import { translateHeader } from '../hook/utils';
+import News from '../screens/tendencias';
+import { getAllPost, getAllTags } from '../domain/useBlogDetails';
 
-function News() {
-  const router = useRouter();
-  const [translate, setTranslate] = useState(getLocale('es'));
-
-  useEffect(() => {
-    if (router.locale) {
-      setTranslate(getLocale(router.locale));
-    }
-  }, [router.locale]);
-
-  let { locale } = router;
-  if (locale === '/') {
-    locale = 'es';
-  }
-  const [page, setPage] = useState(1);
-  const [filter, setFilter] = useState('');
-  const [query, setQuery] = useState(
-    'pagination[page]=1&pagination[pageSize]=3&populate=coverImage&filters[featured][$eq]=true',
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { locale } = context;
+  const { data: metadata } = await getScreensId(MENU_SCREENS.TRENDS, locale);
+  const { data } = await getAllPost(
+    `${QUERY_PARAMS.ALL_POST}&locale=${locale}`,
   );
-  const { data, isLoading } = useUseAllPost(query);
-  const { data: Tags, isLoading: isLoadingTags } = useUseAllTags(
-    locale || 'es',
-  );
-  const { data: screen, isLoading: screenIsLoading } = useAScreen(
-    MENU_SCREENS.TRENDS,
-    locale || 'es',
-  );
-  const [startDate, setStartDateFilter] = useState<Date>();
-  const [endDate, setEndDateFilter] = useState<Date>();
-  const [preData, setPreData] = useState<any[]>([]);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { data: tags } = await getAllTags(locale);
 
-  const toggle = () => {
-    setIsOpen(!isOpen);
+  return {
+    props: {
+      metadata,
+      locale,
+      data,
+      tags,
+    },
   };
+};
 
-  const onChangeTopic = (e: any) => {
-    setFilter(e);
-  };
-
-  const handleAddBlog = (value: number) => {
-    setPage(value);
-  };
-
-  const DEPARTMENT = Tags?.data.map((values: any) => ({
-    text: values.attributes.name,
-    value: values.attributes.name,
-  }));
-
-  const handleChangeReset = () => {
-    setFilter('');
-    setStartDateFilter(undefined);
-    setEndDateFilter(undefined);
-  };
-
-  useEffect(() => {
-    let queryObject: any = {
-      pagination: {
-        page,
-        pageSize: 3,
-      },
-      populate: 'coverImage',
-      locale: locale || 'es',
-      filter: {},
-    };
-    if (filter) {
-      queryObject = {
-        ...queryObject,
-        filters: {
-          ...queryObject.filters,
-          blog_tags: {
-            name: {
-              $eq: filter,
-            },
-          },
-        },
-      };
-    }
-    if (startDate && endDate) {
-      queryObject = {
-        ...queryObject,
-        filters: {
-          ...queryObject.filters,
-          $and: [
-            {
-              createdAt: {
-                $gte: startDate !== null ? formatDateFilter(startDate) : null,
-              },
-            },
-            {
-              createdAt: {
-                $lte: endDate !== null ? formatDateFilter(endDate) : null,
-              },
-            },
-          ],
-        },
-      };
-    } else if (startDate) {
-      queryObject = {
-        ...queryObject,
-        filters: {
-          ...queryObject.filters,
-          createdAt: {
-            $gte: startDate !== null ? formatDateFilter(startDate) : null,
-          },
-        },
-      };
-    } else if (endDate) {
-      queryObject = {
-        ...queryObject,
-        filters: {
-          ...queryObject.filters,
-          createdAt: {
-            $lte: endDate !== null ? formatDateFilter(endDate) : null,
-          },
-        },
-      };
-    }
-    const queryQs = qs.stringify(queryObject, {
-      encodeValuesOnly: true,
-    });
-    setQuery(queryQs);
-  }, [page, filter, startDate, endDate, locale]);
-
-  useEffect(() => {
-    setPage(1);
-  }, [filter]);
-  useEffect(() => {
-    if (data?.data) {
-      if (page === 1) {
-        setPreData([...data.data]);
-      } else {
-        setPreData([...preData, ...data.data]);
-      }
-    }
-  }, [data]);
-
-  if ((isLoading && !preData) || isLoadingTags || screenIsLoading) {
-    return (
-      <>
-        <RenderLoading mode={false} />
-      </>
-    );
-  }
-
-  DEPARTMENT.push({
-    value: '',
-    text: translate.allServices,
-  });
-  DEPARTMENT.reverse();
-
-  const change: boolean = !!startDate || !!endDate || !!filter;
-
+export default function index(props: any) {
+  const { metadata, locale, data, tags } = props;
+  const metadataInfo = translateHeader(metadata, locale);
+  console.log(tags);
   return (
     <>
-      <Metadata screen={screen} />
-      <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
-        <Background />
-        <Menu isOpen={isOpen} toggle={toggle} logo mode />
-        <Styles.Margin>
-          <Nav toggle={toggle} logo mode isOpen={isOpen} />
-        </Styles.Margin>
-        <Styles.Center>
-          <Styles.ScreenWS>
-            {translate.trends.map((value) => (
-              <Styles.BlockDiv key={value.Text}>
-                <MainTitle size="lg:text-4xl md:text-3xl text-2xl text-xl lg:pr-0  lg:pr-0 pb-12 lg:w-5/6 ">
-                  {value.Text}
-                </MainTitle>
-                <Styles.BlockInputSend>
-                  <ParagraphText size=" md:text-lg lg:text-base md:w-2/6  lg:text-left font-Primary">
-                    {value.Subtext}
-                  </ParagraphText>
-                  <Styles.BlockFullInput>
-                    <InputNew idInput="#InputTrends" />
-                  </Styles.BlockFullInput>
-                </Styles.BlockInputSend>
-              </Styles.BlockDiv>
-            ))}
-          </Styles.ScreenWS>
-        </Styles.Center>
-        <Styles.BlockTrends>
-          <Styles.SectionFilter className="flex  w-full items-center justify-between">
-            <ParagraphText size="text-lg py-4 ">
-              {translate.trendsFilter}
-            </ParagraphText>
-            <motion.svg
-              className="cursor-pointer w-10 h-6 md:hidden"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              transition={{ duration: 1, ease: 'easeInOut' }}
-              onClick={handleChangeReset}
-              onTouchStart={handleChangeReset}>
-              <motion.path
-                d="M18 6L6 18"
-                stroke="white"
-                strokeWidth={change ? '2' : 0}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                initial={{ pathLength: 0 }}
-                animate={
-                  change
-                    ? { pathLength: 1, type: 'tween' }
-                    : { pathLength: 0, type: 'spring' }
-                }
-                transition={{ duration: 1, ease: 'easeInOut' }}
-              />
-              <motion.path
-                d="M6 6L18 18"
-                stroke="white"
-                strokeWidth={change ? '2' : 0}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                initial={{ pathLength: 0 }}
-                animate={
-                  change
-                    ? { pathLength: 1, type: 'tween' }
-                    : { pathLength: 0, type: 'spring' }
-                }
-                transition={{ duration: 1, ease: 'easeInOut' }}
-              />
-            </motion.svg>
-          </Styles.SectionFilter>
-          <Styles.SelectFilterTrends id="MobileFilterTrends">
-            <InputSelectFilter
-              selected={filter}
-              options={DEPARTMENT}
-              valueLabel={filter}
-              name="filter"
-              onChange={onChangeTopic}
-              handleValue={setFilter}
-            />
-          </Styles.SelectFilterTrends>
-          <Styles.SelectFilterNM>
-            <CalendarPickerInputRange
-              placeholderFrom={translate.FromDate}
-              placeholderTo={translate.ToDate}
-              setStartDateFilter={setStartDateFilter}
-              setEndDateFilter={setEndDateFilter}
-              startDate={startDate}
-              endDate={endDate}
-            />
-          </Styles.SelectFilterNM>
-          <motion.svg
-            className="cursor-pointer w-10 h-6 hidden md:block"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            transition={{ duration: 1, ease: 'easeInOut' }}
-            onClick={handleChangeReset}
-            onTouchStart={handleChangeReset}>
-            <motion.path
-              d="M18 6L6 18"
-              stroke="white"
-              strokeWidth={change ? '2' : 0}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              initial={{ pathLength: 0 }}
-              animate={
-                change
-                  ? { pathLength: 1, type: 'tween' }
-                  : { pathLength: 0, type: 'spring' }
-              }
-              transition={{ duration: 1, ease: 'easeInOut' }}
-            />
-            <motion.path
-              d="M6 6L18 18"
-              stroke="white"
-              strokeWidth={change ? '2' : 0}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              initial={{ pathLength: 0 }}
-              animate={
-                change
-                  ? { pathLength: 1, type: 'tween' }
-                  : { pathLength: 0, type: 'spring' }
-              }
-              transition={{ duration: 1, ease: 'easeInOut' }}
-            />
-          </motion.svg>
-        </Styles.BlockTrends>
-        {/* {console.log(preData)} */}
-        {React.Children.toArray(
-          preData.map((dataBlog: any) => <BlockBlog data={dataBlog} />),
-        )}
-        <ShowMore
-          data={data}
-          handleAddBlog={handleAddBlog}
-          translate={translate}
-        />
-        <Styles.Center>
-          {translate.contact.map((values) => (
-            <BlockSection
-              key={values.Text}
-              text={values.Text}
-              button={values.Link}
-              text2=""
-              button2=""
-              mode
-              link="/contacto"
-            />
-          ))}
-        </Styles.Center>
-        <Footer subFooter={false} />
-      </Styles.Body>
+      <MetadataSSR screen={metadataInfo} />
+      <Background />
+      <News data={data} locale={locale} tags={tags} />
     </>
   );
 }
-export default News;

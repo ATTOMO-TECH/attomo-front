@@ -1,20 +1,11 @@
-// eslint-disable-next-line no-use-before-define
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
-import { useUseAllServices } from '../../domain/useServices';
-import RenderLoading from '../loading/loading';
 import { Styles } from './style';
 import TitleCollapse from './titleCollapse';
 import LinkCollapse from './linksCollapse';
+import { Props } from '../../screens/types';
 
-export default function Collapse() {
-  const router = useRouter();
-  let { locale } = router;
-  if (locale === '/') {
-    locale = 'es';
-  }
-  const { data, isLoading } = useUseAllServices(locale || 'es');
+export default function Collapse({ data }: Props) {
   const [idx, setIdx] = useState(0);
 
   const handleClick = (iDx: number) => {
@@ -46,16 +37,7 @@ export default function Collapse() {
     },
   };
 
-  if (isLoading) {
-    return (
-      <>
-        <RenderLoading mode={false} />
-      </>
-    );
-  }
-
-  const innerRenderText = (iDx: number) =>
-    data.data[iDx].attributes.description;
+  const innerRenderText = (iDx: number) => data[iDx].attributes.description;
 
   return (
     <>
@@ -67,7 +49,7 @@ export default function Collapse() {
               initial="hidden"
               animate="show"
               className="w-auto">
-              {data.data[idx].attributes.subservices.data.map((tab: any) => (
+              {data[idx].attributes.subservices.data.map((tab: any) => (
                 <LinkCollapse
                   tab={tab}
                   item={item}
@@ -87,7 +69,7 @@ export default function Collapse() {
         </Styles.BlockImg>
         <Styles.BlockSectionTitle>
           <Styles.BlockTextSelect>
-            {data.data.map((tab: any, i: number) => (
+            {data.map((tab: any, i: number) => (
               <TitleCollapse
                 i={i}
                 tab={tab}

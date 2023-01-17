@@ -6,6 +6,7 @@ import Background from '../components/animations/background';
 import { getAllCases } from '../domain/useCasesDetails';
 import { queryObjectHome } from '../lib/queryServer';
 import { MetadataSSR } from '../components/head/metadataSSR';
+import { translateHeader } from '../hook/utils';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { locale } = context;
@@ -23,27 +24,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export default function index(props: any) {
   const { metadata, data, locale } = props;
-  const localeStrapi = metadata?.attributes?.locale;
-  const title =
-    locale === localeStrapi
-      ? metadata?.attributes?.screenTitle
-      : metadata?.attributes?.localizations?.data[0]?.attributes?.screenTitle;
-
-  const description =
-    locale === localeStrapi
-      ? metadata?.attributes?.metadata
-      : metadata?.attributes?.localizations?.data[0]?.attributes?.metadata;
-
-  const metadataInfo = {
-    screenTitle: title,
-    metadata: description,
-  };
+  const metadataInfo = translateHeader(metadata, locale);
 
   return (
     <>
       <MetadataSSR screen={metadataInfo} />
       <Background />
-      <Home data={data} />
+      <Home data={data} locale={locale} />
     </>
   );
 }

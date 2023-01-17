@@ -1,82 +1,32 @@
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import Footer from '../components/footer/footer';
-import RenderForm from '../components/form/renderForm';
-import Menu from '../components/nav/menu';
-import Nav from '../components/nav/nav';
-import MainTitle from '../components/Text/mainTitle';
-import Title from '../components/Text/title';
-import ParagraphText from '../components/Text/paragraphText';
-import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
-import { Styles } from '../styles/styles';
-import ButtonShare from '../components/button/BtnShare';
-import MapsBlock from '../components/maps/maps';
+import { GetStaticProps } from 'next';
+import { MENU_SCREENS } from '../const/const';
+import { getScreensId } from '../domain/useScreensMetadata';
 import Background from '../components/animations/background';
-import { getLocale } from '../public/locales/getLocale';
-import { useAScreen } from '../domain/useScreensMetadata';
-import { Metadata } from '../components/head/metadata';
-import RenderLoading from '../components/loading/loading';
+import { MetadataSSR } from '../components/head/metadataSSR';
+import { translateHeader } from '../hook/utils';
+import Contact from '../screens/contacto';
 
-function Contact() {
-  const [isOpen, SetIsOpen] = useState<boolean>(false);
-  const toggle = () => {
-    SetIsOpen(!isOpen);
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { locale } = context;
+  const { data: metadata } = await getScreensId(MENU_SCREENS.CONTACT, locale);
+
+  return {
+    props: {
+      metadata,
+      locale,
+    },
   };
-  const router = useRouter();
-  const [translate, setTranslate] = useState(getLocale('es'));
+};
 
-  useEffect(() => {
-    if (router.locale) {
-      setTranslate(getLocale(router.locale));
-    }
-  }, [router.locale]);
-
-  let { locale } = router;
-  if (locale === '/') {
-    locale = 'es';
-  }
-  const { data: screen, isLoading: screenIsLoading } = useAScreen(
-    MENU_SCREENS.CONTACT,
-    locale || 'es',
-  );
-
-  if (screenIsLoading) {
-    return (
-      <>
-        <RenderLoading mode={false} />
-      </>
-    );
-  }
+export default function index(props: any) {
+  const { metadata, locale } = props;
+  const metadataInfo = translateHeader(metadata, locale);
 
   return (
     <>
-      <Metadata screen={screen} />
+      <MetadataSSR screen={metadataInfo} />
       <Background />
-      <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
-        <Menu isOpen={isOpen} toggle={toggle} logo mode />
-        <Styles.Margin>
-          <Nav toggle={toggle} logo mode isOpen={isOpen} />
-        </Styles.Margin>
-        <ButtonShare />
-        <Styles.Center>
-          <MainTitle size="lg:text-4xl md:text-3xl text-2xl lg:pr-0 lg:py-36 md:pb-12 py-36 lg:w-full  w-4/6  ">
-            {translate.contactTitle}
-          </MainTitle>
-          <RenderForm />
-        </Styles.Center>
-        <Styles.CenterMargin>
-          <Title size="text-2xl  lg:pr-10 "> {translate.whereUs}</Title>
-          <Styles.BlockAddresMap>
-            <ParagraphText size="text-regular w-full leading-loose font-Secundary w-full pb-10 ">
-              Calle del Monte Esquinza, 8-Bajo Izquierda <br />
-              28010 Madrid
-            </ParagraphText>
-            <MapsBlock />
-          </Styles.BlockAddresMap>
-        </Styles.CenterMargin>
-        <Footer subFooter={false} />
-      </Styles.Body>
+      <Contact locale={locale} />
     </>
   );
 }
-export default Contact;

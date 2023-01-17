@@ -12,23 +12,16 @@ import BreadCrumbsCases from '../../components/breadcrumbs/breadcrumbsCases';
 import CasesScroll from '../../components/slider/cases/slider';
 import { getLocale } from '../../public/locales/getLocale';
 import { servicesAnimations } from '../../components/animations/animations';
-
-interface Props {
-  data: any;
-  locale: any;
-  mode?: boolean;
-}
+import { Props } from '../types';
 
 export default function Cases({ data, locale, mode }: Props) {
   const router = useRouter();
+  const { slug }: any = router.query;
   const [translate, setTranslate] = useState(getLocale(locale));
 
-  const { slug }: any = router.query;
-  /* console.log(typeof slug); */
   let id = 0;
   if (slug) {
     const arrSlug = slug.split('-');
-    /* console.log(arrSlug); */
     id = Number(arrSlug[arrSlug.length - 1]);
   }
   const [shouldShowActions] = useState(false);
@@ -36,11 +29,12 @@ export default function Cases({ data, locale, mode }: Props) {
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
+
   useEffect(() => {
-    if (router.locale) {
+    if (locale) {
       setTranslate(getLocale(locale));
     }
-  }, [router.locale]);
+  }, [locale]);
 
   return (
     <>
