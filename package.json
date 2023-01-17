@@ -2,7 +2,7 @@
   "name": "tataki-front-template",
   "version": "0.1.0",
   "engines": {
-    "node": "14.18.1 --force",
+    "node": "14.18.1",
     "yarn": "1.x"
   },
   "private": true,
