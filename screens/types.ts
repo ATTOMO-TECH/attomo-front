@@ -1,5 +1,5 @@
 export type Props = {
-  data: any;
+  data?: any;
   locale?: string;
   mode?: boolean;
 };
