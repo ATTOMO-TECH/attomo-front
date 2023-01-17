@@ -1,73 +1,32 @@
-import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
+import { GetStaticProps } from 'next';
+import { MENU_SCREENS } from '../const/const';
+import { getScreensId } from '../domain/useScreensMetadata';
 import Background from '../components/animations/background';
-import IconAnimate from '../components/button/icon';
-import Footer from '../components/footer/footer';
-import { Metadata } from '../components/head/metadata';
-import RenderLoading from '../components/loading/loading';
-import Menu from '../components/nav/menu';
-import Nav from '../components/nav/nav';
-import Title from '../components/Text/title';
-import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
-import { useAScreen } from '../domain/useScreensMetadata';
-import { getLocale } from '../public/locales/getLocale';
-import { Styles } from '../styles/styles';
+import { MetadataSSR } from '../components/head/metadataSSR';
+import { translateHeader } from '../hook/utils';
+import ErrorView from '../screens/404';
 
-function Error() {
-  const router = useRouter();
-  const [translate, setTranslate] = useState(getLocale('es'));
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { locale } = context;
+  const { data: metadata } = await getScreensId(MENU_SCREENS.HOME, locale);
 
-  useEffect(() => {
-    if (router.locale) {
-      setTranslate(getLocale(router.locale));
-    }
-  }, [router.locale]);
-
-  let { locale } = router;
-  if (locale === '/') {
-    locale = 'es';
-  }
-  const [isOpen, SetIsOpen] = useState<boolean>(false);
-  const toggle = () => {
-    SetIsOpen(!isOpen);
+  return {
+    props: {
+      metadata,
+      locale,
+    },
   };
-  if (locale === '/') {
-    locale = 'es';
-  }
-  const { data: screen, isLoading: screenIsLoading } = useAScreen(
-    MENU_SCREENS.HOME,
-    locale || 'es',
-  );
+};
 
-  if (screenIsLoading) {
-    return (
-      <>
-        <RenderLoading mode={false} />
-      </>
-    );
-  }
+export default function index(props: any) {
+  const { metadata, locale } = props;
+  const metadataInfo = translateHeader(metadata, locale);
+
   return (
     <>
-      <Metadata screen={screen} />
-      <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
-        <Background />
-        <Menu isOpen={isOpen} toggle={toggle} logo mode />
-        <Styles.Margin>
-          <Nav toggle={toggle} logo={false} mode isOpen={isOpen} />
-        </Styles.Margin>
-        <Styles.Center>
-          <Styles.BlockButtonLegal>
-            <Styles.BlockBack
-              onClick={() => router.back()}
-              onTouchStart={() => router.back()}>
-              <IconAnimate text={translate.back} mode />
-            </Styles.BlockBack>
-          </Styles.BlockButtonLegal>
-          <Title size="text-3xl lg:text-5xl mb-12 text-center">{404}</Title>
-        </Styles.Center>
-        <Footer subFooter={false} />
-      </Styles.Body>
+      <MetadataSSR screen={metadataInfo} />
+      <Background />
+      <ErrorView locale={locale} />
     </>
   );
 }
-export default Error;
