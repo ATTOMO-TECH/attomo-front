@@ -35,7 +35,7 @@ export const darkTheme = {
 export const SectionColor = styled.div`
   color: ${(props) => props.theme.headings};
 `;
-export const titleText = styled.h4`
+export const titleText = styled.h3`
   font-family: 'Merriweather';
   font-style: normal;
   font-weight: 300;
