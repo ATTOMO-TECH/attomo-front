@@ -35,7 +35,7 @@ export default function BodyCases({ data }: Props) {
     <>
       {!isShareApiAvailable ? (
         <ShareNav
-          title={data?.data.attributes.title}
+          title={data?.attributes.title}
           isOpen={isOpen}
           toggle={toggle}
         />
@@ -48,16 +48,16 @@ export default function BodyCases({ data }: Props) {
             <img src="/icon/share.svg" width={20} height={20} alt="share" />
           </BodyTrends.ButtonShare>
           <BreadCrumbs
-            Author={data?.data.attributes.author}
+            Author={data?.attributes.author}
             Date={
-              data?.data.attributes.publishedAt &&
-              format(new Date(data?.data.attributes.publishedAt), 'dd-MM-yyyy')
+              data?.attributes.publishedAt &&
+              format(new Date(data?.attributes.publishedAt), 'dd-MM-yyyy')
             }
           />
         </BodyTrends.BlockShare>
         <BodyTrends.AlingData>
           <Container remarkPlugins={[gfm]} rehypePlugins={[rehypeRaw]}>
-            {data?.data?.attributes?.content}
+            {data?.attributes?.content}
           </Container>
         </BodyTrends.AlingData>
       </BodyTrends.Section>

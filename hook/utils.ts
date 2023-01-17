@@ -16,3 +16,6 @@ export const translateHeader = (metadata: any, locale: string | undefined) => {
   };
   return metadataInfo;
 };
+
+export const handleInfinityDataCms = (data: any) =>
+  data?.pages ? data?.pages?.flatMap((page: any) => page?.data) : [];

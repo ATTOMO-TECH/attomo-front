@@ -32,13 +32,13 @@ const QUOTE = {
     getAbsolutePath(`quotes/${id}?locale=${lenguage}`),
 };
 const POST = {
-  FETCH_ALL: (query: any) =>
-    getAbsolutePath(`blog-posts?${query}&populate=blog_tags`),
+  FETCH_ALL: (params: any, query?: any) =>
+    getAbsolutePath(`blog-posts?${query}&${params}&populate=blog_tags`),
   FETCH_ALL_FEATURED: (query: any) =>
     getAbsolutePath(
       `blog-posts?${query}&populate=blog_tags&filters[featured][$eq]=true`,
     ),
-  FETCH_ALL_TAG: (lenguage: string) =>
+  FETCH_ALL_TAG: (lenguage: string | undefined) =>
     getAbsolutePath(`blog-tags?locale=${lenguage}`),
   FETCH_ID: (id: number) =>
     getAbsolutePath(`blog-posts/${id}?populate=coverImage&populate=blog_tags`),
