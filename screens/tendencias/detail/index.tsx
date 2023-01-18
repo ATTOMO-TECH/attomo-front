@@ -15,9 +15,10 @@ import { Props } from '../../types';
 
 function New({ mode, data, locale }: Props) {
   const router = useRouter();
-  const [translate, setTranslate] = useState(getLocale('es'));
+  const [translate, setTranslate] = useState(getLocale(locale));
 
   useEffect(() => {
+    console.log('tendencias-detail');
     if (locale) {
       setTranslate(getLocale(locale));
     }
