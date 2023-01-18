@@ -15,24 +15,24 @@ import { Props } from '../../types';
 
 function New({ mode, data, locale }: Props) {
   const router = useRouter();
+  const { slug }: any = router.query;
   const [translate, setTranslate] = useState(getLocale(locale));
 
-  useEffect(() => {
-    console.log('tendencias-detail');
-    if (locale) {
-      setTranslate(getLocale(locale));
-    }
-  }, [locale]);
-  const [isOpen, SetIsOpen] = useState<boolean>(false);
-  const { slug }: any = router.query;
   let id = 0;
   if (slug) {
     const arrSlug = slug.split('-');
     id = Number(arrSlug[arrSlug.length - 1]);
   }
+  const [isOpen, SetIsOpen] = useState<boolean>(false);
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    if (locale) {
+      setTranslate(getLocale(locale));
+    }
+  }, [locale]);
 
   return (
     <>
