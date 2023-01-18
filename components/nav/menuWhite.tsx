@@ -175,22 +175,24 @@ export default function MenuWhite({ isOpen, toggle, logo, mode }: Props) {
                   </Navegation.SelectMenu>
                 </motion.li>
               ))}
-              <Navegation.BlokSectionLenguageResponsive>
-                <Navegation.ButtonSelect
-                  ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-                  onClick={() => handleBtn('es')}>
-                  ES
-                </Navegation.ButtonSelect>
-                <Navegation.LineBlock
-                  ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-                  |
-                </Navegation.LineBlock>
-                <Navegation.ButtonSelect
-                  ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-                  onClick={() => handleBtn('en')}>
-                  EN
-                </Navegation.ButtonSelect>
-              </Navegation.BlokSectionLenguageResponsive>
+              {!router.route.includes('slug') && (
+                <Navegation.BlokSectionLenguageResponsive>
+                  <Navegation.ButtonSelect
+                    ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+                    onClick={() => handleBtn('es')}>
+                    ES
+                  </Navegation.ButtonSelect>
+                  <Navegation.LineBlock
+                    ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+                    |
+                  </Navegation.LineBlock>
+                  <Navegation.ButtonSelect
+                    ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
+                    onClick={() => handleBtn('en')}>
+                    EN
+                  </Navegation.ButtonSelect>
+                </Navegation.BlokSectionLenguageResponsive>
+              )}
             </Navegation.BlockNav>
           </Navegation.AlingItemsMenu>
         </Navegation.SectionMenuFW>
