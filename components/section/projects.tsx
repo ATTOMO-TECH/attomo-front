@@ -70,13 +70,13 @@ export default function SectionProjects({
           ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
           key={values.Client}>
           <Link href={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}>
-            <a
-              {...handlers(
-                `${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`,
-              )}>
-              <Styles.BlockSection
-                ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-                {values?.attributes?.mainPhoto?.data[0].attributes?.url && (
+            <Styles.BlockSection
+              ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+              {values?.attributes?.mainPhoto?.data[0].attributes?.url && (
+                <a
+                  {...handlers(
+                    `${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`,
+                  )}>
                   <img
                     src={values?.attributes.mainPhoto.data[0].attributes.url}
                     width={800}
@@ -88,9 +88,9 @@ export default function SectionProjects({
                     }
                     className="object-cover cursor-pointer"
                   />
-                )}
-              </Styles.BlockSection>
-            </a>
+                </a>
+              )}
+            </Styles.BlockSection>
           </Link>
           <Styles.BlockText
             ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
