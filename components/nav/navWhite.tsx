@@ -37,10 +37,10 @@ export default function Nav({ toggle, logo, mode, isOpen, bgFull }: Props) {
 
   useEffect((): void => {
     if (router.asPath.includes(`${VALUESNAV[1].Url}/`)) {
-      console.log('en el if');
+      // console.log('en el if');
       setViewLanguage(false);
     } else if (router.asPath.includes(`${VALUESNAV[3].Url}/`)) {
-      console.log('en el if');
+      // console.log('en el if');
       setViewLanguage(false);
     }
   }, []);

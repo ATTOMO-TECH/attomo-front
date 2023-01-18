@@ -8,6 +8,7 @@ import TitleUrl from '../Text/titleUrl';
 import { Styles } from './style';
 import { getLocale } from '../../public/locales/getLocale';
 import { VALUESNAV } from '../../const/constGlobal';
+import { handlers } from '../../hook/longPress';
 /* import { handlers } from '../../hook/longPress'; */
 
 interface Props {
@@ -69,11 +70,13 @@ export default function SectionProjects({
           ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
           key={values.Client}>
           <Link href={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}>
-            <Styles.BlockSection
-              ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-              {values?.attributes?.mainPhoto?.data[0].attributes?.url && (
-                <a
-                  href={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}>
+            <a
+              {...handlers(
+                `${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`,
+              )}>
+              <Styles.BlockSection
+                ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+                {values?.attributes?.mainPhoto?.data[0].attributes?.url && (
                   <img
                     src={values?.attributes.mainPhoto.data[0].attributes.url}
                     width={800}
@@ -85,9 +88,9 @@ export default function SectionProjects({
                     }
                     className="object-cover cursor-pointer"
                   />
-                </a>
-              )}
-            </Styles.BlockSection>
+                )}
+              </Styles.BlockSection>
+            </a>
           </Link>
           <Styles.BlockText
             ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
@@ -112,13 +115,18 @@ export default function SectionProjects({
               </TitleUrl>
               <Link
                 href={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}>
-                <Styles.BlockBtn>
-                  <a
-                    href={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}>
-                    <IconAnimate text={translate.seeMoreCases} mode />
-                    {/* {console.log(translate.seeMoreCases)} */}
-                  </a>
-                </Styles.BlockBtn>
+                <a
+                  {...handlers(
+                    `${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`,
+                  )}>
+                  <Styles.BlockBtn>
+                    <a
+                      href={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}>
+                      <IconAnimate text={translate.seeMoreCases} mode />
+                      {/* {console.log(translate.seeMoreCases)} */}
+                    </a>
+                  </Styles.BlockBtn>
+                </a>
               </Link>
             </motion.div>
           </Styles.BlockText>

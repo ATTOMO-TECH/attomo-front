@@ -86,7 +86,9 @@ export default function ArticlesScroll({
           nextEl: nextState,
         }}>
         {data.data.map((articles: any) => (
-          <div className={data.data.length === 1 ? 'lg:w-3/6' : ''}>
+          <div
+            key={articles.id}
+            className={data.data.length === 1 ? 'lg:w-3/6' : ''}>
             <SwiperSlide
               key={`${articles.Tag}-${articles.id}`}
               className="swiper z-10">
