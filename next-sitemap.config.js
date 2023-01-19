@@ -1,5 +1,6 @@
 const policy = {
-    userAgent: "*"
+    userAgent: "*",
+    allow: "/"
 };
 
 module.exports = {
