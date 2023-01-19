@@ -36,7 +36,7 @@ export default function SectionProjects({
       setTranslate(getLocale(locale));
     }
   }, [locale]);
-  /* console.log(values); */
+  //  console.log(values);
   const { id } = values;
   /* console.log(company, title, id); */
 
