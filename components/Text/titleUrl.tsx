@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { handlers } from '../../hook/longPress';
 import { Text } from './style';
 
 interface Props {
@@ -10,7 +11,9 @@ interface Props {
 export default function TitleUrl({ children, url, size }: Props) {
   return (
     <Link href={`${url}`} passHref>
-      <Text.TextTitle className={size}>{children}</Text.TextTitle>
+      <a {...handlers(`${url}`)}>
+        <Text.TextTitle className={size}>{children}</Text.TextTitle>
+      </a>
     </Link>
   );
 }

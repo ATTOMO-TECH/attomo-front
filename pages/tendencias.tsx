@@ -28,7 +28,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 export default function index(props: any) {
   const { metadata, locale, data, tags } = props;
   const metadataInfo = translateHeader(metadata, locale);
-  console.log(tags);
+  // console.log(tags);
   return (
     <>
       <MetadataSSR screen={metadataInfo} />

@@ -15,3 +15,15 @@ export const queryObjectHome = (router: any) => {
 
   return queryQs;
 };
+
+export const queryObjectAllCases = (router: string) => {
+  const data: any = {
+    locale: router,
+    filters: {},
+  };
+  const queryQs = qs.stringify(data, {
+    encodeValuesOnly: true,
+  });
+
+  return queryQs;
+};

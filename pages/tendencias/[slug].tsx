@@ -13,16 +13,16 @@ export default function index(props: any) {
   return (
     <>
       <Head>
-        <title>#ATTOMOtrends - {data?.attributes?.screenTitle}</title>
-        <meta
-          name="title"
-          content={`ATTOMOtrends - ${data?.attributes?.screenTitle}`}
-        />
+        <title>{props?.data?.attributes?.screenTitle}</title>
+
         <link rel="icon" href="/FaviconLight.svg" type="image/x-icon" />
         {data?.attributes.metadata && (
-          <meta name="description" content={data?.attributes?.metadata} />
+          <meta
+            name="description"
+            content={props?.data?.attributes?.metadata}
+          />
         )}
-        <meta name="keywords" content={data?.attributes?.metadata} />
+        <meta name="keywords" content={props?.data?.attributes?.metadata} />
         <link
           rel="canonical"
           href={typeof window !== 'undefined' ? window.location.href : ''}

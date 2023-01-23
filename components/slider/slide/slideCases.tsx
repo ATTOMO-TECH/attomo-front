@@ -33,7 +33,7 @@ export default function SlideCases({ articles, mode }: Props) {
   return (
     <>
       <Link href={`${VALUESNAV[1].Url}/${articles.attributes.URLSlug}-${id}`}>
-        <a href={`${VALUESNAV[1].Url}/${articles.attributes.URLSlug}-${id}}`}>
+        <a href={`${VALUESNAV[1].Url}/${articles.attributes.URLSlug}-${id}`}>
           <StylesArticle.Img
             src={articles.attributes.mainPhoto.data[0].attributes.url}
             alt={
@@ -51,15 +51,16 @@ export default function SlideCases({ articles, mode }: Props) {
           }>
           {articles.attributes.name}
         </StylesArticle.TopicText>
-        <Link
-          href={`${VALUESNAV[1].Url}/${articles.attributes.URLSlug}-${id}}`}>
-          <StylesArticle.TextBlog
+        <Link href={`${VALUESNAV[1].Url}/${articles.attributes.URLSlug}-${id}`}>
+          <a
             {...handlers(
-              `${VALUESNAV[1].Url}/${articles.attributes.URLSlug}-${id}}`,
-            )}
-            ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-            {articles.attributes.title}
-          </StylesArticle.TextBlog>
+              `${VALUESNAV[1].Url}/${articles.attributes.URLSlug}-${id}`,
+            )}>
+            <StylesArticle.TextBlog
+              ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
+              {articles.attributes.title}
+            </StylesArticle.TextBlog>
+          </a>
         </Link>
       </StylesArticle.BlockText>
     </>
