@@ -11,7 +11,7 @@ module.exports = {
         policies: [
             policy
         ],
-        aditionalSitemaps: [`${siteUrl}/server-sitemap.xml`]
+        additionalSitemaps: [`${siteUrl}/server-sitemap.xml`]
     },
     outDir: "./out"
 }
