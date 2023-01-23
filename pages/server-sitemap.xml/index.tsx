@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next';
 import { getServerSideSitemap, ISitemapField } from 'next-sitemap';
-import { VALUESNAV } from '../../const/constGlobal';
+import { VALUESNAV, STATIC_SITEMAP } from '../../const/constGlobal';
 import { getAllPost } from '../../domain/useBlogDetails';
 import { getAllCases } from '../../domain/useCasesDetails';
 import { getAllServices } from '../../domain/useServices';
@@ -43,6 +43,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   //   console.log('datos sitemap',casesDataES.data)
   //   console.log('datos sitemap ES:',casesDataES.data.length)
   //   console.log('datos sitemap EN:',casesDataEN.data.length)
+
+  // Creo el sitemap stático
+  const staticSitemap: ISitemapField[] = STATIC_SITEMAP;
 
   // 2. y 3. Guardo los datos del sitemap en una variable para cada item
   const casesRoutesES: ISitemapField[] = casesDataES.data.map((data: any) => ({
@@ -88,7 +91,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   // console.log('subservicios ES',allServicesRoutes.length)
 
   // 6.Junto todo en una variable fields y la devuelvo
-  const fields: ISitemapField[] = allCasesRoutes
+  const fields: ISitemapField[] = staticSitemap
+    .concat(allCasesRoutes)
     .concat(allBlogRoutes)
     .concat(allServicesRoutes);
 
