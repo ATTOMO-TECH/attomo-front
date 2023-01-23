@@ -36,7 +36,6 @@ export default function index(props: any) {
           name="description"
           content={valueFilter[0]?.attributes.metadata}
         />
-        <meta name="keywords" content={valueFilter[0]?.attributes.metadata} />
         <link
           rel="canonical"
           href={typeof window !== 'undefined' ? window.location.href : ''}
