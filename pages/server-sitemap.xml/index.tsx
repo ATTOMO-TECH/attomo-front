@@ -50,26 +50,26 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   // 2. y 3. Guardo los datos del sitemap en una variable para cada item
   const casesRoutesES: ISitemapField[] = casesDataES.data.map((data: any) => ({
     loc: `https://www.attomo.digital${VALUESNAV[1].Url}/${data.attributes.URLSlug}-${data.id}`,
-    lastmod: new Date().toISOString(),
+    // lastmod: new Date().toISOString(),
   }));
   const casesRoutesEN: ISitemapField[] = casesDataEN.data.map((data: any) => ({
     loc: `https://www.attomo.digital/en${VALUESNAV[1].Url}/${data.attributes.URLSlug}-${data.id}`,
-    lastmod: new Date().toISOString(),
+    // lastmod: new Date().toISOString(),
   }));
   const blogRoutesES: ISitemapField[] = blogDataES.data.map((data: any) => ({
     loc: `https://www.attomo.digital${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`,
-    lastmod: new Date().toISOString(),
+    // lastmod: new Date().toISOString(),
   }));
   const blogRoutesEN: ISitemapField[] = blogDataEN.data.map((data: any) => ({
     loc: `https://www.attomo.digital/en${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`,
-    lastmod: new Date().toISOString(),
+    // lastmod: new Date().toISOString(),
   }));
   const servicesRoutesES: ISitemapField[] = [];
   servicesDataES.data.forEach((data: any) =>
     data.attributes.subservices.data.map((subservice: any) =>
       servicesRoutesES.push({
         loc: `https://www.attomo.digital${VALUESNAV[0].Url}/${subservice.attributes.URLSlug}-${subservice.id}`,
-        lastmod: new Date().toISOString(),
+        // lastmod: new Date().toISOString(),
       }),
     ),
   );
@@ -78,7 +78,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     data.attributes.subservices.data.map((subservice: any) =>
       servicesRoutesEN.push({
         loc: `https://www.attomo.digital/en${VALUESNAV[0].Url}/${subservice.attributes.URLSlug}-${subservice.id}`,
-        lastmod: new Date().toISOString(),
+        // lastmod: new Date().toISOString(),
       }),
     ),
   );
