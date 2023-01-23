@@ -2,6 +2,104 @@ export enum CONDITIONFORM {
   TEAM = 'team',
   PARTNER = 'partner',
 }
+export const STATIC_SITEMAP = [
+  {
+    loc: `https://www.attomo.digital`,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    loc: `https://www.attomo.digital/agente-digitalizador-madrid`,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    loc: `https://www.attomo.digital/casos-exito-digitalizacion`,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    loc: `https://www.attomo.digital/consultora-transformacion-digital`,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    loc: `https://www.attomo.digital/contacto`,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    loc: `https://www.attomo.digital/estudio-fotografia-madrid`,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    loc: `https://www.attomo.digital/ofertas-trabajo`,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    loc: `https://www.attomo.digital/privacidad`,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    loc: `https://www.attomo.digital/quienes-somos`,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    loc: `https://www.attomo.digital/tendencias`,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    loc: `https://www.attomo.digital/terminos`,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    loc: `https://www.attomo.digital/privacidad`,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    loc: `https://www.attomo.digital/en/contacto`,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    loc: `https://www.attomo.digital/en/ofertas-trabajo`,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    loc: `https://www.attomo.digital/en/quienes-somos`,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    loc: `https://www.attomo.digital/en`,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    loc: `https://www.attomo.digital/en/tendencias`,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    loc: `https://www.attomo.digital/en/privacidad`,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    loc: `https://www.attomo.digital/en/terminos`,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    loc: `https://www.attomo.digital/404`,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    loc: `https://www.attomo.digital/en/404`,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    loc: `https://www.attomo.digital/en/agente-digitalizador-madrid`,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    loc: `https://www.attomo.digital/en/consultora-transformacion-digital`,
+    lastmod: new Date().toISOString(),
+  },
+  {
+    loc: `https://www.attomo.digital/en/estudio-fotografia-madrid`,
+    lastmod: new Date().toISOString(),
+  },
+];
 
 export const PARTNERS: {
   Name: string;
