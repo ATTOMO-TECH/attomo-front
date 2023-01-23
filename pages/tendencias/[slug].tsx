@@ -22,7 +22,6 @@ export default function index(props: any) {
             content={props?.data?.attributes?.metadata}
           />
         )}
-        <meta name="keywords" content={props?.data?.attributes?.metadata} />
         <link
           rel="canonical"
           href={typeof window !== 'undefined' ? window.location.href : ''}
