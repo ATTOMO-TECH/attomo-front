@@ -12,8 +12,13 @@ const getAllDisciplines = async (lenguage: string) => {
 };
 
 export const getCaseId = async (id: number, lenguage: string | undefined) => {
-  const { data } = await get(CASES.FETCH_ID(id, lenguage));
-  return data;
+  try {
+    const { data } = await get(CASES.FETCH_ID(id, lenguage));
+    return data;
+  } catch (err) {
+    console.log(err);
+    return { data: { statusCode: 404 } };
+  }
 };
 const getFilterCases = async (lenguage: string, query: string) => {
   const { data } = await get(CASES.FETCH_FILTER(lenguage, query));

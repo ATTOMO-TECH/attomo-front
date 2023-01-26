@@ -17,8 +17,12 @@ const getAllPostFeatured = async (query: any) => {
 };
 
 export const getPostId = async (id: number) => {
-  const { data } = await get(POST.FETCH_ID(id));
-  return data;
+  try {
+    const { data } = await get(POST.FETCH_ID(id));
+    return data;
+  } catch {
+    return { data: { statusCode: 404 } };
+  }
 };
 
 export function useUseAllPost(query: any, initialData?: any) {
