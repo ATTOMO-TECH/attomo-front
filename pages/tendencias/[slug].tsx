@@ -2,13 +2,14 @@ import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Background from '../../components/animations/background';
 import { getServerSidePropsTendencias } from '../../lib/serverSide';
+import ErrorView from '../../screens/404';
 import New from '../../screens/tendencias/detail';
 
 export const getServerSideProps: GetServerSideProps =
   getServerSidePropsTendencias;
 
 export default function index(props: any) {
-  const { data, locale } = props;
+  const { data, locale, statusCode } = props;
 
   return (
     <>
@@ -16,7 +17,7 @@ export default function index(props: any) {
         <title>{props?.data?.attributes?.screenTitle}</title>
 
         <link rel="icon" href="/FaviconLight.svg" type="image/x-icon" />
-        {data?.attributes.metadata && (
+        {!statusCode.statusCode && data?.attributes.metadata && (
           <meta
             name="description"
             content={props?.data?.attributes?.metadata}
@@ -35,7 +36,11 @@ export default function index(props: any) {
         <meta name="image" content="/FaviconLight.svg" />
       </Head>
       <Background />
-      <New data={data} locale={locale} />
+      {statusCode.statusCode ? (
+        <ErrorView locale={locale} />
+      ) : (
+        <New data={data} locale={locale} />
+      )}
     </>
   );
 }

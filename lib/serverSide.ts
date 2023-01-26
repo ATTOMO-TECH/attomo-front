@@ -10,11 +10,16 @@ export const getServerSidePropsCases: GetServerSideProps = async (context) => {
   const arrSlug = slugId.split('-');
   const id = Number(arrSlug[arrSlug.length - 1]);
   const { data } = await getCaseId(Number(id), locale);
+  let statusCode = {};
+  if (data.statusCode) {
+    statusCode = { statusCode: 404 };
+  }
 
   return {
     props: {
       data,
       locale,
+      statusCode,
     },
   };
 };
@@ -45,12 +50,17 @@ export const getServerSidePropsTendencias: GetServerSideProps = async (
   const arrSlug = slugId.split('-');
   const id = Number(arrSlug[arrSlug.length - 1]);
   const { data } = await getPostId(Number(id));
+  let statusCode = {};
+  if (data.statusCode) {
+    statusCode = { statusCode: 404 };
+  }
 
   return {
     props: {
       data,
       locale,
       param: slugId,
+      statusCode,
     },
   };
 };
