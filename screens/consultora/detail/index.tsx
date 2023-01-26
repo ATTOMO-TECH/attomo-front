@@ -16,6 +16,8 @@ import { Styles } from '../../../styles/styles';
 import { getLocale } from '../../../public/locales/getLocale';
 import ArticlesScroll from '../../../components/slider/article/slider';
 import BlockFilter from '../../../components/block/blockFilter';
+import Background from '../../../components/animations/background';
+import ErrorView from '../../404/index';
 import { handleFilter } from '../../../hook/format';
 import { Props } from '../../types';
 
@@ -50,126 +52,133 @@ function DetailsServices({ data, locale }: Props) {
 
   return (
     <>
-      <motion.div
-        initial="initial"
-        animate="animate"
-        exit={{ opacity: 0 }}
-        className="text-primary">
-        <FilterDetails
-          isOpen={!isOpen && isOpenFilter}
-          toggle={toggleFilter}
-          logo
-          mode
-          data={data}
-          menuId={menuId}
-          router={router}
-          setMenuId={setMenuId}
-          isOpenFilter={isOpenFilter}
-        />
-        <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
-          {!isOpenFilter && (
-            <>
-              <Menu isOpen={isOpen} toggle={toggle} logo mode />
-              <Styles.Margin>
-                <NavNoLanguage toggle={toggle} logo mode isOpen={isOpen} />
-              </Styles.Margin>
-            </>
-          )}
-          {!isOpenFilter && <ButtonShare />}
-          <motion.div
-            animate={{ opacity: 1 }}
-            initial={{ opacity: 0 }}
-            className="pb-36">
-            <Styles.CenterCases>
-              <Styles.BlockRenderDetails>
-                {React.Children.toArray(
-                  data.map((tab: any) => (
-                    <SubMenu
-                      isOpen={
-                        !menuId
-                          ? tab.attributes?.subservices?.data?.some(
-                              ({ attributes: { URLSlug } }: any) =>
-                                URLSlug === router.query.slug,
-                            )
-                          : menuId === tab.id
-                      }
-                      section={tab.attributes.name}
-                      subsection={tab}
-                      setIsToggle={setMenuId}
-                    />
-                  )),
+      {isIdSubServices.length === 0 ? (
+        <>
+          <Background />
+          <ErrorView locale={locale} />
+        </>
+      ) : (
+        <motion.div
+          initial="initial"
+          animate="animate"
+          exit={{ opacity: 0 }}
+          className="text-primary">
+          <FilterDetails
+            isOpen={!isOpen && isOpenFilter}
+            toggle={toggleFilter}
+            logo
+            mode
+            data={data}
+            menuId={menuId}
+            router={router}
+            setMenuId={setMenuId}
+            isOpenFilter={isOpenFilter}
+          />
+          <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
+            {!isOpenFilter && (
+              <>
+                <Menu isOpen={isOpen} toggle={toggle} logo mode />
+                <Styles.Margin>
+                  <NavNoLanguage toggle={toggle} logo mode isOpen={isOpen} />
+                </Styles.Margin>
+              </>
+            )}
+            {!isOpenFilter && <ButtonShare />}
+            <motion.div
+              animate={{ opacity: 1 }}
+              initial={{ opacity: 0 }}
+              className="pb-36">
+              <Styles.CenterCases>
+                <Styles.BlockRenderDetails>
+                  {React.Children.toArray(
+                    data.map((tab: any) => (
+                      <SubMenu
+                        isOpen={
+                          !menuId
+                            ? tab.attributes?.subservices?.data?.some(
+                                ({ attributes: { URLSlug } }: any) =>
+                                  URLSlug === router.query.slug,
+                              )
+                            : menuId === tab.id
+                        }
+                        section={tab.attributes.name}
+                        subsection={tab}
+                        setIsToggle={setMenuId}
+                      />
+                    )),
+                  )}
+                </Styles.BlockRenderDetails>
+                {!isOpenFilter && !isOpen && (
+                  <BlockFilter
+                    toggleFilter={toggleFilter}
+                    text={translate.Services}
+                  />
                 )}
-              </Styles.BlockRenderDetails>
-              {!isOpenFilter && !isOpen && (
-                <BlockFilter
-                  toggleFilter={toggleFilter}
-                  text={translate.Services}
-                />
-              )}
-              <motion.div
-                className="lg:pt-12 lg:w-9/12 w-10/12 ml-auto h-auto mr-2"
-                animate={{ x: 0, opacity: 1 }}
-                initial={{ x: 2000, opacity: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ delay: 0.5 }}>
-                <Title size="lg:text-5xl text-3xl text-lg font-Primary font-light h-20">
-                  {isIdSubServices[0]?.attributes?.name}
-                </Title>
                 <motion.div
-                  className="pt-2 w-full"
-                  animate={{ y: 0, opacity: 1 }}
-                  initial={{ y: 100, opacity: 0 }}
+                  className="lg:pt-12 lg:w-9/12 w-10/12 ml-auto h-auto mr-2"
+                  animate={{ x: 0, opacity: 1 }}
+                  initial={{ x: 2000, opacity: 0 }}
                   exit={{ opacity: 0 }}
-                  transition={{ delay: 0.8 }}
-                  variants={stagger}>
-                  <motion.p
-                    variants={fadeInUp}
-                    transition={{ delay: 5.5 }}
-                    className="pr-5 relative font-PrimarySerif font-light leading-loose textDegrade">
-                    {isIdSubServices[0]?.attributes?.description}
-                  </motion.p>
+                  transition={{ delay: 0.5 }}>
+                  <Title size="lg:text-5xl text-3xl text-lg font-Primary font-light h-20">
+                    {isIdSubServices[0]?.attributes?.name}
+                  </Title>
+                  <motion.div
+                    className="pt-2 w-full"
+                    animate={{ y: 0, opacity: 1 }}
+                    initial={{ y: 100, opacity: 0 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ delay: 0.8 }}
+                    variants={stagger}>
+                    <motion.p
+                      variants={fadeInUp}
+                      transition={{ delay: 5.5 }}
+                      className="pr-5 relative font-PrimarySerif font-light leading-loose textDegrade">
+                      {isIdSubServices[0]?.attributes?.description}
+                    </motion.p>
+                  </motion.div>
                 </motion.div>
-              </motion.div>
-            </Styles.CenterCases>
-          </motion.div>
-          <motion.div
-            animate={{ y: 0, opacity: 1 }}
-            initial={{ y: 100, opacity: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ delay: 0.8 }}
-            variants={stagger}>
+              </Styles.CenterCases>
+            </motion.div>
+            <motion.div
+              animate={{ y: 0, opacity: 1 }}
+              initial={{ y: 100, opacity: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ delay: 0.8 }}
+              variants={stagger}>
+              <Styles.Center>
+                <Styles.TitleSubSection>
+                  {translate.project}
+                </Styles.TitleSubSection>
+              </Styles.Center>
+              <Styles.FlexEnd>
+                <Styles.AlingBlock>
+                  <ArticlesScroll
+                    renderTouch
+                    mode
+                    filter={data?.attributes?.sumary}
+                    id={0}
+                  />
+                </Styles.AlingBlock>
+              </Styles.FlexEnd>
+            </motion.div>
             <Styles.Center>
-              <Styles.TitleSubSection>
-                {translate.project}
-              </Styles.TitleSubSection>
-            </Styles.Center>
-            <Styles.FlexEnd>
-              <Styles.AlingBlock>
-                <ArticlesScroll
-                  renderTouch
+              {translate.contact.map((values) => (
+                <BlockSection
+                  key={values.Link}
+                  text={values.Text}
+                  button={values.Link}
+                  text2=""
+                  button2=""
                   mode
-                  filter={data?.attributes?.sumary}
-                  id={0}
+                  link="/contacto"
                 />
-              </Styles.AlingBlock>
-            </Styles.FlexEnd>
-          </motion.div>
-          <Styles.Center>
-            {translate.contact.map((values) => (
-              <BlockSection
-                key={values.Link}
-                text={values.Text}
-                button={values.Link}
-                text2=""
-                button2=""
-                mode
-                link="/contacto"
-              />
-            ))}
-          </Styles.Center>
-          {!isOpenFilter ? <Footer subFooter={false} /> : null}
-        </Styles.Body>
-      </motion.div>
+              ))}
+            </Styles.Center>
+            {!isOpenFilter ? <Footer subFooter={false} /> : null}
+          </Styles.Body>
+        </motion.div>
+      )}
     </>
   );
 }
