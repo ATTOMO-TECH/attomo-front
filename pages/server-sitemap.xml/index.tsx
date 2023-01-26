@@ -68,7 +68,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   servicesDataES.data.forEach((data: any) =>
     data.attributes.subservices.data.map((subservice: any) =>
       servicesRoutesES.push({
-        loc: `https://www.attomo.digital${VALUESNAV[0].Url}/${subservice.attributes.URLSlug}-${subservice.id}`,
+        loc: `https://www.attomo.digital${VALUESNAV[0].Url}/${subservice.attributes.URLSlug}`,
         // lastmod: new Date().toISOString(),
       }),
     ),
@@ -77,7 +77,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   servicesDataEN.data.forEach((data: any) =>
     data.attributes.subservices.data.map((subservice: any) =>
       servicesRoutesEN.push({
-        loc: `https://www.attomo.digital/en${VALUESNAV[0].Url}/${subservice.attributes.URLSlug}-${subservice.id}`,
+        loc: `https://www.attomo.digital/en${VALUESNAV[0].Url}/${subservice.attributes.URLSlug}`,
         // lastmod: new Date().toISOString(),
       }),
     ),
