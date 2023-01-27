@@ -17,13 +17,13 @@ export const Container = styled(ReactMarkdown)`
   h2 {
     font-family: 'Merriweather';
     font-style: normal;
-    font-size: 1em;
+    font-size: 20px;
     line-height: 2em;
   }
   h3 {
     font-family: 'Merriweather';
     font-style: normal;
-    font-size: 1em;
+    font-size: 18px;
     line-height: 2em;
   }
   h4 {
