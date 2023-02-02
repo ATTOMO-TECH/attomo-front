@@ -8,9 +8,16 @@ type Props = {
   text2: string;
   button: string;
   link: string;
+  isCacheView?: boolean;
 };
 
-export default function Hero({ text, text2, button, link }: Props) {
+export default function Hero({
+  text,
+  text2,
+  button,
+  link,
+  isCacheView,
+}: Props) {
   const line1 = text;
   const line2 = text2;
   const duration = 0.5;
@@ -56,18 +63,24 @@ export default function Hero({ text, text2, button, link }: Props) {
   return (
     <>
       <HeadSection.SectionHero>
-        <motion.div
-          variants={variants}
-          initial="initial"
-          animate="animate"
-          exit="exit">
+        {isCacheView ? (
           <HeadSection.TextHead>
             {line1} <br /> {line2}
           </HeadSection.TextHead>
-          {/* <HeadSection.TextHead>
+        ) : (
+          <motion.div
+            variants={variants}
+            initial="initial"
+            animate="animate"
+            exit="exit">
+            <HeadSection.TextHead>
+              {line1} <br /> {line2}
+            </HeadSection.TextHead>
+            {/* <HeadSection.TextHead>
             {line2}
           </HeadSection.TextHead> */}
-        </motion.div>
+          </motion.div>
+        )}
         <HeadSection.Blockbutton className={button === '' ? 'hidden' : ''}>
           <Link href={`#${link}`}>
             <a href={`#${link}`} {...handlers(`#${link}`)}>
