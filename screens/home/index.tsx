@@ -15,7 +15,7 @@ import { servicesAnimations } from '../../components/animations/animations';
 import { getLocale } from '../../public/locales/getLocale';
 import { Props } from '../types';
 
-function Home({ data, locale }: Props) {
+function Home({ data, locale, isCacheView }: Props) {
   const [translate, setTranslate] = useState(getLocale(locale));
 
   const [isOpen, SetIsOpen] = useState<boolean>(false);
@@ -66,6 +66,7 @@ function Home({ data, locale }: Props) {
                   text2={values.HeroSubTex}
                   button={values.Button}
                   link="conocenos"
+                  isCacheView={isCacheView}
                 />
               ))}
             </Styles.ScreenMid>
