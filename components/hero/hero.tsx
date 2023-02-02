@@ -63,7 +63,7 @@ export default function Hero({
   return (
     <>
       <HeadSection.SectionHero>
-        {!isCacheView ? (
+        {isCacheView ? (
           <HeadSection.TextHead>
             {line1} <br /> {line2}
           </HeadSection.TextHead>

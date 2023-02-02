@@ -10,6 +10,7 @@ import { translateHeader } from '../hook/utils';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const isCacheView = typeof navigator === 'undefined' || navigator.onLine;
+  console.log('isCacheView:', isCacheView);
   const { locale } = context;
   const { data: metadata } = await getScreensId(MENU_SCREENS.HOME, locale);
   const { data } = await getAllCases(queryObjectHome(locale));
