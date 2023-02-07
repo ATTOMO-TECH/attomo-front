@@ -3,5 +3,4 @@ export type Props = {
   locale?: string;
   mode?: boolean;
   tags?: any;
-  isCacheView?: boolean;
 };
