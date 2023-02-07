@@ -15,7 +15,7 @@ import { servicesAnimations } from '../../components/animations/animations';
 import { getLocale } from '../../public/locales/getLocale';
 import { Props } from '../types';
 
-function Home({ data, locale, isCacheView }: Props) {
+function Home({ data, locale }: Props) {
   const [translate, setTranslate] = useState(getLocale(locale));
 
   const [isOpen, SetIsOpen] = useState<boolean>(false);
@@ -66,7 +66,6 @@ function Home({ data, locale, isCacheView }: Props) {
                   text2={values.HeroSubTex}
                   button={values.Button}
                   link="conocenos"
-                  isCacheView={isCacheView}
                 />
               ))}
             </Styles.ScreenMid>
@@ -83,7 +82,7 @@ function Home({ data, locale, isCacheView }: Props) {
                   duration: 0.5,
                 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                initial={{ opacity: 0, y: '50%' }}>
+                initial={{ opacity: 1, y: '50%' }}>
                 <SubSection locale={translate} />
               </motion.div>
             </Styles.BlockSelected>
