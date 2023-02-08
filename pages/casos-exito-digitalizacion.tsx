@@ -14,7 +14,11 @@ import RenderLoading from '../components/loading/loading';
 import Menu from '../components/nav/menu';
 import Nav from '../components/nav/nav';
 import SectionProjects from '../components/section/projects';
-import { BUTTON_ACTIVE, MENU_SCREENS } from '../const/const';
+import {
+  BUTTON_ACTIVE,
+  MENU_SCREENS_EN,
+  MENU_SCREENS_ES,
+} from '../const/const';
 import { useUseAllCases } from '../domain/useCasesDetails';
 import { getLocale } from '../public/locales/getLocale';
 import { Styles } from '../styles/styles';
@@ -38,7 +42,7 @@ function Cases() {
     locale = 'es';
   }
   const { data: screen, isLoading: screenIsLoading } = useAScreen(
-    MENU_SCREENS.CASES,
+    locale === 'es' ? MENU_SCREENS_ES.CASES : MENU_SCREENS_EN.CASES,
     locale || 'es',
   );
 
