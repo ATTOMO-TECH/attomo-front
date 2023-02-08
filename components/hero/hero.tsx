@@ -20,10 +20,10 @@ export default function Hero({
 }: Props) {
   const line1 = text;
   const line2 = text2;
-  const duration = 0.5;
+  const duration = 0.3;
   const variants = {
     initial: {
-      opacity: 0,
+      opacity: 0.1,
       y: 100,
     },
     animate: {
@@ -33,7 +33,6 @@ export default function Hero({
       transition: {
         duration,
         delay: duration,
-        when: 'beforeChildren',
       },
     },
     exit: {
@@ -63,7 +62,7 @@ export default function Hero({
   return (
     <>
       <HeadSection.SectionHero>
-        {!isCacheView ? (
+        {isCacheView ? (
           <HeadSection.TextHead>
             {line1} <br /> {line2}
           </HeadSection.TextHead>

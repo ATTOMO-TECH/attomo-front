@@ -9,7 +9,6 @@ import { MetadataSSR } from '../components/head/metadataSSR';
 import { translateHeader } from '../hook/utils';
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const isCacheView = typeof navigator === 'undefined' || navigator.onLine;
   const { locale } = context;
   const { data: metadata } = await getScreensId(MENU_SCREENS.HOME, locale);
   const { data } = await getAllCases(queryObjectHome(locale));
@@ -19,20 +18,19 @@ export const getStaticProps: GetStaticProps = async (context) => {
       metadata,
       data,
       locale,
-      isCacheView,
     },
   };
 };
 
 export default function index(props: any) {
-  const { metadata, data, locale, isCacheView } = props;
+  const { metadata, data, locale } = props;
   const metadataInfo = translateHeader(metadata, locale);
 
   return (
     <>
       <MetadataSSR screen={metadataInfo} />
       <Background />
-      <Home data={data} locale={locale} isCacheView={isCacheView} />
+      <Home data={data} locale={locale} />
     </>
   );
 }
