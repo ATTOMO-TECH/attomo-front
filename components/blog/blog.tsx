@@ -31,7 +31,7 @@ export default function BlockBlog({ data }: Props) {
 
   const variants = {
     hidden: {
-      opacity: 0.1,
+      opacity: 0.5,
     },
     show: {
       opacity: 1,
@@ -42,7 +42,7 @@ export default function BlockBlog({ data }: Props) {
   };
   const item = {
     hidden: {
-      opacity: 0.1,
+      opacity: 0.5,
       y: '20%',
     },
     show: {

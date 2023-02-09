@@ -25,7 +25,7 @@ export default function Collapse({ data }: Props) {
   };
   const item = {
     hidden: {
-      opacity: 0.1,
+      opacity: 0.6,
       y: '20%',
     },
     show: {

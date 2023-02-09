@@ -112,9 +112,9 @@ function News({ data, locale, tags }: Props) {
       return getAllPost(params, queryQs);
     },
     {
-      enabled: !!queryQs,
+      enabled: !!queryQs && process.browser,
       initialData: data || {},
-      getNextPageParam: (lastPage: any) => {
+      getNextPageParam: (lastPage) => {
         if (
           lastPage?.meta?.pagination?.page <
           lastPage?.meta?.pagination?.pageCount
@@ -151,11 +151,11 @@ function News({ data, locale, tags }: Props) {
     }
   }, [locale]);
 
-  DEPARTMENT.push({
+  DEPARTMENT?.push({
     value: '',
     text: translate.allServices,
   });
-  DEPARTMENT.reverse();
+  DEPARTMENT?.reverse();
   const change: boolean = !!startDate || !!endDate || !!filter;
 
   return (
@@ -289,10 +289,13 @@ function News({ data, locale, tags }: Props) {
             />
           </motion.svg>
         </Styles.BlockTrends>
+
         {React.Children.toArray(
-          handleInfinityDataCms(dataBlog).map((blog: any) => (
-            <BlockBlog data={blog} />
-          )),
+          handleInfinityDataCms(dataBlog).length > 0
+            ? handleInfinityDataCms(dataBlog).map((blog: any) => (
+                <BlockBlog data={blog} />
+              ))
+            : data?.map((blog: any) => <BlockBlog data={blog} />),
         )}
         <ShowMore
           hasNextPage={hasNextPage}

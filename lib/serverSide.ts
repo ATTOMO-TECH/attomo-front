@@ -1,6 +1,8 @@
 import { GetServerSideProps } from 'next';
-import { getPostId } from '../domain/useBlogDetails';
+import { MENU_SCREENS, QUERY_PARAMS } from '../const/const';
+import { getAllPost, getAllTags, getPostId } from '../domain/useBlogDetails';
 import { getCaseId } from '../domain/useCasesDetails';
+import { getScreensId } from '../domain/useScreensMetadata';
 import { getAllServices } from '../domain/useServices';
 
 export const getServerSidePropsCases: GetServerSideProps = async (context) => {
@@ -61,6 +63,24 @@ export const getServerSidePropsTendencias: GetServerSideProps = async (
       locale,
       param: slugId,
       statusCode,
+    },
+  };
+};
+
+export const getServerSidePropsTrend: GetServerSideProps = async (context) => {
+  const { locale } = context;
+  const { data: metadata } = await getScreensId(MENU_SCREENS.TRENDS, locale);
+  const { data } = await getAllPost(
+    `${QUERY_PARAMS.ALL_POST}&locale=${locale}`,
+  );
+  const { data: tags } = await getAllTags(locale);
+
+  return {
+    props: {
+      metadata,
+      locale,
+      data,
+      tags,
     },
   };
 };
