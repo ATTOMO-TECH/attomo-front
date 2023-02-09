@@ -14,7 +14,7 @@ export default function Collapse({ data }: Props) {
 
   const variants = {
     hidden: {
-      opacity: 0,
+      opacity: 0.1,
     },
     show: {
       opacity: 1,
@@ -25,7 +25,7 @@ export default function Collapse({ data }: Props) {
   };
   const item = {
     hidden: {
-      opacity: 0,
+      opacity: 0.1,
       y: '20%',
     },
     show: {

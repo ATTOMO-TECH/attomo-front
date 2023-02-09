@@ -75,7 +75,7 @@ export const LogoInvert = styled.div`
 
 const pathVariants = {
   hidden: {
-    opacity: 0,
+    opacity: 0.1,
     pathLength: 0,
   },
   visible: {

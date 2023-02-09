@@ -134,7 +134,7 @@ export default function InputNew({ idInput }: Props) {
                   duration: 0.5,
                 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                initial={{ opacity: 0, y: '50%' }}>
+                initial={{ opacity: 0.1, y: '50%' }}>
                 <ParagraphText size=" pt-2 leading-relaxed  text-sm">
                   {translate.newsletterSubscription}
                 </ParagraphText>

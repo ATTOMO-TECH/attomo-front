@@ -65,7 +65,7 @@ export default function SectionProjects({
           duration: 1,
         }}
         whileInView={{ opacity: 1, x: 0 }}
-        initial={{ opacity: 0, x: '50%' }}>
+        initial={{ opacity: 0.1, x: '50%' }}>
         <Styles.BlockSections
           ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
           key={values.Client}>
@@ -104,7 +104,7 @@ export default function SectionProjects({
                 duration: 1,
               }}
               whileInView={{ opacity: 1, y: 0 }}
-              initial={{ opacity: 0, y: 50 }}>
+              initial={{ opacity: 0.1, y: 50 }}>
               <Styles.Paragraph className="text-sm font-PrimarySerif uppercase">
                 {values.attributes.company}
               </Styles.Paragraph>

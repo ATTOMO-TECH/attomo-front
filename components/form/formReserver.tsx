@@ -302,7 +302,7 @@ export default function FormReserver({ locale }: Props) {
             duration: 0.5,
           }}
           whileInView={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: '50%' }}>
+          initial={{ opacity: 0.1, y: '50%' }}>
           <Title size=" w-full text-center pt-10 leading-relaxed  text-3xl m-auto lg:w-3/6">
             {translate.formBookingSpaceMessage}
           </Title>
