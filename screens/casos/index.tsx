@@ -193,13 +193,6 @@ function Cases({ data, locale }: Props) {
     queryClient.refetchQueries(['useAllCases']);
   };
 
-  console.log(
-    !!topic ||
-      !!search ||
-      startDate !== null ||
-      endDate !== null ||
-      handleInfinityDataCms(dataServices).length < 0,
-  );
   const handleDataView = () => {
     if (typeof window !== 'undefined') {
       return handleInfinityDataCms(dataServices);

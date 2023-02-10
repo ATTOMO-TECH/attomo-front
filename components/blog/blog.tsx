@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { Blogstyles } from './style';
 import TitleUrl from '../Text/titleUrl';
@@ -12,15 +11,12 @@ import { VALUESNAV } from '../../const/constGlobal';
 
 interface Props {
   data: any;
+  locale: string | undefined;
 }
 
-export default function BlockBlog({ data }: Props) {
+export default function BlockBlog({ data, locale }: Props) {
   /** console.log(data) */
-  const router = useRouter();
-  let { locale } = router;
-  if (locale === '/') {
-    locale = 'es';
-  }
+
   const [translate, setTranslate] = useState(getLocale(locale || 'es'));
 
   useEffect(() => {
@@ -60,7 +56,6 @@ export default function BlockBlog({ data }: Props) {
     .split(' ')
     .join('-');
   */
-  /* console.log(articleTitle) */
 
   return (
     <>
@@ -73,7 +68,12 @@ export default function BlockBlog({ data }: Props) {
         <motion.div variants={item}>
           <Blogstyles.Article>
             <Link
-              href={`${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`}
+              href={{
+                pathname: `${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`,
+                query: {
+                  tags: data.attributes.blog_tags.data[0]?.attributes.name,
+                },
+              }}
               passHref>
               <Blogstyles.BlockImg>
                 {data.attributes?.coverImage?.data?.attributes?.url ? (
@@ -109,7 +109,12 @@ export default function BlockBlog({ data }: Props) {
 
               <Blogstyles.SubText />
               <Link
-                href={`${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`}
+                href={{
+                  pathname: `${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`,
+                  query: {
+                    tags: data.attributes.blog_tags.data[0]?.attributes.name,
+                  },
+                }}
                 passHref>
                 <a
                   {...handlers(

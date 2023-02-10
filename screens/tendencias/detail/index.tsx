@@ -13,7 +13,7 @@ import { getLocale } from '../../../public/locales/getLocale';
 import ArticlesScroll from '../../../components/slider/article/slider';
 import { Props } from '../../types';
 
-function New({ mode, data, locale }: Props) {
+function New({ mode, data, locale, relatedPost }: Props) {
   const router = useRouter();
   const { slug }: any = router.query;
   const [translate, setTranslate] = useState(getLocale(locale));
@@ -65,6 +65,8 @@ function New({ mode, data, locale }: Props) {
               renderTouch={false}
               filter={data?.attributes.blog_tags.data[0].attributes.name}
               id={Number(id)}
+              relatedPost={relatedPost}
+              locale={locale}
             />
           </Styles.AlingBlock>
         </Styles.FlexEnd>
