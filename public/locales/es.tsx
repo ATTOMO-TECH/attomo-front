@@ -370,4 +370,12 @@ export default {
   rightReserve: 'Todos los derechos reservados',
   back: 'Volver',
   backToNews: 'Volver a noticias',
+  formCustomerMessage:
+    '¡Bienvenido a ATTOMO, bienvenido al principio de algo muy grande!',
+  formColaboratorMessage:
+    '¡Muchas gracias por tu tiempo! Nos pondremos en contacto contigo lo antes posible.',
+  formKitDigitaklMessage:
+    '¡Gracias por elegirnos como agentes digitalizadores! Nos pondremos en contacto contigo lo antes posible.',
+  formKitReservationMessage:
+    'Muchas gracias, hemos recibido tu solicitud de reserva. Pronto nos pondremos en contacto contigo.',
 };
