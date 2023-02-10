@@ -307,7 +307,9 @@ function News({ data, locale, tags }: Props) {
         </Styles.BlockTrends>
 
         {React.Children.toArray(
-          handleDataView().map((blog: any) => <BlockBlog data={blog} />),
+          handleDataView().map((blog: any) => (
+            <BlockBlog data={blog} locale={locale} />
+          )),
         )}
         <ShowMore
           hasNextPage={hasNextPage}
