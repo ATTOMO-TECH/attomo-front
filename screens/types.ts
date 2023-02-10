@@ -3,4 +3,5 @@ export type Props = {
   locale?: string;
   mode?: boolean;
   tags?: any;
+  relatedPost?: any;
 };

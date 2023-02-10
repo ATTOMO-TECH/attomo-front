@@ -13,7 +13,7 @@ import { getLocale } from '../../public/locales/getLocale';
 import { Styles } from '../../styles/styles';
 import { Props } from '../types';
 
-function Services({ data, locale }: Props) {
+function Services({ data, locale, relatedPost }: Props) {
   const [translate, setTranslate] = useState(getLocale(locale));
 
   const [isOpen, SetIsOpen] = useState<boolean>(false);
@@ -63,7 +63,14 @@ function Services({ data, locale }: Props) {
         </Styles.Center>
         <Styles.FlexEnd>
           <Styles.AlingBlock>
-            <ArticlesScroll mode filter="" id={0} renderTouch />
+            <ArticlesScroll
+              mode
+              filter=""
+              id={0}
+              renderTouch
+              relatedPost={relatedPost}
+              locale={locale}
+            />
           </Styles.AlingBlock>
         </Styles.FlexEnd>
         <Styles.Center>

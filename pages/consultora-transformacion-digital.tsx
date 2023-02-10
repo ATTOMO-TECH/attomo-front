@@ -1,35 +1,22 @@
-import { GetStaticProps } from 'next';
-import { MENU_SCREENS } from '../const/const';
-import { getScreensId } from '../domain/useScreensMetadata';
+import { GetServerSideProps } from 'next';
 import Background from '../components/animations/background';
 import { MetadataSSR } from '../components/head/metadataSSR';
 import Services from '../screens/consultora';
-import { getAllServices } from '../domain/useServices';
 import { translateHeader } from '../hook/utils';
+import { getServerSidePropsServices } from '../lib/serverSide';
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { locale } = context;
-  const { data: metadata } = await getScreensId(MENU_SCREENS.SERVICES, locale);
-  const { data } = await getAllServices(locale);
-
-  return {
-    props: {
-      metadata,
-      locale,
-      data,
-    },
-  };
-};
+export const getServerSideProps: GetServerSideProps =
+  getServerSidePropsServices;
 
 export default function index(props: any) {
-  const { metadata, locale, data } = props;
+  const { metadata, locale, data, relatedPost } = props;
   const metadataInfo = translateHeader(metadata, locale);
-  // console.log(data)
+
   return (
     <>
       <MetadataSSR screen={metadataInfo} />
       <Background />
-      <Services data={data} locale={locale} />
+      <Services data={data} locale={locale} relatedPost={relatedPost} />
     </>
   );
 }

@@ -48,11 +48,29 @@ export const getServerSidePropsTendencias: GetServerSideProps = async (
   context,
 ) => {
   const { locale } = context;
-  const { slug } = context.query;
+  const { slug, tags } = context.query;
   const slugId: string = slug as string;
   const arrSlug = slugId.split('-');
   const id = Number(arrSlug[arrSlug.length - 1]);
   const { data } = await getPostId(Number(id));
+
+  const queryObject: any = {
+    populate: 'coverImage',
+    locale: locale || 'es',
+    filters: {
+      blog_tags: {
+        name: {
+          $containsi: tags,
+        },
+      },
+    },
+  };
+
+  const queryQs = qs.stringify(queryObject, {
+    encodeValuesOnly: true,
+  });
+  const { data: relatedPost } = await getAllPost(queryQs);
+
   let statusCode = {};
   if (data.statusCode) {
     statusCode = { statusCode: 404 };
@@ -61,6 +79,7 @@ export const getServerSidePropsTendencias: GetServerSideProps = async (
   return {
     props: {
       data,
+      relatedPost,
       locale,
       param: slugId,
       statusCode,
@@ -107,6 +126,38 @@ export const getServerSidePropsAllCases: GetServerSideProps = async (
       locale,
       data,
       tags,
+    },
+  };
+};
+
+export const getServerSidePropsServices: GetServerSideProps = async (
+  context,
+) => {
+  const { locale } = context;
+  const { data: metadata } = await getScreensId(MENU_SCREENS.SERVICES, locale);
+  const { data } = await getAllServices(locale);
+  const queryObject: any = {
+    populate: 'coverImage',
+    locale: locale || 'es',
+    filters: {
+      blog_tags: {
+        name: {
+          $containsi: data?.attributes?.blog_tags.data[0]?.attributes?.name,
+        },
+      },
+    },
+  };
+  const queryQs = qs.stringify(queryObject, {
+    encodeValuesOnly: true,
+  });
+  const { data: relatedPost } = await getAllPost(queryQs);
+
+  return {
+    props: {
+      metadata,
+      locale,
+      data,
+      relatedPost,
     },
   };
 };

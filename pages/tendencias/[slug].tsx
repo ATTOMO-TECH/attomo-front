@@ -9,7 +9,7 @@ export const getServerSideProps: GetServerSideProps =
   getServerSidePropsTendencias;
 
 export default function index(props: any) {
-  const { data, locale, statusCode } = props;
+  const { data, relatedPost, locale, statusCode } = props;
 
   return (
     <>
@@ -39,7 +39,7 @@ export default function index(props: any) {
       {statusCode.statusCode ? (
         <ErrorView locale={locale} />
       ) : (
-        <New data={data} locale={locale} />
+        <New data={data} locale={locale} relatedPost={relatedPost} />
       )}
     </>
   );
