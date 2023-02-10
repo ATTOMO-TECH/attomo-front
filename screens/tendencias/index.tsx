@@ -10,6 +10,7 @@ import InputNew from '../../components/input/inputNews';
 import Menu from '../../components/nav/menu';
 import Nav from '../../components/nav/nav';
 import MainTitle from '../../components/Text/mainTitle';
+import RenderLoading from '../../components/loading/loading';
 import ParagraphText from '../../components/Text/paragraphText';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { getAllPost } from '../../domain/useBlogDetails';
@@ -158,6 +159,21 @@ function News({ data, locale, tags }: Props) {
   DEPARTMENT?.reverse();
   const change: boolean = !!startDate || !!endDate || !!filter;
 
+  const handleDataView = () => {
+    if (typeof window !== 'undefined') {
+      return handleInfinityDataCms(dataBlog);
+    }
+    return data;
+  };
+
+  if (!data) {
+    return (
+      <>
+        <RenderLoading mode={false} />
+      </>
+    );
+  }
+
   return (
     <>
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>
@@ -291,11 +307,7 @@ function News({ data, locale, tags }: Props) {
         </Styles.BlockTrends>
 
         {React.Children.toArray(
-          handleInfinityDataCms(dataBlog).length > 0
-            ? handleInfinityDataCms(dataBlog).map((blog: any) => (
-                <BlockBlog data={blog} />
-              ))
-            : data?.map((blog: any) => <BlockBlog data={blog} />),
+          handleDataView().map((blog: any) => <BlockBlog data={blog} />),
         )}
         <ShowMore
           hasNextPage={hasNextPage}
