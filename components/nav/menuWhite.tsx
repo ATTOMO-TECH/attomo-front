@@ -158,7 +158,7 @@ export default function MenuWhite({ isOpen, toggle, logo, mode }: Props) {
                   animate={
                     isOpen
                       ? { opacity: 1, translateY: 0 }
-                      : { opacity: 0, translateY: '100%' }
+                      : { opacity: 0.1, translateY: '100%' }
                   }
                   className="list-none w-full "
                   transition={{

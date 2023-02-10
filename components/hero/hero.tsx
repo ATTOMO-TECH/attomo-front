@@ -36,7 +36,7 @@ export default function Hero({
       },
     },
     exit: {
-      opacity: 0,
+      opacity: 0.1,
       x: 200,
       transition: { duration },
     },
