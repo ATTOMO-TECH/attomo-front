@@ -214,8 +214,7 @@ export default function FormKit({ locale }: Props) {
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: '50%' }}>
           <Title size=" w-full text-center pt-10 leading-relaxed  text-3xl m-auto lg:w-3/6">
-            ¡Gracias por elegirnos como agentes digitalizadores! Nos pondremos
-            en contacto contigo lo antes posible
+            {translate.formKitDigitaklMessage}
           </Title>
         </motion.div>
       )}
