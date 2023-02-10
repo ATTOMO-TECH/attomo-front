@@ -83,7 +83,7 @@ export default function ArticlesScroll({
             slidesPerView: 1,
           },
           '1024': {
-            slidesPerView: handleDataView()?.length >= 1 ? 1.5 : 3.5,
+            slidesPerView: handleDataView().length - 1 === 1 ? 1.5 : 3.5,
           },
         }}
         navigation={{
@@ -93,7 +93,7 @@ export default function ArticlesScroll({
         {handleDataView().map((articles: any) => (
           <div
             key={articles.id}
-            className={handleDataView().length >= 1 ? 'lg:w-3/6' : ''}>
+            className={handleDataView().length - 1 === 1 ? 'lg:w-3/6' : ''}>
             <SwiperSlide
               key={`${articles.Tag}-${articles.id}`}
               className="swiper z-10">
