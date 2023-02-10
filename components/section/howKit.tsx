@@ -36,7 +36,7 @@ export default function HowKit({ title, subtitle, blockSection }: Props) {
               delay: index * 0.2,
             }}
             whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: '50%' }}
+            initial={{ opacity: 0.1, y: '50%' }}
             key={`${values.item}`}
             className={
               !values?.logo

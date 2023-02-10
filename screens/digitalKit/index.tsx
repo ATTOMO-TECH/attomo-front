@@ -90,7 +90,7 @@ function KitDigital({ locale }: Props) {
                 delay: 1,
               }}
               whileInView={{ opacity: 1, y: 0 }}
-              initial={{ opacity: 0, y: '50%' }}>
+              initial={{ opacity: 0.1, y: '50%' }}>
               <img
                 src="/kit/logos-estado.png"
                 alt="Logos de Gobierno de España, financiación de la unión y organismos relacionados con el Kit Digital"

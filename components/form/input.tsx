@@ -233,7 +233,7 @@ export default function FormReserver() {
             duration: 0.5,
           }}
           whileInView={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: '50%' }}>
+          initial={{ opacity: 0.1, y: '50%' }}>
           <Title size=" lg:pt-36 w-full text-center pt-10 leading-relaxed lg:pr-10 lg:text-4xl pb-2 text-3xl ">
             {translate.formKitReservationMessage}
           </Title>

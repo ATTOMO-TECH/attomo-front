@@ -10,6 +10,7 @@ import InputNew from '../../components/input/inputNews';
 import Menu from '../../components/nav/menu';
 import Nav from '../../components/nav/nav';
 import MainTitle from '../../components/Text/mainTitle';
+import RenderLoading from '../../components/loading/loading';
 import ParagraphText from '../../components/Text/paragraphText';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { getAllPost } from '../../domain/useBlogDetails';
@@ -112,9 +113,9 @@ function News({ data, locale, tags }: Props) {
       return getAllPost(params, queryQs);
     },
     {
-      enabled: !!queryQs,
+      enabled: !!queryQs && process.browser,
       initialData: data || {},
-      getNextPageParam: (lastPage: any) => {
+      getNextPageParam: (lastPage) => {
         if (
           lastPage?.meta?.pagination?.page <
           lastPage?.meta?.pagination?.pageCount
@@ -151,12 +152,27 @@ function News({ data, locale, tags }: Props) {
     }
   }, [locale]);
 
-  DEPARTMENT.push({
+  DEPARTMENT?.push({
     value: '',
     text: translate.allServices,
   });
-  DEPARTMENT.reverse();
+  DEPARTMENT?.reverse();
   const change: boolean = !!startDate || !!endDate || !!filter;
+
+  const handleDataView = () => {
+    if (typeof window !== 'undefined') {
+      return handleInfinityDataCms(dataBlog);
+    }
+    return data;
+  };
+
+  if (!data) {
+    return (
+      <>
+        <RenderLoading mode={false} />
+      </>
+    );
+  }
 
   return (
     <>
@@ -289,10 +305,9 @@ function News({ data, locale, tags }: Props) {
             />
           </motion.svg>
         </Styles.BlockTrends>
+
         {React.Children.toArray(
-          handleInfinityDataCms(dataBlog).map((blog: any) => (
-            <BlockBlog data={blog} />
-          )),
+          handleDataView().map((blog: any) => <BlockBlog data={blog} />),
         )}
         <ShowMore
           hasNextPage={hasNextPage}
