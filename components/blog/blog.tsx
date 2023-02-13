@@ -15,7 +15,7 @@ interface Props {
 }
 
 export default function BlockBlog({ data, locale }: Props) {
-  /** console.log(data) */
+  // console.log(data)
 
   const [translate, setTranslate] = useState(getLocale(locale || 'es'));
 
@@ -93,16 +93,19 @@ export default function BlockBlog({ data, locale }: Props) {
             <Blogstyles.BlockText>
               <ParagraphURL
                 size="text-sm leading-relaxed  "
+                tags={data.attributes.blog_tags.data[0].attributes.name}
                 url={`${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`}>
                 {data.attributes.blog_tags.data[0]?.attributes.name}
               </ParagraphURL>
               <TitleUrl
                 size="text-xl lg:text-3xl pr-12 md:pr-4 lg:pr-12 leading-loose pt-4 md:pt-0 lg:pt-4 cursor-pointer"
+                tags={data.attributes.blog_tags.data[0].attributes.name}
                 url={`${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`}>
                 {data.attributes.title}
               </TitleUrl>
               <ParagraphURL
                 size="pr-12 md:pr-4 lg:pr-12 pt-4 md:pt-0 lg:pt-4 text-sm leading-relaxed cursor-pointer"
+                tags={data.attributes.blog_tags.data[0].attributes.name}
                 url={`${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`}>
                 {data.attributes.description}
               </ParagraphURL>
