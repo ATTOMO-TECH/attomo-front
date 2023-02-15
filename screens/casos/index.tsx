@@ -147,7 +147,7 @@ function Cases({ data, locale }: Props) {
         {
           pagination: {
             page: pageParam,
-            pageSize: 3,
+            pageSize: 50,
           },
         },
         {
