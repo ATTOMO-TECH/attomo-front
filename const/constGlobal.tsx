@@ -48,10 +48,6 @@ export const STATIC_SITEMAP = [
     // lastmod: new Date().toISOString(),
   },
   {
-    loc: `https://www.attomo.digital/privacidad`,
-    // lastmod: new Date().toISOString(),
-  },
-  {
     loc: `https://www.attomo.digital/en/contacto`,
     // lastmod: new Date().toISOString(),
   },

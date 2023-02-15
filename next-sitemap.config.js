@@ -1,8 +1,11 @@
+const siteUrl = "https://www.attomo.digital";
+
 const policy = {
     userAgent: "*",
-    allow: "/"
+    allow: "/",
+    disallow: ["/privacidad", "/terminos", "/en/privacidad", "/en/terminos"],
+    // sitemap: `${siteUrl}/server-sitemap.xml`
 };
-const siteUrl = "https://www.attomo.digital";
 
 module.exports = {
     siteUrl,
