@@ -75,14 +75,14 @@ export const STATIC_SITEMAP = [
     loc: `https://www.attomo.digital/en/terminos`,
     // lastmod: new Date().toISOString(),
   },
-  {
-    loc: `https://www.attomo.digital/404`,
-    // lastmod: new Date().toISOString(),
-  },
-  {
-    loc: `https://www.attomo.digital/en/404`,
-    // lastmod: new Date().toISOString(),
-  },
+  // {
+  //   loc: `https://www.attomo.digital/404`,
+  //   // lastmod: new Date().toISOString(),
+  // },
+  // {
+  //   loc: `https://www.attomo.digital/en/404`,
+  //   // lastmod: new Date().toISOString(),
+  // },
   {
     loc: `https://www.attomo.digital/en/agente-digitalizador-madrid`,
     // lastmod: new Date().toISOString(),
