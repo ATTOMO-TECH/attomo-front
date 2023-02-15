@@ -31,6 +31,7 @@ export default function ArticlesScroll({
   const [nextState, setMyNext] = useState(null);
   const prevRef = useRef<any>(null);
   const nextRef = useRef<any>(null);
+  const post = useState(relatedPost);
 
   const queryObject: any = {
     populate: 'coverImage',
@@ -62,8 +63,15 @@ export default function ArticlesScroll({
     setMyNext(nextRef.current);
     setMyPrev(prevRef.current);
   }, [data]);
+  // if (!relatedPost) {
+  //   return (
+  //     <>
+  //       <RenderLoading mode={false} />
+  //     </>
+  //   );
+  // }
 
-  if (!relatedPost) {
+  if (!post) {
     return (
       <>
         <RenderLoading mode={false} />
@@ -83,30 +91,42 @@ export default function ArticlesScroll({
             slidesPerView: 1,
           },
           '1024': {
-            slidesPerView: handleDataView().length - 1 === 1 ? 1.5 : 3.5,
+            slidesPerView:
+              handleDataView() !== undefined &&
+              handleDataView().length - 1 === 1
+                ? 1.5
+                : 3.5,
           },
         }}
         navigation={{
           prevEl: prevState,
           nextEl: nextState,
         }}>
-        {handleDataView().map((articles: any) => (
-          <div
-            key={articles.id}
-            className={handleDataView().length - 1 === 1 ? 'lg:w-3/6' : ''}>
-            <SwiperSlide
-              key={`${articles.Tag}-${articles.id}`}
-              className="swiper z-10">
-              <Slide articles={articles} mode={mode} />
-            </SwiperSlide>
-          </div>
-        ))}
-        {handleDataView().length > 2 && (
+        {handleDataView() !== undefined &&
+          handleDataView().map((articles: any) => (
+            <div
+              key={articles.id}
+              className={
+                handleDataView() !== undefined &&
+                handleDataView().length - 1 === 1
+                  ? 'lg:w-3/6'
+                  : ''
+              }>
+              <SwiperSlide
+                key={`${articles.Tag}-${articles.id}`}
+                className="swiper z-10">
+                <Slide articles={articles} mode={mode} />
+              </SwiperSlide>
+            </div>
+          ))}
+        {handleDataView() !== undefined && handleDataView().length > 2 && (
           <ArticlesScrollArrow
             mode={mode}
             prevRef={prevRef}
             nextRef={nextRef}
-            numerSlide={handleDataView().length}
+            numerSlide={
+              handleDataView() !== undefined && handleDataView()?.length
+            }
             renderTouch={renderTouch}
           />
         )}
