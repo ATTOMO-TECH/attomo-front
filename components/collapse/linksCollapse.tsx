@@ -14,7 +14,11 @@ export default function LinkCollapse({ tab, item }: Props) {
       <Link href={`${VALUESNAV[0].Url}/${tab.attributes.URLSlug}`}>
         <Styles.SubSection
           {...handlers(`${VALUESNAV[0].Url}/${tab.attributes.URLSlug}`)}>
-          <motion.p variants={item}>{tab.attributes.name}</motion.p>
+          <motion.a
+            href={`${VALUESNAV[0].Url}/${tab.attributes.URLSlug}`}
+            variants={item}>
+            {tab.attributes.name}
+          </motion.a>
         </Styles.SubSection>
       </Link>
     </>
