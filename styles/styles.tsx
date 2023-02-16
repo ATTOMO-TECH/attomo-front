@@ -198,7 +198,7 @@ export const subTexth2 = styled.h2`
   font-family: 'Merriweather';
   font-style: normal;
 `;
-export const linkSubmenu = styled.p`
+export const linkSubmenu = styled.a`
   font-weight: 300;
   line-height: 36px;
 `;
