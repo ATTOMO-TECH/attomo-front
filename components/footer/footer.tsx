@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ICONNAV } from '../../const/constGlobal';
+import { ICONNAV, VALUESNAV_ENG, VALUESNAV_ESP } from '../../const/constGlobal';
 import SubFooter from './subfooter';
 import { Navegation } from './style';
 import InputNew from '../input/inputNews';
@@ -79,13 +79,31 @@ export default function Footer({ subFooter }: Props) {
         </Navegation.BlockFooter>
         <div className="relative ">{subFooter && <SubFooter />}</div>
         <Navegation.BlockSubText>
-          <Link href="/privacidad" passHref>
-            <a href="/privacidad" rel="nofollow" {...handlers('/privacidad')}>
+          <Link
+            href={locale === 'en' ? VALUESNAV_ENG[8].Url : VALUESNAV_ESP[8].Url}
+            passHref>
+            <a
+              href={
+                locale === 'en' ? VALUESNAV_ENG[8].Url : VALUESNAV_ESP[8].Url
+              }
+              rel="nofollow"
+              {...handlers(
+                locale === 'en' ? VALUESNAV_ENG[8].Url : VALUESNAV_ESP[8].Url,
+              )}>
               <Navegation.SubText>{translate.privacy}</Navegation.SubText>
             </a>
           </Link>
-          <Link href="/terminos" passHref>
-            <a href="/terminos" rel="nofollow" {...handlers('/terminos')}>
+          <Link
+            href={locale === 'en' ? VALUESNAV_ENG[9].Url : VALUESNAV_ESP[9].Url}
+            passHref>
+            <a
+              href={
+                locale === 'en' ? VALUESNAV_ENG[9].Url : VALUESNAV_ESP[9].Url
+              }
+              rel="nofollow"
+              {...handlers(
+                locale === 'en' ? VALUESNAV_ENG[9].Url : VALUESNAV_ESP[9].Url,
+              )}>
               <Navegation.SubText>{translate.rightReserve}</Navegation.SubText>
             </a>
           </Link>

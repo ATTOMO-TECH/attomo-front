@@ -1,6 +1,7 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { BUTTON_ACTIVE } from '../../../const/const';
-import { VALUESNAV } from '../../../const/constGlobal';
+import { VALUESNAV_ESP, VALUESNAV_ENG } from '../../../const/constGlobal';
 import { StylesArticle, darkTheme, lightTheme } from '../style';
 import { handlers } from '../../../hook/longPress';
 
@@ -14,6 +15,10 @@ export default function SlideCases({ articles, mode }: Props) {
   const { company }: any = articles.attributes;
   const { title }: any = articles.attributes;
   const { id } = articles;
+  const router = useRouter();
+  const { locale } = router;
+  const VALUESNAV = locale === 'en' ? VALUESNAV_ENG : VALUESNAV_ESP;
+
   /* console.log(company, title, id); */
   const arrNewSlug = [];
   arrNewSlug.push(company.replaceAll(' ', ''));

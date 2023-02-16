@@ -12,12 +12,18 @@ interface Props {
 export default function TitleUrl({ children, url, size, tags }: Props) {
   return (
     <Link
-      href={{
-        pathname: `${url}`,
-        query: {
-          tags,
-        },
-      }}
+      href={
+        tags !== undefined
+          ? {
+              pathname: `${url}`,
+              query: {
+                tags,
+              },
+            }
+          : {
+              pathname: `${url}`,
+            }
+      }
       passHref>
       <a {...handlers(`${url}`)}>
         <Text.TextTitle className={size}>{children}</Text.TextTitle>

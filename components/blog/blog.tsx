@@ -7,7 +7,7 @@ import IconAnimate from '../button/icon';
 import ParagraphURL from '../Text/paragraphURL';
 import { handlers } from '../../hook/longPress';
 import { getLocale } from '../../public/locales/getLocale';
-import { VALUESNAV } from '../../const/constGlobal';
+import { VALUESNAV_ENG, VALUESNAV_ESP } from '../../const/constGlobal';
 
 interface Props {
   data: any;
@@ -18,6 +18,7 @@ export default function BlockBlog({ data, locale }: Props) {
   // console.log(data)
 
   const [translate, setTranslate] = useState(getLocale(locale || 'es'));
+  const VALUESNAV = locale === 'en' ? VALUESNAV_ENG : VALUESNAV_ESP;
 
   useEffect(() => {
     if (locale) {

@@ -12,6 +12,7 @@ import NavNoLanguage from '../../../components/nav/navNoLanguage';
 import SubMenu from '../../../components/nav/submenu';
 import Title from '../../../components/Text/title';
 import { BUTTON_ACTIVE } from '../../../const/const';
+import { VALUESNAV_ENG, VALUESNAV_ESP } from '../../../const/constGlobal';
 import { Styles } from '../../../styles/styles';
 import { getLocale } from '../../../public/locales/getLocale';
 import ArticlesScroll from '../../../components/slider/article/slider';
@@ -171,7 +172,11 @@ function DetailsServices({ data, locale }: Props) {
                   text2=""
                   button2=""
                   mode
-                  link="/contacto"
+                  link={
+                    locale === 'en'
+                      ? VALUESNAV_ENG[5].Url
+                      : VALUESNAV_ESP[5].Url
+                  }
                 />
               ))}
             </Styles.Center>

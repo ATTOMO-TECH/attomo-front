@@ -13,6 +13,7 @@ import MainTitle from '../../components/Text/mainTitle';
 import RenderLoading from '../../components/loading/loading';
 import ParagraphText from '../../components/Text/paragraphText';
 import { BUTTON_ACTIVE } from '../../const/const';
+import { VALUESNAV_ENG, VALUESNAV_ESP } from '../../const/constGlobal';
 import { getAllPost } from '../../domain/useBlogDetails';
 import { getLocale } from '../../public/locales/getLocale';
 import { Styles } from '../../styles/styles';
@@ -325,7 +326,9 @@ function News({ data, locale, tags }: Props) {
               text2=""
               button2=""
               mode
-              link="/contacto"
+              link={
+                locale === 'en' ? VALUESNAV_ENG[5].Url : VALUESNAV_ESP[5].Url
+              }
             />
           ))}
         </Styles.Center>
