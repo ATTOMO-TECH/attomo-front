@@ -14,7 +14,7 @@ import FormReserver from '../../components/form/formReserver';
 import ButtonShare from '../../components/button/BtnShare';
 import MapsBlock from '../../components/maps/maps';
 import { getLocale } from '../../public/locales/getLocale';
-import { BGSPACE } from '../../const/constGlobal';
+import { BGSPACE, VALUESNAV_ENG, VALUESNAV_ESP } from '../../const/constGlobal';
 import { Props } from '../types';
 import useDeviceSize from '../../hook/size';
 
@@ -74,7 +74,11 @@ function Space({ locale }: Props) {
                 key={values.Text}
                 text={values.Subtext}
                 btn={values.Button}
-                link="/espacio-attomo#reserva"
+                link={
+                  locale === 'en'
+                    ? `${VALUESNAV_ENG[6].Url}#reserva`
+                    : `${VALUESNAV_ESP[6].Url}#reserva`
+                }
                 textPrimary={values.Text}
               />
             ))}
@@ -114,7 +118,9 @@ function Space({ locale }: Props) {
               text2=""
               button2=""
               mode
-              link="/contacto"
+              link={
+                locale === 'en' ? VALUESNAV_ENG[5].Url : VALUESNAV_ESP[5].Url
+              }
             />
           ))}
         </Styles.Center>

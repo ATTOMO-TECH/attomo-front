@@ -14,6 +14,7 @@ import Menu from '../../components/nav/menu';
 import Nav from '../../components/nav/nav';
 import SectionProjects from '../../components/section/projects';
 import { BUTTON_ACTIVE } from '../../const/const';
+import { VALUESNAV_ENG, VALUESNAV_ESP } from '../../const/constGlobal';
 import { getLocale } from '../../public/locales/getLocale';
 import { Styles } from '../../styles/styles';
 import BlockFilter from '../../components/filter/blockFilter';
@@ -292,7 +293,9 @@ function Cases({ data, locale }: Props) {
               text2=""
               button2=""
               mode
-              link="/contacto"
+              link={
+                locale === 'en' ? VALUESNAV_ENG[5].Url : VALUESNAV_ESP[5].Url
+              }
             />
           ))}
         </Styles.Center>

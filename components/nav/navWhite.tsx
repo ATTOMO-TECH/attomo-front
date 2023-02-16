@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { darkTheme, lightTheme, Navegation } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
-import { VALUESNAV } from '../../const/constGlobal';
+import { VALUESNAV_ESP, VALUESNAV_ENG } from '../../const/constGlobal';
 
 interface Props {
   toggle: () => void;
@@ -17,6 +17,10 @@ interface Props {
 export default function Nav({ toggle, logo, mode, isOpen, bgFull }: Props) {
   const [scroll, setScroll] = useState(true);
   const [viewLanguage, setViewLanguage] = useState(true);
+  const router = useRouter();
+  const { locale } = router;
+  const VALUESNAV = locale === 'en' ? VALUESNAV_ENG : VALUESNAV_ESP;
+
   useEffect(() => {
     window.addEventListener('scroll', () => {
       if (window.pageYOffset > 20) {
@@ -26,7 +30,6 @@ export default function Nav({ toggle, logo, mode, isOpen, bgFull }: Props) {
       }
     });
   }, []);
-  const router = useRouter();
 
   const handleBtn = (value: string) => {
     router.push(router, router, { locale: value });
