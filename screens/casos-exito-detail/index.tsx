@@ -5,6 +5,7 @@ import Footer from '../../components/footer/footerWhite';
 import MenuWhite from '../../components/nav/menuWhite';
 import Nav from '../../components/nav/navWhite';
 import { BUTTON_ACTIVE } from '../../const/const';
+import { VALUESNAV_ENG, VALUESNAV_ESP } from '../../const/constGlobal';
 import { darkTheme, lightTheme, Styles } from '../../styles/styles';
 import BlockSectionWhite from '../../components/block/block';
 import DetailsCases from '../../components/section/cases/details';
@@ -17,7 +18,7 @@ import { Props } from '../types';
 export default function Cases({ data, locale, mode }: Props) {
   const router = useRouter();
   const { slug }: any = router.query;
-  const [translate, setTranslate] = useState(getLocale(locale));
+  const [translate, setTranslate] = useState(getLocale(locale || 'en'));
 
   let id = 0;
   if (slug) {
@@ -99,7 +100,9 @@ export default function Cases({ data, locale, mode }: Props) {
                 text2=""
                 button2=""
                 mode={false}
-                link="/contacto"
+                link={
+                  locale === 'en' ? VALUESNAV_ENG[5].Url : VALUESNAV_ESP[5].Url
+                }
               />
             ))}
           </Styles.Center>

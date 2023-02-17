@@ -9,6 +9,7 @@ import OneProject from '../../components/section/onlyProject';
 import ListUs from '../../components/section/us';
 import MainTitle from '../../components/Text/mainTitle';
 import { BUTTON_ACTIVE } from '../../const/const';
+import { VALUESNAV_ENG, VALUESNAV_ESP } from '../../const/constGlobal';
 import { getLocale } from '../../public/locales/getLocale';
 import { Styles } from '../../styles/styles';
 import { Props } from '../types';
@@ -57,7 +58,9 @@ function Us({ locale }: Props) {
             />
             <SelectedUs
               text={translate.selectedUs[0].Subtext}
-              link="/casosdeexito"
+              link={
+                locale === 'en' ? VALUESNAV_ENG[1].Url : VALUESNAV_ESP[1].Url
+              }
               textPrimary={translate.selectedUs[0].Text}
             />
           </Styles.BlockUs>
@@ -71,7 +74,9 @@ function Us({ locale }: Props) {
               text2=""
               button2=""
               mode
-              link="/contacto"
+              link={
+                locale === 'en' ? VALUESNAV_ENG[5].Url : VALUESNAV_ESP[5].Url
+              }
             />
           ))}
         </Styles.Center>

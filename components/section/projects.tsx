@@ -7,7 +7,7 @@ import IconAnimate from '../button/icon';
 import TitleUrl from '../Text/titleUrl';
 import { Styles } from './style';
 import { getLocale } from '../../public/locales/getLocale';
-import { VALUESNAV } from '../../const/constGlobal';
+import { VALUESNAV_ESP, VALUESNAV_ENG } from '../../const/constGlobal';
 import { handlers } from '../../hook/longPress';
 /* import { handlers } from '../../hook/longPress'; */
 
@@ -38,6 +38,8 @@ export default function SectionProjects({
   }, [locale]);
   //  console.log(values);
   const { id } = values;
+
+  const VALUESNAV = locale === 'en' ? VALUESNAV_ENG : VALUESNAV_ESP;
   /* console.log(company, title, id); */
 
   // arrNewSlug.push(company?.replaceAll(' ', ''));
