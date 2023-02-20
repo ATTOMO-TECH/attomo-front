@@ -23,14 +23,7 @@ export default function index(props: any) {
   return (
     <>
       <Head>
-        <title>
-          Servicios ATTOMO - Nuestros servicios -
-          {valueFilter[0]?.attributes.screenTitle}
-        </title>
-        <meta
-          name="title"
-          content={`Servicios ATTOMO - Nuestros servicios - ${valueFilter[0]?.attributes.screenTitle}`}
-        />
+        <title>{valueFilter[0]?.attributes.screenTitle}</title>
         <link rel="icon" href="/FaviconLight.svg" type="image/x-icon" />
         <meta
           name="description"
