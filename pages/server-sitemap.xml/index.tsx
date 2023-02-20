@@ -50,7 +50,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   // Creo el sitemap stático
   const staticSitemap: ISitemapField[] = STATIC_SITEMAP;
-
   // 2. y 3. Guardo los datos del sitemap en una variable para cada item
   const casesRoutesES: ISitemapField[] = casesDataES.data.map((data: any) => ({
     loc: `https://www.attomo.digital${VALUESNAV_ESP[1].Url}/${data.attributes.URLSlug}-${data.id}`,
