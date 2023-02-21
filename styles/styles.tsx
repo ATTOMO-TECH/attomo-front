@@ -307,7 +307,7 @@ export const Styles = {
   
   `,
   // SUBMENU
-  SubMenuBlock: tw.div`w-full lg:w-10/12 m-auto flex flex-wrap`,
+  SubMenuBlock: tw.div`w-full lg:w-10/12 mx-auto my-0 flex flex-wrap`, // change m-auto for mx-auto my-0
   ButtonSubMenu: tw.button`font-PrimarySerif text-md uppercase py-1 font-light text-xl lg:text-md`,
   BlockSubSection: tw.div`flex flex-col relative pl-1`,
   // LEGAL
