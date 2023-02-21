@@ -21,6 +21,7 @@ import {
 } from '../../hook/longPress';
 import { handleBlur } from '../../hook/eventListener';
 import { Props } from '../../screens/types';
+import { sendSpaceFormNotification } from './sendEmailNotification';
 
 export default function FormReserver({ locale }: Props) {
   const [translate, setTranslate] = useState(getLocale(locale));
@@ -73,7 +74,8 @@ export default function FormReserver({ locale }: Props) {
       [FORMVALUES.DATE]: dataValues.date,
       [FORMVALUES.TIME]: dataValues.numberOfHours,
     };
-
+    // mandar notificación al gmail de info@attomo.digital
+    sendSpaceFormNotification(data);
     mutate(
       { data },
       {

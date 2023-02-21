@@ -17,6 +17,7 @@ import {
   useOnClickOutside,
 } from '../../hook/longPress';
 import { handleBlur } from '../../hook/eventListener';
+import { sendClientFormNotification } from './sendEmailNotification';
 
 export default function FormCustomer() {
   const router = useRouter();
@@ -57,7 +58,8 @@ export default function FormCustomer() {
       [FORMVALUES.MESSAGE]: values.message,
       [FORMVALUES.CONDITIONS]: values.conditionsAccepted,
     };
-
+    // mandar notificación al gmail de info@attomo.digital
+    sendClientFormNotification(data);
     mutate(
       { data },
       {
