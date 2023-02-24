@@ -1,11 +1,15 @@
 import emailjs from '@emailjs/browser';
 
 export const sendColaboratorFormNotification = (data: any) => {
+  const sendData = {
+    ...data,
+    formType: 'Colaboración como Partner',
+  };
   emailjs
     .send(
       'attomo_email_service',
-      'colaboratorTemplate_1thj',
-      data,
+      'dynamicTemplate_448gyuz',
+      sendData,
       'aSbmCbPj79MYG7Tjd',
     )
     .then(
@@ -19,11 +23,15 @@ export const sendColaboratorFormNotification = (data: any) => {
 };
 
 export const sendClientFormNotification = (data: any) => {
+  const sendData = {
+    ...data,
+    formType: 'Colaboración como cliente',
+  };
   emailjs
     .send(
       'attomo_email_service',
-      'ClientTemplate_448gyuz',
-      data,
+      'dynamicTemplate_448gyuz',
+      sendData,
       'aSbmCbPj79MYG7Tjd',
     )
     .then(
@@ -37,11 +45,15 @@ export const sendClientFormNotification = (data: any) => {
 };
 
 export const sendSpaceFormNotification = (data: any) => {
+  const sendData = {
+    ...data,
+    formType: 'Reserva de espacio ATTOMO',
+  };
   emailjs
     .send(
       'attomo_email_service',
-      'ClientTemplate_448gyuz',
-      data,
+      'dynamicTemplate_448gyuz',
+      sendData,
       'aSbmCbPj79MYG7Tjd',
     )
     .then(
@@ -55,11 +67,15 @@ export const sendSpaceFormNotification = (data: any) => {
 };
 
 export const sendKitFormNotification = (data: any) => {
+  const sendData = {
+    ...data,
+    formType: 'Gestión Kit Digital',
+  };
   emailjs
     .send(
       'attomo_email_service',
-      'ClientTemplate_448gyuz',
-      data,
+      'kitTemplate_448gyuz',
+      sendData,
       'aSbmCbPj79MYG7Tjd',
     )
     .then(
