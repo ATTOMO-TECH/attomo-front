@@ -21,11 +21,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
-        <script>
+        {/* <script>
           {`function loadScript(a)
           {var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}
           loadScript(function(){beTracker.t({hash:"cd2c35f62aa6f3e4961e9facd83caa9c"})});`}
-        </script>
+        </script> */}
 
         <title>ATTOMO - Consultora Digital </title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
