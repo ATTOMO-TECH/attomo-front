@@ -21,6 +21,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
+        <script
+          type="text/javascript"
+          async
+          src="https://tracker.metricool.com/resources/be.js"
+        />
         <title>ATTOMO - Consultora Digital </title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="icon" type="image/x-icon" href="Favicon.svg" />
