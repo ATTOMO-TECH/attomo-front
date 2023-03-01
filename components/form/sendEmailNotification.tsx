@@ -1,5 +1,14 @@
 import emailjs from '@emailjs/browser';
 
+const NEXT_PUBLIC_REACT_APP_SERVICE_MAIL_ID =
+  process.env.NEXT_PUBLIC_REACT_APP_SERVICE_MAIL_ID || '';
+const NEXT_PUBLIC_REACT_APP_DYNAMIC_TEMPLATE =
+  process.env.NEXT_PUBLIC_REACT_APP_DYNAMIC_TEMPLATE || '';
+const NEXT_PUBLIC_REACT_APP_KIT_TEMPLATE =
+  process.env.NEXT_PUBLIC_REACT_APP_KIT_TEMPLATE || '';
+const NEXT_PUBLIC_REACT_APP_SERVICE_MAIL_KEY =
+  process.env.NEXT_PUBLIC_REACT_APP_SERVICE_MAIL_KEY || '';
+
 export const sendColaboratorFormNotification = (data: any) => {
   const sendData = {
     ...data,
@@ -7,10 +16,10 @@ export const sendColaboratorFormNotification = (data: any) => {
   };
   emailjs
     .send(
-      'attomo_email_service',
-      'dynamicTemplate_448gyuz',
+      NEXT_PUBLIC_REACT_APP_SERVICE_MAIL_ID || '',
+      NEXT_PUBLIC_REACT_APP_DYNAMIC_TEMPLATE || '',
       sendData,
-      'aSbmCbPj79MYG7Tjd',
+      NEXT_PUBLIC_REACT_APP_SERVICE_MAIL_KEY,
     )
     .then(
       (response) => {
@@ -29,10 +38,10 @@ export const sendClientFormNotification = (data: any) => {
   };
   emailjs
     .send(
-      'attomo_email_service',
-      'dynamicTemplate_448gyuz',
+      NEXT_PUBLIC_REACT_APP_SERVICE_MAIL_ID || '',
+      NEXT_PUBLIC_REACT_APP_DYNAMIC_TEMPLATE || '',
       sendData,
-      'aSbmCbPj79MYG7Tjd',
+      NEXT_PUBLIC_REACT_APP_SERVICE_MAIL_KEY,
     )
     .then(
       (response) => {
@@ -51,10 +60,10 @@ export const sendSpaceFormNotification = (data: any) => {
   };
   emailjs
     .send(
-      'attomo_email_service',
-      'dynamicTemplate_448gyuz',
+      NEXT_PUBLIC_REACT_APP_SERVICE_MAIL_ID || '',
+      NEXT_PUBLIC_REACT_APP_DYNAMIC_TEMPLATE || '',
       sendData,
-      'aSbmCbPj79MYG7Tjd',
+      NEXT_PUBLIC_REACT_APP_SERVICE_MAIL_KEY,
     )
     .then(
       (response) => {
@@ -73,10 +82,10 @@ export const sendKitFormNotification = (data: any) => {
   };
   emailjs
     .send(
-      'attomo_email_service',
-      'kitTemplate_448gyuz',
+      NEXT_PUBLIC_REACT_APP_SERVICE_MAIL_ID || '',
+      NEXT_PUBLIC_REACT_APP_KIT_TEMPLATE || '',
       sendData,
-      'aSbmCbPj79MYG7Tjd',
+      NEXT_PUBLIC_REACT_APP_SERVICE_MAIL_KEY,
     )
     .then(
       (response) => {
