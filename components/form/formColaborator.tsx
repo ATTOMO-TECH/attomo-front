@@ -25,6 +25,7 @@ import {
   useOnClickOutside,
 } from '../../hook/longPress';
 import { handleBlur } from '../../hook/eventListener';
+import { sendEmailFormNotification } from './sendEmailNotification';
 
 export default function FormColaborator() {
   const router = useRouter();
@@ -107,7 +108,9 @@ export default function FormColaborator() {
       [FORMVALUES.SPECIALITY]: values.areas,
       [FORMVALUES.CONDITIONS]: values.conditionsAccepted,
     };
-
+    // console.log('form colaborator:', data)
+    // mandar notificación al gmail de info@attomo.digital
+    sendEmailFormNotification(data, 'Colaboración como Partner');
     mutate(
       { data },
       {
