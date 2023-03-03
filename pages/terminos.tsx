@@ -6,7 +6,7 @@ import Terminos from '../screens/terminos';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { locale } = context;
-  const { data } = await getATerms(locale);
+  const { data } = await getATerms(locale || 'es');
   return {
     props: {
       locale,

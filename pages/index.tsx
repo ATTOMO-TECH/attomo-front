@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next';
 import Home from '../screens/home';
-import { MENU_SCREENS } from '../const/const';
+import { MENU_SCREENS_EN, MENU_SCREENS_ES } from '../const/const';
 import { getScreensId } from '../domain/useScreensMetadata';
 import Background from '../components/animations/background';
 import { getAllCases } from '../domain/useCasesDetails';
@@ -10,7 +10,10 @@ import { translateHeader } from '../hook/utils';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { locale } = context;
-  const { data: metadata } = await getScreensId(MENU_SCREENS.HOME, locale);
+  const { data: metadata } = await getScreensId(
+    locale === 'es' ? MENU_SCREENS_ES.HOME : MENU_SCREENS_EN.HOME,
+    locale,
+  );
   const { data } = await getAllCases(queryObjectHome(locale));
 
   return {

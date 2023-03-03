@@ -6,7 +6,7 @@ import { getAPrivacy } from '../domain/usePolicy';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { locale } = context;
-  const { data } = await getAPrivacy(locale);
+  const { data } = await getAPrivacy(locale || 'es');
   return {
     props: {
       locale,
