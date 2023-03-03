@@ -52,26 +52,26 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const staticSitemap: ISitemapField[] = STATIC_SITEMAP;
   // 2. y 3. Guardo los datos del sitemap en una variable para cada item
   const casesRoutesES: ISitemapField[] = casesDataES.data.map((data: any) => ({
-    loc: `https://www.attomo.digital${VALUESNAV_ESP[1].Url}/${data.attributes.URLSlug}-${data.id}`,
+    loc: `https://attomo.digital${VALUESNAV_ESP[1].Url}/${data.attributes.URLSlug}-${data.id}`,
     // lastmod: new Date().toISOString(),
   }));
   const casesRoutesEN: ISitemapField[] = casesDataEN.data.map((data: any) => ({
-    loc: `https://www.attomo.digital/en${VALUESNAV_ENG[1].Url}/${data.attributes.URLSlug}-${data.id}`,
+    loc: `https://attomo.digital/en${VALUESNAV_ENG[1].Url}/${data.attributes.URLSlug}-${data.id}`,
     // lastmod: new Date().toISOString(),
   }));
   const blogRoutesES: ISitemapField[] = blogDataES.data.map((data: any) => ({
-    loc: `https://www.attomo.digital${VALUESNAV_ESP[3].Url}/${data.attributes.URLSlug}-${data.id}`,
+    loc: `https://attomo.digital${VALUESNAV_ESP[3].Url}/${data.attributes.URLSlug}-${data.id}`,
     // lastmod: new Date().toISOString(),
   }));
   const blogRoutesEN: ISitemapField[] = blogDataEN.data.map((data: any) => ({
-    loc: `https://www.attomo.digital/en${VALUESNAV_ENG[3].Url}/${data.attributes.URLSlug}-${data.id}`,
+    loc: `https://attomo.digital/en${VALUESNAV_ENG[3].Url}/${data.attributes.URLSlug}-${data.id}`,
     // lastmod: new Date().toISOString(),
   }));
   const servicesRoutesES: ISitemapField[] = [];
   servicesDataES.data.forEach((data: any) =>
     data.attributes.subservices.data.map((subservice: any) =>
       servicesRoutesES.push({
-        loc: `https://www.attomo.digital${VALUESNAV_ESP[0].Url}/${subservice.attributes.URLSlug}`,
+        loc: `https://attomo.digital${VALUESNAV_ESP[0].Url}/${subservice.attributes.URLSlug}`,
         // lastmod: new Date().toISOString(),
       }),
     ),
@@ -80,7 +80,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   servicesDataEN.data.forEach((data: any) =>
     data.attributes.subservices.data.map((subservice: any) =>
       servicesRoutesEN.push({
-        loc: `https://www.attomo.digital/en${VALUESNAV_ENG[0].Url}/${subservice.attributes.URLSlug}`,
+        loc: `https://attomo.digital/en${VALUESNAV_ENG[0].Url}/${subservice.attributes.URLSlug}`,
         // lastmod: new Date().toISOString(),
       }),
     ),

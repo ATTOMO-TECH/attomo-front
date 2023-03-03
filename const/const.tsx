@@ -20,14 +20,14 @@ export const BUTTON_ACTIVE = {
 // };
 
 export const MENU_SCREENS_ES = {
-  HOME: 3,
-  SERVICES: 7,
-  CASES: 6,
+  HOME: 3, // ok
+  SERVICES: 7, // ok
+  CASES: 6, // OK
   ABOUT: 4,
-  TRENDS: 8,
-  CAREERS: 9,
-  CONTACT: 5,
-  SPACE: 1,
+  TRENDS: 8, // ok
+  CAREERS: 9, // OK
+  CONTACT: 5, // OK
+  SPACE: 1, // ok
   KIT: 2,
 };
 
