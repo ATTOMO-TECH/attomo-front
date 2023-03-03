@@ -26,8 +26,8 @@ export const getPostId = async (id: number) => {
 };
 
 export function useUseAllPost(query: any, initialData?: any) {
-  return useQuery(['useAllPost', query, initialData], () => getAllPost(query), {
-    initialData: initialData && initialData,
+  return useQuery(['useAllPost', query], () => getAllPost(query), {
+    initialData: initialData || {},
   });
 }
 

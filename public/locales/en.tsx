@@ -7,41 +7,41 @@ export default {
     {
       Value: 'Services',
       // Url: '/servicios',
-      Url: '/consultora-transformacion-digital',
+      Url: '/technology-consulting-firm',
     },
     {
       Value: 'Case studies',
       // Url: '/casosdeexito',
-      Url: '/casos-exito-digitalizacion',
+      Url: '/digitization-success-stories',
     },
     {
       Value: 'About us',
       // Url: '/nosotros',
-      Url: '/quienes-somos',
+      Url: '/about-us',
     },
     {
       Value: '#ATTOMOTrends',
       // Url: '/attomo-trends',
-      Url: '/tendencias',
+      Url: '/trends',
     },
     {
       Value: 'Careers',
       // Url: '/careers',
-      Url: '/ofertas-trabajo',
+      Url: '/careers',
     },
     {
       Value: 'Contact',
-      Url: '/contacto',
+      Url: '/contact',
     },
     {
       Value: 'ATTOMO Space',
       // Url: '/espacio-attomo',
-      Url: '/estudio-fotografia-madrid',
+      Url: '/photography-studio-space-madrid',
     },
     {
       Value: 'Digital Kit',
       // Url: '/kit-digital',
-      Url: '/agente-digitalizador-madrid',
+      Url: '/digitizing-agent-madrid',
     },
   ],
   home: [
@@ -374,4 +374,12 @@ export default {
   rightReserve: 'All rights reserved',
   back: 'Back',
   backToNews: 'Back to news',
+  formCustomerMessage:
+    'Welcome to ATTOMO, welcome to the beginning of something great!',
+  formColaboratorMessage:
+    'Thank you for your time! We will contact you as soon as possible.',
+  formKitDigitaklMessage:
+    'Thank you for choosing us as your digitizing agents! We will contact  you as soon as possible.',
+  formKitReservationMessage:
+    'Thank you very much, we have received your booking request. We will we will contact you soon.',
 };

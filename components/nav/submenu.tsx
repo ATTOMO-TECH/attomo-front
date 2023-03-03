@@ -53,6 +53,7 @@ export default function SubMenu({
                         )
                       }>
                       <Styles.SelectSubMenu
+                        href={subTask.attributes.URLSlug}
                         onClick={toggle}
                         onTouchStart={toggle}
                         mode={

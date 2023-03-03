@@ -2,8 +2,8 @@ import { useQuery } from 'react-query';
 import { CASES, DISCIPLINES } from '../lib/api';
 import { get } from '../lib/restClient';
 
-export const getAllCases = async (query?: string) => {
-  const { data } = await get(CASES.FETCH_ALL(query));
+export const getAllCases = async (params?: any, query?: any) => {
+  const { data } = await get(CASES.FETCH_ALL(params, query));
   return data;
 };
 const getAllDisciplines = async (lenguage: string) => {

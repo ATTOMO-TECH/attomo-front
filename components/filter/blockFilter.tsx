@@ -43,7 +43,7 @@ export default function BlockFilter({
           duration: 2,
         }}
         whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: '50%' }}>
+        initial={{ opacity: 0.1, y: '50%' }}>
         <Styles.SelectFilterCases>
           <Styles.SectionFilter className="flex  w-full items-center justify-between">
             <ParagraphText size="text-lg lg:py-4 ">

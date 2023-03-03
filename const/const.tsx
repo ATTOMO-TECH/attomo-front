@@ -44,6 +44,5 @@ export const MENU_SCREENS_EN = {
 };
 
 export const QUERY_PARAMS = {
-  ALL_POST:
-    'pagination[page]=1&pagination[pageSize]=3&populate=coverImage&filters[featured][$eq]=true',
+  ALL_POST: 'populate=coverImage&pagination[pageSize]=3&populate=blog_tags',
 };

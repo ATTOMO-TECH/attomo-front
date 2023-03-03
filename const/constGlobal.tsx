@@ -48,19 +48,15 @@ export const STATIC_SITEMAP = [
     // lastmod: new Date().toISOString(),
   },
   {
-    loc: `https://www.attomo.digital/privacidad`,
+    loc: `https://www.attomo.digital/en/contact`,
     // lastmod: new Date().toISOString(),
   },
   {
-    loc: `https://www.attomo.digital/en/contacto`,
+    loc: `https://www.attomo.digital/en/careers`,
     // lastmod: new Date().toISOString(),
   },
   {
-    loc: `https://www.attomo.digital/en/ofertas-trabajo`,
-    // lastmod: new Date().toISOString(),
-  },
-  {
-    loc: `https://www.attomo.digital/en/quienes-somos`,
+    loc: `https://www.attomo.digital/en/about-us`,
     // lastmod: new Date().toISOString(),
   },
   {
@@ -68,35 +64,39 @@ export const STATIC_SITEMAP = [
     // lastmod: new Date().toISOString(),
   },
   {
-    loc: `https://www.attomo.digital/en/tendencias`,
+    loc: `https://www.attomo.digital/en/trends`,
     // lastmod: new Date().toISOString(),
   },
   {
-    loc: `https://www.attomo.digital/en/privacidad`,
+    loc: `https://www.attomo.digital/en/privacy`,
     // lastmod: new Date().toISOString(),
   },
   {
-    loc: `https://www.attomo.digital/en/terminos`,
+    loc: `https://www.attomo.digital/en/terms`,
+    // lastmod: new Date().toISOString(),
+  },
+  // {
+  //   loc: `https://www.attomo.digital/404`,
+  //   // lastmod: new Date().toISOString(),
+  // },
+  // {
+  //   loc: `https://www.attomo.digital/en/404`,
+  //   // lastmod: new Date().toISOString(),
+  // },
+  {
+    loc: `https://www.attomo.digital/en/digitizing-agent-madrid`,
     // lastmod: new Date().toISOString(),
   },
   {
-    loc: `https://www.attomo.digital/404`,
+    loc: `https://www.attomo.digital/en/technology-consulting-firm`,
     // lastmod: new Date().toISOString(),
   },
   {
-    loc: `https://www.attomo.digital/en/404`,
+    loc: `https://www.attomo.digital/en/photography-studio-space-madrid`,
     // lastmod: new Date().toISOString(),
   },
   {
-    loc: `https://www.attomo.digital/en/agente-digitalizador-madrid`,
-    // lastmod: new Date().toISOString(),
-  },
-  {
-    loc: `https://www.attomo.digital/en/consultora-transformacion-digital`,
-    // lastmod: new Date().toISOString(),
-  },
-  {
-    loc: `https://www.attomo.digital/en/estudio-fotografia-madrid`,
+    loc: `https://www.attomo.digital/en/digitization-success-stories`,
     // lastmod: new Date().toISOString(),
   },
 ];
@@ -122,7 +122,7 @@ export const PARTNERS: {
     Pic: '/icon/shopify-partner.png',
   },
 ];
-export const VALUESNAV: {
+export const VALUESNAV_ESP: {
   Value: string;
   Url: string;
 }[] = [
@@ -164,6 +164,66 @@ export const VALUESNAV: {
     Value: 'Kit Digital',
     // Url: '/kit-digital',
     Url: '/agente-digitalizador-madrid',
+  },
+  {
+    Value: 'Privacidad',
+    Url: '/privacidad',
+  },
+  {
+    Value: 'Términos',
+    Url: '/terminos',
+  },
+];
+export const VALUESNAV_ENG: {
+  Value: string;
+  Url: string;
+}[] = [
+  {
+    Value: 'Services',
+    // Url: '/servicios',
+    Url: '/technology-consulting-firm',
+  },
+  {
+    Value: 'Case studies',
+    // Url: '/casosdeexito',
+    Url: '/digitization-success-stories',
+  },
+  {
+    Value: 'About us',
+    // Url: '/nosotros',
+    Url: '/about-us',
+  },
+  {
+    Value: '#ATTOMOTrends',
+    // Url: '/attomo-trends',
+    Url: '/trends',
+  },
+  {
+    Value: 'Careers',
+    // Url: '/careers',
+    Url: '/careers',
+  },
+  {
+    Value: 'Contact',
+    Url: '/contact',
+  },
+  {
+    Value: 'ATTOMO Space',
+    // Url: '/espacio-attomo',
+    Url: '/photography-studio-space-madrid',
+  },
+  {
+    Value: 'Digital Kit',
+    // Url: '/kit-digital',
+    Url: '/digitizing-agent-madrid',
+  },
+  {
+    Value: 'Privacy',
+    Url: '/privacy',
+  },
+  {
+    Value: 'Terms',
+    Url: '/terms',
   },
 ];
 export const ICONNAV: {

@@ -21,12 +21,12 @@ export default function InputSelect({
   name,
   translate,
 }: Props) {
-  console.log(options);
+  // console.log(options);
   console.log(valueLabel);
-  console.log(handleValue);
-  console.log(onChange);
-  console.log(selected);
-  console.log(name);
+  // console.log(handleValue);
+  // console.log(onChange);
+  // console.log(selected);
+  // console.log(name);
   return (
     <>
       <BlockDiv active={selected !== ''} className="relative text-left">

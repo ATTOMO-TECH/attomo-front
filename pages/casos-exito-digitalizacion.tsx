@@ -1,9 +1,4 @@
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import * as qs from 'qs';
-import { format } from 'date-fns';
-import { useQueryClient } from 'react-query';
-import { fadeInUp } from '../components/animations/animations';
+import { GetServerSideProps } from 'next';
 import Background from '../components/animations/background';
 import BlockSection from '../components/block/block';
 import ButtonShare from '../components/button/BtnShare';
@@ -25,12 +20,13 @@ import { Styles } from '../styles/styles';
 import { useAScreen } from '../domain/useScreensMetadata';
 import { Metadata } from '../components/head/metadata';
 import BlockFilter from '../components/filter/blockFilter';
+import { MetadataSSR } from '../components/head/metadataSSR';
+import { translateHeader } from '../hook/utils';
+import Cases from '../screens/casos';
+import { getServerSidePropsAllCases } from '../lib/serverSide';
 
-function Cases() {
-  const queryClient = useQueryClient();
-  const router = useRouter();
-  const [translate, setTranslate] = useState(getLocale('es'));
-  let { locale } = router;
+export const getServerSideProps: GetServerSideProps =
+  getServerSidePropsAllCases;
 
   useEffect(() => {
     if (locale) {
@@ -191,102 +187,15 @@ function Cases() {
     setEndDate(null);
     queryClient.refetchQueries(['useAllCases']);
   };
+export default function index(props: any) {
+  const { metadata, locale, data, tags } = props;
+  const metadataInfo = translateHeader(metadata, locale);
 
   return (
     <>
-      <Metadata screen={screen} />
-      <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : 'overflow-hidden'}>
-        {!isOpenFilter && <Background />}
-        {isOpenFilter && (
-          <ModalFilter
-            isOpenFilter={isOpenFilter}
-            toggle={toggleFilter}
-            setDate={handleDate}
-            setTopic={setTopic}
-            setSearch={setSearch}
-            startDate={startDate}
-            endDate={endDate}
-            topic={topic}
-            search={search}
-            locale={locale}
-          />
-        )}
-        {!isOpenFilter && (
-          <>
-            <Menu isOpen={isOpen} toggle={toggle} logo mode />
-            <Styles.Margin>
-              <Nav toggle={toggle} logo mode isOpen={isOpen} />
-            </Styles.Margin>
-            <ButtonShare />
-          </>
-        )}
-        <HeroCase
-          OpenMenu={isOpen}
-          toggle={toggleFilter}
-          date={startDate}
-          endDate={endDate}
-          topic={topic}
-          isOpen={isOpenFilter}
-          scroll={scroll}
-          handleChangeReset={handleChangeReset}
-        />
-        {!scroll ? (
-          <BlockFilter
-            toggleFilter={toggleFilter}
-            translate={translate}
-            search={search}
-            topic={topic}
-            startDate={startDate}
-            endDate={endDate}
-            handleChangeReset={handleChangeReset}
-          />
-        ) : (
-          <></>
-        )}
-        <Styles.BlockSections
-          mode={isOpen ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-          <Styles.SectionProjects>
-            {preData?.map((values: any, i: number) => (
-              <SectionProjects
-                i={i}
-                key={`SectionProjects${values.attributes.title}`}
-                values={values}
-                shouldShowActions={undefined}
-                servicesAnimations={fadeInUp}
-              />
-            ))}
-          </Styles.SectionProjects>
-
-          {data &&
-            (data.meta.pagination.page !== data.meta.pagination.pageCount &&
-            data.meta.pagination.pageCount !== 0 ? (
-              <Styles.SectionMore>
-                <Styles.BlockMore
-                  onClick={() => handleAddBlog(data.meta.pagination.page + 1)}
-                  onTouchStart={() =>
-                    handleAddBlog(data.meta.pagination.page + 1)
-                  }>
-                  {translate.moreCases}
-                </Styles.BlockMore>
-              </Styles.SectionMore>
-            ) : null)}
-        </Styles.BlockSections>
-        <Styles.Center>
-          {translate.contact.map((values) => (
-            <BlockSection
-              key={values.Link}
-              text={values.Text}
-              button={values.Link}
-              text2=""
-              button2=""
-              mode
-              link="/contacto"
-            />
-          ))}
-        </Styles.Center>
-        {!isOpenFilter ? <Footer subFooter={false} /> : <></>}
-      </Styles.Body>
+      <MetadataSSR screen={metadataInfo} />
+      <Background />
+      <Cases data={data} locale={locale} tags={tags} />
     </>
   );
 }
-export default Cases;

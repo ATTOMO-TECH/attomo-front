@@ -25,6 +25,7 @@ import {
   useOnClickOutside,
 } from '../../hook/longPress';
 import { handleBlur } from '../../hook/eventListener';
+import { sendEmailFormNotification } from './sendEmailNotification';
 
 export default function FormColaborator() {
   const router = useRouter();
@@ -107,7 +108,9 @@ export default function FormColaborator() {
       [FORMVALUES.SPECIALITY]: values.areas,
       [FORMVALUES.CONDITIONS]: values.conditionsAccepted,
     };
-
+    // console.log('form colaborator:', data)
+    // mandar notificación al gmail de info@attomo.digital
+    sendEmailFormNotification(data, 'Colaboración como Partner');
     mutate(
       { data },
       {
@@ -385,10 +388,9 @@ export default function FormColaborator() {
             duration: 0.5,
           }}
           whileInView={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: '50%' }}>
+          initial={{ opacity: 0.1, y: '50%' }}>
           <Title size=" w-full text-center pt-10 leading-relaxed  text-3xl m-auto lg:w-3/6">
-            ¡Muchas gracias por tu tiempo! Nos pondremos en contacto contigo lo
-            antes posible.
+            {translate.formColaboratorMessage}
           </Title>
         </motion.div>
       )}

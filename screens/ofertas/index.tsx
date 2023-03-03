@@ -56,7 +56,7 @@ function Carrers({ data, locale }: Props) {
           <Work works={data} apply={translate.Apply} />
         </Styles.Center>
         {translate.contactUsWork.map((value) => (
-          <BlocKnow value={value} />
+          <BlocKnow value={value} locale={locale} />
         ))}
         <Footer subFooter={false} />
       </Styles.Body>

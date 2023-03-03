@@ -9,6 +9,7 @@ import SectionProjects from '../../components/section/projects';
 import CompaniesScroll from '../../components/slider/companys/slider';
 import SubSection from '../../components/subsection/subsection';
 import { BUTTON_ACTIVE } from '../../const/const';
+import { VALUESNAV_ENG, VALUESNAV_ESP } from '../../const/constGlobal';
 import { Styles } from '../../styles/styles';
 import ButtonShare from '../../components/button/BtnShare';
 import { servicesAnimations } from '../../components/animations/animations';
@@ -97,7 +98,7 @@ function Home({ data, locale }: Props) {
                   duration: 0.5,
                 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                initial={{ opacity: 0, y: '50%' }}>
+                initial={{ opacity: 0.1, y: '50%' }}>
                 {translate.selected.map((values) => (
                   <SelectedClients
                     key={`SelectedClients${values.Title}`}
@@ -133,7 +134,9 @@ function Home({ data, locale }: Props) {
                 text2=""
                 button2=""
                 mode
-                link="/contacto"
+                link={
+                  locale === 'en' ? VALUESNAV_ENG[5].Url : VALUESNAV_ESP[5].Url
+                }
               />
             ))}
           </Styles.Center>

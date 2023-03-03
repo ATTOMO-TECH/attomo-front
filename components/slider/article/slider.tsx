@@ -1,19 +1,21 @@
-import { useRouter } from 'next/router';
 // eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
 import { useRef, useEffect, useState } from 'react';
 import * as qs from 'qs';
 import { useUseAllPost } from '../../../domain/useBlogDetails';
-import RenderLoading from '../../loading/loading';
+
 import ArticlesScrollArrow from '../arrows/arrows';
 import Slide from '../slide/slide';
+import RenderLoading from '../../loading/loading';
 
 interface Props {
   mode: boolean;
   filter: string;
   id: number;
   renderTouch: boolean;
+  relatedPost?: any;
+  locale?: string;
 }
 
 export default function ArticlesScroll({
@@ -21,16 +23,15 @@ export default function ArticlesScroll({
   filter,
   id,
   renderTouch,
+  relatedPost,
+  locale,
 }: Props) {
   /* console.log(id) */
   const [prevState, setMyPrev] = useState(null);
   const [nextState, setMyNext] = useState(null);
-  const router = useRouter();
-
-  let { locale } = router;
-  if (locale === '/') {
-    locale = 'es';
-  }
+  const prevRef = useRef<any>(null);
+  const nextRef = useRef<any>(null);
+  const post = useState(relatedPost);
 
   const queryObject: any = {
     populate: 'coverImage',
@@ -49,23 +50,35 @@ export default function ArticlesScroll({
   const queryQs = qs.stringify(queryObject, {
     encodeValuesOnly: true,
   });
-  const { data, isLoading } = useUseAllPost(queryQs);
+  const { data } = useUseAllPost(queryQs, { data: relatedPost });
 
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
+  const handleDataView = () => {
+    if (typeof window !== 'undefined') {
+      return data?.data;
+    }
+    return relatedPost;
+  };
 
   useEffect(() => {
     setMyNext(nextRef.current);
     setMyPrev(prevRef.current);
   }, [data]);
+  // if (!relatedPost) {
+  //   return (
+  //     <>
+  //       <RenderLoading mode={false} />
+  //     </>
+  //   );
+  // }
 
-  if (isLoading) {
+  if (!post) {
     return (
       <>
         <RenderLoading mode={false} />
       </>
     );
   }
+
   return (
     <>
       <Swiper
@@ -78,30 +91,42 @@ export default function ArticlesScroll({
             slidesPerView: 1,
           },
           '1024': {
-            slidesPerView: data.data.length === 1 ? 1.5 : 3.5,
+            slidesPerView:
+              handleDataView() !== undefined &&
+              handleDataView().length - 1 === 1
+                ? 1.5
+                : 3.5,
           },
         }}
         navigation={{
           prevEl: prevState,
           nextEl: nextState,
         }}>
-        {data.data.map((articles: any) => (
-          <div
-            key={articles.id}
-            className={data.data.length === 1 ? 'lg:w-3/6' : ''}>
-            <SwiperSlide
-              key={`${articles.Tag}-${articles.id}`}
-              className="swiper z-10">
-              <Slide articles={articles} mode={mode} />
-            </SwiperSlide>
-          </div>
-        ))}
-        {data.meta.pagination.total > 2 && (
+        {handleDataView() !== undefined &&
+          handleDataView().map((articles: any) => (
+            <div
+              key={articles.id}
+              className={
+                handleDataView() !== undefined &&
+                handleDataView().length - 1 === 1
+                  ? 'lg:w-3/6'
+                  : ''
+              }>
+              <SwiperSlide
+                key={`${articles.Tag}-${articles.id}`}
+                className="swiper z-10">
+                <Slide articles={articles} mode={mode} />
+              </SwiperSlide>
+            </div>
+          ))}
+        {handleDataView() !== undefined && handleDataView().length > 2 && (
           <ArticlesScrollArrow
             mode={mode}
             prevRef={prevRef}
             nextRef={nextRef}
-            numerSlide={data.meta.pagination.total}
+            numerSlide={
+              handleDataView() !== undefined && handleDataView()?.length
+            }
             renderTouch={renderTouch}
           />
         )}

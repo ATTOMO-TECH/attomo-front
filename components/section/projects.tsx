@@ -7,7 +7,7 @@ import IconAnimate from '../button/icon';
 import TitleUrl from '../Text/titleUrl';
 import { Styles } from './style';
 import { getLocale } from '../../public/locales/getLocale';
-import { VALUESNAV } from '../../const/constGlobal';
+import { VALUESNAV_ESP, VALUESNAV_ENG } from '../../const/constGlobal';
 import { handlers } from '../../hook/longPress';
 /* import { handlers } from '../../hook/longPress'; */
 
@@ -38,6 +38,8 @@ export default function SectionProjects({
   }, [locale]);
   //  console.log(values);
   const { id } = values;
+
+  const VALUESNAV = locale === 'en' ? VALUESNAV_ENG : VALUESNAV_ESP;
   /* console.log(company, title, id); */
 
   // arrNewSlug.push(company?.replaceAll(' ', ''));
@@ -65,7 +67,7 @@ export default function SectionProjects({
           duration: 1,
         }}
         whileInView={{ opacity: 1, x: 0 }}
-        initial={{ opacity: 0, x: '50%' }}>
+        initial={{ opacity: 0.3, x: '50%' }}>
         <Styles.BlockSections
           ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
           key={values.Client}>
@@ -104,7 +106,7 @@ export default function SectionProjects({
                 duration: 1,
               }}
               whileInView={{ opacity: 1, y: 0 }}
-              initial={{ opacity: 0, y: 50 }}>
+              initial={{ opacity: 0.1, y: 50 }}>
               <Styles.Paragraph className="text-sm font-PrimarySerif uppercase">
                 {values.attributes.company}
               </Styles.Paragraph>

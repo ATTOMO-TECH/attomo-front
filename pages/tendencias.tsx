@@ -1,11 +1,12 @@
 import { GetStaticProps } from 'next';
 import { MENU_SCREENS_EN, MENU_SCREENS_ES, QUERY_PARAMS } from '../const/const';
 import { getScreensId } from '../domain/useScreensMetadata';
+import { GetServerSideProps } from 'next';
 import Background from '../components/animations/background';
 import { MetadataSSR } from '../components/head/metadataSSR';
 import { translateHeader } from '../hook/utils';
 import News from '../screens/tendencias';
-import { getAllPost, getAllTags } from '../domain/useBlogDetails';
+import { getServerSidePropsTrend } from '../lib/serverSide';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { locale } = context;
@@ -27,11 +28,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
     },
   };
 };
+export const getServerSideProps: GetServerSideProps = getServerSidePropsTrend;
 
 export default function index(props: any) {
   const { metadata, locale, data, tags } = props;
   const metadataInfo = translateHeader(metadata, locale);
-  // console.log(tags);
+
   return (
     <>
       <MetadataSSR screen={metadataInfo} />

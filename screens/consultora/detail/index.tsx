@@ -1,6 +1,8 @@
 /* eslint-disable no-use-before-define */
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import gfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import { useRouter } from 'next/router';
 import { fadeInUp, stagger } from '../../../components/animations/animations';
 import BlockSection from '../../../components/block/block';
@@ -12,6 +14,7 @@ import NavNoLanguage from '../../../components/nav/navNoLanguage';
 import SubMenu from '../../../components/nav/submenu';
 import Title from '../../../components/Text/title';
 import { BUTTON_ACTIVE } from '../../../const/const';
+import { VALUESNAV_ENG, VALUESNAV_ESP } from '../../../const/constGlobal';
 import { Styles } from '../../../styles/styles';
 import { getLocale } from '../../../public/locales/getLocale';
 import ArticlesScroll from '../../../components/slider/article/slider';
@@ -20,6 +23,7 @@ import Background from '../../../components/animations/background';
 import ErrorView from '../../404/index';
 import { handleFilter } from '../../../hook/format';
 import { Props } from '../../types';
+import { Container } from './style';
 
 function DetailsServices({ data, locale }: Props) {
   const router = useRouter();
@@ -130,12 +134,16 @@ function DetailsServices({ data, locale }: Props) {
                     exit={{ opacity: 0 }}
                     transition={{ delay: 0.8 }}
                     variants={stagger}>
-                    <motion.p
+                    <motion.div
                       variants={fadeInUp}
                       transition={{ delay: 5.5 }}
                       className="pr-5 relative font-PrimarySerif font-light leading-loose textDegrade">
-                      {isIdSubServices[0]?.attributes?.description}
-                    </motion.p>
+                      <Container
+                        remarkPlugins={[gfm]}
+                        rehypePlugins={[rehypeRaw]}>
+                        {isIdSubServices[0]?.attributes?.description}
+                      </Container>
+                    </motion.div>
                   </motion.div>
                 </motion.div>
               </Styles.CenterCases>
@@ -171,7 +179,11 @@ function DetailsServices({ data, locale }: Props) {
                   text2=""
                   button2=""
                   mode
-                  link="/contacto"
+                  link={
+                    locale === 'en'
+                      ? VALUESNAV_ENG[5].Url
+                      : VALUESNAV_ESP[5].Url
+                  }
                 />
               ))}
             </Styles.Center>

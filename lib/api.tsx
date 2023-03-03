@@ -2,8 +2,8 @@ import { API_URL } from './httpClient';
 
 const getAbsolutePath = (path: string) => `${API_URL}/${path}`;
 const CASES = {
-  FETCH_ALL: (query?: string) =>
-    getAbsolutePath(`successful-cases?populate=mainPhoto&${query}`),
+  FETCH_ALL: (params: any, query?: any) =>
+    getAbsolutePath(`successful-cases?${query}&${params}&populate=mainPhoto&`),
   FETCH_FILTER: (lenguage: string, query: string) =>
     getAbsolutePath(
       `successful-cases?populate=mainPhoto&locale=${lenguage}&populate=subservice&${query}`,
