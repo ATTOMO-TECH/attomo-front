@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next';
 import * as qs from 'qs';
-import { MENU_SCREENS, QUERY_PARAMS } from '../const/const';
+import { MENU_SCREENS_EN, MENU_SCREENS_ES, QUERY_PARAMS } from '../const/const';
 import { getAllPost, getAllTags, getPostId } from '../domain/useBlogDetails';
 import { getAllCases, getCaseId } from '../domain/useCasesDetails';
 import { getScreensId } from '../domain/useScreensMetadata';
@@ -89,7 +89,10 @@ export const getServerSidePropsTendencias: GetServerSideProps = async (
 
 export const getServerSidePropsTrend: GetServerSideProps = async (context) => {
   const { locale } = context;
-  const { data: metadata } = await getScreensId(MENU_SCREENS.TRENDS, locale);
+  const { data: metadata } = await getScreensId(
+    locale === 'es' ? MENU_SCREENS_ES.TRENDS : MENU_SCREENS_EN.TRENDS,
+    locale,
+  );
   const { data } = await getAllPost(
     `${QUERY_PARAMS.ALL_POST}&locale=${locale}`,
   );
@@ -109,7 +112,10 @@ export const getServerSidePropsAllCases: GetServerSideProps = async (
   context,
 ) => {
   const { locale } = context;
-  const { data: metadata } = await getScreensId(MENU_SCREENS.CASES, locale);
+  const { data: metadata } = await getScreensId(
+    locale === 'es' ? MENU_SCREENS_ES.CASES : MENU_SCREENS_EN.CASES,
+    locale,
+  );
   const queryObject: any = {
     locale: locale || 'es',
     populate: ['*'],
@@ -134,7 +140,10 @@ export const getServerSidePropsServices: GetServerSideProps = async (
   context,
 ) => {
   const { locale } = context;
-  const { data: metadata } = await getScreensId(MENU_SCREENS.SERVICES, locale);
+  const { data: metadata } = await getScreensId(
+    locale === 'es' ? MENU_SCREENS_ES.SERVICES : MENU_SCREENS_EN.SERVICES,
+    locale,
+  );
   const { data } = await getAllServices(locale);
   const queryObject: any = {
     populate: 'coverImage',

@@ -17,6 +17,7 @@ import {
 } from '../../hook/longPress';
 import { handleBlur } from '../../hook/eventListener';
 import { Props } from '../../screens/types';
+import { sendEmailFormNotification } from './sendEmailNotification';
 
 export default function FormKit({ locale }: Props) {
   const [translate, setTranslate] = useState(getLocale(locale));
@@ -51,7 +52,8 @@ export default function FormKit({ locale }: Props) {
       [FORMVALUES.EMAIL]: values.email,
       [FORMVALUES.MESSAGE]: values.message,
     };
-
+    // mandar notificación al gmail de info@attomo.digital
+    sendEmailFormNotification(data, 'Gestión Kit Digital');
     mutate(
       { data },
       {
