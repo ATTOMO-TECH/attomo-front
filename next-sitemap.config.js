@@ -1,9 +1,9 @@
-const siteUrl = "https://www.attomo.digital";
+const siteUrl = "https://attomo.digital";
 
 const policy = {
     userAgent: "*",
     allow: "/",
-    disallow: ["/privacidad", "/terminos", "/en/privacidad", "/en/terminos"],
+    disallow: ["/privacidad", "/terminos", "/en/privacidad", "/en/terminos", "/en/terms", "/en/privacy", "/terms", "/privacy"],
     // sitemap: `${siteUrl}/server-sitemap.xml`
 };
 
