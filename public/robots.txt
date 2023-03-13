@@ -1,0 +1,17 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /privacidad
+Disallow: /terminos
+Disallow: /en/privacidad
+Disallow: /en/terminos
+Disallow: /en/terms
+Disallow: /en/privacy
+Disallow: /terms
+Disallow: /privacy
+
+# Host
+Host: https://attomo.digital
+
+# Sitemaps
+Sitemap: https://attomo.digital/server-sitemap.xml
