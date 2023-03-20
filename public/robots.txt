@@ -10,6 +10,23 @@ Disallow: /en/privacy
 Disallow: /terms
 Disallow: /privacy
 
+Disallow: /technology-consulting-firm
+Disallow: /en/consultora-transformacion-digital
+Disallow: /digitization-success-stories
+Disallow: /en/casos-exito-digitalizacion
+Disallow: /about-us
+Disallow: /en/quienes-somos
+Disallow: /trends
+Disallow: /en/tendencias
+Disallow: /careers
+Disallow: /en/ofertas-trabajo
+Disallow: /contact
+Disallow: /en/contacto
+Disallow: /photography-studio-space-madrid
+Disallow: /en/estudio-fotografia-madrid
+Disallow: /digitizing-agent-madrid
+Disallow: /en/agente-digitalizador-madrid
+
 # Host
 Host: https://attomo.digital
 
