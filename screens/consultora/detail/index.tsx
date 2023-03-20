@@ -65,7 +65,7 @@ function DetailsServices({ data, locale }: Props) {
         <motion.div
           initial="initial"
           animate="animate"
-          exit={{ opacity: 0 }}
+          exit={{ opacity: 0.1 }}
           className="text-primary">
           <FilterDetails
             isOpen={!isOpen && isOpenFilter}
@@ -90,7 +90,7 @@ function DetailsServices({ data, locale }: Props) {
             {!isOpenFilter && <ButtonShare />}
             <motion.div
               animate={{ opacity: 1 }}
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 0.1 }}
               className="pb-36">
               <Styles.CenterCases>
                 <Styles.BlockRenderDetails>
@@ -121,8 +121,8 @@ function DetailsServices({ data, locale }: Props) {
                 <motion.div
                   className="lg:pt-12 lg:w-9/12 w-10/12 ml-auto h-auto mr-2"
                   animate={{ x: 0, opacity: 1 }}
-                  initial={{ x: 2000, opacity: 0 }}
-                  exit={{ opacity: 0 }}
+                  initial={{ x: 100, opacity: 0.1 }}
+                  exit={{ opacity: 0.1 }}
                   transition={{ delay: 0.5 }}>
                   <Title size="lg:text-5xl text-3xl text-lg font-Primary font-light h-20">
                     {isIdSubServices[0]?.attributes?.name}
@@ -130,8 +130,8 @@ function DetailsServices({ data, locale }: Props) {
                   <motion.div
                     className="pt-2 w-full"
                     animate={{ y: 0, opacity: 1 }}
-                    initial={{ y: 100, opacity: 0 }}
-                    exit={{ opacity: 0 }}
+                    initial={{ y: 50, opacity: 0.1 }}
+                    exit={{ opacity: 0.1 }}
                     transition={{ delay: 0.8 }}
                     variants={stagger}>
                     <motion.div
@@ -150,8 +150,8 @@ function DetailsServices({ data, locale }: Props) {
             </motion.div>
             <motion.div
               animate={{ y: 0, opacity: 1 }}
-              initial={{ y: 100, opacity: 0 }}
-              exit={{ opacity: 0 }}
+              initial={{ y: 50, opacity: 0.1 }}
+              exit={{ opacity: 0.1 }}
               transition={{ delay: 0.8 }}
               variants={stagger}>
               <Styles.Center>
