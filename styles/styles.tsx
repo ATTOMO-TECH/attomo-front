@@ -227,7 +227,7 @@ export const Styles = {
   CenterUs: tw.section`lg:w-8/12 w-10/12 m-auto`,
   CenterMargin: tw.section`w-10/12 m-auto lg:pt-36 mt-12  py-16`,
   CenterCases: tw.section`w-full md:w-10/12 m-auto pt-24 lg:pt-36 overflow-hidden flex justify-between`,
-  BlockRenderDetails: tw.div`lg:flex flex-col pt-10 hidden relative`,
+  BlockRenderDetails: tw.div`lg:flex flex-col pt-10 relative`, // remove "hidden"
   BlockFilter: tw.span`w-auto m-auto text-center transform -rotate-90 z-100 -left-4 sm:left-0 md:left-4 top-56 absolute lg:hidden opacity-60 hover:opacity-90  duration-100 ease-in cursor-pointer`,
   AlingCases: tw.section`w-11/12 ml-auto py-24`,
   AlingCasesNoP: tw.section`lg:w-11/12 ml-auto pb-24 pt-6 md:pt-0`,
