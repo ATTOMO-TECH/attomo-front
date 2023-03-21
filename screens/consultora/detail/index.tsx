@@ -4,7 +4,9 @@ import { motion } from 'framer-motion';
 import gfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import { useRouter } from 'next/router';
-import { fadeInUp, stagger } from '../../../components/animations/animations';
+import {
+  fadeInUp /* , stagger */,
+} from '../../../components/animations/animations';
 import BlockSection from '../../../components/block/block';
 import ButtonShare from '../../../components/button/BtnShare';
 import FilterDetails from '../../../components/filter/filterDetails';
@@ -65,7 +67,7 @@ function DetailsServices({ data, locale }: Props) {
         <motion.div
           initial="initial"
           animate="animate"
-          exit={{ opacity: 0 }}
+          exit={{ opacity: 0.4 }}
           className="text-primary">
           <FilterDetails
             isOpen={!isOpen && isOpenFilter}
@@ -90,7 +92,7 @@ function DetailsServices({ data, locale }: Props) {
             {!isOpenFilter && <ButtonShare />}
             <motion.div
               animate={{ opacity: 1 }}
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 0.4 }}
               className="pb-36">
               <Styles.CenterCases>
                 <Styles.BlockRenderDetails>
@@ -121,22 +123,24 @@ function DetailsServices({ data, locale }: Props) {
                 <motion.div
                   className="lg:pt-12 lg:w-9/12 w-10/12 ml-auto h-auto mr-2"
                   animate={{ x: 0, opacity: 1 }}
-                  initial={{ x: 2000, opacity: 0 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ delay: 0.5 }}>
+                  initial={{ x: 100, opacity: 0.4 }}
+                  exit={{ opacity: 0.4 }}
+                  // transition={{ delay: 0.5 }}
+                >
                   <Title size="lg:text-5xl text-3xl text-lg font-Primary font-light h-20">
                     {isIdSubServices[0]?.attributes?.name}
                   </Title>
                   <motion.div
                     className="pt-2 w-full"
                     animate={{ y: 0, opacity: 1 }}
-                    initial={{ y: 100, opacity: 0 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ delay: 0.8 }}
-                    variants={stagger}>
+                    initial={{ y: 50, opacity: 0.4 }}
+                    exit={{ opacity: 0.1 }}
+                    // transition={{ delay: 0.8 }}
+                    // variants={stagger}
+                  >
                     <motion.div
-                      variants={fadeInUp}
-                      transition={{ delay: 5.5 }}
+                      // variants={fadeInUp}
+                      // transition={{ delay: 5.5 }}
                       className="pr-5 relative font-PrimarySerif font-light leading-loose textDegrade">
                       <Container
                         remarkPlugins={[gfm]}
@@ -150,10 +154,10 @@ function DetailsServices({ data, locale }: Props) {
             </motion.div>
             <motion.div
               animate={{ y: 0, opacity: 1 }}
-              initial={{ y: 100, opacity: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ delay: 0.8 }}
-              variants={stagger}>
+              initial={{ y: 50, opacity: 0.4 }}
+              exit={{ opacity: 0.4 }}
+              // transition={{ delay: 0.8 }}
+              variants={fadeInUp}>
               <Styles.Center>
                 <Styles.TitleSubSection>
                   {translate.project}
