@@ -66,19 +66,19 @@ export function MetadataSSR({ screen, canonicalLinks, locale }: Props) {
         rel="canonical"
         href={
           locale === 'es'
-            ? canonicalLinks[0].attributes?.canonicalES
-            : canonicalLinks[0].attributes?.canonicalEN
+            ? canonicalLinks[0]?.attributes?.canonicalES
+            : canonicalLinks[0]?.attributes?.canonicalEN
         }
       />
       <link
         rel="alternate"
         hrefLang="es"
-        href={canonicalLinks[0].attributes?.hrefLangES}
+        href={canonicalLinks[0]?.attributes?.hrefLangES}
       />
       <link
         rel="alternate"
         hrefLang="en"
-        href={canonicalLinks[0].attributes?.hrefLangEN}
+        href={canonicalLinks[0]?.attributes?.hrefLangEN}
       />
       <meta name="type" content="website" />
       <meta
