@@ -9,12 +9,19 @@ export const getServerSideProps: GetServerSideProps =
   getServerSidePropsServices;
 
 export default function index(props: any) {
-  const { metadata, locale, data, relatedPost } = props;
+  const { metadata, locale, data, relatedPost, canonicalHref } = props;
   const metadataInfo = translateHeader(metadata, locale);
+  const canonicalLinks = canonicalHref.filter(
+    (item: any) => item.attributes.page === 'services',
+  );
 
   return (
     <>
-      <MetadataSSR screen={metadataInfo} />
+      <MetadataSSR
+        screen={metadataInfo}
+        canonicalLinks={canonicalLinks}
+        locale={locale}
+      />
       <Background />
       <Services data={data} locale={locale} relatedPost={relatedPost} />
     </>

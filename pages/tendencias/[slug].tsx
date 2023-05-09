@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import Background from '../../components/animations/background';
 import { getServerSidePropsTendencias } from '../../lib/serverSide';
 import ErrorView from '../../screens/404';
@@ -11,15 +11,15 @@ export const getServerSideProps: GetServerSideProps =
 
 export default function index(props: any) {
   const { data, relatedPost, locale, statusCode } = props;
-  const [canonicalURL, setCanonicalURL] = useState('');
+  // const [canonicalURL, setCanonicalURL] = useState('');
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const canonical = window.location.href.split('?');
-      setCanonicalURL(canonical[0]);
-      console.log(canonical);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (typeof window !== 'undefined') {
+  //     const canonical = window.location.href.split('?');
+  //     setCanonicalURL(canonical[0]);
+  //     console.log(canonical);
+  //   }
+  // }, []);
 
   return (
     <>
@@ -33,10 +33,18 @@ export default function index(props: any) {
             content={props?.data?.attributes?.metadata}
           />
         )}
+        <link rel="canonical" href={data.attributes?.canonicalES} />
         <link
-          rel="canonical"
-          href={typeof window !== 'undefined' ? canonicalURL : ''}
+          rel="alternate"
+          hrefLang="es"
+          href={data.attributes?.hrefLangES}
         />
+        <link
+          rel="alternate"
+          hrefLang="en"
+          href={data.attributes?.hrefLangEN}
+        />
+
         <meta name="type" content="website" />
         <meta
           name="copyright"

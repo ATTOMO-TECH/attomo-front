@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import { SCREENS } from '../lib/api';
+import { CANONICAL, SCREENS } from '../lib/api';
 import { get } from '../lib/restClient';
 
 const getAllScreens = async (lenguage: string) => {
@@ -12,6 +12,11 @@ export const getScreensId = async (
   lenguage: string | undefined,
 ) => {
   const { data } = await get(SCREENS.FETCH_ID(id, lenguage));
+  return data;
+};
+
+export const getScreensCanonical = async () => {
+  const { data } = await get(CANONICAL.FETCH_ALL());
   return data;
 };
 

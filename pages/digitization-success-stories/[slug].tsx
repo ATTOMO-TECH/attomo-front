@@ -20,9 +20,16 @@ export default function index(props: any) {
             content={props?.data?.attributes?.metadata}
           />
         )}
+        <link rel="canonical" href={data.attributes?.canonicalEN} />
         <link
-          rel="canonical"
-          href={typeof window !== 'undefined' ? window.location.href : ''}
+          rel="alternate"
+          hrefLang="es"
+          href={data.attributes?.hrefLangES}
+        />
+        <link
+          rel="alternate"
+          hrefLang="en"
+          href={data.attributes?.hrefLangEN}
         />
         <meta name="type" content="website" />
         <meta
