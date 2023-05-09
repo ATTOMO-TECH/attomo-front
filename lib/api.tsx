@@ -81,6 +81,10 @@ const SCREENS = {
     getAbsolutePath(`screens-metadata/${id}?locale=${lenguage}&populate=%2A`),
 };
 
+const CANONICAL = {
+  FETCH_ALL: () => getAbsolutePath(`metadata-structurals`),
+};
+
 export {
   SUBSERVICES,
   POST,
@@ -96,5 +100,6 @@ export {
   SUBSCRIBERS,
   DISCIPLINES,
   SCREENS,
+  CANONICAL,
   getAbsolutePath,
 };

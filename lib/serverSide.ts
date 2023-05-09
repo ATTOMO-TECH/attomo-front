@@ -3,7 +3,10 @@ import * as qs from 'qs';
 import { MENU_SCREENS_EN, MENU_SCREENS_ES, QUERY_PARAMS } from '../const/const';
 import { getAllPost, getAllTags, getPostId } from '../domain/useBlogDetails';
 import { getAllCases, getCaseId } from '../domain/useCasesDetails';
-import { getScreensId } from '../domain/useScreensMetadata';
+import {
+  getScreensCanonical,
+  getScreensId,
+} from '../domain/useScreensMetadata';
 import { getAllServices } from '../domain/useServices';
 
 export const getServerSidePropsCases: GetServerSideProps = async (context) => {
@@ -97,6 +100,8 @@ export const getServerSidePropsTrend: GetServerSideProps = async (context) => {
     `${QUERY_PARAMS.ALL_POST}&locale=${locale}`,
   );
   const { data: tags } = await getAllTags(locale);
+  const canonical = await getScreensCanonical();
+  const canonicalHref = canonical.data;
 
   return {
     props: {
@@ -104,6 +109,7 @@ export const getServerSidePropsTrend: GetServerSideProps = async (context) => {
       locale,
       data,
       tags,
+      canonicalHref,
     },
   };
 };
@@ -125,13 +131,15 @@ export const getServerSidePropsAllCases: GetServerSideProps = async (
   });
   const { data } = await getAllCases(`locale=${locale}`, queryQs);
   const { data: tags } = await getAllTags(locale);
-
+  const canonical = await getScreensCanonical();
+  const canonicalHref = canonical.data;
   return {
     props: {
       metadata,
       locale,
       data,
       tags,
+      canonicalHref,
     },
   };
 };
@@ -160,6 +168,8 @@ export const getServerSidePropsServices: GetServerSideProps = async (
     encodeValuesOnly: true,
   });
   const { data: relatedPost } = await getAllPost(queryQs);
+  const canonical = await getScreensCanonical();
+  const canonicalHref = canonical.data;
 
   return {
     props: {
@@ -167,6 +177,7 @@ export const getServerSidePropsServices: GetServerSideProps = async (
       locale,
       data,
       relatedPost,
+      canonicalHref,
     },
   };
 };

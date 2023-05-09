@@ -48,10 +48,18 @@ export default function index(props: any) {
             content={props?.data?.attributes?.metadata}
           />
         )}
+        <link rel="canonical" href={data.attributes?.canonicalES} />
         <link
-          rel="canonical"
-          href={typeof window !== 'undefined' ? window.location.href : ''}
+          rel="alternate"
+          hrefLang="es"
+          href={data.attributes?.hrefLangES}
         />
+        <link
+          rel="alternate"
+          hrefLang="en"
+          href={data.attributes?.hrefLangEN}
+        />
+
         {/* <link rel="alternate" hrefLang='es' href={ spanishUrl }/> */}
         {/* <link rel="alternate" hrefLang='en' href={ englishhUrl }/> */}
         <meta name="type" content="website" />

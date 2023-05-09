@@ -9,12 +9,19 @@ export const getServerSideProps: GetServerSideProps =
   getServerSidePropsAllCases;
 
 export default function index(props: any) {
-  const { metadata, locale, data, tags } = props;
+  const { metadata, locale, data, tags, canonicalHref } = props;
   const metadataInfo = translateHeader(metadata, locale || 'en');
+  const canonicalLinks = canonicalHref.filter(
+    (item: any) => item.attributes.page === 'cases',
+  );
 
   return (
     <>
-      <MetadataSSR screen={metadataInfo} />
+      <MetadataSSR
+        screen={metadataInfo}
+        canonicalLinks={canonicalLinks}
+        locale={locale}
+      />
       <Background />
       <Cases data={data} locale={locale} tags={tags} />
     </>
