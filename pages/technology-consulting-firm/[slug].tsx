@@ -29,10 +29,18 @@ export default function index(props: any) {
           name="description"
           content={valueFilter[0]?.attributes.metadata}
         />
+        <link rel="canonical" href={valueFilter[0]?.attributes?.canonicalEN} />
         <link
-          rel="canonical"
-          href={typeof window !== 'undefined' ? window.location.href : ''}
+          rel="alternate"
+          hrefLang="es"
+          href={valueFilter[0]?.attributes?.hrefLangES}
         />
+        <link
+          rel="alternate"
+          hrefLang="en"
+          href={valueFilter[0]?.attributes?.hrefLangEN}
+        />
+
         <meta name="type" content="website" />
         <meta
           name="copyright"

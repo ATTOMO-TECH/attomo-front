@@ -27,7 +27,7 @@ export default function index(props: any) {
 
   return (
     <>
-      <MetadataSSR screen={metadataInfo} />
+      <MetadataSSR screen={metadataInfo} canonicalLinks={[]} locale={locale} />
       <Background />
       <ErrorView locale={locale} />
     </>

@@ -1,6 +1,9 @@
 import { GetStaticProps } from 'next';
 import { MENU_SCREENS_EN, MENU_SCREENS_ES } from '../const/const';
-import { getScreensId } from '../domain/useScreensMetadata';
+import {
+  getScreensCanonical,
+  getScreensId,
+} from '../domain/useScreensMetadata';
 import Background from '../components/animations/background';
 import { MetadataSSR } from '../components/head/metadataSSR';
 import { translateHeader } from '../hook/utils';
@@ -12,22 +15,32 @@ export const getStaticProps: GetStaticProps = async (context) => {
     locale === 'es' ? MENU_SCREENS_ES.CONTACT : MENU_SCREENS_EN.CONTACT,
     locale,
   );
+  const canonical = await getScreensCanonical();
+  const canonicalHref = canonical.data;
 
   return {
     props: {
       metadata,
       locale,
+      canonicalHref,
     },
   };
 };
 
 export default function index(props: any) {
-  const { metadata, locale } = props;
+  const { metadata, locale, canonicalHref } = props;
   const metadataInfo = translateHeader(metadata, locale);
+  const canonicalLinks = canonicalHref.filter(
+    (item: any) => item.attributes.page === 'contact',
+  );
 
   return (
     <>
-      <MetadataSSR screen={metadataInfo} />
+      <MetadataSSR
+        screen={metadataInfo}
+        canonicalLinks={canonicalLinks}
+        locale={locale}
+      />
       <Background />
       <Contact locale={locale} />
     </>
