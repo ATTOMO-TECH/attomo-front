@@ -8,6 +8,7 @@ import { getLocale } from '../../public/locales/getLocale';
 import useDeviceSize from '../../hook/size';
 import { handleClickTouch, useEventListener } from '../../hook/eventListener';
 import { handlersFuntion, handlers } from '../../hook/longPress';
+import { getESLangLink, getENLangLink } from '../../functions/getHreflangPath';
 
 interface Props {
   isOpen: boolean;
@@ -32,8 +33,24 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
       toggle();
     }, 500);
   };
+
   const handleBtn = (value: string) => {
-    router.push(router.asPath, router.asPath, { locale: value });
+    if (value === 'es') {
+      router.push(
+        getESLangLink(router.pathname),
+        getESLangLink(router.pathname),
+        { locale: value },
+      );
+    }
+    if (value === 'en') {
+      router.push(
+        getENLangLink(router.pathname),
+        getENLangLink(router.pathname),
+        { locale: value },
+      );
+    }
+    // router.push(router.pathname, router.pathname, { locale: value });
+    // router.push(router.asPath, router.asPath, { locale: value });
   };
 
   const [width] = useDeviceSize();

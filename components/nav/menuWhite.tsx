@@ -6,6 +6,7 @@ import { darkTheme, lightTheme, Navegation } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { getLocale } from '../../public/locales/getLocale';
 import useDeviceSize from '../../hook/size';
+import { getENLangLink, getESLangLink } from '../../functions/getHreflangPath';
 
 interface Props {
   isOpen: boolean;
@@ -31,7 +32,21 @@ export default function MenuWhite({ isOpen, toggle, logo, mode }: Props) {
     }, 500);
   };
   const handleBtn = (value: string) => {
-    router.push(router.asPath, router.asPath, { locale: value });
+    if (value === 'es') {
+      router.push(
+        getESLangLink(router.pathname),
+        getESLangLink(router.pathname),
+        { locale: value },
+      );
+    }
+    if (value === 'en') {
+      router.push(
+        getENLangLink(router.pathname),
+        getENLangLink(router.pathname),
+        { locale: value },
+      );
+    }
+    // router.push(router.asPath, router.asPath, { locale: value });
   };
 
   const [width] = useDeviceSize();
