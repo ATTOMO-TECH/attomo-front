@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { darkTheme, lightTheme, Navegation } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { handlers, handlersFuntion } from '../../hook/longPress';
+import { getENLangLink, getESLangLink } from '../../functions/getHreflangPath';
 
 interface Props {
   toggle: any;
@@ -27,7 +28,21 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
   const router = useRouter();
 
   const handleBtn = (value: string) => {
-    router.push(router, router, { locale: value });
+    if (value === 'es') {
+      router.push(
+        getESLangLink(router.pathname),
+        getESLangLink(router.pathname),
+        { locale: value },
+      );
+    }
+    if (value === 'en') {
+      router.push(
+        getENLangLink(router.pathname),
+        getENLangLink(router.pathname),
+        { locale: value },
+      );
+    }
+    // router.push(router.pathname, router.pathname, { locale: value });
   };
 
   return (
