@@ -17,7 +17,7 @@ interface Props {
 
 export default function MenuWhite({ isOpen, toggle, logo, mode }: Props) {
   const router = useRouter();
-  const [translate, setTranslate] = useState(getLocale('es'));
+  const [translate, setTranslate] = useState(getLocale(router.locale));
   const [items, setItems] = useState(translate.menu);
 
   useEffect(() => {
