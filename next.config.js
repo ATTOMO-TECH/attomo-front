@@ -57,12 +57,12 @@ module.exports = {
         permanent: true,
         statusCode: 301
       },
-      {
-        source: '/careers',
-        destination: '/ofertas-trabajo',
-        permanent: true,
-        statusCode: 301
-      },
+      // {
+      //   source: '/careers',
+      //   destination: '/ofertas-trabajo',
+      //   permanent: true,
+      //   statusCode: 301
+      // },
       {
         source: '/espacio-attomo',
         destination: '/estudio-fotografia-madrid',
@@ -72,6 +72,54 @@ module.exports = {
       {
         source: '/kit-digital',
         destination: '/agente-digitalizador-madrid',
+        permanent: true,
+        statusCode: 301
+      },
+      {
+        source: '/en/casos-exito-digitalizacion',
+        destination: '/en/digitization-success-stories',
+        permanent: true,
+        statusCode: 301
+      },
+      {
+        source: '/en/casos-exito-digitalizacion/:id',
+        destination: '/en/digitization-success-stories/:id',
+        permanent: true,
+        statusCode: 301
+      },
+      {
+        source: '/en/quienes-somos',
+        destination: '/en/about-us',
+        permanent: true,
+        statusCode: 301
+      },
+      {
+        source: '/en/tendencias',
+        destination: '/en/trends',
+        permanent: true,
+        statusCode: 301
+      },
+      {
+        source: '/en/ofertas-trabajo',
+        destination: '/en/careers',
+        permanent: true,
+        statusCode: 301
+      },
+      {
+        source: '/en/contacto',
+        destination: '/en/contact',
+        permanent: true,
+        statusCode: 301
+      },
+      {
+        source: '/en/estudio-fotografia-madrid',
+        destination: '/en/photography-studio-space-madrid',
+        permanent: true,
+        statusCode: 301
+      },
+      {
+        source: '/en/agente-digitalizador-madrid',
+        destination: '/en/digitizing-agent-madrid',
         permanent: true,
         statusCode: 301
       },
