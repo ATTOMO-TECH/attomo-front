@@ -26,7 +26,7 @@ export default function index(props: any) {
       <Head>
         <title>{props?.data?.attributes?.screenTitle}</title>
 
-        <link rel="icon" href="/FaviconLight.svg" type="image/x-icon" />
+        <link rel="icon" href="/Favicon.png" type="image/x-icon" />
         {!statusCode.statusCode && data?.attributes.metadata && (
           <meta
             name="description"
