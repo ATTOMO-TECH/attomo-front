@@ -24,7 +24,7 @@ export default function index(props: any) {
     <>
       <Head>
         <title>{valueFilter[0]?.attributes.screenTitle}</title>
-        <link rel="icon" href="/FaviconLight.svg" type="image/x-icon" />
+        <link rel="icon" href="/Favicon.png" type="image/x-icon" />
         <meta
           name="description"
           content={valueFilter[0]?.attributes.metadata}
