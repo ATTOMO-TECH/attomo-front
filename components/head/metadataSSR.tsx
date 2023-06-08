@@ -46,7 +46,7 @@ export function MetadataSSR({ screen, canonicalLinks, locale }: Props) {
   return (
     <Head>
       <title>{screen?.screenTitle}</title>
-      <link rel="icon" href="/Favicon.png" type="image/x-icon" />
+      <link rel="icon" href="/Favicon.ico" type="image/x-icon" />
       <meta name="description" content={screen?.metadata && screen?.metadata} />
       <meta property="og:title" content={screen?.screenTitle} />
       <meta

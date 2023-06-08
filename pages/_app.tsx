@@ -29,7 +29,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
         <title>ATTOMO - Consultora Digital </title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link rel="icon" type="image/x-icon" href="Favicon.png" />
+        <link rel="icon" type="image/x-icon" href="Favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
