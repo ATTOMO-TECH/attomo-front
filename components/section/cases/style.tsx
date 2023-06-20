@@ -63,6 +63,9 @@ export const Container = styled(ReactMarkdown)`
   }
   li {
     margin: 10px;
+    font-family: 'Merriweather Sans';
+    font-weight: 300;
+    line-height: 26px;
   }
   a {
     text-decoration: underline;
