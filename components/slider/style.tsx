@@ -34,6 +34,7 @@ export const darkTheme = {
 
 export const SectionColor = styled.div`
   color: ${(props) => props.theme.headings};
+  min-height: 125px;
 `;
 export const titleText = styled.h3`
   font-family: 'Merriweather';
@@ -47,9 +48,9 @@ export const titleText = styled.h3`
   text-fill-color: transparent;
 `;
 export const Image = styled.img`
-  height: 300px;
-  width: 600px;
-  object-fit: cover;
+  // height: 300px;
+  width: 500px;
+  object-fit: contain;
 `;
 export const Styles = {
   Body: tw.body`bg-secundary`,
