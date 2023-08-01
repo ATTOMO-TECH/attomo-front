@@ -56,12 +56,12 @@ function News({ data, locale, tags }: Props) {
         ...queryObject.filters,
         $and: [
           {
-            createdAt: {
+            publishedAt: {
               $gte: startDate !== null ? formatDateFilter(startDate) : null,
             },
           },
           {
-            createdAt: {
+            publishedAt: {
               $lte: endDate !== null ? formatDateFilter(endDate) : null,
             },
           },
@@ -73,7 +73,7 @@ function News({ data, locale, tags }: Props) {
       ...queryObject,
       filters: {
         ...queryObject.filters,
-        createdAt: {
+        publishedAt: {
           $gte: startDate !== null ? formatDateFilter(startDate) : null,
         },
       },
@@ -83,7 +83,7 @@ function News({ data, locale, tags }: Props) {
       ...queryObject,
       filters: {
         ...queryObject.filters,
-        createdAt: {
+        publishedAt: {
           $lte: endDate !== null ? formatDateFilter(endDate) : null,
         },
       },
@@ -106,6 +106,7 @@ function News({ data, locale, tags }: Props) {
             page: pageParam,
             pageSize: 3,
           },
+          sort: ['publishedAt:desc'],
         },
         {
           encodeValuesOnly: true,
