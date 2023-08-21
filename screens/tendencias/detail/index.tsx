@@ -7,12 +7,13 @@ import { BUTTON_ACTIVE } from '../../../const/const';
 import { VALUESNAV_ENG, VALUESNAV_ESP } from '../../../const/constGlobal';
 import { darkTheme, lightTheme, Styles } from '../../../styles/styles';
 import HeaderCases from '../../../components/section/cases/header';
-import Back from '../../../components/button/back';
+// import Back from '../../../components/button/back';
 import BodyCases from '../../../components/section/cases/bodyCase';
 import BlockSectionWhite from '../../../components/block/block';
 import { getLocale } from '../../../public/locales/getLocale';
 import ArticlesScroll from '../../../components/slider/article/slider';
 import { Props } from '../../types';
+import { Button } from '../../../components/button/style';
 
 function New({ mode, data, locale, relatedPost }: Props) {
   const router = useRouter();
@@ -44,7 +45,29 @@ function New({ mode, data, locale, relatedPost }: Props) {
         <Styles.Margin>
           <Nav toggle={toggle} logo mode={false} bgFull isOpen={isOpen} />
         </Styles.Margin>
-        <Back>{translate.backToNews}</Back>
+        <>
+          <Button.SectionBack
+            onClick={() =>
+              router.locale === 'es'
+                ? router.push(`${VALUESNAV_ESP[3].Url}`)
+                : router.push(`${VALUESNAV_ENG[3].Url}`)
+            }
+            onTouchEnd={() =>
+              router.locale === 'es'
+                ? router.push(`${VALUESNAV_ESP[3].Url}`)
+                : router.push(`${VALUESNAV_ENG[3].Url}`)
+            }>
+            <Button.BlockBack>
+              <img
+                src="/icon/arrowBack.svg"
+                width={30}
+                height={20}
+                alt="back"
+              />
+              <Button.TextBack>{translate.backToNews}</Button.TextBack>
+            </Button.BlockBack>
+          </Button.SectionBack>
+        </>
         <Styles.Center>
           <Styles.AlingCasesNoP>
             <HeaderCases
