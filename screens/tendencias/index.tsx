@@ -154,6 +154,14 @@ function News({ data, locale, tags }: Props) {
     }
   }, [locale]);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (window.localStorage.getItem('position')) {
+        window.localStorage.removeItem('position');
+      }
+    }
+  }, []);
+
   DEPARTMENT?.push({
     value: '',
     text: translate.allServices,
