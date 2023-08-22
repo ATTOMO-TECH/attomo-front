@@ -50,6 +50,36 @@ export default function BlockBlog({ data, locale }: Props) {
       },
     },
   };
+
+  useEffect(() => {
+    const handlePopState = (e: any) => {
+      if (window.history.state) {
+        // const { x, y } = window.history.state.mousePosition || { x: 0, y: 0 };
+        const x = e.pageX;
+        const y = -e.pageY;
+        window.localStorage.setItem('position', JSON.stringify({ x, y }));
+      }
+    };
+    window.addEventListener('click', handlePopState);
+
+    return () => {
+      window.removeEventListener('click', handlePopState);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (window.localStorage.getItem('position')) {
+        const position: any = window.localStorage.getItem('position');
+        const positionParse = JSON.parse(position);
+        window.scroll({
+          top: -positionParse.y - 150,
+          behavior: 'smooth',
+        });
+      }
+    }
+  }, []);
+
   /* const articleTitle = data.attributes.title
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')

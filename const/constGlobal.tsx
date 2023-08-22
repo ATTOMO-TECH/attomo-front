@@ -257,6 +257,13 @@ export const ICONNAV: {
     Pic2: '/icon/mail.svg',
     Url: 'mailto:equipo@attomo.digital',
   },
+  {
+    Name: 'Behance',
+    // UrlShare: 'mailto:equipo@attomo.digital?subject=',
+    UrlShare: '/icon/behance-logo.svg',
+    Pic2: '/icon/behance-logo.svg',
+    Url: 'https://www.behance.net/attomo',
+  },
 ];
 
 export const CUSTOMERS: {
