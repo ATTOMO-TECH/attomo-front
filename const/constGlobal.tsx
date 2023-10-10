@@ -307,14 +307,14 @@ export const CUSTOMERS: {
     Url: 'https://www.treescoliving.com/',
   },
   {
-    Name: 'Idealista',
-    Pic: '/customers/logos/idealista.svg',
-    Url: 'https://www.idealista.com/',
-  },
-  {
     Name: 'Bstadium',
     Pic: '/customers/logos/bstadium.svg',
     Url: 'https://bstadium.es/',
+  },
+  {
+    Name: 'Idealista',
+    Pic: '/customers/logos/idealista.svg',
+    Url: 'https://www.idealista.com/',
   },
   {
     Name: 'GVRE',

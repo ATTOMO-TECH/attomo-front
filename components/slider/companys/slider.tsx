@@ -16,10 +16,9 @@ export default function CompaniesScroll() {
         autoplay={{ delay: 1, disableOnInteraction: false }}
         freeMode>
         {CUSTOMERS.map((values) => (
-          <SwiperSlide key={values.Name} className="swiper-wrapper ">
+          <SwiperSlide key={values.Name} className="swiper-wrapper">
             {values.Name === 'Magoni' ||
             values.Name === 'Idealista' ||
-            values.Name === 'Tasafy' ||
             values.Name === 'Spherika' ||
             values.Name === 'El Rincón' ||
             values.Name === 'Grupo LALALA' ||
@@ -27,28 +26,58 @@ export default function CompaniesScroll() {
             values.Name === 'Zagal1200' ||
             values.Name === 'Clínica Dermatológica Internacional' ||
             values.Name === 'Viandas' ||
+            values.Name === 'VIVLA' ||
+            values.Name === 'La Lupita' ||
+            values.Name === 'Keiko' ||
+            values.Name === 'MRGO Arquitectos' ||
             values.Name === 'Treescoliving' ? (
-              <a href={values.Url} target="blank">
-                <img
-                  src={values.Pic}
-                  width="120px"
-                  height="auto"
-                  alt={values.Name}
-                  loading="lazy"
-                  className="object-contain"
-                />
-              </a>
+              <div className="logo-container">
+                <a href={values.Url} target="blank">
+                  <img
+                    src={values.Pic}
+                    width={
+                      values.Name === 'Clínica Dermatológica Internacional' ||
+                      values.Name === 'Magoni' ||
+                      values.Name === 'Zagal1200' ||
+                      values.Name === 'Idealista' ||
+                      values.Name === 'Grupo LALALA' ||
+                      values.Name === 'Treescoliving' ||
+                      values.Name === 'Viandas' ||
+                      values.Name === 'El Rincón' ||
+                      values.Name === 'Spherika' ||
+                      values.Name === 'La Lupita' ||
+                      values.Name === 'Keiko' ||
+                      values.Name === 'Zityhub' ||
+                      values.Name === 'MRGO Arquitectos'
+                        ? '190'
+                        : '80px'
+                    }
+                    height="auto"
+                    alt={values.Name}
+                    loading="lazy"
+                    className="object-contain"
+                  />
+                </a>
+              </div>
             ) : (
-              <a href={values.Url} target="blank">
-                <img
-                  src={values.Pic}
-                  width="80px"
-                  height="auto"
-                  alt={values.Name}
-                  loading="lazy"
-                  className="object-contain"
-                />
-              </a>
+              <div className="logo-container">
+                <a href={values.Url} target="blank">
+                  <img
+                    src={values.Pic}
+                    width={
+                      values.Name === 'Real Sociedad FC' ||
+                      values.Name === 'Sevilla FC' ||
+                      values.Name === 'VIVLA'
+                        ? '60px'
+                        : '100px'
+                    }
+                    height="auto"
+                    alt={values.Name}
+                    loading="lazy"
+                    className="object-contain"
+                  />
+                </a>
+              </div>
             )}
           </SwiperSlide>
         ))}
