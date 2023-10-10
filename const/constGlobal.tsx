@@ -287,6 +287,11 @@ export const CUSTOMERS: {
     Url: 'https://zityhub.com/',
   },
   {
+    Name: 'Viandas',
+    Pic: '/customers/logos/viandas.svg',
+    Url: 'https://viandasstores.com/es/',
+  },
+  {
     Name: 'VIVLA',
     Pic: '/customers/logos/vivla.svg',
     Url: 'https://es.vivla.com/',
@@ -295,6 +300,11 @@ export const CUSTOMERS: {
     Name: 'Grupo LALALA',
     Pic: '/customers/logos/grupo-lalala.svg',
     Url: 'https://grupolalala.com/',
+  },
+  {
+    Name: 'Treescoliving',
+    Pic: '/customers/logos/treecoliving.svg',
+    Url: 'https://www.treescoliving.com/',
   },
   {
     Name: 'Idealista',
@@ -312,14 +322,39 @@ export const CUSTOMERS: {
     Url: 'https://gvre.es/',
   },
   {
+    Name: 'Clínica Dermatológica Internacional',
+    Pic: '/customers/logos/CDI.svg',
+    Url: 'https://www.clinicadermatologicainternacional.com/',
+  },
+  {
     Name: 'Real Sociedad FC',
     Pic: '/customers/logos/real-sociedad.svg',
     Url: 'https://www.realsociedad.eus/',
   },
   {
+    Name: 'Zagal1200',
+    Pic: '/customers/logos/zagal.svg',
+    Url: 'https://www.zagal1200.com/',
+  },
+  {
     Name: 'Sevilla FC',
     Pic: '/customers/logos/sevilla-fc.svg',
     Url: 'https://sevillafc.es/',
+  },
+  {
+    Name: 'La Lupita',
+    Pic: '/customers/logos/lupita.svg',
+    Url: 'https://www.lalupita.es/',
+  },
+  {
+    Name: 'MRGO Arquitectos',
+    Pic: '/customers/logos/MRGO.svg',
+    Url: 'https://mrgoarquitectos.com/',
+  },
+  {
+    Name: 'Keiko',
+    Pic: '/customers/logos/keiko.svg',
+    Url: 'https://www.keikofusion.com/',
   },
   {
     Name: 'Magoni',
