@@ -31,7 +31,7 @@ export default function CompaniesScroll() {
             values.Name === 'Keiko' ||
             values.Name === 'MRGO Arquitectos' ||
             values.Name === 'Treescoliving' ? (
-              <div className="logo-container">
+              <div className="logo-container ">
                 <a href={values.Url} target="blank">
                   <img
                     src={values.Pic}
