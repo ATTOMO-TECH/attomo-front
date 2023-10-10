@@ -23,7 +23,9 @@ export default function CompaniesScroll() {
             values.Name === 'Spherika' ||
             values.Name === 'El Rincón' ||
             values.Name === 'Grupo LALALA' ||
-            values.Name === 'Zityhub' ? (
+            values.Name === 'Zityhub' ||
+            values.Name === 'Zagal1200' ||
+            values.Name === 'Clínica Dermatológica Internacional' ? (
               <a href={values.Url} target="blank">
                 <img
                   src={values.Pic}
