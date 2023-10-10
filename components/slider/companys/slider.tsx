@@ -25,7 +25,9 @@ export default function CompaniesScroll() {
             values.Name === 'Grupo LALALA' ||
             values.Name === 'Zityhub' ||
             values.Name === 'Zagal1200' ||
-            values.Name === 'Clínica Dermatológica Internacional' ? (
+            values.Name === 'Clínica Dermatológica Internacional' ||
+            values.Name === 'Viandas' ||
+            values.Name === 'Treescoliving' ? (
               <a href={values.Url} target="blank">
                 <img
                   src={values.Pic}
