@@ -136,6 +136,13 @@ input[data-autocompleted] {
   opacity: 0 !important;
 }
 
+.logo-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .btn {
   overflow: hidden;
 }

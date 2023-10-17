@@ -50,6 +50,14 @@ function KitDigital({ locale }: Props) {
     }
   }, [locale]);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (window.localStorage.getItem('position')) {
+        window.localStorage.removeItem('position');
+      }
+    }
+  }, []);
+
   return (
     <>
       <AnimateSharedLayout>

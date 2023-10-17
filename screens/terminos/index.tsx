@@ -26,6 +26,14 @@ function Terminos({ locale, data }: Props) {
     }
   }, [locale]);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (window.localStorage.getItem('position')) {
+        window.localStorage.removeItem('position');
+      }
+    }
+  }, []);
+
   return (
     <>
       <Styles.Body mode={isOpen ? BUTTON_ACTIVE.ON : ''}>

@@ -257,6 +257,13 @@ export const ICONNAV: {
     Pic2: '/icon/mail.svg',
     Url: 'mailto:equipo@attomo.digital',
   },
+  {
+    Name: 'Behance',
+    // UrlShare: 'mailto:equipo@attomo.digital?subject=',
+    UrlShare: '/icon/behance-logo.svg',
+    Pic2: '/icon/behance-logo.svg',
+    Url: 'https://www.behance.net/attomo',
+  },
 ];
 
 export const CUSTOMERS: {
@@ -280,6 +287,11 @@ export const CUSTOMERS: {
     Url: 'https://zityhub.com/',
   },
   {
+    Name: 'Viandas',
+    Pic: '/customers/logos/viandas.svg',
+    Url: 'https://viandasstores.com/es/',
+  },
+  {
     Name: 'VIVLA',
     Pic: '/customers/logos/vivla.svg',
     Url: 'https://es.vivla.com/',
@@ -290,9 +302,9 @@ export const CUSTOMERS: {
     Url: 'https://grupolalala.com/',
   },
   {
-    Name: 'Idealista',
-    Pic: '/customers/logos/idealista.svg',
-    Url: 'https://www.idealista.com/',
+    Name: 'Treescoliving',
+    Pic: '/customers/logos/treecoliving.svg',
+    Url: 'https://www.treescoliving.com/',
   },
   {
     Name: 'Bstadium',
@@ -300,9 +312,19 @@ export const CUSTOMERS: {
     Url: 'https://bstadium.es/',
   },
   {
+    Name: 'Idealista',
+    Pic: '/customers/logos/idealista.svg',
+    Url: 'https://www.idealista.com/',
+  },
+  {
     Name: 'GVRE',
     Pic: '/customers/logos/gvre.svg',
     Url: 'https://gvre.es/',
+  },
+  {
+    Name: 'Clínica Dermatológica Internacional',
+    Pic: '/customers/logos/CDI.svg',
+    Url: 'https://www.clinicadermatologicainternacional.com/',
   },
   {
     Name: 'Real Sociedad FC',
@@ -310,9 +332,29 @@ export const CUSTOMERS: {
     Url: 'https://www.realsociedad.eus/',
   },
   {
+    Name: 'Zagal1200',
+    Pic: '/customers/logos/zagal.svg',
+    Url: 'https://www.zagal1200.com/',
+  },
+  {
     Name: 'Sevilla FC',
     Pic: '/customers/logos/sevilla-fc.svg',
     Url: 'https://sevillafc.es/',
+  },
+  {
+    Name: 'La Lupita',
+    Pic: '/customers/logos/lupita.svg',
+    Url: 'https://www.lalupita.es/',
+  },
+  {
+    Name: 'MRGO Arquitectos',
+    Pic: '/customers/logos/MRGO.svg',
+    Url: 'https://mrgoarquitectos.com/',
+  },
+  {
+    Name: 'Keiko',
+    Pic: '/customers/logos/keiko.svg',
+    Url: 'https://www.keikofusion.com/',
   },
   {
     Name: 'Magoni',

@@ -36,6 +36,14 @@ function Space({ locale }: Props) {
     }
   }, [locale]);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (window.localStorage.getItem('position')) {
+        window.localStorage.removeItem('position');
+      }
+    }
+  }, []);
+
   const [isOpen, SetIsOpen] = useState<boolean>(false);
   const toggle = () => {
     SetIsOpen(!isOpen);

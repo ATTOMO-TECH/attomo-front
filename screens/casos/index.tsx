@@ -51,6 +51,14 @@ function Cases({ data, locale }: Props) {
     });
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (window.localStorage.getItem('position')) {
+        window.localStorage.removeItem('position');
+      }
+    }
+  }, []);
+
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
