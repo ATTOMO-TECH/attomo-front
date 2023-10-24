@@ -26,7 +26,6 @@ export default function CompaniesScroll() {
             values.Name === 'Zagal1200' ||
             values.Name === 'Clínica Dermatológica Internacional' ||
             values.Name === 'Viandas' ||
-            values.Name === 'VIVLA' ||
             values.Name === 'La Lupita' ||
             values.Name === 'Keiko' ||
             values.Name === 'MRGO Arquitectos' ||
@@ -47,10 +46,9 @@ export default function CompaniesScroll() {
                       values.Name === 'Spherika' ||
                       values.Name === 'La Lupita' ||
                       values.Name === 'Keiko' ||
-                      values.Name === 'Zityhub' ||
                       values.Name === 'MRGO Arquitectos'
-                        ? '190'
-                        : '80px'
+                        ? '190px'
+                        : '140px'
                     }
                     height="auto"
                     alt={values.Name}
@@ -68,7 +66,7 @@ export default function CompaniesScroll() {
                       values.Name === 'Real Sociedad FC' ||
                       values.Name === 'Sevilla FC' ||
                       values.Name === 'VIVLA'
-                        ? '60px'
+                        ? '90px'
                         : '100px'
                     }
                     height="auto"
