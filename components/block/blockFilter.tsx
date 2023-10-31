@@ -10,11 +10,13 @@ interface Props {
 export default function BlockFilter({ toggleFilter, text }: Props) {
   return (
     <>
-      <Styles.BlockFilter
-        onClick={() => toggleFilter()}
-        {...handlersFuntion(() => toggleFilter())}>
-        <MainTitle size="mt-5 text-lg">{text}</MainTitle>
-      </Styles.BlockFilter>
+      {text !== 'Servicios' && (
+        <Styles.BlockFilter
+          onClick={() => toggleFilter()}
+          {...handlersFuntion(() => toggleFilter())}>
+          <MainTitle size="mt-5 text-lg">{text}</MainTitle>
+        </Styles.BlockFilter>
+      )}
     </>
   );
 }
