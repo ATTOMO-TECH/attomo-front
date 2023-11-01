@@ -15,8 +15,13 @@ export default function Slide({ articles, mode }: Props) {
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     // .replaceAll(/[^\w]/gi, ' ')
-    .split(' ')
-    .join('-');
+    .split(' ');
+
+  const deletedBlankSpaceArr: string[] = articleTitle.filter(
+    (elemento: string) => elemento.trim() !== '',
+  );
+  const fixedArticleTitle = deletedBlankSpaceArr.join('-');
+
   const router = useRouter();
   const { locale } = router;
   const VALUESNAV = locale === 'en' ? VALUESNAV_ENG : VALUESNAV_ESP;
@@ -25,12 +30,12 @@ export default function Slide({ articles, mode }: Props) {
     <>
       <Link
         href={{
-          pathname: `${VALUESNAV[3].Url}/${articleTitle}-${articles.id}`,
+          pathname: `${VALUESNAV[3].Url}/${fixedArticleTitle}-${articles.id}`,
           query: {
             tags: articles?.attributes?.blog_tags?.data[0].attributes?.name,
           },
         }}>
-        <a href={`${VALUESNAV[3].Url}/${articleTitle}-${articles.id}`}>
+        <a href={`${VALUESNAV[3].Url}/${fixedArticleTitle}-${articles.id}`}>
           <StylesArticle.Img
             src={articles.attributes.coverImage.data.attributes.url}
             alt={articles.attributes.coverImage.data.attributes.alternativeText}
@@ -46,14 +51,16 @@ export default function Slide({ articles, mode }: Props) {
         </StylesArticle.TopicText>
         <Link
           href={{
-            pathname: `${VALUESNAV[3].Url}/${articleTitle}-${articles.id}`,
+            pathname: `${VALUESNAV[3].Url}/${fixedArticleTitle}-${articles.id}`,
             query: {
               tags: articles?.attributes?.blog_tags?.data[0].attributes?.name,
             },
           }}>
           <StylesArticle.TextBlog
             ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-            {...handlers(`${VALUESNAV[3].Url}/${articleTitle}-${articles.id}`)}>
+            {...handlers(
+              `${VALUESNAV[3].Url}/${fixedArticleTitle}-${articles.id}`,
+            )}>
             {articles.attributes.title}
           </StylesArticle.TextBlog>
         </Link>
