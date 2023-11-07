@@ -14,7 +14,7 @@ export default function Slide({ articles, mode }: Props) {
   const articleTitle = articles?.attributes?.title
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
-    .replaceAll(/[^\w]/gi, ' ')
+    .replace(/\W/g, ' ')
     .split(' ');
 
   const deletedBlankSpaceArr: string[] = articleTitle.filter(
@@ -25,10 +25,6 @@ export default function Slide({ articles, mode }: Props) {
   const router = useRouter();
   const { locale } = router;
   const VALUESNAV = locale === 'en' ? VALUESNAV_ENG : VALUESNAV_ESP;
-
-  console.log(fixedArticleTitle);
-
-  console.log(articleTitle);
 
   return (
     <>
