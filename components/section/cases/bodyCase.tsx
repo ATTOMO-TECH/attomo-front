@@ -25,7 +25,7 @@ export default function BodyCases({ data }: Props) {
     if (navigator.share) {
       navigator
         .share({
-          title: `#ATTOMOtrends | ${data?.data.attributes.title}`,
+          title: `Blog | ${data?.data.attributes.title}`,
           url: document.location.href,
         })
         .catch((error) => console.log(error));

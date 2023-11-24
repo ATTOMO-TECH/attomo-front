@@ -20,7 +20,7 @@ export default {
       Url: '/about-us',
     },
     {
-      Value: '#ATTOMOTrends',
+      Value: 'Blog',
       // Url: '/attomo-trends',
       Url: '/trends',
     },
