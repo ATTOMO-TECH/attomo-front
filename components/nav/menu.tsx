@@ -22,6 +22,8 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
   const [translate, setTranslate] = useState(getLocale(router.locale));
   const [items, setItems] = useState(translate.menu);
 
+  console.log(translate);
+
   useEffect(() => {
     if (router.locale) {
       setTranslate(getLocale(router.locale));
@@ -49,8 +51,6 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
         { locale: value },
       );
     }
-    // router.push(router.pathname, router.pathname, { locale: value });
-    // router.push(router.asPath, router.asPath, { locale: value });
   };
 
   const [width] = useDeviceSize();

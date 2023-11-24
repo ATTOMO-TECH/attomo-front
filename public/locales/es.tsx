@@ -20,7 +20,7 @@ export default {
       Url: '/quienes-somos',
     },
     {
-      Value: '#ATTOMOTrends',
+      Value: 'Blog',
       // Url: '/attomo-trends',
       Url: '/tendencias',
     },

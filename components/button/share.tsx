@@ -80,10 +80,10 @@ export default function ShareNav({ title, isOpen, toggle }: Props) {
             </Share.ItemValue>
             <Share.ItemValue>
               <Link
-                href={`mailto:equipo@attomo.digital?subject=#ATTOMOtrends | ${title}`}>
+                href={`mailto:equipo@attomo.digital?subject=Blog | ${title}`}>
                 <a
                   target="_blank"
-                  href={`mailto:equipo@attomo.digital?subject=#ATTOMOtrends | ${title}&body=Echa un vistazo a esta publicación ${
+                  href={`mailto:equipo@attomo.digital?subject=Blog | ${title}&body=Echa un vistazo a esta publicación ${
                     typeof window !== 'undefined' && document.location.href
                   }`}
                   rel="noreferrer">

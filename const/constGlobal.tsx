@@ -142,7 +142,7 @@ export const VALUESNAV_ESP: {
     Url: '/quienes-somos',
   },
   {
-    Value: '#ATTOMOTrends',
+    Value: 'Blog',
     // Url: '/attomo-trends',
     Url: '/tendencias',
   },
@@ -194,7 +194,7 @@ export const VALUESNAV_ENG: {
     Url: '/about-us',
   },
   {
-    Value: '#ATTOMOTrends',
+    Value: 'Blog',
     // Url: '/attomo-trends',
     Url: '/trends',
   },
