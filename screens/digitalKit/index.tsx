@@ -72,7 +72,7 @@ function KitDigital({ locale }: Props) {
               <Styles.ScreenWS>
                 {translate.kitDigital.map((services) => (
                   <Styles.BlockDiv key={services.HeroText}>
-                    <MainTitle size="lg:pr-10 lg:w-4/12 lg:text-4xl md:text-3xl pb-2 text-2xl">
+                    <MainTitle size="lg:pr-10 lg:w-6/12 lg:text-4xl md:text-3xl pb-2 text-2xl">
                       {services.HeroText}
                     </MainTitle>
                     <Styles.FlexEnd>
@@ -95,7 +95,6 @@ function KitDigital({ locale }: Props) {
                 type: 'magic',
                 stiffness: 100,
                 duration: 0.5,
-                delay: 1,
               }}
               whileInView={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0.1, y: '50%' }}>
