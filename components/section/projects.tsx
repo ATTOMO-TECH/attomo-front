@@ -98,7 +98,7 @@ export default function SectionProjects({
             ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
             <motion.div
               animate={shouldShowActions}
-              className="pb-2"
+              // className="pb-2"
               variants={servicesAnimations}
               transition={{
                 delay: 0.5,
@@ -112,7 +112,7 @@ export default function SectionProjects({
               </Styles.Paragraph>
               <TitleUrl
                 url={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}
-                size="lg:text-4xl md:text-2xl text-xl sm:w-96 w-80  py-3 leading-relaxed lg:leading-normal cursor-pointer">
+                size="lg:text-4xl md:text-2xl text-xl  mb-4 py-3 leading-relaxed lg:leading-normal cursor-pointer">
                 {values.attributes.title}
               </TitleUrl>
               <Link
