@@ -225,7 +225,7 @@ export const Styles = {
   Margin: tw.div`m-auto `,
   Center: tw.section`w-10/12 m-auto`,
   CenterUs: tw.section`lg:w-8/12 w-10/12 m-auto`,
-  CenterMargin: tw.section`w-10/12 m-auto lg:pt-36 mt-12  py-16`,
+  CenterMargin: tw.section`w-10/12 m-auto lg:pt-36 mt-12  pt-16`,
   CenterCases: tw.section`w-full md:w-10/12 m-auto pt-24 lg:pt-36 overflow-hidden flex justify-between`,
   BlockRenderDetails: tw.div`lg:flex flex-col pt-10 w-60 relative`, // remove "hidden"
   BlockFilter: tw.span`w-auto m-auto text-center transform -rotate-90 z-100 -left-4 sm:left-0 md:left-4 top-56 absolute lg:hidden opacity-60 hover:opacity-90  duration-100 ease-in cursor-pointer`,
@@ -277,7 +277,8 @@ export const Styles = {
   AlingButton: tw.div`w-full lg:pl-24 text-primary pt-10`,
   BlockFullInput: tw.div`lg:w-4/12 w-full pt-4 lg:pt-0 lg:pl-12`,
   BlockContact: tw.div`pt-48`,
-  BlockAddresMap: tw.div`lg:my-12 my-12  lg:w-4/6  m-auto overflow-hidden`,
+  BlockAddresMap: tw.div`lg:my-12 my-12 lg:w-full m-auto overflow-hidden`,
+  BlockAddresMapImg: tw.div`lg:my-12 my-12 w-full m-auto overflow-hidden`,
   Select: tw(
     Select,
   )`bg-none text-gray-300 outline-none text-sm py-5 font-PrimarySerif font-light lg:ml-5 outline-none font-PrimarySerif font-thin text-gray-300 borderInput w-1/6 trend text-sm opacity-50 hover:opacity-90 transition ease-in-out duration-300`,

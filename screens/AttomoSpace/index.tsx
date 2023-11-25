@@ -114,9 +114,11 @@ function Space({ locale }: Props) {
               Calle del Monte Esquinza, 8-Bajo Izquierda <br />
               28010 Madrid
             </ParagraphText>
-            {typeof window !== 'undefined' && <MapsBlock />}
           </Styles.BlockAddresMap>
         </Styles.CenterMargin>
+        <Styles.BlockAddresMapImg>
+          {typeof window !== 'undefined' && <MapsBlock />}
+        </Styles.BlockAddresMapImg>
         <Styles.Center>
           {translate.contact.map((values) => (
             <BlockSection
