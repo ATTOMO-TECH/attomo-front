@@ -8,11 +8,21 @@ interface Props {
 }
 
 export default function IconAnimate({ text, mode, styleText }: Props) {
+  const handleClick = () => {
+    if (text === 'Book' || text === 'Reserva el espacio') {
+      const section = document.getElementById('reserva');
+      if (section !== null) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <>
       <Icon.BlockHidden>
         <Button.ButtonRegular
           className={`${styleText}`}
+          onClick={() => handleClick()}
           ismode={mode ? BUTTON_MODE.LIGHT : BUTTON_MODE.DARK}>
           {text}
         </Button.ButtonRegular>
