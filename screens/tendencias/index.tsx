@@ -20,7 +20,7 @@ import { Styles } from '../../styles/styles';
 import CalendarPickerInputRange from '../../components/calendar/input/calendarRange';
 import InputSelectFilter from '../../components/form/selectFilter';
 import { formatDateFilter } from '../../hook/date';
-import ShowMore from '../../components/block/showMore';
+// import ShowMore from '../../components/block/showMore';
 import { Props } from '../types';
 import { handleInfinityDataCms } from '../../hook/utils';
 
@@ -96,7 +96,7 @@ function News({ data, locale, tags }: Props) {
   const {
     data: dataBlog,
     fetchNextPage,
-    hasNextPage,
+    // hasNextPage,
   } = useInfiniteQuery(
     ['useAllPost', queryQs],
     ({ pageParam }) => {
@@ -128,6 +128,28 @@ function News({ data, locale, tags }: Props) {
       },
     },
   );
+
+  const finalPage = () => {
+    const distanceFromTheEnd = 300;
+    return (
+      window.innerHeight + window.scrollY >=
+      document.body.offsetHeight - distanceFromTheEnd
+    );
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (finalPage()) {
+        fetchNextPage();
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -321,11 +343,11 @@ function News({ data, locale, tags }: Props) {
             <BlockBlog data={blog} locale={locale} />
           )),
         )}
-        <ShowMore
+        {/* <ShowMore
           hasNextPage={hasNextPage}
           handleAddBlog={fetchNextPage}
           translate={translate}
-        />
+        /> */}
         <Styles.Center>
           {translate.contact.map((values) => (
             <BlockSection
