@@ -78,7 +78,7 @@ export const Styles = {
           ? 'md:px-20 lg:w-3/6 px-9 py-16 w-full lg:py-0 lg:left-0 '
           : ''}`,
   OnlyProjectBlock: tw.div`md:pr-64 sm:px-5 lg:w-3/6 w-10/12 py-16 ml-16 lg:py-0 lg:-bottom-10 lg:right-0`,
-  BlockMargin: tw.div`lg:py-48 flex flex-col lg:flex-row w-full justify-justify-around`,
+  BlockMargin: tw.div` flex flex-col lg:flex-row w-full justify-justify-around`,
   BlockMarginText: tw.div`lg:pt-12`,
   DivideSection: tw.div`h-full flex items-start lg:justify-around flex-col lg:flex-row justify-center w-full`,
   BlockBtn: tw.a`text-primary z-100 w-3/6`,
