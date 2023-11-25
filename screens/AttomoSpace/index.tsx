@@ -82,11 +82,6 @@ function Space({ locale }: Props) {
                 key={values.Text}
                 text={values.Subtext}
                 btn={values.Button}
-                link={
-                  locale === 'en'
-                    ? `${VALUESNAV_ENG[6].Url}#reserva`
-                    : `${VALUESNAV_ESP[6].Url}#reserva`
-                }
                 textPrimary={values.Text}
               />
             ))}
