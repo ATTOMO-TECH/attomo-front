@@ -22,8 +22,6 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
   const [translate, setTranslate] = useState(getLocale(router.locale));
   const [items, setItems] = useState(translate.menu);
 
-  console.log(translate);
-
   useEffect(() => {
     if (router.locale) {
       setTranslate(getLocale(router.locale));

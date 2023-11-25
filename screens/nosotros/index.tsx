@@ -3,7 +3,7 @@ import BlockSection from '../../components/block/block';
 import ButtonShare from '../../components/button/BtnShare';
 import Footer from '../../components/footer/footer';
 import Menu from '../../components/nav/menu';
-import SelectedUs from '../../components/section/selectedUs';
+// import SelectedUs from '../../components/section/selectedUs';
 import Nav from '../../components/nav/nav';
 import OneProject from '../../components/section/onlyProject';
 import ListUs from '../../components/section/us';
@@ -64,13 +64,13 @@ function Us({ locale }: Props) {
               titleValuesUr={translate.titleValuesUr}
               valuesUs={translate.valuesUs}
             />
-            <SelectedUs
+            {/* <SelectedUs
               text={translate.selectedUs[0].Subtext}
               link={
                 locale === 'en' ? VALUESNAV_ENG[1].Url : VALUESNAV_ESP[1].Url
               }
               textPrimary={translate.selectedUs[0].Text}
-            />
+            /> */}
           </Styles.BlockUs>
         </Styles.Center>
         <Styles.Center>
