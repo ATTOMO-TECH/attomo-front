@@ -19,7 +19,11 @@ export default function MapsBlock() {
           )}
           rel="noreferrer">
           <Block.SectionBlock>
-            <img src={`${arrayPath[0]}//${arrayPath[2]}/Map_.jpg`} alt="maps" />
+            <img
+              src={`${arrayPath[0]}//${arrayPath[2]}/Map_.jpg`}
+              alt="maps"
+              className="w-full"
+            />
           </Block.SectionBlock>
         </a>
       </Link>

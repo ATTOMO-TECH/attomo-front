@@ -52,13 +52,15 @@ function Contact({ locale }: Props) {
         <Styles.CenterMargin>
           <Title size="text-2xl  lg:pr-10 "> {translate.whereUs}</Title>
           <Styles.BlockAddresMap>
-            <ParagraphText size="text-regular w-full leading-loose font-Secundary w-full pb-10 ">
+            <ParagraphText size="text-regular w-full leading-loose font-Secundary w-full my-8 lg:my-0">
               Calle del Monte Esquinza, 8-Bajo Izquierda <br />
               28010 Madrid
             </ParagraphText>
-            {typeof window !== 'undefined' && <MapsBlock />}
           </Styles.BlockAddresMap>
         </Styles.CenterMargin>
+        <Styles.BlockAddresMapImg>
+          {typeof window !== 'undefined' && <MapsBlock />}
+        </Styles.BlockAddresMapImg>
         <Footer subFooter={false} />
       </Styles.Body>
     </>
