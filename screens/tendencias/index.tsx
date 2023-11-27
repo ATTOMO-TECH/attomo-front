@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import * as qs from 'qs';
 import { useInfiniteQuery } from 'react-query';
+import { throttle } from 'lodash';
 import BlockSection from '../../components/block/block';
 import BlockBlog from '../../components/blog/blog';
 import Footer from '../../components/footer/footer';
@@ -96,7 +97,7 @@ function News({ data, locale, tags }: Props) {
   const {
     data: dataBlog,
     fetchNextPage,
-    // hasNextPage,
+    hasNextPage,
   } = useInfiniteQuery(
     ['useAllPost', queryQs],
     ({ pageParam }) => {
@@ -130,26 +131,26 @@ function News({ data, locale, tags }: Props) {
   );
 
   const finalPage = () => {
-    const distanceFromTheEnd = 300;
-    return (
-      window.innerHeight + window.scrollY >=
-      document.body.offsetHeight - distanceFromTheEnd
-    );
+    const windowHeight = window.innerHeight;
+    const { scrollY } = window;
+    const bodyOffsetHeight = document.body.offsetHeight;
+    const distanceFromTheEnd = 800;
+
+    return windowHeight + scrollY >= bodyOffsetHeight - distanceFromTheEnd;
   };
+  const handleScroll = throttle(() => {
+    if (hasNextPage && finalPage()) {
+      fetchNextPage();
+    }
+  }, 1000);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (finalPage()) {
-        fetchNextPage();
-      }
-    };
-
     window.addEventListener('scroll', handleScroll);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [hasNextPage]);
 
   const toggle = () => {
     setIsOpen(!isOpen);
