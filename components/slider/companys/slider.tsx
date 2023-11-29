@@ -29,6 +29,10 @@ export default function CompaniesScroll() {
             values.Name === 'La Lupita' ||
             values.Name === 'Keiko' ||
             values.Name === 'MRGO Arquitectos' ||
+            values.Name === 'Kilbourne' ||
+            values.Name === 'La joya' ||
+            values.Name === 'Metodo R' ||
+            values.Name === 'DEM' ||
             values.Name === 'Treescoliving' ? (
               <div className="logo-container ">
                 <a href={values.Url} target="blank">
@@ -46,6 +50,8 @@ export default function CompaniesScroll() {
                       values.Name === 'Spherika' ||
                       values.Name === 'La Lupita' ||
                       values.Name === 'Keiko' ||
+                      values.Name === 'Metodo R' ||
+                      values.Name === 'Kilbourne' ||
                       values.Name === 'MRGO Arquitectos'
                         ? '190px'
                         : '140px'
@@ -65,7 +71,9 @@ export default function CompaniesScroll() {
                     width={
                       values.Name === 'Real Sociedad FC' ||
                       values.Name === 'Sevilla FC' ||
-                      values.Name === 'VIVLA'
+                      values.Name === 'VIVLA' ||
+                      values.Name === 'La joya' ||
+                      values.Name === 'Agruppa'
                         ? '90px'
                         : '100px'
                     }

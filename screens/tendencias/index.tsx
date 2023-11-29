@@ -134,7 +134,7 @@ function News({ data, locale, tags }: Props) {
     const windowHeight = window.innerHeight;
     const { scrollY } = window;
     const bodyOffsetHeight = document.body.offsetHeight;
-    const distanceFromTheEnd = 800;
+    const distanceFromTheEnd = 1000;
 
     return windowHeight + scrollY >= bodyOffsetHeight - distanceFromTheEnd;
   };
@@ -142,7 +142,7 @@ function News({ data, locale, tags }: Props) {
     if (hasNextPage && finalPage()) {
       fetchNextPage();
     }
-  }, 1000);
+  }, 400);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
