@@ -277,8 +277,8 @@ export const Styles = {
   AlingButton: tw.div`w-full lg:pl-24 text-primary pt-10`,
   BlockFullInput: tw.div`lg:w-4/12 w-full pt-4 lg:pt-0 lg:pl-12`,
   BlockContact: tw.div`pt-48`,
-  BlockAddresMap: tw.div`lg:my-12 my-12 lg:w-full m-auto overflow-hidden`,
-  BlockAddresMapImg: tw.div`lg:my-12 my-12 w-full m-auto overflow-hidden`,
+  BlockAddresMap: tw.div`lg:my-12 my-12 lg:w-5/6 m-auto overflow-hidden`,
+  BlockAddresMapImg: tw.div`lg:my-12 my-12 lg:w-5/6 m-auto overflow-hidden`,
   Select: tw(
     Select,
   )`bg-none text-gray-300 outline-none text-sm py-5 font-PrimarySerif font-light lg:ml-5 outline-none font-PrimarySerif font-thin text-gray-300 borderInput w-1/6 trend text-sm opacity-50 hover:opacity-90 transition ease-in-out duration-300`,
