@@ -159,7 +159,7 @@ function KitDigital({ locale }: Props) {
             <Title size="lg:pr-10  lg:text-4xl md:text-3xl pb-2 text-2xl">
               {translate.searchAgent}
             </Title>
-            <ParagraphText size="text-justify flex justify-center lg:text-lg text-xl  text-center  font-light pb-6">
+            <ParagraphText size="text-justify flex justify-center lg:text-lg text-xl text-center font-light pb-6">
               {translate.helpYouKit}
             </ParagraphText>
             <FormKit locale={locale} />

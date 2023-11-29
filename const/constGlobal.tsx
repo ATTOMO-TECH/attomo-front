@@ -377,6 +377,48 @@ export const CUSTOMERS: {
     Url: 'https://www.grupoelrincon.es/',
   },
 
+  {
+    Name: 'Alfareal',
+    Pic: '/customers/logos/logo-alfareal.svg',
+    Url: 'https://alfarealgroup.com/es/',
+  },
+  {
+    Name: 'DEM',
+    Pic: '/customers/logos/logo-DEM.png',
+    Url: 'https://dehesaelmilagro.com/',
+  },
+  {
+    Name: 'Diana',
+    Pic: '/customers/logos/logo-diana.svg',
+    Url: 'https://www.dianadating.app/',
+  },
+  {
+    Name: 'Agruppa',
+    Pic: '/customers/logos/logo-agruppa.svg',
+    Url: 'http://agruppahomes.com/',
+  },
+  {
+    Name: 'Kilbourne',
+    Pic: '/customers/logos/logo-kilbourne.svg',
+    Url: 'https://www.dianadating.app/',
+  },
+
+  {
+    Name: 'Fainder',
+    Pic: '/customers/logos/logo-fainder.svg',
+    Url: 'https://www.dianadating.app/',
+  },
+  {
+    Name: 'La joya',
+    Pic: '/customers/logos/logo-la-joya.svg',
+    Url: 'https://lajoyaproducciones.com/',
+  },
+  {
+    Name: 'Metodo R',
+    Pic: '/customers/logos/logo-metodo-r.svg',
+    Url: 'https://www.metodo-r.com/es/',
+  },
+
   /* {
     Name: 'Benneti',
     Pic: '/customers/Bennetti-watches.png',
