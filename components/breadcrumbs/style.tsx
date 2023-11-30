@@ -11,5 +11,5 @@ export const Blogstyles = {
 export const BreadStyles = {
   BlockBread: tw.div`flex flex-wrap justify-start items-center font-PrimarySerif font-extralight text-sm py-4`,
   Circle: tw.span`w-1.5 h-1.5 rounded-full bg-black mx-3`,
-  TextBread: tw.h6``,
+  TextBread: tw.span``,
 };
