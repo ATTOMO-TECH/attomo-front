@@ -36,7 +36,7 @@ export const SectionColor = styled.div`
   color: ${(props) => props.theme.headings};
   min-height: 125px;
 `;
-export const titleText = styled.h3`
+export const titleText = styled.p`
   font-family: 'Merriweather';
   font-style: normal;
   font-weight: 300;
@@ -70,7 +70,7 @@ export const StylesArticle = {
     
       `,
 
-  TopicText: tw.h6<Props>`
+  TopicText: tw.p<Props>`
   opacity-50 font-PrimarySerif font-light text-xs py-2 text-primary
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'block' : 'hidden')}
   `,
