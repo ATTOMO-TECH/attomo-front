@@ -17,13 +17,19 @@ interface Props {
 export default function Nav({ toggle, logo, mode, isOpen }: Props) {
   const [scroll, setScroll] = useState(true);
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    const handleScroll = () => {
       if (window.pageYOffset > 20) {
         setScroll(false);
       } else {
         setScroll(true);
       }
-    });
+    };
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup function to remove the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
   const router = useRouter();
 
