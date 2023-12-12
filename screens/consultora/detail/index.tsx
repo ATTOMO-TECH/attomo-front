@@ -14,7 +14,7 @@ import Footer from '../../../components/footer/footer';
 import Menu from '../../../components/nav/menu';
 import NavNoLanguage from '../../../components/nav/navNoLanguage';
 import SubMenu from '../../../components/nav/submenu';
-import Title from '../../../components/Text/title';
+import MainTitle from '../../../components/Text/mainTitle';
 import { BUTTON_ACTIVE } from '../../../const/const';
 import { VALUESNAV_ENG, VALUESNAV_ESP } from '../../../const/constGlobal';
 import { Styles } from '../../../styles/styles';
@@ -127,9 +127,9 @@ function DetailsServices({ data, locale }: Props) {
                   exit={{ opacity: 0.4 }}
                   // transition={{ delay: 0.5 }}
                 >
-                  <Title size="lg:text-5xl text-3xl text-lg font-Primary font-light h-20">
+                  <MainTitle size="lg:text-5xl text-3xl font-Primary font-light h-20">
                     {isIdSubServices[0]?.attributes?.name}
-                  </Title>
+                  </MainTitle>
                   <motion.div
                     className="pt-2 w-full"
                     animate={{ y: 0, opacity: 1 }}
