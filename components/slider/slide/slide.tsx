@@ -11,17 +11,6 @@ interface Props {
 }
 
 export default function Slide({ articles, mode }: Props) {
-  const articleTitle = articles?.attributes?.title
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/\W/g, ' ')
-    .split(' ');
-
-  const deletedBlankSpaceArr: string[] = articleTitle.filter(
-    (elemento: string) => elemento.trim() !== '',
-  );
-  const fixedArticleTitle = deletedBlankSpaceArr.join('-');
-
   const router = useRouter();
   const { locale } = router;
   const VALUESNAV = locale === 'en' ? VALUESNAV_ENG : VALUESNAV_ESP;
@@ -30,17 +19,15 @@ export default function Slide({ articles, mode }: Props) {
     <>
       <Link
         href={{
-          pathname: `${VALUESNAV[3].Url}/${fixedArticleTitle}-${articles.id}`,
+          pathname: `${VALUESNAV[3].Url}/${articles.attributes.URLSlug}-${articles.id}`,
           query: {
             tags: articles?.attributes?.blog_tags?.data[0].attributes?.name,
           },
         }}>
-        <a href={`${VALUESNAV[3].Url}/${fixedArticleTitle}-${articles.id}`}>
-          <StylesArticle.Img
-            src={articles.attributes.coverImage.data.attributes.url}
-            alt={articles.attributes.coverImage.data.attributes.alternativeText}
-          />
-        </a>
+        <StylesArticle.Img
+          src={articles.attributes.coverImage.data.attributes.url}
+          alt={articles.attributes.coverImage.data.attributes.alternativeText}
+        />
       </Link>
       <StylesArticle.BlockText theme={mode === false ? lightTheme : darkTheme}>
         <StylesArticle.TopicText
@@ -51,7 +38,7 @@ export default function Slide({ articles, mode }: Props) {
         </StylesArticle.TopicText>
         <Link
           href={{
-            pathname: `${VALUESNAV[3].Url}/${fixedArticleTitle}-${articles.id}`,
+            pathname: `${VALUESNAV[3].Url}/${articles.attributes.URLSlug}-${articles.id}`,
             query: {
               tags: articles?.attributes?.blog_tags?.data[0].attributes?.name,
             },
@@ -59,7 +46,7 @@ export default function Slide({ articles, mode }: Props) {
           <StylesArticle.TextBlog
             ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
             {...handlers(
-              `${VALUESNAV[3].Url}/${fixedArticleTitle}-${articles.id}`,
+              `${VALUESNAV[3].Url}/${articles.attributes.URLSlug}-${articles.id}`,
             )}>
             {articles.attributes.title}
           </StylesArticle.TextBlog>
