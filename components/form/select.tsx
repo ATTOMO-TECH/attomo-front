@@ -21,29 +21,23 @@ export default function InputSelect({
   name,
   translate,
 }: Props) {
-  // console.log(options);
   console.log(valueLabel);
-  // console.log(handleValue);
-  // console.log(onChange);
-  // console.log(selected);
-  // console.log(name);
+
   return (
-    <>
-      <BlockDiv active={selected !== ''} className="relative text-left">
-        <Styles.SelectTime
-          name={name}
-          modalCloseButton={<ModalCloseButton />}
-          options={options}
-          selectedValue={translate?.formTime}
-          caretIcon={<CaretIcon />}
-          valueLabel={selected}
-          noSelectionLabel={selected}
-          onChange={(newValue: any) => {
-            onChange(newValue.value);
-            handleValue(newValue.value);
-          }}
-        />
-      </BlockDiv>
-    </>
+    <BlockDiv active={selected !== ''} className="relative text-left">
+      <Styles.SelectTime
+        name={name}
+        modalCloseButton={<ModalCloseButton />}
+        options={options}
+        selectedValue={translate?.formTime}
+        caretIcon={<CaretIcon />}
+        valueLabel={selected}
+        noSelectionLabel={selected}
+        onChange={(newValue: any) => {
+          onChange(newValue.value);
+          handleValue(newValue.value);
+        }}
+      />
+    </BlockDiv>
   );
 }
