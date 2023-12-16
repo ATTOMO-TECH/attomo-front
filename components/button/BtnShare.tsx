@@ -6,15 +6,27 @@ import { BUTTON_ACTIVE } from '../../const/const';
 
 export default function ButtonShare() {
   const [scroll, setScroll] = useState(true);
+  const [isMounted, setIsMounted] = useState(true);
 
-  useEffect(() => {
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 20) {
+  const handleScroll = () => {
+    if (isMounted) {
+      if (window.scrollY > 20) {
         setScroll(false);
       } else {
         setScroll(true);
       }
-    });
+    }
+  };
+
+  useEffect(() => {
+    setIsMounted(true);
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      setIsMounted(false);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (

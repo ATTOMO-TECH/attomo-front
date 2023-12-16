@@ -29,18 +29,23 @@ function KitDigital({ locale }: Props) {
   const [shouldShowActions, setShouldShowActions] = useState(false);
 
   useEffect(() => {
-    function handleScroll(e: any) {
-      if (e.cancelable) {
-        e.preventDefault();
-      }
-      const yPos = window.scrollY;
-      const isScrollingUp = yPos < lastYPos;
+    let isMounted = true;
 
-      setShouldShowActions(isScrollingUp);
-      setLastYPos(yPos);
+    function handleScroll() {
+      if (isMounted) {
+        const yPos = window.scrollY;
+        const isScrollingUp = yPos < lastYPos;
+
+        setShouldShowActions(isScrollingUp);
+        setLastYPos(yPos);
+      }
     }
+
+    window.addEventListener('scroll', handleScroll);
+
     return () => {
-      window.addEventListener('scroll', handleScroll, { passive: false });
+      isMounted = false;
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [lastYPos]);
 

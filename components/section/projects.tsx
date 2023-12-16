@@ -8,8 +8,6 @@ import TitleUrl from '../Text/titleUrl';
 import { Styles } from './style';
 import { getLocale } from '../../public/locales/getLocale';
 import { VALUESNAV_ESP, VALUESNAV_ENG } from '../../const/constGlobal';
-import { handlers } from '../../hook/longPress';
-/* import { handlers } from '../../hook/longPress'; */
 
 interface Props {
   values: any;
@@ -36,25 +34,9 @@ export default function SectionProjects({
       setTranslate(getLocale(locale));
     }
   }, [locale]);
-  //  console.log(values);
   const { id } = values;
 
   const VALUESNAV = locale === 'en' ? VALUESNAV_ENG : VALUESNAV_ESP;
-  /* console.log(company, title, id); */
-
-  // arrNewSlug.push(company?.replaceAll(' ', ''));
-  // arrNewSlug.push(
-  //   title
-  //     .normalize('NFD')
-  //     .replace(/[\u0300-\u036f]/g, '')
-  //     .replaceAll(/[^\w]/gi, ' ')
-  //     .split(' ')
-  //     .join('-'),
-  // );
-  // arrNewSlug.push(id);
-  /* console.log(arrNewSlug); */
-  // const newSlug = arrNewSlug.join('-');
-  /* console.log(newSlug); */
   return (
     <>
       <motion.div
@@ -62,7 +44,6 @@ export default function SectionProjects({
         variants={servicesAnimations}
         className="actions"
         transition={{
-          delay: 0.1,
           type: 'fast',
           duration: 1,
         }}
@@ -75,22 +56,17 @@ export default function SectionProjects({
             <Styles.BlockSection
               ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
               {values?.attributes?.mainPhoto?.data[0].attributes?.url && (
-                <a
-                  {...handlers(
-                    `${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`,
-                  )}>
-                  <img
-                    src={values?.attributes.mainPhoto.data[0].attributes.url}
-                    width={800}
-                    height={600}
-                    id={`${values.id}`}
-                    alt={
-                      values.attributes.mainPhoto.data[0].attributes
-                        .alternativeText
-                    }
-                    className="object-cover cursor-pointer"
-                  />
-                </a>
+                <img
+                  src={values?.attributes.mainPhoto.data[0].attributes.url}
+                  width={800}
+                  height={600}
+                  id={`${values.id}`}
+                  alt={
+                    values.attributes.mainPhoto.data[0].attributes
+                      .alternativeText
+                  }
+                  className="object-cover cursor-pointer"
+                />
               )}
             </Styles.BlockSection>
           </Link>
@@ -98,11 +74,9 @@ export default function SectionProjects({
             ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
             <motion.div
               animate={shouldShowActions}
-              // className="pb-2"
               variants={servicesAnimations}
               transition={{
-                delay: 0.5,
-                type: 'Magic',
+                type: 'magic',
                 duration: 1,
               }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -117,18 +91,9 @@ export default function SectionProjects({
               </TitleUrl>
               <Link
                 href={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}>
-                <a
-                  {...handlers(
-                    `${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`,
-                  )}>
-                  <Styles.BlockBtn>
-                    <a
-                      href={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}>
-                      <IconAnimate text={translate.seeMoreCases} mode />
-                      {/* {console.log(translate.seeMoreCases)} */}
-                    </a>
-                  </Styles.BlockBtn>
-                </a>
+                <Styles.BlockBtn>
+                  <IconAnimate text={translate.seeMoreCases} mode />
+                </Styles.BlockBtn>
               </Link>
             </motion.div>
           </Styles.BlockText>

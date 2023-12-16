@@ -42,13 +42,24 @@ function Cases({ data, locale }: Props) {
   const [scroll, setScroll] = useState(true);
 
   useEffect(() => {
+    let isMounted = true;
+
     window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 20) {
-        setScroll(false);
-      } else {
-        setScroll(true);
+      if (isMounted) {
+        if (window.scrollY > 20) {
+          setScroll(false);
+        } else {
+          setScroll(true);
+        }
       }
     });
+
+    return () => {
+      isMounted = false;
+      window.removeEventListener('scroll', () => {
+        ('');
+      });
+    };
   }, []);
 
   useEffect(() => {

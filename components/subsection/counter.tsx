@@ -6,15 +6,24 @@ import '@fontsource/lato/300.css';
 
 export default function Counter() {
   const [value, setValue] = useState(0);
+  const [isMounted, setIsMounted] = useState(true);
 
-  useEffect(() => {
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
+  const handleScroll = () => {
+    if (isMounted) {
+      if (window.scrollY > 300) {
         setValue(360);
       } else {
         setValue(0);
       }
-    });
+    }
+  };
+
+  useEffect(() => {
+    setIsMounted(true);
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      setIsMounted(false);
+    };
   }, []);
 
   return (

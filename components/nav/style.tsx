@@ -199,7 +199,7 @@ export const Navegation = {
   AlingItemsMenu: tw.div`flex flex-col  items-center justify-center text-center w-full  md:pt-0 md:pt-0 justify-center justify-center`,
   SelectMenu: tw(
     itemMenu,
-  )` leading-loose tracking-wide hover:opacity-100 opacity-60 cursor-pointer transition ease-in-out delay-100 duration-100  text-2xl md:text-3xl lg:text-5xl md:py-2 md:px-4 lg:py-2`,
+  )` leading-loose tracking-wide hover:opacity-100 opacity-60 cursor-pointer transition ease-in-out duration-100  text-2xl md:text-3xl lg:text-5xl md:py-2 md:px-4 lg:py-2`,
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`
