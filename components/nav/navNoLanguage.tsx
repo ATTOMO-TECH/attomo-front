@@ -14,14 +14,27 @@ interface Props {
 
 export default function NavNoLanguage({ toggle, logo, mode, isOpen }: Props) {
   const [scroll, setScroll] = useState(true);
-  useEffect(() => {
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 20) {
+  const [isMounted, setIsMounted] = useState(true);
+
+  const handleScroll = () => {
+    if (isMounted) {
+      if (window.scrollY > 20) {
         setScroll(false);
       } else {
         setScroll(true);
       }
-    });
+    }
+  };
+
+  useEffect(() => {
+    setIsMounted(true);
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      setIsMounted(false);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (

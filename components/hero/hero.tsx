@@ -32,7 +32,7 @@ export default function Hero({
       x: 0,
       transition: {
         duration,
-        delay: duration,
+        // delay: duration,
       },
     },
     exit: {

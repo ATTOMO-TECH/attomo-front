@@ -184,7 +184,7 @@ export default function Menu({ isOpen, toggle, logo, mode }: Props) {
                       ? { opacity: 1, translateY: 0 }
                       : { opacity: 0, translateY: '100%' }
                   }
-                  className="list-none w-full "
+                  className="list-none w-full"
                   transition={{
                     duration: 0.5,
                     delay: i * 0.1,

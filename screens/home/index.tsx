@@ -49,8 +49,9 @@ function Home({ data, locale }: Props) {
       setShouldShowActions(isScrollingUp);
       setLastYPos(yPos);
     }
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
-      window.addEventListener('scroll', handleScroll, { passive: true });
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [lastYPos]);
 
@@ -95,29 +96,6 @@ function Home({ data, locale }: Props) {
                 <SubSection locale={translate} />
               </motion.div>
             </Styles.BlockSelected>
-            {/* <Styles.Center>
-              <motion.div
-                animate={shouldShowActions}
-                variants={servicesAnimations}
-                className="actions"
-                transition={{
-                  type: 'magic',
-                  stiffness: 100,
-                  duration: 0.5,
-                }}
-                whileInView={{ opacity: 1, y: 0 }}
-                initial={{ opacity: 0.1, y: '50%' }}>
-                {translate.selected.map((values) => (
-                  <SelectedClients
-                    key={`SelectedClients${values.Title}`}
-                    textPrimary={values.Section}
-                    text={values.Title}
-                    btn={values.Button}
-                    link="/casosdeexito"
-                  />
-                ))}
-              </motion.div>
-            </Styles.Center> */}
           </Styles.SectionScreen>
           <Styles.BlockSlider>
             <CompaniesScroll />
