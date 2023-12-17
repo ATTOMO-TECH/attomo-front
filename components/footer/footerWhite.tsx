@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { ICONNAV, VALUESNAV_ENG, VALUESNAV_ESP } from '../../const/constGlobal';
 import SubFooter from './subfooter';
 import { Navegation } from './style';
@@ -50,7 +51,7 @@ export default function Footer({ subFooter }: Props) {
                 <Navegation.ListIcon key={`footer${values.Name}`}>
                   <Link href={values.Url}>
                     <a target="_blank" href={values.Url} rel="noreferrer">
-                      <img
+                      <Image
                         src={values.Pic2}
                         width={25}
                         height={25}

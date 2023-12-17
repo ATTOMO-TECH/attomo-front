@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { getLocale } from '../../public/locales/getLocale';
 import { Navegation, darkTheme, lightTheme } from '../nav/style';
@@ -52,7 +53,7 @@ export default function FilterDetails({
             ismode={logo ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
             <Navegation.ItemsMenu>
               <Link href="/">
-                <img
+                <Image
                   src="/icon/isoAttomo.svg"
                   width={35}
                   height={35}

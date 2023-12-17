@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { BUTTON_ACTIVE } from '../../const/const';
 import IconAnimate from '../button/icon';
 import TitleUrl from '../Text/titleUrl';
@@ -56,10 +57,10 @@ export default function SectionProjects({
             <Styles.BlockSection
               ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
               {values?.attributes?.mainPhoto?.data[0].attributes?.url && (
-                <img
+                <Image
                   src={values?.attributes.mainPhoto.data[0].attributes.url}
                   width={800}
-                  height={600}
+                  height={500}
                   id={`${values.id}`}
                   alt={
                     values.attributes.mainPhoto.data[0].attributes

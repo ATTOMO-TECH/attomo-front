@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-unresolved
 import { useSwiper } from 'swiper/react';
+import Image from 'next/image';
 import { useEventListener } from '../../../hook/eventListener';
 import { StylesArticle } from '../style';
 
@@ -30,7 +31,7 @@ export default function ArticlesScrollArrow({
     <>
       <StylesArticle.BlockArrow>
         <StylesArticle.ArrowPrev ref={prevRef} id="PrevSlide">
-          <img
+          <Image
             src={!mode ? '/icon/prevDark.svg' : '/icon/prev.svg'}
             width={100}
             height={100}
@@ -39,7 +40,7 @@ export default function ArticlesScrollArrow({
         </StylesArticle.ArrowPrev>
 
         <StylesArticle.ArrowNext ref={nextRef} id="NextSlide">
-          <img
+          <Image
             src={!mode ? '/icon/nextDark.svg' : '/icon/next.svg'}
             width={100}
             height={100}

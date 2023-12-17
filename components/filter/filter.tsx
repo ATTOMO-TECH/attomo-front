@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { Filter } from './style';
 import ModulelFilterResponsive from './moduleFilterResponsive';
@@ -79,7 +80,7 @@ export default function ModalFilter({
           <Filter.AlinItems ismode={BUTTON_ACTIVE.OFF}>
             <Filter.ItemsMenu>
               <Link href="/">
-                <img
+                <Image
                   src="/icon/isoAttomo.svg"
                   width={35}
                   height={35}

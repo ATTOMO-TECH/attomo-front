@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { Share } from './style';
 
@@ -36,7 +37,7 @@ export default function ShareNav({ title, isOpen, toggle }: Props) {
                   target="_blank"
                   href="https://www.instagram.com/attomo.digital/"
                   rel="noreferrer">
-                  <img
+                  <Image
                     src="/icon/instagram.svg"
                     width={25}
                     height={25}
@@ -52,7 +53,7 @@ export default function ShareNav({ title, isOpen, toggle }: Props) {
                   target="_blank"
                   href="https://www.linkedin.com/company/attomo-digital/"
                   rel="noreferrer">
-                  <img
+                  <Image
                     src="/icon/linkedin.svg"
                     width={25}
                     height={25}
@@ -68,7 +69,7 @@ export default function ShareNav({ title, isOpen, toggle }: Props) {
                   target="_blank"
                   href="https://www.tiktok.com/@attomo.digital/"
                   rel="noreferrer">
-                  <img
+                  <Image
                     src="/icon/tiktok.svg"
                     width={25}
                     height={25}
@@ -87,7 +88,7 @@ export default function ShareNav({ title, isOpen, toggle }: Props) {
                     typeof window !== 'undefined' && document.location.href
                   }`}
                   rel="noreferrer">
-                  <img
+                  <Image
                     src="/icon/mail.svg"
                     width={25}
                     height={25}

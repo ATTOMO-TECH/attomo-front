@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Blogstyles } from './style';
 import TitleUrl from '../Text/titleUrl';
 import IconAnimate from '../button/icon';
@@ -108,10 +109,10 @@ export default function BlockBlog({ data, locale }: Props) {
               passHref>
               <Blogstyles.BlockImg>
                 {data.attributes?.coverImage?.data?.attributes?.url ? (
-                  <img
+                  <Image
                     src={data.attributes.coverImage.data.attributes?.url}
                     width={900}
-                    height={700}
+                    height={475}
                     alt={data.attributes.coverImage.data.attributes?.name}
                     id={`${data.id}`}
                     {...handlers(

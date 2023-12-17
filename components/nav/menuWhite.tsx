@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import { darkTheme, lightTheme, Navegation } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { getLocale } from '../../public/locales/getLocale';
@@ -67,7 +68,7 @@ export default function MenuWhite({ isOpen, toggle, logo, mode }: Props) {
               <Navegation.ItemsMenu>
                 {logo ? (
                   <Link href="/" passHref>
-                    <img
+                    <Image
                       src="/icon/isoAttomo.svg"
                       width={35}
                       height={35}
@@ -76,7 +77,7 @@ export default function MenuWhite({ isOpen, toggle, logo, mode }: Props) {
                   </Link>
                 ) : (
                   <Link href="/">
-                    <img
+                    <Image
                       src="/icon/attomo.svg"
                       width={100}
                       height={100}

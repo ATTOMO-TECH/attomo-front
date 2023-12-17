@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/dist/client/router';
+import Image from 'next/image';
 import Footer from '../../../components/footer/footerWhite';
 import MenuWhite from '../../../components/nav/menuWhite';
 import Nav from '../../../components/nav/navWhite';
@@ -58,7 +59,7 @@ function New({ mode, data, locale, relatedPost }: Props) {
                 : router.push(`${VALUESNAV_ENG[3].Url}`)
             }>
             <Button.BlockBack>
-              <img
+              <Image
                 src="/icon/arrowBack.svg"
                 width={30}
                 height={20}
