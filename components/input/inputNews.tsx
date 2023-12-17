@@ -3,6 +3,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Navegation } from './styles';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { getLocale } from '../../public/locales/getLocale';
@@ -110,7 +111,7 @@ export default function InputNew({ idInput }: Props) {
                           : BUTTON_ACTIVE.OFF
                       }
                       type="submit">
-                      <img
+                      <Image
                         src="/icon/send_.svg"
                         width={30}
                         height={10}

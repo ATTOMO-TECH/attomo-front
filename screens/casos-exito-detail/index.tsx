@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/dist/client/router';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Footer from '../../components/footer/footerWhite';
 import MenuWhite from '../../components/nav/menuWhite';
 import Nav from '../../components/nav/navWhite';
@@ -55,10 +56,10 @@ export default function Cases({ data, locale, mode }: Props) {
         </Styles.Center>
 
         {data?.attributes?.mainPhoto?.data[0].attributes?.url ? (
-          <img
+          <Image
             src={data?.attributes?.mainPhoto?.data[0].attributes?.url || '/'}
-            width="80%"
-            height="auto"
+            width={1200}
+            height={800}
             alt={data.attributes.name}
             className="object-cover"
           />

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import { BUTTON_ACTIVE } from '../../../const/const';
 import { VALUESNAV_ESP, VALUESNAV_ENG } from '../../../const/constGlobal';
 import { StylesArticle, darkTheme, lightTheme } from '../style';
@@ -39,11 +40,14 @@ export default function SlideCases({ articles, mode }: Props) {
     <>
       <Link href={`${VALUESNAV[1].Url}/${articles.attributes.URLSlug}-${id}`}>
         <a href={`${VALUESNAV[1].Url}/${articles.attributes.URLSlug}-${id}`}>
-          <StylesArticle.Img
+          <Image
             src={articles.attributes.mainPhoto.data[0].attributes.url}
             alt={
               articles.attributes.mainPhoto.data[0].attributes.alternativeText
             }
+            width={500}
+            height={300}
+            objectFit="cover"
           />
         </a>
       </Link>

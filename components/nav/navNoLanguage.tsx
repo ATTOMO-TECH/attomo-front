@@ -1,6 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { darkTheme, lightTheme, Navegation } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { handlers, handlersFuntion } from '../../hook/longPress';
@@ -51,14 +52,14 @@ export default function NavNoLanguage({ toggle, logo, mode, isOpen }: Props) {
                 {logo ? (
                   <>
                     {mode ? (
-                      <img
+                      <Image
                         src="/icon/isoAttomo.svg"
                         width={35}
                         height={35}
                         alt="Attomo"
                       />
                     ) : (
-                      <img
+                      <Image
                         src="/icon/darkAttomo.svg"
                         width={35}
                         height={35}
@@ -68,7 +69,7 @@ export default function NavNoLanguage({ toggle, logo, mode, isOpen }: Props) {
                   </>
                 ) : (
                   <>
-                    <img
+                    <Image
                       src="/icon/attomo.svg"
                       width={100}
                       height={100}

@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay, FreeMode, EffectFade } from 'swiper';
+import Image from 'next/image';
 import { CUSTOMERS } from '../../../const/constGlobal';
 
 export default function CompaniesScroll() {
@@ -36,7 +37,7 @@ export default function CompaniesScroll() {
             values.Name === 'Treescoliving' ? (
               <div className="logo-container ">
                 <a href={values.Url} target="blank">
-                  <img
+                  <Image
                     src={values.Pic}
                     width={
                       values.Name === 'Clínica Dermatológica Internacional' ||
@@ -56,7 +57,7 @@ export default function CompaniesScroll() {
                         ? '190px'
                         : '140px'
                     }
-                    height="auto"
+                    height="100%"
                     alt={values.Name}
                     loading="lazy"
                     className="object-contain"
@@ -66,7 +67,7 @@ export default function CompaniesScroll() {
             ) : (
               <div className="logo-container">
                 <a href={values.Url} target="blank">
-                  <img
+                  <Image
                     src={values.Pic}
                     width={
                       values.Name === 'Real Sociedad FC' ||
@@ -77,7 +78,7 @@ export default function CompaniesScroll() {
                         ? '90px'
                         : '100px'
                     }
-                    height="auto"
+                    height="100%"
                     alt={values.Name}
                     loading="lazy"
                     className="object-contain"

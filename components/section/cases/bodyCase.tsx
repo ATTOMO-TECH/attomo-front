@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import gfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import { format } from 'date-fns';
+import Image from 'next/image';
 import BreadCrumbs from '../../breadcrumbs/breadcrumbs';
 import ShareNav from '../../button/share';
 import { BodyTrends, Container } from './style';
@@ -45,7 +46,7 @@ export default function BodyCases({ data }: Props) {
       <BodyTrends.Section>
         <BodyTrends.BlockShare>
           <BodyTrends.ButtonShare onClick={() => handleOnClick()}>
-            <img src="/icon/share.svg" width={20} height={20} alt="share" />
+            <Image src="/icon/share.svg" width={20} height={20} alt="share" />
           </BodyTrends.ButtonShare>
           <BreadCrumbs
             Author={data?.attributes.author}
