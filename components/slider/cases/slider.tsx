@@ -76,7 +76,9 @@ export default function CasesScroll({ mode, filter, id, renderTouch }: Props) {
           nextEl: nextState,
         }}>
         {data.data.map((articles: any) => (
-          <SwiperSlide key={articles.attributes.company} className="swiper ">
+          <SwiperSlide
+            key={articles.attributes.company}
+            className="swiper flex justify-center items-center flex-col">
             <SlideCases articles={articles} mode={mode} />
           </SwiperSlide>
         ))}

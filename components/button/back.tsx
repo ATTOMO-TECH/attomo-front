@@ -1,4 +1,5 @@
 import { useRouter } from 'next/dist/client/router';
+import Image from 'next/image';
 import { Button } from './style';
 import { VALUESNAV_ENG, VALUESNAV_ESP } from '../../const/constGlobal';
 
@@ -22,7 +23,7 @@ export default function Back({ children }: Props) {
             : router.push(`${VALUESNAV_ENG[3].Url}`)
         }>
         <Button.BlockBack>
-          <img src="/icon/arrowBack.svg" width={30} height={20} alt="back" />
+          <Image src="/icon/arrowBack.svg" width={30} height={20} alt="back" />
           <Button.TextBack>{children}</Button.TextBack>
         </Button.BlockBack>
       </Button.SectionBack>

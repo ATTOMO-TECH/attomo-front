@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { handlersExternal } from '../../hook/longPress';
 import { Block } from './style';
 
@@ -19,10 +20,12 @@ export default function MapsBlock() {
           )}
           rel="noreferrer">
           <Block.SectionBlock>
-            <img
+            <Image
               src={`${arrayPath[0]}//${arrayPath[2]}/Map_.jpg`}
               alt="maps"
               className="w-full"
+              height={500}
+              width={1200}
             />
           </Block.SectionBlock>
         </a>
