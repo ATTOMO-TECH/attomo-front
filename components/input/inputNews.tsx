@@ -14,11 +14,16 @@ import { useCreateSubscriber } from '../../domain/useSubscriber';
 import InputForNews from './inputForNews';
 import { handleBlur } from '../../hook/eventListener';
 import { useOnClickOutside } from '../../hook/longPress';
+import InputCheckBoxConditionFooter from '../form/inputCheckBoxConditionFooter';
 
 const registerSchema = Yup.object().shape({
   [FORMVALUES.EMAIL]: Yup.string()
     .email('El formato de email es incorrecto')
     .required('Email es requerido'),
+  [FORMVALUES.CONDITIONS]: Yup.boolean().oneOf(
+    [true],
+    'Debes aceptar las condiciones',
+  ),
 });
 interface Props {
   idInput: string;
@@ -29,11 +34,16 @@ export default function InputNew({ idInput }: Props) {
   const [shouldShowActions] = useState(false);
   const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
   const [inputMail, setInputMail] = useState('');
+  const [isActive, setActive] = useState(false);
+
+  const initialValues = {
+    [FORMVALUES.EMAIL]: '',
+    [FORMVALUES.CONDITIONS]: false,
+  };
 
   const handleInput = (mail: string) => {
     setInputMail(mail);
   };
-  const [isActive, setActive] = useState(false);
 
   const toggleClass = (value: boolean) => {
     setActive(value);
@@ -56,6 +66,7 @@ export default function InputNew({ idInput }: Props) {
   const sendSubcriber = (values: any, action: any) => {
     const data = {
       [FORMVALUES.EMAIL]: values.email,
+      [FORMVALUES.CONDITIONS]: values.conditionsAccepted,
     };
     mutate(
       { data },
@@ -71,19 +82,20 @@ export default function InputNew({ idInput }: Props) {
     );
   };
 
-  useOnClickOutside(formRef, () => {
-    handleBlur(idInput);
-  });
+  // useOnClickOutside(formRef, () => {
+  //   handleBlur(idInput);
+  // });
 
   useOnClickOutside(formRef, () => {
     handleBlur(idInput);
+    handleBlur(FORMVALUES.CONDITIONS);
   });
 
   return (
     <>
       <Formik
         onSubmit={sendSubcriber}
-        initialValues={{ [FORMVALUES.EMAIL]: '' }}
+        initialValues={initialValues}
         validationSchema={registerSchema}
         validateOnMount>
         {({ touched, errors, handleSubmit, setFieldValue }) => (
@@ -121,8 +133,21 @@ export default function InputNew({ idInput }: Props) {
                   </Navegation.SectionInput>
                 </Navegation.BlockInput>
                 {touched.email && errors.email && (
-                  <Navegation.Error>{errors.email}</Navegation.Error>
+                  <Navegation.ErrorCondition>
+                    {errors.email}
+                  </Navegation.ErrorCondition>
                 )}
+                {touched.conditionsAccepted && errors.conditionsAccepted && (
+                  <Navegation.ErrorCondition>
+                    {errors.conditionsAccepted}
+                  </Navegation.ErrorCondition>
+                )}
+                <InputCheckBoxConditionFooter
+                  id={FORMVALUES.CONDITIONS}
+                  color="text-primary pt-6"
+                  value={FORMVALUES.CONDITIONS}
+                  onClick={(e: any) => setFieldValue(FORMVALUES.CONDITIONS, e)}
+                />
               </>
             ) : (
               <motion.div

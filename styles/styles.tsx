@@ -256,7 +256,7 @@ export const Styles = {
   BlockUs: tw.div`lg:w-8/12 m-auto flex flex-wrap lg:pt-24`,
   Screen: tw.div`h-screen mb-48 justify-between`,
   ScreenResponsive: tw.div`h-screen pt-24`,
-  ScreenMid: tw.div`h-screen flex justify-center items-center justify-between`,
+  ScreenMid: tw.div`mt-80 mb-40 flex items-center justify-between`,
   ScreenMidResponsiv: tw.div`h-96 lg:h-screen flex justify-center items-center justify-between`,
   ScreenWS: tw.div`h-96 sm:h-64 lg:h-4/6 flex justify-center items-center justify-between pt-24 lg:pt-36`,
   FlexEnd: tw.div`flex lg:justify-end w-full m-auto relative`,
