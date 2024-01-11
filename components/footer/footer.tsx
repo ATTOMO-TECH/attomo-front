@@ -46,7 +46,14 @@ export default function Footer({ subFooter }: Props) {
               ))}
             </Navegation.NavFooter>
           </Navegation.BlockLogo>
-          <Navegation.BlockNavMed className="order-1 lg:order-none lg:pt-0">
+
+          <Navegation.BlockNavMed className="order-last lg:order-none">
+            <Navegation.TitleNavResponsive>
+              NEWSLETTER
+            </Navegation.TitleNavResponsive>
+            <InputNew idInput="#InputFooter" />
+          </Navegation.BlockNavMed>
+          <Navegation.BlockNav className="order-1 lg:order-none lg:pt-0">
             <Navegation.TitleNav>{translate.followFooter}</Navegation.TitleNav>
             <Navegation.NavFooterFlex>
               {ICONNAV.map((values) => (
@@ -70,12 +77,6 @@ export default function Footer({ subFooter }: Props) {
                 </Navegation.ListIcon>
               ))}
             </Navegation.NavFooterFlex>
-          </Navegation.BlockNavMed>
-          <Navegation.BlockNav className="order-last lg:order-none">
-            <Navegation.TitleNavResponsive>
-              NEWSLETTER
-            </Navegation.TitleNavResponsive>
-            <InputNew idInput="#InputFooter" />
           </Navegation.BlockNav>
         </Navegation.BlockFooter>
         <div className="relative ">{subFooter && <SubFooter />}</div>

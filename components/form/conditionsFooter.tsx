@@ -5,7 +5,7 @@ import { getLocale } from '../../public/locales/getLocale';
 import { handlersExternal } from '../../hook/longPress';
 import { Styles } from './style';
 
-export default function Conditions() {
+export default function ConditionsFooter() {
   const router = useRouter();
   const [translate, setTranslate] = useState(getLocale('es'));
 
@@ -17,7 +17,7 @@ export default function Conditions() {
   return (
     <>
       <Styles.BlockCheck>
-        <Styles.TextChecked>
+        <Styles.TextCheckedFooter>
           {translate.formRead}
           <Link href="/terminos" passHref>
             <a
@@ -42,7 +42,7 @@ export default function Conditions() {
               {` ${translate.formPrivacy}`}
             </a>
           </Link>
-        </Styles.TextChecked>
+        </Styles.TextCheckedFooter>
       </Styles.BlockCheck>
     </>
   );
