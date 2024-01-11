@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { Styles } from './style';
 import { getLocale } from '../../public/locales/getLocale';
 import { handlersExternal } from '../../hook/longPress';
-import { Styles } from './style';
 
 export default function ConditionsFooter() {
   const router = useRouter();
