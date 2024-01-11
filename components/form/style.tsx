@@ -314,7 +314,7 @@ ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
     Label,
   )`flex gap-0.5 transition duration-200 ease-out cursor-pointer`,
   LabelCheckBox: tw(Label)`
-  flex ease-out duration-200  text-sm  items-center py-2 cursor-pointer `,
+  flex ease-out duration-200 text-sm items-center py-2 cursor-pointer `,
   // FORM
   Error: tw(ErrorText)`absolute text-PrimarySerif text-sm `,
   BlockSelect: tw.div<any>`w-full flex flex-no-wrap pt-5 text-white font-PrimarySerif font-thin text-sm`,
@@ -322,7 +322,8 @@ ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? 'lg:my-0 my-5' : '')}
   AlingSelect: tw.div`w-3/6 mr-6`,
   AlingSelectSecond: tw.div`w-full lg:w-2/6 gap-10 flex`,
   BlockCheck: tw.div`flex flex-wrap`,
-  TextChecked: tw.p`mx-1 text-left`,
+  TextChecked: tw.p`text-left`,
+  TextCheckedFooter: tw.p`text-left text-xs`,
   LinkCheck: tw.h6`ml-1 underline cursor-pointer`,
   SuccesButton: tw(Succes)``,
   // Select

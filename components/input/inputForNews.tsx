@@ -26,7 +26,7 @@ export default function InputForNews({
   };
 
   return (
-    <div className="w-full" {...handlersFuntion(handleActive)}>
+    <div className="w-80" {...handlersFuntion(handleActive)}>
       <p className="text-primary">{isActive}</p>
       <Navegation.Input
         type="email"

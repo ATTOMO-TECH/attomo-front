@@ -176,12 +176,12 @@ export const Navegation = {
   `,
   Menu: tw.nav``,
   AlinItems: tw.ul<Props>`
-  flex items-center z-100 justify-between w-11/12  h-1/12 items-center m-auto fixed top-4 left-0 right-0
+  flex items-center z-100 justify-between w-11/12 items-center m-auto fixed left-0 right-0
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : '')}
   `,
   BlockNav: tw.div`flex flex-col h-auto justify-center items-center content-center`,
   AlinItemsMenu: tw.ul<Props>`
-  flex items-center z-100 justify-between w-11/12  h-1/12 items-center m-auto fixed top-5 left-0 right-0
+  flex items-center z-100 justify-between w-11/12 m-auto top-5 fixed left-0 right-0
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : '')}
   `,
   AlinItemsServices: tw.ul<Props>`

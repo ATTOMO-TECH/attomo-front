@@ -50,7 +50,7 @@ export const Navegation = {
   NavFooter: tw.nav`list-none mb-10 font-secundary text-primary text-sm cursor-pointer`,
   NavFooterFlex: tw.nav`list-none mb-10 flex cursor-pointer justify-start items-center`,
   ItemsMenu: tw.p`py-1 leading-relaxed lg:leading-none text-lg font-extralight`,
-  BlockInput: tw.div`relative flex flex xl:flex-nowrap md:flex-nowrap w-full lg:flex-wrap flex-wrap justify-center items-end md:justify-start`,
+  BlockInput: tw.div`relative flex flex xl:flex-nowrap md:flex-nowrap w-full lg:flex-wrap flex-wrap xl:justify-left items-end md:justify-start`,
   Input: tw(
     Field,
   )`w-full opacity-50 focus:opacity-100  flex bg-transparent text-primary bg-none focus:bg-none outline-none  py-1 px-1 lg:text-xs  text-lg font-light  `,
@@ -61,7 +61,7 @@ export const Navegation = {
 
   SectionInput: tw.span<Props>`
 touch-action: none;
-      flex w-full items-center overflow-hidden relative border-b border-primary focus:outline-none text-xs font-light  duration-200 ease-in-out 
+      flex w-80 items-center overflow-hidden relative border-b border-primary focus:outline-none text-xs font-light  duration-200 ease-in-out 
       transition delay-700 duration-300 ease-in-out bg-none
       ${(props) =>
         props.ismode === BUTTON_ACTIVE.ON
@@ -76,6 +76,7 @@ touch-action: none;
           : 'opacity-0 duration-600'}
       `,
   Error: tw(ErrorText)`  text-PrimarySerif text-sm`,
+  ErrorCondition: tw(ErrorText)`  text-PrimarySerif text-xs mt-2`,
 };
 export const Styles = {
   BlockFilter: tw.div`w-1/12 text-center transform -rotate-90  flex  absolute left-4 m-auto mt-24  lg:z-0 cursor-pointer `,
