@@ -244,7 +244,7 @@ export const Styles = {
   BlockSlider: tw.div` pb-24 pt-12 px-7 mt-24`,
   BtnLimit: tw.div`lg:w-2/6 sm:w-4/6 w-5/6`,
   SectionProjects: tw.div`lg:m-14 relative z-0`,
-  BlockTrends: tw.div`lg:pt-48 flex w-full m-auto md:justify-center items-center lg:pl-0 py-16 flex-wrap w-10/12 `,
+  BlockTrends: tw.div`lg:pt-40 flex w-full m-auto md:justify-center items-center lg:pl-0 py-16 flex-wrap w-10/12 `,
   // FilterCases
   SelectFilterCases: tw.div`flex w-full m-auto md:justify-center items-center pl-8 md:pl-0 pt-10 lg:pt-0 flex-wrap`,
 
@@ -272,10 +272,10 @@ export const Styles = {
   TextSubSection: tw.span`font-Primary text-xl font-extralight pb-5`,
   BreakLine: tw.div`h-0.5 opacity-40 bg-addictional w-full  m-auto mt-6  lg:my-4`,
   Input: tw.input`w-full bg-secundary text-primary border-b-2 border-primary focus:outline-none focus:opacity-100 opacity-30 outline-none  py-1 px-1 lg:text-lg text-xl font-light transition-colors duration-400 ease-in-out`,
-  BlockInputSend: tw.div`text-primary flex items-center justify-start flex-row flex-wrap `,
+  BlockInputSend: tw.div`text-primary flex items-start justify-start flex-row flex-wrap pt-12  `,
   SectionInput: tw.div`lg:w-3/6 justify-start`,
   AlingButton: tw.div`w-full lg:pl-24 text-primary pt-10`,
-  BlockFullInput: tw.div`lg:w-4/12 w-full pt-4 lg:pt-0 lg:pl-12`,
+  BlockFullInput: tw.div`lg:w-5/12 w-full pt-4 lg:pt-0 lg:pl-12`,
   BlockContact: tw.div`pt-48`,
   BlockAddresMap: tw.div`lg:my-12 my-12 lg:w-5/6 m-auto overflow-hidden`,
   BlockAddresMapImg: tw.div`lg:my-12 my-12 lg:w-5/6 m-auto overflow-hidden`,
