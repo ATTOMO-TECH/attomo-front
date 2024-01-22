@@ -119,7 +119,7 @@ export default function FormKit({ locale }: Props) {
           }) => (
             <>
               {contactExist && (
-                <ParagraphText size="flex justify-center align-center text-center m-auto">
+                <ParagraphText size="flex justify-center align-center text-center m-auto ">
                   {translate.userExistKit}
                 </ParagraphText>
               )}
