@@ -170,6 +170,8 @@ export default {
 
   searchAgent: '¿Buscas un agente digitalizador?',
   helpYouKit: 'Te ayudamos a conseguir el kit digital',
+  userExistKit:
+    'Ya hemos registrado tu solicitud con este correo anteriormente, prueba con otro.',
   selected: [
     {
       Section: 'Selected clients',

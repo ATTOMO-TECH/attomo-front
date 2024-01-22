@@ -173,6 +173,8 @@ export default {
 
   searchAgent: 'Looking for a digitizing agent?',
   helpYouKit: 'We help you to get the Digital Kit',
+  userExistKit:
+    'We have already registered your request with this email before, try another.',
   selected: [
     {
       Section: 'Selected clients',
