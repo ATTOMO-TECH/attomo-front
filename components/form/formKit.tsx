@@ -5,7 +5,7 @@ import { Styles } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { FORMVALUES } from '../../hook/types';
 import InputCheckcondition from './inputCheckcondition';
-import { createKit } from '../../domain/useContact';
+// import { createKit } from '../../domain/useContact';
 import { getLocale } from '../../public/locales/getLocale';
 import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
@@ -17,10 +17,12 @@ import {
 } from '../../hook/longPress';
 import { handleBlur } from '../../hook/eventListener';
 import { Props } from '../../screens/types';
-import { sendEmailFormNotification } from './sendEmailNotification';
+// import { sendEmailFormNotification } from './sendEmailNotification';
+import ParagraphText from '../Text/paragraphText';
 
 export default function FormKit({ locale }: Props) {
   const [translate, setTranslate] = useState(getLocale(locale));
+  const [contactExist, setContactExist] = useState(false);
 
   useEffect(() => {
     if (locale) {
@@ -43,28 +45,53 @@ export default function FormKit({ locale }: Props) {
     [FORMVALUES.MESSAGE]: '',
     [FORMVALUES.CONDITIONS]: false,
   };
-  const { mutate } = createKit();
+  // const { mutate } = createKit();
 
-  const handleSumitCustomer = (values: any) => {
+  const handleSumitCustomer = async (values: any) => {
     const data = {
       [FORMVALUES.NAME]: values.name,
       [FORMVALUES.PHONE2]: values.phone,
       [FORMVALUES.EMAIL]: values.email,
       [FORMVALUES.MESSAGE]: values.message,
     };
-    // mandar notificación al gmail de info@attomo.digital
-    sendEmailFormNotification(data, 'Gestión Kit Digital');
-    mutate(
-      { data },
-      {
-        onSuccess: () => {
-          setSuccesfull(true);
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}/digital-kits/hubspot`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
         },
-        onError: () => {
-          setSuccesfull(false);
-        },
-      },
-    );
+      );
+
+      if (response.ok) {
+        setSuccesfull(true);
+      } else {
+        setContactExist(true);
+        setTimeout(() => {
+          setContactExist(false);
+        }, 10000);
+        setSuccesfull(false);
+      }
+    } catch (error) {
+      console.log(error);
+      setSuccesfull(false);
+    }
+
+    // sendEmailFormNotification(data, 'Gestión Kit Digital');
+    // mutate(
+    //   { data },
+    //   {
+    //     onSuccess: () => {
+    //       setSuccesfull(true);
+    //     },
+    //     onError: () => {
+    //       setSuccesfull(false);
+    //     },
+    //   },
+    // );
   };
   useOnClickOutside(formRef, () => {
     handleBlur(FORMVALUES.NAME);
@@ -91,6 +118,11 @@ export default function FormKit({ locale }: Props) {
             dirty,
           }) => (
             <>
+              {contactExist && (
+                <ParagraphText size="flex justify-center align-center text-center m-auto">
+                  {translate.userExistKit}
+                </ParagraphText>
+              )}
               <Styles.FormKit onSubmit={handleSubmit} ref={formRef}>
                 <Styles.BlockInputEnd>
                   <Styles.BlockInputOnly
@@ -193,6 +225,7 @@ export default function FormKit({ locale }: Props) {
                   <Styles.BtnSend
                     {...handlersFuntion(handleSubmit)}
                     onClick={handleSubmit}
+                    type="submit"
                     ismode={
                       !(isValid && dirty) ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF
                     }>
