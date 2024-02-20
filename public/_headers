@@ -1,9 +1,9 @@
 /*
 Content-Security-Policy:
   default-src 'self';
-  script-src 'self' 'https://attomo.digital' 'https://attomo-images.fra1.cdn.digitaloceanspaces.com' 'https://d23jutsnau9x47.cloudfront.net' 'https://www.googletagmanager.com' 'unsafe-inline';
-  img-src 'self' 'https://attomo-test.s3.eu-west-3.amazonaws.com' 'https://*.cdn.digitaloceanspaces.com' data:;
-  style-src 'self' 'https://attomo.digital' 'https://fonts.googleapis.com' 'unsafe-inline';
+  script-src 'self' 'https://attomo.digital' 'https://attomo-images.fra1.cdn.digitaloceanspaces.com' 'https://d23jutsnau9x47.cloudfront.net/back/v1.0.9/viewer.js' 'https://www.googletagmanager.com/gtm.js?id=GTM-PK7QVJG&gtm_auth=&gtm_preview=&gtm_cookies_win=x'  'unsafe-inline';
+  img-src 'self' 'https://attomo-test.s3.eu-west-3.amazonaws.com' 'https://attomo-images.fra1.cdn.digitaloceanspaces.com' data:;
+  style-src 'self' 'https://attomo.digital' 'https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&family=Merriweather+Sans:wght@300;500;600;700;800&family=Merriweather:wght@300;400;700;900&display=swap' https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&family=Merriweather+Sans:wght@300;500;600;700;800&family=Merriweather:wght@300;400;700;900&display=swap 'unsafe-inline';
   font-src 'self' 'https://fonts.gstatic.com' data:;
   connect-src 'self' 'https://attomo.digital';
   frame-src 'self';
