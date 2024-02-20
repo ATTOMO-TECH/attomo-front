@@ -4,11 +4,11 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Blogstyles } from './style';
 import TitleUrl from '../Text/titleUrl';
-import IconAnimate from '../button/icon';
 import ParagraphURL from '../Text/paragraphURL';
-import { handlers } from '../../hook/longPress';
 import { getLocale } from '../../public/locales/getLocale';
 import { VALUESNAV_ENG, VALUESNAV_ESP } from '../../const/constGlobal';
+import { Icon } from '../button/style';
+import { BUTTON_MODE } from '../../const/const';
 
 interface Props {
   data: any;
@@ -16,8 +16,6 @@ interface Props {
 }
 
 export default function BlockBlog({ data, locale }: Props) {
-  // console.log(data)
-
   const [translate, setTranslate] = useState(getLocale(locale || 'es'));
   const VALUESNAV = locale === 'en' ? VALUESNAV_ENG : VALUESNAV_ESP;
 
@@ -26,7 +24,6 @@ export default function BlockBlog({ data, locale }: Props) {
       setTranslate(getLocale(locale));
     }
   }, [locale]);
-
   const variants = {
     hidden: {
       opacity: 0.5,
@@ -100,13 +97,7 @@ export default function BlockBlog({ data, locale }: Props) {
         <motion.div variants={item}>
           <Blogstyles.Article>
             <Link
-              href={{
-                pathname: `${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`,
-                query: {
-                  tags: data.attributes.blog_tags.data[0]?.attributes.name,
-                },
-              }}
-              passHref>
+              href={`${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`}>
               <Blogstyles.BlockImg>
                 {data.attributes?.coverImage?.data?.attributes?.url ? (
                   <Image
@@ -115,9 +106,6 @@ export default function BlockBlog({ data, locale }: Props) {
                     height={475}
                     alt={data.attributes.coverImage.data.attributes?.name}
                     id={`${data.id}`}
-                    {...handlers(
-                      `/${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`,
-                    )}
                   />
                 ) : null}
               </Blogstyles.BlockImg>
@@ -125,39 +113,37 @@ export default function BlockBlog({ data, locale }: Props) {
             <Blogstyles.BlockText>
               <ParagraphURL
                 size="text-sm leading-relaxed  "
-                tags={data.attributes.blog_tags.data[0].attributes.name}
                 url={`${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`}>
                 {data.attributes.blog_tags.data[0]?.attributes.name}
               </ParagraphURL>
               <TitleUrl
                 size="text-xl lg:text-3xl pr-12 md:pr-4 lg:pr-12 leading-loose pt-4 md:pt-0 lg:pt-4 cursor-pointer"
-                tags={data.attributes.blog_tags.data[0].attributes.name}
                 url={`${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`}>
                 {data.attributes.title}
               </TitleUrl>
               <ParagraphURL
                 size="pr-12 md:pr-4 lg:pr-12 pt-4 md:pt-0 lg:pt-4 text-sm leading-relaxed cursor-pointer"
-                tags={data.attributes.blog_tags.data[0].attributes.name}
                 url={`${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`}>
                 {data.attributes.description}
               </ParagraphURL>
 
               <Blogstyles.SubText />
               <Link
-                href={{
-                  pathname: `${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`,
-                  query: {
-                    tags: data.attributes.blog_tags.data[0]?.attributes.name,
-                  },
-                }}
-                passHref>
-                <a
-                  {...handlers(
-                    `${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`,
-                  )}
-                  className="h-12 w-2/6 relative">
-                  <IconAnimate text={translate.trendsReadButton} mode />
-                </a>
+                href={`${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`}>
+                <Icon.BlockHidden>
+                  <p className="font-Primary font-light text-left text-lg pr-2 text-primary">
+                    {translate.trendsReadButton}
+                  </p>
+                  <Icon.SectionIcon>
+                    <Icon.Icon ismode={BUTTON_MODE.LIGHT} />
+                  </Icon.SectionIcon>
+                  <Image
+                    src="/icon/iconBtn.svg"
+                    width={8}
+                    height={8}
+                    alt="button"
+                  />
+                </Icon.BlockHidden>
               </Link>
             </Blogstyles.BlockText>
           </Blogstyles.Article>
