@@ -1,3 +1,10 @@
 /*
- Content-Security-Policy: default-src 'self'; img-src 'self' https: data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:;
-
+Content-Security-Policy:
+  default-src 'self';
+  script-src 'self' 'https://attomo.digital' 'https://*.digitaloceanspaces.com';
+  img-src 'self' 'https://attomo-test.s3.eu-west-3.amazonaws.com' 'https://*.cdn.digitaloceanspaces.com' data:;
+  style-src 'self' 'https://attomo.digital' 'unsafe-inline';
+  font-src 'self' 'https://attomo.digital';
+  connect-src 'self' 'https://attomo.digital';
+  frame-src 'self';
+  object-src 'none';
