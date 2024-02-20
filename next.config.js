@@ -8,7 +8,7 @@ module.exports = {
   optimizeFonts: false,
   images: {
     // domains: ['https://attomo-admin.herokuapp.com/'],
-    domains: ['attomo-test.s3.eu-west-3.amazonaws.com', 'attomo-images.fra1.cdn.digitaloceanspaces.com', 'localhost'],
+    domains: ['attomo-test.s3.eu-west-3.amazonaws.com', 'attomo-images.fra1.cdn.digitaloceanspaces.com', 'localhost', 'attomo.digital',],
     formats: ['image/avif', 'image/webp'],
   },
   compiler: {
