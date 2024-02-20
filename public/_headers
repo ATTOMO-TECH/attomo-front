@@ -1,0 +1,10 @@
+/*
+Content-Security-Policy:
+  default-src 'self';
+  script-src 'self' 'https://attomo.digital' 'https://attomo-images.fra1.cdn.digitaloceanspaces.com' 'https://d23jutsnau9x47.cloudfront.net' 'https://www.googletagmanager.com' 'unsafe-inline';
+  img-src 'self' 'https://attomo-test.s3.eu-west-3.amazonaws.com' 'https://attomo-images.fra1.cdn.digitaloceanspaces.com' data:;
+  style-src 'self' 'https://attomo.digital' 'https://fonts.googleapis.com' 'unsafe-inline';
+  font-src 'self' 'https://fonts.gstatic.com' data:;
+  connect-src 'self' 'https://attomo.digital';
+  frame-src 'self';
+  object-src 'none';

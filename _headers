@@ -1,5 +1,0 @@
-/*
-  Content-Security-Policy: default-src 'self'; img-src 'self' https://attomo-test.s3.eu-west-3.amazonaws.com 'https://*.cdn.digitaloceanspaces.com' data:; script-src 'self' 'https://attomo.digital' 'unsafe-inline'; style-src 'self' 'https://attomo.digital' 'unsafe-inline'; font-src 'self'; connect-src 'self' https://attomo.digital; frame-src 'none'; object-src 'none'
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: no-referrer-when-downgrade
