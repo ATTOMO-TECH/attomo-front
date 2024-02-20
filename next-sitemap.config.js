@@ -3,7 +3,7 @@ const siteUrl = "https://attomo.digital";
 const policy = {
     userAgent: "*",
     allow: "/",
-    disallow: ["/privacidad", "/terminos", "/en/privacidad", "/en/terminos", "/en/terms", "/en/privacy", "/terms", "/privacy"],
+    disallow: ["/en/privacidad", "/en/terminos", "/en/terms", "/en/privacy", "/terms", "/privacy"],
     // sitemap: `${siteUrl}/server-sitemap.xml`
 };
 
