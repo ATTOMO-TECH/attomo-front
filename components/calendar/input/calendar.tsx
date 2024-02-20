@@ -50,8 +50,8 @@ export default function CalendarPickerInput({
             autoComplete="off"
             className={
               dateValue === undefined || null
-                ? 'inputDate outline-none  text-sm font-light text-gray-300 h-full w-full py-3 opacity-50 hover:opacity-80  '
-                : `inputDate outline-none  text-sm font-light text-white h-full w-full py-3 opacity-100${
+                ? 'inputDate outline-none text-sm font-light text-gray-300 h-full w-full py-3 opacity-50 hover:opacity-80  '
+                : `inputDate outline-none text-sm font-light text-white h-full w-full py-3 opacity-100${
                     focused ? ' -focused' : ''
                   }`
             }
