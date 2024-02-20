@@ -1,10 +1,10 @@
 /*
 Content-Security-Policy:
   default-src 'self';
-  script-src 'self' 'https://attomo.digital' 'https://*.digitaloceanspaces.com';
+  script-src 'self' 'https://attomo.digital' 'https://*.digitaloceanspaces.com' 'https://d23jutsnau9x47.cloudfront.net' 'https://www.googletagmanager.com' 'unsafe-inline';
   img-src 'self' 'https://attomo-test.s3.eu-west-3.amazonaws.com' 'https://*.cdn.digitaloceanspaces.com' data:;
-  style-src 'self' 'https://attomo.digital' 'unsafe-inline';
-  font-src 'self' 'https://attomo.digital';
+  style-src 'self' 'https://attomo.digital' 'https://fonts.googleapis.com' 'unsafe-inline';
+  font-src 'self' 'https://fonts.gstatic.com' data:;
   connect-src 'self' 'https://attomo.digital';
   frame-src 'self';
   object-src 'none';
