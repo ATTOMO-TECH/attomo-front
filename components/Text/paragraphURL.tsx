@@ -5,19 +5,18 @@ interface Props {
   children: any;
   url: string;
   size: string;
-  tags?: string;
 }
 
-export default function ParagraphURL({ children, size, url, tags }: Props) {
+export default function ParagraphURL({ children, size, url }: Props) {
   return (
     <Link
-      href={{
-        pathname: `${url}`,
-        query: {
-          tags,
-        },
-      }}
-      passHref>
+      href={
+        url
+        // pathname: `${url}`,
+        // query: {
+        //   tags,
+        // },
+      }>
       <Text.ParagraphTitle className={size}>{children}</Text.ParagraphTitle>
     </Link>
   );
