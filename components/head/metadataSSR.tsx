@@ -80,6 +80,11 @@ export function MetadataSSR({ screen, canonicalLinks, locale }: Props) {
         hrefLang="en"
         href={canonicalLinks[0]?.attributes?.hrefLangEN}
       />
+      <link
+        rel="alternate"
+        hrefLang="x-default"
+        href={canonicalLinks[0]?.attributes?.hrefLangES}
+      />
       <meta name="type" content="website" />
       <meta
         name="copyright"

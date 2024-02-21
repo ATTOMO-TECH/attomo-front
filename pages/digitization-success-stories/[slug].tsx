@@ -31,6 +31,11 @@ export default function index(props: any) {
           hrefLang="en"
           href={data.attributes?.hrefLangEN}
         />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href={data.attributes?.hrefLangES}
+        />
         <meta name="type" content="website" />
         <meta
           name="copyright"
