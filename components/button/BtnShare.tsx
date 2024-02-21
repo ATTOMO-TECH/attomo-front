@@ -36,7 +36,7 @@ export default function ButtonShare() {
         <a
           target="_blank"
           href="https://api.whatsapp.com/send/?phone=34610516285"
-          rel="nofollow noreferrer"
+          rel="noreferrer"
           {...handlersExternal(
             'https://api.whatsapp.com/send/?phone=34610516285',
           )}>

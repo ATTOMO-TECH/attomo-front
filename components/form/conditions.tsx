@@ -24,7 +24,7 @@ export default function Conditions() {
               id="term-form"
               href="/terminos"
               target="_blank"
-              rel="nofollow"
+              // rel="nofollow"
               className="underline xl:hover:text-blue-400 xl:no-underline"
               {...handlersExternal(`/terminos`)}>
               {` ${translate.formTems}  `}
@@ -35,7 +35,7 @@ export default function Conditions() {
             <a
               id="privacy-form"
               href="/privacidad"
-              rel="nofollow"
+              // rel="nofollow"
               target="_blank"
               className="underline xl:hover:text-blue-400 xl:no-underline"
               {...handlersExternal(`/privacidad`)}>

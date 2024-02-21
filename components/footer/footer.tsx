@@ -63,7 +63,7 @@ export default function Footer({ subFooter }: Props) {
                       target="_blank"
                       href={values.Url}
                       id={values.Name}
-                      rel="nofollow noreferrer"
+                      rel="noreferrer"
                       {...handlersExternal(values.Url)}>
                       <Image
                         src={values.Pic2}
@@ -88,7 +88,7 @@ export default function Footer({ subFooter }: Props) {
               href={
                 locale === 'en' ? VALUESNAV_ENG[8].Url : VALUESNAV_ESP[8].Url
               }
-              rel="nofollow"
+              // rel="nofollow"
               {...handlers(
                 locale === 'en' ? VALUESNAV_ENG[8].Url : VALUESNAV_ESP[8].Url,
               )}>
@@ -102,7 +102,7 @@ export default function Footer({ subFooter }: Props) {
               href={
                 locale === 'en' ? VALUESNAV_ENG[9].Url : VALUESNAV_ESP[9].Url
               }
-              rel="nofollow"
+              // rel="nofollow"
               {...handlers(
                 locale === 'en' ? VALUESNAV_ENG[9].Url : VALUESNAV_ESP[9].Url,
               )}>
