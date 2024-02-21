@@ -59,6 +59,11 @@ export default function index(props: any) {
           hrefLang="en"
           href={data.attributes?.hrefLangEN}
         />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href={data.attributes?.hrefLangES}
+        />
 
         {/* <link rel="alternate" hrefLang='es' href={ spanishUrl }/> */}
         {/* <link rel="alternate" hrefLang='en' href={ englishhUrl }/> */}
