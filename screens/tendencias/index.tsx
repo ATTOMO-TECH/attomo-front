@@ -161,6 +161,7 @@ function News({ data, locale, tags }: Props) {
     window.addEventListener('scroll', handleScrollEvent);
     return () => {
       window.removeEventListener('scroll', handleScrollEvent);
+      window.removeEventListener('scroll', handleScrollEvent);
     };
   }, [finalPage, hasNextPage, handleFetchNextPage]);
 
