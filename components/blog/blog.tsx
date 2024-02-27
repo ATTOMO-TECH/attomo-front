@@ -106,6 +106,7 @@ export default function BlockBlog({ data, locale }: Props) {
                     height={475}
                     alt={data.attributes.coverImage.data.attributes?.name}
                     id={`${data.id}`}
+                    loading="eager"
                   />
                 ) : null}
               </Blogstyles.BlockImg>
