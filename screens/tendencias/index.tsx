@@ -31,6 +31,9 @@ function News({ data, locale, tags }: Props) {
   const [startDate, setStartDateFilter] = useState<Date>();
   const [endDate, setEndDateFilter] = useState<Date>();
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [lastRequestedPage, setLastRequestedPage] = useState<number | null>(
+    null,
+  );
 
   let queryObject: any = {
     locale,
@@ -94,13 +97,23 @@ function News({ data, locale, tags }: Props) {
     encodeValuesOnly: true,
   });
 
+  const finalPage = () => {
+    const windowHeight = window.innerHeight;
+    const { scrollY } = window;
+    const bodyOffsetHeight = document.body.offsetHeight;
+    const distanceFromTheEnd = 1500;
+
+    return windowHeight + scrollY >= bodyOffsetHeight - distanceFromTheEnd;
+  };
+
   const {
     data: dataBlog,
     fetchNextPage,
     hasNextPage,
   } = useInfiniteQuery(
     ['useAllPost', queryQs],
-    ({ pageParam }) => {
+    ({ pageParam = 1 }) => {
+      // Asegúrate de que pageParam tenga un valor predeterminado
       const params = qs.stringify(
         {
           pagination: {
@@ -119,38 +132,37 @@ function News({ data, locale, tags }: Props) {
       enabled: !!queryQs && process.browser,
       initialData: data || {},
       getNextPageParam: (lastPage) => {
-        if (
-          lastPage?.meta?.pagination?.page <
-          lastPage?.meta?.pagination?.pageCount
-        ) {
-          return +(lastPage?.meta?.pagination?.page || 0) + 1;
-        }
-        return null;
+        const nextPage = lastPage?.meta?.pagination?.page + 1;
+        return nextPage <= lastPage?.meta?.pagination?.pageCount
+          ? nextPage
+          : undefined;
       },
     },
   );
 
-  const finalPage = () => {
-    const windowHeight = window.innerHeight;
-    const { scrollY } = window;
-    const bodyOffsetHeight = document.body.offsetHeight;
-    const distanceFromTheEnd = 1000;
-
-    return windowHeight + scrollY >= bodyOffsetHeight - distanceFromTheEnd;
-  };
-  const handleScroll = throttle(() => {
-    if (hasNextPage && finalPage()) {
-      fetchNextPage();
+  const handleFetchNextPage = () => {
+    const nextPage =
+      +(
+        dataBlog?.pages[dataBlog.pages.length - 1]?.meta?.pagination?.page || 0
+      ) + 1;
+    if (nextPage !== lastRequestedPage && hasNextPage) {
+      fetchNextPage({ pageParam: nextPage });
+      setLastRequestedPage(nextPage);
     }
-  }, 400);
+  };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    const handleScrollEvent = throttle(() => {
+      if (finalPage() && hasNextPage) {
+        handleFetchNextPage();
+      }
+    }, 100);
 
+    window.addEventListener('scroll', handleScrollEvent);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScrollEvent);
     };
-  }, [hasNextPage]);
+  }, [finalPage, hasNextPage, handleFetchNextPage]);
 
   const toggle = () => {
     setIsOpen(!isOpen);
