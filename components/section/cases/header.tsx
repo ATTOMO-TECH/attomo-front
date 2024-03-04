@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { StylesCases } from '../style';
 
 interface Props {
@@ -19,12 +18,12 @@ export default function HeaderCases({
       <StylesCases.CategoryText>{category}</StylesCases.CategoryText>
       <StylesCases.TitularText>{title}</StylesCases.TitularText>
       <StylesCases.Paragraph>{paragraph}</StylesCases.Paragraph>
-      <Image
+      <img
         src={image || '/'}
         width={950}
         height={500}
         alt={title}
-        objectFit="cover"
+        style={{ objectFit: 'cover' }}
       />
     </>
   );
