@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-// import Link from 'next/link';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { BUTTON_ACTIVE } from '../../const/const';
 import IconAnimate from '../button/icon';
@@ -52,26 +52,28 @@ export default function SectionProjects({
         <Styles.BlockSections
           ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
           key={values.Client}>
-          <a
-            href={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}
-            rel="noreferrer">
+          <Link href={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}>
             <Styles.BlockSection
               ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
               {values?.attributes?.mainPhoto?.data[0].attributes?.url && (
-                <img
-                  src={values?.attributes.mainPhoto.data[0].attributes.url}
-                  // width={800}
-                  // height={500}
-                  id={`${values.id}`}
-                  alt={
-                    values.attributes.mainPhoto.data[0].attributes
-                      .alternativeText
-                  }
-                  className="object-cover cursor-pointer"
-                />
+                <a
+                  href={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}
+                  rel="noreferrer">
+                  <img
+                    src={values?.attributes.mainPhoto.data[0].attributes.url}
+                    // width={800}
+                    // height={500}
+                    id={`${values.id}`}
+                    alt={
+                      values.attributes.mainPhoto.data[0].attributes
+                        .alternativeText
+                    }
+                    className="object-cover cursor-pointer"
+                  />
+                </a>
               )}
             </Styles.BlockSection>
-          </a>
+          </Link>
           <Styles.BlockText
             ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
             <motion.div
@@ -91,13 +93,16 @@ export default function SectionProjects({
                 size="lg:text-4xl md:text-2xl text-xl  mb-4 py-3 leading-relaxed lg:leading-normal cursor-pointer">
                 {values.attributes.title}
               </TitleUrl>
-              <a
-                href={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}
-                rel="noreferrer">
+              <Link
+                href={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}>
                 <Styles.BlockBtn>
-                  <IconAnimate text={translate.seeMoreCases} mode />
+                  <a
+                    href={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}
+                    rel="noreferrer">
+                    <IconAnimate text={translate.seeMoreCases} mode />
+                  </a>
                 </Styles.BlockBtn>
-              </a>
+              </Link>
             </motion.div>
           </Styles.BlockText>
         </Styles.BlockSections>
