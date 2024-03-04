@@ -135,20 +135,24 @@ export default function BlockBlog({ data, locale }: Props) {
               <Blogstyles.SubText />
               <Link
                 href={`${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`}>
-                <Icon.BlockHidden>
-                  <p className="font-Primary font-light text-left text-lg pr-2 text-primary">
-                    {translate.trendsReadButton}
-                  </p>
-                  <Icon.SectionIcon>
-                    <Icon.Icon ismode={BUTTON_MODE.LIGHT} />
-                  </Icon.SectionIcon>
-                  <Image
-                    src="/icon/iconBtn.svg"
-                    width={8}
-                    height={8}
-                    alt="button"
-                  />
-                </Icon.BlockHidden>
+                <a
+                  href={`${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`}
+                  rel="noreferrer">
+                  <Icon.BlockHidden>
+                    <p className="font-Primary font-light text-left text-lg pr-2 text-primary">
+                      {translate.trendsReadButton}
+                    </p>
+                    <Icon.SectionIcon>
+                      <Icon.Icon ismode={BUTTON_MODE.LIGHT} />
+                    </Icon.SectionIcon>
+                    <Image
+                      src="/icon/iconBtn.svg"
+                      width={8}
+                      height={8}
+                      alt="button"
+                    />
+                  </Icon.BlockHidden>
+                </a>
               </Link>
             </Blogstyles.BlockText>
           </Blogstyles.Article>
