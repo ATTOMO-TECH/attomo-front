@@ -100,7 +100,7 @@ export default function BlockBlog({ data, locale }: Props) {
               href={`${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`}>
               <Blogstyles.BlockImg>
                 {data.attributes?.coverImage?.data?.attributes?.url ? (
-                  <Image
+                  <img
                     src={data.attributes.coverImage.data.attributes?.url}
                     width={900}
                     height={475}
