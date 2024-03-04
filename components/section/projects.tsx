@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { BUTTON_ACTIVE } from '../../const/const';
 import IconAnimate from '../button/icon';
@@ -52,7 +52,9 @@ export default function SectionProjects({
         <Styles.BlockSections
           ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
           key={values.Client}>
-          <Link href={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}>
+          <a
+            href={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}
+            rel="noreferrer">
             <Styles.BlockSection
               ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
               {values?.attributes?.mainPhoto?.data[0].attributes?.url && (
@@ -69,7 +71,7 @@ export default function SectionProjects({
                 />
               )}
             </Styles.BlockSection>
-          </Link>
+          </a>
           <Styles.BlockText
             ismode={i % 2 === 0 ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
             <motion.div
@@ -89,12 +91,13 @@ export default function SectionProjects({
                 size="lg:text-4xl md:text-2xl text-xl  mb-4 py-3 leading-relaxed lg:leading-normal cursor-pointer">
                 {values.attributes.title}
               </TitleUrl>
-              <Link
-                href={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}>
+              <a
+                href={`${VALUESNAV[1].Url}/${values.attributes.URLSlug}-${id}`}
+                rel="noreferrer">
                 <Styles.BlockBtn>
                   <IconAnimate text={translate.seeMoreCases} mode />
                 </Styles.BlockBtn>
-              </Link>
+              </a>
             </motion.div>
           </Styles.BlockText>
         </Styles.BlockSections>

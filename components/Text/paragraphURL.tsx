@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Text } from './style';
+import { handlers } from '../../hook/longPress';
 
 interface Props {
   children: any;
@@ -17,7 +18,9 @@ export default function ParagraphURL({ children, size, url }: Props) {
         //   tags,
         // },
       }>
-      <Text.ParagraphTitle className={size}>{children}</Text.ParagraphTitle>
+      <a {...handlers(`${url}`)} rel="noreferrer">
+        <Text.ParagraphTitle className={size}>{children}</Text.ParagraphTitle>
+      </a>
     </Link>
   );
 }
