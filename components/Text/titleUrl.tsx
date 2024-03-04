@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Text } from './style';
+import { handlers } from '../../hook/longPress';
 
 interface Props {
   children: any;
@@ -24,9 +25,9 @@ export default function TitleUrl({ children, url, size }: Props) {
         //     }
       }
       passHref>
-      {/* <a {...handlers(`${url}`)}> */}
-      <Text.TextTitle className={size}>{children}</Text.TextTitle>
-      {/* </a> */}
+      <a {...handlers(`${url}`)} rel="noreferrer">
+        <Text.TextTitle className={size}>{children}</Text.TextTitle>
+      </a>
     </Link>
   );
 }

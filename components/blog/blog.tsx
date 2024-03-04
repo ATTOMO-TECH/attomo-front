@@ -100,14 +100,18 @@ export default function BlockBlog({ data, locale }: Props) {
               href={`${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`}>
               <Blogstyles.BlockImg>
                 {data.attributes?.coverImage?.data?.attributes?.url ? (
-                  <img
-                    src={data.attributes.coverImage.data.attributes?.url}
-                    width={900}
-                    height={475}
-                    alt={data.attributes.coverImage.data.attributes?.name}
-                    id={`${data.id}`}
-                    loading="eager"
-                  />
+                  <a
+                    href={`${VALUESNAV[3].Url}/${data.attributes.URLSlug}-${data.id}`}
+                    rel="noreferrer">
+                    <img
+                      src={data.attributes.coverImage.data.attributes?.url}
+                      width={900}
+                      height={475}
+                      alt={data.attributes.coverImage.data.attributes?.name}
+                      id={`${data.id}`}
+                      loading="eager"
+                    />
+                  </a>
                 ) : null}
               </Blogstyles.BlockImg>
             </Link>
