@@ -56,7 +56,7 @@ export default function FormKit({ locale }: Props) {
     };
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}/digital-kits/hubspot`,
+        `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}/digital-kit/hubspot`,
         {
           method: 'POST',
           headers: {
