@@ -271,189 +271,201 @@ export const CUSTOMERS: {
   Pic: string;
   Url: string;
 }[] = [
-  /* {
-    Name: 'AddTimme',
-    Pic: '/customers/Addtimme.png',
-    Url: '',
-  }, */
   {
-    Name: 'Tasafy',
-    Pic: '/customers/logos/tasafy.svg',
-    Url: 'https://www.tasafy.com/',
-  },
-  {
-    Name: 'Zityhub',
-    Pic: '/customers/logos/zityhub.svg',
-    Url: 'https://zityhub.com/',
-  },
-  {
-    Name: 'Viandas',
-    Pic: '/customers/logos/viandas.svg',
-    Url: 'https://viandasstores.com/es/',
-  },
-  {
-    Name: 'VIVLA',
-    Pic: '/customers/logos/vivla.svg',
-    Url: 'https://es.vivla.com/',
-  },
-  {
-    Name: 'Grupo LALALA',
-    Pic: '/customers/logos/grupo-lalala.svg',
-    Url: 'https://grupolalala.com/',
-  },
-  {
-    Name: 'Treescoliving',
-    Pic: '/customers/logos/treecoliving.svg',
-    Url: 'https://www.treescoliving.com/',
-  },
-  {
-    Name: 'Bstadium',
-    Pic: '/customers/logos/bstadium.svg',
-    Url: 'https://bstadium.es/',
-  },
-  {
-    Name: 'Idealista',
-    Pic: '/customers/logos/idealista.svg',
-    Url: 'https://www.idealista.com/',
-  },
-  {
-    Name: 'GVRE',
-    Pic: '/customers/logos/gvre.svg',
-    Url: 'https://gvre.es/',
-  },
-  {
-    Name: 'Clínica Dermatológica Internacional',
-    Pic: '/customers/logos/CDI.svg',
-    Url: 'https://www.clinicadermatologicainternacional.com/',
-  },
-  {
-    Name: 'Real Sociedad FC',
-    Pic: '/customers/logos/real-sociedad.svg',
-    Url: 'https://www.realsociedad.eus/',
-  },
-  {
-    Name: 'Zagal1200',
-    Pic: '/customers/logos/zagal.svg',
-    Url: 'https://www.zagal1200.com/',
-  },
-  {
-    Name: 'Sevilla FC',
-    Pic: '/customers/logos/sevilla-fc.svg',
-    Url: 'https://sevillafc.es/',
-  },
-  {
-    Name: 'La Lupita',
-    Pic: '/customers/logos/lupita.svg',
-    Url: 'https://www.lalupita.es/',
-  },
-  {
-    Name: 'MRGO Arquitectos',
-    Pic: '/customers/logos/MRGO.svg',
-    Url: 'https://mrgoarquitectos.com/',
-  },
-  {
-    Name: 'Keiko',
-    Pic: '/customers/logos/keiko.svg',
-    Url: 'https://www.keikofusion.com/',
-  },
-  {
-    Name: 'Magoni',
-    Pic: '/customers/logos/magoni.svg',
-    Url: 'https://www.magoni.co/',
-  },
-  {
-    Name: 'Método R',
-    Pic: '/customers/logos/metodo-r.svg',
-    Url: 'https://www.metodo-r.com/es/',
-  },
-  {
-    Name: 'Spherika',
-    Pic: '/customers/logos/spherika.svg',
-    Url: 'https://spherika.es/',
+    Name: 'Aena',
+    Pic: '/customers/logos/Container.svg',
+    Url: 'https://www.aena.es/es/pasajeros/pasajeros.html',
   },
   {
     Name: 'El Rincón',
-    Pic: '/customers/logos/grupo-el-rincon.svg',
+    Pic: '/customers/logos/Container-1.svg',
     Url: 'https://www.grupoelrincon.es/',
   },
-
+  {
+    Name: 'Agruppa',
+    Pic: '/customers/logos/Container-2.svg',
+    Url: 'https://www.agruppahomes.com/',
+  },
+  {
+    Name: 'Sevilla FC',
+    Pic: '/customers/logos/Container-4.svg',
+    Url: 'https://sevillafc.es/',
+  },
+  {
+    Name: 'Viandas',
+    Pic: '/customers/logos/Container-5.svg',
+    Url: 'https://viandasstores.com/es/',
+  },
+  {
+    Name: 'Spherika',
+    Pic: '/customers/logos/Container-6.svg',
+    Url: 'https://spherika.es/',
+  },
+  {
+    Name: 'Tasafy',
+    Pic: '/customers/logos/Container-7.svg',
+    Url: 'https://www.tasafy.com/',
+  },
   {
     Name: 'Alfareal',
-    Pic: '/customers/logos/logo-alfareal.svg',
+    Pic: '/customers/logos/Container-8.svg',
     Url: 'https://alfarealgroup.com/es/',
   },
   {
+    Name: 'TC Collection',
+    Pic: '/customers/logos/Container-9.svg',
+    Url: 'https://tccollection.es/',
+  },
+  {
+    Name: 'La Lupita',
+    Pic: '/customers/logos/Container-10.svg',
+    Url: 'https://www.lalupita.es/',
+  },
+  {
+    Name: 'Grupo Lalala',
+    Pic: '/customers/logos/Container-11.svg',
+    Url: 'https://grupolalala.com/',
+  },
+  {
+    Name: 'Grupo Carso',
+    Pic: '/customers/logos/Container-13.svg',
+    Url: 'https://www.carso.com.mx/',
+  },
+  {
+    Name: 'Boca Juniors FC',
+    Pic: '/customers/logos/Container-14.svg',
+    Url: 'https://www.bocajuniors.com.ar/',
+  },
+  {
     Name: 'DEM',
-    Pic: '/customers/logos/logo-DEM.png',
+    Pic: '/customers/logos/Container-12.svg',
     Url: 'https://dehesaelmilagro.com/',
   },
   {
     Name: 'Diana',
-    Pic: '/customers/logos/logo-diana.svg',
-    Url: 'https://www.dianadating.app/',
+    Pic: '/customers/logos/Container-15.svg',
+    Url: '#',
   },
   {
-    Name: 'Agruppa',
-    Pic: '/customers/logos/logo-agruppa.svg',
-    Url: 'http://agruppahomes.com/',
+    Name: 'Vivla',
+    Pic: '/customers/logos/Container-16.svg',
+    Url: 'https://es.vivla.com/',
+  },
+  {
+    Name: 'Winecrush',
+    Pic: '/customers/logos/Container-17.svg',
+    Url: 'https://www.winecrush.club/',
+  },
+  {
+    Name: 'Fainder',
+    Pic: '/customers/logos/Container-18.svg',
+    Url: 'https://www.fainder.co/',
+  },
+  {
+    Name: 'Keiko',
+    Pic: '/customers/logos/Container-26.svg',
+    Url: 'https://www.keikofusion.com/',
+  },
+  {
+    Name: 'Trascendent',
+    Pic: '/customers/logos/Container-19.svg',
+    Url: 'https://transcendent.es/',
   },
   {
     Name: 'Kilbourne',
-    Pic: '/customers/logos/logo-kilbourne.svg',
-    Url: 'https://www.dianadating.app/',
+    Pic: '/customers/logos/Container-20.svg',
+    Url: 'https://kilbourne.es/',
   },
-
   {
-    Name: 'Fainder',
-    Pic: '/customers/logos/logo-fainder.svg',
-    Url: 'https://www.dianadating.app/',
+    Name: 'GVRE',
+    Pic: '/customers/logos/Container-21.svg',
+    Url: 'https://gvre.es/',
   },
   {
     Name: 'La joya',
-    Pic: '/customers/logos/logo-la-joya.svg',
+    Pic: '/customers/logos/Container-23.svg',
     Url: 'https://lajoyaproducciones.com/',
   },
   {
-    Name: 'Metodo R',
-    Pic: '/customers/logos/logo-metodo-r.svg',
+    Name: 'Magoni',
+    Pic: '/customers/logos/Container-24.svg',
+    Url: 'https://www.magoni.co/',
+  },
+  {
+    Name: 'Bstadium',
+    Pic: '/customers/logos/Container-25.svg',
+    Url: 'https://bstadium.es/',
+  },
+  {
+    Name: 'CDI',
+    Pic: '/customers/logos/Container-33.svg',
+    Url: 'https://www.clinicadermatologicainternacional.com/',
+  },
+  {
+    Name: 'Casa de alba',
+    Pic: '/customers/logos/Container-27.svg',
+    Url: 'https://www.fundacioncasadealba.com/',
+  },
+  {
+    Name: 'Método R',
+    Pic: '/customers/logos/Container-28.svg',
     Url: 'https://www.metodo-r.com/es/',
   },
-
-  /* {
-    Name: 'Benneti',
-    Pic: '/customers/Bennetti-watches.png',
-    Url: '',
-  }, */
-  /* {
-    Name: 'ChiandSu',
-    Pic: '/customers/chiandsu.png',
-    Url: '',
-  }, */
-  /* {
-    Name: 'Davo',
-    Pic: '/customers/DAVO-sin-slogan.png',
-    Url: '',
-  }, */
-  /* {
-    Name: 'Eco Tuk Tuk',
-    Pic: '/customers/Eco-Tuk-Tuk.png',
-    Url: '',
-  }, */
-  /* {
-    Name: 'Farandula',
-    Pic: '/customers/Farandula.png',
-    Url: '',
-  }, */
-  /* {
-    Name: 'Mi pequeño rincón Azul',
-    Pic: '/customers/Mi-pequeno-rincon-azul.png',
-    Url: '',
-  }, */
-  /* {
-    Name: 'Revuelta',
-    Pic: '/customers/REVUELTA-DOMECQ.png',
-    Url: '',
-  }, */
+  {
+    Name: 'Idealista',
+    Pic: '/customers/logos/Container-22.svg',
+    Url: 'https://www.idealista.com/',
+  },
+  {
+    Name: 'MRGO',
+    Pic: '/customers/logos/Container-29.svg',
+    Url: 'https://mrgoarquitectos.com/',
+  },
+  {
+    Name: 'Trees coliving',
+    Pic: '/customers/logos/Container-31.svg',
+    Url: 'https://www.treescoliving.com/',
+  },
+  {
+    Name: 'Zagal',
+    Pic: '/customers/logos/Container-30.svg',
+    Url: 'https://www.zagal1200.com/',
+  },
+  {
+    Name: 'KIRI AM',
+    Pic: '/customers/logos/Container-32.svg',
+    Url: 'https://www.kiriam.es/',
+  },
+  {
+    Name: 'Valum',
+    Pic: '/customers/logos/Container-34.svg',
+    Url: 'https://www.valumre.com/',
+  },
+  {
+    Name: 'Peter house partners',
+    Pic: '/customers/logos/Container-36.svg',
+    Url: 'https://www.peterhousepartners.com/',
+  },
+  {
+    Name: 'Zitihub',
+    Pic: '/customers/logos/Container-35.svg',
+    Url: 'https://zityhub.com/',
+  },
+  {
+    Name: 'Real Sociedad FC',
+    Pic: '/customers/logos/Container-37.svg',
+    Url: 'https://www.realsociedad.eus/',
+  },
+  {
+    Name: 'Dahlia',
+    Pic: '/customers/logos/Container-38.svg',
+    Url: 'https://dahliadahlia.com/es',
+  },
+  {
+    Name: 'Flipeat',
+    Pic: '/customers/logos/Container-39.svg',
+    Url: 'https://flipeatapp.com/',
+  },
 ];
 
 export const ARTICLES: {
