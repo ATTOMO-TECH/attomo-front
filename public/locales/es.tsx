@@ -63,7 +63,7 @@ export default {
     {
       HeroText: 'Plan de ayudas al Kit Digital',
       HeroSubTex:
-        'Si tienes de 0 a 49 empleados, puedes recibir hasta 12.000 € para digitalizar tu empresa. Nosotros te ayudamos.',
+        'Si tienes de 0 a 249 empleados, puedes recibir hasta 12.000 € para digitalizar tu empresa. Nosotros te ayudamos.',
     },
   ],
   kitConsulting: [
@@ -108,7 +108,7 @@ export default {
   helpYou: 'Nosotros te ayudamos',
   kitRequirements: [
     {
-      item: 'Ser microempresa, pequeña empresa (hasta 49 trabajadores) o autónomo.',
+      item: 'Ser microempresa, pequeña empresa (hasta 249 trabajadores) o autónomo.',
     },
     {
       item: 'No tener la consideración de empresa en crisis.',
