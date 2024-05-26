@@ -20,6 +20,7 @@ const DISCIPLINES = {
 const CONTACT = {
   CREATE: () => getAbsolutePath('client-forms'),
   CREATEKIT: () => getAbsolutePath('digital-kits'),
+  CREATEKITCONSULTING: () => getAbsolutePath('consulting-kits'),
   CREATECOLABORATOR: () => getAbsolutePath('partner-forms'),
   CREATERESERVE: () => getAbsolutePath('space-forms'),
 };

@@ -43,6 +43,11 @@ export default {
       // Url: '/kit-digital',
       Url: '/agente-digitalizador-madrid',
     },
+    {
+      Value: 'Kit Consulting',
+      // Url: '/kit-digital',
+      Url: '/agente-consultor-madrid',
+    },
   ],
   home: [
     {
@@ -61,6 +66,13 @@ export default {
         'Si tienes de 0 a 49 empleados, puedes recibir hasta 12.000 € para digitalizar tu empresa. Nosotros te ayudamos.',
     },
   ],
+  kitConsulting: [
+    {
+      HeroText: 'Plan de ayudas al Kit Consulting',
+      HeroSubTex:
+        'Si tienes de 10 a 249 empleados, puedes recibir hasta 24.000 € para digitalizar tu empresa. Nosotros te ayudamos.',
+    },
+  ],
   HeaderKit: 'Programa Kit Digital',
   programKit: [
     {
@@ -73,8 +85,22 @@ export default {
       item: `Estas ayudas se enmarcan dentro de los Fondos Europeos para la recuperación económica Next Generation EU. No es necesario adelantar dinero al ser subvenciones a fondo perdido.`,
     },
   ],
+  HeaderKitConsult: 'Programa Kit Consulting',
+  programKitConsul: [
+    {
+      item: `El Kit Consulting es una iniciativa del Gobierno de España que tiene como objetivo subvencionar la implantación de soluciones digitales disponibles en el mercado para conseguir un avance significativo en el nivel de madurez digital. Proporciona una serie de servicios digitales para ayudarles a impulsar la transición digital.`,
+    },
+    {
+      item: ` Es un programa del Ministerio de Asuntos Económicos y Transformación Digital dirigido a pymes y autónomos, que te acompaña en tu proceso de transformación digital.`,
+    },
+    {
+      item: `Estas ayudas se enmarcan dentro de los Fondos Europeos para la recuperación económica Next Generation EU. No es necesario adelantar dinero al ser subvenciones a fondo perdido.`,
+    },
+  ],
   subText:
     'El programa Kit Digital está financiado por la Unión Europea a través de los fondos Next Generation (EU) enmarcado en el Plan de Recuperación, Transformación y Resiliencia.',
+  subTextConsult:
+    'El programa Kit Consulting está financiado por la Unión Europea a través de los fondos Next Generation (EU) enmarcado en el Plan de Recuperación, Transformación y Resiliencia.',
 
   kitTitlerequirements: 'Requisitos para solicitar el Kit Digital',
   btnHow: 'Qué es el Kit Digital',
@@ -109,9 +135,44 @@ export default {
       item: `Tener el domicilio fiscal en España.`,
     },
   ],
+  kitConsultRequirements: [
+    {
+      item: 'Ser microempresa, pequeña empresa (hasta 249 trabajadores) o autónomo.',
+    },
+    {
+      item: 'No tener la consideración de empresa en crisis.',
+    },
+    {
+      item: 'Estar al corriente de las obligaciones tributarias y frente a la Seguridad Social.',
+    },
+    {
+      item: 'No estar sujeto a una orden de recuperación pendiente de la Comisión Europea que haya declarado una ayuda ilegal e incompatible con el mercado común.',
+    },
+    {
+      item: 'No incurrir en ninguna de las prohibiciones previstas en el artículo 13.2 de la Ley 38/2003, de 17 de noviembre, General de Subvenciones.',
+    },
+    {
+      item: `Estar inscrito en el Censo de empresarios, profesionales y retenedores de la Agencia Estatal de Administración Tributaria o en el censo equivalente de la Administración Tributaria Foral.`,
+    },
+    {
+      item: `No superar el límite de ayudas de mínimos –todas las subvenciones otorgadas por estados de la UE inferiores a 200.000 €–.`,
+    },
+    {
+      item: `Disponer de la evaluación del Nivel de Madurez Digital de acuerdo con el test de diagnóstico en la plataforma Acelera pyme.`,
+    },
+    {
+      item: `Tener el domicilio fiscal en España.`,
+    },
+  ],
+  kitConsulTitlerequirements: 'Requisitos para solicitar el Kit Consulting',
+  btnHowConsult: 'Qué es el Kit Consulting',
+  btnFormConsult: 'Solicitar Kit Consulting',
   howKitTitle: '¿Cómo solicitar el Kit Digital?',
+  howKitConsulTitle: '¿Cómo solicitar el Kit Consulting?',
   howSubtex:
     'El Kit Digital supone un bono digital con una cuantía económica para que escojas una o varias soluciones digitales de las ofrecidas por los agentes digitalizadores que desarrollen los servicios del catálogo. Sigue estos pasos para solicitar el Kit Digital:',
+  howSubtexConsul:
+    'El Kit Consulting supone un bono digital con una cuantía económica para que escojas una o varias soluciones digitales de las ofrecidas por los agentes digitalizadores que desarrollen los servicios del catálogo. Sigue estos pasos para solicitar el Kit Consulting:',
   howRequeriments: [
     {
       item: 'Regístrate en Acelera Pyme y completa el test de autodiagnóstico.',
@@ -124,6 +185,19 @@ export default {
       item: 'Accede a tu Kit Digital a través de un agente digitalizador, como ATTOMO.',
     },
   ],
+  howConsulRequeriments: [
+    {
+      item: 'Regístrate en Acelera Pyme y completa el test de autodiagnóstico.',
+    },
+    {
+      item: 'Consulta el catálogo de agentes digitalizadores y elige las soluciones que te interesen.',
+    },
+    { item: 'Rellena la solicitud de ayuda en la sede electrónica de Red.es.' },
+    {
+      item: 'Accede a tu Kit Consulting a través de un agente digitalizador, como ATTOMO.',
+    },
+  ],
+
   AgentKit: 'Somos agentes digitalizadores',
   AgentRequeriments: [
     {
@@ -170,6 +244,7 @@ export default {
 
   searchAgent: '¿Buscas un agente digitalizador?',
   helpYouKit: 'Te ayudamos a conseguir el kit digital',
+  helpYouKitConsul: 'Te ayudamos a conseguir el kit consulting',
   userExistKit:
     'Ya hemos registrado tu solicitud con este correo anteriormente, prueba con otro.',
   selected: [

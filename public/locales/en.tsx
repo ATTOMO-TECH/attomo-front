@@ -43,6 +43,11 @@ export default {
       // Url: '/kit-digital',
       Url: '/digitizing-agent-madrid',
     },
+    {
+      Value: 'Consulting Kit',
+      // Url: '/kit-digital',
+      Url: '/consulting-agent-madrid',
+    },
   ],
   home: [
     {
@@ -61,6 +66,13 @@ export default {
         'If you have between 0 and 49 employees, you can receive up to 12,000 euros to digitize your company. We can help you.',
     },
   ],
+  kitConsulting: [
+    {
+      HeroText: 'Consulting Kit support plan',
+      HeroSubTex:
+        'If you have between 0 and 249 employees, you can receive up to 24,000 euros to digitize your company. We can help you.',
+    },
+  ],
   HeaderKit: 'Digital Kit program',
   programKit: [
     {
@@ -72,13 +84,23 @@ export default {
     {
       item: `These grants are part of the European Funds for economic recovery Next Generation EU. It is not necessary to advance money as they are non-refundable grants.`,
     },
-    /* {
-      item: `The Digital Kit is an initiative of the Government of Spain that aims to subsidize the implementation of digital solutions available on the market to achieve a significant advance in the level of digital maturity. It provides a series of digital services to help them boost the digital transition.`,
-    }, */
+  ],
+  HeaderKitConsult: 'Consulting Kit program',
+  programKitConsul: [
+    {
+      item: `The Consulting Kit is a public initiative of the Government of Spain that aims to subsidize the implementation of digital solutions available on the market to achieve a significant advance in the level of digital maturity. It provides a series of digital services to help them boost the digital transition.`,
+    },
+    {
+      item: `It is a program of the Ministry of Economic Affairs and Digital Transformation aimed at SMEs and freelancers, which accompanies you in your digital transformation process.`,
+    },
+    {
+      item: `These grants are part of the European Funds for economic recovery Next Generation EU. It is not necessary to advance money as they are non-refundable grants.`,
+    },
   ],
   subText:
     'The Digital Kit program is funded by the European Union through Next Generation (EU) funds under the Recovery, Transformation and Resilience Plan.',
-
+  subTextConsult:
+    'The Consulting Kit program is funded by the European Union through Next Generation (EU) funds under the Recovery, Transformation and Resilience Plan.',
   kitTitlerequirements: 'Requirements to apply for the Digital Kit',
   btnHow: 'Digital Kit: what it is',
   btnForm: 'Request Digital Kit',
@@ -112,9 +134,44 @@ export default {
       item: `Have a tax domicile in Spain.`,
     },
   ],
+  kitConsultRequirements: [
+    {
+      item: 'Be a microenterprise, small company (up to 249 workers) or self-employed.',
+    },
+    {
+      item: 'Not to be considered a company in crisis.',
+    },
+    {
+      item: 'Be up to date with tax and Social Security obligations.',
+    },
+    {
+      item: 'Not to be subject to a pending recovery order from the European Commission that has declared an aid illegal and incompatible with the common market.',
+    },
+    {
+      item: 'Not to incur in any of the prohibitions foreseen in Article 13.2 of Law 38/2003, of November 17, 2003, General Law on Subsidies.',
+    },
+    {
+      item: `To be registered in the Census of businessmen, professionals and withholders of the State Agency of Tax Administration or in the equivalent census of the Foral Tax Administration.`,
+    },
+    {
+      item: `Not to exceed the minimum aid limit -all subsidies granted by EU states of less than €200,000-.`,
+    },
+    {
+      item: `Have the evaluation of the Digital Maturity Level according to the diagnostic test in the Acelera pyme platform.`,
+    },
+    {
+      item: `Have a tax domicile in Spain.`,
+    },
+  ],
+  kitConsulTitlerequirements: 'Requirements to apply for the Consulting Kit',
+  btnHowConsult: 'Consulting Kit: what it is',
+  btnFormConsult: 'Request Consulting Kit',
   howKitTitle: 'How to apply for the Digital Kit?',
+  howKitConsulTitle: 'How to apply for the Consulting Kit?',
   howSubtex:
     'The Digital Kit is a digital voucher with an economic amount for you to choose one or more digital solutions offered by the digitalizing agents that develop the services of the catalog. Follow these steps to apply for the Digital Kit:',
+  howSubtexConsul:
+    'The Consulting Kit is a digital voucher with an economic amount for you to choose one or more digital solutions offered by the digitalizing agents that develop the services of the catalog. Follow these steps to apply for the Consulting Kit:',
   howRequeriments: [
     {
       item: 'Register in Acelera Pyme and complete the self-diagnosis test.',
@@ -129,6 +186,21 @@ export default {
       item: 'Access your Digital Kit through a digitizing agent, such as ATTOMO.',
     },
   ],
+  howConsulRequeriments: [
+    {
+      item: 'Register in Acelera Pyme and complete the self-diagnosis test.',
+    },
+    {
+      item: 'Consult the catalog of digitizing agents and choose the solutions you are interested in.',
+    },
+    {
+      item: 'Fill in the application form at the Red.es electronic headquarters.',
+    },
+    {
+      item: 'Access your Consulting Kit through a digitizing agent, such as ATTOMO.',
+    },
+  ],
+
   AgentKit: 'We are agentes digitalizadores',
   AgentRequeriments: [
     {
@@ -173,6 +245,7 @@ export default {
 
   searchAgent: 'Looking for a digitizing agent?',
   helpYouKit: 'We help you to get the Digital Kit',
+  helpYouKitConsul: 'We help you to get the Consulting Kit',
   userExistKit:
     'We have already registered your request with this email before, try another.',
   selected: [
