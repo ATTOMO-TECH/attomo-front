@@ -6,6 +6,8 @@ const NEXT_PUBLIC_REACT_APP_DYNAMIC_TEMPLATE =
   process.env.NEXT_PUBLIC_REACT_APP_DYNAMIC_TEMPLATE || '';
 const NEXT_PUBLIC_REACT_APP_KIT_TEMPLATE =
   process.env.NEXT_PUBLIC_REACT_APP_KIT_TEMPLATE || '';
+const NEXT_PUBLIC_REACT_APP_KIT_CONSULT_TEMPLATE =
+  process.env.NEXT_PUBLIC_REACT_APP_KIT_CONSULT_TEMPLATE || '';
 const NEXT_PUBLIC_REACT_APP_SERVICE_MAIL_KEY =
   process.env.NEXT_PUBLIC_REACT_APP_SERVICE_MAIL_KEY || '';
 
@@ -14,10 +16,16 @@ export const sendEmailFormNotification = (data: any, formType: string) => {
     ...data,
     formType,
   };
-  const template =
-    formType === 'Gestión Kit Digital'
-      ? NEXT_PUBLIC_REACT_APP_KIT_TEMPLATE
-      : NEXT_PUBLIC_REACT_APP_DYNAMIC_TEMPLATE;
+
+  let template;
+
+  if (formType === 'Gestión Kit Digital') {
+    template = NEXT_PUBLIC_REACT_APP_KIT_TEMPLATE;
+  } else if (formType === 'Gestión Kit Consulting') {
+    template = NEXT_PUBLIC_REACT_APP_KIT_CONSULT_TEMPLATE;
+  } else {
+    template = NEXT_PUBLIC_REACT_APP_DYNAMIC_TEMPLATE;
+  }
   emailjs
     .send(
       NEXT_PUBLIC_REACT_APP_SERVICE_MAIL_ID || '',

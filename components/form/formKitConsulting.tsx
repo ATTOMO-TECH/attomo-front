@@ -5,7 +5,7 @@ import { Styles } from './style';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { FORMVALUES } from '../../hook/types';
 import InputCheckcondition from './inputCheckcondition';
-import { createKit } from '../../domain/useContact';
+import { createKitConsulting } from '../../domain/useContact';
 import { getLocale } from '../../public/locales/getLocale';
 import { servicesAnimations } from '../animations/animations';
 import Title from '../Text/title';
@@ -20,7 +20,7 @@ import { Props } from '../../screens/types';
 import { sendEmailFormNotification } from './sendEmailNotification';
 // import ParagraphText from '../Text/paragraphText';
 
-export default function FormKit({ locale }: Props) {
+export default function FormKitConsulting({ locale }: Props) {
   const [translate, setTranslate] = useState(getLocale(locale));
   // const [contactExist, setContactExist] = useState(false);
 
@@ -45,7 +45,7 @@ export default function FormKit({ locale }: Props) {
     [FORMVALUES.MESSAGE]: '',
     [FORMVALUES.CONDITIONS]: false,
   };
-  const { mutate } = createKit();
+  const { mutate } = createKitConsulting();
 
   const handleSumitCustomer = (values: any) => {
     const data = {
@@ -55,7 +55,7 @@ export default function FormKit({ locale }: Props) {
       [FORMVALUES.MESSAGE]: values.message,
     };
 
-    sendEmailFormNotification(data, 'Gestión Kit Digital');
+    sendEmailFormNotification(data, 'Gestión Kit Consulting');
     mutate(
       { data },
       {
