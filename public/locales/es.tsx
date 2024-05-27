@@ -46,7 +46,7 @@ export default {
     {
       Value: 'Kit Consulting',
       // Url: '/kit-digital',
-      Url: '/agente-consultor-madrid',
+      Url: '/kit-consulting-madrid',
     },
   ],
   home: [
@@ -228,6 +228,58 @@ export default {
     {
       title: 'Gestión de procesos',
       item: 'Digitalización y automatización de procesos relacionados con aspectos productivos y operativos. (6.000 €)',
+      logo: '/kit/logos/Icono-GestionProcesos.png',
+    },
+  ],
+  AgentRequerimentsConsul: [
+    {
+      title: 'Inteligencia Artificial',
+      item: 'El principal objetivo de este servicio es dotarte de un plan de inteligencia artificial adaptado a las necesidades de tu pyme. (6.000€)',
+      logo: '/kit/logos/Icono-SitioWeb.png',
+    },
+    {
+      title: 'Análisis de Datos(Básico)',
+      item: 'El principal objetivo de este servicio es dotarte de un plan de análisis de datos básico adaptado a las necesidades de tu pyme. (6.000€)',
+      logo: '/kit/logos/Icono-RedesSociales.png',
+    },
+    {
+      title: 'Análisis de Datos(Avanzado)',
+      item: 'Si ya cuentas con un sistema de análisis de datos básico, el principal objetivo de este servicio es aportarte un plan de análisis más avanzado a adaptado a las necesidades de tu pyme. (6.000€)',
+      logo: '/kit/logos/Icono-BusinessInteligence.png',
+    },
+    {
+      title: 'Ventas Digitales',
+      item: 'El principal objetivo de este servicio es establecer la inversión necesaria para mejorar el rendimiento de tus ventas en línea. (6.000€)',
+      logo: '/kit/logos/Icono-ComercioElectronico.png',
+    },
+    {
+      title: 'Procesos de Negocio y/o Producción',
+      item: 'El principal objetivo de este servicio es dotarte de un plan de estrategia de negocio para mejorar el posicionamiento competitivo de tu pyme. (6.000€)',
+      logo: '/kit/logos/Icono-GestionClientes.png',
+    },
+    {
+      title: 'Estrategia y Rendimiento de Negocio',
+      item: 'Digitalización y automatización de procesos relacionados con aspectos productivos y operativos. (6.000 €)',
+      logo: '/kit/logos/Icono-GestionProcesos.png',
+    },
+    {
+      title: 'Ciberseguridad (Básico)',
+      item: 'El principal objetivo de este servicio es dotarte de un plan básico de ciberseguridad adaptado a las necesidades específicas de tu pyme. (6.000€)',
+      logo: '/kit/logos/Icono-GestionProcesos.png',
+    },
+    {
+      title: 'Ciberseguridad (Avanzado)',
+      item: 'El principal objetivo de este servicio es dotarte de un plan avanzado de ciberseguridad adaptado a las necesidades específicas de tu pyme. (6.000€)',
+      logo: '/kit/logos/Icono-GestionProcesos.png',
+    },
+    {
+      title: 'Preparación para Certificación',
+      item: 'El principal objetivo de este servicio es ayudarte con la implementación de sistemas de protección avanzadas, aprovechando las capacidades de la inteligencia artificial y prepararte para presentar tu SGSI a la certificación. (6.000€)',
+      logo: '/kit/logos/Icono-GestionProcesos.png',
+    },
+    {
+      title: 'Asesoramiento “360”',
+      item: 'El principal objetivo de este servicio es ofrecer asesoramiento en la transformación digital de tu pyme, proporcionando soluciones adaptadas a tus necesidades específicas. (6.000€)',
       logo: '/kit/logos/Icono-GestionProcesos.png',
     },
   ],

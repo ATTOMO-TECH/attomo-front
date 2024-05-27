@@ -46,7 +46,7 @@ export default {
     {
       Value: 'Consulting Kit',
       // Url: '/kit-digital',
-      Url: '/consulting-agent-madrid',
+      Url: '/digital-kit-consulting-madrid',
     },
   ],
   home: [
@@ -231,6 +231,58 @@ export default {
     {
       title: 'Process management',
       item: 'Digitization and automation of processes related to production and operational aspects. (6.000 €)',
+      logo: '/kit/logos/Icono-GestionProcesos.png',
+    },
+  ],
+  AgentRequerimentsConsul: [
+    {
+      title: 'Artificial Inteligence',
+      item: 'The main objective of this service is to provide you with an artificial intelligence plan adapted to the needs of your SME (6.000€).',
+      logo: '/kit/logos/Icono-SitioWeb.png',
+    },
+    {
+      title: 'Data Analysis (Basic)',
+      item: 'The main objective of this service is to provide you with a basic data analysis plan adapted to the needs of your SME (6.000€).',
+      logo: '/kit/logos/Icono-RedesSociales.png',
+    },
+    {
+      title: 'Data Analysis (Advanced)',
+      item: 'If you already have a basic data analysis system, the main objective of this service is to provide you with a more advanced analysis plan adapted to the needs of your SME (6.000€).',
+      logo: '/kit/logos/Icono-BusinessInteligence.png',
+    },
+    {
+      title: 'Digital Sales',
+      item: 'The main objective of this service is to establish the investment needed to improve the performance of your online sales (6.000€).',
+      logo: '/kit/logos/Icono-ComercioElectronico.png',
+    },
+    {
+      title: 'Business and/or Production Processes',
+      item: 'The main objective of this service is to provide you with a business strategy plan to improve the competitive positioning of your SME (6.000€).',
+      logo: '/kit/logos/Icono-GestionClientes.png',
+    },
+    {
+      title: 'Business Strategy and Performance',
+      item: 'Digitalisation and automation of processes related to production and operational aspects (6.000 €).',
+      logo: '/kit/logos/Icono-GestionProcesos.png',
+    },
+    {
+      title: 'Cybersecurity (Basic)',
+      item: 'The main objective of this service is to provide you with a basic cybersecurity plan adapted to the specific needs of your SME (6.000€).',
+      logo: '/kit/logos/Icono-GestionProcesos.png',
+    },
+    {
+      title: 'Cybersecurity (Advanced)',
+      item: 'The main objective of this service is to provide you with an advanced cybersecurity plan adapted to the specific needs of your SME (6.000€).',
+      logo: '/kit/logos/Icono-GestionProcesos.png',
+    },
+    {
+      title: 'Preparation for Certification',
+      item: 'The main objective of this service is to help you with the implementation of advanced protection systems, taking advantage of artificial intelligence capabilities and to prepare you to submit your SGSI for certification (6.000€).',
+      logo: '/kit/logos/Icono-GestionProcesos.png',
+    },
+    {
+      title: '"360" advice',
+      item: 'The main objective of this service is to offer advice on the digital transformation of your SME, providing solutions tailored to your specific needs (6.000€).',
       logo: '/kit/logos/Icono-GestionProcesos.png',
     },
   ],

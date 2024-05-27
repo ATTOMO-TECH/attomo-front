@@ -157,7 +157,7 @@ function KitConsulting({ locale }: Props) {
           <Styles.BlockKits>
             <HowKit
               title={translate.AgentKit}
-              blockSection={translate.AgentRequeriments}
+              blockSection={translate.AgentRequerimentsConsul}
             />
           </Styles.BlockKits>
           <Styles.BlockKits className="pb-12" id="form-kit">
