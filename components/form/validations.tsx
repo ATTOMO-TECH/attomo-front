@@ -5,7 +5,7 @@ export const validationSchemaContact = Yup.object().shape({
   [FORMVALUES.FIRSTNAME]: Yup.string().required('Campo obligatorio'),
   [FORMVALUES.LASTNAME]: Yup.string().required('Campo obligatorio'),
   [FORMVALUES.PHONE]: Yup.string()
-    .min(9, 'El número no tiene formato correcto')
+    .min(9, 'El número no tiene formato correcto ')
     .required('Campo obligatorio'),
   [FORMVALUES.EMAIL]: Yup.string()
     .email('Email no valido')
