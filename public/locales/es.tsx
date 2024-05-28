@@ -178,27 +178,28 @@ export default {
       item: 'Regístrate en Acelera Pyme y completa el test de autodiagnóstico.',
     },
     {
-      item: 'Consulta el catálogo de agentes digitalizadores y elige las soluciones que te interesen.',
+      item: 'Consulta el catálogo de asesores digitales y elige las soluciones que te interesen.',
     },
     { item: 'Rellena la solicitud de ayuda en la sede electrónica de Red.es.' },
     {
-      item: 'Accede a tu Kit Digital a través de un agente digitalizador, como ATTOMO.',
+      item: 'Accede a tu Kit Digital a través de un asesor digital, como ATTOMO.',
     },
   ],
   howConsulRequeriments: [
     {
-      item: 'Regístrate en Acelera Pyme y completa el test de autodiagnóstico.',
+      // item: 'Regístrate en Acelera Pyme y completa el test de autodiagnóstico.',
+      item: 'Completa el formulario que podras ver mas abajo.',
     },
     {
-      item: 'Consulta el catálogo de agentes digitalizadores y elige las soluciones que te interesen.',
+      item: 'Consulta el catálogo de asesores digitales y elige las soluciones que te interesen.',
     },
     { item: 'Rellena la solicitud de ayuda en la sede electrónica de Red.es.' },
     {
-      item: 'Accede a tu Kit Consulting a través de un agente digitalizador, como ATTOMO.',
+      item: 'Accede a tu Kit Consulting a través de un asesor digital, como ATTOMO.',
     },
   ],
 
-  AgentKit: 'Somos agentes digitalizadores',
+  AgentKit: 'Somos asesores digitales',
   AgentRequeriments: [
     {
       title: 'Sitio Web',
@@ -262,21 +263,21 @@ export default {
       item: 'Digitalización y automatización de procesos relacionados con aspectos productivos y operativos. (6.000 €)',
       logo: '/kit/logos/Icono-GestionProcesos.png',
     },
-    {
-      title: 'Ciberseguridad (Básico)',
-      item: 'El principal objetivo de este servicio es dotarte de un plan básico de ciberseguridad adaptado a las necesidades específicas de tu pyme. (6.000€)',
-      logo: '/kit/logos/Icono-GestionProcesos.png',
-    },
-    {
-      title: 'Ciberseguridad (Avanzado)',
-      item: 'El principal objetivo de este servicio es dotarte de un plan avanzado de ciberseguridad adaptado a las necesidades específicas de tu pyme. (6.000€)',
-      logo: '/kit/logos/Icono-GestionProcesos.png',
-    },
-    {
-      title: 'Preparación para Certificación',
-      item: 'El principal objetivo de este servicio es ayudarte con la implementación de sistemas de protección avanzadas, aprovechando las capacidades de la inteligencia artificial y prepararte para presentar tu SGSI a la certificación. (6.000€)',
-      logo: '/kit/logos/Icono-GestionProcesos.png',
-    },
+    // {
+    //   title: 'Ciberseguridad (Básico)',
+    //   item: 'El principal objetivo de este servicio es dotarte de un plan básico de ciberseguridad adaptado a las necesidades específicas de tu pyme. (6.000€)',
+    //   logo: '/kit/logos/Icono-GestionProcesos.png',
+    // },
+    // {
+    //   title: 'Ciberseguridad (Avanzado)',
+    //   item: 'El principal objetivo de este servicio es dotarte de un plan avanzado de ciberseguridad adaptado a las necesidades específicas de tu pyme. (6.000€)',
+    //   logo: '/kit/logos/Icono-GestionProcesos.png',
+    // },
+    // {
+    //   title: 'Preparación para Certificación',
+    //   item: 'El principal objetivo de este servicio es ayudarte con la implementación de sistemas de protección avanzadas, aprovechando las capacidades de la inteligencia artificial y prepararte para presentar tu SGSI a la certificación. (6.000€)',
+    //   logo: '/kit/logos/Icono-GestionProcesos.png',
+    // },
     {
       title: 'Asesoramiento “360”',
       item: 'El principal objetivo de este servicio es ofrecer asesoramiento en la transformación digital de tu pyme, proporcionando soluciones adaptadas a tus necesidades específicas. (6.000€)',
@@ -294,9 +295,9 @@ export default {
     },
   ],
 
-  searchAgent: '¿Buscas un agente digitalizador?',
-  helpYouKit: 'Te ayudamos a conseguir el kit digital',
-  helpYouKitConsul: 'Te ayudamos a conseguir el kit consulting',
+  searchAgent: '¿Buscas un asesor digital?',
+  helpYouKit: 'Te ayudamos a conseguir el Kit Digital',
+  helpYouKitConsul: 'Te ayudamos a conseguir el Kit Consulting',
   userExistKit:
     'Ya hemos registrado tu solicitud con este correo anteriormente, prueba con otro.',
   selected: [
