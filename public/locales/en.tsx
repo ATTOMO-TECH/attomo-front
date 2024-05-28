@@ -177,31 +177,31 @@ export default {
       item: 'Register in Acelera Pyme and complete the self-diagnosis test.',
     },
     {
-      item: 'Consult the catalog of digitizing agents and choose the solutions you are interested in.',
+      item: 'Consult the catalog of digital advisors and choose the solutions you are interested in.',
     },
     {
       item: 'Fill in the application form at the Red.es electronic headquarters.',
     },
     {
-      item: 'Access your Digital Kit through a digitizing agent, such as ATTOMO.',
+      item: 'Access your Digital Kit through a digital advisor, such as ATTOMO.',
     },
   ],
   howConsulRequeriments: [
     {
-      item: 'Register in Acelera Pyme and complete the self-diagnosis test.',
+      item: 'Complete the form that you can see below.',
     },
     {
-      item: 'Consult the catalog of digitizing agents and choose the solutions you are interested in.',
+      item: 'Consult the catalog of digital advisors and choose the solutions you are interested in.',
     },
     {
       item: 'Fill in the application form at the Red.es electronic headquarters.',
     },
     {
-      item: 'Access your Consulting Kit through a digitizing agent, such as ATTOMO.',
+      item: 'Access your Consulting Kit through a digital advisor, such as ATTOMO.',
     },
   ],
 
-  AgentKit: 'We are agentes digitalizadores',
+  AgentKit: 'We are digital advisors',
   AgentRequeriments: [
     {
       title: 'Website',
@@ -265,21 +265,21 @@ export default {
       item: 'Digitalisation and automation of processes related to production and operational aspects (6.000 €).',
       logo: '/kit/logos/Icono-GestionProcesos.png',
     },
-    {
-      title: 'Cybersecurity (Basic)',
-      item: 'The main objective of this service is to provide you with a basic cybersecurity plan adapted to the specific needs of your SME (6.000€).',
-      logo: '/kit/logos/Icono-GestionProcesos.png',
-    },
-    {
-      title: 'Cybersecurity (Advanced)',
-      item: 'The main objective of this service is to provide you with an advanced cybersecurity plan adapted to the specific needs of your SME (6.000€).',
-      logo: '/kit/logos/Icono-GestionProcesos.png',
-    },
-    {
-      title: 'Preparation for Certification',
-      item: 'The main objective of this service is to help you with the implementation of advanced protection systems, taking advantage of artificial intelligence capabilities and to prepare you to submit your SGSI for certification (6.000€).',
-      logo: '/kit/logos/Icono-GestionProcesos.png',
-    },
+    // {
+    //   title: 'Cybersecurity (Basic)',
+    //   item: 'The main objective of this service is to provide you with a basic cybersecurity plan adapted to the specific needs of your SME (6.000€).',
+    //   logo: '/kit/logos/Icono-GestionProcesos.png',
+    // },
+    // {
+    //   title: 'Cybersecurity (Advanced)',
+    //   item: 'The main objective of this service is to provide you with an advanced cybersecurity plan adapted to the specific needs of your SME (6.000€).',
+    //   logo: '/kit/logos/Icono-GestionProcesos.png',
+    // },
+    // {
+    //   title: 'Preparation for Certification',
+    //   item: 'The main objective of this service is to help you with the implementation of advanced protection systems, taking advantage of artificial intelligence capabilities and to prepare you to submit your SGSI for certification (6.000€).',
+    //   logo: '/kit/logos/Icono-GestionProcesos.png',
+    // },
     {
       title: '"360" advice',
       item: 'The main objective of this service is to offer advice on the digital transformation of your SME, providing solutions tailored to your specific needs (6.000€).',
@@ -295,7 +295,7 @@ export default {
     },
   ],
 
-  searchAgent: 'Looking for a digitizing agent?',
+  searchAgent: 'Looking for a digital advisor?',
   helpYouKit: 'We help you to get the Digital Kit',
   helpYouKitConsul: 'We help you to get the Consulting Kit',
   userExistKit:

@@ -6,7 +6,7 @@ import Nav from '../../components/nav/nav';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { Styles } from '../../styles/styles';
 import ButtonShare from '../../components/button/BtnShare';
-import { servicesAnimations } from '../../components/animations/animations';
+// import { servicesAnimations } from '../../components/animations/animations';
 import { getLocale } from '../../public/locales/getLocale';
 import Title from '../../components/Text/title';
 import MainTitle from '../../components/Text/mainTitle';
@@ -93,7 +93,7 @@ function KitConsulting({ locale }: Props) {
               translate={translate}
               shouldShowActions={shouldShowActions}
             />
-            <Styles.SectionImage
+            {/* <Styles.SectionImage
               animate={shouldShowActions}
               variants={servicesAnimations}
               transition={{
@@ -107,7 +107,7 @@ function KitConsulting({ locale }: Props) {
                 src="/kit/logos-estado.png"
                 alt="Logos de Gobierno de España, financiación de la unión y organismos relacionados con el Kit Digital"
               />
-            </Styles.SectionImage>
+            </Styles.SectionImage> */}
           </Styles.SectionsKits>
           <Styles.BlockKits id="section-how-kit">
             <Styles.SectionsKits>
