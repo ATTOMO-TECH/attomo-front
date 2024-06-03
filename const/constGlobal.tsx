@@ -277,6 +277,11 @@ export const CUSTOMERS: {
     Url: 'https://www.aena.es/es/pasajeros/pasajeros.html',
   },
   {
+    Name: 'Netflix',
+    Pic: '/customers/logos/Container-40.svg',
+    Url: 'https://www.netflix.com/es-en/',
+  },
+  {
     Name: 'El Rincón',
     Pic: '/customers/logos/Container-1.svg',
     Url: 'https://www.grupoelrincon.es/',
