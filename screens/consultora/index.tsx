@@ -18,6 +18,7 @@ function Services({ data, locale, relatedPost }: Props) {
   const [translate, setTranslate] = useState(getLocale(locale));
 
   const [isOpen, SetIsOpen] = useState<boolean>(false);
+
   const toggle = () => {
     SetIsOpen(!isOpen);
   };
@@ -65,6 +66,7 @@ function Services({ data, locale, relatedPost }: Props) {
             <Collapse data={data} />
           </Styles.SpaceCollapse>
         </Styles.Center>
+
         <Styles.Center>
           <Styles.TitleSubSectionH2>
             {translate.project}

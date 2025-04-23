@@ -14,6 +14,7 @@ import { Styles } from '../../styles/styles';
 import ButtonShare from '../../components/button/BtnShare';
 import { servicesAnimations } from '../../components/animations/animations';
 import { getLocale } from '../../public/locales/getLocale';
+import ShopifyPartner from '../../components/block/shopifyPartners';
 import { Props } from '../types';
 
 function Home({ data, locale }: Props) {
@@ -97,6 +98,7 @@ function Home({ data, locale }: Props) {
               </motion.div>
             </Styles.BlockSelected>
           </Styles.SectionScreen>
+
           <Styles.BlockSlider>
             <CompaniesScroll />
           </Styles.BlockSlider>
@@ -111,6 +113,11 @@ function Home({ data, locale }: Props) {
               />
             ))}
           </Styles.SectionProjects>
+
+          <Styles.Center>
+            <ShopifyPartner locale={locale} />
+          </Styles.Center>
+
           <Styles.Center>
             {translate.contact.map((values) => (
               <BlockSection

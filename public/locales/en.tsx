@@ -10,6 +10,11 @@ export default {
       Url: '/technology-consulting-firm',
     },
     {
+      Value: 'Shopify Partners',
+      // Url: '/shopify-partners',
+      Url: '/shopify-partners',
+    },
+    {
       Value: 'Case studies',
       // Url: '/casosdeexito',
       Url: '/digitization-success-stories',
@@ -49,6 +54,32 @@ export default {
       Url: '/digital-kit-consulting-madrid',
     },
   ],
+  shopifyPartnerComponent: [
+    {
+      text: 'As official Shopify partners, we trust their technology to build solid, scalable, and customized e-commerce solutions for our clients.',
+    },
+  ],
+  shopifyPartnersPage: {
+    title: 'Shopify Partners',
+    description:
+      'At ATTOMO, we are official Shopify partners. We support brands at every stage of their e-commerce journey to ensure scalability, design, and performance.',
+    buttonText: 'More info',
+    blocks: [
+      {
+        title: 'Build from Scratch',
+        text: 'We build Shopify stores from the ground up, tailored to your specific needs.',
+      },
+      {
+        title: 'Migration',
+        text: 'We migrate your e-commerce from less sustainable platforms to Shopify without losing data.',
+      },
+      {
+        title: 'Maintenance',
+        text: 'We offer technical support and post-launch maintenance services.',
+      },
+    ],
+  },
+
   home: [
     {
       HeroTitle: 'ATTOMO DIGITAL',
