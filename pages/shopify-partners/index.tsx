@@ -10,7 +10,7 @@ import Footer from '../../components/footer/footer';
 import shopifyLogo from '../../public/shopify-logo.png';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { getLocale } from '../../public/locales/getLocale';
-import BlockSection from '../../components/block/block';
+import BlockSectionExternal from '../../components/block/blockExternal';
 
 type Props = {
   locale?: string;
@@ -57,7 +57,7 @@ export default function ShopifyPartners({ locale }: Props) {
                   alt="Shopify Logo"
                   width={300}
                   height={90}
-                  style={{ width: '100%', height: 'auto' }}
+                  className="w-full h-auto cursor-pointer"
                 />
               </a>
             </div>
@@ -85,7 +85,7 @@ export default function ShopifyPartners({ locale }: Props) {
         </Styles.Center>
 
         <Styles.Center>
-          <BlockSection
+          <BlockSectionExternal
             key={translate.shopifyPartnersPage.buttonText}
             text=" "
             button={translate.shopifyPartnersPage.buttonText}

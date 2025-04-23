@@ -1,9 +1,8 @@
-import Link from 'next/link';
 import { BUTTON_ACTIVE } from '../../const/const';
-import { handlers } from '../../hook/longPress';
 import { darkTheme, lightTheme } from '../../styles/styles';
 import IconAnimate from '../button/icon';
 import { Block } from './style';
+import { handlersExternal } from '../../hook/longPress';
 
 interface Props {
   text: string;
@@ -14,7 +13,7 @@ interface Props {
   link: string;
 }
 
-export default function BlockSection({
+export default function BlockSectionExternal({
   text,
   button,
   text2,
@@ -30,13 +29,15 @@ export default function BlockSection({
             <Block.Title ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
               {text}
             </Block.Title>
-            <Link href={link} passHref>
-              <a {...handlers(link)}>
-                <Block.BlockBtn>
-                  <IconAnimate text={button} mode={mode} />
-                </Block.BlockBtn>
-              </a>
-            </Link>
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              {...handlersExternal(link)}>
+              <Block.BlockBtn>
+                <IconAnimate text={button} mode={mode} />
+              </Block.BlockBtn>
+            </a>
           </>
         )}
       </Block.Block>
@@ -46,13 +47,15 @@ export default function BlockSection({
             <Block.Title ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
               {text2}
             </Block.Title>
-            <Link href={link} passHref>
-              <a {...handlers(link)}>
-                <Block.BlockBtn>
-                  <IconAnimate text={button2} mode={mode} />
-                </Block.BlockBtn>
-              </a>
-            </Link>
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              {...handlersExternal(link)}>
+              <Block.BlockBtn>
+                <IconAnimate text={button2} mode={mode} />
+              </Block.BlockBtn>
+            </a>
           </>
         )}
       </Block.Block>

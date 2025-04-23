@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { useSwipeable } from 'react-swipeable';
+import { isExternalLink } from '../functions/isExternalLink';
+
 import {
   handleClickTouch,
   handleFocus,
@@ -41,4 +43,18 @@ export const useOnClickOutside = (ref: any, handler: any) => {
       document.removeEventListener('touchend', listener);
     };
   }, [ref, handler]);
+};
+
+export const smartLinkProps = (link: string) => {
+  if (isExternalLink(link)) {
+    return {
+      onClick: (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        window.open(link, '_blank', 'noopener,noreferrer');
+      },
+    };
+  }
+
+  // Interno: no necesita handler, lo gestiona Next.js con <Link>
+  return {};
 };

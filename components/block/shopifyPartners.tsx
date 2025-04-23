@@ -57,7 +57,7 @@ export default function ShopifyPartner({ locale }: Props) {
               alt="Shopify Logo"
               width={400}
               height={120}
-              style={{ width: '100%', height: 'auto' }}
+              className="w-full h-auto cursor-pointer"
             />
           </LogoWrapper>
         </Link>
