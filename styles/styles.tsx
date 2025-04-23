@@ -257,6 +257,8 @@ export const Styles = {
   Screen: tw.div`h-screen mb-48 justify-between`,
   ScreenResponsive: tw.div`h-screen pt-24`,
   ScreenMid: tw.div`mt-80 mb-40 flex items-center justify-between`,
+  ShopifyPageHeroContainer: tw.div`mt-40 md:mt-80 mb-40 flex flex-col lg:flex-row gap-10 items-center justify-between`,
+  ShopifyServicesContainer: tw.div`lg:h-4/6 flex justify-center items-center justify-between pt-24 lg:pt-36`,
   ScreenMidResponsiv: tw.div`h-96 lg:h-screen flex justify-center items-center justify-between`,
   ScreenWS: tw.div`h-96 sm:h-64 lg:h-4/6 flex justify-center items-center justify-between pt-24 lg:pt-36`,
   FlexEnd: tw.div`flex lg:justify-end w-full m-auto relative`,
@@ -298,7 +300,7 @@ export const Styles = {
   )<Props>`w-full cursor-pointer font-PrimarySerif font-thin md:text-sm leading-loose  pl-2 text-sm hover:opacity-90 transition-colors duration-300 ease-in-out
   ${(props) => (props.mode === BUTTON_ACTIVE.ON ? 'opacity-100' : 'opacity-50')}
 `,
-  SpaceCollapse: tw.div`lg:py-48 overflow-hidden`,
+  SpaceCollapse: tw.div`lg:py-48 lg:pb-24 overflow-hidden`,
 
   // ACTIVESELECT
   FilterSelectActive: tw(Arrow)<Props>`

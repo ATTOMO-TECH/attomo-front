@@ -179,7 +179,7 @@ export const Navegation = {
   flex items-center z-100 justify-between w-11/12 items-center m-auto fixed left-0 right-0
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : '')}
   `,
-  BlockNav: tw.div`flex flex-col h-auto justify-center items-center content-center`,
+  BlockNav: tw.div`gap-4 md:gap-0 flex flex-col h-auto justify-center items-center content-center mt-[100px]`,
   AlinItemsMenu: tw.ul<Props>`
   flex items-center z-100 justify-between w-11/12 m-auto top-5 fixed left-0 right-0
   ${(props) => (props.ismode === BUTTON_ACTIVE.ON ? '' : '')}
@@ -199,7 +199,7 @@ export const Navegation = {
   AlingItemsMenu: tw.div`flex flex-col  items-center justify-center text-center w-full  md:pt-0 md:pt-0 justify-center justify-center`,
   SelectMenu: tw(
     itemMenu,
-  )` leading-loose tracking-wide hover:opacity-100 opacity-60 cursor-pointer transition ease-in-out duration-100  text-2xl md:text-3xl lg:text-5xl md:py-2 md:px-4 lg:py-2`,
+  )` leading-loose tracking-wide hover:opacity-100 opacity-60 cursor-pointer transition ease-in-out duration-100  text-2xl md:text-3xl lg:text-3xl md:py-2 md:px-4 lg:py-2`,
 
   // NAV
   SectionNav: tw(SectionColor)<Props>`

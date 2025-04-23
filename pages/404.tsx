@@ -1,35 +1,16 @@
-import { GetStaticProps } from 'next';
-import { MENU_SCREENS_EN, MENU_SCREENS_ES } from '../const/const';
-import { getScreensId } from '../domain/useScreensMetadata';
+// pages/404.tsx
 import Background from '../components/animations/background';
-import { MetadataSSR } from '../components/head/metadataSSR';
-import { translateHeader } from '../hook/utils';
-import ErrorView from '../screens/404';
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { locale } = context;
-  const { data: metadata } = await getScreensId(
-    locale === 'es' ? MENU_SCREENS_ES.HOME : MENU_SCREENS_EN.HOME,
-    locale,
-  );
-
-  return {
-    props: {
-      metadata,
-      locale,
-    },
-  };
-};
-
-export default function index(props: any) {
-  const { metadata, locale } = props;
-  const metadataInfo = translateHeader(metadata, locale);
-
+export default function Custom404() {
   return (
     <>
-      <MetadataSSR screen={metadataInfo} canonicalLinks={[]} locale={locale} />
       <Background />
-      <ErrorView locale={locale} />
+      <div style={{ textAlign: 'center', padding: '5rem 2rem', color: '#fff' }}>
+        <h1 style={{ fontSize: '2.5rem' }}>404 - Página no encontrada</h1>
+        <p style={{ marginTop: '1rem' }}>
+          Lo sentimos, la página que buscas no existe.
+        </p>
+      </div>
     </>
   );
 }
