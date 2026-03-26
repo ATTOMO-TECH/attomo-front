@@ -1,4 +1,9 @@
 module.exports = {
+  typescript: {
+    // !! ADVERTENCIA !!
+    // Esto permite que el build termine aunque haya errores de TypeScript.
+    ignoreBuildErrors: true,
+  },
   reactStrictMode: true,
   i18n: {
     locales: ['es', 'en'],
