@@ -1,0 +1,232 @@
+import { Formik } from 'formik';
+import { useState, useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Styles } from './style';
+import { BUTTON_ACTIVE } from '../../const/const';
+import { FORMVALUES } from '../../hook/types';
+import InputCheckcondition from './inputCheckcondition';
+import { createKitConsulting } from '../../domain/useContact';
+import { getLocale } from '../../public/locales/getLocale';
+import { servicesAnimations } from '../animations/animations';
+import Title from '../Text/title';
+import { validationSchemaKit } from './validations';
+import {
+  handlersFuntionFocus,
+  handlersFuntion,
+  useOnClickOutside,
+} from '../../hook/longPress';
+import { handleBlur } from '../../hook/eventListener';
+import { Props } from '../../screens/types';
+import { sendEmailFormNotification } from './sendEmailNotification';
+// import ParagraphText from '../Text/paragraphText';
+
+export default function FormKitConsulting({ locale }: Props) {
+  const [translate, setTranslate] = useState(getLocale(locale));
+  // const [contactExist, setContactExist] = useState(false);
+
+  useEffect(() => {
+    if (locale) {
+      setTranslate(getLocale(locale));
+    }
+  }, [locale]);
+
+  const formRef = useRef();
+  const [shouldShowActions] = useState(false);
+  const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
+  const valueName = FORMVALUES.NAME;
+  const valuePhone = FORMVALUES.PHONE2;
+  const valueEmail = FORMVALUES.EMAIL;
+  const valueMessage = FORMVALUES.MESSAGE;
+
+  const initialValues = {
+    [FORMVALUES.NAME]: '',
+    [FORMVALUES.PHONE2]: '',
+    [FORMVALUES.EMAIL]: '',
+    [FORMVALUES.MESSAGE]: '',
+    [FORMVALUES.CONDITIONS]: false,
+  };
+  const { mutate } = createKitConsulting();
+
+  const handleSumitCustomer = (values: any) => {
+    const data = {
+      [FORMVALUES.NAME]: values.name,
+      [FORMVALUES.PHONE2]: values.phone,
+      [FORMVALUES.EMAIL]: values.email,
+      [FORMVALUES.MESSAGE]: values.message,
+    };
+
+    sendEmailFormNotification(data, 'Gestión Kit Consulting');
+    mutate(
+      { data },
+      {
+        onSuccess: () => {
+          setSuccesfull(true);
+        },
+        onError: () => {
+          setSuccesfull(false);
+        },
+      },
+    );
+  };
+  useOnClickOutside(formRef, () => {
+    handleBlur(FORMVALUES.NAME);
+    handleBlur(FORMVALUES.PHONE2);
+    handleBlur(FORMVALUES.EMAIL);
+    handleBlur(FORMVALUES.MESSAGE);
+    handleBlur(FORMVALUES.CONDITIONS);
+  });
+
+  return (
+    <>
+      {!sendSuccesfull ? (
+        <Formik
+          onSubmit={handleSumitCustomer}
+          initialValues={initialValues}
+          validationSchema={validationSchemaKit}
+          validateOnMount>
+          {({
+            touched,
+            errors,
+            setFieldValue,
+            handleSubmit,
+            isValid,
+            dirty,
+          }) => (
+            <>
+              {/* {contactExist && (
+                <ParagraphText size="flex justify-center align-center text-center m-auto ">
+                  {translate.userExistKit}
+                </ParagraphText>
+              )} */}
+              <Styles.FormKit onSubmit={handleSubmit} ref={formRef}>
+                <Styles.BlockInputEnd>
+                  <Styles.BlockInputOnly
+                    {...handlersFuntionFocus(FORMVALUES.NAME)}>
+                    <Styles.Input
+                      ismode={BUTTON_ACTIVE.OFF}
+                      placeholder={translate.formName}
+                      type="text"
+                      id={FORMVALUES.NAME}
+                      name={FORMVALUES.NAME}
+                    />
+                    {touched.name && errors.name && (
+                      <Styles.BlockClose
+                        onClick={() => setFieldValue(valueName, '')}
+                        onTouchStart={() => setFieldValue(valueName, '')}
+                      />
+                    )}
+                    {touched.name && errors.name && (
+                      <Styles.Error>{errors.name}</Styles.Error>
+                    )}
+                  </Styles.BlockInputOnly>
+                </Styles.BlockInputEnd>
+                <Styles.BlockInputEnd>
+                  <Styles.BlockInputOnly
+                    {...handlersFuntionFocus(FORMVALUES.EMAIL)}>
+                    <Styles.Input
+                      ismode={BUTTON_ACTIVE.OFF}
+                      placeholder={translate.formEmail}
+                      type="email"
+                      name={FORMVALUES.EMAIL}
+                      id={FORMVALUES.EMAIL}
+                    />
+                    {touched.email && errors.email && (
+                      <Styles.BlockClose
+                        onClick={() => setFieldValue(valueEmail, '')}
+                        onTouchStart={() => setFieldValue(valueEmail, '')}
+                      />
+                    )}
+                    {touched.email && errors.email && (
+                      <Styles.Error className="lg:mt-0">
+                        {errors.email}
+                      </Styles.Error>
+                    )}
+                  </Styles.BlockInputOnly>
+                </Styles.BlockInputEnd>
+                <Styles.BlockInputEnd>
+                  <Styles.BlockInputOnly
+                    {...handlersFuntionFocus(FORMVALUES.PHONE2)}>
+                    <Styles.Input
+                      id={FORMVALUES.PHONE2}
+                      ismode={BUTTON_ACTIVE.OFF}
+                      placeholder={translate.formPhone}
+                      type="tel"
+                      maxLength={9}
+                      pattern="[0-9]{10}"
+                      name={FORMVALUES.PHONE2}
+                    />
+                    {touched.phone && errors.phone && (
+                      <Styles.BlockClose
+                        onClick={() => setFieldValue(valuePhone, '')}
+                        onTouchStart={() => setFieldValue(valuePhone, '')}
+                      />
+                    )}
+                    {touched.phone && errors.phone && (
+                      <Styles.Error>{errors.phone}</Styles.Error>
+                    )}
+                  </Styles.BlockInputOnly>
+                </Styles.BlockInputEnd>
+                <Styles.BlockInputEnd>
+                  <Styles.BlockInputOnly
+                    {...handlersFuntionFocus(FORMVALUES.MESSAGE)}>
+                    <Styles.Input
+                      ismode={BUTTON_ACTIVE.OFF}
+                      placeholder={translate.formMessage}
+                      type="textarea"
+                      name={FORMVALUES.MESSAGE}
+                      id={FORMVALUES.MESSAGE}
+                    />
+                    {touched.message && errors.message && (
+                      <Styles.BlockClose
+                        onClick={() => setFieldValue(valueMessage, '')}
+                        onTouchStart={() => setFieldValue(valueMessage, '')}
+                      />
+                    )}
+                    {touched.message && errors.message && (
+                      <Styles.Error>{errors.message}</Styles.Error>
+                    )}
+                  </Styles.BlockInputOnly>
+                </Styles.BlockInputEnd>
+                <InputCheckcondition
+                  id={FORMVALUES.CONDITIONS}
+                  color="text-primary text-xs pt-6"
+                  value={FORMVALUES.CONDITIONS}
+                  onClick={(e: any) => setFieldValue(FORMVALUES.CONDITIONS, e)}
+                />
+                {touched.conditionsAccepted && errors.conditionsAccepted && (
+                  <Styles.Error>{errors.conditionsAccepted}</Styles.Error>
+                )}
+                <Styles.BlockSendButton>
+                  <Styles.BtnSend
+                    {...handlersFuntion(handleSubmit)}
+                    onClick={handleSubmit}
+                    ismode={
+                      !(isValid && dirty) ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF
+                    }>
+                    {translate.formSend}
+                  </Styles.BtnSend>
+                </Styles.BlockSendButton>
+              </Styles.FormKit>
+            </>
+          )}
+        </Formik>
+      ) : (
+        <motion.div
+          animate={shouldShowActions}
+          variants={servicesAnimations}
+          className="actions"
+          transition={{
+            type: 'magic',
+            stiffness: 100,
+            duration: 0.5,
+          }}
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0.1, y: '50%' }}>
+          <Title size=" w-full text-center pt-10 leading-relaxed  text-3xl m-auto lg:w-3/6">
+            {translate.formKitDigitaklMessage}
+          </Title>
+        </motion.div>
+      )}
+    </>
+  );
+}

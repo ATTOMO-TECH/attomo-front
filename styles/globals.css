@@ -1,3 +1,351 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import 'react-circular-progressbar/dist/styles.css';
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+@import 'swiper/css/autoplay';
+@import 'swiper/css/lazy';
+@import 'react-nice-dates/build/style.css';
+@import 'react-responsive-select/dist/react-responsive-select.css';
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+}
+
+body {
+  touch-action: manipulation !important;
+  -ms-touch-action: manipulation !important;
+  margin-bottom: 0px !important;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  scroll-behavior: smooth;
+}
+
+.textDegrade {
+  background: linear-gradient(
+    90deg,
+    #b4a9bc 0%,
+    #ffffff 40%,
+    #ffffff 80%,
+    #b4a9bc 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/*RESET INPUTS*/
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input[type='color'],
+input[type='number'],
+input[type='date'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='email'],
+input[type='month'],
+input[type='number'],
+input[type='password'],
+input[type='search'],
+input[type='tel'],
+input[type='text'],
+input[type='time'],
+input[type='url'],
+input[type='textarea'],
+select,
+select:focus,
+::placeholder,
+textarea {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  -webkit-border-radius: 0% !important;
+  -moz-border-radius: 0% !important;
+  -khtml-border-radius: 0% !important;
+  font-weight: 300 !important;
+  color: gray !important;
+  caret-color: gray !important;
+  border-radius: 0% !important;
+  font-size: 16px !important;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+}
+
+input:-webkit-autofill,
+input[type='text']:-webkit-autofill,
+input[type='number']:-webkit-autofill,
+input[type='email']:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  opacity: 1 !important;
+  transition: background-color 500000s;
+  -webkit-text-fill-color: rgb(128, 128, 128) !important;
+}
+
+input:focus,
+input:not(:placeholder-shown) {
+  opacity: 1 !important;
+}
+input[data-autocompleted] {
+  background-color: transparent !important;
+  -webkit-background-color: transparent !important;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 10px;
+  position: absolute;
+  top: 10%;
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 30px;
+}
+.CircularProgressbar-trail,
+.CircularProgressbar-path {
+  filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.24));
+}
+
+.swiper-wrapper {
+  -webkit-transition-timing-function: linear !important;
+  -o-transition-timing-function: linear !important;
+  transition-timing-function: linear !important;
+  display: flex;
+  align-items: center;
+}
+.swiper-container-free-mode > .swiper-wrapper {
+  -webkit-transition-timing-function: linear !important;
+  -o-transition-timing-function: linear !important;
+  transition-timing-function: linear !important;
+}
+.swiper-button-disabled {
+  transition: all ease 0.5s;
+  opacity: 0 !important;
+}
+
+.logo-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  overflow: hidden;
+}
+
+.btn:hover span {
+  width: 6%;
+}
+.colorMenu:hover .menu::after {
+  top: 0em;
+  transform: scale(8);
+  transition: all 1s ease-in-out;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+.colorMenu:hover .menu::before {
+  transform: scale(0.2);
+  background-color: white;
+  border-radius: 100%;
+  transition: all 0.5s ease-in;
+}
+.colorMenu:hover {
+  transition: all 1s ease-in-out;
+  opacity: 0.6;
+}
+
+.colorMenu:hover .menuInvert::after {
+  opacity: 0;
+}
+.colorMenu:hover .menuInvert::before {
+  transform: scale(0.2);
+  background-color: white;
+  border-radius: 100%;
+  transition: all 0.5s ease-in;
+}
+.colorMenu:hover {
+  transition: all 1s ease-in-out;
+  opacity: 0.6;
+}
+input[type='text'] {
+  background-color: #0f0b1100 !important;
+  margin-bottom: 1%;
+}
+.nice-dates::after {
+  content: url(../public/icon/calendar.svg);
+  fill: white;
+  position: absolute;
+  bottom: 10%;
+  right: 2%;
+}
+
+.borderInput {
+  border-bottom: 1px solid #6f6d70;
+}
+.css-319lph-ValueContainer {
+  padding: 0 !important;
+}
+.filter {
+  background-image: linear-gradient(
+      to bottom,
+      rgb(0 0 0 / 100%),
+      rgb(0 0 0 / 63%)
+    ),
+    linear-gradient(to top, rgb(0 0 0 / 100%), rgb(0 0 0 / 63%)) !important;
+  filter: blur(100);
+}
+.filter .swiper-slide {
+  opacity: 0.4;
+}
+.filter .swiper-slide-active {
+  transform: translatex(25%) scale(1.5);
+  transition: all 0.3s ease;
+  opacity: 1 !important;
+}
+
+#reserve:focus {
+  opacity: 1 !important;
+}
+
+.nice-dates-popover {
+  filter: invert(1);
+  box-shadow: none;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  max-width: 80%;
+}
+.rrs__button {
+  background: transparent !important;
+  outline: none !important;
+}
+.rrs__label {
+  font-weight: 300 !important;
+  color: gray !important;
+  border-radius: 0% !important;
+  font-size: 16px !important;
+  padding: 0 2px 0 2px !important;
+  outline: none !important;
+  border: 0px !important;
+  border-radius: 0px !important;
+}
+
+.rrs .caret-icon {
+  fill: #e3e3e3 !important;
+}
+.rrs--has-changed .rrs__label {
+  color: #d1d5db80 !important;
+  font-weight: 300 !important;
+}
+.rrs__options {
+  filter: invert(1) !important;
+}
+
+.rrs__option {
+  opacity: 0.4;
+}
+
+.rrs__option--selected,
+.rrs__option.rrs__option--next-selection {
+  opacity: 1 !important;
+  color: black !important;
+}
+.rrs__option:hover {
+  color: black !important;
+  opacity: 1 !important;
+}
+
+#rrs-form-field-name-label {
+  opacity: 1;
+  color: #d1d5db;
+  -webkit-appearance: none !important;
+  border-radius: 0% !important;
+  font-weight: 300 !important;
+  font-size: 16px !important;
+}
+
+.filter .swiper-slide {
+  opacity: 0.15;
+}
+.filter .swiper-slide-prev {
+  opacity: 0.6 !important;
+}
+.filter .swiper-slide-next {
+  opacity: 0.6 !important;
+}
+.filter .swiper-slide-active {
+  opacity: 1 !important;
+}
+.slide-mask {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgb(255 255 255 / 70%),
+    rgba(0, 0, 0, 1)
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgbargb(255 255 255 / 70%),
+    rgba(0, 0, 0, 1)
+  );
+}
+.rrs__label,
+.rrs__label__text {
+  color: gray !important;
+  font-weight: 300 !important;
+  font-size: 16px !important;
+}
+
+@media screen and (max-width: 768px) {
+  #MobileFilterCases .rrs--options-visible .rrs__options {
+    height: 300px !important;
+    width: 100% !important;
+    margin: auto;
+    position: relative !important;
+    font-size: 1rem !important;
+    overflow-x: scroll !important;
+    top: 0% !important;
+    border: 0 !important;
+    border-radius: 4px !important;
+  }
+  .rrs--options-visible .rrs__options {
+    left: 0 !important;
+  }
+  .rrs--options-visible .rrs__options {
+    max-height: fit-content !important;
+    top: 50% !important;
+    position: relative !important;
+  }
+
+  .mobile-close {
+    position: absolute !important;
+    top: 2rem !important;
+    right: 0rem !important;
+  }
+  #MobileFilterCases .mobile-close {
+    position: absolute !important;
+    top: -2rem !important;
+  }
+}
+.rrs__option {
+  font-weight: 300 !important;
+  font-size: 16px !important;
+  color: #000000 !important;
+}
+.safari.keyboard .app-container {
+  bottom: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0% !important;
+}

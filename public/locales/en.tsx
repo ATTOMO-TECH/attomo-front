@@ -1,0 +1,543 @@
+import FormColaborator from '../../components/form/formColaborator';
+import FormCustomer from '../../components/form/formCustomer';
+import { CONDITIONFORM } from '../../const/constGlobal';
+
+export default {
+  menu: [
+    {
+      Value: 'Services',
+      // Url: '/servicios',
+      Url: '/technology-consulting-firm',
+    },
+    {
+      Value: 'Shopify Partners',
+      // Url: '/shopify-partners',
+      Url: '/shopify-partners',
+    },
+    {
+      Value: 'Case studies',
+      // Url: '/casosdeexito',
+      Url: '/digitization-success-stories',
+    },
+    {
+      Value: 'About us',
+      // Url: '/nosotros',
+      Url: '/about-us',
+    },
+    {
+      Value: 'Blog',
+      // Url: '/attomo-trends',
+      Url: '/trends',
+    },
+    {
+      Value: 'Careers',
+      // Url: '/careers',
+      Url: '/careers',
+    },
+    {
+      Value: 'Contact',
+      Url: '/contact',
+    },
+    {
+      Value: 'ATTOMO Space',
+      // Url: '/espacio-attomo',
+      Url: '/photography-studio-space-madrid',
+    },
+    {
+      Value: 'Digital Kit',
+      // Url: '/kit-digital',
+      Url: '/digitizing-agent-madrid',
+    },
+    {
+      Value: 'Consulting Kit',
+      // Url: '/kit-digital',
+      Url: '/digital-kit-consulting-madrid',
+    },
+  ],
+  shopifyPartnerComponent: [
+    {
+      text: 'As official Shopify partners, we trust their technology to build solid, scalable, and customized e-commerce solutions for our clients.',
+    },
+  ],
+  shopifyPartnersPage: {
+    title: 'Shopify Partners',
+    description:
+      'At ATTOMO, we are official Shopify partners. We support brands at every stage of their e-commerce journey to ensure scalability, design, and performance.',
+    buttonText: 'More info',
+    blocks: [
+      {
+        title: 'Build from Scratch',
+        text: 'We build Shopify stores from the ground up, tailored to your specific needs.',
+      },
+      {
+        title: 'Migration',
+        text: 'We migrate your e-commerce from less sustainable platforms to Shopify without losing data.',
+      },
+      {
+        title: 'Maintenance',
+        text: 'We offer technical support and post-launch maintenance services.',
+      },
+    ],
+  },
+
+  home: [
+    {
+      HeroTitle: 'ATTOMO DIGITAL',
+      HeroSubTitle: 'Technology consulting',
+      HeroText: 'We are a technology consulting firm with a single mission:',
+      HeroSubTex:
+        'To help companies and administrations to lead through digitization.',
+      Button: 'More info',
+    },
+  ],
+  kitDigital: [
+    {
+      HeroText: 'Digital Kit support plan',
+      HeroSubTex:
+        'If you have between 0 and 49 employees, you can receive up to 12,000 euros to digitize your company. We can help you.',
+    },
+  ],
+  kitConsulting: [
+    {
+      HeroText: 'Consulting Kit support plan',
+      HeroSubTex:
+        'If you have between 0 and 249 employees, you can receive up to 24,000 euros to digitize your company. We can help you.',
+    },
+  ],
+  HeaderKit: 'Digital Kit program',
+  programKit: [
+    {
+      item: `The Digital Kit is a public initiative of the Government of Spain that aims to subsidize the implementation of digital solutions available on the market to achieve a significant advance in the level of digital maturity. It provides a series of digital services to help them boost the digital transition.`,
+    },
+    {
+      item: `It is a program of the Ministry of Economic Affairs and Digital Transformation aimed at SMEs and freelancers, which accompanies you in your digital transformation process.`,
+    },
+    {
+      item: `These grants are part of the European Funds for economic recovery Next Generation EU. It is not necessary to advance money as they are non-refundable grants.`,
+    },
+  ],
+  HeaderKitConsult: 'Consulting Kit program',
+  programKitConsul: [
+    {
+      item: `The Consulting Kit is a public initiative of the Government of Spain that aims to subsidize the implementation of digital solutions available on the market to achieve a significant advance in the level of digital maturity. It provides a series of digital services to help them boost the digital transition.`,
+    },
+    {
+      item: `It is a program of the Ministry of Economic Affairs and Digital Transformation aimed at SMEs and freelancers, which accompanies you in your digital transformation process.`,
+    },
+    {
+      item: `These grants are part of the European Funds for economic recovery Next Generation EU. It is not necessary to advance money as they are non-refundable grants.`,
+    },
+  ],
+  subText:
+    'The Digital Kit program is funded by the European Union through Next Generation (EU) funds under the Recovery, Transformation and Resilience Plan.',
+  subTextConsult:
+    'The Consulting Kit program is funded by the European Union through Next Generation (EU) funds under the Recovery, Transformation and Resilience Plan.',
+  kitTitlerequirements: 'Requirements to apply for the Digital Kit',
+  btnHow: 'Digital Kit: what it is',
+  btnForm: 'Request Digital Kit',
+  helpYou: 'We help you',
+  kitRequirements: [
+    {
+      item: 'Be a microenterprise, small company (up to 49 workers) or self-employed.',
+    },
+    {
+      item: 'Not to be considered a company in crisis.',
+    },
+    {
+      item: 'Be up to date with tax and Social Security obligations.',
+    },
+    {
+      item: 'Not to be subject to a pending recovery order from the European Commission that has declared an aid illegal and incompatible with the common market.',
+    },
+    {
+      item: 'Not to incur in any of the prohibitions foreseen in Article 13.2 of Law 38/2003, of November 17, 2003, General Law on Subsidies.',
+    },
+    {
+      item: `To be registered in the Census of businessmen, professionals and withholders of the State Agency of Tax Administration or in the equivalent census of the Foral Tax Administration.`,
+    },
+    {
+      item: `Not to exceed the minimum aid limit -all subsidies granted by EU states of less than €200,000-.`,
+    },
+    {
+      item: `Have the evaluation of the Digital Maturity Level according to the diagnostic test in the Acelera pyme platform.`,
+    },
+    {
+      item: `Have a tax domicile in Spain.`,
+    },
+  ],
+  kitConsultRequirements: [
+    {
+      item: 'Be a microenterprise, small company (up to 249 workers) or self-employed.',
+    },
+    {
+      item: 'Not to be considered a company in crisis.',
+    },
+    {
+      item: 'Be up to date with tax and Social Security obligations.',
+    },
+    {
+      item: 'Not to be subject to a pending recovery order from the European Commission that has declared an aid illegal and incompatible with the common market.',
+    },
+    {
+      item: 'Not to incur in any of the prohibitions foreseen in Article 13.2 of Law 38/2003, of November 17, 2003, General Law on Subsidies.',
+    },
+    {
+      item: `To be registered in the Census of businessmen, professionals and withholders of the State Agency of Tax Administration or in the equivalent census of the Foral Tax Administration.`,
+    },
+    {
+      item: `Not to exceed the minimum aid limit -all subsidies granted by EU states of less than €200,000-.`,
+    },
+    {
+      item: `Have the evaluation of the Digital Maturity Level according to the diagnostic test in the Acelera pyme platform.`,
+    },
+    {
+      item: `Have a tax domicile in Spain.`,
+    },
+  ],
+  kitConsulTitlerequirements: 'Requirements to apply for the Consulting Kit',
+  btnHowConsult: 'Consulting Kit: what it is',
+  btnFormConsult: 'Request Consulting Kit',
+  howKitTitle: 'How to apply for the Digital Kit?',
+  howKitConsulTitle: 'How to apply for the Consulting Kit?',
+  howSubtex:
+    'The Digital Kit is a digital voucher with an economic amount for you to choose one or more digital solutions offered by the digitalizing agents that develop the services of the catalog. Follow these steps to apply for the Digital Kit:',
+  howSubtexConsul:
+    'The Consulting Kit is a digital voucher with an economic amount for you to choose one or more digital solutions offered by the digitalizing agents that develop the services of the catalog. Follow these steps to apply for the Consulting Kit:',
+  howRequeriments: [
+    {
+      item: 'Register in Acelera Pyme and complete the self-diagnosis test.',
+    },
+    {
+      item: 'Consult the catalog of digital advisors and choose the solutions you are interested in.',
+    },
+    {
+      item: 'Fill in the application form at the Red.es electronic headquarters.',
+    },
+    {
+      item: 'Access your Digital Kit through a digital advisor, such as ATTOMO.',
+    },
+  ],
+  howConsulRequeriments: [
+    {
+      item: 'Complete the form that you can see below.',
+    },
+    {
+      item: 'Consult the catalog of digital advisors and choose the solutions you are interested in.',
+    },
+    {
+      item: 'Fill in the application form at the Red.es electronic headquarters.',
+    },
+    {
+      item: 'Access your Consulting Kit through a digital advisor, such as ATTOMO.',
+    },
+  ],
+
+  AgentKit: 'We are digital advisors',
+  AgentRequeriments: [
+    {
+      title: 'Website',
+      item: 'Custom website creation and SEO services to improve your presence in search engines. (2.000 €)',
+      logo: '/kit/logos/Icono-SitioWeb.png',
+    },
+    {
+      title: 'Social media management',
+      item: 'Content generation and promotion of your business in social networks. (2.500 €)',
+      logo: '/kit/logos/Icono-RedesSociales.png',
+    },
+    {
+      title: 'Business Intelligence & analytics',
+      item: 'Visualization of the state of your business based on intelligent data analysis, to improve the decision making process. (4.000 €)',
+      logo: '/kit/logos/Icono-BusinessInteligence.png',
+    },
+    {
+      title: 'E-commerce',
+      item: 'Creation and customization of your online store, to sell products and/or services through the internet. (2.000 €)',
+      logo: '/kit/logos/Icono-ComercioElectronico.png',
+    },
+    {
+      title: 'Customer and supplier management',
+      item: 'Digitization and optimization of the management of commercial relationships with customers and suppliers. (4.000 €)',
+      logo: '/kit/logos/Icono-GestionClientes.png',
+    },
+    {
+      title: 'Process management',
+      item: 'Digitization and automation of processes related to production and operational aspects. (6.000 €)',
+      logo: '/kit/logos/Icono-GestionProcesos.png',
+    },
+  ],
+  AgentRequerimentsConsul: [
+    {
+      title: 'Artificial Inteligence',
+      item: 'The main objective of this service is to provide you with an artificial intelligence plan adapted to the needs of your SME (6.000€).',
+      logo: '/kit/logos/Icono-SitioWeb.png',
+    },
+    {
+      title: 'Data Analysis (Basic)',
+      item: 'The main objective of this service is to provide you with a basic data analysis plan adapted to the needs of your SME (6.000€).',
+      logo: '/kit/logos/Icono-RedesSociales.png',
+    },
+    {
+      title: 'Data Analysis (Advanced)',
+      item: 'If you already have a basic data analysis system, the main objective of this service is to provide you with a more advanced analysis plan adapted to the needs of your SME (6.000€).',
+      logo: '/kit/logos/Icono-BusinessInteligence.png',
+    },
+    {
+      title: 'Digital Sales',
+      item: 'The main objective of this service is to establish the investment needed to improve the performance of your online sales (6.000€).',
+      logo: '/kit/logos/Icono-ComercioElectronico.png',
+    },
+    {
+      title: 'Business and/or Production Processes',
+      item: 'The main objective of this service is to provide you with a business strategy plan to improve the competitive positioning of your SME (6.000€).',
+      logo: '/kit/logos/Icono-GestionClientes.png',
+    },
+    {
+      title: 'Business Strategy and Performance',
+      item: 'Digitalisation and automation of processes related to production and operational aspects (6.000 €).',
+      logo: '/kit/logos/Icono-GestionProcesos.png',
+    },
+    // {
+    //   title: 'Cybersecurity (Basic)',
+    //   item: 'The main objective of this service is to provide you with a basic cybersecurity plan adapted to the specific needs of your SME (6.000€).',
+    //   logo: '/kit/logos/Icono-GestionProcesos.png',
+    // },
+    // {
+    //   title: 'Cybersecurity (Advanced)',
+    //   item: 'The main objective of this service is to provide you with an advanced cybersecurity plan adapted to the specific needs of your SME (6.000€).',
+    //   logo: '/kit/logos/Icono-GestionProcesos.png',
+    // },
+    // {
+    //   title: 'Preparation for Certification',
+    //   item: 'The main objective of this service is to help you with the implementation of advanced protection systems, taking advantage of artificial intelligence capabilities and to prepare you to submit your SGSI for certification (6.000€).',
+    //   logo: '/kit/logos/Icono-GestionProcesos.png',
+    // },
+    {
+      title: '"360" advice',
+      item: 'The main objective of this service is to offer advice on the digital transformation of your SME, providing solutions tailored to your specific needs (6.000€).',
+      logo: '/kit/logos/Icono-GestionProcesos.png',
+    },
+  ],
+  counter: [
+    {
+      HeaderCounter:
+        'We support our clients throughout the digital transformation process.',
+      BodyCounter: `We develop and implement technologies, products, and services tailored to our clients' needs.`,
+      Button: 'Our services',
+    },
+  ],
+
+  searchAgent: 'Looking for a digital advisor?',
+  helpYouKit: 'We help you to get the Digital Kit',
+  helpYouKitConsul: 'We help you to get the Consulting Kit',
+  userExistKit:
+    'We have already registered your request with this email before, try another.',
+  selected: [
+    {
+      Section: 'Selected clients',
+      Title:
+        'We work hand-in-hand with our clients to boost and transform their areas of operation',
+      SubText: '',
+      Button: 'Our services',
+    },
+  ],
+  seeMoreProject: 'View project ',
+  seeMoreCases: 'Case studies ',
+  close: 'Close',
+
+  seeMore: [
+    {
+      Text: 'Want to see more success cases?',
+      Link: 'Our portfolio',
+    },
+  ],
+  contact: [
+    {
+      Text: 'Want to digitalize your business?',
+      Link: 'Meet us',
+    },
+  ],
+  services: [
+    {
+      Text: 'We combine engineering, design, scalability, and innovation to transform industries, companies, and public administrations.',
+      Subtext:
+        'We offer any service related to digitization and digital transformation with direct impact in your business.',
+    },
+  ],
+  us: [
+    {
+      Text: ' The atom is the beginning of everything, around which everything is built and flows',
+      Subtext:
+        "Digitization is also the beginning of everything for any company that wants to survive in today's world and project into the future.",
+    },
+  ],
+  projectUs: [
+    {
+      Text: 'ATTOMO was born with the mission to help SME´S companies and public administration.',
+      Subtext:
+        'Álvaro Barrera and Mateo Hernández founded it. Both have been in the technology sector for ten years.',
+    },
+  ],
+  titleValuesUr: 'The company is built on four distinctive pillars:',
+  valuesUs: [
+    {
+      Text: 'Scale',
+      Subtext:
+        'Today, competition is in any market, and the scale to reach millions of people is essential to survive.',
+    },
+    {
+      Text: 'Data',
+      Subtext:
+        'Information is everywhere. The important thing is to know how to differentiate between the good and the bad ones.',
+    },
+    {
+      Text: 'Velocity',
+      Subtext:
+        'Good ideas are important, but in this world of immediacy, only those that grow and move fast survive.',
+    },
+    {
+      Text: 'Design',
+      Subtext:
+        'In a visual world, where art is everywhere, generating unforgettable experiences is more important than ever.',
+    },
+  ],
+  selectedUs: [
+    {
+      Text: 'Selected clients',
+      Subtext:
+        'we seek to be a first-class partner, focused on developing customized products and projects, where quality always prevails over quantity.',
+      Button: 'I want to be a client.',
+    },
+  ],
+  trends: [
+    {
+      Text: 'We offer valuable information to help companies create their business strategy.',
+      Subtext: `Find out what's new in the industry:`,
+    },
+  ],
+  sendEmail: 'Enter your email address.',
+  CasesFilter: 'Filter by:',
+  trendsFilter: 'Filter by:',
+  trendsReadButton: 'Full article',
+  newsletterSubscription:
+    'Thank you for your trust! You are now part of ATTOMO.',
+  workUs: [
+    {
+      Text: 'Open rols',
+      Subtext:
+        'We are always looking for digital, technological, and creative profiles to incorporate into our team.',
+    },
+  ],
+  Apply: 'Apply',
+  offerWork: 'Open rols',
+
+  contactUsWork: [
+    {
+      Text: 'We want to meet you',
+      Subtext:
+        'If no offer fits your profile, please join our database. We will contact you when we need someone like you.',
+      Button: 'Send my application',
+    },
+  ],
+
+  contactTitle: 'Contact us',
+  buttonsRenderForm: [
+    {
+      Name: 'Client',
+      Component: <FormCustomer />,
+    },
+    {
+      Name: 'Partner',
+      Component: <FormColaborator />,
+    },
+  ],
+  partOfTeam:
+    'Do you want to be part of our team or collaborate as a partner? *',
+  formPartOF: [
+    { id: 1, text: 'Be part of the team', value: CONDITIONFORM.TEAM },
+    { id: 2, text: 'Collaborate as a partner', value: CONDITIONFORM.PARTNER },
+  ],
+  speciality: 'Be part of the team/ Collaborate as a partner',
+  formName: 'Name *',
+  formTime: 'Time',
+  formLastName: 'Last name *',
+  formEmail: 'Email *',
+  formPhone: 'Phone number *',
+  formCompany: 'Company/Organization *',
+  formMessage: 'Your message *',
+  formLink: 'Link to portfolio or LinkedIn',
+  formRead: 'I have read and accepted the',
+  formTems: 'Terms and Conditions',
+  formAnd: 'and the Privacy',
+  formPrivacy: ' Policy.',
+  formSend: 'Send',
+  formRent: 'Rent',
+  formOptionsDisponibility: [
+    { value: 0, text: 'Time', disabled: true, optHeader: true },
+    { value: 30, text: '30 min' },
+    { value: 1, text: '1 Hour' },
+    { value: 2, text: '2 Hours' },
+    { value: 3, text: '3 Hours' },
+    { value: 4, text: '4 Hours' },
+    { value: 5, text: '5 Hours' },
+    { value: 6, text: '6 Hours' },
+    { value: 7, text: '7 Hours' },
+    { value: 8, text: '8 Hours' },
+  ],
+  formBookingSpaceMessage:
+    'Thank you for reserving with us, we can promise you that your event will be memorable.',
+  Services: 'Services',
+  Topic: 'Topic',
+  Date: 'Date',
+  AddText: 'Add text',
+  whereUs: 'Where are we',
+  SelectDate: 'Choose date',
+  FromDate: 'From',
+  ToDate: 'To',
+  Disciplines: 'Disciplinas',
+  Deliverables: ' Deliverables',
+  Search: 'Search',
+  spaceAttomo: [
+    {
+      Text: 'The ATTOMO Digital Space',
+      Subtext:
+        'We offer other professionals the opportunity to use our facilities to develop their projects or carry out photoshoots.',
+    },
+  ],
+  spaceAttomoFooter: 'The ATTOMO Digital Space',
+  bookingAttomo: [
+    {
+      Text: 'Book the space',
+      Subtext:
+        'We rent spacious and multidisciplinary rooms to entrepreneurs, photographers, agencies, and production companies by the hour or day.',
+      Button: 'Book',
+    },
+  ],
+  prices: 'Tarifas',
+  formBooking: [
+    {
+      Text: 'Book the ATTOMO Space',
+      Subtext: 'Select the date and check availability',
+    },
+  ],
+  policy: 'Policy',
+  terms: 'Terms',
+  project: 'You might be interested in',
+  seeMoreTrends: 'See more news',
+  moreCases: 'See more cases',
+  seeOnline: 'See online',
+  interested: 'You might be interested in',
+  allServices: 'All services',
+  followFooter: 'FOLLOW US',
+  privacy: 'Privacy policy',
+  rightReserve: 'All rights reserved',
+  back: 'Back',
+  backToNews: 'Back to news',
+  formCustomerMessage:
+    'Welcome to ATTOMO, welcome to the beginning of something great!',
+  formColaboratorMessage:
+    'Thank you for your time! We will contact you as soon as possible.',
+  formKitDigitaklMessage:
+    'Thank you for choosing us as your digitizing agents! We will contact  you as soon as possible.',
+  formKitReservationMessage:
+    'Thank you very much, we have received your booking request. We will we will contact you soon.',
+};

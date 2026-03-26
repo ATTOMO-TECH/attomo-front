@@ -1,0 +1,315 @@
+import { Formik } from 'formik';
+import { useRef, useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Styles } from './style';
+import { BUTTON_ACTIVE } from '../../const/const';
+import { FORMVALUES } from '../../hook/types';
+import InputSelect from './select';
+/* import { OPTIONDISPONIBILITY } from '../../const/constGlobal'; */
+import InputCheckcondition from './inputCheckcondition';
+import { createReserve } from '../../domain/useContact';
+import { getLocale } from '../../public/locales/getLocale';
+import CalendarPickerInput from '../calendar/input/calendar';
+import { validationSchemaBooking } from './validations';
+import { servicesAnimations } from '../animations/animations';
+import Title from '../Text/title';
+import ParagraphText from '../Text/paragraphText';
+import {
+  handlersFuntionFocus,
+  handlersFuntion,
+  useOnClickOutside,
+} from '../../hook/longPress';
+import { handleBlur } from '../../hook/eventListener';
+import { Props } from '../../screens/types';
+import { sendEmailFormNotification } from './sendEmailNotification';
+
+export default function FormReserver({ locale }: Props) {
+  const [translate, setTranslate] = useState(getLocale(locale));
+
+  useEffect(() => {
+    if (locale) {
+      setTranslate(getLocale(locale));
+    }
+  }, [locale]);
+
+  const formRef = useRef();
+
+  const [shouldShowActions] = useState(false);
+  const [sendSuccesfull, setSuccesfull] = useState<boolean>(false);
+  const [selected, setSelected] = useState(translate.formTime);
+  const onChange = (e: any) => {
+    console.log(e);
+    setSelected(e);
+  };
+  const TIME_OPTIONS = translate.formOptionsDisponibility;
+  const valueDate = FORMVALUES.DATE;
+  const valueTime = FORMVALUES.TIME;
+  const valueName = FORMVALUES.FIRSTNAME;
+  const valueLastName = FORMVALUES.LASTNAME;
+  const valuePhone = FORMVALUES.PHONE;
+  const valueEmail = FORMVALUES.EMAIL;
+  const valueCompany = FORMVALUES.COMPANY;
+  const check = FORMVALUES.CONDITIONS;
+
+  const initialValues = {
+    [valueName]: '',
+    [valueLastName]: '',
+    [valueCompany]: '',
+    [valuePhone]: '',
+    [valueEmail]: '',
+    [valueDate]: '',
+    [valueTime]: 0,
+    [FORMVALUES.CONDITIONS]: false,
+  };
+  const { mutate } = createReserve();
+
+  const handleSubmitReserve = (dataValues: any, action: any) => {
+    const data = {
+      [FORMVALUES.FIRSTNAME]: dataValues.firstname,
+      [FORMVALUES.LASTNAME]: dataValues.lastname,
+      [FORMVALUES.PHONE]: dataValues.mobile,
+      [FORMVALUES.EMAIL]: dataValues.email,
+      [FORMVALUES.COMPANY]: dataValues.company,
+      [FORMVALUES.CONDITIONS]: dataValues.conditionsAccepted,
+      [FORMVALUES.DATE]: dataValues.date,
+      [FORMVALUES.TIME]: dataValues.numberOfHours,
+    };
+    // mandar notificación al gmail de info@attomo.digital
+    sendEmailFormNotification(data, 'Reserva de espacio ATTOMO');
+    mutate(
+      { data },
+      {
+        onSuccess: () => {
+          setSuccesfull(true);
+        },
+        onError: () => {
+          action.resetForm({});
+        },
+      },
+    );
+  };
+  useOnClickOutside(formRef, () => {
+    handleBlur(FORMVALUES.FIRSTNAME);
+    handleBlur(FORMVALUES.LASTNAME);
+    handleBlur(FORMVALUES.PHONE);
+    handleBlur(FORMVALUES.EMAIL);
+    handleBlur(FORMVALUES.COMPANY);
+    handleBlur(FORMVALUES.DATE);
+    handleBlur(FORMVALUES.TIME);
+    handleBlur(FORMVALUES.CONDITIONS);
+  });
+
+  return (
+    <>
+      {!sendSuccesfull ? (
+        <>
+          {translate.formBooking.map(
+            (values: { Text: string; Subtext: string }) => (
+              <div key={values.Text}>
+                <Title
+                  size=" lg:pt-36 w-full text-center pt-24 leading-relaxed lg:pr-10 lg:text-4xl pb-2 text-3xl "
+                  key={values.Text}>
+                  {values.Text}
+                </Title>
+                <ParagraphText size="py-5 flex items-center justify-center ">
+                  {values.Subtext}
+                </ParagraphText>
+              </div>
+            ),
+          )}
+          <Formik
+            onSubmit={handleSubmitReserve}
+            initialValues={initialValues}
+            validationSchema={validationSchemaBooking}>
+            {({
+              touched,
+              errors,
+              handleSubmit,
+              setFieldValue,
+              isValid,
+              dirty,
+            }) => (
+              <>
+                <Styles.Form onSubmit={handleSubmit} ref={formRef}>
+                  <Styles.SectionInputs>
+                    <Styles.BlockInput
+                      {...handlersFuntionFocus(FORMVALUES.FIRSTNAME)}>
+                      <Styles.Input
+                        ismode={BUTTON_ACTIVE.ON}
+                        placeholder={translate.formName}
+                        type="text"
+                        name={FORMVALUES.FIRSTNAME}
+                        id={FORMVALUES.FIRSTNAME}
+                      />
+                      {touched.firstname && errors.firstname && (
+                        <Styles.BlockClose
+                          onClick={() => setFieldValue(valueName, '')}
+                          onTouchStart={() => setFieldValue(valueName, '')}
+                        />
+                      )}
+                      {touched.firstname && errors.firstname && (
+                        <Styles.Error className="-bottom-4  ">
+                          {errors.firstname}
+                        </Styles.Error>
+                      )}
+                    </Styles.BlockInput>
+                    <Styles.BlockInput
+                      {...handlersFuntionFocus(FORMVALUES.LASTNAME)}>
+                      <Styles.Input
+                        ismode={BUTTON_ACTIVE.OFF}
+                        placeholder={translate.formLastName}
+                        type="text"
+                        id={FORMVALUES.LASTNAME}
+                        name={FORMVALUES.LASTNAME}
+                      />
+                      {touched.lastname && errors.lastname && (
+                        <Styles.BlockClose
+                          onTouchStart={() => setFieldValue(valueLastName, '')}
+                          onClick={() => setFieldValue(valueLastName, '')}
+                        />
+                      )}
+                      {touched.lastname && errors.lastname && (
+                        <Styles.Error className="-bottom-4  ">
+                          {errors.lastname}
+                        </Styles.Error>
+                      )}
+                    </Styles.BlockInput>
+                  </Styles.SectionInputs>
+                  <Styles.BlockInputsCenter>
+                    <Styles.BlockInput>
+                      <div
+                        className="pt-4 lg:pt-0 lg:py-2"
+                        {...handlersFuntionFocus(FORMVALUES.DATE)}>
+                        <CalendarPickerInput
+                          id={FORMVALUES.DATE}
+                          handleValue={(e: any) => {
+                            setFieldValue(FORMVALUES.DATE, e);
+                          }}
+                          translate={translate}
+                        />
+                      </div>
+                    </Styles.BlockInput>
+                    <Styles.BlockInput>
+                      <div
+                        className="pt-4 lg:pt-0.5 lg:py-2"
+                        {...handlersFuntionFocus(FORMVALUES.TIME)}>
+                        <InputSelect
+                          translate={translate}
+                          selected={selected}
+                          options={TIME_OPTIONS}
+                          valueLabel={selected}
+                          name={FORMVALUES.TIME}
+                          onChange={onChange}
+                          handleValue={(e: any) => {
+                            setFieldValue(FORMVALUES.TIME, e);
+                          }}
+                        />
+                      </div>
+                    </Styles.BlockInput>
+                  </Styles.BlockInputsCenter>
+                  <Styles.BlockInputsCenter>
+                    <Styles.BlockInput
+                      {...handlersFuntionFocus(FORMVALUES.EMAIL)}>
+                      <Styles.Input
+                        ismode={BUTTON_ACTIVE.ON}
+                        placeholder={translate.formEmail}
+                        type="email"
+                        name={FORMVALUES.EMAIL}
+                        id={FORMVALUES.EMAIL}
+                      />
+                      {touched.email && errors.email && (
+                        <Styles.BlockClose
+                          onTouchStart={() => setFieldValue(valueEmail, '')}
+                          onClick={() => setFieldValue(valueEmail, '')}
+                        />
+                      )}
+                      {touched.email && errors.email && (
+                        <Styles.Error>{errors.email}</Styles.Error>
+                      )}
+                    </Styles.BlockInput>
+
+                    <Styles.BlockInput
+                      {...handlersFuntionFocus(FORMVALUES.PHONE)}>
+                      <Styles.Input
+                        ismode={BUTTON_ACTIVE.ON}
+                        placeholder={translate.formPhone}
+                        type="tel"
+                        maxLength={9}
+                        pattern="[0-9]{10}"
+                        name={FORMVALUES.PHONE}
+                        id={FORMVALUES.PHONE}
+                      />
+                      {touched.mobile && errors.mobile && (
+                        <Styles.BlockClose
+                          onTouchStart={() => setFieldValue(valuePhone, '')}
+                          onClick={() => setFieldValue(valuePhone, '')}
+                        />
+                      )}
+                      {touched.mobile && errors.mobile && (
+                        <Styles.Error>{errors.mobile}</Styles.Error>
+                      )}
+                    </Styles.BlockInput>
+                  </Styles.BlockInputsCenter>
+                  <Styles.BlockInputEnd>
+                    <Styles.BlockInputOnly
+                      {...handlersFuntionFocus(FORMVALUES.COMPANY)}>
+                      <Styles.Input
+                        ismode={BUTTON_ACTIVE.OFF}
+                        id={FORMVALUES.COMPANY}
+                        placeholder={translate.formCompany}
+                        type="text"
+                        name={FORMVALUES.COMPANY}
+                      />
+                    </Styles.BlockInputOnly>
+                  </Styles.BlockInputEnd>
+                  <InputCheckcondition
+                    id={FORMVALUES.CONDITIONS}
+                    color="text-primary text-xs pt-6"
+                    value={FORMVALUES.CONDITIONS}
+                    onClick={(e: any) => setFieldValue(check, e)}
+                  />
+
+                  <span className="absolute w-2/6">
+                    {touched.conditionsAccepted &&
+                      errors.conditionsAccepted && (
+                        <Styles.Error>{errors.conditionsAccepted}</Styles.Error>
+                      )}
+                  </span>
+
+                  <Styles.BlockSendButton>
+                    <Styles.BtnSend
+                      {...handlersFuntion(handleSubmit)}
+                      onClick={handleSubmit}
+                      ismode={
+                        !(isValid && dirty)
+                          ? BUTTON_ACTIVE.ON
+                          : BUTTON_ACTIVE.OFF
+                      }>
+                      {translate.formRent}
+                    </Styles.BtnSend>
+                  </Styles.BlockSendButton>
+                </Styles.Form>
+              </>
+            )}
+          </Formik>
+        </>
+      ) : (
+        <motion.div
+          animate={shouldShowActions}
+          variants={servicesAnimations}
+          className="actions"
+          transition={{
+            type: 'magic',
+            stiffness: 100,
+            duration: 0.5,
+          }}
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0.1, y: '50%' }}>
+          <Title size=" w-full text-center pt-10 leading-relaxed  text-3xl m-auto lg:w-3/6">
+            {translate.formBookingSpaceMessage}
+          </Title>
+        </motion.div>
+      )}
+    </>
+  );
+}
