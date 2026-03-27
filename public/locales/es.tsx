@@ -5,38 +5,9 @@ import { CONDITIONFORM } from '../../const/constGlobal';
 export default {
   menu: [
     {
-      Value: 'Servicios',
-      // Url: '/servicios',
-      Url: '/consultora-transformacion-digital',
-    },
-    {
       Value: 'Shopify Partners',
       // Url: '/shopify-partners',
       Url: '/shopify-partners',
-    },
-    {
-      Value: 'Casos de éxito',
-      // Url: '/casosdeexito',
-      Url: '/casos-exito-digitalizacion',
-    },
-    {
-      Value: 'Nosotros',
-      // Url: '/nosotros',
-      Url: '/quienes-somos',
-    },
-    {
-      Value: 'Blog',
-      // Url: '/attomo-trends',
-      Url: '/tendencias',
-    },
-    {
-      Value: 'Careers',
-      // Url: '/careers',
-      Url: '/ofertas-trabajo',
-    },
-    {
-      Value: 'Contacto',
-      Url: '/contacto',
     },
     {
       Value: 'Espacio ATTOMO',
@@ -321,7 +292,6 @@ export default {
         'Acompañamos a nuestros clientes en todo el proceso de transformación digital',
       BodyCounter:
         'Desarrollamos e implantamos tecnologías, productos y servicios a medida de nuestros clientes.',
-      Button: 'Nuestros servicios',
     },
   ],
 
@@ -349,12 +319,7 @@ export default {
       Link: 'Nuestro portfolio',
     },
   ],
-  contact: [
-    {
-      Text: '¿Tienes un proyecto?',
-      Link: 'Contacta con nosotros',
-    },
-  ],
+
   services: [
     {
       Text: 'Combinamos ingeniería, diseño, escalabilidad e innovación para transformar industrias, empresas y administraciones',

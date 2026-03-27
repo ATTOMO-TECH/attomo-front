@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimateSharedLayout } from 'framer-motion';
-import BlockSection from '../../components/block/block';
 import Footer from '../../components/footer/footer';
 import Hero from '../../components/hero/hero';
 import Menu from '../../components/nav/menu';
@@ -9,7 +8,6 @@ import SectionProjects from '../../components/section/projects';
 import CompaniesScroll from '../../components/slider/companys/slider';
 import SubSection from '../../components/subsection/subsection';
 import { BUTTON_ACTIVE } from '../../const/const';
-import { VALUESNAV_ENG, VALUESNAV_ESP } from '../../const/constGlobal';
 import { Styles } from '../../styles/styles';
 import ButtonShare from '../../components/button/BtnShare';
 import { servicesAnimations } from '../../components/animations/animations';
@@ -118,21 +116,6 @@ function Home({ data, locale }: Props) {
             <ShopifyPartner locale={locale} />
           </Styles.Center>
 
-          <Styles.Center>
-            {translate.contact.map((values) => (
-              <BlockSection
-                key={`BlockSection-${values.Text}`}
-                text={values.Text}
-                button={values.Link}
-                text2=""
-                button2=""
-                mode
-                link={
-                  locale === 'en' ? VALUESNAV_ENG[5].Url : VALUESNAV_ESP[5].Url
-                }
-              />
-            ))}
-          </Styles.Center>
           <Footer subFooter={false} />
         </Styles.Body>
       </AnimateSharedLayout>

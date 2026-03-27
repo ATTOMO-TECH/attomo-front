@@ -102,16 +102,6 @@ export default function Nav({ toggle, logo, mode, isOpen }: Props) {
                 {...handlersFuntion(() => handleBtn('es'))}>
                 ES
               </Navegation.ButtonSelect>
-              <Navegation.LineBlock
-                ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}>
-                |
-              </Navegation.LineBlock>
-              <Navegation.ButtonSelect
-                ismode={mode ? BUTTON_ACTIVE.ON : BUTTON_ACTIVE.OFF}
-                onClick={() => handleBtn('en')}
-                {...handlersFuntion(() => handleBtn('en'))}>
-                EN
-              </Navegation.ButtonSelect>
             </Navegation.BlokSectionLenguage>
             <Navegation.ItemsMenu
               onClick={() => toggle()}

@@ -2,7 +2,6 @@ import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Background from '../components/animations/background';
 import { getATerms } from '../domain/usePolicy';
-import Terminos from '../screens/terminos';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { locale } = context;
@@ -15,9 +14,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-export default function index(props: any) {
-  const { locale, data } = props;
-
+export default function index() {
   return (
     <>
       <Head>
@@ -25,7 +22,10 @@ export default function index(props: any) {
         <meta name="robots" content="noindex follow" />
       </Head>
       <Background />
-      <Terminos locale={locale} data={data} />
+      <p className="text-white">
+        ESTAMOS EN MANTENIMIENTO Y ESTA PÁGINA NO ESTÁ DISPONIBLE EN ESTE
+        MOMENTO
+      </p>
     </>
   );
 }
