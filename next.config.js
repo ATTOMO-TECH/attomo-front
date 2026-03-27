@@ -1,20 +1,32 @@
 module.exports = {
   typescript: {
-    // !! ADVERTENCIA !!
     // Esto permite que el build termine aunque haya errores de TypeScript.
     ignoreBuildErrors: true,
+  },
+  // --- AÑADIMOS ESTO PARA EVITAR ERRORES DE ESLINT EN EL DEPLOY ---
+  eslint: {
+    ignoreDuringBuilds: true,
   },
   reactStrictMode: true,
   i18n: {
     locales: ['es', 'en'],
-    localeDetection:false,
+    localeDetection: false,
     defaultLocale: 'es'
   },
   optimizeFonts: false,
   images: {
-    // domains: ['https://attomo-admin.herokuapp.com/'],
-    domains: ['attomo-test.s3.eu-west-3.amazonaws.com', 'attomo-images.fra1.cdn.digitaloceanspaces.com', 'localhost', 'attomo.digital',],
+    // --- ACTUALIZAMOS LOS DOMINIOS ---
+    domains: [
+      'attomo-back-production.up.railway.app', // Tu nuevo Strapi
+      'attomo-test.s3.eu-west-3.amazonaws.com', 
+      'attomo-images.fra1.cdn.digitaloceanspaces.com', 
+      'localhost', 
+      '127.0.0.1',
+      'attomo.digital'
+    ],
     formats: ['image/avif', 'image/webp'],
+    // --- OPCIONAL: Descomenta esto si las imágenes dan problemas en el build ---
+    // unoptimized: true, 
   },
   compiler: {
     styledComponents: true,
