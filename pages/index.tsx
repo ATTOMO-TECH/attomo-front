@@ -13,21 +13,35 @@ import { translateHeader } from '../hook/utils';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { locale } = context;
-  const { data: metadata } = await getScreensId(
-    locale === 'es' ? MENU_SCREENS_ES.HOME : MENU_SCREENS_EN.HOME,
-    locale,
-  );
-  const { data } = await getAllCases(queryObjectHome(locale));
-  const canonical = await getScreensCanonical();
-  const canonicalHref = canonical.data;
-  return {
-    props: {
-      metadata,
-      data,
+
+  try {
+    // Intentamos traernos todos los datos de Strapi
+    const { data: metadata } = await getScreensId(
+      locale === 'es' ? MENU_SCREENS_ES.HOME : MENU_SCREENS_EN.HOME,
       locale,
-      canonicalHref,
-    },
-  };
+    );
+    const { data } = await getAllCases(queryObjectHome(locale));
+    const canonical = await getScreensCanonical();
+    const canonicalHref = canonical.data;
+
+    // Si todo va bien, devolvemos los props normales
+    return {
+      props: {
+        metadata,
+        data,
+        locale,
+        canonicalHref,
+      },
+    };
+  } catch (error) {
+    // Si Strapi da un 404 en la versión en inglés, entramos aquí
+    console.error(`Error construyendo la Home para el idioma: ${locale}`);
+
+    // Le decimos a Next.js: "Tranquilo, pon un 404 y sigue con el despliegue"
+    return {
+      notFound: true,
+    };
+  }
 };
 
 export default function index(props: any) {
