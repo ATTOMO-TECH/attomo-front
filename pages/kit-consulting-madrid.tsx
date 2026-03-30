@@ -11,20 +11,32 @@ import ConsultingKit from '../screens/consultingKit';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { locale } = context;
-  const { data: metadata } = await getScreensId(
-    locale === 'es' ? MENU_SCREENS_ES.KIT : MENU_SCREENS_EN.KIT,
-    locale,
-  );
-  const canonical = await getScreensCanonical();
-  const canonicalHref = canonical.data;
 
-  return {
-    props: {
-      metadata,
+  try {
+    const { data: metadata } = await getScreensId(
+      locale === 'es' ? MENU_SCREENS_ES.KIT : MENU_SCREENS_EN.KIT,
       locale,
-      canonicalHref,
-    },
-  };
+    );
+    const canonical = await getScreensCanonical();
+    const canonicalHref = canonical.data;
+
+    return {
+      props: {
+        metadata,
+        locale,
+        canonicalHref,
+      },
+    };
+  } catch (error) {
+    console.error(
+      `Error construyendo la página Consulting Kit para el idioma: ${locale}`,
+    );
+
+    // Escudo activado 🛡️
+    return {
+      notFound: true,
+    };
+  }
 };
 
 export default function index(props: any) {

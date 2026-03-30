@@ -11,20 +11,32 @@ import Space from '../screens/AttomoSpace';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { locale } = context;
-  const { data: metadata } = await getScreensId(
-    locale === 'es' ? MENU_SCREENS_ES.SPACE : MENU_SCREENS_EN.SPACE,
-    locale,
-  );
-  const canonical = await getScreensCanonical();
-  const canonicalHref = canonical.data;
 
-  return {
-    props: {
-      metadata,
+  try {
+    const { data: metadata } = await getScreensId(
+      locale === 'es' ? MENU_SCREENS_ES.SPACE : MENU_SCREENS_EN.SPACE,
       locale,
-      canonicalHref,
-    },
-  };
+    );
+    const canonical = await getScreensCanonical();
+    const canonicalHref = canonical.data;
+
+    return {
+      props: {
+        metadata,
+        locale,
+        canonicalHref,
+      },
+    };
+  } catch (error) {
+    console.error(
+      `Error construyendo la página de Estudio (Space) para el idioma: ${locale}`,
+    );
+
+    // Nuestro escudo anti-explosiones 🛡️
+    return {
+      notFound: true,
+    };
+  }
 };
 
 export default function index(props: any) {
