@@ -58,6 +58,7 @@ export default function ShopifyPartners({ locale }: Props) {
                   width={300}
                   height={90}
                   className="w-full h-auto cursor-pointer"
+                  unoptimized={true}
                   priority
                 />
               </a>
