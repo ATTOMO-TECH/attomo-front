@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import shopifyLogo from '../../public/shopify-logo.png';
+import shopifyLogo from '../../public/shopify-logo.webp';
 import { fadeInUp } from '../animations/animations';
 import { getLocale } from '../../public/locales/getLocale';
 
