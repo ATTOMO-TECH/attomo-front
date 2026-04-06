@@ -7,7 +7,7 @@ import Background from '../../components/animations/background';
 import Menu from '../../components/nav/menu';
 import Nav from '../../components/nav/nav';
 import Footer from '../../components/footer/footer';
-import shopifyLogo from '../../public/shopify-logo.png';
+import shopifyLogo from '../../public/shopify-logo.webp';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { getLocale } from '../../public/locales/getLocale';
 import BlockSectionExternal from '../../components/block/blockExternal';
