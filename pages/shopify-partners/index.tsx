@@ -7,7 +7,6 @@ import Background from '../../components/animations/background';
 import Menu from '../../components/nav/menu';
 import Nav from '../../components/nav/nav';
 import Footer from '../../components/footer/footer';
-import shopifyLogo from '../../public/shopify-logo.png';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { getLocale } from '../../public/locales/getLocale';
 import BlockSectionExternal from '../../components/block/blockExternal';
@@ -58,7 +57,7 @@ export default function ShopifyPartners({ locale }: Props) {
                   width={300}
                   height={90}
                   className="w-full h-auto cursor-pointer"
-                  unoptimized={true}
+                  unoptimized
                   priority
                 />
               </a>

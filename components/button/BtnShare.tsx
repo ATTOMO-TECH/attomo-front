@@ -46,6 +46,8 @@ export default function ButtonShare() {
               width="100%"
               height="100%"
               alt="WhatsApp"
+              priority
+              unoptimized
             />
           </Btn.Icon>
         </a>
