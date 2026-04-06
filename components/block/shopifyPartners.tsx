@@ -53,7 +53,7 @@ export default function ShopifyPartner({ locale }: Props) {
         <Link href="/shopify-partners">
           <LogoWrapper>
             <Image
-              src={shopifyLogo}
+              src="/shopify-logo.webp"
               alt="Shopify Logo"
               width={400}
               height={120}
