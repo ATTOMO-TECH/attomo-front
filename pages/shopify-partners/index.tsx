@@ -7,7 +7,7 @@ import Background from '../../components/animations/background';
 import Menu from '../../components/nav/menu';
 import Nav from '../../components/nav/nav';
 import Footer from '../../components/footer/footer';
-import shopifyLogo from '../../public/shopify-logo.webp';
+import shopifyLogo from '../../public/shopify-logo.png';
 import { BUTTON_ACTIVE } from '../../const/const';
 import { getLocale } from '../../public/locales/getLocale';
 import BlockSectionExternal from '../../components/block/blockExternal';
@@ -53,7 +53,7 @@ export default function ShopifyPartners({ locale }: Props) {
                 target="_blank"
                 rel="noopener noreferrer">
                 <Image
-                  src={shopifyLogo}
+                  src="/shopify-logo.webp"
                   alt="Shopify Logo"
                   width={300}
                   height={90}
