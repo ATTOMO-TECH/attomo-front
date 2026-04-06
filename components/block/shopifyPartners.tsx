@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import shopifyLogo from '../../public/shopify-logo.webp';
+import shopifyLogo from '../../public/shopify-logo.png';
 import { fadeInUp } from '../animations/animations';
 import { getLocale } from '../../public/locales/getLocale';
 
@@ -53,11 +53,13 @@ export default function ShopifyPartner({ locale }: Props) {
         <Link href="/shopify-partners">
           <LogoWrapper>
             <Image
-              src="/shopify-logo.webp"
+              src={shopifyLogo}
               alt="Shopify Logo"
               width={400}
               height={120}
               className="w-full h-auto cursor-pointer"
+              unoptimized={true}
+              priority
             />
           </LogoWrapper>
         </Link>
