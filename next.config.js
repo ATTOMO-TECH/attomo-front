@@ -26,7 +26,7 @@ module.exports = {
     ],
     formats: ['image/avif', 'image/webp'],
     // --- OPCIONAL: Descomenta esto si las imágenes dan problemas en el build ---
-    // unoptimized: true, 
+    unoptimized: true, 
   },
   compiler: {
     styledComponents: true,
